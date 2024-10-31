@@ -1,6 +1,23 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "$defs": {
+    "package-file": {
+      "type": "array",
+      "items": [
+        {
+          "title": "File URI",
+          "type": "string",
+          "qt-uri-protocols": [
+            "http",
+            "https"
+          ]
+        },
+        {
+          "title": "File path",
+          "type": "string"
+        }
+      ]
+    },
     "package": {
       "type": "object",
       "properties": {
@@ -15,20 +32,9 @@
         "files": {
           "title": "Package files",
           "type": "array",
-          "items": [
-            {
-              "title": "File URI",
-              "type": "string",
-              "qt-uri-protocols": [
-                "http",
-                "https"
-              ]
-            },
-            {
-              "title": "File path",
-              "type": "string"
-            }
-          ]
+          "items": {
+            "$ref": "#/$defs/package-file"
+          }
         },
         "dependencies": {
           "title": "Package dependencies",
