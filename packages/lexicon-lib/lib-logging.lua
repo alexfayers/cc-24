@@ -1,6 +1,11 @@
 -- Logging for Lexicon
+--
+-- Usage:
+-- local logging = require("lexicon-lib.lib-logging")
+-- local logger = logging.getLogger("my-logger")
+-- logger:info("Hello, world!")
 
-local terminal = require("lexicon-lib.terminal.terminal")
+local terminal = require("lexicon-lib.lib-term")
 
 local newline = terminal.newline
 local writeWrap = terminal.writeWrap

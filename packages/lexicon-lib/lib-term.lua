@@ -1,4 +1,10 @@
 -- Custom terminal stuff for lexicon
+--
+-- Usage:
+-- local terminal = require("lexicon-lib.lib-term")
+-- terminal.writeWrap("Hello, world!")
+-- terminal.newline()
+-- terminal.writeWrapColor("This is a message in color!", colors.lime)
 
 local TERM_WIDTH, TERM_HEIGHT = term.getSize()
 
