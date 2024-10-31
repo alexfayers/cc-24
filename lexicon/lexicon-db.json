@@ -10,7 +10,6 @@
                     "/usr/lib/lexicon-lib/terminal/terminal.lua"
                 ]
             ],
-            "package-path": "/usr/lib",
             "dependencies": []
         },
         "logging": {
@@ -22,7 +21,6 @@
                     "/usr/lib/lexicon-lib/logging/logging.lua"
                 ]
             ],
-            "package-path": "/usr/lib",
             "dependencies": [
                 "terminal"
             ]

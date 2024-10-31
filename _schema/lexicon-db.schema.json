@@ -55,18 +55,6 @@
               "type": "null"
             }
           ]
-        },
-        "package-path": {
-          "title": "Package package path",
-          "description": "An optional path to add to the global package path (use for libraries)",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
         }
       },
       "required": [
