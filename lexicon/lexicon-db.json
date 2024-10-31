@@ -10,7 +10,8 @@
                     "/usr/lib/lexicon-lib/terminal/terminal.lua"
                 ]
             ],
-            "dependencies": []
+            "dependencies": [],
+            "type": "library"
         },
         "logging": {
             "description": "A simple logging library",
@@ -23,7 +24,8 @@
             ],
             "dependencies": [
                 "terminal"
-            ]
+            ],
+            "type": "library"
         },
         "package-example": {
             "description": "A template for creating new programs",
@@ -37,7 +39,8 @@
             "program-path": "/usr/bin/package-example",
             "dependencies": [
                 "logging"
-            ]
+            ],
+            "type": "program"
         }
     }
 }

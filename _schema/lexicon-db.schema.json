@@ -55,13 +55,22 @@
               "type": "null"
             }
           ]
+        },
+        "type": {
+          "title": "Package type",
+          "type": "string",
+          "enum": [
+            "library",
+            "program"
+          ]
         }
       },
       "required": [
         "description",
         "version",
         "files",
-        "dependencies"
+        "dependencies",
+        "type"
       ]
     }
   },
