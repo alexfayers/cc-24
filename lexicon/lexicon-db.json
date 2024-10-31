@@ -7,7 +7,7 @@
             "files": [
                 [
                     "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/terminal/terminal.lua",
-                    "/usr/lib/lexicon/terminal/terminal.lua"
+                    "/usr/lib/lexicon/terminal.lua"
                 ]
             ],
             "path": "/usr/lib",
@@ -19,7 +19,7 @@
             "files": [
                 [
                     "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/logging/logging.lua",
-                    "/usr/lib/lexicon/logging/logging.lua"
+                    "/usr/lib/lexicon/logging.lua"
                 ]
             ],
             "path": "/usr/lib",
