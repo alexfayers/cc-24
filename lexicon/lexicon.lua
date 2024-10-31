@@ -11,7 +11,7 @@ local MANIFEST_URL = "https://raw.githubusercontent.com/alexfayers/cc-24/main/le
 ---@param url string
 ---@return string
 local function addTokenToUrl(url)
----@diagnostic disable-next-line: undefined-field
+    ---@diagnostic disable-next-line: undefined-field
     return url .. "?token=" .. os.epoch("utc")
 end
 
