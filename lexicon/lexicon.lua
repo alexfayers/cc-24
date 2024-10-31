@@ -1,6 +1,8 @@
 -- The main lexicon program.
 -- From here, you can access all of lexicon's subprograms!
 
+local completion = require("cc.completion")
+
 local MANIFEST_URL = "https://raw.githubusercontent.com/alexfayers/cc-24/main/lexicon/lexicon-db.json"
 
 -- local pretty = require("cc.pretty")
@@ -30,6 +32,16 @@ end
 local manifest = getLatestManifest()
 
 
+local function showAvailablePackages()
+    term.setTextColor(colors.blue)
+    print("Available packages:")
+    term.setTextColor(colors.white)
+    for packageName, _ in pairs(manifest["packages"]) do
+        print(" - " .. packageName)
+    end
+end
+
+
 ---Download a package from the lexicon repository
 ---@param packageName string The name of the package to download
 ---@param parentPackage string | nil The name of the parent package
@@ -38,7 +50,10 @@ local function downloadPackage(packageName, parentPackage)
     local packageData = manifest["packages"][packageName]
 
     if not packageData then
-        error("Package '" .. packageName .. "' not found")
+        term.setTextColor(colors.red)
+        print("Package '" .. packageName .. "' not found.")
+        showAvailablePackages()
+        return
     end
 
     local downloadMessage = "Downloading " .. packageName .. " (" .. packageData["version"] .. ")"
@@ -102,5 +117,42 @@ local function downloadPackage(packageName, parentPackage)
 end
 
 
+local function complete(_, index, argument, previous)
+    if index == 1 then
+        return completion.choice(argument, { "get", "list" }, true)
+    end
+end
+
+local function usage()
+    print("Usage: lexicon <command>")
+    print("Commands:")
+    print("  get <package> - Download a package from the lexicon repository")
+    print("  list - List all available packages")
+end
+
+local function handleArgs()
+    if #arg == 0 then
+        usage()
+        return
+    else
+        if arg[1] == "get" then
+            if #arg < 2 then
+                print("Usage: lexicon get <package>")
+                return
+            end
+
+            downloadPackage(arg[2], nil)
+        elseif arg[1] == "list" then
+            showAvailablePackages()
+        else
+            term.setTextColor(colors.red)
+            print("Unknown command: '" .. arg[1] .. "'")
+            term.setTextColor(colors.white)
+            usage()
+        end
+    end
+end
+
 -- Download package-example as a test
-downloadPackage("package-example", nil)
+shell.setCompletionFunction("lexicon.lua", complete)
+handleArgs()
