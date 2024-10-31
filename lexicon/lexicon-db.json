@@ -7,7 +7,7 @@
             "files": [
                 [
                     "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/lexicon-lib/terminal/terminal.lua",
-                    "/rom/modules/main/lexicon-lib/terminal/terminal.lua"
+                    "/lexicon-lib/terminal/terminal.lua"
                 ]
             ],
             "path": null,
@@ -19,7 +19,7 @@
             "files": [
                 [
                     "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/lexicon-lib/logging/logging.lua",
-                    "/rom/modules/main/lexicon-lib/logging/logging.lua"
+                    "/lexicon-lib/logging/logging.lua"
                 ]
             ],
             "path": null,
