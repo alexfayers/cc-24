@@ -1,6 +1,6 @@
 -- Example package that uses lexicon-lib
 
-local terminal = require("lexicon.terminal")
+local terminal = require("lexicon-lib.terminal.terminal")
 
 terminal.writeWrap("Hello from package-example!")
 terminal.newline()

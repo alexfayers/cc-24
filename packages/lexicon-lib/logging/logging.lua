@@ -1,6 +1,6 @@
 -- Logging for Lexicon
 
-local terminal = require("lexicon.terminal")
+local terminal = require("lexicon-lib.terminal.terminal")
 
 local newline = terminal.newline
 local writeWrap = terminal.writeWrap
