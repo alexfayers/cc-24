@@ -103,13 +103,6 @@ local function downloadPackage(packageName, parentPackage)
         end
     end
 
-    if not parentPackage then
-        term.setTextColor(colors.lime)
-        print("Downloaded " .. packageName .. " (" .. packageData["version"] .. ")")
-        print("Run it with '" .. packageName .. "'")
-        term.setTextColor(colors.white)
-    end
-
     -- Check if the program path is set
     if packageData["program-path"] then
         local globalPath = shell.path()
@@ -117,9 +110,19 @@ local function downloadPackage(packageName, parentPackage)
         if not globalPath:find(path, 1, true) then
             shell.setPath(globalPath .. ":" .. path)
         end
-        -- term.setTextColor(colors.grey)
-        -- print("Added " .. packageName .. " to the shell path")
-        -- term.setTextColor(colors.white)
+        term.setTextColor(colors.gray)
+        print("Added '" .. packageName .. "' to the shell path")
+        term.setTextColor(colors.white)
+    end
+
+    if not parentPackage then
+        term.setTextColor(colors.lime)
+        print("Downloaded " .. packageName .. " (" .. packageData["version"] .. ")")
+        if packageData["type"] == "program" then
+            term.setTextColor(colors.blue)
+            print("You can run it with '" .. packageName .. "'")
+        end
+        term.setTextColor(colors.white)
     end
 end
 
