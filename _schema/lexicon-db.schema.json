@@ -43,13 +43,26 @@
             "title": "Dependency",
             "type": "string"
           }
+        },
+        "path": {
+          "title": "Package path",
+          "description": "An optional path to add to the global path",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       },
       "required": [
         "description",
         "version",
         "files",
-        "dependencies"
+        "dependencies",
+        "path"
       ]
     }
   },

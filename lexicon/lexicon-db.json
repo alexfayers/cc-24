@@ -10,6 +10,7 @@
                     "/usr/lib/lexicon/terminal/terminal.lua"
                 ]
             ],
+            "path": "/usr/lib",
             "dependencies": []
         },
         "logging": {
@@ -21,6 +22,7 @@
                     "/usr/lib/lexicon/logging/logging.lua"
                 ]
             ],
+            "path": "/usr/lib",
             "dependencies": [
                 "terminal"
             ]
@@ -31,9 +33,10 @@
             "files": [
                 [
                     "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/package-example/package-example.lua",
-                    "/usr/lib/package-example/package-example.lua"
+                    "/usr/bin/package-example/package-example.lua"
                 ]
             ],
+            "path": "/usr/bin/package-example",
             "dependencies": [
                 "logging"
             ]
