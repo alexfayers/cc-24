@@ -36,9 +36,15 @@ local function showAvailablePackages()
     term.setTextColor(colors.blue)
     print("Available packages:")
     term.setTextColor(colors.white)
-    for packageName, _ in pairs(manifest["packages"]) do
-        print(" - " .. packageName)
+    for packageName, packageData in pairs(manifest["packages"]) do
+        if packageData["type"] == "library" then
+            term.setTextColor(colors.gray)
+        elseif packageData["type"] == "program" then
+            term.setTextColor(colors.lime)
+        end
+        print(" - " .. packageName .. " (" .. packageData["version"] .. ")")
     end
+    term.setTextColor(colors.white)
 end
 
 
@@ -100,6 +106,7 @@ local function downloadPackage(packageName, parentPackage)
     if not parentPackage then
         term.setTextColor(colors.lime)
         print("Downloaded " .. packageName .. " (" .. packageData["version"] .. ")")
+        print("Run it with '" .. packageName .. "'")
         term.setTextColor(colors.white)
     end
 
@@ -120,6 +127,14 @@ end
 local function complete(_, index, argument, previous)
     if index == 1 then
         return completion.choice(argument, { "get", "list" }, true)
+    elseif index == 2 then
+        if previous[#previous] == "get" then
+            packageNames = {}
+            for packageName, _ in pairs(manifest["packages"]) do
+                table.insert(packageNames, packageName)
+            end
+            return completion.choice(argument, packageNames)
+        end
     end
 end
 
