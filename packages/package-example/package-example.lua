@@ -1,7 +1,7 @@
 -- Example package that uses lexicon-lib
 package.path = package.path .. ";/usr/lib/?.lua"
 
-local terminal = require("lexicon-lib.lib-term.lib-term")
+local terminal = require("lexicon-lib.lib-term")
 
 terminal.writeWrap("Hello from package-example!")
 terminal.newline()
