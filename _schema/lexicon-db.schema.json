@@ -1,0 +1,76 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$defs": {
+      "package": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "title": "Package description"
+          },
+          "version": {
+            "type": "string",
+            "title": "Package version"
+          },
+          "files": {
+            "title": "Package files",
+            "type": "array",
+            "items": [
+              {
+                "title": "File URI",
+                "type": "string",
+                "qt-uri-protocols": [
+                  "http",
+                  "https"
+                ]
+              },
+              {
+                "title": "File path",
+                "type": "string"
+              }
+            ]
+          },
+          "dependencies": {
+            "title": "Package dependencies",
+            "type": "array",
+            "items": {
+              "title": "Dependency",
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "description",
+          "version",
+          "files",
+          "dependencies"
+        ]
+      }
+    },
+    "type": "object",
+    "properties": {
+      "lexicon": {
+        "title": "All lexicon manifest data",
+        "type": "object",
+        "properties": {
+          "packages": {
+            "title": "Lexicon packages",
+            "type": "object",
+            "patternProperties": {
+              "^([a-zA-Z0-9-]+)+$": {
+                "type": "object",
+                "$ref": "#/$defs/package"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "packages"
+        ]
+      }
+    },
+    "required": [
+      "lexicon"
+    ]
+  }

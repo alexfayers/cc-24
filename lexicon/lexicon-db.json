@@ -1,0 +1,36 @@
+{
+    "$schema": "../_schema/lexicon-db.schema.json",
+    "lexicon": {
+        "packages": {
+            "terminal": {
+                "description": "A terminal library",
+                "version": "1.0.0",
+                "files": [
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/terminal/terminal.lua",
+                    "/usr/lib/lexicon/terminal/terminal.lua"
+                ],
+                "dependencies": []
+            },
+            "logging": {
+                "description": "A simple logging library",
+                "version": "1.0.0",
+                "files": [
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/logging/logging.lua",
+                    "/usr/lib/lexicon/logging/logging.lua"
+                ],
+                "dependencies": ["terminal"]
+            },
+            "package-example": {
+                "description": "A template for creating new programs",
+                "version": "1.0.0",
+                "files": [
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/package-example/package-example.lua",
+                    "/usr/lib/package-example/package-example.lua"
+                ],
+                "dependencies": [
+                    "logging"
+                ]
+            }
+        }
+    }
+}
