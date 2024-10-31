@@ -11,6 +11,7 @@ local MANIFEST_URL = "https://raw.githubusercontent.com/alexfayers/cc-24/main/le
 ---@param url string
 ---@return string
 local function addTokenToUrl(url)
+---@diagnostic disable-next-line: undefined-field
     return url .. "?token=" .. os.epoch("utc")
 end
 
@@ -18,7 +19,6 @@ end
 ---@return table
 local function getLatestManifest()
     -- use a token to prevent caching
-    ---@diagnostic disable-next-line: undefined-field
     local request = http.get(addTokenToUrl(MANIFEST_URL))
     if request then
         local manifest = textutils.unserialiseJSON(request.readAll())
