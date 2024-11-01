@@ -14,6 +14,7 @@ terminal.newline()
 -- Logging example
 local logging = require("lexicon-lib.lib-logging")
 local logger = logging.getLogger("package-example")
+logger:setLevel(logging.LEVELS.DEBUG)
 
 logger:info("This is an info message")
 logger:warn("This is a warning message")
