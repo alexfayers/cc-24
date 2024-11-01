@@ -20,6 +20,12 @@ settings.define("storage2.outputChest", {
     type = "string",
 })
 
+settings.define("storage2.storageFile", {
+    description = "The path to the file that the storage map is saved to",
+    default = "storageMap.json",
+    type = "string",
+})
+
 -- constants
 
 local SAVE_EMPTY_SLOTS = false
@@ -30,6 +36,56 @@ logger:setLevel(logging.LEVELS.INFO)
 
 
 -- functions
+
+
+-- from https://stackoverflow.com/questions/15706270/sort-a-table-in-lua
+local function spairs(t, order)
+    -- collect the keys
+    local keys = {}
+    for k in pairs(t) do keys[#keys+1] = k end
+
+    -- if order function given, sort by it by passing the table and keys a, b,
+    -- otherwise just sort the keys 
+    if order then
+        table.sort(keys, function(a,b) return order(t, a, b) end)
+    else
+        table.sort(keys)
+    end
+
+    -- return the iterator function
+    local i = 0
+    return function()
+        i = i + 1
+        if keys[i] then
+            return keys[i], t[keys[i]]
+        end
+    end
+end
+
+---Convert an item name stub into a full item name
+---@param stub string The item name stub
+---@return string
+local function convertItemNameStub(stub)
+    if string.find(stub, ":") then
+        return stub
+    end
+    return "minecraft:" .. stub
+end
+
+
+---Convert a full item name into a stub
+---@param name string The full item name
+---@return string
+local function convertItemNameToStub(name)
+    return string.match(name, ".+:(.+)")
+end
+
+
+---Get the path to the storage map file
+---@return string
+local function getStorageMapPath()
+    return settings.get("storage2.storageFile")
+end
 
 
 ---Get the wrapped input chest
@@ -240,6 +296,42 @@ local function getFirstSlot(map, itemName)
     return allSlots and allSlots[1]
 end
 
+---Get the total count of items from a list of slots
+---@param slots table
+---@return number
+local function getTotalCount(slots)
+    local total = 0
+    for _, slot in ipairs(slots) do
+        total = total + slot.count
+    end
+    return total
+end
+
+
+---Get the total count of a specific item in the storageMap
+---@param map table The storageMap
+---@param itemName string
+---@return number
+local function getTotalItemCount(map, itemName)
+    local slots = getSlots(map, itemName)
+    if not slots then
+        return 0
+    end
+    return getTotalCount(slots)
+end
+
+
+---Check if an item is available in the storageMap
+---@param map table The storageMap
+---@param itemName string The name of the item
+---@return boolean
+local function isItemAvailable(map, itemName)
+    if not getTotalItemCount(map, itemName) then
+        return false
+    end
+    return true
+end
+
 
 ---Filter a table using a function
 ---@param tbl table The table to filter
@@ -268,30 +360,6 @@ local function getSlotsFilter(map, itemName, filter)
     end
 
     return slots
-end
-
----Get the total count of items from a list of slots
----@param slots table
----@return number
-local function getTotalCount(slots)
-    local total = 0
-    for _, slot in ipairs(slots) do
-        total = total + slot.count
-    end
-    return total
-end
-
-
----Get the total count of a specific item in the storageMap
----@param map table The storageMap
----@param itemName string
----@return number
-local function getTotalItemCount(map, itemName)
-    local slots = getSlots(map, itemName)
-    if not slots then
-        return 0
-    end
-    return getTotalCount(slots)
 end
 
 
@@ -560,6 +628,20 @@ local function loadOrPopulateStorageMap(path, chests)
 end
 
 
+---Get a list of item name stubs from the storageMap (only showing items that have a count of more than 0)
+---@param map table The storageMap
+---@return table
+local function getAllItemStubs(map)
+    local items = {}
+    for itemName, slots in spairs(map) do
+        if itemName ~= "empty" and getTotalItemCount(map, itemName) > 0 then
+            table.insert(items, convertItemNameToStub(itemName))
+        end
+    end
+    return items
+end
+
+
 -- Main
 
 local function test()
@@ -617,4 +699,9 @@ return {
     getInputChest = getInputChest,
     getOutputChest = getOutputChest,
     getStorageChests = getStorageChests,
+    getStorageMapPath = getStorageMapPath,
+    getTotalItemCount = getTotalItemCount,
+    isItemAvailable = isItemAvailable,
+    getAllItemStubs = getAllItemStubs,
+    convertItemNameStub = convertItemNameStub,
 }
