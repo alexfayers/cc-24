@@ -177,7 +177,7 @@ end
 
 local function complete(_, index, argument, previous)
     if index == 1 then
-        return completion.choice(argument, { "get", "list" }, true)
+        return completion.choice(argument, { "get", "upgrade", "list", "list-installed" }, true)
     elseif index == 2 then
         if previous[#previous] == "get" then
             packageNames = {}
