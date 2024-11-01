@@ -542,7 +542,6 @@ local function pullItems(map, itemName, count, outputChest)
         totalPulledCount = totalPulledCount + attemptCount
 
         if totalPulledCount == totalExpectedPulledCount then
-            print("BREAK!")
             break
         end
         ::continue::
