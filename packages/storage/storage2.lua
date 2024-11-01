@@ -28,34 +28,60 @@ local CHEST_SLOT_MAX = 64
 local logger = logging.getLogger("storage2")
 logger:setLevel(logging.LEVELS.INFO)
 
-local inputChestName = settings.get("storage2.inputChest")
-local inputChest = peripheral.wrap(inputChestName)
-
-if not inputChest then
-    logger:error("Input chest not found. You may need to change the inputChest setting (set inputChest {chest name}).")
-    return
-end
-
-local outputChestName = settings.get("storage2.outputChest")
-local outputChest = peripheral.wrap(outputChestName)
-
-if not outputChest then
-    logger:error("Output chest not found. You may need to change the outputChest setting (set outputChest {chest name}).")
-    return
-end
-
-local storageChests = {
-    peripheral.find("minecraft:chest", function(name, _)
-        return name ~= inputChestName and name ~= outputChestName
-    end)
-}
-
-if #storageChests == 0 then
-    logger:error("No storage chests found. Add more chests to the network!")
-    return
-end
 
 -- functions
+
+
+---Get the wrapped input chest
+---@return table|nil
+local function getInputChest()
+    local inputChestName = settings.get("storage2.inputChest")
+    local inputChest = peripheral.wrap(inputChestName)
+
+    if not inputChest then
+        logger:error("Input chest not found. You may need to change the inputChest setting (set inputChest {chest name}).")
+        return
+    end
+
+    return inputChest
+end
+
+---Get the wrapped output chest
+---@return table|nil
+local function getOutputChest()
+    local outputChestName = settings.get("storage2.outputChest")
+    local outputChest = peripheral.wrap(outputChestName)
+
+    if not outputChest then
+        logger:error("Output chest not found. You may need to change the outputChest setting (set outputChest {chest name}).")
+        return
+    end
+
+    return outputChest
+end
+
+---Get the wrapped storage chests table
+---@param inputChest table The input chest
+---@param outputChest table The output chest
+---@return table|nil
+local function getStorageChests(inputChest, outputChest)
+    local inputChestName = peripheral.getName(inputChest)
+    local outputChestName = peripheral.getName(outputChest)
+
+    local chests = {
+        peripheral.find("minecraft:chest", function(name, _)
+            return name ~= inputChestName and name ~= outputChestName
+        end)
+    }
+
+    if #chests == 0 then
+        logger:error("No storage chests found. Add more chests to the network!")
+        return
+    end
+
+    return chests
+end
+
 
 ---Copy a table
 ---@param obj table
@@ -141,10 +167,11 @@ end
 
 ---Populate empty slots in the storageMap
 ---@param map table The storageMap to populate
+---@param chests table The list of storage chests
 ---@return table
-local function populateEmptySlots(map)
+local function populateEmptySlots(map, chests)
     logger:debug("Populating empty slots")
-    for chestId, chest in ipairs(storageChests) do
+    for chestId, chest in ipairs(chests) do
         logger:debug("Processing chest %d", chestId)
         local chestName = peripheral.getName(chest)
 
@@ -193,7 +220,7 @@ local function populateStorageMap(chests)
         end
 
     end
-    return populateEmptySlots(map)
+    return populateEmptySlots(map, chests)
 end
 
 ---Get all slots in the storageMap that have the item
@@ -301,11 +328,16 @@ end
 
 ---Push items from the input chest to the storage chests
 ---@param map table The storageMap
+---@param inputChest table The chest to pull items from
 ---@return table
-local function pushItems(map)
+local function pushItems(map, inputChest)
     logger:info("Pushing items to storage")
     local totalPushedCount = 0
     local totalExpectedPushedCount = 0
+    local inputChestName = peripheral.getName(inputChest)
+
+    local mapAdditions = {}
+
     for inputSlot, inputItem in pairs(inputChest.list()) do
         logger:debug("Processing item %s in slot %d", inputItem.name, inputSlot)
         local itemCount = inputItem.count
@@ -367,6 +399,11 @@ local function pushItems(map)
         logger:error("Expected to push %d items but only pushed %d", totalExpectedPushedCount, totalPushedCount)
     end
 
+    for _, removal in ipairs(mapAdditions) do
+        map = addSlot(map, removal.itemName, removal.slot)
+        map = removeSlot(map, "empty", removal.slot)
+    end
+
     return map
 end
 
@@ -375,15 +412,20 @@ end
 ---@param map table The storageMap
 ---@param itemName string The name of the item to pull
 ---@param count number The number of items to pull
+---@param outputChest table The chest to push items to
 ---@return table
-local function pullItems(map, itemName, count)
+local function pullItems(map, itemName, count, outputChest)
     logger:info("Pulling %d %s from storage", count, itemName)
     local totalPulledCount = 0
     local totalExpectedPulledCount = count
     local slots = getSlots(map, itemName)
     local toPullCount = count
 
-    for _, storageSlot in ipairs(slots) do
+    local outputChestName = peripheral.getName(outputChest)
+
+    local mapRemovals = {}
+
+    for _, storageSlot in pairs(slots) do
         local retry_pull_count = 0
         ::retry_pull::
         logger:debug("Pulling %d %s from slot %d in chest %s", toPullCount, itemName, storageSlot.slot, peripheral.getName(storageSlot.chest))
@@ -398,7 +440,11 @@ local function pullItems(map, itemName, count)
             retry_pull_count = retry_pull_count + 1
             if retry_pull_count > 3 then
                 logger:error("Failed to pull items too many times, marking the slot as empty and continuing", storageSlot.slot, peripheral.getName(storageSlot.chest))
-                map = removeSlotAndAddEmpty(map, itemName, storageSlot)
+                -- map = removeSlotAndAddEmpty(map, itemName, storageSlot)
+                table.insert(mapRemovals, {
+                    itemName = itemName,
+                    slot = storageSlot,
+                })
                 goto continue
             end
             goto retry_pull
@@ -409,18 +455,27 @@ local function pullItems(map, itemName, count)
         logger:debug("Pulled %d items from slot %d", attemptCount, storageSlot.slot)
         if attemptCount == 0 then
             -- This slot is empty so mark it as empty
-            map = removeSlotAndAddEmpty(map, itemName, storageSlot)
+            -- map = removeSlotAndAddEmpty(map, itemName, storageSlot)
+            table.insert(mapRemovals, {
+                itemName = itemName,
+                slot = storageSlot,
+            })
         else
             storageSlot.count = storageSlot.count - attemptCount
             if storageSlot.count == 0 then
                 -- This slot is now empty
-                map = removeSlotAndAddEmpty(map, itemName, storageSlot)
+                -- map = removeSlotAndAddEmpty(map, itemName, storageSlot)
+                table.insert(mapRemovals, {
+                    itemName = itemName,
+                    slot = storageSlot,
+                })
             end
         end
         totalPulledCount = totalPulledCount + attemptCount
 
         if totalPulledCount == totalExpectedPulledCount then
             print("BREAK!")
+            break
         end
         ::continue::
     end
@@ -429,6 +484,10 @@ local function pullItems(map, itemName, count)
         logger:info("Pulled %d %s from storage", totalPulledCount, itemName)
     else
         logger:error("Expected to pull %d %s but only pulled %d", totalExpectedPulledCount, itemName, totalPulledCount)
+    end
+
+    for _, removal in ipairs(mapRemovals) do
+        map = removeSlotAndAddEmpty(map, removal.itemName, removal.slot)
     end
 
     return map
@@ -463,8 +522,9 @@ end
 
 ---Load a storageMap from a file
 ---@param path string The path to load the file from
+---@param chests table The list of storage chests (used if empty slots aren't saved)
 ---@return table|nil
-local function loadStorageMap(path)
+local function loadStorageMap(path, chests)
     if not fs.exists(path) then
         return nil
     end
@@ -486,31 +546,75 @@ local function loadStorageMap(path)
         end
     end
     if not SAVE_EMPTY_SLOTS then
-        map = populateEmptySlots(map)
+        map = populateEmptySlots(map, chests)
     end
     return map
 end
 
-local storageMap = loadStorageMap("storageMap.json") or populateStorageMap(storageChests)
+---Load the storageMap from a file or populate it if the file does not exist
+---@param path string The path to load the file from
+---@param chests table The list of storage chests
+---@return table
+local function loadOrPopulateStorageMap(path, chests)
+    return loadStorageMap(path, chests) or populateStorageMap(chests)
+end
 
--- print(inputChest.setItem(2, { name = "minecraft:dirt", count = 1 }))
--- pretty.pretty_print(inputChest.list())
 
-storageMap = pushItems(storageMap)
+-- Main
 
--- local file = fs.open("test.txt", "w")
--- for _, tabl in ipairs(getSlots(storageMap, "minecraft:stone")) do
---     file.write(peripheral.getName(tabl.chest) .. ", " .. tabl.slot .. ", " .. tabl.count .. "\n")
--- end
--- file.close()
+local function test()
+    local globInputChest = getInputChest()
+    if not globInputChest then
+        return
+    end
 
-storageMap = pullItems(storageMap, "minecraft:stone", 999)
+    local globOutputChest = getOutputChest()
+    if not globOutputChest then
+        return
+    end
 
-saveStorageMap("storageMap.json", storageMap)
+    local globStorageChests = getStorageChests(globInputChest, globOutputChest)
+    if not globStorageChests then
+        return
+    end
 
--- pretty.pretty_print(getAllSlots("minecraft:dirt"))
--- pretty.print(pretty.pretty(getFirstSlot("minecraft:dirt")))
--- print(getTotalItemCount(storageMap, "minecraft:dirt"))
--- local slots = getSlots("minecraft:stone", 128)
--- pretty.print(pretty.pretty(slots))
--- print(getTotalCount(slots))
+    local storageMap = loadOrPopulateStorageMap("storageMap.json", globStorageChests)
+
+    -- print(inputChest.setItem(2, { name = "minecraft:dirt", count = 1 }))
+    -- pretty.pretty_print(inputChest.list())
+
+
+    storageMap = pushItems(storageMap, globInputChest)
+
+    -- local file = fs.open("test.txt", "w")
+    -- for _, tabl in ipairs(getSlots(storageMap, "minecraft:stone")) do
+    --     file.write(peripheral.getName(tabl.chest) .. ", " .. tabl.slot .. ", " .. tabl.count .. "\n")
+    -- end
+    -- file.close()
+
+    storageMap = pullItems(storageMap, "minecraft:stone", 999, globOutputChest)
+
+    saveStorageMap("storageMap.json", storageMap)
+
+    -- pretty.pretty_print(getAllSlots("minecraft:dirt"))
+    -- pretty.print(pretty.pretty(getFirstSlot("minecraft:dirt")))
+    -- print(getTotalItemCount(storageMap, "minecraft:dirt"))
+    -- local slots = getSlots("minecraft:stone", 128)
+    -- pretty.print(pretty.pretty(slots))
+    -- print(getTotalCount(slots))
+end
+
+-- test()
+
+
+return {
+    loadStorageMap = loadStorageMap,
+    saveStorageMap = saveStorageMap,
+    populateStorageMap = populateStorageMap,
+    loadOrPopulateStorageMap=loadOrPopulateStorageMap,
+    pushItems = pushItems,
+    pullItems = pullItems,
+    getInputChest = getInputChest,
+    getOutputChest = getOutputChest,
+    getStorageChests = getStorageChests,
+}
