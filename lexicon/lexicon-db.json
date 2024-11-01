@@ -67,7 +67,7 @@
                 ],
                 [
                     "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/storage2-watch.lua",
-                    "/etc/storage2/storage2-watch.lua"
+                    "/usr/bin/storage2/storage2-watch.lua"
                 ]
             ],
             "dependencies": [
