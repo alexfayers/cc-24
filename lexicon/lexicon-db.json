@@ -1,7 +1,7 @@
 {
     "$schema": "../_schema/lexicon-db.schema.json",
     "packages": {
-        "terminal": {
+        "lib-term": {
             "description": "A terminal library",
             "version": "1.0.0",
             "files": [
@@ -13,7 +13,7 @@
             "dependencies": [],
             "type": "library"
         },
-        "logging": {
+        "lib-logging": {
             "description": "A simple logging library",
             "version": "1.0.0",
             "files": [
@@ -23,7 +23,7 @@
                 ]
             ],
             "dependencies": [
-                "terminal"
+                "lib-term"
             ],
             "type": "library"
         },
@@ -38,7 +38,7 @@
             ],
             "program-path": "/usr/bin/package-example",
             "dependencies": [
-                "logging"
+                "lib-logging"
             ],
             "type": "program"
         },
@@ -53,7 +53,7 @@
                 ]
             ],
             "dependencies": [
-                "terminal"
+                "lib-logging"
             ],
             "type": "library"
         },
