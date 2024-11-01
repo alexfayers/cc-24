@@ -22,7 +22,7 @@ settings.define("storage2.outputChest", {
 
 settings.define("storage2.storageFile", {
     description = "The path to the file that the storage map is saved to",
-    default = ".storage2/map.json",
+    default = "/.storage2/map.json",
     type = "string",
 })
 
