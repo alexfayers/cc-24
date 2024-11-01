@@ -26,6 +26,7 @@ local SAVE_EMPTY_SLOTS = false
 local CHEST_SLOT_MAX = 64
 
 local logger = logging.getLogger("storage2")
+logger:setLevel(logging.LEVELS.DEBUG)
 
 local inputChestName = settings.get("storage2.inputChest")
 local inputChest = peripheral.wrap(inputChestName)
@@ -69,9 +70,10 @@ end
 ---@param map table The storageMap to populate
 ---@return table
 local function populateEmptySlots(map)
-    logger:info("Populating empty slots")
+    logger:debug("Populating empty slots")
     for chestId, chest in ipairs(storageChests) do
-        logger:info("Processing chest %d", chestId)
+        logger:debug("Processing chest %d", chestId)
+        local chestName = peripheral.getName(chest)
 
         for slot = 1, chest.size() do
             -- iter over all slots in the chest
@@ -79,7 +81,7 @@ local function populateEmptySlots(map)
             local found = false
             for _, slots in pairs(map) do
                 for _, storageSlot in pairs(slots) do
-                    if storageSlot.chest == chest and storageSlot.slot == slot then
+                    if peripheral.getName(storageSlot.chest) == chestName and storageSlot.slot == slot then
                         found = true
                         break
                     end
@@ -108,11 +110,11 @@ end
 ---@param chests table The list of storage chests
 ---@return table
 local function populateStorageMap(chests)
-    logger:info("Creating storage map")
+    logger:warn("Creating storage map")
     local map = {}
 
     for chestId, chest in ipairs(chests) do
-        logger:info("Scanning chest %d", chestId)
+        logger:debug("Scanning chest %d", chestId)
 
         local chestList = chest.list()
 
@@ -150,6 +152,21 @@ local function getFirstSlot(map, itemName)
 end
 
 
+---Filter a table using a function
+---@param tbl table The table to filter
+---@param filter function The function to use to filter the table
+---@return table
+local function filterTable(tbl, filter)
+    local filtered = {}
+    for _, item in ipairs(tbl) do
+        if filter(item) then
+            table.insert(filtered, item)
+        end
+    end
+    return filtered
+end
+
+
 ---Get a list of slots in the storageMap that have the item
 ---@param map table The storageMap
 ---@param itemName string
@@ -158,13 +175,7 @@ end
 local function getSlotsFilter(map, itemName, filter)
     local slots = getSlots(map, itemName)
     if filter then
-        local filteredSlots = {}
-        for _, slot in ipairs(slots) do
-            if filter(slot) then
-                table.insert(filteredSlots, slot)
-            end
-        end
-        return filteredSlots
+        return filterTable(slots, filter)
     end
 
     return slots
@@ -230,32 +241,62 @@ end
 ---@param map table The storageMap
 ---@return table
 local function pushItems(map)
-    local pushedCount = 0
-    local expectedPushedCount = 0
+    logger:info("Pushing items to storage")
+    local totalPushedCount = 0
+    local totalExpectedPushedCount = 0
     for inputSlot, inputItem in pairs(inputChest.list()) do
-        expectedPushedCount = expectedPushedCount + inputItem.count
+        logger:debug("Processing item %s in slot %d", inputItem.name, inputSlot)
+        local itemCount = inputItem.count
+        local itemPushedCount = 0
+        totalExpectedPushedCount = totalExpectedPushedCount + itemCount
         local slots = getSlotsWithSpace(map, inputItem.name)
 
-        for _, storageSlot in pairs(slots) do
-            -- pretty.pretty_print(slots)
+        for _, storageSlot in ipairs(slots) do
+            logger:debug("Pushing %d %s to slot %d in chest %s", itemCount, inputItem.name, storageSlot.slot, peripheral.getName(storageSlot.chest))
             local attemptCount = storageSlot.chest.pullItems(
                 inputChestName,
                 inputSlot,
-                inputItem.count,
+                itemCount,
                 storageSlot.slot
             )
+            logger:debug("Pushed %d items to slot %d", attemptCount, storageSlot.slot)
             if attemptCount == 0 then
                 -- This slot is full so mark it so we don't try to push to it again
                 storageSlot.isFull = true
+            else
+                if storageSlot.count == 0 then
+                    -- This slot was empty so we need to add it to the map
+                    if not map[inputItem.name] then
+                        map[inputItem.name] = {}
+                    end
+                    table.insert(map[inputItem.name], storageSlot)
+                    -- Remove the slot from the empty slots
+                    for i, emptySlot in ipairs(map["empty"]) do
+                        if emptySlot == storageSlot then
+                            table.remove(map["empty"], i)
+                            break
+                        end
+                    end
+                end
+                storageSlot.count = storageSlot.count + attemptCount
+
+                if storageSlot.count >= CHEST_SLOT_MAX then
+                    storageSlot.isFull = true
+                end
             end
-            pushedCount = pushedCount + attemptCount
+            totalPushedCount = totalPushedCount + attemptCount
+            itemPushedCount = itemPushedCount + attemptCount
+
+            if itemPushedCount == itemCount then
+                break
+            end
         end
     end
 
-    if pushedCount == expectedPushedCount then
-        logger:info("Pushed %d items to storage", pushedCount)
+    if totalPushedCount == totalExpectedPushedCount then
+        logger:info("Pushed %d items to storage", totalPushedCount)
     else
-        logger:error("Expected to push %d items but only pushed %d", expectedPushedCount, pushedCount)
+        logger:error("Expected to push %d items but only pushed %d", totalExpectedPushedCount, totalPushedCount)
     end
 
     return map
@@ -323,6 +364,11 @@ local storageMap = loadStorageMap("storageMap.json") or populateStorageMap(stora
 -- pretty.pretty_print(inputChest.list())
 
 storageMap = pushItems(storageMap)
+-- local file = fs.open("test.txt", "w")
+-- for _, tabl in ipairs(getFreeSlots(storageMap)) do
+--     file.write(peripheral.getName(tabl.chest) .. ", " .. tabl.slot .. ", " .. tabl.count .. "\n")
+-- end
+-- file.close()
 
 saveStorageMap("storageMap.json", storageMap)
 
