@@ -4,8 +4,6 @@ package.path = package.path .. ";/usr/lib/?.lua"
 -- Import the storage2 module
 local storage = require("storage2.lib-storage2")
 
-local pretty = require("cc.pretty")
-
 local function main()
     local inputChest = storage.getInputChest()
     if not inputChest then
@@ -21,6 +19,8 @@ local function main()
     if not storageChests then
         return
     end
+
+    local storageMapPath = storage.getStorageMapPath()
 
     while true do
         while true do
@@ -42,13 +42,13 @@ local function main()
         end
 
         -- Load the storage map
-        local storageMap = storage.loadOrPopulateStorageMap("storageMap.json", storageChests)
+        local storageMap = storage.loadOrPopulateStorageMap(storageMapPath, storageChests)
 
         -- Pull items from the chest into storage
         storageMap = storage.pushItems(storageMap, inputChest)
 
         -- Save the storage map
-        storage.saveStorageMap("storageMap.json", storageMap)
+        storage.saveStorageMap(storageMapPath, storageMap)
     end
 end
 
