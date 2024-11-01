@@ -48,10 +48,6 @@ if #storageChests == 0 then
     error("No storage chests found. Add more chests to the network!")
 end
 
-local storageMap = {}
--- storageMap is a table with keys being the item name and values being a table of tables with the following structure:
--- { chest = peripheral, slot = number, count = number, max = number }
-
 -- functions
 
 
@@ -65,74 +61,97 @@ local function writeToFile(path, data)
     file.close()
 end
 
----Populate the storageMap table with all items in the storage chests
----@return nil
-local function populateStorageMap()
-    logger:info("Creating storage map")
+
+---Populate empty slots in the storageMap
+---@param map table The storageMap to populate
+---@return table
+local function populateEmptySlots(map)
+    logger:info("Populating empty slots")
     for chestId, chest in ipairs(storageChests) do
+        logger:info("Processing chest %d", chestId)
+
+        for slot = 1, chest.size() do
+            -- iter over all slots in the chest
+            -- if the slot is not found within the chest.list() table, it is empty
+            local found = false
+            for _, slots in pairs(map) do
+                for _, storageSlot in pairs(slots) do
+                    if storageSlot.chest == chest and storageSlot.slot == slot then
+                        found = true
+                        break
+                    end
+                end
+            end
+            if not found then
+                if not map["empty"] then
+                    map["empty"] = {}
+                end
+                table.insert(map["empty"], {
+                    chest = chest,
+                    slot = slot,
+                    count = 0
+                })
+            end
+        end
+    end
+    return map
+end
+
+
+---Populate the storageMap table with all items in the storage chests
+---storageMap is a table with keys being the item name and values being a table of tables with the following structure:
+---{ chest = peripheral, slot = number, count = number, max = number }
+---@param chests table The list of storage chests
+---@return table
+local function populateStorageMap(chests)
+    logger:info("Creating storage map")
+    local map = {}
+
+    for chestId, chest in ipairs(chests) do
         logger:info("Scanning chest %d", chestId)
 
         local chestList = chest.list()
 
         for slot, item in pairs(chestList) do
-            if not storageMap[item.name] then
-                storageMap[item.name] = {}
+            if not map[item.name] then
+                map[item.name] = {}
             end
-            table.insert(storageMap[item.name], {
+            table.insert(map[item.name], {
                 chest = chest,
                 slot = slot,
-                count = item.count,
-                max = chest.getItemLimit(slot)
+                count = item.count
             })
         end
 
-        local emptySlots = {}
-        local emptySlotMaxSize = -1
-
-        for slot = 1, chest.size() do
-            -- iter over all slots in the chest
-            -- if the slot in not found within the chest.list() table, it is empty
-            if not chestList[slot] then
-                table.insert(emptySlots, slot)
-                if emptySlotMaxSize == -1 then
-                    emptySlotMaxSize = chest.getItemLimit(slot)
-                end
-                if not storageMap["empty"] then
-                    storageMap["empty"] = {}
-                end
-                table.insert(storageMap["empty"], {
-                    chest = chest,
-                    slot = slot,
-                    count = 0,
-                    max = emptySlotMaxSize
-                })
-            end
-        end
     end
+    return populateEmptySlots(map)
 end
 
 ---Get all slots in the storageMap that have the item
+---@param map table The storageMap
 ---@param itemName string
 ---@return table
-local function getAllSlots(itemName)
-    return storageMap[itemName] or {}
+local function getAllSlots(map, itemName)
+    return map[itemName] or {}
 end
 
 ---Get the first slot in the storageMap that has the item
+---@param map table The storageMap
 ---@param itemName string
 ---@return table
-local function getFirstSlot(itemName)
-    local allSlots = getAllSlots(itemName)
+local function getFirstSlot(map, itemName)
+    local allSlots = getAllSlots(map, itemName)
     return allSlots and allSlots[1]
 end
 
 
 ---Get a list of slots in the storageMap that have the item, up to the count
+---@param map table The storageMap
 ---@param itemName string
 ---@param count number
 ---@return table
-local function getSlots(itemName, count)
-    local slots = getAllSlots(itemName)
+local function getSlots(map, itemName, count)
+    local slots = getAllSlots(map, itemName)
     if not slots then
         return {}
     end
@@ -170,10 +189,11 @@ end
 
 
 ---Get the total count of a specific item in the storageMap
+---@param map table The storageMap
 ---@param itemName string
 ---@return number
-local function getTotalItemCount(itemName)
-    local slots = getAllSlots(itemName)
+local function getTotalItemCount(map, itemName)
+    local slots = getAllSlots(map, itemName)
     if not slots then
         return 0
     end
@@ -182,26 +202,29 @@ end
 
 
 ---Get the free slots in the storageMap
+---@param map table The storageMap
 ---@return table
-local function getFreeSlots()
-    return getAllSlots("empty")
+local function getFreeSlots(map)
+    return getAllSlots(map, "empty")
 end
 
 ---Get the first free slot in the storageMap
+---@param map table The storageMap
 ---@return table|nil
-local function getFirstFreeSlot()
-    return getFirstSlot("empty")
+local function getFirstFreeSlot(map)
+    return getFirstSlot(map, "empty")
 end
 
 ---Get a list of slots that have space for the item - search for empty slots if necessary
+---@param map table The storageMap
 ---@param itemName string
 ---@param count number
 ---@return table
-local function getSlotsWithSpace(itemName, count)
-    local slots = getSlots(itemName, count)
+local function getSlotsWithSpace(map, itemName, count)
+    local slots = getSlots(map, itemName, count)
     local remaining = count - getTotalCount(slots)
     if remaining > 0 then
-        local freeSlots = getSlots("empty", remaining)
+        local freeSlots = getSlots(map, "empty", remaining)
         for _, slot in ipairs(freeSlots) do
             table.insert(slots, slot)
         end
@@ -210,11 +233,12 @@ local function getSlotsWithSpace(itemName, count)
 end
 
 ---Push items from the input chest to the storage chests
+---@param map table The storageMap
 ---@return number
-local function pushItems()
+local function pushItems(map)
     local pushedCount = 0
     for inputSlot, inputItem in pairs(inputChest.list()) do
-        local slots = getSlotsWithSpace(inputItem.name, inputItem.count)
+        local slots = getSlotsWithSpace(map, inputItem.name, inputItem.count)
         pretty.pretty_print(slots, {ribbon_frac=0.4})
         for _, storageSlot in pairs(slots) do
             -- pretty.pretty_print(slots)
@@ -274,12 +298,13 @@ local function loadStorageMap(path)
             })
         end
     end
-    return map
+    return populateEmptySlots(map)
 end
 
+local storageMap = populateStorageMap(storageChests)
+-- storageMap is a table with keys being the item name and values being a table of tables with the following structure:
+-- { chest = peripheral, slot = number, count = number, max = number }
 
-
-populateStorageMap()
 
 saveStorageMap("storageMap.json", storageMap)
 
