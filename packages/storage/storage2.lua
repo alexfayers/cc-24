@@ -26,7 +26,7 @@ local SAVE_EMPTY_SLOTS = false
 local CHEST_SLOT_MAX = 64
 
 local logger = logging.getLogger("storage2")
-logger:setLevel(logging.LEVELS.DEBUG)
+logger:setLevel(logging.LEVELS.INFO)
 
 local inputChestName = settings.get("storage2.inputChest")
 local inputChest = peripheral.wrap(inputChestName)
@@ -255,6 +255,8 @@ local function pushItems(map)
         local slots = getSlotsWithSpace(map, inputItem.name)
 
         for _, storageSlot in ipairs(slots) do
+            local retry_push_count = 0
+            ::retry_push::
             logger:debug("Pushing %d %s to slot %d in chest %s", itemCount, inputItem.name, storageSlot.slot, peripheral.getName(storageSlot.chest))
             local attemptCount = storageSlot.chest.pullItems(
                 inputChestName,
@@ -262,6 +264,17 @@ local function pushItems(map)
                 itemCount,
                 storageSlot.slot
             )
+            if attemptCount == nil then
+                logger:warn("Failed to push items from slot %d to slot %d in chest %s, retrying", inputSlot, storageSlot.slot, peripheral.getName(storageSlot.chest))
+                retry_push_count = retry_push_count + 1
+                if retry_push_count > 3 then
+                    logger:error("Failed to push items too many times, marking the slot as full and continuing", inputSlot, storageSlot.slot, peripheral.getName(storageSlot.chest))
+                    storageSlot.isFull = true
+                    goto continue
+                end
+                goto retry_push
+            end
+
             logger:debug("Pushed %d items to slot %d", attemptCount, storageSlot.slot)
             if attemptCount == 0 then
                 -- This slot is full so mark it so we don't try to push to it again
@@ -290,9 +303,10 @@ local function pushItems(map)
             totalPushedCount = totalPushedCount + attemptCount
             itemPushedCount = itemPushedCount + attemptCount
 
-            if itemPushedCount == itemCount then
+            if totalPushedCount == totalExpectedPushedCount then
                 break
             end
+            ::continue::
         end
     end
 
