@@ -71,20 +71,32 @@ local function populateStorageMap()
     logger:info("Creating storage map")
     for chestId, chest in ipairs(storageChests) do
         logger:info("Scanning chest %d", chestId)
+
+        local chestList = chest.list()
+
+        for slot, item in pairs(chestList) do
+            if not storageMap[item.name] then
+                storageMap[item.name] = {}
+            end
+            table.insert(storageMap[item.name], {
+                chest = chest,
+                slot = slot,
+                count = item.count,
+                max = chest.getItemLimit(slot)
+            })
+        end
+
+        local emptySlots = {}
+        local emptySlotMaxSize = -1
+
         for slot = 1, chest.size() do
-            local item = chest.getItemDetail(slot)
-            local slotMax = chest.getItemLimit(slot)
-            if item then
-                if not storageMap[item.name] then
-                    storageMap[item.name] = {}
+            -- iter over all slots in the chest
+            -- if the slot in not found within the chest.list() table, it is empty
+            if not chestList[slot] then
+                table.insert(emptySlots, slot)
+                if emptySlotMaxSize == -1 then
+                    emptySlotMaxSize = chest.getItemLimit(slot)
                 end
-                table.insert(storageMap[item.name], {
-                    chest = chest,
-                    slot = slot,
-                    count = item.count,
-                    max = slotMax
-                })
-            else
                 if not storageMap["empty"] then
                     storageMap["empty"] = {}
                 end
@@ -92,7 +104,7 @@ local function populateStorageMap()
                     chest = chest,
                     slot = slot,
                     count = 0,
-                    max = slotMax
+                    max = emptySlotMaxSize
                 })
             end
         end
