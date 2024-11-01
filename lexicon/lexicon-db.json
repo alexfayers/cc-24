@@ -33,10 +33,9 @@
             "files": [
                 [
                     "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/package-example/package-example.lua",
-                    "/usr/bin/package-example/package-example.lua"
+                    "package-example.lua"
                 ]
             ],
-            "program-path": "/usr/bin/package-example",
             "dependencies": [
                 "lib-logging"
             ],
@@ -63,17 +62,16 @@
             "files": [
                 [
                     "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/storage2.lua",
-                    "/usr/bin/storage2/storage2.lua"
+                    "storage2.lua"
                 ],
                 [
                     "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/storage2-watch.lua",
-                    "/usr/bin/storage2/storage2-watch.lua"
+                    "storage2-watch.lua"
                 ]
             ],
             "dependencies": [
                 "storage2-lib"
             ],
-            "program-path": "/usr/bin/storage2",
             "type": "program"
         }
     }
