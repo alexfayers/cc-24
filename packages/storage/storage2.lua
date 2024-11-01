@@ -242,6 +242,7 @@ local function saveStorageMap(path, map)
             noChestMap[itemName] = {}
             for _, slot in pairs(slots) do
                 table.insert(noChestMap[itemName], {
+                    chestName = peripheral.getName(slot.chest),
                     slot = slot.slot,
                     count = slot.count,
                     max = slot.max
@@ -251,6 +252,29 @@ local function saveStorageMap(path, map)
     end
     file.write(textutils.serialiseJSON(noChestMap))
     file.close()
+end
+
+---Load a storageMap from a file
+---@param path string The path to load the file from
+---@return table
+local function loadStorageMap(path)
+    local file = fs.open(path, "r")
+    local data = file.readAll()
+    file.close()
+    local noChestMap = textutils.unserialiseJSON(data)
+    local map = {}
+    for itemName, slots in pairs(noChestMap) do
+        map[itemName] = {}
+        for _, slot in pairs(slots) do
+            table.insert(map[itemName], {
+                chest = peripheral.wrap(slot.chestName),
+                slot = slot.slot,
+                count = slot.count,
+                max = slot.max
+            })
+        end
+    end
+    return map
 end
 
 
