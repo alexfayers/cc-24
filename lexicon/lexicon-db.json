@@ -41,6 +41,40 @@
                 "logging"
             ],
             "type": "program"
+        },
+
+        "storage2-lib": {
+            "description": "Helper library for the storage2 suite",
+            "version": "1.0.0",
+            "files": [
+                [
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/lib-storage2.lua",
+                    "/usr/lib/storage2/lib-storage2.lua"
+                ]
+            ],
+            "dependencies": [
+                "terminal"
+            ],
+            "type": "library"
+        },
+        "storage2": {
+            "description": "A smart storage system!",
+            "version": "1.0.0",
+            "files": [
+                [
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/storage2.lua",
+                    "/usr/bin/storage2/storage2.lua"
+                ],
+                [
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/storage2-watch.lua",
+                    "/etc/storage2/storage2-watch.lua"
+                ]
+            ],
+            "dependencies": [
+                "storage2-lib"
+            ],
+            "program-path": "/usr/bin/storage2",
+            "type": "program"
         }
     }
 }
