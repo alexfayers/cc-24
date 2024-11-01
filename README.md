@@ -12,3 +12,11 @@ Computercraft stuff (2024 edition)
     - A `test` folder with test code for the program.
 - To install a program, you need to install the `lexicon` library first.
 - To install the `lexicon` library, follow the instructions in the `lexicon` folder.
+
+## Installation
+
+You can install lexicon by running the following command in a computercraft terminal:
+
+```shell
+pastebin get e84jWWbn lexicon.lua
+```
