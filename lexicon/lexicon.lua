@@ -91,13 +91,9 @@ local function downloadPackage(packageName, parentPackage)
             local fileContents = request.readAll()
             request.close()
 
-            -- ensure that the directory exists
-            local downloadDirectory = fs.getDir(downloadPath)
-            fs.makeDir(downloadDirectory)
-
-            local file = fs.open(downloadPath, "w")
-            file.write(fileContents)
-            file.close()
+            local f = fs.open(downloadPath, "w")
+            f.write(fileContents)
+            f.close()
         else
             error("Failed to download file")
         end
