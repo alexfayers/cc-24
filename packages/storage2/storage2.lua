@@ -25,6 +25,7 @@ end
 local storageMapPath = storage.getStorageMapPath()
 
 local storageMap = storage.loadOrPopulateStorageMap(storageMapPath, storageChests)
+storage.saveStorageMap(storageMapPath, storageMap)
 
 
 -- functions
