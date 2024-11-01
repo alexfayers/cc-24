@@ -23,6 +23,7 @@ settings.define("storage2.outputChest", {
 -- constants
 
 local SAVE_EMPTY_SLOTS = false
+local CHEST_SLOT_MAX = 64
 
 local logger = logging.getLogger("storage2")
 
@@ -123,7 +124,7 @@ local function populateStorageMap(chests)
                 chest = chest,
                 slot = slot,
                 count = item.count,
-                isFull = false,
+                isFull = item.count >= CHEST_SLOT_MAX,
             })
         end
 
