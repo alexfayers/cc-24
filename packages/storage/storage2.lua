@@ -57,6 +57,21 @@ end
 
 -- functions
 
+---Copy a table
+---@param obj table
+---@param seen table|nil
+---@return table
+local function copyTable(obj, seen)
+    if type(obj) ~= 'table' then return obj end
+    if seen and seen[obj] then return seen[obj] end
+    local s = seen or {}
+    local res = setmetatable({}, getmetatable(obj))
+    s[obj] = res
+    for k, v in pairs(obj) do res[copyTable(k, s)] = copyTable(v, s) end
+    return res
+  end
+  
+
 
 ---Write a string to a file
 ---@param path string The path to save the file to
@@ -68,6 +83,61 @@ local function writeToFile(path, data)
     file.close()
 end
 
+
+---Add a slot to the storageMap
+---@param map table The storageMap
+---@param itemName string The name of the item
+---@param slot table The slot to add
+---@return table
+local function addSlot(map, itemName, slot)
+    if not map[itemName] then
+        map[itemName] = {}
+    end
+    table.insert(map[itemName], slot)
+    return map
+end
+
+
+---Add a new empty slot to the storageMap
+---@param map table The storageMap
+---@param chest table The chest that the slot is in
+---@param slot number The slot number
+---@return table
+local function addEmptySlot(map, chest, slot)
+    addSlot(map, "empty", {
+        chest = chest,
+        slot = slot,
+        count = 0,
+        isFull = false,
+    })
+    return map
+end
+
+---Remove a slot from the storageMap
+---@param map table The storageMap
+---@param itemName string The name of the item
+---@param slot table The slot to remove
+---@return table
+local function removeSlot(map, itemName, slot)
+    for i, storageSlot in ipairs(map[itemName]) do
+        if storageSlot == slot then
+            table.remove(map[itemName], i)
+            break
+        end
+    end
+    return map
+end
+
+---Remove a slot from the storageMap and add it to the empty slots
+---@param map table The storageMap
+---@param itemName string The name of the item
+---@param slot table The slot to remove
+---@return table
+local function removeSlotAndAddEmpty(map, itemName, slot)
+    map = removeSlot(map, itemName, slot)
+    map = addEmptySlot(map, slot.chest, slot.slot)
+    return map
+end
 
 ---Populate empty slots in the storageMap
 ---@param map table The storageMap to populate
@@ -91,15 +161,7 @@ local function populateEmptySlots(map)
                 end
             end
             if not found then
-                if not map["empty"] then
-                    map["empty"] = {}
-                end
-                table.insert(map["empty"], {
-                    chest = chest,
-                    slot = slot,
-                    count = 0,
-                    isFull = false,
-                })
+                map = addEmptySlot(map, chest, slot)
             end
         end
     end
@@ -122,10 +184,7 @@ local function populateStorageMap(chests)
         local chestList = chest.list()
 
         for slot, item in pairs(chestList) do
-            if not map[item.name] then
-                map[item.name] = {}
-            end
-            table.insert(map[item.name], {
+            addSlot(map, item.name, {
                 chest = chest,
                 slot = slot,
                 count = item.count,
@@ -282,17 +341,9 @@ local function pushItems(map)
             else
                 if storageSlot.count == 0 then
                     -- This slot was empty so we need to add it to the map
-                    if not map[inputItem.name] then
-                        map[inputItem.name] = {}
-                    end
-                    table.insert(map[inputItem.name], storageSlot)
+                    addSlot(map, inputItem.name, storageSlot)
                     -- Remove the slot from the empty slots
-                    for i, emptySlot in ipairs(map["empty"]) do
-                        if emptySlot == storageSlot then
-                            table.remove(map["empty"], i)
-                            break
-                        end
-                    end
+                    removeSlot(map, "empty", storageSlot)
                 end
                 storageSlot.count = storageSlot.count + attemptCount
 
@@ -318,6 +369,71 @@ local function pushItems(map)
 
     return map
 end
+
+
+---Pull items from the storage chests to the output chest
+---@param map table The storageMap
+---@param itemName string The name of the item to pull
+---@param count number The number of items to pull
+---@return table
+local function pullItems(map, itemName, count)
+    logger:info("Pulling %d %s from storage", count, itemName)
+    local totalPulledCount = 0
+    local totalExpectedPulledCount = count
+    local slots = getSlots(map, itemName)
+    local toPullCount = count
+
+    for _, storageSlot in ipairs(slots) do
+        local retry_pull_count = 0
+        ::retry_pull::
+        logger:debug("Pulling %d %s from slot %d in chest %s", toPullCount, itemName, storageSlot.slot, peripheral.getName(storageSlot.chest))
+        local attemptCount = storageSlot.chest.pushItems(
+            outputChestName,
+            storageSlot.slot,
+            toPullCount
+        )
+
+        if attemptCount == nil then
+            logger:warn("Failed to pull items from slot %d in chest %s, retrying", storageSlot.slot, peripheral.getName(storageSlot.chest))
+            retry_pull_count = retry_pull_count + 1
+            if retry_pull_count > 3 then
+                logger:error("Failed to pull items too many times, marking the slot as empty and continuing", storageSlot.slot, peripheral.getName(storageSlot.chest))
+                map = removeSlotAndAddEmpty(map, itemName, storageSlot)
+                goto continue
+            end
+            goto retry_pull
+        end
+
+        toPullCount = toPullCount - attemptCount
+
+        logger:debug("Pulled %d items from slot %d", attemptCount, storageSlot.slot)
+        if attemptCount == 0 then
+            -- This slot is empty so mark it as empty
+            map = removeSlotAndAddEmpty(map, itemName, storageSlot)
+        else
+            storageSlot.count = storageSlot.count - attemptCount
+            if storageSlot.count == 0 then
+                -- This slot is now empty
+                map = removeSlotAndAddEmpty(map, itemName, storageSlot)
+            end
+        end
+        totalPulledCount = totalPulledCount + attemptCount
+
+        if totalPulledCount == totalExpectedPulledCount then
+            print("BREAK!")
+        end
+        ::continue::
+    end
+
+    if totalPulledCount == totalExpectedPulledCount then
+        logger:info("Pulled %d %s from storage", totalPulledCount, itemName)
+    else
+        logger:error("Expected to pull %d %s but only pulled %d", totalExpectedPulledCount, itemName, totalPulledCount)
+    end
+
+    return map
+end
+
 
 ---Serialise and save a storageMap to a file. Mainly for debugging purposes.
 ---@param path string The path to save the file to
@@ -381,11 +497,14 @@ local storageMap = loadStorageMap("storageMap.json") or populateStorageMap(stora
 -- pretty.pretty_print(inputChest.list())
 
 storageMap = pushItems(storageMap)
+
 -- local file = fs.open("test.txt", "w")
--- for _, tabl in ipairs(getFreeSlots(storageMap)) do
+-- for _, tabl in ipairs(getSlots(storageMap, "minecraft:stone")) do
 --     file.write(peripheral.getName(tabl.chest) .. ", " .. tabl.slot .. ", " .. tabl.count .. "\n")
 -- end
 -- file.close()
+
+storageMap = pullItems(storageMap, "minecraft:stone", 999)
 
 saveStorageMap("storageMap.json", storageMap)
 
