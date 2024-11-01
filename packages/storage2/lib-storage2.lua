@@ -95,7 +95,7 @@ local function getInputChest()
     local inputChest = peripheral.wrap(inputChestName)
 
     if not inputChest then
-        logger:error("Input chest not found. You may need to change the inputChest setting (set inputChest {chest name}).")
+        logger:error("Input chest not found. You may need to change the inputChest setting (set storage2.inputChest {chest name}).")
         return
     end
 
@@ -109,7 +109,7 @@ local function getOutputChest()
     local outputChest = peripheral.wrap(outputChestName)
 
     if not outputChest then
-        logger:error("Output chest not found. You may need to change the outputChest setting (set outputChest {chest name}).")
+        logger:error("Output chest not found. You may need to change the outputChest setting (set storage2.outputChest {chest name}).")
         return
     end
 
