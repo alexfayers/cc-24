@@ -217,8 +217,6 @@ local function getSlotsWithSpace(map, itemName)
         return slots.isFull == false
     end)
 
-    pretty.pretty_print(slots)
-
     -- append all free slots to the list as well
     for _, slot in ipairs(getFreeSlots(map)) do
         table.insert(slots, slot)
