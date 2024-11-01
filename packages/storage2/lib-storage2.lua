@@ -399,7 +399,7 @@ end
 ---@param inputChest table The chest to pull items from
 ---@return table
 local function pushItems(map, inputChest)
-    logger:info("Pushing items to storage")
+    logger:debug("Pushing items...")
     local totalPushedCount = 0
     local totalExpectedPushedCount = 0
     local inputChestName = peripheral.getName(inputChest)
@@ -462,7 +462,7 @@ local function pushItems(map, inputChest)
     end
 
     if totalPushedCount == totalExpectedPushedCount then
-        logger:info("Pushed %d items to storage", totalPushedCount)
+        logger:info("Pushed %d items", totalPushedCount)
     else
         logger:error("Expected to push %d items but only pushed %d", totalExpectedPushedCount, totalPushedCount)
     end
@@ -483,7 +483,7 @@ end
 ---@param outputChest table The chest to push items to
 ---@return table
 local function pullItems(map, itemName, count, outputChest)
-    logger:info("Pulling %d %s from storage", count, itemName)
+    logger:debug("Pulling %d %s...", count, itemName)
     local totalPulledCount = 0
     local totalExpectedPulledCount = count
     local slots = getSlots(map, itemName)
@@ -548,7 +548,7 @@ local function pullItems(map, itemName, count, outputChest)
     end
 
     if totalPulledCount == totalExpectedPulledCount then
-        logger:info("Pulled %d %s from storage", totalPulledCount, itemName)
+        logger:info("Pulled %d %s", totalPulledCount, itemName)
     else
         logger:error("Expected to pull %d %s but only pulled %d", totalExpectedPulledCount, itemName, totalPulledCount)
     end
