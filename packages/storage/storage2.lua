@@ -32,14 +32,16 @@ local inputChestName = settings.get("storage2.inputChest")
 local inputChest = peripheral.wrap(inputChestName)
 
 if not inputChest then
-    error("Input chest not found. You may need to change the inputChest setting (set inputChest {chest name}).")
+    logger:error("Input chest not found. You may need to change the inputChest setting (set inputChest {chest name}).")
+    return
 end
 
 local outputChestName = settings.get("storage2.outputChest")
 local outputChest = peripheral.wrap(outputChestName)
 
 if not outputChest then
-    error("Output chest not found. You may need to change the outputChest setting (set outputChest {chest name}).")
+    logger:error("Output chest not found. You may need to change the outputChest setting (set outputChest {chest name}).")
+    return
 end
 
 local storageChests = {
@@ -49,7 +51,8 @@ local storageChests = {
 }
 
 if #storageChests == 0 then
-    error("No storage chests found. Add more chests to the network!")
+    logger:error("No storage chests found. Add more chests to the network!")
+    return
 end
 
 -- functions
