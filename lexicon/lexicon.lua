@@ -6,6 +6,31 @@ local completion = require("cc.completion")
 local MANIFEST_URL = "https://raw.githubusercontent.com/alexfayers/cc-24/main/lexicon/lexicon-db.json"
 
 -- local pretty = require("cc.pretty")
+local LEXICON_DB_PATH = "/.lexicon/db.json"
+
+---Load the lexicon database from disk
+---@return table
+local function loadLexiconDb()
+    local f = fs.open(LEXICON_DB_PATH, "r")
+    if f then
+        local db = textutils.unserialiseJSON(f.readAll())
+        f.close()
+        return db
+    end
+
+    return {
+        packages = {}
+    }
+end
+
+---Save the lexicon database to disk
+---@param db table
+---@return nil
+local function saveLexiconDb(db)
+    local f = fs.open(LEXICON_DB_PATH, "w")
+    f.write(textutils.serialiseJSON(db))
+    f.close()
+end
 
 ---Add a token to the end of a URL to prevent caching
 ---@param url string
@@ -43,6 +68,19 @@ local function showAvailablePackages()
             term.setTextColor(colors.lime)
         end
         print(" - " .. packageName .. " (" .. packageData["version"] .. ")")
+    end
+    term.setTextColor(colors.white)
+end
+
+
+local function showInstalledPackages()
+    local db = loadLexiconDb()
+    term.setTextColor(colors.blue)
+    print("Installed packages:")
+    term.setTextColor(colors.white)
+    for packageName, _ in pairs(db["packages"]) do
+        term.setTextColor(colors.lime)
+        print(" - " .. packageName)
     end
     term.setTextColor(colors.white)
 end
@@ -112,6 +150,10 @@ local function downloadPackage(packageName, parentPackage)
     end
 
     if not parentPackage then
+        local db = loadLexiconDb()
+        table.insert(db["packages"], packageName)
+        saveLexiconDb(db)
+
         term.setTextColor(colors.lime)
         print("Downloaded " .. packageName .. " (" .. packageData["version"] .. ")")
         if packageData["type"] == "program" then
@@ -119,6 +161,16 @@ local function downloadPackage(packageName, parentPackage)
             print("You can run it with '" .. packageName .. "'")
         end
         term.setTextColor(colors.white)
+    end
+end
+
+
+---Update all packages in the lexicon database
+---@return nil
+local function updatePackages()
+    local db = loadLexiconDb()
+    for _, packageName in pairs(db["packages"]) do
+        downloadPackage(packageName)
     end
 end
 
@@ -141,7 +193,9 @@ local function usage()
     print("Usage: lexicon <command>")
     print("Commands:")
     print("  get <package> - Download a package from the lexicon repository")
+    print("  upgrade - Update all previously downloaded packages")
     print("  list - List all available packages")
+    print("  list-installed - List all installed packages")
 end
 
 local function handleArgs()
@@ -155,9 +209,13 @@ local function handleArgs()
                 return
             end
 
-            downloadPackage(arg[2], nil)
+            downloadPackage(arg[2])
         elseif arg[1] == "list" then
             showAvailablePackages()
+        elseif arg[1] == "upgrade" then
+            updatePackages()
+        elseif arg[1] == "list-installed" then
+            showInstalledPackages()
         else
             term.setTextColor(colors.red)
             print("Unknown command: '" .. arg[1] .. "'")
