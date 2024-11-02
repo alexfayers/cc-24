@@ -167,7 +167,11 @@ local function downloadPackage(packageName, parentPackage)
         print("Downloaded " .. packageName .. " (" .. packageData["version"] .. ")")
         if packageData["type"] == "program" then
             term.setTextColor(colors.blue)
-            print("You can run it with '" .. packageName .. "'")
+            local usageCommand = "'" .. packageName .. "'"
+            if packageData["usage"] then
+                usageCommand = packageData["usage"]
+            end
+            print("You can run it with " .. usageCommand)
         end
         term.setTextColor(colors.white)
     end
