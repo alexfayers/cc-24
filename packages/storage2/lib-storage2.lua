@@ -26,6 +26,12 @@ settings.define("storage2.storageFile", {
     type = "string",
 })
 
+settings.define("storage2.itemDetailCache", {
+    description = "The path to the file that the storage map is saved to",
+    default = "/.storage2/itemCache.json",
+    type = "string",
+})
+
 -- constants
 
 local SAVE_EMPTY_SLOTS = false
@@ -37,7 +43,7 @@ logger:setLevel(logging.LEVELS.INFO)
 
 -- types
 
----@alias MapSlot {name: string, chest: table, slot: number, count: number, isFull: boolean}
+---@alias MapSlot {name: string, chest: Chest, slot: number, count: number, maxCount: number, isFull: boolean}
 
 ---@alias Map table<string, MapSlot[]>
 
@@ -45,7 +51,8 @@ logger:setLevel(logging.LEVELS.INFO)
 ---@alias ChestList table<number, ChestListItem> The list of items in a chest
 
 ---@alias ChestGetItemDetailItemItemGroups {displayName: string, id: string}[]
----@alias ChestGetItemDetailItem {count: number, displayName: string, itemGroups: ChestGetItemDetailItemItemGroups, maxCount: number, name: string, tags: string[]} The details of an item in a chest
+---@alias ChestGetItemDetailItemTags table<string, boolean>
+---@alias ChestGetItemDetailItem {count: number, displayName: string, itemGroups: ChestGetItemDetailItemItemGroups, maxCount: number, name: string, tags: ChestGetItemDetailItemTags} The details of an item in a chest
 
 ---@alias ChestSizeFunction fun(): number The function that returns the size of a chest
 ---@alias ChestListFunction fun(): ChestList The function that returns the list of items in a chest
@@ -57,6 +64,10 @@ logger:setLevel(logging.LEVELS.INFO)
 ---@alias ChestPushItemsFunction fun(toName: string, fromSlot: number, limit: number|nil, toSlot: number|nil): number The function that pushes items from a chest into another
 
 ---@alias Chest {size: function, list: ChestListFunction, getItemDetail: ChestGetItemDetailFunction, getItemLimit: ChestGetItemLimitFunction, pullItems: ChestPullItemsFunction, pushItems: function}
+
+
+---@alias itemDetailCacheItem {displayName: string, itemGroups: ChestGetItemDetailItemItemGroups, maxCount: number, name: string, tags: ChestGetItemDetailItemTags} The details of an item, but cached
+---@alias ItemDetailCache table<string, itemDetailCacheItem> The cache of item details
 
 
 -- functions
@@ -111,6 +122,12 @@ local function getStorageMapPath()
     return settings.get("storage2.storageFile")
 end
 
+
+---Get the path to the item detail cache file
+---@return string
+local function getItemDetailCachePath()
+    return settings.get("storage2.itemDetailCache")
+end
 
 ---Get the wrapped input chest
 ---@return Chest|nil
@@ -179,14 +196,85 @@ local function copyTable(obj, seen)
   
 
 
----Write a string to a file
+---Save a table to a file as json
 ---@param path string The path to save the file to
----@param data string The data to write to the file
+---@param data table The data to save
 ---@return nil
-local function writeToFile(path, data)
+local function saveTable(path, data)
     local file = fs.open(path, "w")
-    file.write(data)
+    file.write(textutils.serialiseJSON(data))
     file.close()
+end
+
+
+---Load a table from a file
+---@param path string The path to load the file from
+---@return table|nil
+local function loadTable(path)
+    if not fs.exists(path) then
+        return nil
+    end
+
+    local file = fs.open(path, "r")
+    local data = file.readAll()
+    file.close()
+    return textutils.unserialiseJSON(data)
+end
+
+
+---Load the item detail cache
+---@return ItemDetailCache
+local function loadItemDetailCache()
+    return loadTable(getItemDetailCachePath()) or {}
+end
+
+---Save the item detail cache
+---@param cache ItemDetailCache The cache to save
+---@return nil
+local function saveItemDetailCache(cache)
+    saveTable(getItemDetailCachePath(), cache)
+end
+
+
+---Convert the result of chest.getItemDetail into a cacheable format
+---@param item ChestGetItemDetailItem The item details
+---@return itemDetailCacheItem
+local function convertItemDetailToCacheable(item)
+    return {
+        displayName = item.displayName,
+        itemGroups = item.itemGroups,
+        maxCount = item.maxCount,
+        name = item.name,
+        tags = item.tags,
+    }
+end
+
+
+---Get item detail from a given chest, but cached
+---@param itemCache ItemDetailCache The cache of item details
+---@param chest Chest The chest to get the item detail from
+---@param slot number The slot to get the item detail from
+---@param itemName string|nil The name of the item (used for caching)
+---@return itemDetailCacheItem|nil
+local function getItemDetailCached(itemCache, chest, slot, itemName)
+    if itemName and itemCache[itemName] then
+        return itemCache[itemName]
+    end
+
+    local itemDetail = chest.getItemDetail(slot)
+    if not itemDetail then
+        logger:error("Failed to get item details for slot %d in chest %s", slot, peripheral.getName(chest))
+        return
+    end
+
+    itemName = itemName or itemDetail.name
+
+    local cacheable = convertItemDetailToCacheable(itemDetail)
+
+    itemCache[itemName] = cacheable
+    saveItemDetailCache(itemCache)
+
+    return cacheable
 end
 
 
@@ -244,6 +332,7 @@ local function addEmptySlot(map, chest, slot)
         chest = chest,
         slot = slot,
         count = 0,
+        maxCount = CHEST_SLOT_MAX,
         isFull = false,
     })
     return map
@@ -342,19 +431,28 @@ local function populateStorageMap(chests)
     logger:warn("Creating storage map")
     local map = {}
 
+    local itemCache = loadItemDetailCache()
+
     for chestId, chest in ipairs(chests) do
         logger:debug("Scanning chest %d", chestId)
 
         local chestList = chest.list()
 
         for slot, item in pairs(chestList) do
+            local slotDetails = getItemDetailCached(itemCache, chest, slot, item.name)
+            if not slotDetails then
+                goto continue
+            end
+
             addSlot(map, item.name, {
                 name = item.name,
                 chest = chest,
                 slot = slot,
                 count = item.count,
-                isFull = item.count >= CHEST_SLOT_MAX,
+                maxCount = slotDetails.maxCount,
+                isFull = item.count >= slotDetails.maxCount,
             })
+            ::continue::
         end
 
     end
@@ -378,6 +476,18 @@ local function getTotalCount(slots)
     local total = 0
     for _, slot in ipairs(slots) do
         total = total + slot.count
+    end
+    return total
+end
+
+
+---Get the total of the maxCount of a list of slots
+---@param slots MapSlot[] The list of slots
+---@return number
+local function getTotalMaxCount(slots)
+    local total = 0
+    for _, slot in ipairs(slots) do
+        total = total + slot.maxCount
     end
     return total
 end
@@ -512,8 +622,7 @@ local function pushItems(map, inputChest)
     local totalExpectedPushedCount = 0
     local inputChestName = peripheral.getName(inputChest)
 
-    ---@type {itemName: string, slot: MapSlot}[]
-    local mapAdditions = {}
+    local itemCache = loadItemDetailCache()
 
     for inputSlot, inputItem in pairs(inputChest.list()) do
         logger:debug("Processing item %s in slot %d", inputItem.name, inputSlot)
@@ -550,13 +659,19 @@ local function pushItems(map, inputChest)
             else
                 if storageSlot.count == 0 then
                     -- This slot was empty so we need to add it to the map
+                    local slotDetails = getItemDetailCached(itemCache, storageSlot.chest, storageSlot.slot, inputItem.name)
+                    if not slotDetails then
+                        goto continue
+                    end
+                    storageSlot.maxCount = slotDetails.maxCount
+
                     addSlot(map, inputItem.name, storageSlot)
                     -- Remove the slot from the empty slots
                     removeSlot(map, "empty", storageSlot)
                 end
                 storageSlot.count = storageSlot.count + attemptCount
 
-                if storageSlot.count >= CHEST_SLOT_MAX then
+                if storageSlot.count >= storageSlot.maxCount then
                     storageSlot.isFull = true
                 end
             end
@@ -574,11 +689,6 @@ local function pushItems(map, inputChest)
         logger:info("Pushed %d items", totalPushedCount)
     else
         logger:error("Expected to push %d items but only pushed %d", totalExpectedPushedCount, totalPushedCount)
-    end
-
-    for _, removal in ipairs(mapAdditions) do
-        map = addSlot(map, removal.itemName, removal.slot)
-        map = removeSlot(map, "empty", removal.slot)
     end
 
     return map
@@ -702,6 +812,7 @@ local function saveStorageMap(path, map)
                 chestName = peripheral.getName(slot.chest),
                 slot = slot.slot,
                 count = slot.count,
+                maxCount = slot.maxCount,
                 isFull = slot.isFull,
             })
         end
@@ -733,6 +844,7 @@ local function loadStorageMap(path, chests)
                 chest = peripheral.wrap(slot.chestName),
                 slot = slot.slot,
                 count = slot.count,
+                maxCount = slot.maxCount,
                 isFull = slot.isFull,
             })
         end
@@ -826,6 +938,7 @@ return {
     getStorageMapPath = getStorageMapPath,
     getTotalItemCount = getTotalItemCount,
     getTotalCount = getTotalCount,
+    getTotalMaxCount = getTotalMaxCount,
     isItemAvailable = isItemAvailable,
     getAllItemStubs = getAllItemStubs,
     convertItemNameStub = convertItemNameStub,
