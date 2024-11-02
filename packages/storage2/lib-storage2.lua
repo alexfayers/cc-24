@@ -37,6 +37,7 @@ logger:setLevel(logging.LEVELS.INFO)
 
 -- types
 
+---@class Slot
 local Slot = {
     name = "",
     chest = {},
