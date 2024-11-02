@@ -325,6 +325,20 @@ local function getTotalItemCount(map, itemName)
 end
 
 
+---Ger all slots in the storageMap
+---@param map table The storageMap
+---@return table
+local function getAllSlots(map)
+    local allSlots = {}
+    for _, slots in pairs(map) do
+        for _, slot in pairs(slots) do
+            table.insert(allSlots, slot)
+        end
+    end
+    return allSlots
+end
+
+
 ---Check if an item is available in the storageMap
 ---@param map table The storageMap
 ---@param itemName string The name of the item
