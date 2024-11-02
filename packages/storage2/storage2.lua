@@ -76,7 +76,7 @@ shell.setCompletionFunction(shell.getRunningProgram(), complete)
 ---@param item string The item to check
 ---@return nil
 local function checkItem(item)
-    local itemCount = storage.getTotalItemCount(storageMap, item)
+    local itemCount = storage.getTotalItemCount(storageMap, item, false)
 
     if itemCount > 0 then
         print("Item: " .. item)
@@ -100,7 +100,7 @@ local function showItemMatches(item)
 
     print("Matches for '" .. item .. "':")
     for _, match in pairs(matches) do
-        local count = storage.getTotalItemCount(storageMap, match)
+        local count = storage.getTotalItemCount(storageMap, match, false)
         print("  " .. match .. " (" .. count .. ")")
     end
 end
@@ -157,18 +157,18 @@ local function main()
             return
         end
 
-        local item = storage.convertItemNameStub(arg[2])
-        item = storage.getFirstMatch(storageMap, item)
+        local item = arg[2]
+        -- item = storage.convertItemNameStub(item)
         local amountStr = arg[3]
         local amount = 0
 
         if not amountStr then
-            checkItem(item)
+            showItemMatches(item)
             return
         end
 
         if amountStr == "all" then
-            amount = storage.getTotalItemCount(storageMap, item)
+            amount = storage.getTotalItemCount(storageMap, item, true)
         else
             local amountMaybe = tonumber(amountStr)
             if amountMaybe == nil then
@@ -182,7 +182,7 @@ local function main()
             return
         end
 
-        storageMap = storage.pullItems(storageMap, item, amount, outputChest)
+        storageMap = storage.pullItems(storageMap, item, amount, outputChest, true)
         storage.saveStorageMap(storageMapPath, storageMap)
     elseif command == "help" then
         help()
