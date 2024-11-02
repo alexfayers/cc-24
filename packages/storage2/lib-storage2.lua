@@ -195,15 +195,26 @@ local function addEmptySlot(map, chest, slot)
     return map
 end
 
+
+---Get all slots in the storageMap that have the item
+---@param map table The storageMap
+---@param itemName string
+---@return table
+local function getSlots(map, itemName)
+    return map[itemName] or {}
+end
+
+
 ---Remove a slot from the storageMap
 ---@param map table The storageMap
 ---@param itemName string The name of the item
 ---@param slot table The slot to remove
 ---@return table
 local function removeSlot(map, itemName, slot)
-    for i, storageSlot in ipairs(map[itemName]) do
+    local slots = getSlots(map, itemName)
+    for i, storageSlot in ipairs(slots) do
         if storageSlot == slot then
-            table.remove(map[itemName], i)
+            table.remove(slots, i)
             break
         end
     end
@@ -279,13 +290,6 @@ local function populateStorageMap(chests)
     return populateEmptySlots(map, chests)
 end
 
----Get all slots in the storageMap that have the item
----@param map table The storageMap
----@param itemName string
----@return table
-local function getSlots(map, itemName)
-    return map[itemName] or {}
-end
 
 ---Get the first slot in the storageMap that has the item
 ---@param map table The storageMap
@@ -555,6 +559,11 @@ local function pullItems(map, itemName, count, outputChest)
 
     for _, removal in ipairs(mapRemovals) do
         map = removeSlotAndAddEmpty(map, removal.itemName, removal.slot)
+
+        -- if the newly removed item's total count is 0, remove it from the map
+        if getTotalItemCount(map, removal.itemName) == 0 then
+            map[removal.itemName] = nil
+        end
     end
 
     return map
