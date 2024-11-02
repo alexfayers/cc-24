@@ -339,18 +339,6 @@ local function getAllSlots(map)
 end
 
 
----Check if an item is available in the storageMap
----@param map table The storageMap
----@param itemName string The name of the item
----@return boolean
-local function isItemAvailable(map, itemName)
-    if not getTotalItemCount(map, itemName) then
-        return false
-    end
-    return true
-end
-
-
 ---Filter a table using a function
 ---@param tbl table The table to filter
 ---@param filter function The function to use to filter the table
@@ -363,6 +351,29 @@ local function filterTable(tbl, filter)
         end
     end
     return filtered
+end
+
+
+---Get the total count of full slots in a given slot table
+---@param slots table The table of slots
+---@return number
+local function getFullSlots(slots)
+    local fullSlots = filterTable(slots, function (slot)
+        return slot.isFull
+    end)
+    return #fullSlots
+end
+
+
+---Check if an item is available in the storageMap
+---@param map table The storageMap
+---@param itemName string The name of the item
+---@return boolean
+local function isItemAvailable(map, itemName)
+    if not getTotalItemCount(map, itemName) then
+        return false
+    end
+    return true
 end
 
 
@@ -756,4 +767,6 @@ return {
     convertItemNameStub = convertItemNameStub,
     getFirstMatch = getFirstMatch,
     getAllMatches = getAllMatches,
+    getAllSlots = getAllSlots,
+    getFullSlots = getFullSlots,
 }
