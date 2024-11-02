@@ -39,7 +39,8 @@
             "dependencies": [
                 "lib-logging"
             ],
-            "type": "program"
+            "type": "program",
+            "usage": "'package-example'"
         },
 
         "storage2-lib": {
@@ -72,7 +73,8 @@
             "dependencies": [
                 "storage2-lib"
             ],
-            "type": "program"
+            "type": "program",
+            "usage": "'storage2' or 'storage2-watch'"
         }
     }
 }

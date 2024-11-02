@@ -63,6 +63,10 @@
             "library",
             "program"
           ]
+        },
+        "usage": {
+          "type": "string",
+          "title": "Package usage command/instructions"
         }
       },
       "required": [
