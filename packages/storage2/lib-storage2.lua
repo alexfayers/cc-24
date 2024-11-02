@@ -640,18 +640,27 @@ local function getAllItemStubs(map)
     return items
 end
 
+---Return all matches of a pattern in the keys of the storageMap
+---@param map table The storageMap
+---@param pattern string The pattern to match
+---@return table
+local function getAllMatches(map, pattern)
+    local matches = {}
+    for itemName, _ in pairs(map) do
+        if string.match(itemName, pattern) then
+            table.insert(matches, itemName)
+        end
+    end
+    return matches
+end
+
 
 ---Return the first match of a pattern in the keys of the storageMap
 ---@param map table The storageMap
 ---@param pattern string The pattern to match
 ---@return string
 local function getFirstMatch(map, pattern)
-    for itemName, _ in pairs(map) do
-        if string.match(itemName, pattern) then
-            return itemName
-        end
-    end
-    return pattern
+    return getAllMatches(map, pattern)[1] or pattern
 end
 
 
@@ -718,4 +727,5 @@ return {
     getAllItemStubs = getAllItemStubs,
     convertItemNameStub = convertItemNameStub,
     getFirstMatch = getFirstMatch,
+    getAllMatches = getAllMatches,
 }
