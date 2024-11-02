@@ -37,44 +37,26 @@ logger:setLevel(logging.LEVELS.INFO)
 
 -- types
 
----@class Slot
-local Slot = {
-    name = "",
-    chest = {},
-    slot = 0,
-    count = 0,
-    isFull = false,
+---@alias MapSlot {name: string, chest: table, slot: number, count: number, isFull: boolean}
 
-    __tostring = function(self)
-        return string.format(
-            "Slot{name=%s, chest=%s, slot=%d, count=%d, isFull=%s}",
-            self.name,
-            peripheral.getName(self.chest),
-            self.slot,
-            self.count,
-            tostring(self.isFull)
-        )
-    end,
+---@alias Map table<string, MapSlot[]>
 
-    ---Create a new Slot
-    ---@param name string The name of the item
-    ---@param chest table The wrapped chest
-    ---@param slot number The slot number
-    ---@param count number The count of items in the slot
-    ---@param isFull boolean Whether the slot is full or not
-    ---@return table
-    new = function(self, name, chest, slot, count, isFull)
-        local slot_ = {
-            name = name,
-            chest = chest,
-            slot = slot,
-            count = count,
-            isFull = isFull,
-        }
-        setmetatable(slot_, { __index = self })
-        return slot_
-    end,
-}
+---@alias ChestListItem {count: number, name: string} A single item from the list of items in a chest
+---@alias ChestList table<number, ChestListItem> The list of items in a chest
+
+---@alias ChestGetItemDetailItemItemGroups {displayName: string, id: string}[]
+---@alias ChestGetItemDetailItem {count: number, displayName: string, itemGroups: ChestGetItemDetailItemItemGroups, maxCount: number, name: string, tags: string[]} The details of an item in a chest
+
+---@alias ChestSizeFunction fun(): number The function that returns the size of a chest
+---@alias ChestListFunction fun(): ChestList The function that returns the list of items in a chest
+---@alias ChestGetItemDetailFunction fun(slot: number): ChestGetItemDetailItem The function that returns the details of an item in a chest
+
+---@alias ChestGetItemLimitFunction fun(slot: number): number The function that returns the limit of slot in a chest (broken)
+
+---@alias ChestPullItemsFunction fun(fromName: string, fromSlot: number, limit: number|nil, toSlot: number|nil): number The function that pulls items from another chest into this chest
+---@alias ChestPushItemsFunction fun(toName: string, fromSlot: number, limit: number|nil, toSlot: number|nil): number The function that pushes items from a chest into another
+
+---@alias Chest {size: function, list: ChestListFunction, getItemDetail: ChestGetItemDetailFunction, getItemLimit: ChestGetItemLimitFunction, pullItems: ChestPullItemsFunction, pushItems: function}
 
 
 -- functions
@@ -131,7 +113,7 @@ end
 
 
 ---Get the wrapped input chest
----@return table|nil
+---@return Chest|nil
 local function getInputChest()
     local inputChestName = settings.get("storage2.inputChest")
     local inputChest = peripheral.wrap(inputChestName)
@@ -145,7 +127,7 @@ local function getInputChest()
 end
 
 ---Get the wrapped output chest
----@return table|nil
+---@return Chest|nil
 local function getOutputChest()
     local outputChestName = settings.get("storage2.outputChest")
     local outputChest = peripheral.wrap(outputChestName)
@@ -161,7 +143,7 @@ end
 ---Get the wrapped storage chests table
 ---@param inputChest table The input chest
 ---@param outputChest table The output chest
----@return table|nil
+---@return Chest[]|nil
 local function getStorageChests(inputChest, outputChest)
     local inputChestName = peripheral.getName(inputChest)
     local outputChestName = peripheral.getName(outputChest)
@@ -208,11 +190,40 @@ local function writeToFile(path, data)
 end
 
 
+---Return all matches of a pattern in the keys of the storageMap
+---@param map Map The storageMap
+---@param pattern string The pattern to match
+---@return string[]
+local function getAllMatches(map, pattern)
+    local matches = {}
+    for itemName, _ in pairs(map) do
+        if itemName == "empty" then
+            goto continue
+        end
+
+        if string.match(itemName, pattern) then
+            table.insert(matches, itemName)
+        end
+        ::continue::
+    end
+    return matches
+end
+
+
+---Return the first match of a pattern in the keys of the storageMap
+---@param map Map The storageMap
+---@param pattern string The pattern to match
+---@return string
+local function getFirstMatch(map, pattern)
+    return getAllMatches(map, pattern)[1] or pattern
+end
+
+
 ---Add a slot to the storageMap
----@param map table The storageMap
+---@param map Map The storageMap
 ---@param itemName string The name of the item
----@param slot table The slot to add
----@return table
+---@param slot MapSlot The slot to add
+---@return Map
 local function addSlot(map, itemName, slot)
     if not map[itemName] then
         map[itemName] = {}
@@ -223,12 +234,13 @@ end
 
 
 ---Add a new empty slot to the storageMap
----@param map table The storageMap
----@param chest table The chest that the slot is in
+---@param map Map The storageMap
+---@param chest Chest The chest that the slot is in
 ---@param slot number The slot number
----@return table
+---@return Map
 local function addEmptySlot(map, chest, slot)
     addSlot(map, "empty", {
+        name = "empty",
         chest = chest,
         slot = slot,
         count = 0,
@@ -239,19 +251,35 @@ end
 
 
 ---Get all slots in the storageMap that have the item
----@param map table The storageMap
+---@param map Map The storageMap
 ---@param itemName string
----@return table
+---@return MapSlot[]
 local function getSlots(map, itemName)
     return map[itemName] or {}
 end
 
 
+---Get all slots in the storageMap that match a pattern
+---@param map Map The storageMap
+---@param search string The pattern to match
+---@return MapSlot[]
+local function getSlotsFuzzy(map, search)
+    local slots = {}
+    local matches = getAllMatches(map, search)
+    for _, match in ipairs(matches) do
+        for _, slot in ipairs(getSlots(map, match)) do
+            table.insert(slots, slot)
+        end
+    end
+    return slots
+end
+
+
 ---Remove a slot from the storageMap
----@param map table The storageMap
+---@param map Map The storageMap
 ---@param itemName string The name of the item
----@param slot table The slot to remove
----@return table
+---@param slot MapSlot The slot to remove
+---@return Map
 local function removeSlot(map, itemName, slot)
     local slots = getSlots(map, itemName)
     for i, storageSlot in ipairs(slots) do
@@ -264,10 +292,10 @@ local function removeSlot(map, itemName, slot)
 end
 
 ---Remove a slot from the storageMap and add it to the empty slots
----@param map table The storageMap
+---@param map Map The storageMap
 ---@param itemName string The name of the item
----@param slot table The slot to remove
----@return table
+---@param slot MapSlot The slot to remove
+---@return Map
 local function removeSlotAndAddEmpty(map, itemName, slot)
     map = removeSlot(map, itemName, slot)
     map = addEmptySlot(map, slot.chest, slot.slot)
@@ -275,9 +303,9 @@ local function removeSlotAndAddEmpty(map, itemName, slot)
 end
 
 ---Populate empty slots in the storageMap
----@param map table The storageMap to populate
----@param chests table The list of storage chests
----@return table
+---@param map Map The storageMap to populate
+---@param chests Chest[] The list of storage chests
+---@return Map
 local function populateEmptySlots(map, chests)
     logger:debug("Populating empty slots")
     for chestId, chest in ipairs(chests) do
@@ -308,8 +336,8 @@ end
 ---Populate the storageMap table with all items in the storage chests
 ---storageMap is a table with keys being the item name and values being a table of tables with the following structure:
 ---{ chest = peripheral, slot = number, count = number, isFull = boolean }
----@param chests table The list of storage chests
----@return table
+---@param chests Chest[] The list of storage chests
+---@return Map
 local function populateStorageMap(chests)
     logger:warn("Creating storage map")
     local map = {}
@@ -321,6 +349,7 @@ local function populateStorageMap(chests)
 
         for slot, item in pairs(chestList) do
             addSlot(map, item.name, {
+                name = item.name,
                 chest = chest,
                 slot = slot,
                 count = item.count,
@@ -334,16 +363,16 @@ end
 
 
 ---Get the first slot in the storageMap that has the item
----@param map table The storageMap
+---@param map Map The storageMap
 ---@param itemName string
----@return table
+---@return MapSlot|nil
 local function getFirstSlot(map, itemName)
     local allSlots = getSlots(map, itemName)
     return allSlots and allSlots[1]
 end
 
 ---Get the total count of items from a list of slots
----@param slots table
+---@param slots MapSlot[] The list of slots
 ---@return number
 local function getTotalCount(slots)
     local total = 0
@@ -355,11 +384,19 @@ end
 
 
 ---Get the total count of a specific item in the storageMap
----@param map table The storageMap
----@param itemName string
+---@param map Map The storageMap
+---@param itemName string The name of the item
+---@param fuzzyMode boolean Whether to use fuzzy mode or not
 ---@return number
-local function getTotalItemCount(map, itemName)
-    local slots = getSlots(map, itemName)
+local function getTotalItemCount(map, itemName, fuzzyMode)
+    local slots = {}
+
+    if fuzzyMode then
+        slots = getSlotsFuzzy(map, itemName)
+    else
+        slots = getSlots(map, itemName)
+    end
+
     if not slots then
         return 0
     end
@@ -367,9 +404,9 @@ local function getTotalItemCount(map, itemName)
 end
 
 
----Ger all slots in the storageMap
----@param map table The storageMap
----@return table
+---Get all slots in the storageMap
+---@param map Map The storageMap
+---@return MapSlot[]
 local function getAllSlots(map)
     local allSlots = {}
     for _, slots in pairs(map) do
@@ -397,7 +434,7 @@ end
 
 
 ---Get the total count of full slots in a given slot table
----@param slots table The table of slots
+---@param slots MapSlot[] The table of slots
 ---@return number
 local function getFullSlots(slots)
     local fullSlots = filterTable(slots, function (slot)
@@ -408,11 +445,11 @@ end
 
 
 ---Check if an item is available in the storageMap
----@param map table The storageMap
+---@param map Map The storageMap
 ---@param itemName string The name of the item
 ---@return boolean
 local function isItemAvailable(map, itemName)
-    if not getTotalItemCount(map, itemName) then
+    if not getTotalItemCount(map, itemName, false) then
         return false
     end
     return true
@@ -420,10 +457,10 @@ end
 
 
 ---Get a list of slots in the storageMap that have the item
----@param map table The storageMap
----@param itemName string
+---@param map Map The storageMap
+---@param itemName string The name of the item
 ---@param filter function|nil A function that is used to filter the slots (should take 1 argument [a slot] and return true or false)
----@return table
+---@return MapSlot[]
 local function getSlotsFilter(map, itemName, filter)
     local slots = getSlots(map, itemName)
     if filter then
@@ -435,23 +472,23 @@ end
 
 
 ---Get the free slots in the storageMap
----@param map table The storageMap
----@return table
+---@param map Map The storageMap
+---@return MapSlot[]
 local function getFreeSlots(map)
     return getSlots(map, "empty")
 end
 
 ---Get the first free slot in the storageMap
----@param map table The storageMap
----@return table|nil
+---@param map Map The storageMap
+---@return MapSlot|nil
 local function getFirstFreeSlot(map)
     return getFirstSlot(map, "empty")
 end
 
 ---Get a list of slots that potentially have space for the item
----@param map table The storageMap
----@param itemName string
----@return table
+---@param map Map The storageMap
+---@param itemName string The name of the item
+---@return MapSlot[]
 local function getSlotsWithSpace(map, itemName)
     local slots = getSlotsFilter(map, itemName, function (slots)
         return slots.isFull == false
@@ -466,15 +503,16 @@ local function getSlotsWithSpace(map, itemName)
 end
 
 ---Push items from the input chest to the storage chests
----@param map table The storageMap
+---@param map Map The storageMap
 ---@param inputChest table The chest to pull items from
----@return table
+---@return Map
 local function pushItems(map, inputChest)
     logger:debug("Pushing items...")
     local totalPushedCount = 0
     local totalExpectedPushedCount = 0
     local inputChestName = peripheral.getName(inputChest)
 
+    ---@type {itemName: string, slot: MapSlot}[]
     local mapAdditions = {}
 
     for inputSlot, inputItem in pairs(inputChest.list()) do
@@ -548,26 +586,35 @@ end
 
 
 ---Pull items from the storage chests to the output chest
----@param map table The storageMap
+---@param map Map The storageMap
 ---@param itemName string The name of the item to pull
 ---@param count number The number of items to pull
 ---@param outputChest table The chest to push items to
----@return table
-local function pullItems(map, itemName, count, outputChest)
+---@param fuzzyMode boolean Whether to use fuzzy mode or not
+---@return Map
+local function pullItems(map, itemName, count, outputChest, fuzzyMode)
     logger:debug("Pulling %d %s...", count, itemName)
     local totalPulledCount = 0
     local totalExpectedPulledCount = count
-    local slots = getSlots(map, itemName)
+
+    local slots = {}
+    if fuzzyMode then
+        slots = getSlotsFuzzy(map, itemName)
+    else
+        slots = getSlots(map, itemName)
+    end
+
     local toPullCount = count
 
     local outputChestName = peripheral.getName(outputChest)
 
+    ---@type {itemName: string, slot: MapSlot}[]
     local mapRemovals = {}
 
     for _, storageSlot in pairs(slots) do
         local retry_pull_count = 0
         ::retry_pull::
-        logger:debug("Pulling %d %s from slot %d in chest %s", toPullCount, itemName, storageSlot.slot, peripheral.getName(storageSlot.chest))
+        logger:debug("Pulling %d %s from slot %d in chest %s", toPullCount, storageSlot.name, storageSlot.slot, peripheral.getName(storageSlot.chest))
         local attemptCount = storageSlot.chest.pushItems(
             outputChestName,
             storageSlot.slot,
@@ -579,9 +626,9 @@ local function pullItems(map, itemName, count, outputChest)
             retry_pull_count = retry_pull_count + 1
             if retry_pull_count > 3 then
                 logger:error("Failed to pull items too many times, marking the slot as empty and continuing", storageSlot.slot, peripheral.getName(storageSlot.chest))
-                -- map = removeSlotAndAddEmpty(map, itemName, storageSlot)
+                -- map = removeSlotAndAddEmpty(map, storageSlot.name, storageSlot)
                 table.insert(mapRemovals, {
-                    itemName = itemName,
+                    itemName = storageSlot.name,
                     slot = storageSlot,
                 })
                 goto continue
@@ -596,7 +643,7 @@ local function pullItems(map, itemName, count, outputChest)
             -- This slot is empty so mark it as empty
             -- map = removeSlotAndAddEmpty(map, itemName, storageSlot)
             table.insert(mapRemovals, {
-                itemName = itemName,
+                itemName = storageSlot.name,
                 slot = storageSlot,
             })
         else
@@ -605,7 +652,7 @@ local function pullItems(map, itemName, count, outputChest)
                 -- This slot is now empty
                 -- map = removeSlotAndAddEmpty(map, itemName, storageSlot)
                 table.insert(mapRemovals, {
-                    itemName = itemName,
+                    itemName = storageSlot.name,
                     slot = storageSlot,
                 })
             end
@@ -628,7 +675,7 @@ local function pullItems(map, itemName, count, outputChest)
         map = removeSlotAndAddEmpty(map, removal.itemName, removal.slot)
 
         -- if the newly removed item's total count is 0, remove it from the map
-        if getTotalItemCount(map, removal.itemName) == 0 then
+        if getTotalItemCount(map, removal.itemName, false) == 0 then
             map[removal.itemName] = nil
         end
     end
@@ -639,7 +686,7 @@ end
 
 ---Serialise and save a storageMap to a file. Mainly for debugging purposes.
 ---@param path string The path to save the file to
----@param map table The storageMap to save
+---@param map Map The storageMap to save
 ---@return nil
 local function saveStorageMap(path, map)
     local file = fs.open(path, "w")
@@ -651,6 +698,7 @@ local function saveStorageMap(path, map)
         noChestMap[itemName] = {}
         for _, slot in pairs(slots) do
             table.insert(noChestMap[itemName], {
+                name = itemName,
                 chestName = peripheral.getName(slot.chest),
                 slot = slot.slot,
                 count = slot.count,
@@ -665,8 +713,8 @@ end
 
 ---Load a storageMap from a file
 ---@param path string The path to load the file from
----@param chests table The list of storage chests (used if empty slots aren't saved)
----@return table|nil
+---@param chests Chest[] The list of storage chests (used if empty slots aren't saved)
+---@return Map|nil
 local function loadStorageMap(path, chests)
     if not fs.exists(path) then
         return nil
@@ -681,6 +729,7 @@ local function loadStorageMap(path, chests)
         map[itemName] = {}
         for _, slot in pairs(slots) do
             table.insert(map[itemName], {
+                name = itemName,
                 chest = peripheral.wrap(slot.chestName),
                 slot = slot.slot,
                 count = slot.count,
@@ -696,52 +745,24 @@ end
 
 ---Load the storageMap from a file or populate it if the file does not exist
 ---@param path string The path to load the file from
----@param chests table The list of storage chests
----@return table
+---@param chests Chest[] The list of storage chests
+---@return Map
 local function loadOrPopulateStorageMap(path, chests)
     return loadStorageMap(path, chests) or populateStorageMap(chests)
 end
 
 
 ---Get a list of item name stubs from the storageMap (only showing items that have a count of more than 0)
----@param map table The storageMap
----@return table
+---@param map Map The storageMap
+---@return string[]
 local function getAllItemStubs(map)
     local items = {}
     for itemName, slots in spairs(map) do
-        if itemName ~= "empty" and getTotalItemCount(map, itemName) > 0 then
+        if itemName ~= "empty" and getTotalItemCount(map, itemName, false) > 0 then
             table.insert(items, convertItemNameToStub(itemName))
         end
     end
     return items
-end
-
----Return all matches of a pattern in the keys of the storageMap
----@param map table The storageMap
----@param pattern string The pattern to match
----@return table
-local function getAllMatches(map, pattern)
-    local matches = {}
-    for itemName, _ in pairs(map) do
-        if itemName == "empty" then
-            goto continue
-        end
-
-        if string.match(itemName, pattern) then
-            table.insert(matches, itemName)
-        end
-        ::continue::
-    end
-    return matches
-end
-
-
----Return the first match of a pattern in the keys of the storageMap
----@param map table The storageMap
----@param pattern string The pattern to match
----@return string
-local function getFirstMatch(map, pattern)
-    return getAllMatches(map, pattern)[1] or pattern
 end
 
 
@@ -777,7 +798,7 @@ local function test()
     -- end
     -- file.close()
 
-    storageMap = pullItems(storageMap, "minecraft:stone", 999, globOutputChest)
+    storageMap = pullItems(storageMap, "minecraft:stone", 999, globOutputChest, false)
 
     saveStorageMap("storageMap.json", storageMap)
 
