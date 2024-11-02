@@ -35,6 +35,47 @@ local logger = logging.getLogger("storage2")
 logger:setLevel(logging.LEVELS.INFO)
 
 
+-- types
+
+local Slot = {
+    name = "",
+    chest = {},
+    slot = 0,
+    count = 0,
+    isFull = false,
+
+    __tostring = function(self)
+        return string.format(
+            "Slot{name=%s, chest=%s, slot=%d, count=%d, isFull=%s}",
+            self.name,
+            peripheral.getName(self.chest),
+            self.slot,
+            self.count,
+            tostring(self.isFull)
+        )
+    end,
+
+    ---Create a new Slot
+    ---@param name string The name of the item
+    ---@param chest table The wrapped chest
+    ---@param slot number The slot number
+    ---@param count number The count of items in the slot
+    ---@param isFull boolean Whether the slot is full or not
+    ---@return table
+    new = function(self, name, chest, slot, count, isFull)
+        local slot_ = {
+            name = name,
+            chest = chest,
+            slot = slot,
+            count = count,
+            isFull = isFull,
+        }
+        setmetatable(slot_, { __index = self })
+        return slot_
+    end,
+}
+
+
 -- functions
 
 
