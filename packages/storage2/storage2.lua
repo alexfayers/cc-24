@@ -53,7 +53,7 @@ local function complete(_, index, argument, previous)
     local previousArg = previous[#previous]
 
     if index == 1 then
-        return completion.choice(argument, {"push", "check", "pull", "help"}, true)
+        return completion.choice(argument, {"pull", "push", "check", "help"}, true)
     elseif index == 2 then
         if previousArg == "check" or previousArg == "pull" then
             return completion.choice(argument, storage.getAllItemStubs(storageMap), previousArg == "pull")
