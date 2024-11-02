@@ -43,7 +43,7 @@
             "usage": "'package-example'"
         },
 
-        "storage2-lib": {
+        "lib-storage2": {
             "description": "Helper library for the storage2 suite",
             "version": "1.0.0",
             "files": [
@@ -71,7 +71,7 @@
                 ]
             ],
             "dependencies": [
-                "storage2-lib"
+                "lib-storage2"
             ],
             "type": "program",
             "usage": "'storage2' and 'storage2-watch'"
