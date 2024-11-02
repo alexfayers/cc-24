@@ -39,6 +39,8 @@ local function help()
     print("    Push items from the input chest to the storage chests")
     print("  search <regex>")
     print("    Search storage using a regex")
+    print("  usage")
+    print("    Display the usage and capacity of the storage chests")
     print("  help")
     print("    Display this help message")
 end
@@ -53,7 +55,7 @@ local function complete(_, index, argument, previous)
     local previousArg = previous[#previous]
 
     if index == 1 then
-        return completion.choice(argument, {"pull", "push", "search", "help"}, true)
+        return completion.choice(argument, {"pull", "push", "search", "usage", "help"}, true)
     elseif index == 2 then
         if previousArg == "pull" then
             return completion.choice(argument, storage.getAllItemStubs(storageMap), previousArg == "pull")
@@ -104,6 +106,20 @@ local function showItemMatches(item)
 end
 
 
+---Show the usage and capacity of the storage chests
+---@return nil
+local function showUsage()
+    local allSlots = storage.getAllSlots(storageMap)
+    local fullSlotCount = storage.getFullSlots(allSlots)
+    local allSlotsCount = #allSlots
+
+    print(
+        "Storage usage: " .. fullSlotCount .. "/" .. allSlotsCount .. " slots " ..
+        " (" .. math.floor(fullSlotCount / allSlotsCount * 100) .. "%)"
+    )
+end
+
+
 ---Main function for the script. Handles the command line interface.
 ---@return nil
 local function main()
@@ -124,6 +140,8 @@ local function main()
         end
 
         showItemMatches(arg[2])
+    elseif command == "usage" then
+        showUsage()
     elseif command == "pull" then
         if #arg < 2 then
             help()
