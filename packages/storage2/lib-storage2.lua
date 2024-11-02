@@ -656,9 +656,14 @@ end
 local function getAllMatches(map, pattern)
     local matches = {}
     for itemName, _ in pairs(map) do
+        if itemName == "empty" then
+            goto continue
+        end
+
         if string.match(itemName, pattern) then
             table.insert(matches, itemName)
         end
+        ::continue::
     end
     return matches
 end
