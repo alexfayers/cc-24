@@ -641,6 +641,20 @@ local function getAllItemStubs(map)
 end
 
 
+---Return the first match of a pattern in the keys of the storageMap
+---@param map table The storageMap
+---@param pattern string The pattern to match
+---@return string
+local function getFirstMatch(map, pattern)
+    for itemName, _ in pairs(map) do
+        if string.match(itemName, pattern) then
+            return itemName
+        end
+    end
+    return pattern
+end
+
+
 -- Main
 
 local function test()
@@ -703,4 +717,5 @@ return {
     isItemAvailable = isItemAvailable,
     getAllItemStubs = getAllItemStubs,
     convertItemNameStub = convertItemNameStub,
+    getFirstMatch = getFirstMatch,
 }

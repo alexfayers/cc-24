@@ -105,6 +105,7 @@ local function main()
         end
 
         local item = storage.convertItemNameStub(arg[2])
+        item = storage.getFirstMatch(storageMap, item)
         checkItem(item)
     elseif command == "pull" then
         if #arg < 2 then
@@ -113,6 +114,7 @@ local function main()
         end
 
         local item = storage.convertItemNameStub(arg[2])
+        item = storage.getFirstMatch(storageMap, item)
         local amountStr = arg[3]
         local amount = 0
 
