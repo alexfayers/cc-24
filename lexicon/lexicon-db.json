@@ -74,7 +74,7 @@
                 "storage2-lib"
             ],
             "type": "program",
-            "usage": "'storage2' or 'storage2-watch'"
+            "usage": "'storage2' and 'storage2-watch'"
         }
     }
 }
