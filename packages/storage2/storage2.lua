@@ -113,9 +113,18 @@ local function showUsage()
     local fullSlotCount = storage.getFullSlots(allSlots)
     local allSlotsCount = #allSlots
 
+    print("Usage:")
+
     print(
-        "Storage usage: " .. fullSlotCount .. "/" .. allSlotsCount .. " slots " ..
+        "  Slots: " .. fullSlotCount .. "/" .. allSlotsCount ..
         " (" .. math.floor(fullSlotCount / allSlotsCount * 100) .. "%)"
+    )
+
+    local itemCount = storage.getTotalCount(allSlots)
+    local maxItemPrediction = storage.CHEST_SLOT_MAX * #allSlotsCount
+    print(
+        "  Items:  " .. itemCount .. "/" .. maxItemPrediction ..
+        " (" .. math.floor(itemCount / maxItemPrediction * 100) .. "%)"
     )
 end
 

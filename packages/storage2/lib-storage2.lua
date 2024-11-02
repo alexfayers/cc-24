@@ -762,6 +762,7 @@ return {
     getStorageChests = getStorageChests,
     getStorageMapPath = getStorageMapPath,
     getTotalItemCount = getTotalItemCount,
+    getTotalCount = getTotalCount,
     isItemAvailable = isItemAvailable,
     getAllItemStubs = getAllItemStubs,
     convertItemNameStub = convertItemNameStub,
@@ -769,4 +770,5 @@ return {
     getAllMatches = getAllMatches,
     getAllSlots = getAllSlots,
     getFullSlots = getFullSlots,
+    CHEST_SLOT_MAX = CHEST_SLOT_MAX,
 }
