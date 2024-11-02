@@ -76,7 +76,7 @@ shell.setCompletionFunction(shell.getRunningProgram(), complete)
 local function checkItem(item)
     local itemCount = storage.getTotalItemCount(storageMap, item)
 
-    if itemCount then
+    if itemCount > 0 then
         print("Item: " .. item)
         print("Amount: " .. itemCount)
     else
