@@ -53,7 +53,7 @@ local function complete(_, index, argument, previous)
     local previousArg = previous[#previous]
 
     if index == 1 then
-        return completion.choice(argument, {"pull", "push", "check", "help"}, true)
+        return completion.choice(argument, {"pull", "push", "search", "check", "help"}, true)
     elseif index == 2 then
         if previousArg == "check" or previousArg == "pull" then
             return completion.choice(argument, storage.getAllItemStubs(storageMap), previousArg == "pull")
@@ -85,6 +85,25 @@ local function checkItem(item)
 end
 
 
+---Show all item matches for a given item stub/search
+---@param item string The item stub to search for
+---@return nil
+local function showItemMatches(item)
+    local matches = storage.getAllMatches(storageMap, item)
+
+    if #matches == 0 then
+        print("No matches found for '" .. item .. "'")
+        return
+    end
+
+    print("Matches for '" .. item .. "':")
+    for _, match in pairs(matches) do
+        local count = storage.getTotalItemCount(storageMap, match)
+        print("  " .. match .. " (" .. count .. ")")
+    end
+end
+
+
 ---Main function for the script. Handles the command line interface.
 ---@return nil
 local function main()
@@ -107,6 +126,13 @@ local function main()
         local item = storage.convertItemNameStub(arg[2])
         item = storage.getFirstMatch(storageMap, item)
         checkItem(item)
+    elseif command == "search" then
+        if #arg < 2 then
+            help()
+            return
+        end
+
+        showItemMatches(arg[2])
     elseif command == "pull" then
         if #arg < 2 then
             help()
