@@ -37,6 +37,8 @@ settings.define("storage2.itemDetailCache", {
 local SAVE_EMPTY_SLOTS = false
 local CHEST_SLOT_MAX = 64
 
+local API_FAILURE_RETRY_COUNT = 3
+
 local logger = logging.getLogger("storage2")
 logger:setLevel(logging.LEVELS.INFO)
 
@@ -261,10 +263,16 @@ local function getItemDetailCached(itemCache, chest, slot, itemName)
         return itemCache[itemName]
     end
 
+    local getItemDetailAttempts = 0
+    ::retry_get_item_detail::
     local itemDetail = chest.getItemDetail(slot)
     if not itemDetail then
-        logger:error("Failed to get item details for slot %d in chest %s", slot, peripheral.getName(chest))
-        return
+        getItemDetailAttempts = getItemDetailAttempts + 1
+        if getItemDetailAttempts > API_FAILURE_RETRY_COUNT then
+            logger:error("Failed to get item details for slot %d in chest %s too many times", slot, peripheral.getName(chest))
+            return
+        end
+        goto retry_get_item_detail
     end
 
     itemName = itemName or itemDetail.name
@@ -644,7 +652,7 @@ local function pushItems(map, inputChest)
             if attemptCount == nil then
                 logger:warn("Failed to push items from slot %d to slot %d in chest %s, retrying", inputSlot, storageSlot.slot, peripheral.getName(storageSlot.chest))
                 retry_push_count = retry_push_count + 1
-                if retry_push_count > 3 then
+                if retry_push_count > API_FAILURE_RETRY_COUNT then
                     logger:error("Failed to push items too many times, marking the slot as full and continuing", inputSlot, storageSlot.slot, peripheral.getName(storageSlot.chest))
                     storageSlot.isFull = true
                     goto continue
@@ -734,7 +742,7 @@ local function pullItems(map, itemName, count, outputChest, fuzzyMode)
         if attemptCount == nil then
             logger:warn("Failed to pull items from slot %d in chest %s, retrying", storageSlot.slot, peripheral.getName(storageSlot.chest))
             retry_pull_count = retry_pull_count + 1
-            if retry_pull_count > 3 then
+            if retry_pull_count > API_FAILURE_RETRY_COUNT then
                 logger:error("Failed to pull items too many times, marking the slot as empty and continuing", storageSlot.slot, peripheral.getName(storageSlot.chest))
                 -- map = removeSlotAndAddEmpty(map, storageSlot.name, storageSlot)
                 table.insert(mapRemovals, {
