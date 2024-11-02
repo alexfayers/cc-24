@@ -2,6 +2,7 @@
 -- From here, you can access all of lexicon's subprograms!
 
 local completion = require("cc.completion")
+local pretty = require("cc.pretty")
 
 local MANIFEST_URL = "https://raw.githubusercontent.com/alexfayers/cc-24/main/lexicon/lexicon-db.json"
 
@@ -89,15 +90,18 @@ end
 ---Download a package from the lexicon repository
 ---@param packageName string The name of the package to download
 ---@param parentPackage string | nil The name of the parent package
+---@return table _ The files that were downloaded
 local function downloadPackage(packageName, parentPackage)
     -- pretty.print(pretty.pretty(manifest))
+    local downloadedFiles = {}
+    local depenencyFiles = {}
     local packageData = manifest["packages"][packageName]
 
     if not packageData then
         term.setTextColor(colors.red)
         print("Package '" .. packageName .. "' not found.")
         showAvailablePackages()
-        return
+        return downloadedFiles
     end
 
     local downloadMessage = "Downloading " .. packageName .. " (" .. packageData["version"] .. ")"
@@ -114,7 +118,14 @@ local function downloadPackage(packageName, parentPackage)
         -- print("Found " .. #packageDependencies .. " dependencies for '" .. packageName .. "'")
         -- term.setTextColor(colors.white)
         for _, dependecyName in pairs(packageDependencies) do
-            downloadPackage(dependecyName, packageName)
+            local depDbPackageData = downloadPackage(dependecyName, packageName)
+            for _, file in ipairs(depDbPackageData["files"]) do
+                table.insert(depenencyFiles, file)
+            end
+
+            for _, file in ipairs(depDbPackageData["dependencyFiles"]) do
+                table.insert(depenencyFiles, file)
+            end
         end
     end
 
@@ -132,6 +143,8 @@ local function downloadPackage(packageName, parentPackage)
             local f = fs.open(downloadPath, "w")
             f.write(fileContents)
             f.close()
+
+            table.insert(downloadedFiles, downloadPath)
         else
             error("Failed to download file")
         end
@@ -150,10 +163,6 @@ local function downloadPackage(packageName, parentPackage)
     end
 
     if not parentPackage then
-        local db = loadLexiconDb()
-        table.insert(db["packages"], packageName)
-        saveLexiconDb(db)
-
         term.setTextColor(colors.lime)
         print("Downloaded " .. packageName .. " (" .. packageData["version"] .. ")")
         if packageData["type"] == "program" then
@@ -162,6 +171,23 @@ local function downloadPackage(packageName, parentPackage)
         end
         term.setTextColor(colors.white)
     end
+
+    local db = loadLexiconDb()
+
+    local dbPackageData = {
+        version = packageData["version"],
+        type = packageData["type"],
+        dependencies = packageData["dependencies"],
+        files = downloadedFiles,
+        dependencyFiles = depenencyFiles,
+    }
+    db["packages"][packageName] = dbPackageData
+
+    -- pretty.pretty_print(dbPackageData)
+
+    saveLexiconDb(db)
+
+    return dbPackageData
 end
 
 
@@ -169,19 +195,126 @@ end
 ---@return nil
 local function updatePackages()
     local db = loadLexiconDb()
-    for _, packageName in pairs(db["packages"]) do
+    for packageName, _ in pairs(db["packages"]) do
         downloadPackage(packageName)
+    end
+end
+
+
+---Return packages that use a file
+---@param filePath string
+---@return table
+local function packagesUsingFile(filePath)
+    local db = loadLexiconDb()
+    local packageNames = {}
+    for packageName, packageData in pairs(db["packages"]) do
+        for _, file in ipairs(packageData["files"]) do
+            if file == filePath then
+                table.insert(packageNames, packageName)
+                break
+            end
+        end
+
+        for _, file in ipairs(packageData["dependencyFiles"]) do
+            if file == filePath then
+                table.insert(packageNames, packageName)
+                break
+            end
+        end
+    end
+    return packageNames
+end
+
+
+---Delete files that are not used by any package
+---@param packageName string
+---@param packageFiles table
+---@return table
+local function deleteUnusedPackageFiles(packageName, packageFiles)
+    local deletedFiles = {}
+    for _, file in ipairs(packageFiles) do
+        if fs.exists(file) then
+            local otherPackages = packagesUsingFile(file)
+
+            if #otherPackages == 0 or (#otherPackages == 1 and otherPackages[1] == packageName) then
+                fs.delete(file)
+                table.insert(deletedFiles, file)
+            end
+        else
+            term.setTextColor(colors.red)
+            print("File '" .. file .. "' not found.")
+            term.setTextColor(colors.white)
+        end
+    end
+
+    return deletedFiles
+end
+
+
+---Uninstall a package
+---@param packageName string
+---@param isParent boolean
+---@return table | nil
+local function uninstallPackage(packageName, isParent)
+    local db = loadLexiconDb()
+    local packageData = db["packages"][packageName]
+
+    if packageData then
+        if isParent then
+            term.setTextColor(colors.blue)
+            print("Uninstalling " .. packageName .. " (" .. packageData["version"] .. ")")
+            term.setTextColor(colors.white)
+        end
+
+        -- Remove the files
+        local deletedPackageFiles = deleteUnusedPackageFiles(packageName, packageData["files"])
+
+        -- Remove the package from the database
+        if deletedPackageFiles and #deletedPackageFiles > 0 then
+            db["packages"][packageName] = nil
+        end
+        saveLexiconDb(db)
+
+        for _, depName in ipairs(packageData["dependencies"]) do
+            local depDeletes = uninstallPackage(depName, false)
+
+            if depDeletes and #depDeletes > 0 then
+                term.setTextColor(colors.gray)
+                print("Uninstalled " .. depName .. " (unused dep of " .. packageName .. ")")
+                term.setTextColor(colors.white)
+            end
+        end
+
+        if deletedPackageFiles and isParent then
+            term.setTextColor(colors.lime)
+            print("Uninstalled " .. packageName)
+            term.setTextColor(colors.white)
+        end
+
+        return deletedPackageFiles
+    else
+        term.setTextColor(colors.red)
+        print("Package '" .. packageName .. "' not found.")
+        term.setTextColor(colors.white)
+        return
     end
 end
 
 
 local function complete(_, index, argument, previous)
     if index == 1 then
-        return completion.choice(argument, { "get", "upgrade", "list", "list-installed" }, true)
+        return completion.choice(argument, { "get", "remove", "upgrade", "list", "list-installed" }, true)
     elseif index == 2 then
         if previous[#previous] == "get" then
-            packageNames = {}
+            local packageNames = {}
             for packageName, _ in pairs(manifest["packages"]) do
+                table.insert(packageNames, packageName)
+            end
+            return completion.choice(argument, packageNames)
+        elseif previous[#previous] == "remove" then
+            local db = loadLexiconDb()
+            local packageNames = {}
+            for packageName, _ in pairs(db["packages"]) do
                 table.insert(packageNames, packageName)
             end
             return completion.choice(argument, packageNames)
@@ -193,6 +326,7 @@ local function usage()
     print("Usage: lexicon <command>")
     print("Commands:")
     print("  get <package> - Download a package from the lexicon repository")
+    print("  remove <package> - Uninstall a package")
     print("  upgrade - Update all previously downloaded packages")
     print("  list - List all available packages")
     print("  list-installed - List all installed packages")
@@ -210,6 +344,13 @@ local function handleArgs()
             end
 
             downloadPackage(arg[2])
+        elseif arg[1] == "remove" then
+            if #arg < 2 then
+                print("Usage: lexicon remove <package>")
+                return
+            end
+
+            uninstallPackage(arg[2], true)
         elseif arg[1] == "list" then
             showAvailablePackages()
         elseif arg[1] == "upgrade" then
