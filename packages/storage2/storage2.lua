@@ -121,7 +121,7 @@ local function showUsage()
     )
 
     local itemCount = storage.getTotalCount(allSlots)
-    local maxItemPrediction = storage.CHEST_SLOT_MAX * #allSlotsCount
+    local maxItemPrediction = storage.CHEST_SLOT_MAX * allSlotsCount
     print(
         "  Items:  " .. itemCount .. "/" .. maxItemPrediction ..
         " (" .. math.floor(itemCount / maxItemPrediction * 100) .. "%)"
