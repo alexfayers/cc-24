@@ -33,12 +33,12 @@ storage.saveStorageMap(storageMapPath, storageMap)
 local function help()
     print("Usage: storage2 <command>")
     print("Commands:")
-    print("  push")
-    print("    Push items from the input chest to the storage chests")
-    print("  check <item>")
-    print("    Check the contents of the storage chests")
     print("  pull <item> [amount]")
     print("    Pull items from the storage chests to the output chest")
+    print("  push")
+    print("    Push items from the input chest to the storage chests")
+    print("  search <regex>")
+    print("    Search storage using a regex")
     print("  help")
     print("    Display this help message")
 end
@@ -53,9 +53,9 @@ local function complete(_, index, argument, previous)
     local previousArg = previous[#previous]
 
     if index == 1 then
-        return completion.choice(argument, {"pull", "push", "search", "check", "help"}, true)
+        return completion.choice(argument, {"pull", "push", "search", "help"}, true)
     elseif index == 2 then
-        if previousArg == "check" or previousArg == "pull" then
+        if previousArg == "pull" then
             return completion.choice(argument, storage.getAllItemStubs(storageMap), previousArg == "pull")
         end
     elseif index == 3 then
@@ -117,15 +117,6 @@ local function main()
     if command == "push" then
         storageMap = storage.pushItems(storageMap, inputChest)
         storage.saveStorageMap(storageMapPath, storageMap)
-    elseif command == "check" then
-        if #arg < 2 then
-            help()
-            return
-        end
-
-        local item = storage.convertItemNameStub(arg[2])
-        item = storage.getFirstMatch(storageMap, item)
-        checkItem(item)
     elseif command == "search" then
         if #arg < 2 then
             help()
