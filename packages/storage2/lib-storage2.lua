@@ -49,7 +49,7 @@ logger:setLevel(logging.LEVELS.INFO)
 
 ---@alias ChestSizeFunction fun(): number The function that returns the size of a chest
 ---@alias ChestListFunction fun(): ChestList The function that returns the list of items in a chest
----@alias ChestGetItemDetailFunction fun(slot: number): ChestGetItemDetailItem The function that returns the details of an item in a chest
+---@alias ChestGetItemDetailFunction fun(slot: number): ChestGetItemDetailItem|nil The function that returns the details of an item in a chest
 
 ---@alias ChestGetItemLimitFunction fun(slot: number): number The function that returns the limit of slot in a chest (broken)
 
