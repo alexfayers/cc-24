@@ -193,10 +193,12 @@ end
 
 ---Update all packages in the lexicon database
 ---@return nil
-local function updatePackages()
+local function updatePrograms()
     local db = loadLexiconDb()
-    for packageName, _ in pairs(db["packages"]) do
-        downloadPackage(packageName)
+    for packageName, packageData in pairs(db["packages"]) do
+        if packageData["type"] == "program" then
+            downloadPackage(packageName)
+        end
     end
 end
 
@@ -218,6 +220,21 @@ local function packagesUsingFile(filePath)
         for _, file in ipairs(packageData["dependencyFiles"]) do
             if file == filePath then
                 table.insert(packageNames, packageName)
+                break
+            end
+        end
+    end
+    return packageNames
+end
+
+
+local function otherPackagesUsingThisOne(packageName)
+    local db = loadLexiconDb()
+    local packageNames = {}
+    for otherPackageName, otherPackageData in pairs(db["packages"]) do
+        for _, depName in ipairs(otherPackageData["dependencies"]) do
+            if depName == packageName then
+                table.insert(packageNames, otherPackageName)
                 break
             end
         end
@@ -272,6 +289,16 @@ local function uninstallPackage(packageName, isParent)
         -- Remove the package from the database
         if deletedPackageFiles and #deletedPackageFiles > 0 then
             db["packages"][packageName] = nil
+        elseif isParent then
+            term.setTextColor(colors.red)
+            print("Package '" .. packageName .. "' is still in use by the following packages:")
+            local otherPackages = otherPackagesUsingThisOne(packageName)
+            for _, otherPackageName in ipairs(otherPackages) do
+                term.setTextColor(colors.lime)
+                print(" - " .. otherPackageName)
+            end
+            term.setTextColor(colors.white)
+            return
         end
         saveLexiconDb(db)
 
@@ -327,7 +354,7 @@ local function usage()
     print("Commands:")
     print("  get <package> - Download a package from the lexicon repository")
     print("  remove <package> - Uninstall a package")
-    print("  upgrade - Update all previously downloaded packages")
+    print("  upgrade - Update all previously downloaded PROGRAMS (not libraries)")
     print("  list - List all available packages")
     print("  list-installed - List all installed packages")
 end
@@ -354,7 +381,7 @@ local function handleArgs()
         elseif arg[1] == "list" then
             showAvailablePackages()
         elseif arg[1] == "upgrade" then
-            updatePackages()
+            updatePrograms()
         elseif arg[1] == "list-installed" then
             showInstalledPackages()
         else
