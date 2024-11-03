@@ -71,19 +71,20 @@
                 ]
             ],
             "dependencies": [
-                "lib-storage2"
+                "lib-storage2",
+                "class-lua"
             ],
             "type": "program",
             "usage": "'storage2' and 'storage2-watch'"
         },
 
-        "class.lua": {
+        "class-lua": {
             "description": "Make lua Object-Oriented!",
             "version": "1.0.0",
             "files": [
                 [
                     "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/class.lua/class.lua",
-                    "/usr/lib/class.lua/class.lua"
+                    "/usr/lib/class-lua/class.lua"
                 ]
             ],
             "dependencies": [],
