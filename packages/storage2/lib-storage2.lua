@@ -2,7 +2,7 @@
 package.path = package.path .. ";/usr/lib/?.lua"
 
 -- imports
-local class = require("class-lua.class")
+require("class-lua.class")
 
 local pretty = require("cc.pretty")
 local logging = require("lexicon-lib.lib-logging")
@@ -82,7 +82,7 @@ end
 
 ---@class MapSlot
 ---@overload fun(name: string, chest: ccTweaked.peripherals.Inventory, slot: number, count: number, maxCount: number, isFull?: boolean, tags?: table<string, boolean>): MapSlot
-MapSlot = class.class()
+MapSlot = class()
 
 ---Initialise a new MapSlot
 ---@param name string The name of the item
@@ -165,6 +165,9 @@ function MapSlot.unserialize(data)
         data.tags
     )
 end
+
+
+---@class Map
 
 
 -- functions
