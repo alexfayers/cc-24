@@ -53,7 +53,8 @@
                 ]
             ],
             "dependencies": [
-                "lib-logging"
+                "lib-logging",
+                "class-lua"
             ],
             "type": "library"
         },
@@ -71,8 +72,7 @@
                 ]
             ],
             "dependencies": [
-                "lib-storage2",
-                "class-lua"
+                "lib-storage2"
             ],
             "type": "program",
             "usage": "'storage2' and 'storage2-watch'"
