@@ -2,8 +2,7 @@
 package.path = package.path .. ";/usr/lib/?.lua"
 
 -- imports
-
-require("class")
+local class = require("class-lua.class")
 
 local pretty = require("cc.pretty")
 local logging = require("lexicon-lib.lib-logging")
@@ -53,40 +52,115 @@ logger:setLevel(logging.LEVELS.INFO)
 
 -- types
 
----@alias MapSlotTable {name: string, chest: ccTweaked.peripherals.Inventory, slot: number, count: number, maxCount: number, isFull: boolean, tags: string[]}
+---@alias Map table<string, MapSlot[]>
 
----@alias Map table<string, MapSlotTable[]>
+---@alias SerializedMapSlotTable {name: string, chestName: string, slot: number, count: number, maxCount: number, isFull: boolean, tags: table<string, boolean>}
+---@alias SerializedMap table<string, SerializedMapSlotTable[]> The serialized storage map
 
 ---@alias itemDetailCacheItem {displayName: string, itemGroups: ChestGetItemDetailItemItemGroups, maxCount: number, name: string, tags: ChestGetItemDetailItemTags} The details of an item, but cached
 ---@alias ItemDetailCache table<string, itemDetailCacheItem> The cache of item details
 
 
+-- functions that are used in classes
+
+
+---Ensure a wrapped peripheral is an inventory
+---@param wrappedPeripheral ccTweaked.peripherals.wrappedPeripheral
+---@return ccTweaked.peripherals.Inventory?
+local function ensureInventory(wrappedPeripheral)
+    if not peripheral.getType(wrappedPeripheral) == "inventory" then
+        logger:error("%s is not an inventory. Please use an inventory chest.", wrappedPeripheral)
+        return
+    end
+    ---@type ccTweaked.peripherals.Inventory
+    return wrappedPeripheral
+end
+
+
+
 -- classes
 
 ---@class MapSlot
----@overload fun(name: string, chest: ccTweaked.peripherals.Inventory, slot: number, count: number, maxCount: number, isFull: boolean, tags: string[]): MapSlot
-MapSlot = class()
+---@overload fun(name: string, chest: ccTweaked.peripherals.Inventory, slot: number, count: number, maxCount: number, isFull?: boolean, tags?: table<string, boolean>): MapSlot
+MapSlot = class.class()
 
 ---Initialise a new MapSlot
+---@param name string The name of the item
+---@param chest ccTweaked.peripherals.Inventory The chest that the slot is in
+---@param slot number The slot number
+---@param count number The number of items in the slot
+---@param maxCount number The maximum number of items that can be in the slot
+---@param isFull boolean Whether the slot is full or not
+---@param tags string[]|nil The tags of the item
 function MapSlot:init(name, chest, slot, count, maxCount, isFull, tags)
     self.name = name
     self.chest = chest
     self.slot = slot
     self.count = count
     self.maxCount = maxCount
-    self.isFull = isFull
-    self.tags = tags
+    self.isFull = isFull or self:calcIsFull()
+    self.tags = tags or {}
+end
+
+---Calculate if the slot is full
+---@return boolean
+function MapSlot:calcIsFull()
+    return self.count >= self.maxCount
 end
 
 ---Check if the slot is full
 ---@return nil
 function MapSlot:updateIsFull()
-    self.isFull = self.count >= self.maxCount
+    self.isFull = self:calcIsFull()
+end
+
+---Mark a slot as full
+---@return nil
+function MapSlot:markFull()
+    self.isFull = true
+end
+
+---Mark a slot as not full
+---@return nil
+function MapSlot:markNotFull()
+    self.isFull = false
+end
+
+---Serialize the slot
+---@return SerializedMapSlotTable
+function MapSlot:serialize()
+    return {
+        name = self.name,
+        chestName = peripheral.getName(self.chest),
+        slot = self.slot,
+        count = self.count,
+        maxCount = self.maxCount,
+        isFull = self.isFull,
+        tags = self.tags,
+    }
+end
+
+---Unserialize the slot
+---@param data SerializedMapSlotTable The serialized slot
+---@return MapSlot?
+function MapSlot.unserialize(data)
+    local wrappedPeripheral = peripheral.wrap(data.chestName); if not wrappedPeripheral then return end
+    local wrappedChest = ensureInventory(wrappedPeripheral); if not wrappedChest then return end
+
+    return MapSlot(
+        data.name,
+        wrappedChest,
+        data.slot,
+        data.count,
+        data.maxCount,
+        data.isFull,
+        data.tags
+    )
 end
 
 
 -- Create a new object like this:
--- local mapSlot = MapSlot("minecraft:stone", chest, 1, 64, 64, true, {"tag1", "tag2"})
+-- local mapSlot = MapSlot("minecraft:stone", chest, 1, 64, 64, true, {"tag1": true, "tag2", true})
 
 
 
@@ -148,17 +222,6 @@ end
 ---@return string
 local function getItemDetailCachePath()
     return settings.get("storage2.itemDetailCache")
-end
-
----Ensure a wrapped peripheral is an inventory
----@param wrappedPeripheral ccTweaked.peripherals.wrappedPeripheral
----@return ccTweaked.peripherals.Inventory?
-local function ensureInventory(wrappedPeripheral)
-    if not peripheral.getType(wrappedPeripheral) == "inventory" then
-        logger:error("%s is not an inventory. Please use an inventory chest.", wrappedPeripheral)
-        ---@type ccTweaked.peripherals.Inventory
-        return wrappedPeripheral
-    end
 end
 
 ---Get the wrapped input chest
@@ -376,7 +439,7 @@ end
 ---Add a slot to the storageMap
 ---@param map Map The storageMap
 ---@param itemName string The name of the item
----@param slot MapSlotTable The slot to add
+---@param slot MapSlot The slot to add
 ---@return Map
 local function addSlot(map, itemName, slot)
     if not map[itemName] then
@@ -393,14 +456,16 @@ end
 ---@param slot number The slot number
 ---@return Map
 local function addEmptySlot(map, chest, slot)
-    addSlot(map, "empty", {
-        name = "empty",
-        chest = chest,
-        slot = slot,
-        count = 0,
-        maxCount = CHEST_SLOT_MAX,
-        isFull = false,
-    })
+    addSlot(map, "empty",
+        MapSlot(
+            "empty",
+            chest,
+            slot,
+            0,
+            CHEST_SLOT_MAX,
+            false
+        )
+    )
     return map
 end
 
@@ -408,7 +473,7 @@ end
 ---Get all slots in the storageMap that have the item
 ---@param map Map The storageMap
 ---@param itemName string
----@return MapSlotTable[]
+---@return MapSlot[]
 local function getSlots(map, itemName)
     return map[itemName] or {}
 end
@@ -417,7 +482,7 @@ end
 ---Get all slots in the storageMap that match a pattern
 ---@param map Map The storageMap
 ---@param search string The pattern to match
----@return MapSlotTable[]
+---@return MapSlot[]
 local function getSlotsFuzzy(map, search)
     local slots = {}
     local matches = getAllMatches(map, search)
@@ -433,7 +498,7 @@ end
 ---Remove a slot from the storageMap
 ---@param map Map The storageMap
 ---@param itemName string The name of the item
----@param slot MapSlotTable The slot to remove
+---@param slot MapSlot The slot to remove
 ---@return Map
 local function removeSlot(map, itemName, slot)
     local slots = getSlots(map, itemName)
@@ -449,7 +514,7 @@ end
 ---Remove a slot from the storageMap and add it to the empty slots
 ---@param map Map The storageMap
 ---@param itemName string The name of the item
----@param slot MapSlotTable The slot to remove
+---@param slot MapSlot The slot to remove
 ---@return Map
 local function removeSlotAndAddEmpty(map, itemName, slot)
     map = removeSlot(map, itemName, slot)
@@ -510,14 +575,17 @@ local function populateStorageMap(chests)
                 goto continue
             end
 
-            addSlot(map, item.name, {
-                name = item.name,
-                chest = chest,
-                slot = slot,
-                count = item.count,
-                maxCount = slotDetails.maxCount,
-                isFull = item.count >= slotDetails.maxCount,
-            })
+            addSlot(map, item.name,
+                MapSlot(
+                    item.name,
+                    chest,
+                    slot,
+                    item.count,
+                    slotDetails.maxCount,
+                    nil,
+                    slotDetails.tags
+                )
+            )
             ::continue::
         end
 
@@ -529,14 +597,14 @@ end
 ---Get the first slot in the storageMap that has the item
 ---@param map Map The storageMap
 ---@param itemName string
----@return MapSlotTable|nil
+---@return MapSlot|nil
 local function getFirstSlot(map, itemName)
     local allSlots = getSlots(map, itemName)
     return allSlots and allSlots[1]
 end
 
 ---Get the total count of items from a list of slots
----@param slots MapSlotTable[] The list of slots
+---@param slots MapSlot[] The list of slots
 ---@return number
 local function getTotalCount(slots)
     local total = 0
@@ -548,7 +616,7 @@ end
 
 
 ---Get the total of the maxCount of a list of slots
----@param slots MapSlotTable[] The list of slots
+---@param slots MapSlot[] The list of slots
 ---@return number
 local function getTotalMaxCount(slots)
     local total = 0
@@ -582,7 +650,7 @@ end
 
 ---Get all slots in the storageMap
 ---@param map Map The storageMap
----@return MapSlotTable[]
+---@return MapSlot[]
 local function getAllSlots(map)
     local allSlots = {}
     for _, slots in pairs(map) do
@@ -610,7 +678,7 @@ end
 
 
 ---Get the total count of full slots in a given slot table
----@param slots MapSlotTable[] The table of slots
+---@param slots MapSlot[] The table of slots
 ---@return number
 local function getFullSlots(slots)
     local fullSlots = filterTable(slots, function (slot)
@@ -636,7 +704,7 @@ end
 ---@param map Map The storageMap
 ---@param itemName string The name of the item
 ---@param filter function|nil A function that is used to filter the slots (should take 1 argument [a slot] and return true or false)
----@return MapSlotTable[]
+---@return MapSlot[]
 local function getSlotsFilter(map, itemName, filter)
     local slots = getSlots(map, itemName)
     if filter then
@@ -649,14 +717,14 @@ end
 
 ---Get the free slots in the storageMap
 ---@param map Map The storageMap
----@return MapSlotTable[]
+---@return MapSlot[]
 local function getFreeSlots(map)
     return getSlots(map, "empty")
 end
 
 ---Get the first free slot in the storageMap
 ---@param map Map The storageMap
----@return MapSlotTable|nil
+---@return MapSlot|nil
 local function getFirstFreeSlot(map)
     return getFirstSlot(map, "empty")
 end
@@ -664,7 +732,7 @@ end
 ---Get a list of slots that potentially have space for the item
 ---@param map Map The storageMap
 ---@param itemName string The name of the item
----@return MapSlotTable[]
+---@return MapSlot[]
 local function getSlotsWithSpace(map, itemName)
     local slots = getSlotsFilter(map, itemName, function (slots)
         return slots.isFull == false
@@ -712,7 +780,7 @@ local function pushItems(map, inputChest)
                 retry_push_count = retry_push_count + 1
                 if retry_push_count > API_FAILURE_RETRY_COUNT then
                     logger:error("Failed to push items too many times, marking the slot as full and continuing", inputSlot, storageSlot.slot, peripheral.getName(storageSlot.chest))
-                    storageSlot.isFull = true
+                    storageSlot:markFull()
                     goto continue
                 end
                 goto retry_push
@@ -721,7 +789,7 @@ local function pushItems(map, inputChest)
             logger:debug("Pushed %d items to slot %d", attemptCount, storageSlot.slot)
             if attemptCount == 0 then
                 -- This slot is full so mark it so we don't try to push to it again
-                storageSlot.isFull = true
+                storageSlot:markFull()
             else
                 if storageSlot.count == 0 then
                     -- This slot was empty so we need to add it to the map
@@ -736,10 +804,7 @@ local function pushItems(map, inputChest)
                     removeSlot(map, "empty", storageSlot)
                 end
                 storageSlot.count = storageSlot.count + attemptCount
-
-                if storageSlot.count >= storageSlot.maxCount then
-                    storageSlot.isFull = true
-                end
+                storageSlot:updateIsFull()
             end
             totalPushedCount = totalPushedCount + attemptCount
             itemPushedCount = itemPushedCount + attemptCount
@@ -784,7 +849,7 @@ local function pullItems(map, itemName, count, outputChest, fuzzyMode)
 
     local outputChestName = peripheral.getName(outputChest)
 
-    ---@type {itemName: string, slot: MapSlotTable}[]
+    ---@type {itemName: string, slot: MapSlot}[]
     local mapRemovals = {}
 
     for _, storageSlot in pairs(slots) do
@@ -872,6 +937,7 @@ local function saveStorageMap(path, map)
         return
     end
 
+    ---@type SerializedMap
     local noChestMap = {}
     for itemName, slots in pairs(map) do
         if not SAVE_EMPTY_SLOTS and itemName == "empty" then
@@ -879,14 +945,7 @@ local function saveStorageMap(path, map)
         end
         noChestMap[itemName] = {}
         for _, slot in pairs(slots) do
-            table.insert(noChestMap[itemName], {
-                name = itemName,
-                chestName = peripheral.getName(slot.chest),
-                slot = slot.slot,
-                count = slot.count,
-                maxCount = slot.maxCount,
-                isFull = slot.isFull,
-            })
+            table.insert(noChestMap[itemName], slot:serialize())
         end
         ::continue::
     end
@@ -925,18 +984,12 @@ local function loadStorageMap(path, chests)
         return
     end
 
+    ---@type Map
     local map = {}
     for itemName, slots in pairs(noChestMap) do
         map[itemName] = {}
         for _, slot in pairs(slots) do
-            table.insert(map[itemName], {
-                name = itemName,
-                chest = peripheral.wrap(slot.chestName),
-                slot = slot.slot,
-                count = slot.count,
-                maxCount = slot.maxCount,
-                isFull = slot.isFull,
-            })
+            table.insert(map[itemName], MapSlot.unserialize(slot))
         end
     end
     if not SAVE_EMPTY_SLOTS then
