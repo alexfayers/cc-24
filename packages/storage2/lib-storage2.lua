@@ -3,6 +3,8 @@ package.path = package.path .. ";/usr/lib/?.lua"
 
 -- imports
 
+require("class")
+
 local pretty = require("cc.pretty")
 local logging = require("lexicon-lib.lib-logging")
 
@@ -32,6 +34,12 @@ settings.define("storage2.itemDetailCache", {
     type = "string",
 })
 
+settings.define("storage2.filterDirectory", {
+    description = "The directory to load filter files from",
+    default = "/.storage2/filters",
+    type = "string",
+})
+
 -- constants
 
 local SAVE_EMPTY_SLOTS = false
@@ -45,31 +53,42 @@ logger:setLevel(logging.LEVELS.INFO)
 
 -- types
 
----@alias MapSlot {name: string, chest: Chest, slot: number, count: number, maxCount: number, isFull: boolean}
+---@alias MapSlotTable {name: string, chest: ccTweaked.peripherals.Inventory, slot: number, count: number, maxCount: number, isFull: boolean, tags: string[]}
 
----@alias Map table<string, MapSlot[]>
-
----@alias ChestListItem {count: number, name: string} A single item from the list of items in a chest
----@alias ChestList table<number, ChestListItem> The list of items in a chest
-
----@alias ChestGetItemDetailItemItemGroups {displayName: string, id: string}[]
----@alias ChestGetItemDetailItemTags table<string, boolean>
----@alias ChestGetItemDetailItem {count: number, displayName: string, itemGroups: ChestGetItemDetailItemItemGroups, maxCount: number, name: string, tags: ChestGetItemDetailItemTags} The details of an item in a chest
-
----@alias ChestSizeFunction fun(): number The function that returns the size of a chest
----@alias ChestListFunction fun(): ChestList The function that returns the list of items in a chest
----@alias ChestGetItemDetailFunction fun(slot: number): ChestGetItemDetailItem|nil The function that returns the details of an item in a chest
-
----@alias ChestGetItemLimitFunction fun(slot: number): number The function that returns the limit of slot in a chest (broken)
-
----@alias ChestPullItemsFunction fun(fromName: string, fromSlot: number, limit: number|nil, toSlot: number|nil): number The function that pulls items from another chest into this chest
----@alias ChestPushItemsFunction fun(toName: string, fromSlot: number, limit: number|nil, toSlot: number|nil): number The function that pushes items from a chest into another
-
----@alias Chest {size: function, list: ChestListFunction, getItemDetail: ChestGetItemDetailFunction, getItemLimit: ChestGetItemLimitFunction, pullItems: ChestPullItemsFunction, pushItems: function}
-
+---@alias Map table<string, MapSlotTable[]>
 
 ---@alias itemDetailCacheItem {displayName: string, itemGroups: ChestGetItemDetailItemItemGroups, maxCount: number, name: string, tags: ChestGetItemDetailItemTags} The details of an item, but cached
 ---@alias ItemDetailCache table<string, itemDetailCacheItem> The cache of item details
+
+
+-- classes
+
+---@class MapSlot
+---@overload fun(name: string, chest: ccTweaked.peripherals.Inventory, slot: number, count: number, maxCount: number, isFull: boolean, tags: string[]): MapSlot
+MapSlot = class()
+
+---Initialise a new MapSlot
+function MapSlot:init(name, chest, slot, count, maxCount, isFull, tags)
+    self.name = name
+    self.chest = chest
+    self.slot = slot
+    self.count = count
+    self.maxCount = maxCount
+    self.isFull = isFull
+    self.tags = tags
+end
+
+---Check if the slot is full
+---@return nil
+function MapSlot:updateIsFull()
+    self.isFull = self.count >= self.maxCount
+end
+
+
+-- Create a new object like this:
+-- local mapSlot = MapSlot("minecraft:stone", chest, 1, 64, 64, true, {"tag1", "tag2"})
+
+
 
 
 -- functions
@@ -131,8 +150,19 @@ local function getItemDetailCachePath()
     return settings.get("storage2.itemDetailCache")
 end
 
+---Ensure a wrapped peripheral is an inventory
+---@param wrappedPeripheral ccTweaked.peripherals.wrappedPeripheral
+---@return ccTweaked.peripherals.Inventory?
+local function ensureInventory(wrappedPeripheral)
+    if not peripheral.getType(wrappedPeripheral) == "inventory" then
+        logger:error("%s is not an inventory. Please use an inventory chest.", wrappedPeripheral)
+        ---@type ccTweaked.peripherals.Inventory
+        return wrappedPeripheral
+    end
+end
+
 ---Get the wrapped input chest
----@return Chest|nil
+---@return ccTweaked.peripherals.Inventory|nil
 local function getInputChest()
     local inputChestName = settings.get("storage2.inputChest")
     local inputChest = peripheral.wrap(inputChestName)
@@ -142,11 +172,13 @@ local function getInputChest()
         return
     end
 
+    inputChest = ensureInventory(inputChest); if not inputChest then return end
+
     return inputChest
 end
 
 ---Get the wrapped output chest
----@return Chest|nil
+---@return ccTweaked.peripherals.Inventory|nil
 local function getOutputChest()
     local outputChestName = settings.get("storage2.outputChest")
     local outputChest = peripheral.wrap(outputChestName)
@@ -156,22 +188,25 @@ local function getOutputChest()
         return
     end
 
+    outputChest = ensureInventory(outputChest); if not outputChest then return end
+
     return outputChest
 end
 
 ---Get the wrapped storage chests table
 ---@param inputChest table The input chest
 ---@param outputChest table The output chest
----@return Chest[]|nil
+---@return ccTweaked.peripherals.Inventory[]|nil
 local function getStorageChests(inputChest, outputChest)
     local inputChestName = peripheral.getName(inputChest)
     local outputChestName = peripheral.getName(outputChest)
 
     local chests = {
-        peripheral.find("minecraft:chest", function(name, _)
+        peripheral.find("inventory", function(name, _)
             return name ~= inputChestName and name ~= outputChestName
         end)
     }
+    ---@cast chests ccTweaked.peripherals.Inventory[]
 
     if #chests == 0 then
         logger:error("No storage chests found. Add more chests to the network!")
@@ -204,6 +239,10 @@ local function copyTable(obj, seen)
 ---@return nil
 local function saveTable(path, data)
     local file = fs.open(path, "w")
+    if not file then
+        logger:error("Failed to open file %s for writing", path)
+        return
+    end
     file.write(textutils.serialiseJSON(data))
     file.close()
 end
@@ -218,9 +257,28 @@ local function loadTable(path)
     end
 
     local file = fs.open(path, "r")
+
+    if not file then
+        logger:error("Failed to open file %s for reading", path)
+        return
+    end
+
     local data = file.readAll()
     file.close()
-    return textutils.unserialiseJSON(data)
+
+    if not data then
+        logger:error("Failed to read file or the file was empty %s", path)
+        return
+    end
+
+    local jsonData = textutils.unserialiseJSON(data)
+
+    if not jsonData then
+        logger:error("Failed to parse json data from file %s", path)
+        return
+    end
+
+    return jsonData
 end
 
 
@@ -254,7 +312,7 @@ end
 
 ---Get item detail from a given chest, but cached
 ---@param itemCache ItemDetailCache The cache of item details
----@param chest Chest The chest to get the item detail from
+---@param chest ccTweaked.peripherals.Inventory The chest to get the item detail from
 ---@param slot number The slot to get the item detail from
 ---@param itemName string|nil The name of the item (used for caching)
 ---@return itemDetailCacheItem|nil
@@ -318,7 +376,7 @@ end
 ---Add a slot to the storageMap
 ---@param map Map The storageMap
 ---@param itemName string The name of the item
----@param slot MapSlot The slot to add
+---@param slot MapSlotTable The slot to add
 ---@return Map
 local function addSlot(map, itemName, slot)
     if not map[itemName] then
@@ -331,7 +389,7 @@ end
 
 ---Add a new empty slot to the storageMap
 ---@param map Map The storageMap
----@param chest Chest The chest that the slot is in
+---@param chest ccTweaked.peripherals.Inventory The chest that the slot is in
 ---@param slot number The slot number
 ---@return Map
 local function addEmptySlot(map, chest, slot)
@@ -350,7 +408,7 @@ end
 ---Get all slots in the storageMap that have the item
 ---@param map Map The storageMap
 ---@param itemName string
----@return MapSlot[]
+---@return MapSlotTable[]
 local function getSlots(map, itemName)
     return map[itemName] or {}
 end
@@ -359,7 +417,7 @@ end
 ---Get all slots in the storageMap that match a pattern
 ---@param map Map The storageMap
 ---@param search string The pattern to match
----@return MapSlot[]
+---@return MapSlotTable[]
 local function getSlotsFuzzy(map, search)
     local slots = {}
     local matches = getAllMatches(map, search)
@@ -375,7 +433,7 @@ end
 ---Remove a slot from the storageMap
 ---@param map Map The storageMap
 ---@param itemName string The name of the item
----@param slot MapSlot The slot to remove
+---@param slot MapSlotTable The slot to remove
 ---@return Map
 local function removeSlot(map, itemName, slot)
     local slots = getSlots(map, itemName)
@@ -391,7 +449,7 @@ end
 ---Remove a slot from the storageMap and add it to the empty slots
 ---@param map Map The storageMap
 ---@param itemName string The name of the item
----@param slot MapSlot The slot to remove
+---@param slot MapSlotTable The slot to remove
 ---@return Map
 local function removeSlotAndAddEmpty(map, itemName, slot)
     map = removeSlot(map, itemName, slot)
@@ -401,7 +459,7 @@ end
 
 ---Populate empty slots in the storageMap
 ---@param map Map The storageMap to populate
----@param chests Chest[] The list of storage chests
+---@param chests ccTweaked.peripherals.Inventory[] The list of storage chests
 ---@return Map
 local function populateEmptySlots(map, chests)
     logger:debug("Populating empty slots")
@@ -433,7 +491,7 @@ end
 ---Populate the storageMap table with all items in the storage chests
 ---storageMap is a table with keys being the item name and values being a table of tables with the following structure:
 ---{ chest = peripheral, slot = number, count = number, isFull = boolean }
----@param chests Chest[] The list of storage chests
+---@param chests ccTweaked.peripherals.Inventory[] The list of storage chests
 ---@return Map
 local function populateStorageMap(chests)
     logger:warn("Creating storage map")
@@ -471,14 +529,14 @@ end
 ---Get the first slot in the storageMap that has the item
 ---@param map Map The storageMap
 ---@param itemName string
----@return MapSlot|nil
+---@return MapSlotTable|nil
 local function getFirstSlot(map, itemName)
     local allSlots = getSlots(map, itemName)
     return allSlots and allSlots[1]
 end
 
 ---Get the total count of items from a list of slots
----@param slots MapSlot[] The list of slots
+---@param slots MapSlotTable[] The list of slots
 ---@return number
 local function getTotalCount(slots)
     local total = 0
@@ -490,7 +548,7 @@ end
 
 
 ---Get the total of the maxCount of a list of slots
----@param slots MapSlot[] The list of slots
+---@param slots MapSlotTable[] The list of slots
 ---@return number
 local function getTotalMaxCount(slots)
     local total = 0
@@ -524,7 +582,7 @@ end
 
 ---Get all slots in the storageMap
 ---@param map Map The storageMap
----@return MapSlot[]
+---@return MapSlotTable[]
 local function getAllSlots(map)
     local allSlots = {}
     for _, slots in pairs(map) do
@@ -552,7 +610,7 @@ end
 
 
 ---Get the total count of full slots in a given slot table
----@param slots MapSlot[] The table of slots
+---@param slots MapSlotTable[] The table of slots
 ---@return number
 local function getFullSlots(slots)
     local fullSlots = filterTable(slots, function (slot)
@@ -578,7 +636,7 @@ end
 ---@param map Map The storageMap
 ---@param itemName string The name of the item
 ---@param filter function|nil A function that is used to filter the slots (should take 1 argument [a slot] and return true or false)
----@return MapSlot[]
+---@return MapSlotTable[]
 local function getSlotsFilter(map, itemName, filter)
     local slots = getSlots(map, itemName)
     if filter then
@@ -591,14 +649,14 @@ end
 
 ---Get the free slots in the storageMap
 ---@param map Map The storageMap
----@return MapSlot[]
+---@return MapSlotTable[]
 local function getFreeSlots(map)
     return getSlots(map, "empty")
 end
 
 ---Get the first free slot in the storageMap
 ---@param map Map The storageMap
----@return MapSlot|nil
+---@return MapSlotTable|nil
 local function getFirstFreeSlot(map)
     return getFirstSlot(map, "empty")
 end
@@ -606,7 +664,7 @@ end
 ---Get a list of slots that potentially have space for the item
 ---@param map Map The storageMap
 ---@param itemName string The name of the item
----@return MapSlot[]
+---@return MapSlotTable[]
 local function getSlotsWithSpace(map, itemName)
     local slots = getSlotsFilter(map, itemName, function (slots)
         return slots.isFull == false
@@ -726,7 +784,7 @@ local function pullItems(map, itemName, count, outputChest, fuzzyMode)
 
     local outputChestName = peripheral.getName(outputChest)
 
-    ---@type {itemName: string, slot: MapSlot}[]
+    ---@type {itemName: string, slot: MapSlotTable}[]
     local mapRemovals = {}
 
     for _, storageSlot in pairs(slots) do
@@ -808,6 +866,12 @@ end
 ---@return nil
 local function saveStorageMap(path, map)
     local file = fs.open(path, "w")
+
+    if not file then
+        logger:error("Failed to open file %s for writing", path)
+        return
+    end
+
     local noChestMap = {}
     for itemName, slots in pairs(map) do
         if not SAVE_EMPTY_SLOTS and itemName == "empty" then
@@ -832,7 +896,7 @@ end
 
 ---Load a storageMap from a file
 ---@param path string The path to load the file from
----@param chests Chest[] The list of storage chests (used if empty slots aren't saved)
+---@param chests ccTweaked.peripherals.Inventory[] The list of storage chests (used if empty slots aren't saved)
 ---@return Map|nil
 local function loadStorageMap(path, chests)
     if not fs.exists(path) then
@@ -840,9 +904,27 @@ local function loadStorageMap(path, chests)
     end
 
     local file = fs.open(path, "r")
+
+    if not file then
+        logger:error("Failed to open file %s for reading", path)
+        return
+    end
+
     local data = file.readAll()
     file.close()
+
+    if not data then
+        logger:error("Failed to read file or the file was empty %s", path)
+        return
+    end
+
     local noChestMap = textutils.unserialiseJSON(data)
+
+    if not noChestMap then
+        logger:error("Failed to parse JSON data from file %s", path)
+        return
+    end
+
     local map = {}
     for itemName, slots in pairs(noChestMap) do
         map[itemName] = {}
@@ -865,7 +947,7 @@ end
 
 ---Load the storageMap from a file or populate it if the file does not exist
 ---@param path string The path to load the file from
----@param chests Chest[] The list of storage chests
+---@param chests ccTweaked.peripherals.Inventory[] The list of storage chests
 ---@return Map
 local function loadOrPopulateStorageMap(path, chests)
     return loadStorageMap(path, chests) or populateStorageMap(chests)

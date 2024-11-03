@@ -25,6 +25,16 @@
         "turtle",
         "vector",
         "window",
+        "periphemu"
     ],
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
+    "Lua.workspace.library": [
+        "${addons}/cc-tweaked/module/library"
+    ],
+    "Lua.runtime.version": "Lua 5.3",
+    "Lua.runtime.builtin": {
+        "io": "disable",
+        "os": "disable"
+    },
+    "Lua.workspace.checkThirdParty": false
 }
