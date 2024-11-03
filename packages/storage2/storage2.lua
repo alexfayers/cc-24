@@ -50,7 +50,7 @@ end
 ---@param index number The index of the argument
 ---@param argument string The current arguments
 ---@param previous table A table of the previous arguments
----@return table _ A table of possible completions
+---@return table? _ A table of possible completions
 local function complete(_, index, argument, previous)
     local previousArg = previous[#previous]
 
