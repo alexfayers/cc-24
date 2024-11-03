@@ -102,6 +102,14 @@ function MapSlot:init(name, chest, slot, count, maxCount, isFull, tags)
     self.tags = tags or {}
 end
 
+---Create an empty slot
+---@param chest ccTweaked.peripherals.Inventory The chest that the slot is in
+---@param slot number The slot number
+---@return MapSlot
+function MapSlot:empty(chest, slot)
+    return MapSlot("empty", chest, slot, 0, CHEST_SLOT_MAX, false)
+end
+
 ---Calculate if the slot is full
 ---@return boolean
 function MapSlot:calcIsFull()
@@ -450,16 +458,7 @@ end
 ---@param slot number The slot number
 ---@return Map
 local function addEmptySlot(map, chest, slot)
-    addSlot(map, "empty",
-        MapSlot(
-            "empty",
-            chest,
-            slot,
-            0,
-            CHEST_SLOT_MAX,
-            false
-        )
-    )
+    addSlot(map, "empty", MapSlot:empty(chest, slot))
     return map
 end
 
