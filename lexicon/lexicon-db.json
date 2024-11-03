@@ -50,6 +50,18 @@
                 [
                     "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/lib-storage2.lua",
                     "/usr/lib/storage2/lib-storage2.lua"
+                ],
+                [
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/lib/MapSlot.lua",
+                    "/usr/lib/storage2/lib/MapSlot.lua"
+                ],
+                [
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/lib/Constants.lua",
+                    "/usr/lib/storage2/lib/Constants.lua"
+                ],
+                [
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/lib/helpers.lua",
+                    "/usr/lib/storage2/lib/helpers.lua"
                 ]
             ],
             "dependencies": [

@@ -1,0 +1,107 @@
+-- Imports
+package.path = package.path .. ";/usr/lib/?.lua"
+require("class-lua.class")
+require("storage2.lib.Constants")
+
+local helpers = require("storage2.lib.helpers")
+local pretty = require("cc.pretty")
+
+-- Class definition
+
+---@class MapSlot
+---@overload fun(name: string, chest: ccTweaked.peripherals.Inventory, slot: number, count: number, maxCount: number, isFull?: boolean, tags?: table<string, boolean>): MapSlot
+MapSlot = class()
+
+---Initialise a new MapSlot
+---@param name string The name of the item
+---@param chest ccTweaked.peripherals.Inventory The chest that the slot is in
+---@param slot number The slot number
+---@param count number The number of items in the slot
+---@param maxCount number The maximum number of items that can be in the slot
+---@param isFull boolean Whether the slot is full or not
+---@param tags string[]|nil The tags of the item
+function MapSlot:init(name, chest, slot, count, maxCount, isFull, tags)
+    self.name = name
+    self.chest = chest
+    self.slot = slot
+    self.count = count
+    self.maxCount = maxCount
+    self.isFull = isFull or self:calcIsFull()
+    self.tags = self:ensureUniqueTags(tags or {})
+end
+
+---Ensure that a table of tags only has unique keys to prevent serialisation issues
+---@param tags ChestGetItemDetailItemTags The table of tags
+---@return ChestGetItemDetailItemTags
+function MapSlot:ensureUniqueTags(tags)
+    -- TODO: figure out why tf this is necessary
+    local uniqueTags = {}
+    for tag, _ in pairs(tags) do
+        uniqueTags[tag] = true
+    end
+    return uniqueTags
+end
+
+---Create an empty slot
+---@param chest ccTweaked.peripherals.Inventory The chest that the slot is in
+---@param slot number The slot number
+---@return MapSlot
+function MapSlot:empty(chest, slot)
+    return MapSlot("empty", chest, slot, 0, Constants.CHEST_SLOT_MAX, false)
+end
+
+---Calculate if the slot is full
+---@return boolean
+function MapSlot:calcIsFull()
+    return self.count >= self.maxCount
+end
+
+---Check if the slot is full
+---@return nil
+function MapSlot:updateIsFull()
+    self.isFull = self:calcIsFull()
+end
+
+---Mark a slot as full
+---@return nil
+function MapSlot:markFull()
+    self.isFull = true
+end
+
+---Mark a slot as not full
+---@return nil
+function MapSlot:markNotFull()
+    self.isFull = false
+end
+
+---Serialize the slot
+---@return SerializedMapSlotTable
+function MapSlot:serialize()
+    return {
+        name = self.name,
+        chestName = peripheral.getName(self.chest),
+        slot = self.slot,
+        count = self.count,
+        maxCount = self.maxCount,
+        isFull = self.isFull,
+        tags = self.tags,
+    }
+end
+
+---Unserialize the slot
+---@param data SerializedMapSlotTable The serialized slot
+---@return MapSlot?
+function MapSlot.unserialize(data)
+    local wrappedPeripheral = peripheral.wrap(data.chestName); if not wrappedPeripheral then return end
+    local wrappedChest = helpers.ensureInventory(wrappedPeripheral); if not wrappedChest then return end
+
+    return MapSlot(
+        data.name,
+        wrappedChest,
+        data.slot,
+        data.count,
+        data.maxCount,
+        data.isFull,
+        data.tags
+    )
+end

@@ -7,6 +7,11 @@ require("class-lua.class")
 local pretty = require("cc.pretty")
 local logging = require("lexicon-lib.lib-logging")
 
+-- Local lib imports
+require("storage2.lib.MapSlot")
+
+local helpers = require("storage2.lib.helpers")
+
 -- Setting config
 
 settings.define("storage2.inputChest", {
@@ -42,7 +47,6 @@ settings.define("storage2.filterDirectory", {
 -- constants
 
 local SAVE_EMPTY_SLOTS = false
-local CHEST_SLOT_MAX = 64
 
 local API_FAILURE_RETRY_COUNT = 3
 
@@ -59,112 +63,6 @@ logger:setLevel(logging.LEVELS.INFO)
 
 ---@alias itemDetailCacheItem {displayName: string, itemGroups: ChestGetItemDetailItemItemGroups, maxCount: number, name: string, tags: ChestGetItemDetailItemTags} The details of an item, but cached
 ---@alias ItemDetailCache table<string, itemDetailCacheItem> The cache of item details
-
-
--- functions that are used in classes
-
-
----Ensure a wrapped peripheral is an inventory
----@param wrappedPeripheral ccTweaked.peripherals.wrappedPeripheral
----@return ccTweaked.peripherals.Inventory?
-local function ensureInventory(wrappedPeripheral)
-    if not peripheral.getType(wrappedPeripheral) == "inventory" then
-        logger:error("%s is not an inventory. Please use an inventory chest.", wrappedPeripheral)
-        return
-    end
-    ---@type ccTweaked.peripherals.Inventory
-    return wrappedPeripheral
-end
-
-
-
--- classes
-
----@class MapSlot
----@overload fun(name: string, chest: ccTweaked.peripherals.Inventory, slot: number, count: number, maxCount: number, isFull?: boolean, tags?: table<string, boolean>): MapSlot
-MapSlot = class()
-
----Initialise a new MapSlot
----@param name string The name of the item
----@param chest ccTweaked.peripherals.Inventory The chest that the slot is in
----@param slot number The slot number
----@param count number The number of items in the slot
----@param maxCount number The maximum number of items that can be in the slot
----@param isFull boolean Whether the slot is full or not
----@param tags string[]|nil The tags of the item
-function MapSlot:init(name, chest, slot, count, maxCount, isFull, tags)
-    self.name = name
-    self.chest = chest
-    self.slot = slot
-    self.count = count
-    self.maxCount = maxCount
-    self.isFull = isFull or self:calcIsFull()
-    self.tags = tags or {}
-end
-
----Create an empty slot
----@param chest ccTweaked.peripherals.Inventory The chest that the slot is in
----@param slot number The slot number
----@return MapSlot
-function MapSlot:empty(chest, slot)
-    return MapSlot("empty", chest, slot, 0, CHEST_SLOT_MAX, false)
-end
-
----Calculate if the slot is full
----@return boolean
-function MapSlot:calcIsFull()
-    return self.count >= self.maxCount
-end
-
----Check if the slot is full
----@return nil
-function MapSlot:updateIsFull()
-    self.isFull = self:calcIsFull()
-end
-
----Mark a slot as full
----@return nil
-function MapSlot:markFull()
-    self.isFull = true
-end
-
----Mark a slot as not full
----@return nil
-function MapSlot:markNotFull()
-    self.isFull = false
-end
-
----Serialize the slot
----@return SerializedMapSlotTable
-function MapSlot:serialize()
-    return {
-        name = self.name,
-        chestName = peripheral.getName(self.chest),
-        slot = self.slot,
-        count = self.count,
-        maxCount = self.maxCount,
-        isFull = self.isFull,
-        tags = self.tags,
-    }
-end
-
----Unserialize the slot
----@param data SerializedMapSlotTable The serialized slot
----@return MapSlot?
-function MapSlot.unserialize(data)
-    local wrappedPeripheral = peripheral.wrap(data.chestName); if not wrappedPeripheral then return end
-    local wrappedChest = ensureInventory(wrappedPeripheral); if not wrappedChest then return end
-
-    return MapSlot(
-        data.name,
-        wrappedChest,
-        data.slot,
-        data.count,
-        data.maxCount,
-        data.isFull,
-        data.tags
-    )
-end
 
 
 -- functions
@@ -237,7 +135,7 @@ local function getInputChest()
         return
     end
 
-    inputChest = ensureInventory(inputChest); if not inputChest then return end
+    inputChest = helpers.ensureInventory(inputChest); if not inputChest then return end
 
     return inputChest
 end
@@ -253,7 +151,7 @@ local function getOutputChest()
         return
     end
 
-    outputChest = ensureInventory(outputChest); if not outputChest then return end
+    outputChest = helpers.ensureInventory(outputChest); if not outputChest then return end
 
     return outputChest
 end
@@ -568,17 +466,15 @@ local function populateStorageMap(chests)
                 goto continue
             end
 
-            addSlot(map, item.name,
-                MapSlot(
-                    item.name,
-                    chest,
-                    slot,
-                    item.count,
-                    slotDetails.maxCount,
-                    nil,
-                    slotDetails.tags
-                )
-            )
+            addSlot(map, item.name, MapSlot(
+                item.name,
+                chest,
+                slot,
+                item.count,
+                slotDetails.maxCount,
+                nil,
+                slotDetails.tags
+            ))
             ::continue::
         end
 
@@ -790,14 +686,22 @@ local function pushItems(map, inputChest)
                     if not slotDetails then
                         goto continue
                     end
-                    storageSlot.maxCount = slotDetails.maxCount
-
-                    addSlot(map, inputItem.name, storageSlot)
+                    --- Add the slot to the map (same chest and slot as the empty one)
+                    addSlot(map, inputItem.name, MapSlot(
+                        inputItem.name,
+                        storageSlot.chest,
+                        storageSlot.slot,
+                        attemptCount,
+                        slotDetails.maxCount,
+                        nil,
+                        slotDetails.tags
+                    ))
                     -- Remove the slot from the empty slots
                     removeSlot(map, "empty", storageSlot)
+                else
+                    storageSlot.count = storageSlot.count + attemptCount
+                    storageSlot:updateIsFull()
                 end
-                storageSlot.count = storageSlot.count + attemptCount
-                storageSlot:updateIsFull()
             end
             totalPushedCount = totalPushedCount + attemptCount
             itemPushedCount = itemPushedCount + attemptCount
@@ -923,13 +827,6 @@ end
 ---@param map Map The storageMap to save
 ---@return nil
 local function saveStorageMap(path, map)
-    local file = fs.open(path, "w")
-
-    if not file then
-        logger:error("Failed to open file %s for writing", path)
-        return
-    end
-
     ---@type SerializedMap
     local noChestMap = {}
     for itemName, slots in pairs(map) do
@@ -942,8 +839,8 @@ local function saveStorageMap(path, map)
         end
         ::continue::
     end
-    file.write(textutils.serialiseJSON(noChestMap))
-    file.close()
+
+    saveTable(path, noChestMap)
 end
 
 ---Load a storageMap from a file
@@ -951,29 +848,9 @@ end
 ---@param chests ccTweaked.peripherals.Inventory[] The list of storage chests (used if empty slots aren't saved)
 ---@return Map|nil
 local function loadStorageMap(path, chests)
-    if not fs.exists(path) then
-        return nil
-    end
-
-    local file = fs.open(path, "r")
-
-    if not file then
-        logger:error("Failed to open file %s for reading", path)
-        return
-    end
-
-    local data = file.readAll()
-    file.close()
-
-    if not data then
-        logger:error("Failed to read file or the file was empty %s", path)
-        return
-    end
-
-    local noChestMap = textutils.unserialiseJSON(data)
+    local noChestMap = loadTable(path)
 
     if not noChestMap then
-        logger:error("Failed to parse JSON data from file %s", path)
         return
     end
 
@@ -1082,5 +959,4 @@ return {
     getAllMatches = getAllMatches,
     getAllSlots = getAllSlots,
     getFullSlots = getFullSlots,
-    CHEST_SLOT_MAX = CHEST_SLOT_MAX,
 }
