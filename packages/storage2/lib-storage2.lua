@@ -167,9 +167,6 @@ function MapSlot.unserialize(data)
 end
 
 
----@class Map
-
-
 -- functions
 
 
