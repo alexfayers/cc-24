@@ -1,0 +1,11 @@
+-- Calculate the crafting recipe for a given item, then send a request to the storage system for the required items.
+-- After that, send a signal to a crafty turtle on the network to pull the items out of the specified chest and craft the item.
+-- The turtle will then put the crafted item back into the chest.
+-- The following data is sent to the turtle:
+-- 1. The crafting recipe for the item
+-- 2. The chest id to pull the items from
+-- 3. The chest id to put the crafted item into
+--
+-- Where this gets cool is that if a crafting recipe requires an item that is not in the storage system, the system will attempt to craft that item first, recursively.
+-- This means that if you request a diamond pickaxe, and the storage system has diamonds and wooden planks, but no sticks, then it will craft the sticks first, then the pickaxe.
+
