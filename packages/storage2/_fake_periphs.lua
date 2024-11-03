@@ -25,8 +25,23 @@ else
 end
 
 local storageChest = peripheral.wrap("bottom")
+
+if not storageChest then
+    print("No chest found")
+    return
+end
+
+---@diagnostic disable-next-line: undefined-field
 print(storageChest.setItem(1, { name = "minecraft:stone", count = 64 }))
 
 storageChest = peripheral.wrap("top")
+
+if not storageChest then
+    print("No chest found")
+    return
+end
+
+---@diagnostic disable-next-line: undefined-field
 print(storageChest.setItem(2, { name = "minecraft:dirt", count = 32 }))
+---@diagnostic disable-next-line: undefined-field
 print(storageChest.setItem(3, { name = "minecraft:stone", count = 32 }))
