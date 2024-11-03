@@ -159,12 +159,6 @@ function MapSlot.unserialize(data)
 end
 
 
--- Create a new object like this:
--- local mapSlot = MapSlot("minecraft:stone", chest, 1, 64, 64, true, {"tag1": true, "tag2", true})
-
-
-
-
 -- functions
 
 
