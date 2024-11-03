@@ -101,3 +101,8 @@ function class(attr)
 	attr = attr or {}
 	return Class:extend(attr)
 end
+
+return {
+	Class = Class,
+	class = class,
+}
