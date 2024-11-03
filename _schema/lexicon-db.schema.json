@@ -84,7 +84,7 @@
       "title": "Lexicon packages",
       "type": "object",
         "patternProperties": {
-          "^([a-zA-Z0-9-]+)+$": {
+          "^([a-zA-Z0-9-\\.]+)+$": {
             "type": "object",
             "$ref": "#/$defs/package"
           }
