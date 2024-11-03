@@ -75,6 +75,19 @@
             ],
             "type": "program",
             "usage": "'storage2' and 'storage2-watch'"
+        },
+
+        "lib-class": {
+            "description": "A simple class library",
+            "version": "1.0.0",
+            "files": [
+                [
+                    "https://raw.githubusercontent.com/jonstoler/class.lua/refs/heads/master/class.lua",
+                    "/usr/lib/lib-class/lib-class.lua"
+                ]
+            ],
+            "dependencies": [],
+            "type": "library"
         }
     }
 }
