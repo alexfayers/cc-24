@@ -6,7 +6,7 @@
             "version": "1.0.0",
             "files": [
                 [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/lexicon-lib/lib-term.lua",
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lexicon-lib/lib-term.lua",
                     "/usr/lib/lexicon-lib/lib-term.lua"
                 ]
             ],
@@ -18,7 +18,7 @@
             "version": "1.0.0",
             "files": [
                 [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/lexicon-lib/lib-logging.lua",
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lexicon-lib/lib-logging.lua",
                     "/usr/lib/lexicon-lib/lib-logging.lua"
                 ]
             ],
@@ -103,7 +103,7 @@
             "version": "1.0.0",
             "files": [
                 [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/class-lua/class.lua",
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/class-lua/class.lua",
                     "/usr/lib/class-lua/class.lua"
                 ]
             ],
