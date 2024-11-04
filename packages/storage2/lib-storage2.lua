@@ -56,13 +56,13 @@ logger:setLevel(logging.LEVELS.INFO)
 
 -- types
 
----@alias Map table<string, MapSlot[]>
+---@alias MapTable table<string, MapSlot[]>
 
 ---@alias SerializedMapSlotTable {name: string, chestName: string, slot: number, count: number, maxCount: number, isFull: boolean, tags: table<string, boolean>}
 ---@alias SerializedMap table<string, SerializedMapSlotTable[]> The serialized storage map
 
 ---@alias itemDetailCacheItem {displayName: string, itemGroups: ChestGetItemDetailItemItemGroups, maxCount: number, name: string, tags: ChestGetItemDetailItemTags} The details of an item, but cached
----@alias ItemDetailCache table<string, itemDetailCacheItem> The cache of item details
+---@alias ItemDetailCacheTable table<string, itemDetailCacheItem> The cache of item details
 
 
 -- functions
@@ -246,13 +246,13 @@ end
 
 
 ---Load the item detail cache
----@return ItemDetailCache
+---@return ItemDetailCacheTable
 local function loadItemDetailCache()
     return loadTable(getItemDetailCachePath()) or {}
 end
 
 ---Save the item detail cache
----@param cache ItemDetailCache The cache to save
+---@param cache ItemDetailCacheTable The cache to save
 ---@return nil
 local function saveItemDetailCache(cache)
     saveTable(getItemDetailCachePath(), cache)
@@ -274,7 +274,7 @@ end
 
 
 ---Get item detail from a given chest, but cached
----@param itemCache ItemDetailCache The cache of item details
+---@param itemCache ItemDetailCacheTable The cache of item details
 ---@param chest ccTweaked.peripherals.Inventory The chest to get the item detail from
 ---@param slot number The slot to get the item detail from
 ---@param itemName string|nil The name of the item (used for caching)
@@ -308,7 +308,7 @@ end
 
 
 ---Return all matches of a pattern in the keys of the storageMap
----@param map Map The storageMap
+---@param map MapTable The storageMap
 ---@param pattern string The pattern to match
 ---@return string[]
 local function getAllMatches(map, pattern)
@@ -327,20 +327,11 @@ local function getAllMatches(map, pattern)
 end
 
 
----Return the first match of a pattern in the keys of the storageMap
----@param map Map The storageMap
----@param pattern string The pattern to match
----@return string
-local function getFirstMatch(map, pattern)
-    return getAllMatches(map, pattern)[1] or pattern
-end
-
-
 ---Add a slot to the storageMap
----@param map Map The storageMap
+---@param map MapTable The storageMap
 ---@param itemName string The name of the item
 ---@param slot MapSlot The slot to add
----@return Map
+---@return MapTable
 local function addSlot(map, itemName, slot)
     if not map[itemName] then
         map[itemName] = {}
@@ -351,18 +342,18 @@ end
 
 
 ---Add a new empty slot to the storageMap
----@param map Map The storageMap
+---@param map MapTable The storageMap
 ---@param chest ccTweaked.peripherals.Inventory The chest that the slot is in
 ---@param slot number The slot number
----@return Map
+---@return MapTable
 local function addEmptySlot(map, chest, slot)
-    addSlot(map, "empty", MapSlot:empty(chest, slot))
+    addSlot(map, "empty", MapSlot.empty(chest, slot))
     return map
 end
 
 
 ---Get all slots in the storageMap that have the item
----@param map Map The storageMap
+---@param map MapTable The storageMap
 ---@param itemName string
 ---@return MapSlot[]
 local function getSlots(map, itemName)
@@ -371,7 +362,7 @@ end
 
 
 ---Get all slots in the storageMap that match a pattern
----@param map Map The storageMap
+---@param map MapTable The storageMap
 ---@param search string The pattern to match
 ---@return MapSlot[]
 local function getSlotsFuzzy(map, search)
@@ -387,10 +378,10 @@ end
 
 
 ---Remove a slot from the storageMap
----@param map Map The storageMap
+---@param map MapTable The storageMap
 ---@param itemName string The name of the item
 ---@param slot MapSlot The slot to remove
----@return Map
+---@return MapTable
 local function removeSlot(map, itemName, slot)
     local slots = getSlots(map, itemName)
     for i, storageSlot in ipairs(slots) do
@@ -403,10 +394,10 @@ local function removeSlot(map, itemName, slot)
 end
 
 ---Remove a slot from the storageMap and add it to the empty slots
----@param map Map The storageMap
+---@param map MapTable The storageMap
 ---@param itemName string The name of the item
 ---@param slot MapSlot The slot to remove
----@return Map
+---@return MapTable
 local function removeSlotAndAddEmpty(map, itemName, slot)
     map = removeSlot(map, itemName, slot)
     map = addEmptySlot(map, slot.chest, slot.slot)
@@ -414,9 +405,9 @@ local function removeSlotAndAddEmpty(map, itemName, slot)
 end
 
 ---Populate empty slots in the storageMap
----@param map Map The storageMap to populate
+---@param map MapTable The storageMap to populate
 ---@param chests ccTweaked.peripherals.Inventory[] The list of storage chests
----@return Map
+---@return MapTable
 local function populateEmptySlots(map, chests)
     logger:debug("Populating empty slots")
     for chestId, chest in ipairs(chests) do
@@ -448,7 +439,7 @@ end
 ---storageMap is a table with keys being the item name and values being a table of tables with the following structure:
 ---{ chest = peripheral, slot = number, count = number, isFull = boolean }
 ---@param chests ccTweaked.peripherals.Inventory[] The list of storage chests
----@return Map
+---@return MapTable
 local function populateStorageMap(chests)
     logger:warn("Creating storage map")
     local map = {}
@@ -484,7 +475,7 @@ end
 
 
 ---Get the first slot in the storageMap that has the item
----@param map Map The storageMap
+---@param map MapTable The storageMap
 ---@param itemName string
 ---@return MapSlot|nil
 local function getFirstSlot(map, itemName)
@@ -517,7 +508,7 @@ end
 
 
 ---Get the total count of a specific item in the storageMap
----@param map Map The storageMap
+---@param map MapTable The storageMap
 ---@param itemName string The name of the item
 ---@param fuzzyMode boolean Whether to use fuzzy mode or not
 ---@return number
@@ -538,7 +529,7 @@ end
 
 
 ---Get all slots in the storageMap
----@param map Map The storageMap
+---@param map MapTable The storageMap
 ---@return MapSlot[]
 local function getAllSlots(map)
     local allSlots = {}
@@ -577,20 +568,8 @@ local function getFullSlots(slots)
 end
 
 
----Check if an item is available in the storageMap
----@param map Map The storageMap
----@param itemName string The name of the item
----@return boolean
-local function isItemAvailable(map, itemName)
-    if not getTotalItemCount(map, itemName, false) then
-        return false
-    end
-    return true
-end
-
-
 ---Get a list of slots in the storageMap that have the item
----@param map Map The storageMap
+---@param map MapTable The storageMap
 ---@param itemName string The name of the item
 ---@param filter function|nil A function that is used to filter the slots (should take 1 argument [a slot] and return true or false)
 ---@return MapSlot[]
@@ -605,21 +584,21 @@ end
 
 
 ---Get the free slots in the storageMap
----@param map Map The storageMap
+---@param map MapTable The storageMap
 ---@return MapSlot[]
 local function getFreeSlots(map)
     return getSlots(map, "empty")
 end
 
 ---Get the first free slot in the storageMap
----@param map Map The storageMap
+---@param map MapTable The storageMap
 ---@return MapSlot|nil
 local function getFirstFreeSlot(map)
     return getFirstSlot(map, "empty")
 end
 
 ---Get a list of slots that potentially have space for the item
----@param map Map The storageMap
+---@param map MapTable The storageMap
 ---@param itemName string The name of the item
 ---@return MapSlot[]
 local function getSlotsWithSpace(map, itemName)
@@ -636,9 +615,9 @@ local function getSlotsWithSpace(map, itemName)
 end
 
 ---Push items from the input chest to the storage chests
----@param map Map The storageMap
+---@param map MapTable The storageMap
 ---@param inputChest table The chest to pull items from
----@return Map
+---@return MapTable
 local function pushItems(map, inputChest)
     logger:debug("Pushing items...")
     local totalPushedCount = 0
@@ -724,12 +703,12 @@ end
 
 
 ---Pull items from the storage chests to the output chest
----@param map Map The storageMap
+---@param map MapTable The storageMap
 ---@param itemName string The name of the item to pull
 ---@param count number The number of items to pull
 ---@param outputChest table The chest to push items to
 ---@param fuzzyMode boolean Whether to use fuzzy mode or not
----@return Map
+---@return MapTable
 local function pullItems(map, itemName, count, outputChest, fuzzyMode)
     logger:debug("Pulling %d %s...", count, itemName)
     local totalPulledCount = 0
@@ -824,7 +803,7 @@ end
 
 ---Serialise and save a storageMap to a file. Mainly for debugging purposes.
 ---@param path string The path to save the file to
----@param map Map The storageMap to save
+---@param map MapTable The storageMap to save
 ---@return nil
 local function saveStorageMap(path, map)
     ---@type SerializedMap
@@ -846,7 +825,7 @@ end
 ---Load a storageMap from a file
 ---@param path string The path to load the file from
 ---@param chests ccTweaked.peripherals.Inventory[] The list of storage chests (used if empty slots aren't saved)
----@return Map|nil
+---@return MapTable|nil
 local function loadStorageMap(path, chests)
     local noChestMap = loadTable(path)
 
@@ -854,7 +833,7 @@ local function loadStorageMap(path, chests)
         return
     end
 
-    ---@type Map
+    ---@type MapTable
     local map = {}
     for itemName, slots in pairs(noChestMap) do
         map[itemName] = {}
@@ -871,14 +850,14 @@ end
 ---Load the storageMap from a file or populate it if the file does not exist
 ---@param path string The path to load the file from
 ---@param chests ccTweaked.peripherals.Inventory[] The list of storage chests
----@return Map
+---@return MapTable
 local function loadOrPopulateStorageMap(path, chests)
     return loadStorageMap(path, chests) or populateStorageMap(chests)
 end
 
 
 ---Get a list of item name stubs from the storageMap (only showing items that have a count of more than 0)
----@param map Map The storageMap
+---@param map MapTable The storageMap
 ---@return string[]
 local function getAllItemStubs(map)
     local items = {}
@@ -952,10 +931,8 @@ return {
     getTotalItemCount = getTotalItemCount,
     getTotalCount = getTotalCount,
     getTotalMaxCount = getTotalMaxCount,
-    isItemAvailable = isItemAvailable,
     getAllItemStubs = getAllItemStubs,
     convertItemNameStub = convertItemNameStub,
-    getFirstMatch = getFirstMatch,
     getAllMatches = getAllMatches,
     getAllSlots = getAllSlots,
     getFullSlots = getFullSlots,

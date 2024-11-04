@@ -56,6 +56,14 @@
                     "/usr/lib/storage2/lib/MapSlot.lua"
                 ],
                 [
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/lib/Map.lua",
+                    "/usr/lib/storage2/lib/Map.lua"
+                ],
+                [
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/lib/ItemDetailCache.lua",
+                    "/usr/lib/storage2/lib/ItemDetailCache.lua"
+                ],
+                [
                     "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/lib/Constants.lua",
                     "/usr/lib/storage2/lib/Constants.lua"
                 ],

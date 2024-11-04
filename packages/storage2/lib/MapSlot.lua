@@ -12,6 +12,10 @@ local pretty = require("cc.pretty")
 ---@overload fun(name: string, chest: ccTweaked.peripherals.Inventory, slot: number, count: number, maxCount: number, isFull?: boolean, tags?: table<string, boolean>): MapSlot
 MapSlot = class()
 
+---Properties
+
+MapSlot.EMPTY_SLOT_NAME = "empty"
+
 ---Initialise a new MapSlot
 ---@param name string The name of the item
 ---@param chest ccTweaked.peripherals.Inventory The chest that the slot is in
@@ -23,17 +27,37 @@ MapSlot = class()
 function MapSlot:init(name, chest, slot, count, maxCount, isFull, tags)
     self.name = name
     self.chest = chest
+    self.chestName = peripheral.getName(chest)
     self.slot = slot
     self.count = count
     self.maxCount = maxCount
     self.isFull = isFull or self:calcIsFull()
-    self.tags = self:ensureUniqueTags(tags or {})
+    self.tags = self.ensureUniqueTags(tags or {})
+end
+
+
+---Get the name stub for the slot
+---@return string
+function MapSlot.getNameStub(name)
+    return string.match(name, ".+:(.+)")
+end
+
+
+---Convert an item name stub to a full name
+---@param nameStub string The name stub
+---@return string
+function MapSlot.fullNameFromNameStub(nameStub)
+    if string.find(nameStub, ":") then
+        return nameStub
+    end
+
+    return string.format("%s:%s", Constants.ITEM_NAMESPACE, nameStub)
 end
 
 ---Ensure that a table of tags only has unique keys to prevent serialisation issues
 ---@param tags ChestGetItemDetailItemTags The table of tags
 ---@return ChestGetItemDetailItemTags
-function MapSlot:ensureUniqueTags(tags)
+function MapSlot.ensureUniqueTags(tags)
     -- TODO: figure out why tf this is necessary
     local uniqueTags = {}
     for tag, _ in pairs(tags) do
@@ -46,8 +70,15 @@ end
 ---@param chest ccTweaked.peripherals.Inventory The chest that the slot is in
 ---@param slot number The slot number
 ---@return MapSlot
-function MapSlot:empty(chest, slot)
-    return MapSlot("empty", chest, slot, 0, Constants.CHEST_SLOT_MAX, false)
+function MapSlot.empty(chest, slot)
+    return MapSlot(MapSlot.EMPTY_SLOT_NAME, chest, slot, 0, Constants.CHEST_SLOT_MAX, false)
+end
+
+---Increase the count of the slot by a given amount
+---@param amount number The amount to increase the count by
+function MapSlot:addCount(amount)
+    self.count = self.count + amount
+    self:updateIsFull()
 end
 
 ---Calculate if the slot is full
