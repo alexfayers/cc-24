@@ -225,6 +225,19 @@ function Map:clear()
 end
 
 
+---Order the empty slots by chestName and slot
+function Map:orderEmptySlots()
+    local emptySlots = self:getItemSlots(MapSlot.EMPTY_SLOT_NAME)
+    table.sort(emptySlots, function(a, b)
+        if a.chestName == b.chestName then
+            return a.slot < b.slot
+        end
+        return a.chestName < b.chestName
+    end)
+    self.mapTable[MapSlot.EMPTY_SLOT_NAME] = emptySlots
+end
+
+
 ---Populate the map with the items in the chests
 function Map:populate()
     if self:load() then
@@ -270,11 +283,15 @@ function Map:populate()
 
         ::continue::
     end
+
+    self:orderEmptySlots()
 end
 
 
 ---Save the map to a file
 function Map:save()
+    self:orderEmptySlots()
+
     local serialized = {}
 
     for name, slots in pairs(self.mapTable) do
