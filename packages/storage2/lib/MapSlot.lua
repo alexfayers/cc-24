@@ -113,6 +113,21 @@ function MapSlot:markNotFull()
     self.isFull = false
 end
 
+
+---Enrich a slot by using the item details function (meant to be called as a parallel task because it's slow)
+---@return nil
+function MapSlot:enrich()
+    local itemDetail = helpers.chestGetItemDetailRetry(self.chest, self.slot)
+
+    if not itemDetail then
+        return
+    end
+
+    self.maxCount = itemDetail.maxCount
+    self.displayName = itemDetail.displayName
+    self.tags = self.ensureUniqueTags(itemDetail.tags)
+end
+
 ---Serialize the slot
 ---@return SerializedMapSlotTable
 function MapSlot:serialize()

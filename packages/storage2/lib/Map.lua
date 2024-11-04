@@ -351,13 +351,14 @@ function Map:push(inputChest)
     local totalPushedCount = 0
     local totalExpectedPushedCount = 0
 
-    local itemDetailCache = ItemDetailCache(self.detailMapFilename)
-
     local inputChestList = helpers.chestListRetry(inputChest)
 
     if not inputChestList then
         return
     end
+
+    ---@type function[]
+    local slotEnrichmentTasks = {}
 
     for inputSlot, inputItem in pairs(inputChestList) do
         logger:debug("Pushing %s, slot %s", inputItem.name, inputSlot)
@@ -391,20 +392,23 @@ function Map:push(inputChest)
                 -- pushed at least one item, update the map
                 if slot.name == MapSlot.EMPTY_SLOT_NAME then
                     -- slot was empty, update this to the new item
-                    local slotDetails = itemDetailCache:getItemDetail(slot.chest, slot.slot, inputItem.name)
-                    if not slotDetails then
-                        goto continue
-                    end
 
-                    self:addSlot(MapSlot(
-                        slotDetails.name,
+                    local newSlot = MapSlot(
+                        inputItem.name,
                         slot.chest,
                         slot.slot,
                         quantity,
-                        slotDetails.maxCount,
+                        0,
                         nil,
-                        slotDetails.tags
-                    ))
+                        nil,
+                        nil
+                    )
+
+                    table.insert(slotEnrichmentTasks, function()
+                        newSlot:enrich()
+                    end)
+
+                    self:addSlot(newSlot)
                     self:removeSlot(slot)
                 else
                     -- slot was not empty, update the count
@@ -421,6 +425,8 @@ function Map:push(inputChest)
             ::continue::
         end
     end
+
+    parallel.waitForAll(table.unpack(slotEnrichmentTasks))
 
     if totalPushedCount < totalExpectedPushedCount then
         logger:error("Only pushed %d/%d items", totalPushedCount, totalExpectedPushedCount)
