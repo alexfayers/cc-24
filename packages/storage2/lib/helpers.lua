@@ -142,8 +142,8 @@ local function chestPullItemsRetry(chest, sourceName, sourceSlot, limit, targetS
     local attempts = 0
 
     ::retry::
-    local quantity = chest.pullItems(sourceName, sourceSlot, limit, targetSlot)
-    if not quantity then
+    local pcallRes, quantity = pcall(chest.pullItems, sourceName, sourceSlot, limit, targetSlot)
+    if not pcallRes or not quantity then
         attempts = attempts + 1
         if attempts >= Constants.MAX_METHOD_RETRIES then
             logger:error("Failed to pull items from %s in slot %d in chest %s after %d attempts", sourceName, sourceSlot, peripheral.getName(chest), Constants.MAX_METHOD_RETRIES)
@@ -166,8 +166,8 @@ local function chestPushItemsRetry(chest, toName, sourceSlot, limit, targetSlot)
     local attempts = 0
 
     ::retry::
-    local quantity = chest.pushItems(toName, sourceSlot, limit, targetSlot)
-    if not quantity then
+    local pcallRes, quantity = pcall(chest.pushItems, toName, sourceSlot, limit, targetSlot)
+    if not pcallRes or not quantity then
         attempts = attempts + 1
         if attempts >= Constants.MAX_METHOD_RETRIES then
             logger:error("Failed to push items to %s in slot %d in chest %s after %d attempts", toName, sourceSlot, peripheral.getName(chest), Constants.MAX_METHOD_RETRIES)
