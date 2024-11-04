@@ -1,6 +1,6 @@
 package.path = package.path .. ";/usr/lib/?.lua"
 
-require("storage2.lib.Constants")
+require("lib-storage2.Constants")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("storage2.helpers")
 

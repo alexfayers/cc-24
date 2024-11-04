@@ -2,9 +2,9 @@
 package.path = package.path .. ";/usr/lib/?.lua"
 require("class-lua.class")
 
-require("storage2.lib.MapSlot")
+require("lib-storage2.MapSlot")
 
-local helpers = require("storage2.lib.helpers")
+local helpers = require("lib-storage2.helpers")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("storage2.Map")
 

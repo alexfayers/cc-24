@@ -1,9 +1,9 @@
 -- Cli interface for the storage2 module
 package.path = package.path .. ";/usr/lib/?.lua"
 
-local chestHelpers = require("storage2.lib.chestHelpers")
+local chestHelpers = require("lib-storage2.chestHelpers")
 local terminal = require("lexicon-lib.lib-term")
-require("storage2.lib.Map")
+require("lib-storage2.Map")
 local completion = require("cc.completion")
 
 -- consts

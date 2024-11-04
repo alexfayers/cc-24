@@ -32,7 +32,7 @@
             "version": "1.0.0",
             "files": [
                 [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/package-example/package-example.lua",
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/package-example/package-example.lua",
                     "package-example.lua"
                 ]
             ],
@@ -48,28 +48,28 @@
             "version": "1.0.0",
             "files": [
                 [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/lib/chestHelpers.lua",
-                    "/usr/lib/storage2/lib/chestHelpers.lua"
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/chestHelpers.lua",
+                    "/usr/lib/lib-storage2/chestHelpers.lua"
                 ],
                 [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/lib/MapSlot.lua",
-                    "/usr/lib/storage2/lib/MapSlot.lua"
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/MapSlot.lua",
+                    "/usr/lib/lib-storage2/MapSlot.lua"
                 ],
                 [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/lib/Map.lua",
-                    "/usr/lib/storage2/lib/Map.lua"
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/Map.lua",
+                    "/usr/lib/lib-storage2/Map.lua"
                 ],
                 [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/lib/Constants.lua",
-                    "/usr/lib/storage2/lib/Constants.lua"
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/Constants.lua",
+                    "/usr/lib/lib-storage2/Constants.lua"
                 ],
                 [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/lib/Settings.lua",
-                    "/usr/lib/storage2/lib/Settings.lua"
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/Settings.lua",
+                    "/usr/lib/lib-storage2/Settings.lua"
                 ],
                 [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/lib/helpers.lua",
-                    "/usr/lib/storage2/lib/helpers.lua"
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/helpers.lua",
+                    "/usr/lib/lib-storage2/helpers.lua"
                 ]
             ],
             "dependencies": [
@@ -83,11 +83,11 @@
             "version": "1.0.0",
             "files": [
                 [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/storage2.lua",
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/storage2/storage2.lua",
                     "storage2.lua"
                 ],
                 [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/storage2-watch.lua",
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/storage2/storage2-watch.lua",
                     "storage2-watch.lua"
                 ]
             ],

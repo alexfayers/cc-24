@@ -2,8 +2,8 @@
 package.path = package.path .. ";/usr/lib/?.lua"
 
 -- Import the storage2 module
-local chestHelpers = require("storage2.lib.chestHelpers")
-require("storage2.lib.Map")
+local chestHelpers = require("lib-storage2.chestHelpers")
+require("lib-storage2.Map")
 
 local function main()
     local inputChest = chestHelpers.getInputChest()

@@ -1,9 +1,9 @@
 -- Imports
 package.path = package.path .. ";/usr/lib/?.lua"
 require("class-lua.class")
-require("storage2.lib.Constants")
+require("lib-storage2.Constants")
 
-local helpers = require("storage2.lib.helpers")
+local helpers = require("lib-storage2.helpers")
 local pretty = require("cc.pretty")
 
 -- types

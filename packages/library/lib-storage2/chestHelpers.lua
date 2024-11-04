@@ -7,9 +7,9 @@ local pretty = require("cc.pretty")
 local logging = require("lexicon-lib.lib-logging")
 
 -- Local lib imports
-require("storage2.lib.Settings")
+require("lib-storage2.Settings")
 
-local helpers = require("storage2.lib.helpers")
+local helpers = require("lib-storage2.helpers")
 
 -- constants
 
