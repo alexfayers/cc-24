@@ -9,6 +9,11 @@ local helpers = require("storage2.lib.helpers")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("storage2.Map")
 
+-- types
+
+---@alias MapTable table<string, MapSlot[]>
+
+
 -- Class definition
 
 ---@class Map
@@ -17,7 +22,8 @@ Map = class()
 
 ---Properties
 
-Map.saveFilename = "/.storage2/storageMap.json"
+Map.saveFilename = settings.get("storage2.storageFile")
+Map.detailMapFilename = settings.get("storage2.itemDetailCacheFile")
 
 ---Initialise a new Map
 ---@param chests ccTweaked.peripherals.Inventory[] The chests to use for the map
@@ -228,7 +234,7 @@ function Map:populate()
     logger:warn("Populating storage map")
     self:clear()
 
-    local itemDetailCache = ItemDetailCache("/.storage2/itemDetailCache.json")
+    local itemDetailCache = ItemDetailCache(self.detailMapFilename)
 
     for _, chest in ipairs(self.chests) do
         local chestList = helpers.chestListRetry(chest)
@@ -318,7 +324,7 @@ function Map:push(inputChest)
     local totalExpectedPushedCount = 0
     local inputChestName = peripheral.getName(inputChest)
 
-    local itemDetailCache = ItemDetailCache("/.storage2/itemDetailCache.json")
+    local itemDetailCache = ItemDetailCache(self.detailMapFilename)
 
     local inputChestList = helpers.chestListRetry(inputChest)
 

@@ -6,6 +6,12 @@ local helpers = require("storage2.lib.helpers")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("storage2.ItemDetailCache")
 
+-- types
+
+---@alias itemDetailCacheItem {displayName: string, itemGroups: ChestGetItemDetailItemItemGroups, maxCount: number, name: string, tags: ChestGetItemDetailItemTags} The details of an item, but cached
+---@alias ItemDetailCacheTable table<string, itemDetailCacheItem> The cache of item details
+
+
 -- Class definition
 
 ---@class ItemDetailCache

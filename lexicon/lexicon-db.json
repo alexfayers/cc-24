@@ -68,6 +68,10 @@
                     "/usr/lib/storage2/lib/Constants.lua"
                 ],
                 [
+                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/lib/Settings.lua",
+                    "/usr/lib/storage2/lib/Settings.lua"
+                ],
+                [
                     "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/storage2/lib/helpers.lua",
                     "/usr/lib/storage2/lib/helpers.lua"
                 ]

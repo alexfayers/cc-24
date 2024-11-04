@@ -6,6 +6,12 @@ require("storage2.lib.Constants")
 local helpers = require("storage2.lib.helpers")
 local pretty = require("cc.pretty")
 
+-- types
+
+---@alias SerializedMapSlotTable {name: string, chestName: string, slot: number, count: number, maxCount: number, isFull: boolean, tags: table<string, boolean>}
+---@alias SerializedMap table<string, SerializedMapSlotTable[]> The serialized storage map
+
+
 -- Class definition
 
 ---@class MapSlot
