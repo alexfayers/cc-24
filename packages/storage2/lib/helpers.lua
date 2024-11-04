@@ -219,4 +219,5 @@ return {
     chestGetItemDetailRetry = chestGetItemDetailRetry,
     chestPullItemsRetry = chestPullItemsRetry,
     chestPushItemsRetry = chestPushItemsRetry,
+    spairs = spairs,
 }
