@@ -1,114 +1,111 @@
 {
     "$schema": "../_schema/lexicon-db.schema.json",
     "packages": {
-        "lib-term": {
-            "description": "A terminal library",
-            "version": "1.0.0",
-            "files": [
-                [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lexicon-lib/lib-term.lua",
-                    "/usr/lib/lexicon-lib/lib-term.lua"
+        "library": {
+            "lib-term": {
+                "description": "A terminal library",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lexicon-lib/lib-term.lua",
+                        "/usr/lib/lexicon-lib/lib-term.lua"
+                    ]
+                ],
+                "dependencies": []
+            },
+            "lib-logging": {
+                "description": "A simple logging library",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lexicon-lib/lib-logging.lua",
+                        "/usr/lib/lexicon-lib/lib-logging.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-term"
                 ]
-            ],
-            "dependencies": [],
-            "type": "library"
+            },
+            "lib-storage2": {
+                "description": "Helper library for the storage2 suite",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/chestHelpers.lua",
+                        "/usr/lib/lib-storage2/chestHelpers.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/MapSlot.lua",
+                        "/usr/lib/lib-storage2/MapSlot.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/Map.lua",
+                        "/usr/lib/lib-storage2/Map.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/Constants.lua",
+                        "/usr/lib/lib-storage2/Constants.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/Settings.lua",
+                        "/usr/lib/lib-storage2/Settings.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/helpers.lua",
+                        "/usr/lib/lib-storage2/helpers.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-logging",
+                    "class-lua"
+                ]
+            },
+            "class-lua": {
+                "description": "Make lua Object-Oriented!",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/class-lua/class.lua",
+                        "/usr/lib/class-lua/class.lua"
+                    ]
+                ],
+                "dependencies": []
+            }
         },
-        "lib-logging": {
-            "description": "A simple logging library",
-            "version": "1.0.0",
-            "files": [
-                [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lexicon-lib/lib-logging.lua",
-                    "/usr/lib/lexicon-lib/lib-logging.lua"
-                ]
-            ],
-            "dependencies": [
-                "lib-term"
-            ],
-            "type": "library"
-        },
-        "package-example": {
-            "description": "A template for creating new programs",
-            "version": "1.0.0",
-            "files": [
-                [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/package-example/package-example.lua",
-                    "package-example.lua"
-                ]
-            ],
-            "dependencies": [
-                "lib-logging"
-            ],
-            "type": "program",
-            "usage": "'package-example'"
-        },
-
-        "lib-storage2": {
-            "description": "Helper library for the storage2 suite",
-            "version": "1.0.0",
-            "files": [
-                [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/chestHelpers.lua",
-                    "/usr/lib/lib-storage2/chestHelpers.lua"
+        "program": {
+            "package-example": {
+                "description": "A template for creating new programs",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/package-example/package-example.lua",
+                        "package-example.lua"
+                    ]
                 ],
-                [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/MapSlot.lua",
-                    "/usr/lib/lib-storage2/MapSlot.lua"
+                "dependencies": [
+                    "lib-logging"
                 ],
-                [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/Map.lua",
-                    "/usr/lib/lib-storage2/Map.lua"
+                "usage": "'package-example'"
+            },
+    
+            "storage2": {
+                "description": "A smart storage system!",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/storage2/storage2.lua",
+                        "storage2.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/storage2/storage2-watch.lua",
+                        "storage2-watch.lua"
+                    ]
                 ],
-                [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/Constants.lua",
-                    "/usr/lib/lib-storage2/Constants.lua"
+                "dependencies": [
+                    "lib-storage2"
                 ],
-                [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/Settings.lua",
-                    "/usr/lib/lib-storage2/Settings.lua"
-                ],
-                [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/helpers.lua",
-                    "/usr/lib/lib-storage2/helpers.lua"
-                ]
-            ],
-            "dependencies": [
-                "lib-logging",
-                "class-lua"
-            ],
-            "type": "library"
-        },
-        "storage2": {
-            "description": "A smart storage system!",
-            "version": "1.0.0",
-            "files": [
-                [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/storage2/storage2.lua",
-                    "storage2.lua"
-                ],
-                [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/storage2/storage2-watch.lua",
-                    "storage2-watch.lua"
-                ]
-            ],
-            "dependencies": [
-                "lib-storage2"
-            ],
-            "type": "program",
-            "usage": "'storage2' and 'storage2-watch'"
-        },
-
-        "class-lua": {
-            "description": "Make lua Object-Oriented!",
-            "version": "1.0.0",
-            "files": [
-                [
-                    "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/class-lua/class.lua",
-                    "/usr/lib/class-lua/class.lua"
-                ]
-            ],
-            "dependencies": [],
-            "type": "library"
+                "usage": "'storage2' and 'storage2-watch'"
+            }
         }
     }
 }

@@ -74,14 +74,16 @@ local function showAvailablePackages()
     term.setTextColor(colors.blue)
     print("Available packages:")
     term.setTextColor(colors.white)
-    for packageName, packageData in pairs(manifest["packages"]) do
-        if packageData["type"] == "library" then
-            term.setTextColor(colors.gray)
-        elseif packageData["type"] == "program" then
-            term.setTextColor(colors.lime)
-        end
+    for packageName, packageData in pairs(manifest["packages"]["library"]) do
+        term.setTextColor(colors.gray)
         print(" - " .. packageName .. " (" .. packageData["version"] .. ")")
     end
+
+    for packageName, packageData in pairs(manifest["packages"]["program"]) do
+        term.setTextColor(colors.lime)
+        print(" - " .. packageName .. " (" .. packageData["version"] .. ")")
+    end
+
     term.setTextColor(colors.white)
 end
 
@@ -107,13 +109,21 @@ local function downloadPackage(packageName, parentPackage)
     -- pretty.print(pretty.pretty(manifest))
     local downloadedFiles = {}
     local depenencyFiles = {}
-    local packageData = manifest["packages"][packageName]
+    local packageData = manifest["packages"]["program"][packageName]
+
+    if not packageData then
+        packageData = manifest["packages"]["library"][packageName]
+    else
+        packageData["type"] = "program"
+    end
 
     if not packageData then
         term.setTextColor(colors.red)
         print("Package '" .. packageName .. "' not found.")
         showAvailablePackages()
         return downloadedFiles
+    else
+        packageData["type"] = packageData["type"] or "library"
     end
 
     local downloadMessage = "Downloading " .. packageName .. " (" .. packageData["version"] .. ")"
@@ -160,18 +170,6 @@ local function downloadPackage(packageName, parentPackage)
         else
             error("Failed to download file")
         end
-    end
-
-    -- Check if the program path is set
-    if packageData["program-path"] then
-        local globalPath = shell.path()
-        local path = packageData["program-path"]
-        if not globalPath:find(path, 1, true) then
-            shell.setPath(globalPath .. ":" .. path)
-        end
-        term.setTextColor(colors.gray)
-        print("Added '" .. packageName .. "' to the shell path")
-        term.setTextColor(colors.white)
     end
 
     if not parentPackage then
@@ -350,9 +348,13 @@ local function complete(_, index, argument, previous)
     elseif index == 2 then
         if previous[#previous] == "get" then
             local packageNames = {}
-            for packageName, _ in pairs(manifest["packages"]) do
+            for packageName, _ in pairs(manifest["packages"]["program"]) do
                 table.insert(packageNames, packageName)
             end
+            for packageName, _ in pairs(manifest["packages"]["library"]) do
+                table.insert(packageNames, packageName)
+            end
+
             return completion.choice(argument, packageNames)
         elseif previous[#previous] == "remove" then
             local db = loadLexiconDb()
