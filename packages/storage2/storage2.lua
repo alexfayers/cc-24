@@ -1,24 +1,24 @@
 -- Cli interface for the storage2 module
 package.path = package.path .. ";/usr/lib/?.lua"
 
-local storage = require("storage2.lib-storage2")
+local chestHelpers = require("storage2.lib.chestHelpers")
 local terminal = require("lexicon-lib.lib-term")
 require("storage2.lib.Map")
 local completion = require("cc.completion")
 
 -- consts
 
-local inputChest = storage.getInputChest()
+local inputChest = chestHelpers.getInputChest()
 if not inputChest then
     return
 end
 
-local outputChest = storage.getOutputChest()
+local outputChest = chestHelpers.getOutputChest()
 if not outputChest then
     return
 end
 
-local storageChests = storage.getStorageChests(inputChest, outputChest)
+local storageChests = chestHelpers.getStorageChests(inputChest, outputChest)
 if not storageChests then
     return
 end
