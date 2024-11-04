@@ -71,21 +71,6 @@ end
 shell.setCompletionFunction(shell.getRunningProgram(), complete)
 
 
----Show the amount of a specific item in the storage chests
----@param item string The item to check
----@return nil
-local function checkItem(item)
-    local itemCount = storage.getTotalItemCount(storageMap, item, false)
-
-    if itemCount > 0 then
-        print("Item: " .. item)
-        print("Amount: " .. itemCount)
-    else
-        print("'" .. item .. "' is not available")
-    end
-end
-
-
 ---Show all item matches for a given item stub/search
 ---@param item string The item stub to search for
 ---@return nil
@@ -157,7 +142,6 @@ local function main()
         end
 
         local item = arg[2]
-        -- item = storage.convertItemNameStub(item)
         local amountStr = arg[3]
         local amount = 0
 
