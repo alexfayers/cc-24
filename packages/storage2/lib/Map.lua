@@ -444,7 +444,6 @@ end
 function Map:pull(outputChest, itemName, amount, fuzzy)
     local totalPulledCount = 0
     local totalExpectedPulledCount = amount
-    local outputChestName = peripheral.getName(outputChest)
 
     local slots = self:getItemSlots(itemName)
 
