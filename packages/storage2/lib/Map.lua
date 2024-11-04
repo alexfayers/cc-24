@@ -3,7 +3,6 @@ package.path = package.path .. ";/usr/lib/?.lua"
 require("class-lua.class")
 
 require("storage2.lib.MapSlot")
-require("storage2.lib.ItemDetailCache")
 
 local helpers = require("storage2.lib.helpers")
 
