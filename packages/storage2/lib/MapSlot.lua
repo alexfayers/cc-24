@@ -8,14 +8,14 @@ local pretty = require("cc.pretty")
 
 -- types
 
----@alias SerializedMapSlotTable {name: string, chestName: string, slot: number, count: number, maxCount: number, isFull: boolean, tags: table<string, boolean>}
+---@alias SerializedMapSlotTable {name: string, chestName: string, slot: number, count: number, maxCount: number, isFull: boolean, tags: table<string, boolean>, displayName?: string}
 ---@alias SerializedMap table<string, SerializedMapSlotTable[]> The serialized storage map
 
 
 -- Class definition
 
 ---@class MapSlot
----@overload fun(name: string, chest: ccTweaked.peripherals.Inventory, slot: number, count: number, maxCount: number, isFull?: boolean, tags?: table<string, boolean>): MapSlot
+---@overload fun(name: string, chest: ccTweaked.peripherals.Inventory, slot: number, count: number, maxCount: number, isFull?: boolean, tags?: table<string, boolean>, displayName?: string): MapSlot
 MapSlot = class()
 
 ---Properties
@@ -30,7 +30,8 @@ MapSlot.EMPTY_SLOT_NAME = "empty"
 ---@param maxCount number The maximum number of items that can be in the slot
 ---@param isFull boolean Whether the slot is full or not
 ---@param tags string[]|nil The tags of the item
-function MapSlot:init(name, chest, slot, count, maxCount, isFull, tags)
+---@param displayName? string The readable name of the item
+function MapSlot:init(name, chest, slot, count, maxCount, isFull, tags, displayName)
     self.name = name
     self.chest = chest
     self.chestName = peripheral.getName(chest)
@@ -39,6 +40,7 @@ function MapSlot:init(name, chest, slot, count, maxCount, isFull, tags)
     self.maxCount = maxCount
     self.isFull = isFull or self:calcIsFull()
     self.tags = self.ensureUniqueTags(tags or {})
+    self.displayName = displayName
 end
 
 
@@ -122,6 +124,7 @@ function MapSlot:serialize()
         maxCount = self.maxCount,
         isFull = self.isFull,
         tags = self.tags,
+        displayName = self.displayName,
     }
 end
 
@@ -139,6 +142,7 @@ function MapSlot.unserialize(data)
         data.count,
         data.maxCount,
         data.isFull,
-        data.tags
+        data.tags,
+        data.displayName
     )
 end

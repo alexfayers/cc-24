@@ -247,42 +247,53 @@ function Map:populate()
     logger:warn("Populating storage map")
     self:clear()
 
-    local itemDetailCache = ItemDetailCache(self.detailMapFilename)
+    ---@type function[]
+    local chestTasks = {}
 
     for _, chest in ipairs(self.chests) do
-        local chestList = helpers.chestListRetry(chest)
+        table.insert(chestTasks, function()
 
-        if not chestList then
-            goto continue
-        end
+            local chestList = helpers.chestListRetry(chest)
 
-        for slotNumber = 1, chest.size() do
-            local item = chestList[slotNumber]
-            if item then
-                local slotDetails = itemDetailCache:getItemDetail(chest, slotNumber, item.name)
-
-                if not slotDetails then
-                    goto continue2
-                end
-
-                self:addSlot(MapSlot(
-                    slotDetails.name,
-                    chest,
-                    slotNumber,
-                    item.count,
-                    slotDetails.maxCount,
-                    nil,
-                    slotDetails.tags
-                ))
-            else
-                self:addSlotEmpty(chest, slotNumber)
+            if not chestList then
+                return
             end
 
-            ::continue2::
-        end
+            local slotTasks = {}
 
-        ::continue::
+            for slotNumber = 1, chest.size() do
+                table.insert(slotTasks, function()
+                    local item = chestList[slotNumber]
+
+                    if not item then
+                        self:addSlotEmpty(chest, slotNumber)
+                        return
+                    end
+
+                    local slotDetails = helpers.chestGetItemDetailRetry(chest, slotNumber)
+
+                    if not slotDetails then
+                        return
+                    end
+
+                    self:addSlot(MapSlot(
+                        slotDetails.name,
+                        chest,
+                        slotNumber,
+                        slotDetails.count,
+                        slotDetails.maxCount,
+                        nil,
+                        slotDetails.tags,
+                        slotDetails.displayName
+                    ))
+                end)
+            end
+
+            parallel.waitForAll(table.unpack(slotTasks))
+        end)
     end
+
+    parallel.waitForAll(table.unpack(chestTasks))
 
     self:orderEmptySlots()
 end
@@ -339,7 +350,6 @@ end
 function Map:push(inputChest)
     local totalPushedCount = 0
     local totalExpectedPushedCount = 0
-    local inputChestName = peripheral.getName(inputChest)
 
     local itemDetailCache = ItemDetailCache(self.detailMapFilename)
 
