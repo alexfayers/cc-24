@@ -94,7 +94,7 @@ end
 ---@return nil
 local function showUsage()
     local allSlots = storageMap:getAllSlots()
-    local fullSlotCount = storageMap:getFullSlots()
+    local fullSlotCount = #storageMap:getFullSlots()
     local allSlotsCount = #allSlots
 
     print("Usage:")
