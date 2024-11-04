@@ -361,7 +361,6 @@ function Map:push(inputChest)
 
     for inputSlot, inputItem in pairs(inputChestList) do
         logger:debug("Pushing %s, slot %s", inputItem.name, inputSlot)
-        local inputItemPushedCount = 0
 
         local availableSlots = self:getItemSlotsWithSpace(inputItem.name)
 
@@ -413,7 +412,6 @@ function Map:push(inputChest)
                 end
             end
 
-            inputItemPushedCount = inputItemPushedCount + quantity
             totalPushedCount = totalPushedCount + quantity
 
             if totalPushedCount >= totalExpectedPushedCount then
