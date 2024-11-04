@@ -17,6 +17,8 @@ Map = class()
 
 ---Properties
 
+Map.saveFilename = "/.storage2/storageMap.json"
+
 ---Initialise a new Map
 ---@param chests ccTweaked.peripherals.Inventory[] The chests to use for the map
 function Map:init(chests)
@@ -181,7 +183,7 @@ end
 
 ---Populate the map with the items in the chests
 function Map:populate()
-    if self:load("/.storage2/storageMap.json") then
+    if self:load() then
         return
     end
 
@@ -228,8 +230,7 @@ end
 
 
 ---Save the map to a file
----@param path string The path to save the map to
-function Map:save(path)
+function Map:save()
     local serialized = {}
 
     for name, slots in pairs(self.mapTable) do
@@ -239,16 +240,15 @@ function Map:save(path)
         end
     end
 
-    helpers.saveTable(path, serialized)
+    helpers.saveTable(self.saveFilename, serialized)
 end
 
 
 ---Load the map from a file
----@param path string The path to load the map from
 ---@return boolean _ Whether the map was loaded successfully
-function Map:load(path)
+function Map:load()
     ---@type SerializedMap?
-    local serialized = helpers.loadTable(path)
+    local serialized = helpers.loadTable(self.saveFilename)
 
     if not serialized then
         return false
