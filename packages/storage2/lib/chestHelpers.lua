@@ -2,13 +2,11 @@
 package.path = package.path .. ";/usr/lib/?.lua"
 
 -- imports
-require("class-lua.class")
 
 local pretty = require("cc.pretty")
 local logging = require("lexicon-lib.lib-logging")
 
 -- Local lib imports
-require("storage2.lib.MapSlot")
 require("storage2.lib.Settings")
 
 local helpers = require("storage2.lib.helpers")
