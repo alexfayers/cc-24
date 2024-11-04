@@ -440,6 +440,7 @@ end
 ---@param fuzzy boolean Whether to use fuzzy matching for the item name
 function Map:pull(outputChest, itemName, amount, fuzzy)
     local totalPulledCount = 0
+    local totalActualPulledCount = 0
     local totalExpectedPulledCount = amount
 
     local slots = self:getItemSlots(itemName)
@@ -452,46 +453,58 @@ function Map:pull(outputChest, itemName, amount, fuzzy)
     ---@type MapSlot[]
     local mapRemovals = {}
 
+    ---@type function[]
+    local slotTasks = {}
+
     for _, slot in ipairs(slots) do
-        logger:debug("Pulling %d %s from slot %d in chest %s", amount, slot.name, slot.slot, slot.chestName)
-        local quantity = helpers.chestPullItemsRetry(
-            outputChest,
-            slot.chestName,
-            slot.slot,
-            totalExpectedPulledCount - totalPulledCount
-        )
+        local expectedSlotPullCount = math.min(slot.count, totalExpectedPulledCount - totalPulledCount)
 
-        if not quantity then
-            table.insert(mapRemovals, slot)
-            goto continue
-        end
-
-        if quantity == 0 then
-            -- If we've pulled 0 items, the slot is probs empty
-            table.insert(mapRemovals, slot)
-        else
-            -- pulled at least one item, update the map
-            slot:addCount(-quantity)
-
-            if slot.count == 0 then
-                -- slot is now empty, mark it as such
+        table.insert(slotTasks, function()
+            logger:debug("Pulling %d %s from slot %d in chest %s", amount, slot.name, slot.slot, slot.chestName)
+            local quantity = helpers.chestPullItemsRetry(
+                outputChest,
+                slot.chestName,
+                slot.slot,
+                expectedSlotPullCount
+            )
+            
+            if not quantity then
+                -- If we've pulled nil items, the slot is probs empty
                 table.insert(mapRemovals, slot)
+                return
             end
-        end
 
-        totalPulledCount = totalPulledCount + quantity
+            if quantity ~= expectedSlotPullCount then
+                -- If we've pulled an amount that doesn't match the expected amount, something's gone wrong so log it
+                logger:error("Slot %d in chest %s pulled %d/%d", slot.slot, slot.chestName, quantity, expectedSlotPullCount)
+            end
+
+            if quantity > 0 then
+                totalActualPulledCount = totalActualPulledCount + quantity
+
+                -- pulled at least one item, update the map
+                slot:addCount(-quantity)
+
+                if slot.count == 0 then
+                    -- slot is now empty, mark it as such
+                    table.insert(mapRemovals, slot)
+                end
+            end
+        end)
+
+        totalPulledCount = totalPulledCount + expectedSlotPullCount
 
         if totalPulledCount >= totalExpectedPulledCount then
             break
         end
-
-        ::continue::
     end
 
-    if totalPulledCount < totalExpectedPulledCount then
-        logger:warn("Only pulled %d/%d items", totalPulledCount, totalExpectedPulledCount)
+    parallel.waitForAll(table.unpack(slotTasks))
+
+    if totalActualPulledCount < totalExpectedPulledCount then
+        logger:warn("Only pulled %d/%d items", totalActualPulledCount, totalExpectedPulledCount)
     else
-        logger:info("Pulled %d/%d items", totalPulledCount, totalExpectedPulledCount)
+        logger:info("Pulled %d/%d items", totalActualPulledCount, totalExpectedPulledCount)
     end
 
     for _, slot in ipairs(mapRemovals) do
