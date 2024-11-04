@@ -4,10 +4,22 @@
 local completion = require("cc.completion")
 local pretty = require("cc.pretty")
 
-local MANIFEST_URL = "https://raw.githubusercontent.com/alexfayers/cc-24/main/lexicon/lexicon-db.json"
+settings.define("lexicon.dbUrl", {
+    description = "The URL to the lexicon database",
+    default = "https://raw.githubusercontent.com/alexfayers/cc-24/main/lexicon/lexicon-db.json",
+    type = "string",
+})
+
+settings.define("lexicon.dbPath", {
+    description = "The path to the lexicon database",
+    default = "/.lexicon/db.json",
+    type = "string",
+})
+
+local MANIFEST_URL = settings.get("lexicon.dbUrl")
 
 -- local pretty = require("cc.pretty")
-local LEXICON_DB_PATH = "/.lexicon/db.json"
+local LEXICON_DB_PATH = settings.get("lexicon.dbPath")
 
 ---Load the lexicon database from disk
 ---@return table
