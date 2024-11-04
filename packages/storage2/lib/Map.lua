@@ -398,8 +398,6 @@ function Map:push(inputChest)
                         slot.slot,
                         quantity,
                         0,
-                        nil,
-                        nil,
                         nil
                     )
 
