@@ -26,6 +26,17 @@
                     "lib-term"
                 ]
             },
+            "class-lua": {
+                "description": "Make lua Object-Oriented!",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/class-lua/class.lua",
+                        "/usr/lib/class-lua/class.lua"
+                    ]
+                ],
+                "dependencies": []
+            },
             "lib-storage2": {
                 "description": "Helper library for the storage2 suite",
                 "version": "1.0.0",
@@ -59,17 +70,6 @@
                     "lib-logging",
                     "class-lua"
                 ]
-            },
-            "class-lua": {
-                "description": "Make lua Object-Oriented!",
-                "version": "1.0.0",
-                "files": [
-                    [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/class-lua/class.lua",
-                        "/usr/lib/class-lua/class.lua"
-                    ]
-                ],
-                "dependencies": []
             }
         },
         "program": {
@@ -87,7 +87,6 @@
                 ],
                 "usage": "'package-example'"
             },
-    
             "storage2": {
                 "description": "A smart storage system!",
                 "version": "1.0.0",
