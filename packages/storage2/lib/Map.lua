@@ -169,7 +169,7 @@ end
 ---@param fuzzy? boolean Whether to use fuzzy matching for the item name
 ---@return number
 function Map:getTotalItemCount(name, fuzzy)
-    local slots = self:getItemSlots(name)
+    local slots = self:getItemSlots(MapSlot.fullNameFromNameStub(name))
 
     if fuzzy and helpers.tableIsEmpty(slots) then
         slots = self:getItemSlotsBySearch(name)
@@ -443,7 +443,7 @@ function Map:pull(outputChest, itemName, amount, fuzzy)
     local totalActualPulledCount = 0
     local totalExpectedPulledCount = amount
 
-    local slots = self:getItemSlots(itemName)
+    local slots = self:getItemSlots(MapSlot.fullNameFromNameStub(itemName))
 
     if fuzzy and helpers.tableIsEmpty(slots) then
         -- didn't have an exact match, and we're using fuzzy matching so search
@@ -511,8 +511,8 @@ function Map:pull(outputChest, itemName, amount, fuzzy)
         self:addSlotEmpty(slot.chest, slot.slot)
         self:removeSlot(slot)
 
-        if self:getTotalItemCount(itemName) == 0 then
-            self:deleteSlotList(itemName)
+        if self:getTotalItemCount(slot.name) == 0 then
+            self:deleteSlotList(slot.name)
         end
     end
 end
