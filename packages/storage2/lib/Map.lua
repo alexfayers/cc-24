@@ -58,7 +58,7 @@ end
 ---Remove a slot
 ---@param slot MapSlot The slot to remove
 function Map:removeSlot(slot)
-    local slots = Map:getItemSlots(slot.name)
+    local slots = self:getItemSlots(slot.name)
     for i, s in ipairs(slots) do
         if s.chest == slot.chest and s.slot == slot.slot then
             table.remove(slots, i)
@@ -71,7 +71,7 @@ end
 ---Get the items that match a search (ignoring empty slots ofc)
 ---@param search string The regex to search for
 ---@return string[]
-function Map:searchItems(search)
+function Map:searchItemNames(search)
     local results = {}
     for itemName, _ in pairs(self.mapTable) do
         if itemName ~= MapSlot.EMPTY_SLOT_NAME and string.match(itemName, search) then
@@ -95,7 +95,7 @@ end
 ---@return MapSlot[]
 function Map:getItemSlotsBySearch(search)
     local results = {}
-    local itemNames = self:searchItems(search)
+    local itemNames = self:searchItemNames(search)
 
     for _, itemName in ipairs(itemNames) do
         for _, slot in ipairs(self:getItemSlots(itemName)) do
@@ -147,6 +147,18 @@ function Map.getTotalCount(slots)
 end
 
 
+---Get the total maxCount of items in a list of slots
+---@param slots MapSlot[] The slots to count
+---@return number
+function Map.getTotalMaxCount(slots)
+    local count = 0
+    for _, slot in ipairs(slots) do
+        count = count + slot.maxCount
+    end
+    return count
+end
+
+
 ---Get the total count of a specific item
 ---@param name string The name of the item
 ---@param fuzzy? boolean Whether to use fuzzy matching for the item name
@@ -172,6 +184,32 @@ function Map:getAllItemStubs()
         end
     end
     return itemStubs
+end
+
+
+---Get all slots in the map
+---@return MapSlot[]
+function Map:getAllSlots()
+    local slots = {}
+    for _, slotList in pairs(self.mapTable) do
+        for _, slot in ipairs(slotList) do
+            table.insert(slots, slot)
+        end
+    end
+    return slots
+end
+
+
+---Get full slots in the map
+---@return MapSlot[]
+function Map:getFullSlots()
+    ---@param slot MapSlot
+    ---@return boolean
+    local isFullFilter = function(slot)
+        return slot.isFull
+    end
+
+    return helpers.filterTable(self:getAllSlots(), isFullFilter)
 end
 
 
@@ -371,8 +409,6 @@ function Map:pull(outputChest, itemName, amount, fuzzy)
     local totalExpectedPulledCount = amount
     local outputChestName = peripheral.getName(outputChest)
 
-    local itemDetailCache = ItemDetailCache("/.storage2/itemDetailCache.json")
-
     local slots = self:getItemSlots(itemName)
 
     if fuzzy and helpers.tableIsEmpty(slots) then
@@ -386,13 +422,14 @@ function Map:pull(outputChest, itemName, amount, fuzzy)
     for _, slot in ipairs(slots) do
         logger:debug("Pulling %d %s from slot %d in chest %s", amount, slot.name, slot.slot, slot.chestName)
         local quantity = helpers.chestPullItemsRetry(
-            slot.chest,
-            outputChestName,
+            outputChest,
+            slot.chestName,
             slot.slot,
             totalExpectedPulledCount - totalPulledCount
         )
 
         if not quantity then
+            table.insert(mapRemovals, slot)
             goto continue
         end
 
@@ -419,7 +456,7 @@ function Map:pull(outputChest, itemName, amount, fuzzy)
     end
 
     if totalPulledCount < totalExpectedPulledCount then
-        logger:error("Only pulled %d/%d items", totalPulledCount, totalExpectedPulledCount)
+        logger:warn("Only pulled %d/%d items", totalPulledCount, totalExpectedPulledCount)
     else
         logger:info("Pulled %d/%d items", totalPulledCount, totalExpectedPulledCount)
     end

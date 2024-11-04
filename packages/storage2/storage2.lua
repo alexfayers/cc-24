@@ -3,6 +3,7 @@ package.path = package.path .. ";/usr/lib/?.lua"
 
 local storage = require("storage2.lib-storage2")
 local terminal = require("lexicon-lib.lib-term")
+require("storage2.lib.Map")
 local completion = require("cc.completion")
 
 -- consts
@@ -22,10 +23,8 @@ if not storageChests then
     return
 end
 
-local storageMapPath = storage.getStorageMapPath()
-
-local storageMap = storage.loadOrPopulateStorageMap(storageMapPath, storageChests)
-storage.saveStorageMap(storageMapPath, storageMap)
+local storageMap = Map(storageChests)
+storageMap:save()
 
 
 -- functions
@@ -58,7 +57,7 @@ local function complete(_, index, argument, previous)
         return completion.choice(argument, {"pull", "push", "search", "usage", "help"}, true)
     elseif index == 2 then
         if previousArg == "pull" then
-            return completion.choice(argument, storage.getAllItemStubs(storageMap), previousArg == "pull")
+            return completion.choice(argument, storageMap:getAllItemStubs(), previousArg == "pull")
         end
     elseif index == 3 then
         if previousArg == "pull" then
@@ -91,7 +90,7 @@ end
 ---@param item string The item stub to search for
 ---@return nil
 local function showItemMatches(item)
-    local matches = storage.getAllMatches(storageMap, item)
+    local matches = storageMap:searchItemNames(item)
 
     if #matches == 0 then
         print("No matches found for '" .. item .. "'")
@@ -100,7 +99,7 @@ local function showItemMatches(item)
 
     print("Matches for '" .. item .. "':")
     for _, match in pairs(matches) do
-        local count = storage.getTotalItemCount(storageMap, match, false)
+        local count = storageMap:getTotalItemCount(match)
         print("  " .. match .. " (" .. count .. ")")
     end
 end
@@ -109,8 +108,8 @@ end
 ---Show the usage and capacity of the storage chests
 ---@return nil
 local function showUsage()
-    local allSlots = storage.getAllSlots(storageMap)
-    local fullSlotCount = storage.getFullSlots(allSlots)
+    local allSlots = storageMap:getAllSlots()
+    local fullSlotCount = storageMap:getFullSlots()
     local allSlotsCount = #allSlots
 
     print("Usage:")
@@ -120,8 +119,8 @@ local function showUsage()
         " (" .. math.floor(fullSlotCount / allSlotsCount * 100) .. "%)"
     )
 
-    local itemCount = storage.getTotalCount(allSlots)
-    local maxItemCount = storage.getTotalMaxCount(allSlots)
+    local itemCount = storageMap.getTotalCount(allSlots)
+    local maxItemCount = storageMap.getTotalMaxCount(allSlots)
     print(
         "  Items:  " .. itemCount .. "/" .. maxItemCount ..
         " (" .. math.floor(itemCount / maxItemCount * 100) .. "%)"
@@ -140,8 +139,8 @@ local function main()
     local command = arg[1]
 
     if command == "push" then
-        storageMap = storage.pushItems(storageMap, inputChest)
-        storage.saveStorageMap(storageMapPath, storageMap)
+        storageMap:push(inputChest)
+        storageMap:save()
     elseif command == "search" then
         if #arg < 2 then
             help()
@@ -168,7 +167,7 @@ local function main()
         end
 
         if amountStr == "all" then
-            amount = storage.getTotalItemCount(storageMap, item, true)
+            amount = storageMap:getTotalItemCount(item, true)
         else
             local amountMaybe = tonumber(amountStr)
             if amountMaybe == nil then
@@ -182,8 +181,8 @@ local function main()
             return
         end
 
-        storageMap = storage.pullItems(storageMap, item, amount, outputChest, true)
-        storage.saveStorageMap(storageMapPath, storageMap)
+        storageMap:pull(outputChest, item, amount, true)
+        storageMap:save()
     elseif command == "help" then
         help()
     else
