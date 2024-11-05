@@ -140,6 +140,24 @@ local function goDownLayer()
 end
 
 
+---Calculate the fuel needed to mine the quarry and return to the origin
+---@param length integer The length of the quarry
+---@param width integer The width of the quarry
+---@param layers integer The depth of the quarry
+---@return number _ The fuel needed to mine the quarry
+local function calculateFuelNeeded(length, width, layers)
+    local fuelNeeded = 0
+
+    -- fuel needed to mine the quarry
+    fuelNeeded = fuelNeeded + (length * width * (layers * LAYER_DEPTH))
+
+    -- fuel needed to return to the origin, assuming we end in the far bottom corner
+    fuelNeeded = fuelNeeded + length + width + (layers * LAYER_DEPTH)
+
+    return fuelNeeded
+end
+
+
 ---Mine the quarry
 ---@param length integer The length of the quarry
 ---@param width integer The width of the quarry
@@ -158,6 +176,12 @@ local function mineQuarry(length, width, layers)
 
     if layers < 1 then
         logger:error("Quarry depth must be at least 1")
+        return false
+    end
+
+    local requiredFuel = calculateFuelNeeded(length, width, layers)
+    if requiredFuel > turt.fuel then
+        logger:error("Not enough fuel to mine the quarry and return (need %d)", requiredFuel)
         return false
     end
 
