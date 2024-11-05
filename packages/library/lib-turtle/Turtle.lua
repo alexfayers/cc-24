@@ -343,11 +343,6 @@ end
 function Turtle:moveTo(position, argsExtra)
     local diff = self.position:diff(position)
 
-    ---Check if the turtle has enough fuel to move to the position
-    if not self:hasFuel(self.position:manhattanDistance(diff)) then
-        return false, ERRORS.NOT_ENOUGH_FUEL
-    end
-
     self.logger:info("Moving to %s", position:asString())
 
     ---@type boolean
