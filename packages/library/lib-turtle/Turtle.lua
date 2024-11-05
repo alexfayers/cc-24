@@ -2,6 +2,8 @@
 package.path = package.path .. ";/usr/lib/?.lua"
 require("class-lua.class")
 
+require("lib-turtle.Position")
+
 local enums = require("lib-turtle.enums")
 
 ---@type Direction
