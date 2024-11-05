@@ -186,4 +186,5 @@ local function mineQuarry(length, width, layers)
 end
 
 
-mineQuarry(5, 4, 2)
+-- mineQuarry(5, 4, 2)
+mineQuarry(4, 5, 2)
