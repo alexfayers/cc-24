@@ -13,17 +13,21 @@ local ERRORS = enums.ERRORS
 ---@type ACTION_DIRECTION
 local ACTION_DIRECTION = enums.ACTION_DIRECTION
 
-local logger = require("lexicon-lib.lib-logging").getLogger("Turtle")
+local logging = require("lexicon-lib.lib-logging")
 
 
 --- Error messages
 
-
 ---@class Turtle
+---@field logger table The logger for the turtle
+---@field position Position The current position of the turtle
+---@field fuel number|string The current fuel level of the turtle
 ---@overload fun(): Turtle
 Turtle = class()
 
 function Turtle:init()
+    self.logger = logging.getLogger("Turtle")
+    self.logger:setLevel(logging.LEVELS.DEBUG)
     self.position = Position(0, 0, 0, Direction.NORTH)
     self.fuel = turtle.getFuelLevel()
 end
@@ -33,21 +37,26 @@ end
 ---@param amount number The number of blocks to move
 ---@return boolean
 function Turtle:hasFuel(amount)
+    if self.fuel == "unlimited" then
+        return true
+    end
     return self.fuel - amount >= 0
 end
 
 
 ---Use up some fuel (if possible)
 ---@param amount? number The amount of fuel to use
----@return boolean
+---@return nil
 function Turtle:useFuel(amount)
+    if self.fuel == "unlimited" then
+        return
+    end
+
     if amount == nil then
         amount = 1
     end
 
     self.fuel = self.fuel - amount
-
-    return true
 end
 
 
@@ -58,13 +67,13 @@ function Turtle:_digDirection(direction)
     local func = nil
 
     if direction == ACTION_DIRECTION.UP then
-        logger:debug("Dig up")
+        self.logger:debug("Dig up")
         func = turtle.digUp
     elseif direction == ACTION_DIRECTION.DOWN then
-        logger:debug("Dig down")
+        self.logger:debug("Dig down")
         func = turtle.digDown
     elseif direction == ACTION_DIRECTION.FORWARD then
-        logger:debug("Dig forward")
+        self.logger:debug("Dig forward")
         func = turtle.dig
     else
         return false, "Invalid direction"
@@ -74,7 +83,7 @@ function Turtle:_digDirection(direction)
 
     if not res then
         if errorMessage ~= ERRORS.NOTHING_TO_DIG then
-            logger:warn("Dig failed: %s", errorMessage)
+            self.logger:warn("Dig failed: %s", errorMessage)
         end
         return false, errorMessage
     end
@@ -161,16 +170,16 @@ function Turtle:_moveDirection(direction, amount, dig)
     local funcs = {nil, nil, nil}
 
     if direction == ACTION_DIRECTION.UP then
-        logger:debug("Move up")
+        self.logger:debug("Move up")
         funcs = {self.digUp, turtle.up, self.position.up}
     elseif direction == ACTION_DIRECTION.DOWN then
-        logger:debug("Move down")
+        self.logger:debug("Move down")
         funcs = {self.digDown, turtle.down, self.position.down}
     elseif direction == ACTION_DIRECTION.FORWARD then
-        logger:debug("Move forward")
+        self.logger:debug("Move forward")
         funcs = {self.dig, turtle.forward, self.position.forward}
     elseif direction == ACTION_DIRECTION.BACK then
-        logger:debug("Move back")
+        self.logger:debug("Move back")
         if dig then
             return false, "Cannot dig backwards"
         end
@@ -180,22 +189,22 @@ function Turtle:_moveDirection(direction, amount, dig)
     end
 
     for _ = 1, amount do
-        if funcs[0] ~= nil then
-            local res, errorMessage = funcs[0](self)
+        if funcs[1] ~= nil then
+            local res, errorMessage = funcs[1](self)
 
             if not res and errorMessage ~= ERRORS.NOTHING_TO_DIG then
                 return false, errorMessage
             end
         end
 
-        local res, errorMessage = funcs[1]()
+        local res, errorMessage = funcs[2]()
 
         if not res then
-            logger:warn("Move failed: %s", errorMessage)
+            self.logger:warn("Move failed: %s", errorMessage)
             return false, errorMessage
         end
 
-        self.position = funcs[2](self)
+        self.position = funcs[3](self.position)
         self:useFuel()
     end
 
@@ -275,6 +284,6 @@ function Turtle:face(direction)
     elseif diff == 3 or diff == -1 then
         self:turnLeft()
     else
-        logger:error("Invalid direction (%d)", direction)
+        self.logger:error("Invalid direction (%d)", direction)
     end
 end
