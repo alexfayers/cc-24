@@ -152,7 +152,7 @@ local function calculateFuelNeeded(length, width, layers)
     fuelNeeded = fuelNeeded + (length * width * (layers * LAYER_DEPTH))
 
     -- fuel needed to return to the origin, assuming we end in the far bottom corner
-    fuelNeeded = fuelNeeded + length + width + (layers * LAYER_DEPTH)
+    fuelNeeded = fuelNeeded + (length + width + (layers * LAYER_DEPTH))
 
     return fuelNeeded
 end
