@@ -120,8 +120,6 @@ function Turtle:_digDirection(direction)
     end
     ---@cast inspectData ccTweaked.turtle.inspectInfo
     
-    local targetIsReplaceable = helpers.isBlockReplaceable(inspectData)
-
     ---@type function[]
     local inspectTasks = {}
     for _, inspectHandler in pairs(self.inspectHandlers) do
@@ -132,7 +130,7 @@ function Turtle:_digDirection(direction)
 
     parallel.waitForAll(table.unpack(inspectTasks))
 
-    if targetIsReplaceable then
+    if helpers.isBlockReplaceable(inspectData) then
         return true
     end
 
@@ -151,8 +149,13 @@ function Turtle:_digDirection(direction)
 
     self.fuel = self.inventory:refuel()
 
-    isBlock, _ = inspectFunc()
+    isBlock, inspectData = inspectFunc()
     if isBlock then
+        ---@cast inspectData ccTweaked.turtle.inspectInfo
+        if helpers.isBlockReplaceable(inspectData) then
+            return true
+        end
+
         digAttempts = digAttempts + 1
 
         if digAttempts >= self.MAX_BREAK_ATTEMPTS then
