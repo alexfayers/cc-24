@@ -92,6 +92,10 @@
                         "/usr/lib/lib-turtle/enums.lua"
                     ],
                     [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-turtle/helpers.lua",
+                        "/usr/lib/lib-turtle/helpers.lua"
+                    ],
+                    [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-turtle/Position.lua",
                         "/usr/lib/lib-turtle/Position.lua"
                     ],
