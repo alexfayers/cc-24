@@ -113,7 +113,7 @@ function TurtleInventory:refuel()
     for slot, item in pairs(self.slots) do
         if self.combustibleItems[item.name] then
             turtle.select(slot)
-            turtle.refuel()
+            turtle.refuel(TURTLE_MAX_FUEL - fuelLevel)
 
             fuelLevel = turtle.getFuelLevel()
             ---@cast fuelLevel number
