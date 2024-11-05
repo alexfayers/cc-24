@@ -158,9 +158,9 @@ function Turtle:_digDirection(direction)
     ---Update the inventory because we've dug something
     self.inventory:updateSlots()
 
-    self.inventory:discardItems(self.trashItemTags, 8)
-
     self.inventory:compress()
+
+    self.inventory:discardItems(self.trashItemTags, 8)
 
     local refuelMadeChanges = false
     refuelMadeChanges, self.fuel = self.inventory:refuel()
