@@ -52,6 +52,7 @@ function Turtle:init(startingPosition)
 
     ---@type TurtleInventory
     self.inventory = TurtleInventory()
+    self.inventory:refuel()
 end
 
 
