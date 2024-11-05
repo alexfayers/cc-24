@@ -106,6 +106,7 @@ function TurtleInventory:refuel()
         return fuelLevel
     end
 
+    self:updateSlots()
     self:scanForCombustibleItems()
 
     for slot, item in pairs(self.slots) do
