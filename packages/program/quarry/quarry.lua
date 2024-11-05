@@ -91,11 +91,11 @@ local function mineLevel(length, width)
         end
     end
 
-    -- turn left or right depending on the length of the quarry
+    -- turn around or right depending on the length of the quarry
     if length % 2 == 0 then
         turt:turnRight()
     else
-        turt:turnLeft()
+        turt:turnAround()
     end
 
     return true
