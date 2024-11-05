@@ -162,6 +162,8 @@ function Turtle:_digDirection(direction)
 
     self.inventory:discardItems(self.trashItemTags)
 
+    self.inventory:compress()
+
     isBlock, inspectData = inspectFunc()
     if isBlock then
         ---@cast inspectData ccTweaked.turtle.inspectInfo
