@@ -80,11 +80,22 @@ local function mineLevel(length, width)
             return false
         end
 
+        if i == length then
+            break
+        end
+
         local prepRes = prepareNextStrip(i)
         if prepRes == false then
             logger.error("Failed to prepare next strip")
             return false
         end
+    end
+
+    -- turn left or right depending on the length of the quarry
+    if length % 2 == 0 then
+        turt:turnRight()
+    else
+        turt:turnLeft()
     end
 
     return true
@@ -127,10 +138,16 @@ local function mineQuarry(length, width, depth)
             logger.error("Failed to go down layer")
             return false
         end
+
+        -- swap the values of length and width for the next layer
+        length, width = width, length
     end
 
     -- Return to the origin
     turt:moveTo(Turtle.origin, {dig = true})
+
+    -- celebratory spin
+    turt:turnRight(4)
 
     return true
 end
