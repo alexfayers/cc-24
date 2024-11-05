@@ -24,20 +24,20 @@ local function mineLevelStrip(stripLength)
     for _ = 1, stripLength do
         local forwardRes, forwardErr = turt:forward(1, MOVEMENT_ARGS)
         if forwardRes == false then
-            logger.error("Failed to move forward: " .. forwardErr)
+            logger:error("Failed to move forward: " .. forwardErr)
             return false
         end
 
         local digDownRes, digDownErr = turt:digDown()
         if digDownRes == false then
-            logger.error("Failed to dig down: " .. digDownErr)
+            logger:error("Failed to dig down: " .. digDownErr)
             return false
         end
 
         local digUpRes, digUpErr = turt:digUp()
 
         if digUpRes == false then
-            logger.error("Failed to dig up: " .. digUpErr)
+            logger:error("Failed to dig up: " .. digUpErr)
             return false
         end
     end
@@ -76,7 +76,7 @@ local function mineLevel(length, width)
     for i = 1, length do
         local stripRes = mineLevelStrip(width - 1)
         if stripRes == false then
-            logger.error("Failed to mine strip")
+            logger:error("Failed to mine strip")
             return false
         end
 
@@ -86,7 +86,7 @@ local function mineLevel(length, width)
 
         local prepRes = prepareNextStrip(i)
         if prepRes == false then
-            logger.error("Failed to prepare next strip")
+            logger:error("Failed to prepare next strip")
             return false
         end
     end
@@ -108,7 +108,7 @@ local function goDownLayer()
     local downRes, downErr = turt:down(LAYER_DEPTH, MOVEMENT_ARGS)
 
     if downRes == false then
-        logger.error("Failed to go down: " .. downErr)
+        logger:error("Failed to go down: " .. downErr)
         return false
     end
 
@@ -123,24 +123,24 @@ end
 ---@return boolean _ Whether the quarry was mined successfully
 local function mineQuarry(length, width, layers)
     if length < 2 then
-        logger.error("Quarry length must be at least 2")
+        logger:error("Quarry length must be at least 2")
         return false
     end
 
     if width < 2 then
-        logger.error("Quarry width must be at least 2")
+        logger:error("Quarry width must be at least 2")
         return false
     end
 
     if layers < 1 then
-        logger.error("Quarry depth must be at least 1")
+        logger:error("Quarry depth must be at least 1")
         return false
     end
 
     for i = 1, layers do
         local layerRes = mineLevel(length, width)
         if layerRes == false then
-            logger.error("Failed to mine layer")
+            logger:error("Failed to mine layer")
             return false
         end
 
@@ -150,7 +150,7 @@ local function mineQuarry(length, width, layers)
 
         local downRes = goDownLayer()
         if downRes == false then
-            logger.error("Failed to go down layer")
+            logger:error("Failed to go down layer")
             return false
         end
 
