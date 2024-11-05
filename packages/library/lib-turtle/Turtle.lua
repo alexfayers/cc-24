@@ -117,9 +117,8 @@ function Turtle:_digDirection(direction)
     end
     ---@cast inspectData ccTweaked.turtle.inspectInfo
     
-    for inspectHandler in self.inspectHandlers do
-        ---@cast inspectHandler inspectHandler
-        inspectHandler(targetBlockCoords, inspectData)
+    for _, inspectHandler in pairs(self.inspectHandlers) do
+        inspectHandler(self, targetBlockCoords, inspectData)
     end
 
     local res, errorMessage = func()
@@ -133,6 +132,17 @@ function Turtle:_digDirection(direction)
     end
 
     self.fuel = self.inventory:refuel()
+
+    isBlock, _ = inspectFunc()
+    if isBlock then
+        digAttempts = digAttempts + 1
+
+        if digAttempts >= self.MAX_BREAK_ATTEMPTS then
+            self.logger:warn("Broken block in same place %d times", self.MAX_BREAK_ATTEMPTS)
+            return false, ERRORS.TOO_MANY_BREAK_ATTEMPTS
+        end
+        goto doDig
+    end
 
     return true
 end
