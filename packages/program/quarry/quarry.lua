@@ -19,7 +19,7 @@ local turt = Turtle()
 ---@overload fun(self: Turtle, inspectedBlockPosition: Position, inspectedBlockData: ccTweaked.turtle.inspectInfo): nil
 local function inspectHandler(self, inspectedBlockPosition, inspectedBlockData)
     for tag in pairs(inspectedBlockData.tags) do
-        if tag == "minecraft:ores" then
+        if tag == "c:ores" then
             self.logger:info("Found ore at %s", inspectedBlockPosition)
             return
         end
