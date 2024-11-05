@@ -98,8 +98,9 @@ function Turtle:_digDirection(direction)
     if not res then
         if errorMessage ~= ERRORS.NOTHING_TO_DIG then
             self.logger:warn("Dig failed: %s", errorMessage)
+            return false, errorMessage
         end
-        return false, errorMessage
+        -- Nothing to dig, but that's fine
     end
 
     return true
