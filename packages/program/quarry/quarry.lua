@@ -252,7 +252,7 @@ end
 local startX = tonumber(arg[1])
 local startY = tonumber(arg[2])
 local startZ = tonumber(arg[3])
-local startBearing = enums.Direction[arg[4]]
+local startBearing = enums.Direction[string.upper(arg[4])]
 local length = tonumber(arg[5])
 local width = tonumber(arg[6])
 local layers = tonumber(arg[7])
