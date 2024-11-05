@@ -21,7 +21,7 @@ local MOVEMENT_ARGS = {
 ---@param stripLength integer The length of the strip
 ---@return boolean _ Whether the strip was mined successfully
 local function mineLevelStrip(stripLength)
-    for i = 1, stripLength do
+    for _ = 1, stripLength do
         local forwardRes, forwardErr = turt:forward(1, MOVEMENT_ARGS)
         if forwardRes == false then
             logger.error("Failed to move forward: " .. forwardErr)
@@ -74,7 +74,7 @@ end
 ---@return boolean _ Whether the layer was mined successfully
 local function mineLevel(length, width)
     for i = 1, length do
-        local stripRes = mineLevelStrip(width)
+        local stripRes = mineLevelStrip(width - 1)
         if stripRes == false then
             logger.error("Failed to mine strip")
             return false
@@ -119,16 +119,33 @@ end
 ---Mine the quarry
 ---@param length integer The length of the quarry
 ---@param width integer The width of the quarry
----@param depth integer The depth of the quarry (blocks, not layers)
+---@param layers integer The depth of the quarry (layers, so blocks will be {LAYER_DEPTH}x this)
 ---@return boolean _ Whether the quarry was mined successfully
-local function mineQuarry(length, width, depth)
-    local layers = math.ceil(depth / LAYER_DEPTH)
+local function mineQuarry(length, width, layers)
+    if length < 2 then
+        logger.error("Quarry length must be at least 2")
+        return false
+    end
+
+    if width < 2 then
+        logger.error("Quarry width must be at least 2")
+        return false
+    end
+
+    if layers < 1 then
+        logger.error("Quarry depth must be at least 1")
+        return false
+    end
 
     for i = 1, layers do
         local layerRes = mineLevel(length, width)
         if layerRes == false then
             logger.error("Failed to mine layer")
             return false
+        end
+
+        if i == layers then
+            break
         end
 
         local downRes = goDownLayer()
