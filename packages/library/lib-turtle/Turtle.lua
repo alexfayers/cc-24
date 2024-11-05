@@ -28,7 +28,7 @@ Turtle = class()
 
 Turtle.origin = Position(0, 0, 0, Direction.NORTH)
 
----@alias inspectHandler fun(inspectedBlockPosition: Position, inspectData: ccTweaked.turtle.inspectInfo): nil
+---@alias inspectHandler fun(self: Turtle, inspectedBlockPosition: Position, inspectData: ccTweaked.turtle.inspectInfo): nil
 
 ---@type inspectHandler[] The functions to call when inspecting a block.
 Turtle.inspectHandlers = {}
@@ -38,7 +38,7 @@ Turtle.inspectHandlers = {}
 ---@param startingPosition? Position The starting position of the turtle
 function Turtle:init(startingPosition)
     self.logger = logging.getLogger("Turtle")
-    self.logger:setLevel(logging.LEVELS.DEBUG)
+    self.logger:setLevel(logging.LEVELS.INFO)
     self.fuel = turtle.getFuelLevel()
 
     if startingPosition == nil then
@@ -229,19 +229,19 @@ function Turtle:_moveDirection(direction, amount, argsExtra)
     local funcs = {nil, nil, nil}
 
     if direction == ACTION_DIRECTION.UP then
-        self.logger:debug("Move up")
+        self.logger:debug("Move up %d", amount)
         funcs = {self.digUp, turtle.up, self.position.up}
         newPosition = newPosition:up(amount)
     elseif direction == ACTION_DIRECTION.DOWN then
-        self.logger:debug("Move down")
+        self.logger:debug("Move down %d", amount)
         funcs = {self.digDown, turtle.down, self.position.down}
         newPosition = newPosition:down(amount)
     elseif direction == ACTION_DIRECTION.FORWARD then
-        self.logger:debug("Move forward")
+        self.logger:debug("Move forward %d", amount)
         funcs = {self.dig, turtle.forward, self.position.forward}
         newPosition = newPosition:forward(amount)
     elseif direction == ACTION_DIRECTION.BACK then
-        self.logger:debug("Move back")
+        self.logger:debug("Move back %d", amount)
         if argsExtra.dig then
             return false, "Cannot dig backwards"
         end
@@ -374,7 +374,7 @@ end
 function Turtle:moveTo(position, argsExtra)
     local diff = self.position:diff(position)
 
-    self.logger:info("Moving to %s", position:asString())
+    self.logger:debug("Moving to %s", position:asString())
 
     ---@type boolean
     local res
