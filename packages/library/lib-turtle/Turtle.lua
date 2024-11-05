@@ -54,8 +54,6 @@ function Turtle:init(startingPosition)
 
     ---@type TurtleInventory
     self.inventory = TurtleInventory()
-
-    self.logger:info("Initialised turtle at %s", self.position:asString())
 end
 
 
