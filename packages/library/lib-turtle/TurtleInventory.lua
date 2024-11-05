@@ -72,8 +72,6 @@ function TurtleInventory:updateSlots()
     parallel.waitForAll(table.unpack(slotTasks))
 
     self.slots = newSlots
-
-    pretty.pretty_print(self.slots)
 end
 
 
