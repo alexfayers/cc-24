@@ -44,6 +44,7 @@ function Turtle:init(startingPosition)
 
     self.startingPosition = self.position
 
+    ---@type TurtleInventory
     self.inventory = TurtleInventory()
 
     self.logger:info("Initialised turtle at %s", self.position:asString())
@@ -105,6 +106,8 @@ function Turtle:_digDirection(direction)
         end
         -- Nothing to dig, but that's fine
     end
+
+    self.fuel = self.inventory:refuel()
 
     return true
 end
