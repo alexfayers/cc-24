@@ -58,9 +58,7 @@ local function prepareNextStrip(stripNumber)
 
     turnFunc(turt)
 
-    local forwardRes, forwardErr = turt:forward(1, MOVEMENT_ARGS)
-    if forwardRes == false then
-        logger.error("Failed to move forward: " .. forwardErr)
+    if not mineLevelStrip(1) then
         return false
     end
 
