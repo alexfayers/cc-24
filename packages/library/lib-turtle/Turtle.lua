@@ -122,9 +122,15 @@ function Turtle:_digDirection(direction)
     
     local targetIsReplaceable = helpers.isBlockReplaceable(inspectData)
 
+    ---@type function[]
+    local inspectTasks = {}
     for _, inspectHandler in pairs(self.inspectHandlers) do
-        inspectHandler(self, targetBlockCoords, inspectData)
+        table.insert(inspectTasks, function ()
+            inspectHandler(self, targetBlockCoords, inspectData)
+        end)
     end
+
+    parallel.waitForAll(table.unpack(inspectTasks))
 
     if targetIsReplaceable then
         return true
