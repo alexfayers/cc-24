@@ -3,6 +3,7 @@ package.path = package.path .. ";/usr/lib/?.lua"
 require("class-lua.class")
 
 require("lib-turtle.Position")
+require("lib-turtle.TurtleInventory")
 
 local enums = require("lib-turtle.enums")
 
@@ -42,6 +43,8 @@ function Turtle:init(startingPosition)
     end
 
     self.startingPosition = self.position
+
+    self.inventory = TurtleInventory()
 
     self.logger:info("Initialised turtle at %s", self.position:asString())
 end
