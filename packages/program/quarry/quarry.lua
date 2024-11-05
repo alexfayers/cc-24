@@ -165,7 +165,7 @@ local function mineQuarry(length, width, layers)
             goto returnToOrigin
         end
 
-        if length % 2 ~= 0 then
+        if length % 2 == 0 then
             -- swap the values of length and width for the next layer
             -- if we just turned right instead of turning around
             length, width = width, length
