@@ -119,3 +119,50 @@ function Position:rotateRight(amount)
 
     return Position(self.x, self.y, self.z, (self.facing + amount) % 4)
 end
+
+
+---Calculate the difference between the current position and another position
+---@param position Position The position to compare to
+---@return Position
+function Position:diff(position)
+    return Position(position.x - self.x, position.y - self.y, position.z - self.z, position.facing - self.facing)
+end
+
+
+---Calculate the manhattan distance between the current position and another position
+---@param position Position The position to compare to
+---@return integer
+function Position:manhattanDistance(position)
+    return math.abs(position.x - self.x) + math.abs(position.y - self.y) + math.abs(position.z - self.z)
+end
+
+
+---Check if the current position is equal to another position
+---@param position Position The position to compare to
+---@param ignoreFacing? boolean If true, ignore the facing direction (default false)
+---@return boolean
+function Position:equals(position, ignoreFacing)
+    if ignoreFacing == nil then
+        ignoreFacing = false
+    end
+
+    if ignoreFacing then
+        return self.x == position.x and self.y == position.y and self.z == position.z
+    else
+        return self.x == position.x and self.y == position.y and self.z == position.z and self.facing == position.facing
+    end
+end
+
+
+---Convert the position to a string
+---@return string
+function Position:__tostring()
+    return string.format("Position(%d, %d, %d, %d)", self.x, self.y, self.z, self.facing)
+end
+
+
+---Return a copy of the position
+---@return Position
+function Position:copy()
+    return Position(self.x, self.y, self.z, self.facing)
+end

@@ -11,6 +11,8 @@ local ERRORS = {
     MOVEMENT_OBSTRUCTED = "Movement obstructed",
     OUT_OF_FUEL = "Out of fuel",
     NOT_ENOUGH_FUEL = "Not enough fuel",
+    NOT_ENOUGH_FUEL_FOR_EMERGENCY = "Not enough fuel to make it back to start",
+    DID_EMERGENCY_RETURN = "Did emergency return",
     NOTHING_TO_DIG = "Nothing to dig here",
     CANNOT_BREAK_UNBREAKABLE = "Cannot break unbreakable block",
 }

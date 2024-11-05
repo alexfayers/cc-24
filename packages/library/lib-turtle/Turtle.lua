@@ -25,11 +25,25 @@ local logging = require("lexicon-lib.lib-logging")
 ---@overload fun(): Turtle
 Turtle = class()
 
-function Turtle:init()
+Turtle.origin = Position(0, 0, 0, Direction.NORTH)
+
+
+---Initialise the turtle
+---@param startingPosition? Position The starting position of the turtle
+function Turtle:init(startingPosition)
     self.logger = logging.getLogger("Turtle")
     self.logger:setLevel(logging.LEVELS.DEBUG)
-    self.position = Position(0, 0, 0, Direction.NORTH)
     self.fuel = turtle.getFuelLevel()
+
+    if startingPosition == nil then
+        self.position = Turtle.origin
+    else
+        self.position = startingPosition
+    end
+
+    self.origin = self.position
+
+    self.logger:info("Initialised turtle at %s", tostring(self.position))
 end
 
 
@@ -156,15 +170,28 @@ function Turtle:turnAround()
 end
 
 
+---@class MovementArgsExtra
+---@field dig? boolean If true, dig out any blocks in the way (default false)
+---@field safe? boolean If true, don't perform this move if we won't have enough fuel to return to the starting position (default true)
+---@field autoReturn? boolean If true, return to the starting position if we wont't have enough fuel to return after the move. Only used if in safe mode (default false)
+
+
 ---Move the turtle in a given direction
 ---@param direction number The direction to move
 ---@param amount? number The number of blocks to move (default 1)
----@param dig? boolean If true, dig out any blocks in the way
+---@param argsExtra? MovementArgsExtra Extra arguments for the move
 ---@return boolean, string?
-function Turtle:_moveDirection(direction, amount, dig)
-    if amount == nil then
-        amount = 1
-    end
+function Turtle:_moveDirection(direction, amount, argsExtra)
+    if amount == nil then amount = 1 end
+    if argsExtra == nil then argsExtra = {} end
+
+    if argsExtra.dig == nil then argsExtra.dig = false end
+    if argsExtra.safe == nil then argsExtra.safe = true end
+    if argsExtra.autoReturn == nil then argsExtra.autoReturn = false end
+
+    ---This will be the new position of the turtle after the move
+    ---if all goes well
+    local newPosition = self.position:copy()
 
     ---@type function[]
     local funcs = {nil, nil, nil}
@@ -172,24 +199,41 @@ function Turtle:_moveDirection(direction, amount, dig)
     if direction == ACTION_DIRECTION.UP then
         self.logger:debug("Move up")
         funcs = {self.digUp, turtle.up, self.position.up}
+        newPosition = newPosition:up(amount)
     elseif direction == ACTION_DIRECTION.DOWN then
         self.logger:debug("Move down")
         funcs = {self.digDown, turtle.down, self.position.down}
+        newPosition = newPosition:down(amount)
     elseif direction == ACTION_DIRECTION.FORWARD then
         self.logger:debug("Move forward")
         funcs = {self.dig, turtle.forward, self.position.forward}
+        newPosition = newPosition:forward(amount)
     elseif direction == ACTION_DIRECTION.BACK then
         self.logger:debug("Move back")
-        if dig then
+        if argsExtra.dig then
             return false, "Cannot dig backwards"
         end
         funcs = {nil, turtle.back, self.position.back}
+        newPosition = self.position:back(amount)
     else
         return false, "Invalid direction"
     end
 
+    ---Check if the turtle has enough fuel to return to the starting position
+    ---if we do this move
+    if argsExtra.safe and not self:willHaveFuelToEmergencyReturn(newPosition) then
+        --- If we won't have enough fuel to return to the starting position
+        
+        if argsExtra.autoReturn then
+            return self:emergencyReturn()
+        else
+            --- not in safe mode so yolo it
+            return false, ERRORS.NOT_ENOUGH_FUEL_FOR_EMERGENCY
+        end
+    end
+
     for _ = 1, amount do
-        if funcs[1] ~= nil then
+        if argsExtra.dig and funcs[1] ~= nil then
             local res, errorMessage = funcs[1](self)
 
             if not res and errorMessage ~= ERRORS.NOTHING_TO_DIG then
@@ -206,6 +250,8 @@ function Turtle:_moveDirection(direction, amount, dig)
 
         self.position = funcs[3](self.position)
         self:useFuel()
+
+        self.logger:debug("Moved to %s", self.position:__tostring())
     end
 
     return true
@@ -214,58 +260,58 @@ end
 
 ---Move the turtle up a number of blocks
 ---@param amount? number The number of blocks to move (default 1)
----@param dig? boolean If true, dig out any blocks in the way
+---@param argsExtra? MovementArgsExtra Extra arguments for the move
 ---@return boolean, string?
-function Turtle:up(amount, dig)
-    return self:_moveDirection(ACTION_DIRECTION.UP, amount, dig)
+function Turtle:up(amount, argsExtra)
+    return self:_moveDirection(ACTION_DIRECTION.UP, amount, argsExtra)
 end
 
 
 ---Move the turtle down a number of blocks
 ---@param amount? number The number of blocks to move (default 1)
----@param dig? boolean If true, dig out any blocks in the way
+---@param argsExtra? MovementArgsExtra Extra arguments for the move
 ---@return boolean, string?
-function Turtle:down(amount, dig)
-    return self:_moveDirection(ACTION_DIRECTION.DOWN, amount, dig)
+function Turtle:down(amount, argsExtra)
+    return self:_moveDirection(ACTION_DIRECTION.DOWN, amount, argsExtra)
 end
 
 
 ---Move the turtle forward a number of blocks
 ---@param amount? number The number of blocks to move (default 1)
----@param dig? boolean If true, dig out any blocks in the way
+---@param argsExtra? MovementArgsExtra Extra arguments for the move
 ---@return boolean, string?
-function Turtle:forward(amount, dig)
-    return self:_moveDirection(ACTION_DIRECTION.FORWARD, amount, dig)
+function Turtle:forward(amount, argsExtra)
+    return self:_moveDirection(ACTION_DIRECTION.FORWARD, amount, argsExtra)
 end
 
 
 ---Move the turtle back a number of blocks (by turning around and moving forward)
 ---@param amount? number The number of blocks to move (default 1)
----@param dig? boolean If true, dig out any blocks in the way
+---@param argsExtra? MovementArgsExtra Extra arguments for the move
 ---@return boolean, string?
-function Turtle:back(amount, dig)
+function Turtle:back(amount, argsExtra)
     self:turnAround()
-    return self:forward(amount, dig)
+    return self:forward(amount, argsExtra)
 end
 
 
 ---Move the turtle left a number of blocks (by turning left and moving forward)
 ---@param amount? number The number of blocks to move (default 1)
----@param dig? boolean If true, dig out any blocks in the way
+---@param argsExtra? MovementArgsExtra Extra arguments for the move
 ---@return boolean, string?
-function Turtle:left(amount, dig)
+function Turtle:left(amount, argsExtra)
     self:turnLeft()
-    return self:forward(amount, dig)
+    return self:forward(amount, argsExtra)
 end
 
 
 ---Move the turtle right a number of blocks (by turning right and moving forward)
 ---@param amount? number The number of blocks to move (default 1)
----@param dig? boolean If true, dig out any blocks in the way
+---@param argsExtra? MovementArgsExtra Extra arguments for the move
 ---@return boolean, string?
-function Turtle:right(amount, dig)
+function Turtle:right(amount, argsExtra)
     self:turnRight()
-    return self:forward(amount, dig)
+    return self:forward(amount, argsExtra)
 end
 
 
@@ -286,4 +332,92 @@ function Turtle:face(direction)
     else
         self.logger:error("Invalid direction (%d)", direction)
     end
+end
+
+
+---Move the turtle to a given position
+---@param position Position The position to move to
+---@param argsExtra? MovementArgsExtra Extra arguments for the move
+---@return boolean, string?
+function Turtle:moveTo(position, argsExtra)
+    local diff = self.position:diff(position)
+
+    ---Check if the turtle has enough fuel to move to the position
+    if not self:hasFuel(self.position:manhattanDistance(diff)) then
+        return false, ERRORS.NOT_ENOUGH_FUEL
+    end
+
+    self.logger:info("Moving to %s", tostring(position))
+
+    ---@type boolean
+    local res
+    ---@type string?
+    local errorMessage
+
+    if diff.x ~= 0 then
+        if diff.x > 0 then
+            self:face(Direction.EAST)
+        else
+            self:face(Direction.WEST)
+        end
+
+        res, errorMessage = self:forward(math.abs(diff.x), argsExtra)
+
+        if not res then
+            return false, errorMessage
+        end
+    end
+
+    if diff.y ~= 0 then
+        if diff.y > 0 then
+            res, errorMessage = self:up(math.abs(diff.y), argsExtra)
+        else
+            res, errorMessage = self:down(math.abs(diff.y), argsExtra)
+        end
+
+        if not res then
+            return false, errorMessage
+        end
+    end
+
+    if diff.z ~= 0 then
+        if diff.z > 0 then
+            self:face(Direction.SOUTH)
+        else
+            self:face(Direction.NORTH)
+        end
+
+        res, errorMessage = self:forward(math.abs(diff.z), argsExtra)
+
+        if not res then
+            return false, errorMessage
+        end
+    end
+
+    self:face(position.facing)
+
+    return true
+end
+
+
+---Return the turtle to the starting position, digging out any blocks in the way
+---@return boolean, string?
+function Turtle:emergencyReturn()
+    local res, err = self:moveTo(Turtle.origin, {dig = true})
+
+    if res then
+        return false, ERRORS.DID_EMERGENCY_RETURN
+    else
+        return false, err
+    end
+end
+
+
+---Check if the turtle will have enough fuel to return to the starting position from a given position
+---@param position Position The position to start from
+---@return boolean
+function Turtle:willHaveFuelToEmergencyReturn(position)
+    local manhattanDistance = position:manhattanDistance(self.origin)
+
+    return self:hasFuel(manhattanDistance)
 end
