@@ -168,8 +168,23 @@ end
 ---@return boolean _ Whether the inventory was compressed
 function TurtleInventory:compress()
     for slot, item in pairs(self.slots) do
+        if not item then
+            -- this slot is empty, so skip it because there's nothing to compress
+            goto continue
+        end
+
+        if turtle.getItemSpace(slot) == 0 then
+            -- this slot is full, so skip it because it's already compresses
+            goto continue
+        end
+
         for otherSlot, otherItem in pairs(self.slots) do
             if slot ~= otherSlot and item.name == otherItem.name then
+                if turtle.getItemSpace(otherSlot) == 0 then
+                    -- other slot is full, so we can't compress into it
+                    goto continue2
+                end
+
                 turtle.select(slot)
                 turtle.transferTo(otherSlot)
 
@@ -181,8 +196,10 @@ function TurtleInventory:compress()
                     self.slots[slot] = nil
                     break
                 end
+                ::continue2::
             end
         end
+        ::continue::
     end
 
     self:selectFirstSlot()
