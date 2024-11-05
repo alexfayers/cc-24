@@ -164,9 +164,6 @@ local function mineQuarry(length, width, layers)
             retVal = false
             goto returnToOrigin
         end
-
-        -- swap the values of length and width for the next layer
-        length, width = width, length
     end
 
     ::returnToOrigin::
