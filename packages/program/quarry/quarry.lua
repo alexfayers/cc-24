@@ -1,8 +1,11 @@
 ---Quarry mining system for cc:tweaked
 package.path = package.path .. ";/usr/lib/?.lua"
 
+local completion = require("cc.completion")
+
 local enums = require("lib-turtle.enums")
 require("lib-turtle.Turtle")
+require("lib-turtle.Position")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("Quarry")
 
@@ -207,5 +210,90 @@ local function mineQuarry(length, width, layers)
 end
 
 
--- mineQuarry(5, 4, 2)
-mineQuarry(4, 5, 2)
+local function help()
+    print("Usage: quarry <starting x> <starting y> <starting z> <starting bearing> <length> <width> <layers>")
+end
+
+
+---Argument completion for the script
+---@param _ any
+---@param index number The index of the argument
+---@param argument string The current arguments
+---@param previous table
+---@return table? _ A table of possible completions
+local function complete(_, index, argument, previous)
+    if index == 1 then
+        return completion.choice(argument, {"0"}, true)
+    elseif index == 2 then
+        return completion.choice(argument, {"0"}, true)
+    elseif index == 3 then
+        return completion.choice(argument, {"0"}, true)
+    elseif index == 4 then
+        return completion.choice(argument, {"north", "east", "south", "west"}, true)
+    elseif index == 5 then
+        return completion.choice(argument, {"16"}, true)
+    elseif index == 6 then
+        return completion.choice(argument, {"16"}, true)
+    elseif index == 7 then
+        return completion.choice(argument, {"20"}, true)
+    end
+
+    return {}
+end
+
+shell.setCompletionFunction(shell.getRunningProgram(), complete)
+
+
+if #arg < 7 then
+    help()
+    return
+end
+
+local startX = tonumber(arg[1])
+local startY = tonumber(arg[2])
+local startZ = tonumber(arg[3])
+local startBearing = enums.Direction[arg[4]]
+local length = tonumber(arg[5])
+local width = tonumber(arg[6])
+local layers = tonumber(arg[7])
+
+if not startX then
+    logger:error("Invalid starting x")
+    return
+end
+
+if not startY then
+    logger:error("Invalid starting y")
+    return
+end
+
+if not startZ then
+    logger:error("Invalid starting z")
+    return
+end
+
+if not startBearing then
+    logger:error("Invalid starting bearing")
+    return
+end
+
+if not length then
+    logger:error("Invalid length")
+    return
+end
+
+if not width then
+    logger:error("Invalid width")
+    return
+end
+
+if not layers then
+    logger:error("Invalid layers")
+    return
+end
+
+turt:setPosition(Position(startX, startY, startZ, startBearing))
+
+if not mineQuarry(length, width, layers) then
+    logger:error("Failed to mine quarry")
+end
