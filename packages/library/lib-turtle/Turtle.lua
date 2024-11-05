@@ -43,7 +43,7 @@ function Turtle:init(startingPosition)
 
     self.startingPosition = self.position
 
-    self.logger:info("Initialised turtle at %s", tostring(self.position))
+    self.logger:info("Initialised turtle at %s", self.position:asString())
 end
 
 
@@ -251,7 +251,7 @@ function Turtle:_moveDirection(direction, amount, argsExtra)
         self.position = funcs[3](self.position)
         self:useFuel()
 
-        self.logger:debug("Moved to %s", self.position:__tostring())
+        self.logger:debug("Moved to %s", self.position:asString())
     end
 
     return true
@@ -347,7 +347,7 @@ function Turtle:moveTo(position, argsExtra)
         return false, ERRORS.NOT_ENOUGH_FUEL
     end
 
-    self.logger:info("Moving to %s", tostring(position))
+    self.logger:info("Moving to %s", position:asString())
 
     ---@type boolean
     local res

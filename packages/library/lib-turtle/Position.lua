@@ -156,7 +156,7 @@ end
 
 ---Convert the position to a string
 ---@return string
-function Position:__tostring()
+function Position:asString()
     return string.format("Position(%d, %d, %d, %d)", self.x, self.y, self.z, self.facing)
 end
 
