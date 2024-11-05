@@ -126,6 +126,20 @@
                     "lib-storage2"
                 ],
                 "usage": "'storage2' and 'storage2-watch'"
+            },
+            "quarry": {
+                "description": "A simple quarry program",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/quarry/quarry.lua",
+                        "quarry.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-turtle"
+                ],
+                "usage": "'quarry'"
             }
         }
     }
