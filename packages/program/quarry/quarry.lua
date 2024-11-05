@@ -112,6 +112,13 @@ local function goDownLayer()
         return false
     end
 
+    -- dig down an extra block, otherwise it gets missed
+    local digDownRes, digDownErr = turt:digDown()
+    if not digDownRes then
+        logger:error("Failed to dig down: " .. digDownErr)
+        return false
+    end
+
     return true
 end
 
