@@ -27,6 +27,7 @@ local logging = require("lexicon-lib.lib-logging")
 Turtle = class()
 
 Turtle.origin = Position(0, 0, 0, Direction.NORTH)
+Turtle.MAX_BREAK_ATTEMPTS = 30
 
 ---@alias inspectHandler fun(self: Turtle, inspectedBlockPosition: Position, inspectData: ccTweaked.turtle.inspectInfo): nil
 
@@ -111,8 +112,8 @@ function Turtle:_digDirection(direction)
         return false, "Invalid direction"
     end
 
-    local inspectRes, inspectData = inspectFunc()
-    if not inspectRes then
+    local isBlock, inspectData = inspectFunc()
+    if not isBlock then
         return true
     end
     ---@cast inspectData ccTweaked.turtle.inspectInfo
@@ -120,6 +121,9 @@ function Turtle:_digDirection(direction)
     for _, inspectHandler in pairs(self.inspectHandlers) do
         inspectHandler(self, targetBlockCoords, inspectData)
     end
+
+    local digAttempts = 0
+    ::doDig::
 
     local res, errorMessage = func()
 
