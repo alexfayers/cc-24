@@ -131,8 +131,8 @@ end
 ---@return boolean, string? _ Whether the items were discarded
 function TurtleInventory:discardItems(items)
     for slot, item in pairs(self.slots) do
-        for tag, _ in pairs(item.tags) do
-            if tableHelpers.contains(items, tag) then
+        for _, trashItem in pairs(items) do
+            if tableHelpers.contains(item.tags, trashItem) then
                 turtle.select(slot)
                 local res, err = turtle.dropUp()
                 if not res then
