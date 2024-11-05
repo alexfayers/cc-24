@@ -222,7 +222,7 @@ function Turtle:_moveDirection(direction, amount, argsExtra)
 
     ---Check if the turtle has enough fuel to return to the starting position
     ---if we do this move
-    if argsExtra.safe and not self:willHaveFuelToEmergencyReturn(newPosition) then
+    if argsExtra.safe and not self:canReturnToOriginIfMoveTo(newPosition) then
         --- If we won't have enough fuel to return to the starting position
         
         if argsExtra.autoReturn then
@@ -414,11 +414,12 @@ function Turtle:returnToOrigin(emergency)
 end
 
 
----Check if the turtle will have enough fuel to return to the starting position from a given position
+---Check if the turtle will have enough fuel to return to the starting position if we travel to a given position
 ---@param position Position The position to start from
 ---@return boolean
-function Turtle:willHaveFuelToEmergencyReturn(position)
-    local manhattanDistance = position:manhattanDistance(self.startingPosition)
+function Turtle:canReturnToOriginIfMoveTo(position)
+    local distanceToPosition = self.position:manhattanDistance(position)
+    local distanceToOrigin = position:manhattanDistance(self.startingPosition)
 
-    return self:hasFuel(manhattanDistance)
+    return self:hasFuel(distanceToPosition + distanceToOrigin)
 end
