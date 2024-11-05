@@ -33,6 +33,7 @@ Turtle.MAX_BREAK_ATTEMPTS = 30
 Turtle.trashItemTags = {
     "c:cobblestones",
 }
+Turtle.trashMinStackSize = 8
 
 ---@alias inspectHandler fun(self: Turtle, inspectedBlockPosition: Position, inspectData: ccTweaked.turtle.inspectInfo): nil
 
@@ -160,7 +161,7 @@ function Turtle:_digDirection(direction)
 
     self.inventory:compress()
 
-    self.inventory:discardItems(self.trashItemTags, 8)
+    self.inventory:discardItems(self.trashItemTags, self.trashMinStackSize)
 
     local refuelMadeChanges = false
     refuelMadeChanges, self.fuel = self.inventory:refuel()
