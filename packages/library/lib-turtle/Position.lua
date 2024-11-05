@@ -2,8 +2,10 @@
 package.path = package.path .. ";/usr/lib/?.lua"
 require("class-lua.class")
 
+local enums = require("lib-turtle.enums")
+
 ---@type Direction
-local Direction = require("lib-turtle.enums.Direction")
+local Direction = enums.Direction
 
 local logger = require("lexicon-lib.lib-logging").getLogger("Position")
 

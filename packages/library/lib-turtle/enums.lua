@@ -22,3 +22,10 @@ local ACTION_DIRECTION = {
     FORWARD = 2,
     BACK = 3,
 }
+
+
+return {
+    Direction = Direction,
+    ERRORS = ERRORS,
+    ACTION_DIRECTION = ACTION_DIRECTION
+}
