@@ -70,6 +70,28 @@
                     "lib-logging",
                     "class-lua"
                 ]
+            },
+            "lib-turtle": {
+                "description": "A library for controlling turtles",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-turtle/Direction.lua",
+                        "/usr/lib/lib-turtle/Direction.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-turtle/Position.lua",
+                        "/usr/lib/lib-turtle/Position.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-turtle/Turtle.lua",
+                        "/usr/lib/lib-turtle/Turtle.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-logging",
+                    "class-lua"
+                ]
             }
         },
         "program": {
