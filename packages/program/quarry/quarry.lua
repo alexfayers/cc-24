@@ -112,8 +112,6 @@ local function goDownLayer()
         return false
     end
 
-    turt:turnAround()
-
     return true
 end
 
