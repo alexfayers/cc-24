@@ -28,6 +28,11 @@ Turtle = class()
 
 Turtle.origin = Position(0, 0, 0, Direction.NORTH)
 
+---@alias inspectHandler fun(inspectedBlockPosition: Position, inspectData: ccTweaked.turtle.inspectInfo): nil
+
+---@type inspectHandler[] The functions to call when inspecting a block.
+Turtle.inspectHandlers = {}
+
 
 ---Initialise the turtle
 ---@param startingPosition? Position The starting position of the turtle
@@ -82,19 +87,39 @@ end
 ---@param direction number The direction to dig
 ---@return boolean, string?
 function Turtle:_digDirection(direction)
+    local inspectFunc = nil
     local func = nil
+
+    local targetBlockCoords = nil
 
     if direction == ACTION_DIRECTION.UP then
         self.logger:debug("Dig up")
+        inspectFunc = turtle.inspectUp
         func = turtle.digUp
+        targetBlockCoords = self.position:up()
     elseif direction == ACTION_DIRECTION.DOWN then
         self.logger:debug("Dig down")
+        inspectFunc = turtle.inspectDown
         func = turtle.digDown
+        targetBlockCoords = self.position:down()
     elseif direction == ACTION_DIRECTION.FORWARD then
         self.logger:debug("Dig forward")
+        inspectFunc = turtle.inspect
         func = turtle.dig
+        targetBlockCoords = self.position:forward()
     else
         return false, "Invalid direction"
+    end
+
+    local inspectRes, inspectData = inspectFunc()
+    if not inspectRes then
+        return true
+    end
+    ---@cast inspectData ccTweaked.turtle.inspectInfo
+    
+    for inspectHandler in self.inspectHandlers do
+        ---@cast inspectHandler inspectHandler
+        inspectHandler(targetBlockCoords, inspectData)
     end
 
     local res, errorMessage = func()
