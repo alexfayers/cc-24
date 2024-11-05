@@ -1,0 +1,1 @@
+Only meta files should be in here. They're used for typing only.
