@@ -41,7 +41,7 @@ function Turtle:init(startingPosition)
         self.position = startingPosition
     end
 
-    self.origin = self.position
+    self.startingPosition = self.position
 
     self.logger:info("Initialised turtle at %s", tostring(self.position))
 end
@@ -225,7 +225,7 @@ function Turtle:_moveDirection(direction, amount, argsExtra)
         --- If we won't have enough fuel to return to the starting position
         
         if argsExtra.autoReturn then
-            return self:emergencyReturn()
+            return self:returnToOrigin(true)
         else
             --- not in safe mode so yolo it
             return false, ERRORS.NOT_ENOUGH_FUEL_FOR_EMERGENCY
@@ -401,12 +401,17 @@ end
 
 
 ---Return the turtle to the starting position, digging out any blocks in the way
+---@param emergency? boolean If true, we're returning to the starting position due to fuel constraints
 ---@return boolean, string?
-function Turtle:emergencyReturn()
-    local res, err = self:moveTo(Turtle.origin, {dig = true})
+function Turtle:returnToOrigin(emergency)
+    local res, err = self:moveTo(self.startingPosition, {dig = true})
 
     if res then
-        return false, ERRORS.DID_EMERGENCY_RETURN
+        if emergency then
+            return false, ERRORS.DID_EMERGENCY_RETURN
+        else
+            return true
+        end
     else
         return false, err
     end
@@ -417,7 +422,7 @@ end
 ---@param position Position The position to start from
 ---@return boolean
 function Turtle:willHaveFuelToEmergencyReturn(position)
-    local manhattanDistance = position:manhattanDistance(self.origin)
+    local manhattanDistance = position:manhattanDistance(self.startingPosition)
 
     return self:hasFuel(manhattanDistance)
 end
