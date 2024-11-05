@@ -184,7 +184,7 @@ local function mineQuarry(length, width, layers)
         logger:error("Not enough fuel to mine the quarry and return (need %d)", requiredFuel)
         return false
     else
-        logger:info("Starting quarry. Will use %d/%d fuel.", requiredFuel, turt.fuel)
+        logger:info("Starting quarry! (Predicted fuel use: %d/%d)", requiredFuel, turt.fuel)
     end
 
     local retVal = true
