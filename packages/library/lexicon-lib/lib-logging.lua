@@ -72,6 +72,19 @@ local Logger = {
         self._level = level
     end,
 
+    ---Log a line to the filesystem
+    ---@param self any
+    ---@param text string
+    ---@return nil
+    logToFile = function(self, text)
+        local file = fs.open("/logs/" .. self._name .. ".log", "a")
+        if not file then
+            error("Failed to open log file (" .. self._name .. ")")
+        end
+        file.writeLine(text)
+        file.close()
+    end,
+
     ---Log a message
     ---@param self any
     ---@param level integer The log level
@@ -91,6 +104,8 @@ local Logger = {
         writeWrapColor(level_name, level_color)
         writeWrap(": ")
         writeWrapColor(formatted, level_color)
+
+        self:logToFile(string.format("[%s] %s: %s", os.date("%H:%M:%S"), level_name, formatted))
 
         newline()
     end,
