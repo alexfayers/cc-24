@@ -17,7 +17,7 @@ local COMBUSTIBLE_ITEM_IDS_FILE = "/.turtle/combustibleItemIds.json"
 
 ---@class slotInfo: ccTweaked.turtle.slotInfoDetailed
 
----@alias TurtleInventorySlots table<integer, slotInfo>
+---@alias TurtleInventorySlots table<integer, slotInfo?>
 
 
 ---@class TurtleInventory
@@ -86,6 +86,8 @@ function TurtleInventory:scanForCombustibleItems()
         end
     end
 
+    self:selectFirstSlot()
+
     if didAdd then
         self:saveCombustibleItems()
     end
@@ -122,6 +124,8 @@ function TurtleInventory:refuel()
         end
     end
 
+    self:selectFirstSlot()
+
     return fuelLevel
 end
 
@@ -142,8 +146,50 @@ function TurtleInventory:discardItems(items)
         end
     end
 
+    self:selectFirstSlot()
+
     return true
 end
+
+
+---Select the first slot if it's not already selected
+---@return boolean _ Whether the slot was selected
+function TurtleInventory:selectFirstSlot()
+    if turtle.getSelectedSlot() ~= 1 then
+        turtle.select(1)
+        return true
+    end
+
+    return false
+end
+
+
+---Compress the turtle inventory by combining stacks of items
+---@return boolean _ Whether the inventory was compressed
+function TurtleInventory:compress()
+    for slot, item in pairs(self.slots) do
+        for otherSlot, otherItem in pairs(self.slots) do
+            if slot ~= otherSlot and item.name == otherItem.name then
+                turtle.select(slot)
+                turtle.transferTo(otherSlot)
+
+                self.slots[otherSlot].count = turtle.getItemCount(otherSlot)
+
+                if turtle.getItemCount(slot) == 0 then
+                    -- this slot is now empty, so mark it as such
+                    -- and break out of the loop, so we can move on to the next slot
+                    self.slots[slot] = nil
+                    break
+                end
+            end
+        end
+    end
+
+    self:selectFirstSlot()
+
+    return true
+end
+
 
 local function test()
     local inv = TurtleInventory()
