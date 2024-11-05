@@ -12,7 +12,7 @@ local pretty = require("cc.pretty")
 
 
 local TURTLE_INVENTORY_SLOTS = 16
-local TURTLE_MAX_FUEL = 1000
+local TURTLE_MAX_FUEL = 10000
 local COMBUSTIBLE_ITEM_IDS_FILE = "/.turtle/combustibleItemIds.json"
 
 ---@class slotInfo: ccTweaked.turtle.slotInfoDetailed
