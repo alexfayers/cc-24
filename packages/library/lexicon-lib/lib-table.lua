@@ -115,6 +115,30 @@ local function ensureUniqueKeys(t)
 end
 
 
+---Check if a table contains a specific value
+---@param t table The table to check
+---@param value any The value to check for
+---@return boolean
+local function contains(t, value)
+    return t[value] ~= nil
+end
+
+
+---Check if a table's values contain a specific value
+---@param t table The table to check
+---@param value any The value to check for
+---@return boolean
+local function valuesContain(t, value)
+    for _, v in pairs(t) do
+        if v == value then
+            return true
+        end
+    end
+    return false
+end
+
+
+
 return {
     spairs = spairs,
     filterTable = filterTable,
@@ -122,4 +146,6 @@ return {
     saveTable = saveTable,
     loadTable = loadTable,
     ensureUniqueKeys = ensureUniqueKeys,
+    contains = contains,
+    valuesContain = valuesContain,
 }
