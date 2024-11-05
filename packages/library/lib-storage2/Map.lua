@@ -5,6 +5,7 @@ require("class-lua.class")
 require("lib-storage2.MapSlot")
 
 local helpers = require("lib-storage2.helpers")
+local tableHelpers = require("lexicon-lib.lib-table")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("storage2.Map")
 
@@ -116,7 +117,7 @@ end
 ---@param filter function The filter function (takes a MapSlot and returns a boolean)
 ---@return MapSlot[]
 function Map:getItemSlotsFiltered(name, filter)
-    return helpers.filterTable(self:getItemSlots(name), filter)
+    return tableHelpers.filterTable(self:getItemSlots(name), filter)
 end
 
 
@@ -171,7 +172,7 @@ end
 function Map:getTotalItemCount(name, fuzzy)
     local slots = self:getItemSlots(MapSlot.fullNameFromNameStub(name))
 
-    if fuzzy and helpers.tableIsEmpty(slots) then
+    if fuzzy and tableHelpers.tableIsEmpty(slots) then
         slots = self:getItemSlotsBySearch(name)
     end
 
@@ -214,7 +215,7 @@ function Map:getFullSlots()
         return slot.isFull
     end
 
-    return helpers.filterTable(self:getAllSlots(), isFullFilter)
+    return tableHelpers.filterTable(self:getAllSlots(), isFullFilter)
 end
 
 
@@ -311,7 +312,7 @@ function Map:save()
         end
     end
 
-    helpers.saveTable(self.saveFilename, serialized)
+    tableHelpers.saveTable(self.saveFilename, serialized)
 end
 
 
@@ -319,9 +320,10 @@ end
 ---@return boolean _ Whether the map was loaded successfully
 function Map:load()
     ---@type SerializedMap?
-    local serialized = helpers.loadTable(self.saveFilename)
+    local serialized, loadError = tableHelpers.loadTable(self.saveFilename)
 
     if not serialized then
+        logger:error("Failed to load storage map: %s", loadError)
         return false
     end
 
@@ -445,7 +447,7 @@ function Map:pull(outputChest, itemName, amount, fuzzy)
 
     local slots = self:getItemSlots(MapSlot.fullNameFromNameStub(itemName))
 
-    if fuzzy and helpers.tableIsEmpty(slots) then
+    if fuzzy and tableHelpers.tableIsEmpty(slots) then
         -- didn't have an exact match, and we're using fuzzy matching so search
         slots = self:getItemSlotsBySearch(itemName)
     end

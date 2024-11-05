@@ -17,79 +17,6 @@ local function ensureInventory(wrappedPeripheral)
 end
 
 
----Check if a table is empty
----@param table table
----@return boolean
-local function tableIsEmpty(table)
-    local next = next
-    return next(table) == nil
-end
-
-
----Save a table to a file as json
----@param path string The path to save the file to
----@param data table The data to save
----@return nil
-local function saveTable(path, data)
-    local file = fs.open(path, "w")
-    if not file then
-        logger:error("Failed to open file %s for writing", path)
-        return
-    end
-    file.write(textutils.serialiseJSON(data))
-    file.close()
-end
-
-
----Load a table from a file
----@param path string The path to load the file from
----@return table|nil
-local function loadTable(path)
-    if not fs.exists(path) then
-        return nil
-    end
-
-    local file = fs.open(path, "r")
-
-    if not file then
-        logger:error("Failed to open file %s for reading", path)
-        return
-    end
-
-    local data = file.readAll()
-    file.close()
-
-    if not data then
-        logger:error("Failed to read file or the file was empty %s", path)
-        return
-    end
-
-    local jsonData = textutils.unserialiseJSON(data)
-
-    if not jsonData then
-        logger:error("Failed to parse json data from file %s", path)
-        return
-    end
-
-    return jsonData
-end
-
-
----Filter a table using a function
----@param tbl table The table to filter
----@param filter function The function to use to filter the table (takes an item and returns a boolean)
----@return table
-local function filterTable(tbl, filter)
-    local filtered = {}
-    for _, item in ipairs(tbl) do
-        if filter(item) then
-            table.insert(filtered, item)
-        end
-    end
-    return filtered
-end
-
-
 ---Run the list function for a chest, but retry if it fails
 ---@param chest ccTweaked.peripherals.Inventory The chest to list
 ---@return table<number, ccTweaked.peripherals.inventory.item>?
@@ -179,45 +106,10 @@ local function chestPushItemsRetry(chest, toName, sourceSlot, limit, targetSlot)
 end
 
 
----Sort a table by key (or by a custom order function)
----From https://stackoverflow.com/questions/15706270/sort-a-table-in-lua
----@param t table The table to sort
----@param order? function The order function to use
----@return function
-local function spairs(t, order)
-    -- collect the keys
-    local keys = {}
-    for k in pairs(t) do keys[#keys+1] = k end
-
-    -- if order function given, sort by it by passing the table and keys a, b,
-    -- otherwise just sort the keys 
-    if order then
-        table.sort(keys, function(a,b) return order(t, a, b) end)
-    else
-        table.sort(keys)
-    end
-
-    -- return the iterator function
-    local i = 0
-    return function()
-        i = i + 1
-        if keys[i] then
-            return keys[i], t[keys[i]]
-        end
-    end
-end
-
-
-
 return {
     ensureInventory = ensureInventory,
-    tableIsEmpty = tableIsEmpty,
-    saveTable = saveTable,
-    loadTable = loadTable,
-    filterTable = filterTable,
     chestListRetry = chestListRetry,
     chestGetItemDetailRetry = chestGetItemDetailRetry,
     chestPullItemsRetry = chestPullItemsRetry,
     chestPushItemsRetry = chestPushItemsRetry,
-    spairs = spairs,
 }
