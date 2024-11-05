@@ -98,6 +98,10 @@
                     [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-turtle/Turtle.lua",
                         "/usr/lib/lib-turtle/Turtle.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-turtle/TurtleInventory.lua",
+                        "/usr/lib/lib-turtle/TurtleInventory.lua"
                     ]
                 ],
                 "dependencies": [
