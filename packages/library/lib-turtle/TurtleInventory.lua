@@ -96,24 +96,28 @@ end
 
 ---Refuel using all of the combustable items in the turtle inventory
 ---This will only refuel if the turtle is not full
----@return number fuelLevel The fuel level after refueling
+---@return boolean, number fuelLevel If changes were made to the inventory, and what the fuel level is after refueling
 function TurtleInventory:refuel()
     local fuelLevel = turtle.getFuelLevel()
     if fuelLevel == "unlimited" then
-        return TURTLE_MAX_FUEL
+        return false, TURTLE_MAX_FUEL
     end
     ---@cast fuelLevel number
 
     if fuelLevel >= TURTLE_MAX_FUEL then
-        return fuelLevel
+        return false, fuelLevel
     end
 
     self:scanForCombustibleItems()
 
+    local madeChanges = false
+
     for slot, item in pairs(self.slots) do
         if self.combustibleItems[item.name] then
             turtle.select(slot)
-            turtle.refuel(TURTLE_MAX_FUEL - fuelLevel)
+            if turtle.refuel(TURTLE_MAX_FUEL - fuelLevel) then
+                madeChanges = true
+            end
 
             fuelLevel = turtle.getFuelLevel()
             ---@cast fuelLevel number
@@ -126,14 +130,17 @@ function TurtleInventory:refuel()
 
     self:selectFirstSlot()
 
-    return fuelLevel
+    return madeChanges, fuelLevel
 end
 
 
----Discard all items with given tags in the turtle inventory
+---Discard all items with given tags in the turtle inventory.
+---Updates the slots table to reflect the changes.
 ---@param items string[] The tags to discard
 ---@return boolean, string? _ Whether the items were discarded
 function TurtleInventory:discardItems(items)
+    local madeChanges = false
+
     for slot, item in pairs(self.slots) do
         for _, trashItem in pairs(items) do
             if tableHelpers.contains(item.tags, trashItem) then
@@ -141,6 +148,9 @@ function TurtleInventory:discardItems(items)
                 local res, err = turtle.dropUp()
                 if not res then
                     return false, err
+                else
+                    self.slots[slot] = nil
+                    madeChanges = true
                 end
             end
         end
@@ -148,7 +158,7 @@ function TurtleInventory:discardItems(items)
 
     self:selectFirstSlot()
 
-    return true
+    return madeChanges
 end
 
 
@@ -164,9 +174,11 @@ function TurtleInventory:selectFirstSlot()
 end
 
 
----Compress the turtle inventory by combining stacks of items
+---Compress the turtle inventory by combining stacks of items.
+---Updates the slots table to reflect the changes.
 ---@return boolean _ Whether the inventory was compressed
 function TurtleInventory:compress()
+    local madeChanges = false
     for slot, item in pairs(self.slots) do
         if not item then
             -- this slot is empty, so skip it because there's nothing to compress
@@ -186,16 +198,23 @@ function TurtleInventory:compress()
                 end
 
                 turtle.select(slot)
-                turtle.transferTo(otherSlot)
+                if turtle.transferTo(otherSlot) then
+                    madeChanges = true
 
-                self.slots[otherSlot].count = turtle.getItemCount(otherSlot)
+                    self.slots[otherSlot].count = turtle.getItemCount(otherSlot)
+                    local slotCount = turtle.getItemCount(slot)
 
-                if turtle.getItemCount(slot) == 0 then
-                    -- this slot is now empty, so mark it as such
-                    -- and break out of the loop, so we can move on to the next slot
-                    self.slots[slot] = nil
-                    break
+                    if slotCount == 0 then
+                        -- this slot is now empty, so mark it as such
+                        -- and break out of the loop, so we can move on to the next slot
+                        self.slots[slot] = nil
+                        break
+                    else
+                        -- this slot still has items in it, so update the slot info
+                        self.slots[slot].count = slotCount
+                    end
                 end
+
                 ::continue2::
             end
         end
@@ -204,7 +223,7 @@ function TurtleInventory:compress()
 
     self:selectFirstSlot()
 
-    return true
+    return madeChanges
 end
 
 

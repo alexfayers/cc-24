@@ -158,11 +158,17 @@ function Turtle:_digDirection(direction)
     ---Update the inventory because we've dug something
     self.inventory:updateSlots()
 
-    self.fuel = self.inventory:refuel()
-
     self.inventory:discardItems(self.trashItemTags)
 
     self.inventory:compress()
+
+    local refuelMadeChanges = false
+    refuelMadeChanges, self.fuel = self.inventory:refuel()
+
+    if refuelMadeChanges then
+        --- If we made changes to the inventory, update the slots (again)
+        self.inventory:updateSlots()
+    end
 
     isBlock, inspectData = inspectFunc()
     if isBlock then
