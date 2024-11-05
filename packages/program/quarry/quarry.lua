@@ -137,11 +137,14 @@ local function mineQuarry(length, width, layers)
         return false
     end
 
+    local retVal = true
+
     for i = 1, layers do
         local layerRes = mineLevel(length, width)
         if layerRes == false then
             logger:error("Failed to mine layer")
-            return false
+            retVal = false
+            goto returnToOrigin
         end
 
         if i == layers then
@@ -151,20 +154,25 @@ local function mineQuarry(length, width, layers)
         local downRes = goDownLayer()
         if downRes == false then
             logger:error("Failed to go down layer")
-            return false
+            retVal = false
+            goto returnToOrigin
         end
 
         -- swap the values of length and width for the next layer
         length, width = width, length
     end
 
+    ::returnToOrigin::
+
     -- Return to the origin
-    turt:moveTo(Turtle.origin, {dig = true})
+    turt:returnToOrigin()
 
-    -- celebratory spin
-    turt:turnRight(4)
+    if retVal then
+        -- celebratory spin
+        turt:turnRight(4)
+    end
 
-    return true
+    return retVal
 end
 
 
