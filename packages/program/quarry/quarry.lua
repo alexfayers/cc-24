@@ -16,6 +16,23 @@ local MOVEMENT_ARGS = {
 
 local turt = Turtle()
 
+---@overload fun(self: Turtle, inspectedBlockPosition: Position, inspectedBlockData: ccTweaked.turtle.inspectInfo): nil
+local function inspectHandler(self, inspectedBlockPosition, inspectedBlockData)
+    for tag in pairs(inspectedBlockData.tags) do
+        if tag == "minecraft:ores" then
+            self.logger:info("Found ore at %s", inspectedBlockPosition)
+            return
+        end
+    end
+    
+    if inspectedBlockData.name == "minecraft:bedrock" then
+        self.logger:info("Found bedrock at %s", inspectedBlockPosition)
+        return
+    end
+end
+
+table.insert(turt.inspectHandlers, inspectHandler)
+
 
 ---Mine a single strip of a layer of the quarry
 ---@param stripLength integer The length of the strip
