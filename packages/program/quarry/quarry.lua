@@ -6,9 +6,6 @@ require("lib-turtle.Turtle")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("Quarry")
 
-
-local turt = Turtle()
-
 local LAYER_DEPTH = 3
 
 local MOVEMENT_ARGS = {
@@ -16,6 +13,9 @@ local MOVEMENT_ARGS = {
     safe = true,
     autoReturn = true
 }
+
+local turt = Turtle()
+
 
 ---Mine a single strip of a layer of the quarry
 ---@param stripLength integer The length of the strip
