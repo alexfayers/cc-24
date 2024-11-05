@@ -2,26 +2,17 @@
 package.path = package.path .. ";/usr/lib/?.lua"
 require("class-lua.class")
 
-require("lib-turtle.enums.Direction")
+---@type Direction
+local Direction = require("lib-turtle.enums.Direction")
+---@type ERRORS
+local ERRORS = require("lib-turtle.enums.Error")
+---@type ACTION_DIRECTION
+local ACTION_DIRECTION = require("lib-turtle.enums.ActionDirection")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("Turtle")
 
 
 --- Error messages
-local ERRORS = {
-    MOVEMENT_OBSTRUCTED = "Movement obstructed",
-    OUT_OF_FUEL = "Out of fuel",
-    NOT_ENOUGH_FUEL = "Not enough fuel",
-    NOTHING_TO_DIG = "Nothing to dig here",
-    CANNOT_BREAK_UNBREAKABLE = "Cannot break unbreakable block",
-}
-
-local ACTION_DIRECTION = {
-    UP = 0,
-    DOWN = 1,
-    FORWARD = 2,
-    BACK = 3,
-}
 
 
 ---@class Turtle

@@ -76,8 +76,8 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-turtle/Direction.lua",
-                        "/usr/lib/lib-turtle/Direction.lua"
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-turtle/enums.lua",
+                        "/usr/lib/lib-turtle/enums.lua"
                     ],
                     [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-turtle/Position.lua",
