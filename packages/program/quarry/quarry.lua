@@ -12,12 +12,10 @@ local turt = Turtle()
 local LAYER_DEPTH = 3
 
 local MOVEMENT_ARGS = {
+    dig = true,
     safe = true,
     autoReturn = true
 }
-
----NOTE: strip and layer numbers are 1 indexed
-
 
 ---Mine a single strip of a layer of the quarry
 ---@param stripLength integer The length of the strip
