@@ -129,13 +129,6 @@ local function goDownLayer()
         return false
     end
 
-    -- dig down an extra block, otherwise it gets missed
-    local digDownRes, digDownErr = turt:digDown()
-    if not digDownRes then
-        logger:error("Failed to dig down: " .. digDownErr)
-        return false
-    end
-
     return true
 end
 
@@ -164,6 +157,13 @@ local function mineQuarry(length, width, layers)
     local retVal = true
 
     for i = 1, layers do
+        -- dig down a block before starting, otherwise it gets missed
+        local digDownRes, digDownErr = turt:digDown()
+        if not digDownRes then
+            logger:error("Failed to dig down: " .. digDownErr)
+            return false
+        end
+
         local layerRes = mineLevel(length, width)
         if layerRes == false then
             logger:error("Failed to mine layer")
