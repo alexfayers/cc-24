@@ -45,12 +45,10 @@ function Turtle:init(startingPosition)
     self.fuel = turtle.getFuelLevel()
 
     if startingPosition == nil then
-        self:setPosition(Turtle.origin)
+        self:initPosition(Turtle.origin)
     else
-        self:setPosition(startingPosition)
+        self:initPosition(startingPosition)
     end
-
-    self.startingPosition = self.position
 
     ---@type TurtleInventory
     self.inventory = TurtleInventory()
@@ -59,8 +57,9 @@ end
 
 ---Set the position of the turtle
 ---@param position Position The new position of the turtle
-function Turtle:setPosition(position)
+function Turtle:initPosition(position)
     self.position = position
+    self.startingPosition = position
 end
 
 

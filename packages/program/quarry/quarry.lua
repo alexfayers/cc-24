@@ -292,7 +292,7 @@ if not layers then
     return
 end
 
-turt:setPosition(Position(startX, startY, startZ, startBearing))
+turt:initPosition(Position(startX, startY, startZ, startBearing))
 
 if not mineQuarry(length, width, layers) then
     logger:error("Failed to mine quarry")
