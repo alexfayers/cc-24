@@ -106,7 +106,6 @@ function TurtleInventory:refuel()
         return fuelLevel
     end
 
-    self:updateSlots()
     self:scanForCombustibleItems()
 
     for slot, item in pairs(self.slots) do
@@ -126,6 +125,25 @@ function TurtleInventory:refuel()
     return fuelLevel
 end
 
+
+---Discard all items with given tags in the turtle inventory
+---@param items string[] The tags to discard
+---@return boolean, string? _ Whether the items were discarded
+function TurtleInventory:discardItems(items)
+    for slot, item in pairs(self.slots) do
+        for tag, _ in pairs(item.tags) do
+            if tableHelpers.contains(items, tag) then
+                turtle.select(slot)
+                local res, err = turtle.dropUp()
+                if not res then
+                    return false, err
+                end
+            end
+        end
+    end
+
+    return true
+end
 
 local function test()
     local inv = TurtleInventory()

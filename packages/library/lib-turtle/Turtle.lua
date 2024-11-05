@@ -30,6 +30,9 @@ Turtle = class()
 
 Turtle.origin = Position(0, 0, 0, Direction.NORTH)
 Turtle.MAX_BREAK_ATTEMPTS = 30
+Turtle.trashItemTags = {
+    "c:cobblestones",
+}
 
 ---@alias inspectHandler fun(self: Turtle, inspectedBlockPosition: Position, inspectData: ccTweaked.turtle.inspectInfo): nil
 
@@ -152,7 +155,12 @@ function Turtle:_digDirection(direction)
         -- Nothing to dig, but that's fine
     end
 
+    ---Update the inventory because we've dug something
+    self.inventory:updateSlots()
+
     self.fuel = self.inventory:refuel()
+
+    self.inventory:discardItems(self.trashItemTags)
 
     isBlock, inspectData = inspectFunc()
     if isBlock then
