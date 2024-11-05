@@ -20,16 +20,16 @@ local turt = Turtle()
 local function oreInspectHandler(self, inspectedBlockPosition, inspectedBlockData)
     for tag in pairs(inspectedBlockData.tags) do
         if tag == "c:ores" then
-            self.logger:info("Found %s at %s", string.match(inspectedBlockData.name, ".+:(.+)"), inspectedBlockPosition)
+            self.logger:info("Found %s at %s", string.match(inspectedBlockData.name, ".+:(.+)"), inspectedBlockPosition:asString())
             return
         end
     end
 end
 
 ---@overload fun(self: Turtle, inspectedBlockPosition: Position, inspectedBlockData: ccTweaked.turtle.inspectInfo): nil
-local function bedrockInspectHandler(self, inspectedBlockPosition, inspectedBlockData)    
+local function bedrockInspectHandler(self, inspectedBlockPosition, inspectedBlockData)
     if inspectedBlockData.name == "minecraft:bedrock" then
-        self.logger:info("Found bedrock at %s", inspectedBlockPosition)
+        self.logger:info("Found bedrock at %s", inspectedBlockPosition:asString())
         return
     end
 end
