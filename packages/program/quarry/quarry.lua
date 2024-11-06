@@ -144,31 +144,57 @@ local function calculateFuelNeeded(xSize, zSize, layers)
 end
 
 
----Do things before starting the quarry
----@param xSize integer The size of the quarry in the x direction
----@param zSize integer The size of the quarry in the z direction
----@param layers integer The depth of the quarry
----@return boolean _ Whether the pre-start was successful
-local function preStartQuarry(xSize, zSize, layers)
-    -- make sure we're at the origin
-    local originRes, originErr = turt:returnToOrigin()
-
-    if not originRes then
-        logger:error("Failed to return to origin! " .. originErr)
-        return false
+---Calculate the fuel needed to mine the quarry and return to the origin
+---@param path Position[] The path of the turtle through the quarry
+---@param skipTo number? The index of the path to skip to (default 1)
+---@return number _ The fuel needed to mine the quarry
+local function calculateFuelNeededFromPath(path, skipTo)
+    if not skipTo then
+        skipTo = 1
     end
 
-    turt.inventory:pushItems()
+    local fuelNeeded = 0
 
-    local requiredFuel = calculateFuelNeeded(xSize, zSize, layers)
+    for i = skipTo, #path - 1 do
+        local currentPos = path[i]
+        local nextPos = path[i + 1]
 
-    turt.inventory:pullFuel(requiredFuel)
+        local distance = currentPos:manhattanDistance(nextPos)
 
-    if requiredFuel > turt.fuel then
-        logger:error("Not enough fuel to mine the quarry and return (need %d)", requiredFuel)
-        return false
+        fuelNeeded = fuelNeeded + distance
+    end
+
+    return fuelNeeded
+end
+
+
+---Do things before starting the quarry
+---@param path Position[] The path of the turtle through the quarry
+---@param skipTo number? The index of the path to skip to (default 1)
+---@return boolean _ Whether the pre-start was successful
+local function preStartQuarry(path, skipTo)
+    if not skipTo then
+        skipTo = 1
+    end
+
+    -- if we're at the origin, push items and refuel.
+    -- otherwise, we're in the middle of the quarry, so there's nothing to do
+
+    if turt.position:equals(turt.startingPosition, true) then
+        turt.inventory:pushItems()
+    
+        local requiredFuel = calculateFuelNeededFromPath(path, skipTo)
+    
+        turt.inventory:pullFuel(requiredFuel)
+    
+        if requiredFuel > turt.fuel then
+            logger:error("Not enough fuel to mine the quarry and return (need %d)", requiredFuel)
+            return false
+        else
+            logger:info("Starting quarry! (Predicted fuel use: %d/%d)", requiredFuel, turt.fuel)
+            return true
+        end
     else
-        logger:info("Starting quarry! (Predicted fuel use: %d/%d)", requiredFuel, turt.fuel)
         return true
     end
 end
@@ -273,11 +299,35 @@ local function calculateQuarryPath(xSize, zSize, layers)
 end
 
 
+---Check if the turtle is currently at a position along a path, and return the index of that position
+---@param path Position[] The path to check
+---@return number? _ The index of the position the turtle is at, or nil if the turtle is not at any position
+local function checkTurtlePosition(path)
+    for i, pos in ipairs(path) do
+        if turt.position:equals(pos, true) then
+            return i
+        end
+    end
+
+    return nil
+end
+
+
 ---Follow a path of Positions through the quarry, digging as we go
 ---@param path Position[] The path to follow
+---@param skipTo number? The index of the path to skip to (default 1)
 ---@return boolean _ Whether the path was followed successfully
-local function followQuarryPath(path)
-    for _, pos in ipairs(path) do
+local function followQuarryPath(path, skipTo)
+    if not skipTo then
+        skipTo = 1
+    end
+
+    if skipTo > 1 then
+        logger:info("Turtle is already in the quarry path at position %d, will skip there", skipTo)
+    end
+
+    for i = skipTo, #path do
+        local pos = path[i]
         local moveRes, moveErr = turt:moveTo(pos, MOVEMENT_ARGS)
         if not moveRes then
             logger:error("Failed to move to %s: %s", pos:asString(), moveErr)
@@ -308,15 +358,12 @@ if not quarryPath then
     return
 end
 
-for _, pos in ipairs(quarryPath) do
-    print(pos:asString())
-end
+local currentPosIndex = checkTurtlePosition(quarryPath)
 
-
-if not preStartQuarry(xSizeArg, zSizeArg, layersArg) then
+if not preStartQuarry(quarryPath, currentPosIndex) then
     return false
 end
 
-local quarryRes = followQuarryPath(quarryPath)
+local quarryRes = followQuarryPath(quarryPath, currentPosIndex)
 
 postFinishQuarry(quarryRes)
