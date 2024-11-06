@@ -31,7 +31,7 @@ settings.define("turtle.stateFile", {
 ---@field logger table The logger for the turtle
 ---@field position Position The current position of the turtle
 ---@field fuel number|string The current fuel level of the turtle
----@overload fun(): Turtle
+---@overload fun(startingPosition?: Position): Turtle
 Turtle = class()
 
 Turtle.origin = Position(0, 0, 0, Direction.NORTH)

@@ -2,6 +2,7 @@
 package.path = package.path .. ";/usr/lib/?.lua"
 
 local completion = require("cc.completion")
+local argparse = require("metis.argparse")
 
 local enums = require("lib-turtle.enums")
 require("lib-turtle.Turtle")
@@ -17,11 +18,82 @@ local MOVEMENT_ARGS = {
     autoReturn = true
 }
 
-local turt = Turtle()
+---Argument completion for the script
+---@param _ any
+---@param index number The index of the argument
+---@param argument string The current arguments
+---@param previous table
+---@return table? _ A table of possible completions
+local function complete(_, index, argument, previous)
+    if index == 1 then
+        return completion.choice(argument, {"16,16,20"}, true)
+    elseif index == 2 then
+        return completion.choice(argument, {"load", "0,0,0,north"}, true)
+    end
+
+    return {}
+end
+
+shell.setCompletionFunction(shell.getRunningProgram(), complete)
+
+---Parse args
+
+local parser = argparse.create()
+
+parser:add({"size"}, {
+    doc = "Size of the quarry",
+})
+
+parser:add({"start"}, {
+    doc = "Turtle starting coords",
+    required = false
+})
+
+local args = parser:parse(table.unpack(arg))
+
+--- split the sizeArgs into length, width and layers (e.g. "16,16,20")
+local length, width, layers = string.match(args.size, "(%d+),(%d+),(%d+)")
+
+if not length then
+    error("Invalid size argument (should be 'length,width,layers')", 0)
+    return
+end
+
+---@type Position?
+local startingPosition = nil
+
+---split the startArgs into x, y, z and bearing (e.g. "0,0,0,north") if it exists
+local startX, startY, startZ, startBearingStr = string.match(args.start or "", "(%d+),(%d+),(%d+),(%w+)")
+local startBearing = 0
+
+if args.start then
+    if not startX then
+        error("Invalid starting argument (should be 'x,y,z,[north,east,south,west]')", 0)
+        return
+    else
+        startBearing = enums.Direction[string.upper(startBearingStr)]
+
+        if not startBearing then
+            error("Invalid starting bearing (should be 'north', 'east', 'south' or 'west')", 0)
+            return
+        end
+
+    end
+end
+
+if startX then
+    startingPosition = Position(startX, startY, startZ, startBearing)
+end
+
+---Initialise the turt
+
+local turt = Turtle(startingPosition)
 
 table.insert(turt.trashItemTags, "c:stones")
 table.insert(turt.trashItemTags, "minecraft:sand")
 table.insert(turt.trashItemNames, "minecraft:gravel")
+
+---Functions
 
 ---@overload fun(self: Turtle, inspectedBlockPosition: Position, inspectedBlockData: ccTweaked.turtle.inspectInfo): nil
 local function oreInspectHandler(self, inspectedBlockPosition, inspectedBlockData)
@@ -249,90 +321,7 @@ local function mineQuarry(length, width, layers)
 end
 
 
-local function help()
-    print("Usage: quarry <starting x> <starting y> <starting z> <starting bearing> <length> <width> <layers>")
-end
-
-
----Argument completion for the script
----@param _ any
----@param index number The index of the argument
----@param argument string The current arguments
----@param previous table
----@return table? _ A table of possible completions
-local function complete(_, index, argument, previous)
-    if index == 1 then
-        return completion.choice(argument, {"0"}, true)
-    elseif index == 2 then
-        return completion.choice(argument, {"0"}, true)
-    elseif index == 3 then
-        return completion.choice(argument, {"0"}, true)
-    elseif index == 4 then
-        return completion.choice(argument, {"north", "east", "south", "west"}, true)
-    elseif index == 5 then
-        return completion.choice(argument, {"16"}, true)
-    elseif index == 6 then
-        return completion.choice(argument, {"16"}, true)
-    elseif index == 7 then
-        return completion.choice(argument, {"20"}, true)
-    end
-
-    return {}
-end
-
-shell.setCompletionFunction(shell.getRunningProgram(), complete)
-
-
-if #arg < 7 then
-    help()
-    return
-end
-
-local startX = tonumber(arg[1])
-local startY = tonumber(arg[2])
-local startZ = tonumber(arg[3])
-local startBearing = enums.Direction[string.upper(arg[4])]
-local length = tonumber(arg[5])
-local width = tonumber(arg[6])
-local layers = tonumber(arg[7])
-
-if not startX then
-    logger:error("Invalid starting x")
-    return
-end
-
-if not startY then
-    logger:error("Invalid starting y")
-    return
-end
-
-if not startZ then
-    logger:error("Invalid starting z")
-    return
-end
-
-if not startBearing then
-    logger:error("Invalid starting bearing")
-    return
-end
-
-if not length then
-    logger:error("Invalid length")
-    return
-end
-
-if not width then
-    logger:error("Invalid width")
-    return
-end
-
-if not layers then
-    logger:error("Invalid layers")
-    return
-end
-
-turt:initPosition(Position(startX, startY, startZ, startBearing))
-
+-- Start quarrying!
 if not mineQuarry(length, width, layers) then
     logger:error("Failed to mine quarry")
 end
