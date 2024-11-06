@@ -8,7 +8,7 @@ local logger = require("lexicon-lib.lib-logging").getLogger("storage2.helpers")
 ---@param wrappedPeripheral ccTweaked.peripherals.wrappedPeripheral
 ---@return ccTweaked.peripherals.Inventory?
 local function ensureInventory(wrappedPeripheral)
-    if not peripheral.getType(wrappedPeripheral) == "inventory" then
+    if not peripheral.hasType(wrappedPeripheral, "inventory") then
         logger:error("%s is not an inventory. Please use an inventory chest.", wrappedPeripheral)
         return
     end

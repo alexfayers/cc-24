@@ -5,6 +5,7 @@ require("class-lua.class")
 local tableHelpers = require("lexicon-lib.lib-table")
 
 local pretty = require("cc.pretty")
+local logging = require("lexicon-lib.lib-logging")
 
 ---This class represents the turtle inventory
 ---It has a lot of parallels with the Map and MapSlot classes in lib-storage2,
@@ -25,6 +26,8 @@ TurtleInventory = class()
 
 ---Initialise the turtle inventory
 function TurtleInventory:init()
+    self.logger = logging.getLogger("TurtleInventory")
+
     ---@type TurtleInventorySlots
     self.slots = {}
     ---@type table<string, boolean>
@@ -229,6 +232,164 @@ function TurtleInventory:compress()
     self:selectFirstSlot()
 
     return madeChanges
+end
+
+
+---Find inventories in the network.
+---@return ccTweaked.peripherals.Inventory[]
+function TurtleInventory:findInventories()
+    local inventories = peripheral.find("inventory")
+
+    if not inventories then
+        return {}
+    end
+
+    return inventories
+end
+
+
+---Find the local name of the turtle by finding a wired modem and calling getNameLocal on it
+---@return string? _ The local name of the turtle
+function TurtleInventory:findLocalName()
+    local modem = peripheral.find("modem", function (name, wrapped)
+        return not wrapped.isWireless()
+    end)
+    if not modem then
+        return
+    end
+    ---@cast modem ccTweaked.peripherals.WiredModem
+
+    return modem.getNameLocal()
+end
+
+
+---Push the items in the turtle inventory into chests in the network until
+---the turtle is empty or the chests are full.
+---Updates the slots table to reflect the changes.
+---@return boolean _ Whether any items were pushed
+function TurtleInventory:pushItems()
+    local madeChanges = false
+
+    local inventories = self:findInventories()
+
+    if tableHelpers.tableIsEmpty(inventories) then
+        return false
+    end
+
+    local localName = self:findLocalName()
+
+    if not localName then
+        return false
+    end
+
+    for _, inventory in pairs(inventories) do
+        for slot, item in pairs(self.slots) do
+            local amount = inventory.pullItems(localName, slot)
+
+            if amount then
+                self.logger:info("Pushed %d %s into %s", amount, item.displayName, inventory)
+
+                madeChanges = true
+                self.slots[slot].count = self.slots[slot].count - amount
+
+                if self.slots[slot].count == 0 then
+                    self.slots[slot] = nil
+                    break
+                end
+            else
+                if amount == 0 then
+                    -- the chest is probs full, so we can't push any more items
+                    break
+                end
+            end
+        end
+    end
+
+    return madeChanges
+end
+
+
+---Pull fuel from chests in the network into the turtle inventory and use it to refuel the turtle until a target fuel level is reached or the chests no longer have fuel in them.
+---@param targetFuelLevel integer The target fuel level to reach
+---@param fuelTags table<string, integer>? The tags of the fuel items to pull (default {"c:coal"})
+---@return boolean, number? _ Whether the turtle was refueled and what the fuel level is after refueling
+function TurtleInventory:pullFuel(targetFuelLevel, fuelTags)
+    if not fuelTags then
+        fuelTags = {
+            ["c:coal"] = 80,
+            ["c:rods/blaze"] = 120,
+            ["c:coal_block"] = 800,
+        }
+    end
+
+    local fuelLevel = turtle.getFuelLevel()
+    if fuelLevel == "unlimited" then
+        return false, TURTLE_MAX_FUEL
+    end
+    ---@cast fuelLevel number
+
+    if fuelLevel >= targetFuelLevel then
+        return false, fuelLevel
+    end
+
+    local madeChanges = false
+
+    local inventories = self:findInventories()
+
+    if tableHelpers.tableIsEmpty(inventories) then
+        return false, fuelLevel
+    end
+
+    local localName = self:findLocalName()
+
+    if not localName then
+        return false, fuelLevel
+    end
+
+    for _, inventory in pairs(inventories) do
+        for slot = 1, inventory.size() do
+            local item = inventory.getItemDetail(slot)
+
+            if not item then
+                goto continue
+            end
+
+            local isFuel = self.combustibleItems[item.name]
+            local fuelGain = 80
+
+            if not isFuel then
+                for tag, tagFuelGain in pairs(fuelTags) do
+                    if tableHelpers.contains(item.tags, tag) then
+                        isFuel = true
+                        fuelGain = tagFuelGain
+                        break
+                    end
+                end
+            end
+
+            if isFuel then
+                local amount = inventory.pullItems(localName, slot, math.ceil((targetFuelLevel - fuelLevel) / fuelGain), 1)
+
+                if amount then
+                    self.logger:info("Pulled %d %s from %s", amount, item.displayName, inventory)
+
+                    madeChanges = true
+                    turtle.select(1)
+                    turtle.refuel()
+
+                    fuelLevel = turtle.getFuelLevel()
+                    ---@cast fuelLevel number
+
+                    if fuelLevel >= targetFuelLevel then
+                        goto continue
+                    end
+                end
+            end
+            ::continue::
+        end
+    end
+
+    return madeChanges, fuelLevel
 end
 
 
