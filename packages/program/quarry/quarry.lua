@@ -179,7 +179,12 @@ local function mineQuarry(length, width, layers)
         return false
     end
 
+    turt.inventory:pushItems()
+
     local requiredFuel = calculateFuelNeeded(length, width, layers)
+
+    turt.inventory:pullFuel(requiredFuel)
+
     if requiredFuel > turt.fuel then
         logger:error("Not enough fuel to mine the quarry and return (need %d)", requiredFuel)
         return false
@@ -231,6 +236,8 @@ local function mineQuarry(length, width, layers)
         -- celebratory spin
         turt:turnRight(4)
     end
+
+    turt.inventory:pushItems()
 
     return retVal
 end
