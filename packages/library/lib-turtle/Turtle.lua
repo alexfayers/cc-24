@@ -577,6 +577,8 @@ function Turtle:returnToInventoryFullLocation(argsExtra)
         return true
     end
 
+    self.logger:info("Returning to last inventory full location (%s)", self.inventoryFullLastLocation:asString())
+
     local res, err = self:moveTo(self.inventoryFullLastLocation, argsExtra)
 
     if res then
