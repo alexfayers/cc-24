@@ -246,10 +246,12 @@ function Turtle:_digDirection(direction, argsExtra)
             self.logger:info("Inventory full, returning to start")
             self.inventoryFullLastLocation = self.position:copy()
             self:saveState()
-            return self:returnToOrigin(true)
-        else
-            return false, ERRORS.NO_INVENTORY_SPACE
+            local returnRes, returnError = self:returnToOrigin(true)
+            if not returnRes then
+                return false, returnError
+            end
         end
+        return false, ERRORS.NO_INVENTORY_SPACE
     end
 
     isBlock, inspectData = inspectFunc()

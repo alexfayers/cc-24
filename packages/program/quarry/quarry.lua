@@ -4,6 +4,7 @@ package.path = package.path .. ";/usr/lib/?.lua"
 local completion = require("cc.completion")
 local pretty = require("cc.pretty")
 local argparse = require("metis.argparse")
+local tableHelpers = require("lexicon-lib.lib-table")
 
 local enums = require("lib-turtle.enums")
 require("lib-turtle.Turtle")
@@ -375,7 +376,7 @@ end
 ---Follow a path of Positions through the quarry, digging as we go
 ---@param path Position[] The path to follow
 ---@param skipTo number? The index of the path to skip to (default 1)
----@return boolean _ Whether the path was followed successfully
+---@return boolean, string? _ Whether the path was followed successfully and an error message if not
 local function followQuarryPath(path, skipTo)
     if not skipTo then
         skipTo = 1
@@ -390,19 +391,19 @@ local function followQuarryPath(path, skipTo)
         local moveRes, moveErr = turt:moveTo(pos, MOVEMENT_ARGS)
         if not moveRes then
             logger:error("Failed to move to %s: %s", pos:asString(), moveErr)
-            return false
+            return false, moveErr
         end
 
         local digDownRes, digDownErr = turt:digDown(MOVEMENT_ARGS)
         if not digDownRes then
             logger:error("Failed to dig down at %s: %s", pos:asString(), digDownErr)
-            return false
+            return false, digDownErr
         end
 
         local digUpRes, digUpErr = turt:digUp(MOVEMENT_ARGS)
         if not digUpRes then
             logger:error("Failed to dig up at %s: %s", pos:asString(), digUpErr)
-            return false
+            return false, digUpErr
         end
     end
 
@@ -423,12 +424,36 @@ if not fullReturnRes then
     return
 end
 
-local currentPosIndex = checkTurtlePosition(quarryPath)
+local doQuarry = true
+local quarryRes = false
+local queryErr = nil
 
-if not preStartQuarry(quarryPath, currentPosIndex) then
-    return false
+while doQuarry do
+    local currentPosIndex = checkTurtlePosition(quarryPath)
+
+    if not preStartQuarry(quarryPath, currentPosIndex) then
+        return false
+    end
+
+    quarryRes, queryErr = followQuarryPath(quarryPath, currentPosIndex)
+
+    local restartErrors = {
+        enums.ERRORS.NO_INVENTORY_SPACE,
+    }
+
+    -- if we failed to mine the quarry, we'll try again. otherwise, we're done.
+    doQuarry = not quarryRes
+
+    if not quarryRes then
+        -- we failed
+        if tableHelpers.contains(restartErrors, queryErr) then
+            logger:warn("Restarting quarry due to error: %s", queryErr)
+        else
+            -- but we fatally failed
+            logger:error("Failed to mine the quarry")
+            doQuarry = false
+        end
+    end
 end
-
-local quarryRes = followQuarryPath(quarryPath, currentPosIndex)
 
 postFinishQuarry(quarryRes)
