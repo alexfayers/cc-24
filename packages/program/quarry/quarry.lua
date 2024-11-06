@@ -55,17 +55,27 @@ parser:add({"start"}, {
 local args = parser:parse(table.unpack(arg))
 
 --- split the sizeArgs into length, width and layers (e.g. "16,16,20")
-local xSizeStr, zSizeStr, layersStr = string.match(args.size, "'?(-?%d+),(-?%d+),(%d+)'?")
+local xSizeStr, zSizeStr, layersStr, layersToSkipStr = string.match(args.size, "'?(-?%d+),(-?%d+),(%d+),(%d+)'?")
 
 if not xSizeStr then
-    error("Invalid size argument (should be '[-]xSize,[-]zSize,layers')", 0)
+    error("Invalid size argument (should be '[-]xSize,[-]zSize,layers[,layersToSkip]')", 0)
     return
 end
 
 local xSizeArg, zSizeArg, layersArg = tonumber(xSizeStr), tonumber(zSizeStr), tonumber(layersStr)
 
+local layersToSkipArg = 0
+if layersToSkipStr then
+    local layersToSkipArgMaybe = tonumber(layersToSkipStr)
+    if not layersToSkipArgMaybe then
+        error("Invalid layersToSkip argument (should be a number)", 0)
+        return
+    end
+    layersToSkipArg = layersToSkipArgMaybe
+end
+
 if not xSizeArg or not zSizeArg or not layersArg then
-    error("Invalid size argument (should be 'length,width,layers')", 0)
+    error("Invalid size argument (should be '[-]xSize,[-]zSize,layers[,layersToSkip]')", 0)
     return
 end
 
@@ -231,10 +241,20 @@ end
 ---@param xSize integer The size of the quarry in the x direction
 ---@param zSize integer The size of the quarry in the z direction
 ---@param layers integer The depth of the quarry
+---@param layersToSkip? integer The number of layers to skip (default 0)
 ---@return Position[]? _ The path of the turtle through the quarry
-local function calculateQuarryPath(xSize, zSize, layers)
+local function calculateQuarryPath(xSize, zSize, layers, layersToSkip)
+    if not layersToSkip then
+        layersToSkip = 0
+    end
+
     if layers < 1 then
         logger:error("Quarry depth must be at least 1")
+        return
+    end
+
+    if layersToSkip > layers then
+        logger:error("Cannot skip more layers than there are")
         return
     end
 
@@ -274,6 +294,17 @@ local function calculateQuarryPath(xSize, zSize, layers)
     -- repeat until we've done all the layers
 
     for layerNumber = 0, layers - 1 do
+        if layerNumber < layersToSkip then
+            logger:info("Skipping layer %d", layerNumber)
+            table.insert(path, currentPos:add(Position(
+                0,
+                - layerNumber * LAYER_DEPTH,
+                0,
+                enums.Direction.NIL
+            )))
+            goto continue
+        end
+
         if layerNumber % 2 == 0 then
             for stripNumber = 0, xSizeAbs - 1 do
                 if stripNumber % 2 == 0 then
@@ -319,6 +350,7 @@ local function calculateQuarryPath(xSize, zSize, layers)
                 end
             end
         end
+        ::continue::
     end
 
     return path
@@ -377,7 +409,7 @@ local function followQuarryPath(path, skipTo)
 end
 
 
-local quarryPath = calculateQuarryPath(xSizeArg, zSizeArg, layersArg)
+local quarryPath = calculateQuarryPath(xSizeArg, zSizeArg, layersArg, layersToSkipArg)
 
 if not quarryPath then
     logger:error("Failed to calculate quarry path")
