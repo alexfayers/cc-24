@@ -1,10 +1,10 @@
 ---@class Direction
 local Direction = {
+    NIL = -1,
     NORTH = 0,
     EAST = 1,
     SOUTH = 2,
     WEST = 3,
-    NIL = 4
 }
 
 ---@class ERRORS

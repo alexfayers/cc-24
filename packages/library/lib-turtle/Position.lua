@@ -121,11 +121,19 @@ function Position:rotateRight(amount)
 end
 
 
----Calculate the difference between the current position and another position
+---Calculate the difference between the current position and another position (removing facing direction)
 ---@param position Position The position to compare to
 ---@return Position
 function Position:diff(position)
-    return Position(position.x - self.x, position.y - self.y, position.z - self.z, position.facing - self.facing)
+    return Position(position.x - self.x, position.y - self.y, position.z - self.z, enums.Direction.NIL)
+end
+
+
+---Add a position vector to the current position (removing facing direction)
+---@param position Position The position to add
+---@return Position
+function Position:add(position)
+    return Position(self.x + position.x, self.y + position.y, self.z + position.z, enums.Direction.NIL)
 end
 
 
@@ -155,15 +163,29 @@ end
 
 
 ---Convert the position to a string
+---@param withFacing? boolean If true, include the facing direction (default false)
 ---@return string
-function Position:asString()
-    return string.format("Position(%d, %d, %d, %d)", self.x, self.y, self.z, self.facing)
+function Position:asString(withFacing)
+    if withFacing == nil then
+        withFacing = false
+    end
+
+    if withFacing then
+        return string.format("(%d, %d, %d, %d)", self.x, self.y, self.z, self.facing)
+    else
+        return string.format("(%d, %d, %d)", self.x, self.y, self.z)
+    end
 end
 
 
 ---Return a copy of the position
+---@param nilFacing? boolean If true, set the facing direction to nil (default false)
 ---@return Position
-function Position:copy()
+function Position:copy(nilFacing)
+    if nilFacing then
+        return Position(self.x, self.y, self.z, enums.Direction.NIL)
+    end
+
     return Position(self.x, self.y, self.z, self.facing)
 end
 

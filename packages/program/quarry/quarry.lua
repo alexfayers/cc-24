@@ -2,6 +2,7 @@
 package.path = package.path .. ";/usr/lib/?.lua"
 
 local completion = require("cc.completion")
+local pretty = require("cc.pretty")
 local argparse = require("metis.argparse")
 
 local enums = require("lib-turtle.enums")
@@ -53,16 +54,16 @@ parser:add({"start"}, {
 local args = parser:parse(table.unpack(arg))
 
 --- split the sizeArgs into length, width and layers (e.g. "16,16,20")
-local lengthStr, widthStr, layersStr = string.match(args.size, "(%d+),(%d+),(%d+)")
+local xSizeStr, zSizeStr, layersStr = string.match(args.size, "(-?%d+),(-?%d+),(%d+)")
 
-if not lengthStr then
-    error("Invalid size argument (should be 'length,width,layers')", 0)
+if not xSizeStr then
+    error("Invalid size argument (should be '[-]xSize,[-]zSize,layers')", 0)
     return
 end
 
-local lengthArg, widthArg, layersArg = tonumber(lengthStr), tonumber(widthStr), tonumber(layersStr)
+local xSizeArg, zSizeArg, layersArg = tonumber(xSizeStr), tonumber(zSizeStr), tonumber(layersStr)
 
-if not lengthArg or not widthArg or not layersArg then
+if not xSizeArg or not zSizeArg or not layersArg then
     error("Invalid size argument (should be 'length,width,layers')", 0)
     return
 end
@@ -125,147 +126,41 @@ table.insert(turt.inspectHandlers, oreInspectHandler)
 table.insert(turt.inspectHandlers, bedrockInspectHandler)
 
 
----Mine a single strip of a layer of the quarry
----@param stripLength integer The length of the strip
----@return boolean _ Whether the strip was mined successfully
-local function mineLevelStrip(stripLength)
-    for _ = 1, stripLength do
-        local forwardRes, forwardErr = turt:forward(1, MOVEMENT_ARGS)
-        if forwardRes == false then
-            logger:error("Failed to move forward: " .. forwardErr)
-            return false
-        end
-
-        local digDownRes, digDownErr = turt:digDown()
-        if digDownRes == false then
-            logger:error("Failed to dig down: " .. digDownErr)
-            return false
-        end
-
-        local digUpRes, digUpErr = turt:digUp()
-
-        if digUpRes == false then
-            logger:error("Failed to dig up: " .. digUpErr)
-            return false
-        end
-    end
-
-    return true
-end
-
-
----Prepare to mine the next strip of a layer of the quarry
----@param stripNumber integer The number of the strip (used to determine if we should turn left or right)
----@return boolean _ Whether the preparation was successful
-local function prepareNextStrip(stripNumber)
-    local turnFunc = turt.turnRight
-
-    if stripNumber % 2 == 0 then
-        turnFunc = turt.turnLeft
-    end
-
-    turnFunc(turt)
-
-    if not mineLevelStrip(1) then
-        return false
-    end
-
-    turnFunc(turt)
-
-    return true
-end
-
-
----Mine a layer of the quarry
----@param length integer The length of the quarry
----@param width integer The width of the quarry
----@return boolean _ Whether the layer was mined successfully
-local function mineLevel(length, width)
-    for i = 1, length do
-        local stripRes = mineLevelStrip(width - 1)
-        if stripRes == false then
-            logger:error("Failed to mine strip")
-            return false
-        end
-
-        if i == length then
-            break
-        end
-
-        local prepRes = prepareNextStrip(i)
-        if prepRes == false then
-            logger:error("Failed to prepare next strip")
-            return false
-        end
-    end
-
-    -- turn around or right depending on the length of the quarry
-    if length % 2 == 0 then
-        turt:turnRight()
-    else
-        turt:turnAround()
-    end
-
-    return true
-end
-
-
----Go down a layer in the quarry
----@return boolean _ Whether the layer was changed successfully
-local function goDownLayer()
-    local downRes, downErr = turt:down(LAYER_DEPTH, MOVEMENT_ARGS)
-
-    if downRes == false then
-        logger:error("Failed to go down: " .. downErr)
-        return false
-    end
-
-    return true
-end
-
-
 ---Calculate the fuel needed to mine the quarry and return to the origin
----@param length integer The length of the quarry
----@param width integer The width of the quarry
+---@param xSize integer The length of the quarry
+---@param zSize integer The width of the quarry
 ---@param layers integer The depth of the quarry
 ---@return number _ The fuel needed to mine the quarry
-local function calculateFuelNeeded(length, width, layers)
+local function calculateFuelNeeded(xSize, zSize, layers)
     local fuelNeeded = 0
 
     -- fuel needed to mine the quarry
-    fuelNeeded = fuelNeeded + (length * width * (layers * LAYER_DEPTH))
+    fuelNeeded = fuelNeeded + math.abs(xSize * zSize * (layers * LAYER_DEPTH))
 
     -- fuel needed to return to the origin, assuming we end in the far bottom corner
-    fuelNeeded = fuelNeeded + (length + width + (layers * LAYER_DEPTH))
+    fuelNeeded = fuelNeeded + math.abs(xSize + zSize + (layers * LAYER_DEPTH))
 
     return fuelNeeded
 end
 
 
----Mine the quarry
----@param length integer The length of the quarry
----@param width integer The width of the quarry
----@param layers integer The depth of the quarry (layers, so blocks will be {LAYER_DEPTH}x this)
----@return boolean _ Whether the quarry was mined successfully
-local function mineQuarry(length, width, layers)
-    if length < 2 then
-        logger:error("Quarry length must be at least 2")
-        return false
-    end
+---Do things before starting the quarry
+---@param xSize integer The size of the quarry in the x direction
+---@param zSize integer The size of the quarry in the z direction
+---@param layers integer The depth of the quarry
+---@return boolean _ Whether the pre-start was successful
+local function preStartQuarry(xSize, zSize, layers)
+    -- make sure we're at the origin
+    local originRes, originErr = turt:returnToOrigin()
 
-    if width < 2 then
-        logger:error("Quarry width must be at least 2")
-        return false
-    end
-
-    if layers < 1 then
-        logger:error("Quarry depth must be at least 1")
+    if not originRes then
+        logger:error("Failed to return to origin! " .. originErr)
         return false
     end
 
     turt.inventory:pushItems()
 
-    local requiredFuel = calculateFuelNeeded(length, width, layers)
+    local requiredFuel = calculateFuelNeeded(xSize, zSize, layers)
 
     turt.inventory:pullFuel(requiredFuel)
 
@@ -274,62 +169,154 @@ local function mineQuarry(length, width, layers)
         return false
     else
         logger:info("Starting quarry! (Predicted fuel use: %d/%d)", requiredFuel, turt.fuel)
+        return true
     end
+end
 
-    local retVal = true
 
-    for i = 1, layers do
-        -- dig down a block before starting, otherwise it gets missed
-        local digDownRes, digDownErr = turt:digDown()
-        if not digDownRes then
-            logger:error("Failed to dig down: " .. digDownErr)
-            return false
-        end
+---Do things after finishing the quarry
+---@param success boolean Whether the quarry was mined successfully
+---@return nil
+local function postFinishQuarry(success)
+    -- make sure we're at the origin
+    logger:info("Quarrying finished, going home")
+    local originRes, originErr = turt:returnToOrigin()
 
-        local layerRes = mineLevel(length, width)
-        if layerRes == false then
-            logger:error("Failed to mine layer")
-            retVal = false
-            goto returnToOrigin
-        end
-
-        if i == layers then
-            break
-        end
-
-        local downRes = goDownLayer()
-        if downRes == false then
-            logger:error("Failed to go down layer")
-            retVal = false
-            goto returnToOrigin
-        end
-
-        if length % 2 == 0 then
-            -- swap the values of length and width for the next layer
-            -- if we just turned right instead of turning around
-            length, width = width, length
-        end
-    end
-
-    ::returnToOrigin::
-
-    -- Return to the origin
-    turt:returnToOrigin()
-
-    if retVal then
-        -- celebratory spin
-        turt:turnRight(4)
+    if not originRes then
+        logger:error("Failed to return to origin! " .. originErr)
+        return
     end
 
     turt.inventory:discardItems(turt.trashItemNames, turt.trashItemTags)
 
     turt.inventory:pushItems()
+    
+    if success then
+        -- celebratory spin
+        turt:turnRight(4)
+    end
 
-    return retVal
 end
 
 
--- Start quarrying!
-if not mineQuarry(lengthArg, widthArg, layersArg) then
-    logger:error("Failed to mine quarry")
+---Calculate the path of the turtle through the quarry (as a list of Position objects)
+---@param xSize integer The size of the quarry in the x direction
+---@param zSize integer The size of the quarry in the z direction
+---@param layers integer The depth of the quarry
+---@return Position[]? _ The path of the turtle through the quarry
+local function calculateQuarryPath(xSize, zSize, layers)
+    if layers < 1 then
+        logger:error("Quarry depth must be at least 1")
+        return
+    end
+
+    local xSizeAbs, zSizeAbs = math.abs(xSize), math.abs(zSize)
+    if xSizeAbs < 1 then
+        logger:error("Quarry xSize abs must be at least 1")
+        return
+    end
+
+    if zSizeAbs < 1 then
+        logger:error("Quarry zSize abs must be at least 1")
+        return
+    end
+
+    local xDir, zDir = 1, 1
+
+    if xSize < 0 then
+        xDir = -1
+    end
+
+    if zSize < 0 then
+        zDir = -1
+    end
+
+    ---@type Position[]
+    local path = {}
+
+    local currentPos = turt.startingPosition:copy(true)
+
+    -- movement goes like this:
+    -- dig forward (xSizeAbs) blocks
+    -- move to the next strip
+    -- dig backwards (xSizeAbs) blocks
+    -- move to the next strip
+    -- repeat until we've done all the strips
+    -- move down a layer
+    -- repeat until we've done all the layers
+
+    for layerNumber = 0, layers - 1 do
+        for stripNumber = 0, xSizeAbs - 1 do
+            if stripNumber % 2 == 0 then
+                for blockNumber = 0, zSizeAbs - 1 do
+                    table.insert(path, currentPos:add(Position(
+                        stripNumber * xDir,
+                        - layerNumber * LAYER_DEPTH,
+                        blockNumber * zDir,
+                        enums.Direction.NIL
+                    )))
+                end
+            else
+                for blockNumber = zSizeAbs - 1, 0, -1 do
+                    table.insert(path, currentPos:add(Position(
+                        stripNumber * xDir,
+                        - layerNumber * LAYER_DEPTH,
+                        blockNumber * zDir,
+                        enums.Direction.NIL
+                    )))
+                end
+            end
+        end
+    end
+
+    return path
 end
+
+
+---Follow a path of Positions through the quarry, digging as we go
+---@param path Position[] The path to follow
+---@return boolean _ Whether the path was followed successfully
+local function followQuarryPath(path)
+    for _, pos in ipairs(path) do
+        local moveRes, moveErr = turt:moveTo(pos, MOVEMENT_ARGS)
+        if not moveRes then
+            logger:error("Failed to move to %s: %s", pos:asString(), moveErr)
+            return false
+        end
+
+        local digDownRes, digDownErr = turt:digDown()
+        if not digDownRes then
+            logger:error("Failed to dig down at %s: %s", pos:asString(), digDownErr)
+            return false
+        end
+
+        local digUpRes, digUpErr = turt:digUp()
+        if not digUpRes then
+            logger:error("Failed to dig up at %s: %s", pos:asString(), digUpErr)
+            return false
+        end
+    end
+
+    return true
+end
+
+
+local quarryPath = calculateQuarryPath(xSizeArg, zSizeArg, layersArg)
+
+if not quarryPath then
+    logger:error("Failed to calculate quarry path")
+    return
+end
+
+for _, pos in ipairs(quarryPath) do
+    print(pos:asString())
+end
+
+
+if not preStartQuarry(xSizeArg, zSizeArg, layersArg) then
+    return false
+end
+
+local quarryRes = followQuarryPath(quarryPath)
+
+postFinishQuarry(quarryRes)
