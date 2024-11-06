@@ -55,7 +55,7 @@ parser:add({"start"}, {
 local args = parser:parse(table.unpack(arg))
 
 --- split the sizeArgs into length, width and layers (e.g. "16,16,20")
-local xSizeStr, zSizeStr, layersStr = string.match(args.size, "(-?%d+),(-?%d+),(%d+)")
+local xSizeStr, zSizeStr, layersStr = string.match(args.size, "'?(-?%d+),(-?%d+),(%d+)'?")
 
 if not xSizeStr then
     error("Invalid size argument (should be '[-]xSize,[-]zSize,layers')", 0)
@@ -73,7 +73,7 @@ end
 local startingPosition = nil
 
 ---split the startArgs into x, y, z and bearing (e.g. "0,0,0,north") if it exists
-local startX, startY, startZ, startBearingStr = string.match(args.start or "", "(-?%d+),(-?%d+),(-?%d+),(%w+)")
+local startX, startY, startZ, startBearingStr = string.match(args.start or "", "'?(-?%d+),(-?%d+),(-?%d+),(%w+)'?")
 local startBearing = 0
 
 if args.start then
