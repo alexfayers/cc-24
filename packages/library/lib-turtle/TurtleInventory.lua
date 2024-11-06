@@ -282,27 +282,33 @@ function TurtleInventory:pushItems()
         return false
     end
 
+    ---@type function[]
+    local slotTasks = {}
+
+    ---@type function[]
+    local inventoryTasks = {}
+
     for _, inventory in pairs(inventories) do
-        for slot, item in pairs(self.slots) do
-            local amount = inventory.pullItems(localName, slot)
+        table.insert(inventoryTasks, function()
+            for slot, item in pairs(self.slots) do
+                table.insert(slotTasks, function()
+                    local amount = inventory.pullItems(localName, slot)
 
-            if amount then
-                self.logger:info("Pushed %d %s into inventory", amount, item.displayName, peripheral.getName(inventory))
+                    if amount then
+                        self.logger:info("Pushed %d %s into inventory", amount, item.displayName, peripheral.getName(inventory))
 
-                madeChanges = true
-                self.slots[slot].count = self.slots[slot].count - amount
-
-                if self.slots[slot].count == 0 then
-                    self.slots[slot] = nil
-                end
-            else
-                if amount == 0 then
-                    -- the chest is probs full, so we can't push any more items
-                    break
-                end
+                        madeChanges = true
+                    end
+                end)
             end
-        end
+
+            parallel.waitForAll(table.unpack(slotTasks))
+        end)
     end
+
+    parallel.waitForAll(table.unpack(inventoryTasks))
+
+    self:updateSlots()
 
     return madeChanges
 end
