@@ -308,7 +308,9 @@ function TurtleInventory:pushItems()
 
     parallel.waitForAll(table.unpack(inventoryTasks))
 
-    self:updateSlots()
+    if madeChanges then
+        self:updateSlots()
+    end
 
     return madeChanges
 end
@@ -423,6 +425,10 @@ function TurtleInventory:pullFuel(targetFuelLevel, fuelTags)
         if not task() then
             break
         end
+    end
+
+    if madeChanges then
+        self:updateSlots()
     end
 
     return madeChanges, fuelLevel
