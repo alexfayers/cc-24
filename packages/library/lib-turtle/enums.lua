@@ -18,6 +18,7 @@ local ERRORS = {
     CANNOT_BREAK_UNBREAKABLE = "Cannot break unbreakable block",
     TOO_MANY_BREAK_ATTEMPTS = "Broken block in same place too many times",
     NO_INVENTORY_SPACE = "No inventory space",
+    NO_INVENTORY_FULL_LAST_LOCATION = "Previous location from before inventory was full is not set",
 }
 
 ---@class ACTION_DIRECTION

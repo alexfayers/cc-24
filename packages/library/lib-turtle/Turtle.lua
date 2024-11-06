@@ -59,6 +59,8 @@ function Turtle:init(startingPosition)
     self.startingPosition = startingPosition or self.startingPosition or Turtle.origin
     self.position = self.position or self.startingPosition
 
+    self.inventoryFullLastLocation = self.inventoryFullLastLocation or nil
+
     ---@type TurtleInventory
     self.inventory = TurtleInventory()
     self.inventory:refuel()
@@ -67,7 +69,7 @@ function Turtle:init(startingPosition)
 end
 
 
----@alias TurtleStateSerialised {position: string, startingPosition: string, fuel: number|string}
+---@alias TurtleStateSerialised {position: string, startingPosition: string, fuel: number|string, inventoryFullLastLocation?: string}
 
 ---Load the turtle state from the statefile
 ---@return nil
@@ -94,9 +96,12 @@ function Turtle:loadState()
         end
         local fuel = state.fuel
 
+        local inventoryFullLastLocation = Position.unserialise(state.inventoryFullLastLocation)
+
         self.position = position
         self.startingPosition = startingPosition
         self.fuel = fuel
+        self.inventoryFullLastLocation = inventoryFullLastLocation
     end
 end
 
@@ -109,7 +114,8 @@ function Turtle:saveState()
     local state = {
         position = self.position:serialise(),
         startingPosition = self.startingPosition:serialise(),
-        fuel = self.fuel
+        fuel = self.fuel,
+        inventoryFullLastLocation = self.inventoryFullLastLocation and self.inventoryFullLastLocation:serialise() or nil
     }
 
     tableHelpers.saveTable(stateFile, state)
@@ -228,6 +234,8 @@ function Turtle:_digDirection(direction, argsExtra)
     if argsExtra.safe and (argsExtra.autoReturnIfFull or argsExtra.failIfFull) and self.inventory:isFull() then
         if argsExtra.autoReturnIfFull then
             self.logger:info("Inventory full, returning to start")
+            self.inventoryFullLastLocation = self.position:copy()
+            self:saveState()
             return self:returnToOrigin(true)
         else
             return false, ERRORS.NO_INVENTORY_SPACE
@@ -551,6 +559,25 @@ function Turtle:moveTo(position, argsExtra)
     end
 
     return true
+end
+
+
+---Return to the position that we were at before the inventory became full
+---@param argsExtra? MovementArgsExtra Extra arguments for the move
+---@return boolean, string?
+function Turtle:returnToInventoryFullLocation(argsExtra)
+    if self.inventoryFullLastLocation == nil then
+        return true
+    end
+
+    local res, err = self:moveTo(self.inventoryFullLastLocation, argsExtra)
+
+    if res then
+        self.inventoryFullLastLocation = nil
+        return true
+    else
+        return false, err
+    end
 end
 
 

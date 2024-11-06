@@ -383,6 +383,12 @@ if not quarryPath then
     return
 end
 
+local fullReturnRes, fullReturnError = turt:returnToInventoryFullLocation(MOVEMENT_ARGS)
+if not fullReturnRes then
+    logger:error("Failed to return to inventory full location: %s", fullReturnError)
+    return
+end
+
 local currentPosIndex = checkTurtlePosition(quarryPath)
 
 if not preStartQuarry(quarryPath, currentPosIndex) then
