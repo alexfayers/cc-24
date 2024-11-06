@@ -449,6 +449,25 @@ function TurtleInventory:pullFuel(targetFuelLevel, fuelTags)
 end
 
 
+---Check if all slots in there turtle inventory are being used (or a specific count of slots are full)
+---@param count? integer The number of slots to check (default all)
+---@return boolean _ Whether all slots are full
+function TurtleInventory:isFull(count)
+    if not count then
+        count = TURTLE_INVENTORY_SLOTS
+    end
+
+    for i = 1, count do
+        if not self.slots[i] then
+            return false
+        end
+    end
+
+    return true
+end
+
+
+
 local function test()
     local inv = TurtleInventory()
     inv:refuel()

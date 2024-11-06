@@ -16,7 +16,8 @@ local ERRORS = {
     DID_EMERGENCY_RETURN = "Did emergency return",
     NOTHING_TO_DIG = "Nothing to dig here",
     CANNOT_BREAK_UNBREAKABLE = "Cannot break unbreakable block",
-    TOO_MANY_BREAK_ATTEMPTS = "Broken block in same place too many times"
+    TOO_MANY_BREAK_ATTEMPTS = "Broken block in same place too many times",
+    NO_INVENTORY_SPACE = "No inventory space",
 }
 
 ---@class ACTION_DIRECTION

@@ -145,8 +145,14 @@ end
 
 ---Dig a block in a given direction
 ---@param direction number The direction to dig
+---@param argsExtra? MovementArgsExtra Extra arguments for the move
 ---@return boolean, string?
-function Turtle:_digDirection(direction)
+function Turtle:_digDirection(direction, argsExtra)
+    if argsExtra == nil then argsExtra = {} end
+    if argsExtra.safe == nil then argsExtra.safe = false end
+    if argsExtra.failIfFull == nil then argsExtra.failIfFull = false end
+    if argsExtra.autoReturnIfFull == nil then argsExtra.autoReturnIfFull = false end
+
     local inspectFunc = nil
     local func = nil
 
@@ -219,6 +225,15 @@ function Turtle:_digDirection(direction)
         self.inventory:updateSlots()
     end
 
+    if argsExtra.safe and (argsExtra.autoReturnIfFull or argsExtra.failIfFull) and self.inventory:isFull() then
+        if argsExtra.autoReturnIfFull then
+            self.logger:info("Inventory full, returning to start")
+            return self:returnToOrigin(true)
+        else
+            return false, ERRORS.NO_INVENTORY_SPACE
+        end
+    end
+
     isBlock, inspectData = inspectFunc()
     if isBlock then
         ---@cast inspectData ccTweaked.turtle.inspectInfo
@@ -240,23 +255,26 @@ end
 
 
 ---Dig out a block in front of the turtle
+---@param argsExtra? MovementArgsExtra Extra arguments for the move
 ---@return boolean, string?
-function Turtle:dig()
-    return self:_digDirection(ACTION_DIRECTION.FORWARD)
+function Turtle:dig(argsExtra)
+    return self:_digDirection(ACTION_DIRECTION.FORWARD, argsExtra)
 end
 
 
 ---Dig out a block above the turtle
+---@param argsExtra? MovementArgsExtra Extra arguments for the move
 ---@return boolean, string?
-function Turtle:digUp()
-    return self:_digDirection(ACTION_DIRECTION.UP)
+function Turtle:digUp(argsExtra)
+    return self:_digDirection(ACTION_DIRECTION.UP, argsExtra)
 end
 
 
 ---Dig out a block below the turtle
+---@param argsExtra? MovementArgsExtra Extra arguments for the move
 ---@return boolean, string?
-function Turtle:digDown()
-    return self:_digDirection(ACTION_DIRECTION.DOWN)
+function Turtle:digDown(argsExtra)
+    return self:_digDirection(ACTION_DIRECTION.DOWN, argsExtra)
 end
 
 
@@ -309,6 +327,8 @@ end
 ---@field dig? boolean If true, dig out any blocks in the way (default false)
 ---@field safe? boolean If true, don't perform this move if we won't have enough fuel to return to the starting position (default true)
 ---@field autoReturn? boolean If true, return to the starting position if we wont't have enough fuel to return after the move. Only used if in safe mode (default false)
+---@field failIfFull? boolean If true, will fail digs if the inventory is full. Only used if in safe mode (default false)
+---@field autoReturnIfFull? boolean If true, return to the starting position if we are full after dig. Only used if in safe mode (default false)
 
 
 ---Move the turtle in a given direction
@@ -369,7 +389,7 @@ function Turtle:_moveDirection(direction, amount, argsExtra)
 
     for _ = 1, amount do
         if argsExtra.dig and funcs[1] ~= nil then
-            local res, errorMessage = funcs[1](self)
+            local res, errorMessage = funcs[1](self, argsExtra)
 
             if not res and errorMessage ~= ERRORS.NOTHING_TO_DIG then
                 return false, errorMessage

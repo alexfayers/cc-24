@@ -16,7 +16,8 @@ local LAYER_DEPTH = 3
 local MOVEMENT_ARGS = {
     dig = true,
     safe = true,
-    autoReturn = true
+    autoReturn = true,
+    autoReturnIfFull = true,
 }
 
 ---Argument completion for the script
@@ -358,13 +359,13 @@ local function followQuarryPath(path, skipTo)
             return false
         end
 
-        local digDownRes, digDownErr = turt:digDown()
+        local digDownRes, digDownErr = turt:digDown(MOVEMENT_ARGS)
         if not digDownRes then
             logger:error("Failed to dig down at %s: %s", pos:asString(), digDownErr)
             return false
         end
 
-        local digUpRes, digUpErr = turt:digUp()
+        local digUpRes, digUpErr = turt:digUp(MOVEMENT_ARGS)
         if not digUpRes then
             logger:error("Failed to dig up at %s: %s", pos:asString(), digUpErr)
             return false
