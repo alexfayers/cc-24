@@ -237,6 +237,8 @@ local function mineQuarry(length, width, layers)
         turt:turnRight(4)
     end
 
+    turt.inventory:discardItems(turt.trashItemTags)
+
     turt.inventory:pushItems()
 
     return retVal
