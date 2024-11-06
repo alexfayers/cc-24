@@ -168,10 +168,17 @@ function Position:copy()
 end
 
 
+---Serialise the position to a string
+---@return string
+function Position:serialise()
+    return string.format("%d,%d,%d,%d", self.x, self.y, self.z, self.facing)
+end
+
+
 ---Create a Position object from a string
 ---@param str string The string to parse
 ---@return Position?
-function Position.fromString(str)
+function Position.unserialise(str)
     local invalidStr = "Invalid string (%s)"
     local xStr, yStr, zStr, facingStr = string.match(str, "(%d+),(%d+),(%d+),(%d+)")
 
