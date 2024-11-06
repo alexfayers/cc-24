@@ -56,7 +56,7 @@ function Turtle:init(startingPosition)
 
     self.fuel = self.fuel or turtle.getFuelLevel()
 
-    self.startingPosition = self.startingPosition or startingPosition or Turtle.origin
+    self.startingPosition = startingPosition or self.startingPosition or Turtle.origin
     self.position = self.position or self.startingPosition
 
     ---@type TurtleInventory
