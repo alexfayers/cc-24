@@ -367,7 +367,12 @@ function TurtleInventory:pullFuel(targetFuelLevel, fuelTags)
             end
 
             if isFuel then
-                local amount = inventory.pullItems(localName, slot, math.ceil((targetFuelLevel - fuelLevel) / fuelGain), 1)
+                local targetAmount = math.ceil((targetFuelLevel - fuelLevel) / fuelGain)
+                if targetAmount <= 0 then
+                    goto continue
+                end
+
+                local amount = inventory.pushItems(localName, slot, targetAmount, 1)
 
                 if amount then
                     self.logger:info("Pulled %d %s from %s", amount, item.displayName, peripheral.getName(inventory))
@@ -380,13 +385,15 @@ function TurtleInventory:pullFuel(targetFuelLevel, fuelTags)
                     ---@cast fuelLevel number
 
                     if fuelLevel >= targetFuelLevel then
-                        goto continue
+                        goto returnLoop
                     end
                 end
             end
             ::continue::
         end
     end
+
+    ::returnLoop::
 
     return madeChanges, fuelLevel
 end
