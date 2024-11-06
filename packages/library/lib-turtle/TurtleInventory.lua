@@ -419,8 +419,6 @@ function TurtleInventory:pullFuel(targetFuelLevel, fuelTags)
         end
     end
 
-    ::returnLoop::
-
     return madeChanges, fuelLevel
 end
 
