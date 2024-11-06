@@ -71,7 +71,7 @@ end
 local startingPosition = nil
 
 ---split the startArgs into x, y, z and bearing (e.g. "0,0,0,north") if it exists
-local startX, startY, startZ, startBearingStr = string.match(args.start or "", "(%d+),(%d+),(%d+),(%w+)")
+local startX, startY, startZ, startBearingStr = string.match(args.start or "", "(-?%d+),(-?%d+),(-?%d+),(%w+)")
 local startBearing = 0
 
 if args.start then

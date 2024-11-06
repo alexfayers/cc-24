@@ -180,7 +180,7 @@ end
 ---@return Position?
 function Position.unserialise(str)
     local invalidStr = "Invalid string (%s)"
-    local xStr, yStr, zStr, facingStr = string.match(str, "(%d+),(%d+),(%d+),(%d+)")
+    local xStr, yStr, zStr, facingStr = string.match(str, "(-?%d+),(-?%d+),(-?%d+),(%d+)")
 
     if xStr == nil or yStr == nil or zStr == nil or facingStr == nil then
         logger:error(invalidStr, str)
