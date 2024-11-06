@@ -238,7 +238,7 @@ end
 ---Find inventories in the network.
 ---@return ccTweaked.peripherals.Inventory[]
 function TurtleInventory:findInventories()
-    local inventories = peripheral.find("inventory")
+    local inventories = { peripheral.find("inventory") }
 
     if not inventories then
         return {}
@@ -287,14 +287,13 @@ function TurtleInventory:pushItems()
             local amount = inventory.pullItems(localName, slot)
 
             if amount then
-                self.logger:info("Pushed %d %s into %s", amount, item.displayName, inventory)
+                self.logger:info("Pushed %d %s into inventory", amount, item.displayName)
 
                 madeChanges = true
                 self.slots[slot].count = self.slots[slot].count - amount
 
                 if self.slots[slot].count == 0 then
                     self.slots[slot] = nil
-                    break
                 end
             else
                 if amount == 0 then
