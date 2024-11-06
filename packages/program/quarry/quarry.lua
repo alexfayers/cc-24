@@ -19,6 +19,10 @@ local MOVEMENT_ARGS = {
 
 local turt = Turtle()
 
+table.insert(turt.trashItemTags, "c:stones")
+table.insert(turt.trashItemTags, "minecraft:sand")
+table.insert(turt.trashItemNames, "minecraft:gravel")
+
 ---@overload fun(self: Turtle, inspectedBlockPosition: Position, inspectedBlockData: ccTweaked.turtle.inspectInfo): nil
 local function oreInspectHandler(self, inspectedBlockPosition, inspectedBlockData)
     for tag in pairs(inspectedBlockData.tags) do
@@ -237,7 +241,7 @@ local function mineQuarry(length, width, layers)
         turt:turnRight(4)
     end
 
-    turt.inventory:discardItems(turt.trashItemTags)
+    turt.inventory:discardItems(turt.trashItemNames, turt.trashItemTags)
 
     turt.inventory:pushItems()
 

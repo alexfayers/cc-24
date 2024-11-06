@@ -139,10 +139,11 @@ end
 
 ---Discard all items with given tags in the turtle inventory.
 ---Updates the slots table to reflect the changes.
----@param items string[] The tags to discard
+---@param itemNames string[] The names to discard
+---@param itemTags string[] The tags to discard
 ---@param minStackSize? integer The minimum stack size to discard (default 1)
 ---@return boolean, string? _ Whether the items were discarded
-function TurtleInventory:discardItems(items, minStackSize)
+function TurtleInventory:discardItems(itemNames, itemTags, minStackSize)
     if not minStackSize then
         minStackSize = 1
     end
@@ -150,7 +151,20 @@ function TurtleInventory:discardItems(items, minStackSize)
     local madeChanges = false
 
     for slot, item in pairs(self.slots) do
-        for _, trashItem in pairs(items) do
+        for _, trashItem in pairs(itemNames) do
+            if item.name == trashItem and item.count >= minStackSize then
+                turtle.select(slot)
+                local res, err = turtle.dropUp()
+                if not res then
+                    return false, err
+                else
+                    self.slots[slot] = nil
+                    madeChanges = true
+                end
+            end
+        end
+
+        for _, trashItem in pairs(itemTags) do
             if tableHelpers.contains(item.tags, trashItem) and item.count >= minStackSize then
                 turtle.select(slot)
                 local res, err = turtle.dropUp()
