@@ -166,3 +166,37 @@ end
 function Position:copy()
     return Position(self.x, self.y, self.z, self.facing)
 end
+
+
+---Create a Position object from a string
+---@param str string The string to parse
+---@return Position?
+function Position.fromString(str)
+    local invalidStr = "Invalid string (%s)"
+    local xStr, yStr, zStr, facingStr = string.match(str, "(%d+),(%d+),(%d+),(%d+)")
+
+    if xStr == nil or yStr == nil or zStr == nil or facingStr == nil then
+        logger:error(invalidStr, str)
+        return nil
+    end
+
+    local x, y, z = tonumber(xStr), tonumber(yStr), tonumber(zStr)
+
+    if x == nil or y == nil or z == nil then
+        logger:error(invalidStr, str)
+        return nil
+    end
+
+    local facingNumber = tonumber(facingStr)
+
+    if not facingNumber then
+        facingNumber = enums.Direction[string.upper(facingStr)]
+    end
+
+    if not facingNumber then
+        logger:error(invalidStr, str)
+        return nil
+    end
+
+    return Position(x, y, z, facingNumber)
+end
