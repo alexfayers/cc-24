@@ -345,57 +345,77 @@ function TurtleInventory:pullFuel(targetFuelLevel, fuelTags)
         return false, fuelLevel
     end
 
+    ---@type function[]
+    local searchTasks = {}
+
+    ---@type function[]
+    local pullTasks = {}
+
     for _, inventory in pairs(inventories) do
-        local inventoryList = inventory.list()
+        table.insert(searchTasks, function()
+            local inventoryList = inventory.list()
 
-        for slot = 1, inventory.size() do
-            if not inventoryList[slot] then
-                goto continue
-            end
-
-            local item = inventory.getItemDetail(slot)
-
-            if not item then
-                goto continue
-            end
-
-            local isFuel = self.combustibleItems[item.name]
-            local fuelGain = 80
-
-            if not isFuel then
-                for tag, tagFuelGain in pairs(fuelTags) do
-                    if tableHelpers.contains(item.tags, tag) then
-                        isFuel = true
-                        fuelGain = tagFuelGain
-                        break
-                    end
-                end
-            end
-
-            if isFuel then
-                local targetAmount = math.ceil((targetFuelLevel - fuelLevel) / fuelGain)
-                if targetAmount <= 0 then
+            for slot = 1, inventory.size() do
+                if not inventoryList[slot] then
                     goto continue
                 end
 
-                local amount = inventory.pushItems(localName, slot, targetAmount, 1)
+                local item = inventory.getItemDetail(slot)
 
-                if amount then
-                    self.logger:info("Pulled %d %s from %s", amount, item.displayName, peripheral.getName(inventory))
+                if not item then
+                    goto continue
+                end
 
-                    madeChanges = true
-                    turtle.select(1)
-                    turtle.refuel()
+                local isFuel = self.combustibleItems[item.name]
+                local fuelGain = 80
 
-                    fuelLevel = turtle.getFuelLevel()
-                    ---@cast fuelLevel number
-
-                    if fuelLevel >= targetFuelLevel then
-                        goto returnLoop
+                if not isFuel then
+                    for tag, tagFuelGain in pairs(fuelTags) do
+                        if tableHelpers.contains(item.tags, tag) then
+                            isFuel = true
+                            fuelGain = tagFuelGain
+                            break
+                        end
                     end
                 end
+
+                if isFuel then
+                    table.insert(pullTasks, function()
+                        local targetAmount = math.ceil((targetFuelLevel - fuelLevel) / fuelGain)
+                        if targetAmount <= 0 then
+                            return true
+                        end
+
+                        local amount = inventory.pushItems(localName, slot, targetAmount, 1)
+
+                        if amount then
+                            self.logger:info("Pulled %d %s from %s", amount, item.displayName, peripheral.getName(inventory))
+
+                            madeChanges = true
+                            turtle.select(1)
+                            turtle.refuel()
+
+                            fuelLevel = turtle.getFuelLevel()
+                            ---@cast fuelLevel number
+
+                            if fuelLevel >= targetFuelLevel then
+                                return false
+                            end
+                        end
+
+                        return true
+                    end)
+                end
+                ::continue::
             end
-            ::continue::
+        end)
+    end
+
+    parallel.waitForAll(table.unpack(searchTasks))
+
+    for _, task in pairs(pullTasks) do
+        if not task() then
+            break
         end
     end
 
