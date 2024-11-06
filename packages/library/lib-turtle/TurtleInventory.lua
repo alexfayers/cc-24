@@ -287,7 +287,7 @@ function TurtleInventory:pushItems()
             local amount = inventory.pullItems(localName, slot)
 
             if amount then
-                self.logger:info("Pushed %d %s into inventory", amount, item.displayName)
+                self.logger:info("Pushed %d %s into inventory", amount, item.displayName, peripheral.getName(inventory))
 
                 madeChanges = true
                 self.slots[slot].count = self.slots[slot].count - amount
@@ -370,7 +370,7 @@ function TurtleInventory:pullFuel(targetFuelLevel, fuelTags)
                 local amount = inventory.pullItems(localName, slot, math.ceil((targetFuelLevel - fuelLevel) / fuelGain), 1)
 
                 if amount then
-                    self.logger:info("Pulled %d %s from %s", amount, item.displayName, inventory)
+                    self.logger:info("Pulled %d %s from %s", amount, item.displayName, peripheral.getName(inventory))
 
                     madeChanges = true
                     turtle.select(1)
