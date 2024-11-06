@@ -526,7 +526,9 @@ function Turtle:moveTo(position, argsExtra)
         end
     end
 
-    self:face(position.facing)
+    if position.facing ~= Direction.NIL then
+        self:face(position.facing)
+    end
 
     return true
 end
