@@ -6,7 +6,7 @@ require("lib-turtle.Position")
 require("lib-turtle.TurtleInventory")
 
 local helpers = require("lib-turtle.helpers")
-
+local tableHelpers = require("lexicon-lib.lib-table")
 local enums = require("lib-turtle.enums")
 
 ---@type Direction
@@ -18,6 +18,12 @@ local ACTION_DIRECTION = enums.ACTION_DIRECTION
 
 local logging = require("lexicon-lib.lib-logging")
 
+---Settings
+settings.define("turtle.stateFile", {
+    description = "The file to save the turtle state to",
+    type = "string",
+    default = "/.turtle/state.json"
+})
 
 --- Error messages
 
@@ -45,25 +51,68 @@ Turtle.inspectHandlers = {}
 function Turtle:init(startingPosition)
     self.logger = logging.getLogger("Turtle")
     self.logger:setLevel(logging.LEVELS.INFO)
-    self.fuel = turtle.getFuelLevel()
 
-    if startingPosition == nil then
-        self:initPosition(Turtle.origin)
-    else
-        self:initPosition(startingPosition)
-    end
+    self:loadState()
+
+    self.fuel = self.fuel or turtle.getFuelLevel()
+
+    self.startingPosition = self.startingPosition or startingPosition or Turtle.origin
+    self.position = self.position or self.startingPosition
 
     ---@type TurtleInventory
     self.inventory = TurtleInventory()
     self.inventory:refuel()
+
+    self:saveState()
 end
 
 
----Set the position of the turtle
----@param position Position The new position of the turtle
-function Turtle:initPosition(position)
-    self.position = position
-    self.startingPosition = position
+---@alias TurtleStateSerialised {position: string, startingPosition: string, fuel: number|string}
+
+---Load the turtle state from the statefile
+---@return nil
+function Turtle:loadState()
+    local stateFile = settings.get("turtle.stateFile")
+
+    if fs.exists(stateFile) then
+        ---@type TurtleStateSerialised?
+        local state = tableHelpers.loadTable(stateFile)
+        if state == nil then
+            return nil
+        end
+
+        local position = Position.unserialise(state.position)
+        if not position then
+            self.logger:error("Failed to load position from state file")
+            return
+        end
+
+        local startingPosition = Position.unserialise(state.startingPosition)
+        if not startingPosition then
+            self.logger:error("Failed to load starting position from state file")
+            return
+        end
+        local fuel = state.fuel
+
+        self.position = position
+        self.startingPosition = startingPosition
+        self.fuel = fuel
+    end
+end
+
+
+---Save the turtle state to the statefile
+---@return nil
+function Turtle:saveState()
+    local stateFile = settings.get("turtle.stateFile")
+
+    local state = {
+        position = self.position:serialise(),
+        startingPosition = self.startingPosition:serialise(),
+        fuel = self.fuel
+    }
+
+    tableHelpers.saveTable(stateFile, state)
 end
 
 
@@ -224,6 +273,7 @@ function Turtle:turnLeft(amount)
     end
 
     self.position = self.position:rotateLeft(amount)
+    self:saveState()
 end
 
 
@@ -240,6 +290,7 @@ function Turtle:turnRight(amount)
     end
 
     self.position = self.position:rotateRight(amount)
+    self:saveState()
 end
 
 
@@ -334,6 +385,8 @@ function Turtle:_moveDirection(direction, amount, argsExtra)
 
         self.position = funcs[3](self.position)
         self:useFuel()
+
+        self:saveState()
 
         self.logger:debug("Moved to %s", self.position:asString())
     end
