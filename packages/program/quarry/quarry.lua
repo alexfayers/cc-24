@@ -18,6 +18,7 @@ local MOVEMENT_ARGS = {
     safe = true,
     autoReturn = true,
     autoReturnIfFull = true,
+    refuelOnDig = false,
 }
 
 ---Argument completion for the script

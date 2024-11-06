@@ -165,6 +165,7 @@ function Turtle:_digDirection(direction, argsExtra)
     if argsExtra.safe == nil then argsExtra.safe = false end
     if argsExtra.failIfFull == nil then argsExtra.failIfFull = false end
     if argsExtra.autoReturnIfFull == nil then argsExtra.autoReturnIfFull = false end
+    if argsExtra.refuelOnDig == nil then argsExtra.refuelOnDig = false end
 
     local inspectFunc = nil
     local func = nil
@@ -230,12 +231,14 @@ function Turtle:_digDirection(direction, argsExtra)
 
     self.inventory:discardItems(self.trashItemNames, self.trashItemTags, self.trashMinStackSize)
 
-    local refuelMadeChanges = false
-    refuelMadeChanges, self.fuel = self.inventory:refuel()
+    if argsExtra.refuelOnDig then
+        local refuelMadeChanges = false
+        refuelMadeChanges, self.fuel = self.inventory:refuel()
 
-    if refuelMadeChanges then
-        --- If we made changes to the inventory, update the slots (again)
-        self.inventory:updateSlots()
+        if refuelMadeChanges then
+            --- If we made changes to the inventory, update the slots (again)
+            self.inventory:updateSlots()
+        end
     end
 
     if argsExtra.safe and (argsExtra.autoReturnIfFull or argsExtra.failIfFull) and self.inventory:isFull() then
@@ -344,6 +347,7 @@ end
 ---@field autoReturn? boolean If true, return to the starting position if we wont't have enough fuel to return after the move. Only used if in safe mode (default false)
 ---@field failIfFull? boolean If true, will fail digs if the inventory is full. Only used if in safe mode (default false)
 ---@field autoReturnIfFull? boolean If true, return to the starting position if we are full after dig. Only used if in safe mode (default false)
+---@field refuelOnDig? boolean If true, refuel the turtle after a dig move (default false)
 
 
 ---Move the turtle in a given direction
