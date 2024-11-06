@@ -102,6 +102,7 @@ local turt = Turtle(startingPosition)
 table.insert(turt.trashItemTags, "c:stones")
 table.insert(turt.trashItemTags, "minecraft:sand")
 table.insert(turt.trashItemNames, "minecraft:gravel")
+table.insert(turt.trashItemNames, "minecraft:dirt")
 
 ---Functions
 
