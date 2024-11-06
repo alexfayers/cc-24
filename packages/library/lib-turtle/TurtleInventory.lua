@@ -346,7 +346,13 @@ function TurtleInventory:pullFuel(targetFuelLevel, fuelTags)
     end
 
     for _, inventory in pairs(inventories) do
+        local inventoryList = inventory.list()
+
         for slot = 1, inventory.size() do
+            if not inventoryList[slot] then
+                goto continue
+            end
+
             local item = inventory.getItemDetail(slot)
 
             if not item then
