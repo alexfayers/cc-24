@@ -272,24 +272,48 @@ local function calculateQuarryPath(xSize, zSize, layers)
     -- repeat until we've done all the layers
 
     for layerNumber = 0, layers - 1 do
-        for stripNumber = 0, xSizeAbs - 1 do
-            if stripNumber % 2 == 0 then
-                for blockNumber = 0, zSizeAbs - 1 do
-                    table.insert(path, currentPos:add(Position(
-                        stripNumber * xDir,
-                        - layerNumber * LAYER_DEPTH,
-                        blockNumber * zDir,
-                        enums.Direction.NIL
-                    )))
+        if layerNumber % 2 == 0 then
+            for stripNumber = 0, xSizeAbs - 1 do
+                if stripNumber % 2 == 0 then
+                    for blockNumber = 0, zSizeAbs - 1 do
+                        table.insert(path, currentPos:add(Position(
+                            stripNumber * xDir,
+                            - layerNumber * LAYER_DEPTH,
+                            blockNumber * zDir,
+                            enums.Direction.NIL
+                        )))
+                    end
+                else
+                    for blockNumber = zSizeAbs - 1, 0, -1 do
+                        table.insert(path, currentPos:add(Position(
+                            stripNumber * xDir,
+                            - layerNumber * LAYER_DEPTH,
+                            blockNumber * zDir,
+                            enums.Direction.NIL
+                        )))
+                    end
                 end
-            else
-                for blockNumber = zSizeAbs - 1, 0, -1 do
-                    table.insert(path, currentPos:add(Position(
-                        stripNumber * xDir,
-                        - layerNumber * LAYER_DEPTH,
-                        blockNumber * zDir,
-                        enums.Direction.NIL
-                    )))
+            end
+        else
+            for stripNumber = xSizeAbs - 1, 0, -1 do
+                if stripNumber % 2 == 0 then
+                    for blockNumber = zSizeAbs - 1, 0, -1 do
+                        table.insert(path, currentPos:add(Position(
+                            stripNumber * xDir,
+                            - layerNumber * LAYER_DEPTH,
+                            blockNumber * zDir,
+                            enums.Direction.NIL
+                        )))
+                    end
+                else
+                    for blockNumber = 0, zSizeAbs - 1 do
+                        table.insert(path, currentPos:add(Position(
+                            stripNumber * xDir,
+                            - layerNumber * LAYER_DEPTH,
+                            blockNumber * zDir,
+                            enums.Direction.NIL
+                        )))
+                    end
                 end
             end
         end
