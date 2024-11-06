@@ -96,7 +96,14 @@ function Turtle:loadState()
         end
         local fuel = state.fuel
 
-        local inventoryFullLastLocation = self.inventoryFullLastLocation and Position.unserialise(state.inventoryFullLastLocation) or nil
+        local inventoryFullLastLocation = nil
+        if state.inventoryFullLastLocation then
+            inventoryFullLastLocation = Position.unserialise(state.inventoryFullLastLocation)
+            if not inventoryFullLastLocation then
+                self.logger:error("Failed to load inventory full last location from state file")
+                return
+            end
+        end
 
         self.position = position
         self.startingPosition = startingPosition
