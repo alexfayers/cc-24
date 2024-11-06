@@ -26,9 +26,9 @@ local MOVEMENT_ARGS = {
 ---@return table? _ A table of possible completions
 local function complete(_, index, argument, previous)
     if index == 1 then
-        return completion.choice(argument, {"16,16,20"}, true)
+        return completion.choice(argument, {"8,8,20"}, true)
     elseif index == 2 then
-        return completion.choice(argument, {"load", "0,0,0,north"}, true)
+        return completion.choice(argument, {"0,0,0,north"}, true)
     end
 
     return {}
