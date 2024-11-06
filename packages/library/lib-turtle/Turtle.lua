@@ -96,7 +96,7 @@ function Turtle:loadState()
         end
         local fuel = state.fuel
 
-        local inventoryFullLastLocation = Position.unserialise(state.inventoryFullLastLocation)
+        local inventoryFullLastLocation = self.inventoryFullLastLocation and Position.unserialise(state.inventoryFullLastLocation) or nil
 
         self.position = position
         self.startingPosition = startingPosition
