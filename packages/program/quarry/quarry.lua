@@ -46,15 +46,23 @@ parser:add({"size"}, {
 
 parser:add({"start"}, {
     doc = "Turtle starting coords",
-    required = false
+    required = false,
+    mvar = "[START]"
 })
 
 local args = parser:parse(table.unpack(arg))
 
 --- split the sizeArgs into length, width and layers (e.g. "16,16,20")
-local length, width, layers = string.match(args.size, "(%d+),(%d+),(%d+)")
+local lengthStr, widthStr, layersStr = string.match(args.size, "(%d+),(%d+),(%d+)")
 
-if not length then
+if not lengthStr then
+    error("Invalid size argument (should be 'length,width,layers')", 0)
+    return
+end
+
+local lengthArg, widthArg, layersArg = tonumber(lengthStr), tonumber(widthStr), tonumber(layersStr)
+
+if not lengthArg or not widthArg or not layersArg then
     error("Invalid size argument (should be 'length,width,layers')", 0)
     return
 end
@@ -322,6 +330,6 @@ end
 
 
 -- Start quarrying!
-if not mineQuarry(length, width, layers) then
+if not mineQuarry(lengthArg, widthArg, layersArg) then
     logger:error("Failed to mine quarry")
 end
