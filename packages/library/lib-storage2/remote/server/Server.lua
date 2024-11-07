@@ -111,6 +111,8 @@ function Server:listen()
         return false
     end
 
+    logger:info("Started listening for %s commands...", self.protocol)
+
     while true do
         local senderId, messageType, data = self:receiveData()
         if not messageType then
