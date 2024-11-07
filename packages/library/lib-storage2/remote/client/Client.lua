@@ -9,6 +9,16 @@ local logger = require("lexicon-lib.lib-logging").getLogger("Client")
 
 local MessageType = enums.MessageType
 
+
+local SERVER_ID_SETTING_NAME = "storage2-remote-server-id"
+
+settings.define(SERVER_ID_SETTING_NAME, {
+    description = "The ID of the storage2 server to connect to",
+    type = "number",
+    default = nil,
+})
+
+
 ---@class Client: Remote
 ---@overload fun(): Client
 Client = Remote:extend()
@@ -27,14 +37,23 @@ end
 ---Find the server to connect to
 ---@return number?
 function Client:findServer()
-    local serverName = rednet.lookup(self.protocol)
+    local serverId = settings.get(SERVER_ID_SETTING_NAME)
+    if serverId then
+        logger:debug("Using server ID from settings: %d", serverId)
+        return serverId
+    end
 
-    if not serverName then
+    logger:info("Searching for a %s server...", self.protocol)
+    serverId = rednet.lookup(self.protocol)
+
+    if not serverId then
         logger:error("No server found")
         return nil
     end
 
-    return serverName
+    logger:info("%s is running on %d", self.protocol, serverId)
+
+    return serverId
 end
 
 
