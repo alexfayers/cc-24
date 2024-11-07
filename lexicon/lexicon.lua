@@ -104,8 +104,21 @@ end
 ---Download a package from the lexicon repository
 ---@param packageName string The name of the package to download
 ---@param parentPackage string | nil The name of the parent package
+---@param previouslyDownloadedPackages? string[] The names of packages that have already been downloaded in this run
 ---@return table _ The files that were downloaded
-local function downloadPackage(packageName, parentPackage)
+local function downloadPackage(packageName, parentPackage, previouslyDownloadedPackages)
+    if previouslyDownloadedPackages then
+        for _, prevPackageName in ipairs(previouslyDownloadedPackages) do
+            if prevPackageName == packageName then
+                return {alreadyDownloaded = true}
+            end
+        end
+
+        table.insert(previouslyDownloadedPackages, packageName)
+    else
+        previouslyDownloadedPackages = {}
+    end
+
     -- pretty.print(pretty.pretty(manifest))
     local downloadedFiles = {}
     local depenencyFiles = {}
@@ -140,7 +153,12 @@ local function downloadPackage(packageName, parentPackage)
         -- print("Found " .. #packageDependencies .. " dependencies for '" .. packageName .. "'")
         -- term.setTextColor(colors.white)
         for _, dependecyName in pairs(packageDependencies) do
-            local depDbPackageData = downloadPackage(dependecyName, packageName)
+            local depDbPackageData = downloadPackage(dependecyName, packageName, previouslyDownloadedPackages)
+            if depDbPackageData["alreadyDownloaded"] then
+                -- already downloaded that package, go to the next
+                goto continue
+            end
+
             for _, file in ipairs(depDbPackageData["files"]) do
                 table.insert(depenencyFiles, file)
             end
@@ -148,6 +166,7 @@ local function downloadPackage(packageName, parentPackage)
             for _, file in ipairs(depDbPackageData["dependencyFiles"]) do
                 table.insert(depenencyFiles, file)
             end
+            ::continue::
         end
     end
 
