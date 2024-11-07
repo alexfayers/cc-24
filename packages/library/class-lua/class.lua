@@ -1,5 +1,6 @@
 -- From `https://github.com/jonstoler/class.lua/blob/master/class.lua`
 
+---@class Class
 Class = {}
 
 -- default (empty) constructor
