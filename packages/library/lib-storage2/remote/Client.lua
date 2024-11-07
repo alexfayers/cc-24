@@ -3,6 +3,7 @@ package.path = package.path .. ";/usr/lib/?.lua"
 require("class-lua.class")
 
 local enums = require("lib-storage2.remote.enums")
+require("lib-storage2.remote.Remote")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("Client")
 
