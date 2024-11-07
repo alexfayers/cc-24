@@ -19,6 +19,7 @@ Client.protocol = "storage2-remote"
 
 ---Initialise a new storage2 client
 function Client:init()
+    Remote.init(self)
     ---@type number?
     self.serverId = self:findServer()
 end

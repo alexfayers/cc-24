@@ -29,6 +29,7 @@ Server.commandHandlers = {
 
 ---Initialise a new storage2 server
 function Server:init()
+    Remote.init(self)
     self.hostname = self.protocol .. "-" .. os.getComputerID()
     self:startUp()
 end
