@@ -174,13 +174,15 @@ end
 ---@param timeout? number
 ---@return number, MessageType?, table?
 function Remote:receiveData(expectedSender, timeout)
+    local senderId, message
+
     if not self.modemName then
         goto nilReturn
     end
 
     self.processing = false
 
-    local senderId, message = rednet.receive(self.protocol, timeout)
+    senderId, message = rednet.receive(self.protocol, timeout)
 
     self.processing = true
 
