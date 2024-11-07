@@ -100,6 +100,55 @@
                     "class-lua"
                 ]
             },
+            "lib-storage2-remote": {
+                "description": "Helper library for remote control of storage2",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/remote/enums.lua",
+                        "/usr/lib/lib-storage2/remote/enums.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/remote/Remote.lua",
+                        "/usr/lib/lib-storage2/remote/Remote.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-logging",
+                    "class-lua"
+                ]
+            },
+            "lib-storage2-remote-client": {
+                "description": "Helper library for remote control of storage2 (client)",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/remote/client/Client.lua",
+                        "/usr/lib/lib-storage2/remote/client/Client.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-logging",
+                    "class-lua",
+                    "lib-storage2-remote"
+                ]
+            },
+            "lib-storage2-remote-server": {
+                "description": "Helper library for remote control of storage2 (server)",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/remote/server/Server.lua",
+                        "/usr/lib/lib-storage2/remote/server/Server.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-logging",
+                    "class-lua",
+                    "lib-storage2-remote",
+                    "lib-storage2"
+                ]
+            },
             "lib-turtle": {
                 "description": "A library for controlling turtles",
                 "version": "1.0.0",
