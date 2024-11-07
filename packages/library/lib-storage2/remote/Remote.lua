@@ -116,7 +116,7 @@ function Remote:sendData(remoteId, message)
 
     local res = rednet.send(remoteId, message, self.protocol)
     if not res then
-        logger:warn("Failed to send to %d: %s", remoteId, message)
+        logger:warn(">%d|Send failed: %s", remoteId, message)
     end
 
     return res
@@ -135,7 +135,7 @@ function Remote:sendCommand(remoteId, messageType, data)
     end
     local res = self:sendData(remoteId, message)
     if res then
-        logger:debug("Sent %s to %d", messageType, remoteId)
+        logger:debug(">%d|Sent %s", remoteId, messageType)
     end
 
     return res
@@ -203,7 +203,7 @@ function Remote:receiveData(expectedSender, timeout)
 
     --- make sure the message is a string
     if type(message) ~= "string" then
-        logger:warn("Non-string from %d: %s", senderId, message)
+        logger:warn("<%d|Non-string: %s", senderId, message)
         self:sendData(senderId, MessageType.INVALID_DATA_TYPE)
         goto nilReturn
     end
@@ -212,12 +212,12 @@ function Remote:receiveData(expectedSender, timeout)
     messageType, data = self:unserialiseMessage(message)
 
     if not messageType then
-        logger:warn("Unknown message type from %d: %s", senderId, message)
+        logger:warn("<%d|Unknown message type: %s", senderId, message)
         self:sendData(senderId, MessageType.UNKNOWN_COMMAND)
         goto nilReturn
     end
 
-    logger:debug("Received %s from %d", messageType, senderId)
+    logger:debug("<%d|Valid: %s", messageType, senderId)
 
     if message ~= MessageType.ACKNOWLEDGE and not self:sendData(senderId, MessageType.ACKNOWLEDGE) then
         goto nilReturn

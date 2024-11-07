@@ -121,20 +121,20 @@ function Server:_listen()
         local handler = self.commandHandlers[messageType]
 
         if not handler then
-            logger:warn("No handler for message type %s", messageType)
+            logger:warn("<%d|No handler for %s", senderId, messageType)
             self:sendData(senderId, MessageType.UNKNOWN_COMMAND)
             goto continue
         end
 
         if not handler(self, senderId, data) then
-            logger:warn("Failed to handle message type %s", messageType)
+            logger:warn("<%d|Failed to handle %s", senderId, messageType)
             self:sendData(senderId, MessageType.UNKNOWN_ERROR)
             goto continue
         else
             self:sendData(senderId, MessageType.DONE)
         end
 
-        logger:info("Handled %s from %s", messageType, senderId)
+        logger:info("<%d|Handled %s", senderId, messageType)
 
         ::continue::
     end

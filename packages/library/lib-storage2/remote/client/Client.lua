@@ -55,7 +55,7 @@ function Client:refresh()
             return false
         end
 
-        logger:error("Error response: " .. messageType)
+        logger:error("Error: " .. messageType)
         return false
     end
 
