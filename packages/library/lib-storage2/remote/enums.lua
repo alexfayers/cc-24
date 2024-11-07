@@ -12,3 +12,8 @@ MessageType = {  ---@class _MessageType
 
     COMMAND_REFRESH = "COMMAND_REFRESH",
 }
+
+
+return {
+    MessageType = MessageType,
+}
