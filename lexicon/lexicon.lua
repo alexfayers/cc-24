@@ -64,7 +64,7 @@ local function getLatestManifest()
         return manifest
     end
 
-    error("Failed to get latest manifest")
+    error("Failed to get latest manifest from " .. MANIFEST_URL, 0)
 end
 
 local manifest = getLatestManifest()
@@ -187,7 +187,7 @@ local function downloadPackage(packageName, parentPackage, previouslyDownloadedP
 
             table.insert(downloadedFiles, downloadPath)
         else
-            error("Failed to download file from " .. sourceUrl)
+            error("Failed to download file from " .. sourceUrl, 0)
         end
     end
 
