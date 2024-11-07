@@ -47,7 +47,7 @@ function Client:refresh()
         return false
     end
 
-    local isProcessing, messageType, _ = self:sendCommandWait(self.serverId, MessageType.COMMAND_REFRESH)
+    local isProcessing, messageType, _ = self:sendCommandWait(self.serverId, MessageType.CMD_REFRESH)
 
     if not isProcessing then
         if not messageType then

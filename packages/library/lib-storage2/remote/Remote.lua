@@ -155,7 +155,7 @@ function Remote:sendCommandWait(remoteId, messageType, data)
 
     local _, responseMessageType, responseData = self:receiveData(remoteId, 1)
 
-    if responseMessageType ~= MessageType.ACKNOWLEDGE then
+    if responseMessageType ~= MessageType.ACK then
         return false, responseMessageType, responseData
     end
 
@@ -207,7 +207,7 @@ function Remote:receiveData(expectedSender, timeout)
     --- make sure the message is a string
     if type(message) ~= "string" then
         logger:warn("<%d|Non-string: %s", senderId, message)
-        self:sendData(senderId, MessageType.INVALID_DATA_TYPE)
+        self:sendData(senderId, MessageType.ERR_INVALID_DATA_TYPE)
         goto nilReturn
     end
     ---@cast message string
@@ -216,13 +216,13 @@ function Remote:receiveData(expectedSender, timeout)
 
     if not messageType then
         logger:warn("<%d|Unknown message type: %s", senderId, message)
-        self:sendData(senderId, MessageType.UNKNOWN_COMMAND)
+        self:sendData(senderId, MessageType.ERR_UNKNOWN_COMMAND)
         goto nilReturn
     end
 
     logger:debug("<%d|Valid: %s", messageType, senderId)
 
-    if message ~= MessageType.ACKNOWLEDGE and not self:sendData(senderId, MessageType.ACKNOWLEDGE) then
+    if message ~= MessageType.ACK and not self:sendData(senderId, MessageType.ACK) then
         goto nilReturn
     end
 

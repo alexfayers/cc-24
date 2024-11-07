@@ -21,10 +21,10 @@ local MessageType = enums.MessageType
 Server = Remote:extend()
 
 Server.filterCommands = {
-    [MessageType.ACKNOWLEDGE] = true,
+    [MessageType.ACK] = true,
     [MessageType.DONE] = true,
-    [MessageType.UNKNOWN_COMMAND] = true,
-    [MessageType.UNKNOWN_ERROR] = true,
+    [MessageType.ERR_UNKNOWN_COMMAND] = true,
+    [MessageType.ERR_UNKNOWN] = true,
 }
 
 ---Initialise a new storage2 server
@@ -33,7 +33,7 @@ function Server:init()
     self.hostname = self.protocol .. "-" .. os.getComputerID()
 
     self.commandHandlers = {
-        [MessageType.COMMAND_REFRESH] = self.handleRefresh,
+        [MessageType.CMD_REFRESH] = self.handleRefresh,
     }
 
     self:startUp()
@@ -124,13 +124,13 @@ function Server:_listen()
 
         if not handler then
             logger:warn("<%d|No handler for %s", senderId, messageType)
-            self:sendData(senderId, MessageType.UNKNOWN_COMMAND)
+            self:sendData(senderId, MessageType.ERR_UNKNOWN_COMMAND)
             goto continue
         end
 
         if not handler(self, senderId, data) then
             logger:warn("<%d|Failed to handle %s", senderId, messageType)
-            self:sendData(senderId, MessageType.UNKNOWN_ERROR)
+            self:sendData(senderId, MessageType.ERR_UNKNOWN)
             goto continue
         else
             self:sendData(senderId, MessageType.DONE)
