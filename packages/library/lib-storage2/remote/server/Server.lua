@@ -26,14 +26,16 @@ Server.filterCommands = {
     [MessageType.UNKNOWN_COMMAND] = true,
     [MessageType.UNKNOWN_ERROR] = true,
 }
-Server.commandHandlers = {
-    [MessageType.COMMAND_REFRESH] = Server.handleRefresh,
-}
 
 ---Initialise a new storage2 server
 function Server:init()
     Remote.init(self)
     self.hostname = self.protocol .. "-" .. os.getComputerID()
+
+    self.commandHandlers = {
+        [MessageType.COMMAND_REFRESH] = self.handleRefresh,
+    }
+
     self:startUp()
 end
 
