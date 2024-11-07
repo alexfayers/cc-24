@@ -233,6 +233,7 @@ local function postFinishQuarry(success)
     
     if success then
         -- celebratory spin
+        logger:info("Quarrying successful! Celebratory spin!")
         turt:turnRight(4)
     end
 
