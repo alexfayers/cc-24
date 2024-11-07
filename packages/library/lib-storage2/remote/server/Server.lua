@@ -22,6 +22,9 @@ Server = Remote:extend()
 
 Server.filterCommands = {
     [MessageType.ACKNOWLEDGE] = true,
+    [MessageType.DONE] = true,
+    [MessageType.UNKNOWN_COMMAND] = true,
+    [MessageType.UNKNOWN_ERROR] = true,
 }
 Server.commandHandlers = {
     [MessageType.COMMAND_REFRESH] = Server.handleRefresh,
