@@ -105,7 +105,7 @@ end
 
 ---Listen for commands
 ---@return boolean
-function Server:listen()
+function Server:_listen()
     if not self.modemName then
         return false
     end
@@ -138,4 +138,21 @@ function Server:listen()
 
         ::continue::
     end
+end
+
+
+---Listen for commands and safely shutdown the server on error/exit using xpcall
+---@return boolean
+function Server:listen()
+    local status, listenRes = xpcall(self._listen, function (err)
+        logger:error("Error: %s", err)
+    end, self)
+
+    self:shutDown()
+
+    if not status or not listenRes then
+        return false
+    end
+
+    return true
 end
