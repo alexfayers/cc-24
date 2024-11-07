@@ -89,3 +89,20 @@ function Client:refresh()
     logger:error("Unexpected response: " .. messageType)
     return false
 end
+
+
+---Safely call a command, closing the connection if there are any issues
+---@param func fun(): boolean
+---@return boolean
+function Client:callCommand(func)
+    local status, res = xpcall(func, function(err)
+        logger:error("Error: %s", err)
+        self:closeModem()
+    end)
+
+    if not status then
+        return false
+    end
+
+    return res
+end
