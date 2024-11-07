@@ -213,7 +213,7 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/storage2-server/storage2-server.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/storage2/storage2-server.lua",
                         "storage2-server.lua"
                     ]
                 ],
