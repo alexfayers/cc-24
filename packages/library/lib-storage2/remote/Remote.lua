@@ -47,7 +47,7 @@ function Remote:unserialiseMessage(message)
     local messageType = string.sub(message, 1, split - 1)
     local data = string.sub(message, split + 1)
 
-    return MessageType[messageType], textutils.unserialize(data)
+    return MessageTypeInverted[messageType], textutils.unserialize(data)
 end
 
 

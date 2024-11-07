@@ -12,6 +12,15 @@ MessageType = {  ---@class _MessageType
 }
 
 
+---Same as MessageType, but the values are the keys of MessageType and the keys are the values of MessageType
+---@type table<string, MessageType>
+MessageTypeInverted = {}
+for k, v in pairs(MessageType) do
+    MessageTypeInverted[v] = k
+end
+
+
 return {
     MessageType = MessageType,
+    MessageTypeInverted = MessageTypeInverted,
 }
