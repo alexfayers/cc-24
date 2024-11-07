@@ -239,8 +239,9 @@ end
 
 
 ---Populate the map with the items in the chests
-function Map:populate()
-    if self:load() then
+---@param force? boolean Whether to force a repopulation
+function Map:populate(force)
+    if not force and self:load() then
         return
     end
 
