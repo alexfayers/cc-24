@@ -21,10 +21,11 @@ Remote.filterCommands = {}
 
 ---Initialise a new storage2 client
 function Remote:init()
+    self.processing = false
     ---@type string?
     self.modemName = nil
 
-    self.processing = false
+    self:findAndOpenModem()
 end
 
 
@@ -72,6 +73,7 @@ end
 function Remote:findAndOpenModem()
     local modem = peripheral.find("modem")
     if not modem then
+        logger:error("No modem found. Remote will not work.")
         return false
     end
 

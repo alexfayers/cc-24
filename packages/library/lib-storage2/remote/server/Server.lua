@@ -66,11 +66,6 @@ end
 function Server:startUp()
     self:initPeripherals()
 
-    local foundModem = self:findAndOpenModem()
-    if not foundModem then
-        return false
-    end
-
     rednet.host(self.protocol, self.hostname)
 
     return true
