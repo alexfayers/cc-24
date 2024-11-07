@@ -53,6 +53,8 @@ function Client:findServer()
 
     logger:info("%s is running on %d", self.protocol, serverId)
 
+    settings.set(SERVER_ID_SETTING_NAME, serverId)
+
     return serverId
 end
 
