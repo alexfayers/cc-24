@@ -75,6 +75,23 @@
                     [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/helpers.lua",
                         "/usr/lib/lib-storage2/helpers.lua"
+                    ],
+
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/Client.lua",
+                        "/usr/lib/lib-storage2/Client.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/enums.lua",
+                        "/usr/lib/lib-storage2/enums.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/Remote.lua",
+                        "/usr/lib/lib-storage2/Remote.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/Server.lua",
+                        "/usr/lib/lib-storage2/Server.lua"
                     ]
                 ],
                 "dependencies": [
