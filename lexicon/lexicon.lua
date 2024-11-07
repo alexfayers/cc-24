@@ -168,7 +168,7 @@ local function downloadPackage(packageName, parentPackage)
 
             table.insert(downloadedFiles, downloadPath)
         else
-            error("Failed to download file")
+            error("Failed to download file from " .. sourceUrl)
         end
     end
 
