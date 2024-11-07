@@ -9,7 +9,6 @@ require("lib-storage2.remote.Remote")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("Server")
 
----@type _MessageType
 local MessageType = enums.MessageType
 
 ---@alias CommandHandler fun(clientId: number, data?: table): boolean

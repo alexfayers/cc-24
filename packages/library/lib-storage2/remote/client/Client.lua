@@ -7,7 +7,6 @@ require("lib-storage2.remote.Remote")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("Client")
 
----@type _MessageType
 local MessageType = enums.MessageType
 
 ---@class Client: Remote
