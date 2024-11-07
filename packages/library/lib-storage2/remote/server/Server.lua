@@ -11,6 +11,14 @@ local logger = require("lexicon-lib.lib-logging").getLogger("Server")
 
 local MessageType = enums.MessageType
 
+local HOSTING_SETTING_NAME = "storage2-remote.isHosting"
+
+settings.define(HOSTING_SETTING_NAME, {
+    description = "Whether the storage2 server is hosting",
+    type = "boolean",
+    default = false,
+})
+
 ---@alias CommandHandler fun(clientId: number, data?: table): boolean
 
 -- Class definition
@@ -71,7 +79,10 @@ end
 function Server:startUp()
     self:initPeripherals()
 
-    rednet.host(self.protocol, self.hostname)
+    if not settings.get(HOSTING_SETTING_NAME) then
+        rednet.host(self.protocol, self.hostname)
+        settings.set(HOSTING_SETTING_NAME, true)
+    end
 
     return true
 end
@@ -85,6 +96,7 @@ function Server:shutDown()
     end
 
     rednet.unhost(self.protocol)
+    settings.set(HOSTING_SETTING_NAME, false)
 
     self:closeModem()
 
