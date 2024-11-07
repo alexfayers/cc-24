@@ -175,6 +175,8 @@ end
 ---@return number, MessageType?, table?
 function Remote:receiveData(expectedSender, timeout)
     local senderId, message
+    ---@type MessageType?
+    local messageType, data
 
     if not self.modemName then
         goto nilReturn
@@ -206,7 +208,7 @@ function Remote:receiveData(expectedSender, timeout)
     end
     ---@cast message string
 
-    local messageType, data = self:unserialiseMessage(message)
+    messageType, data = self:unserialiseMessage(message)
 
     if not messageType then
         logger:warn("Unknown message type from %d: %s", senderId, message)
