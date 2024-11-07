@@ -4,13 +4,6 @@ package.path = package.path .. ";/usr/lib/?.lua"
 -- Import the storage2 module
 local chestHelpers = require("lib-storage2.chestHelpers")
 require("lib-storage2.Map")
-require("lib-storage2.remote.Server")
-
-
-local function runServer()
-    local server = Server()
-    server:listen()
-end
 
 
 local function main()
@@ -60,4 +53,5 @@ local function main()
 end
 
 
-parallel.waitForAny(runServer, main)
+main()
+
