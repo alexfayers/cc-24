@@ -10,7 +10,7 @@ local logger = require("lexicon-lib.lib-logging").getLogger("Client")
 local MessageType = enums.MessageType
 
 
-local SERVER_ID_SETTING_NAME = "storage2-remote-server-id"
+local SERVER_ID_SETTING_NAME = "storage2-remote.server-id"
 
 settings.define(SERVER_ID_SETTING_NAME, {
     description = "The ID of the storage2 server to connect to",
