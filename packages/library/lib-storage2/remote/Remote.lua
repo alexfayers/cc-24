@@ -185,6 +185,8 @@ function Remote:receiveData(expectedSender, timeout)
 
     self.processing = false
 
+    ::receive::
+
     senderId, message = rednet.receive(self.protocol, timeout)
 
     self.processing = true
@@ -198,7 +200,8 @@ function Remote:receiveData(expectedSender, timeout)
     end
 
     if expectedSender and senderId ~= expectedSender then
-        goto nilReturn
+        logger:debug("<%d|Expected: %d", senderId, expectedSender)
+        goto receive
     end
 
     --- make sure the message is a string
