@@ -98,7 +98,7 @@ function Client:callCommand(func)
     local status, res = xpcall(func, function(err)
         logger:error("Error: %s", err)
         self:closeModem()
-    end)
+    end, self)
 
     if not status then
         return false
