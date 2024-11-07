@@ -79,11 +79,6 @@ end
 function Server:startUp()
     self:initPeripherals()
 
-    if not settings.get(HOSTING_SETTING_NAME) then
-        rednet.host(self.protocol, self.hostname)
-        settings.set(HOSTING_SETTING_NAME, true)
-    end
-
     return true
 end
 
@@ -123,7 +118,13 @@ function Server:_listen()
         return false
     end
 
-    logger:info("Started listening for %s commands...", self.protocol)
+    if not settings.get(HOSTING_SETTING_NAME) then
+        logger:info("Starting up...", self.protocol, self.hostname)
+        rednet.host(self.protocol, self.hostname)
+        settings.set(HOSTING_SETTING_NAME, true)
+    end
+
+    logger:info("%s server started!", self.protocol)
 
     while true do
         local senderId, messageType, data = self:receiveData()
