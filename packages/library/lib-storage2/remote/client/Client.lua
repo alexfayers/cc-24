@@ -76,7 +76,7 @@ function Client:baseSendCommand(sendMessageType, sendData)
         return false
     end
 
-    local isProcessing, messageType, messageData = self:sendCommand(self.serverId, sendMessageType, sendData)
+    local isProcessing, messageType, messageData = self:sendCommandWait(self.serverId, sendMessageType, sendData)
 
     if not isProcessing then
         if not messageType then
@@ -92,7 +92,7 @@ function Client:baseSendCommand(sendMessageType, sendData)
         return true, messageData
     end
 
-    logger:error("Unexpected response: " .. pretty.pretty(messageType))
+    logger:error("Unexpected response: " .. messageType)
     return false
 end
 
