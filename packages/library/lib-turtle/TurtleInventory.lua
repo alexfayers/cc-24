@@ -7,6 +7,8 @@ local tableHelpers = require("lexicon-lib.lib-table")
 local pretty = require("cc.pretty")
 local logging = require("lexicon-lib.lib-logging")
 
+require("lib-storage2.remote.client.Client")
+
 ---This class represents the turtle inventory
 ---It has a lot of parallels with the Map and MapSlot classes in lib-storage2,
 ---but is different due to the fact that a turtle inventory is not huge.
@@ -32,6 +34,9 @@ function TurtleInventory:init()
     self.slots = {}
     ---@type table<string, boolean>
     self.combustibleItems = {}
+
+    ---@type Client?
+    self.storageClient = nil
 
     self:updateSlots()
     self:loadCombustibleItems()
@@ -249,6 +254,19 @@ function TurtleInventory:compress()
 end
 
 
+---Attach a storageClient if we're attached to a network with inventories
+---@return boolean _ Whether a storageClient was attached
+function TurtleInventory:attachStorageClient()
+    local storageClient = Client()
+    if storageClient.modemName and storageClient.serverId then
+        self.storageClient = storageClient
+        return true
+    end
+
+    return false
+end
+
+
 ---Find inventories in the network.
 ---@return ccTweaked.peripherals.Inventory[]
 function TurtleInventory:findInventories()
@@ -257,6 +275,10 @@ function TurtleInventory:findInventories()
     if not inventories then
         return {}
     end
+
+    -- we're attached to a network with inventories, so probs a storage2
+    -- server, so let's try to connect to it
+    self:attachStorageClient()
 
     return inventories
 end
@@ -274,6 +296,31 @@ function TurtleInventory:findLocalName()
     ---@cast modem ccTweaked.peripherals.WiredModem
 
     return modem.getNameLocal()
+end
+
+
+---Remote refresh the storage system if there's a storage client
+---@return boolean _ Whether the storage system was refreshed
+function TurtleInventory:refreshStorage()
+    local retryCount = 10
+    if self.storageClient then
+        local didRefresh = false
+        for _=1, retryCount do
+            didRefresh = self.storageClient:refresh()
+            if not didRefresh then
+                self.logger:error("Failed to refresh storage, trying again")
+            else
+                self.logger:info("Refreshed remote storage :)")
+                break
+            end
+        end
+        if not didRefresh then
+            self.logger:error("Failed to refresh storage after %d tries", retryCount)
+            return false
+        end
+    end
+
+    return true
 end
 
 
@@ -324,6 +371,7 @@ function TurtleInventory:pushItems()
 
     if madeChanges then
         self:updateSlots()
+        self:refreshStorage()
     end
 
     return madeChanges
@@ -443,6 +491,7 @@ function TurtleInventory:pullFuel(targetFuelLevel, fuelTags)
 
     if madeChanges then
         self:updateSlots()
+        self:refreshStorage()
     end
 
     return madeChanges, fuelLevel

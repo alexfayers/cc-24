@@ -160,7 +160,8 @@
                 "dependencies": [
                     "lib-logging",
                     "lib-table",
-                    "class-lua"
+                    "class-lua",
+                    "lib-storage2-remote-client"
                 ]
             },
             "metis-argparse": {
