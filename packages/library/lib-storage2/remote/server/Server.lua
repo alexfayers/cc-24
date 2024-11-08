@@ -119,6 +119,15 @@ function Server:handleDataIoChests(clientId, data)
 end
 
 
+---Handle an ping request from a client
+---@param clientId number
+---@param data? table
+---@return boolean, table
+function Server:handlePing(clientId, data)
+    return true, {pong = true}
+end
+
+
 ---Listen for commands
 ---@return boolean
 function Server:_listen()

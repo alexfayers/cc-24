@@ -119,6 +119,21 @@ function Client:getChestNames()
 end
 
 
+---Ping the server, printing how long it took
+---@return boolean, table?
+function Client:ping()
+    local start = os.clock()
+    local res, data = self:baseSendCommand(MessageType.CMD_PING)
+    local duration = os.clock() - start
+
+    if res then
+        logger:info("Pong! Took %.2f seconds", duration)
+    end
+
+    return res, data
+end
+
+
 ---Safely call a command, closing the connection if there are any issues
 ---@param func fun(): boolean, table?
 ---@return boolean, table?
