@@ -63,7 +63,6 @@ end
 ---@return boolean
 function Client:refresh()
     if not self.serverId then
-        logger:error("No server found")
         return false
     end
 
