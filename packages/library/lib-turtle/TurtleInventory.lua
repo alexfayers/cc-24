@@ -272,10 +272,13 @@ end
 
 
 ---Attach a storageClient if we're attached to a network with inventories
----@return boolean _ Whether a storageClient was attached
+---@return Client? _ Whether a storageClient was attached
 function TurtleInventory:attachStorageClient()
+    if self.storageClient then
+        return self.storageClient
+    end
     local storageClient = Client()
-    if storageClient.modemName and storageClient.serverId then
+    if storageClient.serverId then
         self.storageClient = storageClient
 
         if not self.remoteStorageIOChests then
@@ -287,11 +290,10 @@ function TurtleInventory:attachStorageClient()
                 self.logger:error("Failed to get remote chest names!")
             end
         end
-
-        return true
+        return self.storageClient
     end
 
-    return false
+    return nil
 end
 
 
@@ -354,7 +356,7 @@ end
 ---@return boolean _ Whether the storage system was refreshed
 function TurtleInventory:refreshStorage()
     local retryCount = 10
-    if self.storageClient then
+    if self:attachStorageClient() then
         local didRefresh = false
         for _=1, retryCount do
             didRefresh = self.storageClient:callCommand(self.storageClient.refresh)
