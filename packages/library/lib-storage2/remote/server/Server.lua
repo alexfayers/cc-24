@@ -72,6 +72,7 @@ end
 ---@return boolean
 function Server:startUp()
     self:initPeripherals()
+    self:openModem()
 
     return true
 end

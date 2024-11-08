@@ -23,8 +23,6 @@ function Remote:init()
     self.processing = false
     ---@type string?
     self.modemName = nil
-
-    self:openModem()
 end
 
 

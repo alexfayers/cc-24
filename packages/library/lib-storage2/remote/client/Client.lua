@@ -50,7 +50,10 @@ function Client:findServer()
     end
 
     logger:info("Searching for a %s server...", self.protocol)
+
+    self:openModem()
     serverId = rednet.lookup(self.protocol)
+    self:closeModem()
 
     if not serverId then
         logger:error("No server found")
