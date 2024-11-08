@@ -35,6 +35,7 @@ function Server:init()
     self.commandHandlers = {
         [MessageType.CMD_REFRESH] = self.handleRefresh,
         [MessageType.CMD_DATA_IO_CHESTS] = self.handleDataIoChests,
+        [MessageType.CMD_PING] = self.handlePing,
     }
 
     self:startUp()
