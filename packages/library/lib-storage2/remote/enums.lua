@@ -9,6 +9,7 @@ MessageType = {  ---@class _MessageType
     ERR_UNKNOWN = "ERR_UNKNOWN",
 
     CMD_REFRESH = "CMD_REFRESH",
+    CMD_DATA_IO_CHESTS = "CMD_DATA_IO_CHESTS",
 }
 
 

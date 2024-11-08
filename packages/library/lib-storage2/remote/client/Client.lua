@@ -63,14 +63,18 @@ function Client:findServer()
 end
 
 
----Send a refresh request to the server
----@return boolean, nil
-function Client:refresh()
+
+---Send a command to the server, handling any responses
+---@param sendMessageType MessageType
+---@param sendData? table
+---@return boolean, table?
+function Client:baseSendCommand(sendMessageType, sendData)
     if not self.serverId then
+        logger:error("No server to send to")
         return false
     end
 
-    local isProcessing, messageType, _ = self:sendCommandWait(self.serverId, MessageType.CMD_REFRESH)
+    local isProcessing, messageType, messageData = self:sendCommand(self.serverId, sendMessageType, sendData)
 
     if not isProcessing then
         if not messageType then
@@ -83,14 +87,31 @@ function Client:refresh()
     end
 
     if messageType == MessageType.DONE then
-        -- Really should only return a DONE so this is a bit redundant.
-        -- worth checking tho.
-        logger:info("Refresh complete")
-        return true
+        return true, messageData
     end
 
     logger:error("Unexpected response: " .. messageType)
     return false
+end
+
+
+---Send a refresh request to the server
+---@return boolean, nil
+function Client:refresh()
+    local res, _ = self:baseSendCommand(MessageType.CMD_REFRESH)
+
+    if res then
+        return true
+    end
+
+    return false
+end
+
+
+---Get the input and output chest names from the server
+---@return boolean, table?
+function Client:getChestNames()
+    return self:baseSendCommand(MessageType.CMD_DATA_IO_CHESTS)
 end
 
 

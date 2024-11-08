@@ -12,7 +12,7 @@ local logger = require("lexicon-lib.lib-logging").getLogger("Server")
 local MessageType = enums.MessageType
 
 
----@alias CommandHandler fun(clientId: number, data?: table): boolean
+---@alias CommandHandler fun(clientId: number, data?: table): boolean, table?
 
 -- Class definition
 
@@ -34,6 +34,7 @@ function Server:init()
 
     self.commandHandlers = {
         [MessageType.CMD_REFRESH] = self.handleRefresh,
+        [MessageType.CMD_DATA_IO_CHESTS] = self.handleDataIoChests,
     }
 
     self:startUp()
@@ -103,6 +104,20 @@ function Server:handleRefresh(clientId, data)
 end
 
 
+---Handle an input/output chests request from a client
+---@param clientId number
+---@param data? table
+---@return boolean, table?
+function Server:handleDataIoChests(clientId, data)
+    local res = {
+        inputChest = peripheral.getName(self.inputChest),
+        outputChest = peripheral.getName(self.outputChest),
+    }
+
+    return true, res
+end
+
+
 ---Listen for commands
 ---@return boolean
 function Server:_listen()
@@ -129,12 +144,14 @@ function Server:_listen()
             goto continue
         end
 
-        if not handler(self, senderId, data) then
+        local handlerRes, handlerData = handler(self, senderId, data)
+
+        if not handlerRes then
             logger:warn("<%d|Failed to handle %s", senderId, messageType)
             self:sendData(senderId, MessageType.ERR_UNKNOWN)
             goto continue
         else
-            self:sendData(senderId, MessageType.DONE)
+            self:sendCommand(senderId, MessageType.DONE, handlerData)
         end
 
         logger:info("<%d|Handled %s", senderId, messageType)
