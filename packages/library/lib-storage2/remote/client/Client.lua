@@ -121,6 +121,8 @@ end
 ---@param func fun(): boolean, table?
 ---@return boolean, table?
 function Client:callCommand(func)
+    self:openModem()
+
     local status, res, data = xpcall(func, function(err)
         logger:error("Error: %s", err)
     end, self)
