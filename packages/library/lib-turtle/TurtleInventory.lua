@@ -308,13 +308,11 @@ function TurtleInventory:findInventories()
     self:attachStorageClient()
 
     if self.remoteStorageIOChests then
-        local avoidChests = {
-            self.remoteStorageIOChests["inputChest"],
-            self.remoteStorageIOChests["outputChest"],
-        }
         for i = #inventories, 1, -1 do
-            if tableHelpers.contains(avoidChests, peripheral.getName(inventories[i])) then
-                table.remove(inventories, i)
+            for _, chest in pairs(self.remoteStorageIOChests) do
+                if peripheral.getName(inventories[i]) == chest then
+                    table.remove(inventories, i)
+                end
             end
         end
     end
