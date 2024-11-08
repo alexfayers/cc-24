@@ -64,7 +64,7 @@ end
 
 
 ---Send a refresh request to the server
----@return boolean
+---@return boolean, nil
 function Client:refresh()
     if not self.serverId then
         return false
@@ -95,10 +95,10 @@ end
 
 
 ---Safely call a command, closing the connection if there are any issues
----@param func fun(): boolean
----@return boolean
+---@param func fun(): boolean, table?
+---@return boolean, table?
 function Client:callCommand(func)
-    local status, res = xpcall(func, function(err)
+    local status, res, data = xpcall(func, function(err)
         logger:error("Error: %s", err)
     end, self)
 
@@ -108,5 +108,5 @@ function Client:callCommand(func)
         return false
     end
 
-    return res
+    return res, data
 end
