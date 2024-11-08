@@ -365,11 +365,8 @@ function Turtle:_moveDirection(direction, amount, argsExtra)
     if argsExtra.safe == nil then argsExtra.safe = true end
     if argsExtra.autoReturn == nil then argsExtra.autoReturn = false end
 
-    if self.inventory.storageClient then
-        --- Close the modem after every move if it's open
-        self.inventory.storageClient:closeModem()
-        self.inventory.storageClient = nil
-    end
+    --- Close the modem after every move if it's open
+    self.inventory:detachStorageClient()
 
     ---This will be the new position of the turtle after the move
     ---if all goes well

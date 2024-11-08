@@ -44,6 +44,7 @@ function TurtleInventory:init()
 
     self:updateSlots()
     self:loadCombustibleItems()
+    self:loadRemoteStorageIOChests()
 end
 
 
@@ -294,7 +295,20 @@ function TurtleInventory:attachStorageClient()
 end
 
 
----Find inventories in the network.
+---Detatch the storageClient
+---@return boolean _ Whether the storageClient was detatched
+function TurtleInventory:detachStorageClient()
+    if self.storageClient then
+        self.storageClient:closeModem()
+        self.storageClient = nil
+        return true
+    end
+
+    return false
+end
+
+
+---Find inventories in the network. Also attaches a storageClient if we're attached to a network with inventories.
 ---@return ccTweaked.peripherals.Inventory[]
 function TurtleInventory:findInventories()
     local inventories = { peripheral.find("inventory") }

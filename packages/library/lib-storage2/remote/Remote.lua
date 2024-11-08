@@ -24,7 +24,7 @@ function Remote:init()
     ---@type string?
     self.modemName = nil
 
-    self:findAndOpenModem()
+    self:openModem()
 end
 
 
@@ -69,7 +69,7 @@ end
 
 ---Find a modem and open it with rednet, returning true if successful
 ---@return boolean
-function Remote:findAndOpenModem()
+function Remote:_findAndAddModem()
     local modem = peripheral.find("modem")
     if not modem then
         logger:error("No modem found. Remote will not work.")
@@ -83,8 +83,35 @@ function Remote:findAndOpenModem()
     ---@cast modem ccTweaked.peripherals.Modem
     local modemName = peripheral.getName(modem)
 
-    rednet.open(modemName)
     self.modemName = modemName
+
+    return true
+end
+
+
+---Remove the modem
+---@return boolean
+function Remote:removeModem()
+    if not self.modemName then
+        return false
+    end
+
+    self.modemName = nil
+
+    return true
+end
+
+
+---Open the modem
+---@return boolean
+function Remote:openModem()
+    if not self.modemName then
+        if not self:_findAndAddModem() then
+            return false
+        end
+    end
+
+    rednet.open(self.modemName)
 
     return true
 end
@@ -98,7 +125,7 @@ function Remote:closeModem()
     end
 
     rednet.close(self.modemName)
-    self.modemName = nil
+    self:removeModem()
 
     return true
 end
