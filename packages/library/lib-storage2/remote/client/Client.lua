@@ -2,6 +2,8 @@
 package.path = package.path .. ";/usr/lib/?.lua"
 require("class-lua.class")
 
+local pretty = require("cc.pretty")
+
 local enums = require("lib-storage2.remote.enums")
 require("lib-storage2.remote.Remote")
 
@@ -90,7 +92,7 @@ function Client:baseSendCommand(sendMessageType, sendData)
         return true, messageData
     end
 
-    logger:error("Unexpected response: " .. messageType)
+    logger:error("Unexpected response: " .. pretty.pretty(messageType))
     return false
 end
 
