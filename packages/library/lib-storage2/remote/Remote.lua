@@ -152,14 +152,24 @@ function Remote:sendCommandWait(remoteId, messageType, data)
         return false, nil
     end
 
-    local _, responseMessageType, responseData = self:receiveData(remoteId, 1)
+    local senderId, responseMessageType, responseData = self:receiveData(remoteId, 1)
+
+    if not senderId then
+        -- no response
+        return false, nil
+    end
 
     if responseMessageType ~= MessageType.ACK then
         return false, responseMessageType, responseData
     end
 
     --- we got an ACK, now wait for the actual response
-    _, responseMessageType, responseData = self:receiveData(remoteId)
+    senderId, responseMessageType, responseData = self:receiveData(remoteId)
+
+    if not senderId then
+        -- no response
+        return false, nil
+    end
 
     if responseMessageType ~= MessageType.DONE then
         return false, responseMessageType, responseData
