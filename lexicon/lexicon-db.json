@@ -108,6 +108,10 @@
                     [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/remote/client/Client.lua",
                         "/usr/lib/lib-storage2/remote/client/Client.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/remote/client/examplePing.lua",
+                        "/usr/lib/lib-storage2/remote/client/examplePing.lua"
                     ]
                 ],
                 "dependencies": [
