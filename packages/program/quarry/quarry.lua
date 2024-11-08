@@ -60,7 +60,7 @@ local args = parser:parse(table.unpack(arg))
 local xSizeStr, zSizeStr, layersStr, layersToSkipStr = string.match(args.size, "'?(-?%d+),(-?%d+),(%d+),(%d+)'?")
 
 if not xSizeStr then
-    error("Invalid size argument (should be '[-]xSize,[-]zSize,layers[,layersToSkip]')", 0)
+    error("Invalid size argument (should be '[-]xSize,[-]zSize,layers,layersToSkip')", 0)
     return
 end
 
