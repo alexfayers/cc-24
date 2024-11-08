@@ -122,7 +122,7 @@ end
 ---Listen for commands
 ---@return boolean
 function Server:_listen()
-    if not self.modemName then
+    if not self:openModem() then
         return false
     end
 

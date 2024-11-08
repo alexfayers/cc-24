@@ -134,7 +134,7 @@ end
 ---@param message MessageType
 ---@return boolean
 function Remote:sendData(remoteId, message)
-    if not self.modemName then
+    if not self:openModem() then
         return false
     end
 
@@ -213,7 +213,7 @@ function Remote:receiveData(expectedSender, timeout)
     ---@type MessageType?
     local messageType, data
 
-    if not self.modemName then
+    if not self:openModem() then
         goto nilReturn
     end
 

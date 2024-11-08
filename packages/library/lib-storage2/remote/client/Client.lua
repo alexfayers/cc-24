@@ -45,8 +45,7 @@ function Client:findServer()
         return serverId
     end
 
-    self:openModem()
-    if not self.modemName then
+    if not self:openModem() then
         return nil
     end
 
@@ -124,8 +123,6 @@ end
 ---@param func fun(): boolean, table?
 ---@return boolean, table?
 function Client:callCommand(func)
-    self:openModem()
-
     local status, res, data = xpcall(func, function(err)
         logger:error("Error: %s", err)
     end, self)
