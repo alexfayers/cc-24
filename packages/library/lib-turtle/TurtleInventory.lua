@@ -17,6 +17,7 @@ require("lib-storage2.remote.client.Client")
 local TURTLE_INVENTORY_SLOTS = 16
 local TURTLE_MAX_FUEL = 10000
 local COMBUSTIBLE_ITEM_IDS_FILE = "/.turtle/combustibleItemIds.json"
+local REMOTE_STORAGE_IO_CHESTS_FILE = "/.turtle/remoteStorageIOChests.json"
 
 ---@class slotInfo: ccTweaked.turtle.slotInfoDetailed
 
@@ -34,6 +35,9 @@ function TurtleInventory:init()
     self.slots = {}
     ---@type table<string, boolean>
     self.combustibleItems = {}
+
+    ---@type table<string, string>?
+    self.remoteStorageIOChests = nil
 
     ---@type Client?
     self.storageClient = nil
@@ -54,6 +58,18 @@ end
 ---to see if it's combustible
 function TurtleInventory:saveCombustibleItems()
     tableHelpers.saveTable(COMBUSTIBLE_ITEM_IDS_FILE, self.combustibleItems)
+end
+
+
+---Load the remote storage IO chests
+function TurtleInventory:loadRemoteStorageIOChests()
+    self.remoteStorageIOChests = tableHelpers.loadTable(REMOTE_STORAGE_IO_CHESTS_FILE) or {}
+end
+
+
+---Save the remote storage IO chests
+function TurtleInventory:saveRemoteStorageIOChests()
+    tableHelpers.saveTable(REMOTE_STORAGE_IO_CHESTS_FILE, self.remoteStorageIOChests)
 end
 
 
@@ -260,6 +276,17 @@ function TurtleInventory:attachStorageClient()
     local storageClient = Client()
     if storageClient.modemName and storageClient.serverId then
         self.storageClient = storageClient
+
+        if not self.remoteStorageIOChests then
+            local chestNameRes, chestNames = self.storageClient:callCommand(self.storageClient.getChestNames)
+            if chestNameRes then
+                self.remoteStorageIOChests = chestNames
+                self:saveRemoteStorageIOChests()
+            else
+                self.logger:error("Failed to get remote chest names!")
+            end
+        end
+
         return true
     end
 
@@ -279,6 +306,18 @@ function TurtleInventory:findInventories()
     -- we're attached to a network with inventories, so probs a storage2
     -- server, so let's try to connect to it
     self:attachStorageClient()
+
+    if self.remoteStorageIOChests then
+        local avoidChests = {
+            self.remoteStorageIOChests["inputChest"],
+            self.remoteStorageIOChests["outputChest"],
+        }
+        for i = #inventories, 1, -1 do
+            if tableHelpers.contains(avoidChests, peripheral.getName(inventories[i])) then
+                table.remove(inventories, i)
+            end
+        end
+    end
 
     return inventories
 end
@@ -306,7 +345,7 @@ function TurtleInventory:refreshStorage()
     if self.storageClient then
         local didRefresh = false
         for _=1, retryCount do
-            didRefresh = self.storageClient:refresh()
+            didRefresh = self.storageClient:callCommand(self.storageClient.refresh)
             if not didRefresh then
                 self.logger:error("Failed to refresh storage, trying again")
             else
