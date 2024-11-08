@@ -39,19 +39,19 @@ end
 ---Find the server to connect to
 ---@return number?
 function Client:findServer()
-    if not self.modemName then
-        return nil
-    end
-
     local serverId = settings.get(SERVER_ID_SETTING_NAME)
     if serverId then
         logger:debug("Using server ID from settings: %d", serverId)
         return serverId
     end
 
+    self:openModem()
+    if not self.modemName then
+        return nil
+    end
+
     logger:info("Searching for a %s server...", self.protocol)
 
-    self:openModem()
     serverId = rednet.lookup(self.protocol)
     self:closeModem()
 
