@@ -429,6 +429,12 @@ function Turtle:_moveDirection(direction, amount, argsExtra)
 
         self:saveState()
 
+        if self.inventory.storageClient then
+            --- Close the modem after every move if it's open
+            self.inventory.storageClient:closeModem()
+            self.inventory.storageClient = nil
+        end
+
         self.logger:debug("Moved to %s", self.position:asString())
     end
 
