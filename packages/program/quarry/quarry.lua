@@ -295,10 +295,10 @@ local function calculateQuarryPath(xSize, zSize, layers, layersToSkip)
     -- repeat until we've done all the strips
     -- move down a layer
     -- repeat until we've done all the layers
+    logger:info("Skipping to layer %d", layersToSkip)
 
     for layerNumber = 0, layers - 1 do
         if layerNumber < layersToSkip then
-            logger:info("Skipping layer %d", layerNumber)
             table.insert(path, currentPos:add(Position(
                 0,
                 - layerNumber * LAYER_DEPTH,
