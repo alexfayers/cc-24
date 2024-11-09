@@ -415,6 +415,10 @@ function Map:populate(force)
         task()
     end
 
+    while self:compress() do
+        -- keep compressing until we can't compress anymore
+    end
+
     self:orderEmptySlots()
 end
 
