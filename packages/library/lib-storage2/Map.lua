@@ -350,6 +350,10 @@ function Map:checkDiffs()
         parallel.waitForAll(table.unpack(diffTasks))
     end
 
+    if not differences then
+        logger:info("No differences found")
+    end
+
     return differences
 end
 
