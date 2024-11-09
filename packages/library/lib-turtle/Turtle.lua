@@ -242,7 +242,7 @@ function Turtle:_digDirection(direction, argsExtra)
     if argsExtra.safe and (argsExtra.autoReturnIfFull or argsExtra.failIfFull) and self.inventory:isFull() then
         if argsExtra.autoReturnIfFull then
             discord.send("Turtle", "Inventory full, returning to start")
-            self.logger:info("Inventory full, returning to start")
+            self.logger:warn("Inventory full, returning to start")
             self:setResumePosition(self.position)
             local returnRes, returnError = self:returnToOrigin(true)
             if not returnRes then
@@ -402,6 +402,8 @@ function Turtle:_moveDirection(direction, amount, argsExtra)
         --- If we won't have enough fuel to return to the starting position
         
         if argsExtra.autoReturn then
+            discord.send("Turtle", "About to run out of fuel, returning to start")
+            self.logger:warn("About to run out of fuel, returning to start")
             self:setResumePosition(self.position)
             return self:returnToOrigin(true)
         else
@@ -423,7 +425,7 @@ function Turtle:_moveDirection(direction, amount, argsExtra)
 
         if not res then
             self.logger:warn("Move failed: %s", errorMessage)
-            discord.send("Turtle", "Failed to move at (" .. self.startingPosition:asString() .. ") - " .. errorMessage .. "!")
+            discord.send("Turtle", "Failed to move at " .. self.startingPosition:asString() .. " - " .. errorMessage .. "!")
             return false, errorMessage
         end
 
@@ -585,7 +587,7 @@ function Turtle:returnToResumeLocation(argsExtra)
         return true
     end
 
-    discord.send("Turtle", "Returning to last resume location (" .. self.resumePosition:asString() .. ")")
+    discord.send("Turtle", "Returning to last resume location " .. self.resumePosition:asString())
 
     self.logger:info("Returning to last resume location (%s)", self.resumePosition:asString())
 
@@ -604,7 +606,7 @@ end
 ---@param emergency? boolean If true, we're returning to the starting position due to fuel constraints
 ---@return boolean, string?
 function Turtle:returnToOrigin(emergency)
-    discord.send("Turtle", "Returning to starting position (" .. self.startingPosition:asString() .. ")")
+    discord.send("Turtle", "Returning to starting position " .. self.startingPosition:asString())
 
     local res, err = self:moveTo(self.startingPosition, {dig = true})
 
