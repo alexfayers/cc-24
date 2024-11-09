@@ -21,6 +21,8 @@ local MANIFEST_URL = settings.get("lexicon.dbUrl")
 -- local pretty = require("cc.pretty")
 local LEXICON_DB_PATH = settings.get("lexicon.dbPath")
 
+local packagesDownloadedThisRun = {}
+
 ---Load the lexicon database from disk
 ---@return table
 local function loadLexiconDb()
@@ -107,6 +109,12 @@ end
 ---@param previouslyDownloadedPackages? string[] The names of packages that have already been downloaded in this run
 ---@return table _ The files that were downloaded
 local function downloadPackage(packageName, parentPackage, previouslyDownloadedPackages)
+    for _, downloadedPackageName in ipairs(packagesDownloadedThisRun) do
+        if downloadedPackageName == packageName then
+            return {alreadyDownloaded = true}
+        end
+    end
+
     if previouslyDownloadedPackages then
         for _, prevPackageName in ipairs(previouslyDownloadedPackages) do
             if prevPackageName == packageName then
@@ -217,6 +225,7 @@ local function downloadPackage(packageName, parentPackage, previouslyDownloadedP
     db["packages"][packageName] = dbPackageData
 
     -- pretty.pretty_print(dbPackageData)
+    table.insert(packagesDownloadedThisRun, packageName)
 
     saveLexiconDb(db)
 
