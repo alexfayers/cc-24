@@ -165,7 +165,8 @@
                     "lib-logging",
                     "lib-table",
                     "class-lua",
-                    "lib-storage2-remote-client"
+                    "lib-storage2-remote-client",
+                    "lib-discord"
                 ]
             },
             "metis-argparse": {

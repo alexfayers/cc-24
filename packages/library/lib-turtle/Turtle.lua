@@ -8,6 +8,7 @@ require("lib-turtle.TurtleInventory")
 local helpers = require("lib-turtle.helpers")
 local tableHelpers = require("lexicon-lib.lib-table")
 local enums = require("lib-turtle.enums")
+local discord = require("lib-discord.discord")
 
 ---@type Direction
 local Direction = enums.Direction
@@ -400,6 +401,7 @@ function Turtle:_moveDirection(direction, amount, argsExtra)
         --- If we won't have enough fuel to return to the starting position
         
         if argsExtra.autoReturn then
+            self:setResumePosition(self.position)
             return self:returnToOrigin(true)
         else
             --- not in safe mode so yolo it
@@ -581,6 +583,8 @@ function Turtle:returnToResumeLocation(argsExtra)
         return true
     end
 
+    discord.send("Turtle", ("Returning to last resume location (%s)").format(self.resumePosition:asString()))
+
     self.logger:info("Returning to last resume location (%s)", self.resumePosition:asString())
 
     local res, err = self:moveTo(self.resumePosition, argsExtra)
@@ -598,6 +602,8 @@ end
 ---@param emergency? boolean If true, we're returning to the starting position due to fuel constraints
 ---@return boolean, string?
 function Turtle:returnToOrigin(emergency)
+    discord.send("Turtle", ("Returning to starting position (%s").format(self.startingPosition:asString()))
+
     local res, err = self:moveTo(self.startingPosition, {dig = true})
 
     if res then

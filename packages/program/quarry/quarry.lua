@@ -210,6 +210,7 @@ local function preStartQuarry(path, skipTo)
             logger:error("Not enough fuel to mine the quarry and return (need %d)", requiredFuel)
             return false
         else
+            discord.send("Quarry", "Starting quarry!")
             logger:info("Starting quarry! (Predicted fuel use: %d/%d)", requiredFuel, turtle.getFuelLevel())
             return true
         end
@@ -238,8 +239,11 @@ local function postFinishQuarry(success)
     
     if success then
         -- celebratory spin
+        discord.send("Quarry", "Quarrying completed successfully!")
         logger:info("Quarrying successful! Celebratory spin!")
         turt:turnRight(4)
+    else
+        discord.send("Quarry", "Quarrying failed!")
     end
 
 end
