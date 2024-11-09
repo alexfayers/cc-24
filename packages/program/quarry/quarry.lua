@@ -201,11 +201,11 @@ local function preStartQuarry(path, skipTo)
     
         turt.inventory:pullFuel(requiredFuel)
     
-        if requiredFuel > turt.fuel then
+        if requiredFuel > turtle.getFuelLevel() then
             logger:error("Not enough fuel to mine the quarry and return (need %d)", requiredFuel)
             return false
         else
-            logger:info("Starting quarry! (Predicted fuel use: %d/%d)", requiredFuel, turt.fuel)
+            logger:info("Starting quarry! (Predicted fuel use: %d/%d)", requiredFuel, turtle.getFuelLevel())
             return true
         end
     else

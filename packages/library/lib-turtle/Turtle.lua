@@ -149,7 +149,7 @@ function Turtle:useFuel(amount)
         amount = 1
     end
 
-    self.fuel = self.fuel - amount
+    self.fuel = turtle.getFuelLevel()
 end
 
 
