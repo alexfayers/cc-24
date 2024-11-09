@@ -430,21 +430,28 @@ if not quarryPath then
     return
 end
 
-local fullReturnRes, fullReturnError = turt:returnToResumeLocation(MOVEMENT_ARGS)
-if not fullReturnRes then
-    logger:error("Failed to return to resume location: %s", fullReturnError)
-    return
-end
-
 local doQuarry = true
 local quarryRes = false
 local queryErr = nil
 
-while doQuarry do
+while doQuarry do    
     local currentPosIndex = checkTurtlePosition(quarryPath)
 
-    if not preStartQuarry(quarryPath, currentPosIndex) then
+    local resumeQuarryPath = tableHelpers.copy(quarryPath)
+    if turt.resumePosition then
+        table.insert(resumeQuarryPath, 1, turt.resumePosition)
+    end
+
+    if not preStartQuarry(resumeQuarryPath, currentPosIndex) then
         return false
+    end
+
+    if turt.resumePosition then
+        local fullReturnRes, fullReturnError = turt:returnToResumeLocation(MOVEMENT_ARGS)
+        if not fullReturnRes then
+            logger:error("Failed to return to resume location: %s", fullReturnError)
+            return
+        end
     end
 
     quarryRes, queryErr = followQuarryPath(quarryPath, currentPosIndex)

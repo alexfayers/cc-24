@@ -180,6 +180,19 @@ local function batch(list, batchSize)
 end
 
 
+---Copy a table
+---@generic T: table
+---@param t T The table to copy
+---@return T
+local function copy(t)
+    local newTable = {}
+    for k, v in pairs(t) do
+        newTable[k] = v
+    end
+    return newTable
+end
+
+
 return {
     spairs = spairs,
     filterTable = filterTable,
@@ -191,4 +204,5 @@ return {
     valuesContain = valuesContain,
     groupBy = groupBy,
     batch = batch,
+    copy = copy,
 }
