@@ -54,8 +54,6 @@ function Turtle:init(startingPosition)
 
     self:loadState()
 
-    self.fuel = turtle.getFuelLevel()
-
     self.startingPosition = startingPosition or self.startingPosition or Turtle.origin
     self.position = self.position or self.startingPosition
 
@@ -135,30 +133,23 @@ function Turtle:setResumePosition(position)
 end
 
 
+---Unset the resume position of the turtle
+---@return nil
+function Turtle:unsetResumePosition()
+    self.resumePosition = nil
+    self:saveState()
+end
+
+
 ---Check if the turtle has enough fuel to move a number of blocks
 ---@param amount number The number of blocks to move
 ---@return boolean
 function Turtle:hasFuel(amount)
-    if self.fuel == "unlimited" then
+    local fuel = turtle.getFuelLevel()
+    if fuel == "unlimited" then
         return true
     end
-    return self.fuel - amount >= 0
-end
-
-
----Use up some fuel (if possible)
----@param amount? number The amount of fuel to use
----@return nil
-function Turtle:useFuel(amount)
-    if self.fuel == "unlimited" then
-        return
-    end
-
-    if amount == nil then
-        amount = 1
-    end
-
-    self.fuel = turtle.getFuelLevel()
+    return fuel - amount >= 0
 end
 
 
@@ -239,7 +230,7 @@ function Turtle:_digDirection(direction, argsExtra)
 
     if argsExtra.refuelOnDig then
         local refuelMadeChanges = false
-        refuelMadeChanges, self.fuel = self.inventory:refuel()
+        refuelMadeChanges = self.inventory:refuel()
 
         if refuelMadeChanges then
             --- If we made changes to the inventory, update the slots (again)
@@ -250,8 +241,7 @@ function Turtle:_digDirection(direction, argsExtra)
     if argsExtra.safe and (argsExtra.autoReturnIfFull or argsExtra.failIfFull) and self.inventory:isFull() then
         if argsExtra.autoReturnIfFull then
             self.logger:info("Inventory full, returning to start")
-            self.resumePosition = self.position:copy()
-            self:saveState()
+            self:setResumePosition(self.position)
             local returnRes, returnError = self:returnToOrigin(true)
             if not returnRes then
                 return false, returnError
@@ -434,7 +424,6 @@ function Turtle:_moveDirection(direction, amount, argsExtra)
         end
 
         self.position = funcs[3](self.position)
-        self:useFuel()
 
         self:saveState()
 
@@ -597,7 +586,7 @@ function Turtle:returnToResumeLocation(argsExtra)
     local res, err = self:moveTo(self.resumePosition, argsExtra)
 
     if res then
-        self.resumePosition = nil
+        self:unsetResumePosition()
         return true
     else
         return false, err

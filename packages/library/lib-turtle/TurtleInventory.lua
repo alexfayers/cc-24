@@ -121,16 +121,16 @@ end
 
 ---Refuel using all of the combustable items in the turtle inventory
 ---This will only refuel if the turtle is not full
----@return boolean, number fuelLevel If changes were made to the inventory, and what the fuel level is after refueling
+---@return boolean If changes were made to the inventory
 function TurtleInventory:refuel()
     local fuelLevel = turtle.getFuelLevel()
     if fuelLevel == "unlimited" then
-        return false, TURTLE_MAX_FUEL
+        return false
     end
     ---@cast fuelLevel number
 
     if fuelLevel >= TURTLE_MAX_FUEL then
-        return false, fuelLevel
+        return false
     end
 
     self:scanForCombustibleItems()
@@ -155,7 +155,7 @@ function TurtleInventory:refuel()
 
     self:selectFirstSlot()
 
-    return madeChanges, fuelLevel
+    return madeChanges
 end
 
 
