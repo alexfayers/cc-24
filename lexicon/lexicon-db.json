@@ -178,6 +178,17 @@
                     ]
                 ],
                 "dependencies": []
+            },
+            "lib-discord": {
+                "description": "A library for sending notifications to a discord channel",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-discord/discord.lua",
+                        "/usr/lib/lib-discord/discord.lua"
+                    ]
+                ],
+                "dependencies": []
             }
         },
         "program": {
@@ -238,7 +249,8 @@
                 ],
                 "dependencies": [
                     "lib-turtle",
-                    "metis-argparse"
+                    "metis-argparse",
+                    "lib-discord"
                 ],
                 "usage": "'quarry'"
             }

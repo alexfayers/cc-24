@@ -9,6 +9,7 @@ local tableHelpers = require("lexicon-lib.lib-table")
 local enums = require("lib-turtle.enums")
 require("lib-turtle.Turtle")
 require("lib-turtle.Position")
+local discord = require("lib-discord.discord")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("Quarry")
 
@@ -122,7 +123,9 @@ local turt = Turtle(startingPosition)
 local function oreInspectHandler(self, inspectedBlockPosition, inspectedBlockData)
     for tag in pairs(inspectedBlockData.tags) do
         if tag == "c:ores" then
-            self.logger:info("Found %s at %s", string.match(inspectedBlockData.name, ".+:(.+)"), inspectedBlockPosition:asString())
+            local notification = "Found " .. string.match(inspectedBlockData.name, ".+:(.+)") .. " at " .. inspectedBlockPosition:asString()
+            self.logger:info(notification)
+            discord.send("Quarry", notification)
             return
         end
     end
@@ -131,7 +134,9 @@ end
 ---@overload fun(self: Turtle, inspectedBlockPosition: Position, inspectedBlockData: ccTweaked.turtle.inspectInfo): nil
 local function bedrockInspectHandler(self, inspectedBlockPosition, inspectedBlockData)
     if inspectedBlockData.name == "minecraft:bedrock" then
-        self.logger:info("Found bedrock at %s", inspectedBlockPosition:asString())
+        local notification = "Found bedrock at " .. inspectedBlockPosition:asString()
+        self.logger:info(notification)
+        discord.send("Quarry", notification)
         return
     end
 end
