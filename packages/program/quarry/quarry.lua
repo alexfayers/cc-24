@@ -356,6 +356,8 @@ local function calculateQuarryPath(xSize, zSize, layers, layersToSkip)
         ::continue::
     end
 
+    table.insert(path, turt.startingPosition)
+
     return path
 end
 
