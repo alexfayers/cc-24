@@ -245,6 +245,9 @@ function Turtle:_digDirection(direction, argsExtra)
             self.logger:warn("Inventory full, returning to start")
             self:setResumePosition(self.position)
             local returnRes, returnError = self:returnToOrigin(true)
+            if returnError == ERRORS.DID_EMERGENCY_RETURN then
+                returnError = ERRORS.NO_INVENTORY_SPACE
+            end
             if not returnRes then
                 return false, returnError
             end
