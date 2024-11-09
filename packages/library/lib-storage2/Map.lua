@@ -238,6 +238,122 @@ function Map:orderEmptySlots()
 end
 
 
+---Compress the map to reduce the number of empty slots. Essentially, will create as many full stacks as possible.
+---@return boolean _ Whether any changes were made
+function Map:compress()
+    local allSlots = self:getAllSlots()
+
+    local nonEmptyNotFullSlots = tableHelpers.filterTable(allSlots, function(slot)
+        return slot.isFull == false and slot.name ~= MapSlot.EMPTY_SLOT_NAME
+    end)
+
+    local nameGroupedSlots = tableHelpers.groupBy(nonEmptyNotFullSlots, function(slot)
+        return slot.name
+    end)
+
+    local changesMade = false
+
+    for _, slotList in pairs(nameGroupedSlots) do
+        ---@cast slotList MapSlot[]
+        for i = #slotList, 1, -1 do
+            local fromSlot = slotList[i]
+
+            for _, toSlot in ipairs(slotList) do
+                if fromSlot == toSlot then
+                    break
+                end
+
+                local movedCount = helpers.chestPushItemsRetry(
+                    fromSlot.chest,
+                    toSlot.chestName,
+                    fromSlot.slot,
+                    math.min(fromSlot.count, toSlot.maxCount - toSlot.count),
+                    toSlot.slot
+                )
+
+                if not movedCount then
+                    break
+                end
+
+                if movedCount > 0 then
+                    fromSlot:addCount(-movedCount)
+                    toSlot:addCount(movedCount)
+                    changesMade = true
+                end
+
+                if fromSlot.count == 0 then
+                    self:removeSlot(fromSlot)
+                    self:addSlotEmpty(fromSlot.chest, fromSlot.slot)
+                    break
+                end
+
+                if toSlot.isFull then
+                    break
+                end
+            end
+        end
+    end
+
+    return changesMade
+end
+
+
+---Check for differences between the map and the chests
+---@return boolean _ Whether any differences were found
+function Map:checkDiffs()
+    local allSlots = self:getAllSlots()
+
+    local differences = false
+
+
+    local nonEmptySlots = tableHelpers.filterTable(allSlots, function(slot)
+        return slot.name ~= MapSlot.EMPTY_SLOT_NAME
+    end)
+
+    local emptySlots = self:getItemSlots(MapSlot.EMPTY_SLOT_NAME)
+
+    for _, batch in pairs(tableHelpers.batch(nonEmptySlots, 50)) do
+        local diffTasks = {}
+        for _, slot in pairs(batch) do
+            table.insert(diffTasks, function()
+                local slotDetails = slot.chest.getItemDetail(slot.slot)
+
+                if not slotDetails then
+                    logger:warn("%s, %d: %s (%d) => EMPTY", slot.chestName, slot.slot, slot.name, slot.count)
+                    differences = true
+                    return
+                end
+
+                if slot.name ~= slotDetails.name or slot.count ~= slotDetails.count then
+                    logger:warn("%s, %d: %s (%d) => %s (%d)", slot.chestName, slot.slot, slot.name, slot.count, slotDetails.name, slotDetails.count)
+                    differences = true
+                end
+            end)
+        end
+
+        parallel.waitForAll(table.unpack(diffTasks))
+    end
+
+    for _, batch in pairs(tableHelpers.batch(emptySlots, 50)) do
+        local diffTasks = {}
+        for _, slot in ipairs(batch) do
+            table.insert(diffTasks, function()
+                local slotDetails = slot.chest.getItemDetail(slot.slot)
+
+                if slotDetails then
+                    logger:warn("%s, %d: EMPTY => %s (%d)", slot.chestName, slot.slot, slotDetails.name, slotDetails.count)
+                    differences = true
+                end
+            end)
+        end
+
+        parallel.waitForAll(table.unpack(diffTasks))
+    end
+
+    return differences
+end
+
+
 ---Populate the map with the items in the chests
 ---@param force? boolean Whether to force a repopulation
 function Map:populate(force)
