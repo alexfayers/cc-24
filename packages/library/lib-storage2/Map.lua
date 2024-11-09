@@ -79,10 +79,27 @@ end
 ---@return string[]
 function Map:searchItemNames(search)
     local results = {}
-    for itemName, _ in pairs(self.mapTable) do
-        if itemName ~= MapSlot.EMPTY_SLOT_NAME and string.match(itemName, search) then
-            table.insert(results, itemName)
+    local doTagSearch = string.sub(search, 1, 1) == "#" and string.len(search) > 1
+
+    for itemName, slots in pairs(self.mapTable) do
+        if itemName ~= MapSlot.EMPTY_SLOT_NAME then
+            if doTagSearch then
+                local firstSlot = slots[1]
+                if not firstSlot then
+                    goto continue
+                end
+                if not tableHelpers.contains(firstSlot.tags, string.sub(search, 2)) then
+                    goto continue
+                else
+                    table.insert(results, itemName)
+                end
+            else
+                if string.match(itemName, search) then
+                    table.insert(results, itemName)
+                end
+            end
         end
+        ::continue::
     end
     return results
 end
@@ -93,6 +110,22 @@ end
 ---@return MapSlot[]
 function Map:getItemSlots(name)
     return self.mapTable[name] or {}
+end
+
+
+---Get the slots that have a specific tag
+---@param tag string The tag to search for
+---@return MapSlot[]
+function Map:getItemSlotsByTag(tag)
+    local results = {}
+    for _, slots in pairs(self.mapTable) do
+        for _, slot in ipairs(slots) do
+            if tableHelpers.contains(slot.tags, tag) then
+                table.insert(results, slot)
+            end
+        end
+    end
+    return results
 end
 
 
@@ -165,16 +198,33 @@ function Map.getTotalMaxCount(slots)
 end
 
 
+---Get slots by search - for use with the cli mainly
+---@param search string The search string
+---@param fuzzy? boolean Whether to use fuzzy matching
+---@return MapSlot[]
+function Map:getSlotsBySearchString(search, fuzzy)
+    local slots = {}
+
+    if string.sub(search, 1, 1) == "#" then
+        slots = self:getItemSlotsByTag(string.sub(search, 2))
+    else
+        slots = self:getItemSlots(MapSlot.fullNameFromNameStub(search))
+
+        if fuzzy and tableHelpers.tableIsEmpty(slots) then
+            slots = self:getItemSlotsBySearch(search)
+        end
+    end
+
+    return slots
+end
+
+
 ---Get the total count of a specific item
 ---@param name string The name of the item
 ---@param fuzzy? boolean Whether to use fuzzy matching for the item name
 ---@return number
 function Map:getTotalItemCount(name, fuzzy)
-    local slots = self:getItemSlots(MapSlot.fullNameFromNameStub(name))
-
-    if fuzzy and tableHelpers.tableIsEmpty(slots) then
-        slots = self:getItemSlotsBySearch(name)
-    end
+    local slots = self:getSlotsBySearchString(name, fuzzy)
 
     return self.getTotalCount(slots)
 end
@@ -573,12 +623,8 @@ function Map:pull(outputChest, itemName, amount, fuzzy)
     local totalActualPulledCount = 0
     local totalExpectedPulledCount = amount
 
-    local slots = self:getItemSlots(MapSlot.fullNameFromNameStub(itemName))
-
-    if fuzzy and tableHelpers.tableIsEmpty(slots) then
-        -- didn't have an exact match, and we're using fuzzy matching so search
-        slots = self:getItemSlotsBySearch(itemName)
-    end
+    ---@type MapSlot[]
+    local slots = self:getSlotsBySearchString(itemName, fuzzy)
 
     ---@type MapSlot[]
     local mapRemovals = {}
