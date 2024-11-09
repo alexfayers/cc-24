@@ -449,16 +449,12 @@ while doQuarry do
 
     quarryRes, queryErr = followQuarryPath(quarryPath, currentPosIndex)
 
-    local restartErrors = {
-        enums.ERRORS.NO_INVENTORY_SPACE,
-    }
-
     -- if we failed to mine the quarry, we'll try again. otherwise, we're done.
     doQuarry = not quarryRes
 
     if not quarryRes then
         -- we failed
-        if tableHelpers.contains(restartErrors, queryErr) then
+        if queryErr == enums.ERRORS.NO_INVENTORY_SPACE then
             logger:warn("Restarting quarry due to error: %s", queryErr)
         else
             -- but we fatally failed
