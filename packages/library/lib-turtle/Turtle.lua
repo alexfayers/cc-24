@@ -54,7 +54,7 @@ function Turtle:init(startingPosition)
 
     self:loadState()
 
-    self.fuel = self.fuel or turtle.getFuelLevel()
+    self.fuel = turtle.getFuelLevel()
 
     self.startingPosition = startingPosition or self.startingPosition or Turtle.origin
     self.position = self.position or self.startingPosition
@@ -69,7 +69,7 @@ function Turtle:init(startingPosition)
 end
 
 
----@alias TurtleStateSerialised {position: string, startingPosition: string, fuel: number|string, inventoryFullLastLocation?: string}
+---@alias TurtleStateSerialised {position: string, startingPosition: string, inventoryFullLastLocation?: string}
 
 ---Load the turtle state from the statefile
 ---@return nil
@@ -94,7 +94,6 @@ function Turtle:loadState()
             self.logger:error("Failed to load starting position from state file")
             return
         end
-        local fuel = state.fuel
 
         local inventoryFullLastLocation = nil
         if state.inventoryFullLastLocation then
@@ -107,7 +106,6 @@ function Turtle:loadState()
 
         self.position = position
         self.startingPosition = startingPosition
-        self.fuel = fuel
         self.inventoryFullLastLocation = inventoryFullLastLocation
     end
 end
@@ -121,7 +119,6 @@ function Turtle:saveState()
     local state = {
         position = self.position:serialise(),
         startingPosition = self.startingPosition:serialise(),
-        fuel = self.fuel,
         inventoryFullLastLocation = self.inventoryFullLastLocation and self.inventoryFullLastLocation:serialise() or nil
     }
 
