@@ -38,6 +38,8 @@ local function help()
     print("    Push items from the input chest to the storage chests")
     print("  search <regex>")
     print("    Search storage using a regex")
+    print("  check")
+    print("    Check the storage chests for any differences from the storage map")
     print("  usage")
     print("    Display the usage and capacity of the storage chests")
     print("  help")
@@ -54,7 +56,7 @@ local function complete(_, index, argument, previous)
     local previousArg = previous[#previous]
 
     if index == 1 then
-        return completion.choice(argument, {"pull", "push", "search", "usage", "help"}, true)
+        return completion.choice(argument, {"pull", "push", "search", "check", "usage", "help"}, true)
     elseif index == 2 then
         if previousArg == "pull" then
             return completion.choice(argument, storageMap:getAllItemStubs(), previousArg == "pull")
@@ -135,6 +137,8 @@ local function main()
         showItemMatches(arg[2])
     elseif command == "usage" then
         showUsage()
+    elseif command == "check" then
+        storageMap:checkDiffs()
     elseif command == "pull" then
         if #arg < 2 then
             help()
