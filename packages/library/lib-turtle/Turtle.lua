@@ -422,6 +422,7 @@ function Turtle:_moveDirection(direction, amount, argsExtra)
 
         if not res then
             self.logger:warn("Move failed: %s", errorMessage)
+            discord.send("Turtle", "Failed to move at (" .. self.startingPosition:asString() .. ") - " .. errorMessage .. "!")
             return false, errorMessage
         end
 
@@ -583,7 +584,7 @@ function Turtle:returnToResumeLocation(argsExtra)
         return true
     end
 
-    discord.send("Turtle", ("Returning to last resume location (%s)").format(self.resumePosition:asString()))
+    discord.send("Turtle", "Returning to last resume location (" .. self.resumePosition:asString() .. ")")
 
     self.logger:info("Returning to last resume location (%s)", self.resumePosition:asString())
 
@@ -602,7 +603,7 @@ end
 ---@param emergency? boolean If true, we're returning to the starting position due to fuel constraints
 ---@return boolean, string?
 function Turtle:returnToOrigin(emergency)
-    discord.send("Turtle", ("Returning to starting position (%s").format(self.startingPosition:asString()))
+    discord.send("Turtle", "Returning to starting position (" .. self.startingPosition:asString() .. ")")
 
     local res, err = self:moveTo(self.startingPosition, {dig = true})
 
