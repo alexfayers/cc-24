@@ -28,7 +28,7 @@ local function chestListRetry(chest)
     if not chestList then
         attempts = attempts + 1
         if attempts >= Constants.MAX_METHOD_RETRIES then
-            logger:error("Failed to list chest %s after %d attempts", chest, Constants.MAX_METHOD_RETRIES)
+            logger:error("Failed to list chest %s after %d attempts", peripheral.getName(chest), Constants.MAX_METHOD_RETRIES)
             return
         end
         goto retry
@@ -49,7 +49,7 @@ local function chestGetItemDetailRetry(chest, slot)
     if not itemDetail then
         attempts = attempts + 1
         if attempts >= Constants.MAX_METHOD_RETRIES then
-            logger:error("Failed to get item detail for slot %d in chest %s after %d attempts", slot, chest, Constants.MAX_METHOD_RETRIES)
+            logger:error("Failed to get item detail for slot %d in chest %s after %d attempts", slot, peripheral.getName(chest), Constants.MAX_METHOD_RETRIES)
             return
         end
         goto retry
