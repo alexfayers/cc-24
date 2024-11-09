@@ -239,6 +239,36 @@ function Map:getAllItemStubs()
             table.insert(itemStubs, MapSlot.getNameStub(name))
         end
     end
+
+    table.sort(itemStubs, function(a, b)
+        return a < b
+    end)
+
+    local tagsUnique = {}
+
+    for _, slots in pairs(self.mapTable) do
+        for _, slot in ipairs(slots) do
+            for tag, _ in pairs(slot.tags) do
+                tag = "#" .. tag
+                tagsUnique[tag] = true
+            end
+        end
+    end
+
+    local tags = {}
+
+    for tag, _ in pairs(tagsUnique) do
+        table.insert(tags, tag)
+    end
+
+    table.sort(tags, function(a, b)
+        return a < b
+    end)
+
+    for _, tag in ipairs(tags) do
+        table.insert(itemStubs, tag)
+    end
+
     return itemStubs
 end
 
