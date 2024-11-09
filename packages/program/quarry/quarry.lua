@@ -462,7 +462,8 @@ while doQuarry do
             logger:warn("Restarting quarry due to error: %s", queryErr)
         else
             -- but we fatally failed
-            logger:error("Failed to mine the quarry")
+            discord.send("Quarry", "Quarrying path following failed due to error: " .. queryErr)
+            logger:error("Failed to mine the quarry: %s", queryErr)
             doQuarry = false
         end
     end
