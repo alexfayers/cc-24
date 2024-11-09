@@ -59,7 +59,7 @@ function Turtle:init(startingPosition)
     self.startingPosition = startingPosition or self.startingPosition or Turtle.origin
     self.position = self.position or self.startingPosition
 
-    self.inventoryFullLastLocation = self.inventoryFullLastLocation or nil
+    self.resumePosition = self.resumePosition or nil
 
     ---@type TurtleInventory
     self.inventory = TurtleInventory()
@@ -69,7 +69,7 @@ function Turtle:init(startingPosition)
 end
 
 
----@alias TurtleStateSerialised {position: string, startingPosition: string, inventoryFullLastLocation?: string}
+---@alias TurtleStateSerialised {position: string, startingPosition: string, resumePosition?: string}
 
 ---Load the turtle state from the statefile
 ---@return nil
@@ -95,18 +95,18 @@ function Turtle:loadState()
             return
         end
 
-        local inventoryFullLastLocation = nil
-        if state.inventoryFullLastLocation then
-            inventoryFullLastLocation = Position.unserialise(state.inventoryFullLastLocation)
-            if not inventoryFullLastLocation then
-                self.logger:error("Failed to load inventory full last location from state file")
+        local resumePosition = nil
+        if state.resumePosition then
+            resumePosition = Position.unserialise(state.resumePosition)
+            if not resumePosition then
+                self.logger:error("Failed to load resume location from state file")
                 return
             end
         end
 
         self.position = position
         self.startingPosition = startingPosition
-        self.inventoryFullLastLocation = inventoryFullLastLocation
+        self.resumePosition = resumePosition
     end
 end
 
@@ -119,10 +119,19 @@ function Turtle:saveState()
     local state = {
         position = self.position:serialise(),
         startingPosition = self.startingPosition:serialise(),
-        inventoryFullLastLocation = self.inventoryFullLastLocation and self.inventoryFullLastLocation:serialise() or nil
+        resumePosition = self.resumePosition and self.resumePosition:serialise() or nil
     }
 
     tableHelpers.saveTable(stateFile, state)
+end
+
+
+---Set the resume position of the turtle
+---@param position Position The position to resume from
+---@return nil
+function Turtle:setResumePosition(position)
+    self.resumePosition = position
+    self:saveState()
 end
 
 
@@ -241,7 +250,7 @@ function Turtle:_digDirection(direction, argsExtra)
     if argsExtra.safe and (argsExtra.autoReturnIfFull or argsExtra.failIfFull) and self.inventory:isFull() then
         if argsExtra.autoReturnIfFull then
             self.logger:info("Inventory full, returning to start")
-            self.inventoryFullLastLocation = self.position:copy()
+            self.resumePosition = self.position:copy()
             self:saveState()
             local returnRes, returnError = self:returnToOrigin(true)
             if not returnRes then
@@ -578,17 +587,17 @@ end
 ---Return to the position that we were at before the inventory became full
 ---@param argsExtra? MovementArgsExtra Extra arguments for the move
 ---@return boolean, string?
-function Turtle:returnToInventoryFullLocation(argsExtra)
-    if self.inventoryFullLastLocation == nil then
+function Turtle:returnToResumeLocation(argsExtra)
+    if self.resumePosition == nil then
         return true
     end
 
-    self.logger:info("Returning to last inventory full location (%s)", self.inventoryFullLastLocation:asString())
+    self.logger:info("Returning to last resume location (%s)", self.resumePosition:asString())
 
-    local res, err = self:moveTo(self.inventoryFullLastLocation, argsExtra)
+    local res, err = self:moveTo(self.resumePosition, argsExtra)
 
     if res then
-        self.inventoryFullLastLocation = nil
+        self.resumePosition = nil
         return true
     else
         return false, err

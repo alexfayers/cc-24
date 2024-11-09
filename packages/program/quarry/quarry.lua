@@ -421,9 +421,9 @@ if not quarryPath then
     return
 end
 
-local fullReturnRes, fullReturnError = turt:returnToInventoryFullLocation(MOVEMENT_ARGS)
+local fullReturnRes, fullReturnError = turt:returnToResumeLocation(MOVEMENT_ARGS)
 if not fullReturnRes then
-    logger:error("Failed to return to inventory full location: %s", fullReturnError)
+    logger:error("Failed to return to resume location: %s", fullReturnError)
     return
 end
 
