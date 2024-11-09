@@ -241,6 +241,7 @@ function Turtle:_digDirection(direction, argsExtra)
 
     if argsExtra.safe and (argsExtra.autoReturnIfFull or argsExtra.failIfFull) and self.inventory:isFull() then
         if argsExtra.autoReturnIfFull then
+            discord.send("Turtle", "Inventory full, returning to start")
             self.logger:info("Inventory full, returning to start")
             self:setResumePosition(self.position)
             local returnRes, returnError = self:returnToOrigin(true)
