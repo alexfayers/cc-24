@@ -373,10 +373,12 @@ end
 
 ---Check if the turtle is currently at a position along a path, and return the index of that position
 ---@param path Position[] The path to check
+---@param positionOverride? Position The position to check against instead of the turtle's current position
 ---@return number? _ The index of the position the turtle is at, or nil if the turtle is not at any position
-local function checkTurtlePosition(path)
+local function checkTurtlePosition(path, positionOverride)
     for i, pos in ipairs(path) do
-        if turt.position:equals(pos, true) then
+        local currentPosition = positionOverride or turt.position
+        if currentPosition:equals(pos, true) then
             return i
         end
     end
@@ -434,12 +436,15 @@ local doQuarry = true
 local quarryRes = false
 local queryErr = nil
 
-while doQuarry do    
-    local currentPosIndex = checkTurtlePosition(quarryPath)
+while doQuarry do
+    local currentPosIndex = nil
 
     local resumeQuarryPath = tableHelpers.copy(quarryPath)
     if turt.resumePosition then
         table.insert(resumeQuarryPath, 1, turt.resumePosition)
+        currentPosIndex = checkTurtlePosition(quarryPath, turt.resumePosition)
+    else
+        currentPosIndex = checkTurtlePosition(quarryPath)
     end
 
     if not preStartQuarry(resumeQuarryPath, currentPosIndex) then
