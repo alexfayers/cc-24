@@ -396,31 +396,38 @@ function TurtleInventory:pushItems()
         return false
     end
 
-    ---@type function[]
-    local slotTasks = {}
-
-    ---@type function[]
-    local inventoryTasks = {}
-
     for _, inventory in pairs(inventories) do
-        table.insert(inventoryTasks, function()
-            for slot, item in pairs(self.slots) do
+        local emptySlots = 0
+        ---@type function[]
+        local slotTasks = {}
+
+        for slot, item in pairs(self.slots) do
+            if not item then
+                emptySlots = emptySlots + 1
+                break
+            else
                 table.insert(slotTasks, function()
                     local amount = inventory.pullItems(localName, slot)
-
                     if amount and amount > 0 then
                         self.logger:info("Pushed %d %s", amount, item.displayName, peripheral.getName(inventory))
-
+    
+                        self.slots[slot].count = turtle.getItemCount(slot)
+                        if self.slots[slot].count <= 0 then
+                            self.slots[slot] = nil
+                        end
+    
                         madeChanges = true
                     end
                 end)
             end
+        end
 
-            parallel.waitForAll(table.unpack(slotTasks))
-        end)
+        if emptySlots == TURTLE_INVENTORY_SLOTS then
+            break
+        end
+
+        parallel.waitForAll(table.unpack(slotTasks))
     end
-
-    parallel.waitForAll(table.unpack(inventoryTasks))
 
     if madeChanges then
         self:updateSlots()
