@@ -139,6 +139,47 @@ end
 
 
 
+---Group a list of tables by a function that returns a key
+---@generic T: table
+---@generic K: string
+---@param list T[] The list of tables to group
+---@param keyFunction fun(item: T): K The key to group by
+---@return table<K, T>
+local function groupBy(list, keyFunction)
+    local grouped = {}
+    for _, item in ipairs(list) do
+        local key = keyFunction(item)
+        if not grouped[key] then
+            grouped[key] = {}
+        end
+        table.insert(grouped[key], item)
+    end
+    return grouped
+end
+
+
+---Batch a list of items into groups of a certain size, with the last group being the remainder
+---@generic T: table
+---@param list T The list of items to batch
+---@param batchSize number The size of each batch
+---@return T[]
+local function batch(list, batchSize)
+    local batches = {}
+    local currentBatch = {}
+    for i, item in ipairs(list) do
+        table.insert(currentBatch, item)
+        if i % batchSize == 0 then
+            table.insert(batches, currentBatch)
+            currentBatch = {}
+        end
+    end
+    if #currentBatch > 0 then
+        table.insert(batches, currentBatch)
+    end
+    return batches
+end
+
+
 return {
     spairs = spairs,
     filterTable = filterTable,
@@ -148,4 +189,6 @@ return {
     ensureUniqueKeys = ensureUniqueKeys,
     contains = contains,
     valuesContain = valuesContain,
+    groupBy = groupBy,
+    batch = batch,
 }
