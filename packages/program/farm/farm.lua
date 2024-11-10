@@ -134,7 +134,6 @@ end
 local farmRes, farmError = farm(farmHeight, farmWidth)
 
 local originRes, originErr = turt:returnToOrigin()
-discord.send("Farm", "Going back to origin")
 if not originRes then
     error("Failed to return to origin! " .. originErr, 0)
 end
