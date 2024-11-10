@@ -124,10 +124,6 @@ end
 
 local farmRes, farmError = farm(farmHeight, farmWidth)
 
-if not farmRes then
-    printError(farmError)
-end
-
 local originRes, originErr = turt:returnToOrigin()
 if not originRes then
     error("Failed to return to origin! " .. originErr, 0)
