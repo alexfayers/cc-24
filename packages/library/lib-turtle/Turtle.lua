@@ -669,7 +669,7 @@ function Turtle:_placeDirection(direction, argsExtra)
     local res, errorMessage = placeFunc()
 
     if not res then
-        self.logger:warn("Place failed: %s", errorMessage)
+        -- self.logger:warn("Place failed: %s", errorMessage)
         return false, errorMessage
     end
 
