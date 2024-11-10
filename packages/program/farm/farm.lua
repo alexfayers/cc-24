@@ -89,9 +89,11 @@ table.insert(turt.inspectHandlers, inspectWheat)
 ---@param width number The width of the field
 ---@return boolean, string? # Whether the farm was successful
 local function farm(height, width)
-    for x = 0, width do
+    --- move to the first farmland
+
+    for x = 1, width + 1 do
         for y = 0, height do
-            local moveRes, moveError = turt:moveTo(Position(x, 0, y, Direction.NIL), MOVEMENT_ARGS)
+            local moveRes, moveError = turt:moveTo(Position(y, 0, x, Direction.NIL), MOVEMENT_ARGS)
             if not moveRes then
                 return false, moveError
             end
