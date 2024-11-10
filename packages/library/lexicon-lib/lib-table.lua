@@ -115,7 +115,7 @@ local function ensureUniqueKeys(t)
 end
 
 
----Check if a table contains a specific value
+---Check if a table's keys contains a specific value
 ---@param t table The table to check
 ---@param value any The value to check for
 ---@return boolean
