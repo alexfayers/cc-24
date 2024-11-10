@@ -93,12 +93,14 @@ local function farm(height, width)
 
     for x = 0, width do
         for y = 1, height + 1 do
-            local thisX = x
-            if y % 2 == 0 then
-                thisX = -thisX
+            local thisY
+            if x % 2 == 0 then
+                thisY = y
+            else
+                thisY = height - y + 1
             end
-
-            local moveRes, moveError = turt:moveTo(Position(thisX, 0, -y, Direction.NIL), MOVEMENT_ARGS)
+            
+            local moveRes, moveError = turt:moveTo(Position(x, 0, -thisY, Direction.NIL), MOVEMENT_ARGS)
             if not moveRes then
                 return false, moveError
             end
