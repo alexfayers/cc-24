@@ -103,10 +103,7 @@ local function farm(height, width)
                 return false, "Out of seeds"
             end
 
-            local placeRes, placeError = turt:placeDown(MOVEMENT_ARGS)
-            if not placeRes then
-                return false, placeError
-            end
+            turt:placeDown(MOVEMENT_ARGS)
         end
     end
 
