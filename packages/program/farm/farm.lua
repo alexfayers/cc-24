@@ -101,6 +101,8 @@ local function farm(height, width)
             else
                 thisY = height + 1 - y
             end
+
+            print(x,y) -- Debugging
             
             local moveRes, moveError = turt:moveTo(Position(x, 0, -thisY, Direction.NIL), MOVEMENT_ARGS)
             if not moveRes then
