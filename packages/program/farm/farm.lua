@@ -91,8 +91,8 @@ table.insert(turt.inspectHandlers, inspectWheat)
 local function farm(height, width)
     --- move to the first farmland
 
-    for x = 1, width + 1 do
-        for y = 0, height do
+    for x = 0, width do
+        for y = 1, height + 1 do
             local moveRes, moveError = turt:moveTo(Position(x, 0, -y, Direction.NIL), MOVEMENT_ARGS)
             if not moveRes then
                 return false, moveError
