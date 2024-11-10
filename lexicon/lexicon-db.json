@@ -265,7 +265,8 @@
                     ]
                 ],
                 "dependencies": [
-                    "lib-turtle"
+                    "lib-turtle",
+                    "lib-discord"
                 ],
                 "usage": "'farm'"
             }

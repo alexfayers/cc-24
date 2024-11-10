@@ -7,6 +7,7 @@
 
 package.path = package.path .. ";/usr/lib/?.lua"
 
+local discord = require("lib-discord.discord")
 require("lib-turtle.Turtle")
 require("lib-turtle.Position")
 local enums = require("lib-turtle.enums")
@@ -90,6 +91,7 @@ table.insert(turt.inspectHandlers, inspectWheat)
 ---@return boolean, string? # Whether the farm was successful
 local function farm(height, width)
     --- move to the first farmland
+    discord.send("Farm", "Starting farm")
 
     for x = 0, width - 1  do
         for y = 1, height do
@@ -125,12 +127,14 @@ turt.inventory:pullFuel(worstCaseFuel)
 local currentFuel = turtle.getFuelLevel()
 
 if currentFuel < worstCaseFuel then
+    discord.send("Farm", "Not enough fuel to farm (" .. currentFuel .. "/" .. worstCaseFuel .. ")")
     error("Not enough fuel to farm (" .. currentFuel .. "/" .. worstCaseFuel .. ")", 0)
 end
 
 local farmRes, farmError = farm(farmHeight, farmWidth)
 
 local originRes, originErr = turt:returnToOrigin()
+discord.send("Farm", "Going back to origin")
 if not originRes then
     error("Failed to return to origin! " .. originErr, 0)
 end
@@ -141,7 +145,9 @@ local keepSlots = seedSlotNumber and {seedSlotNumber} or nil
 turt.inventory:pushItems(keepSlots)
 
 if not farmRes then
+    discord.send("Farm", "Farm failed :( - " .. farmError)
     error(farmError, 0)
 end
 
+discord.send("Farm", "Farm done")
 print("Farm successful")
