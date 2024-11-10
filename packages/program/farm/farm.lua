@@ -131,7 +131,7 @@ if not originRes then
     error("Failed to return to origin! " .. originErr, 0)
 end
 
-turt.inventory:pushItems()
+-- turt.inventory:pushItems()
 
 if not farmRes then
     error(farmError, 0)
