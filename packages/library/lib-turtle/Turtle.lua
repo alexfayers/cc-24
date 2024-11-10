@@ -43,7 +43,7 @@ Turtle.trashMinStackSize = 8
 
 ---@alias inspectHandler fun(self: Turtle, inspectedBlockPosition: Position, inspectData: ccTweaked.turtle.inspectInfo): nil
 
----@type inspectHandler[] The functions to call when inspecting a block.
+---@type inspectHandler[] The functions to call when inspecting a block. If any of these functions return false, the block will not be dug.
 Turtle.inspectHandlers = {}
 
 
@@ -197,13 +197,21 @@ function Turtle:_digDirection(direction, argsExtra)
     
     ---@type function[]
     local inspectTasks = {}
+    local inspectReturnedFalse = false
     for _, inspectHandler in pairs(self.inspectHandlers) do
         table.insert(inspectTasks, function ()
-            inspectHandler(self, targetBlockCoords, inspectData)
+            if inspectHandler(self, targetBlockCoords, inspectData) == false then
+                inspectReturnedFalse = true
+                return
+            end
         end)
     end
 
     parallel.waitForAll(table.unpack(inspectTasks))
+
+    if inspectReturnedFalse then
+        return true
+    end
 
     if helpers.isBlockReplaceable(inspectData) then
         return true
@@ -633,4 +641,61 @@ function Turtle:canReturnToOriginIfMoveTo(position)
     local distanceToOrigin = position:manhattanDistance(self.startingPosition)
 
     return self:hasFuel(distanceToPosition + distanceToOrigin)
+end
+
+
+---Place a block in a given direction
+---@param direction number The direction to place the block
+---@param argsExtra? MovementArgsExtra Extra arguments for the move
+---@return boolean, string?
+function Turtle:_placeDirection(direction, argsExtra)
+    if argsExtra == nil then argsExtra = {} end
+
+    local placeFunc = nil
+
+    if direction == ACTION_DIRECTION.UP then
+        self.logger:debug("Place up")
+        placeFunc = turtle.placeUp
+    elseif direction == ACTION_DIRECTION.DOWN then
+        self.logger:debug("Place down")
+        placeFunc = turtle.placeDown
+    elseif direction == ACTION_DIRECTION.FORWARD then
+        self.logger:debug("Place forward")
+        placeFunc = turtle.place
+    else
+        return false, "Invalid direction"
+    end
+
+    local res, errorMessage = placeFunc()
+
+    if not res then
+        self.logger:warn("Place failed: %s", errorMessage)
+        return false, errorMessage
+    end
+
+    return true
+end
+
+
+---Place a block in front of the turtle
+---@param argsExtra? MovementArgsExtra Extra arguments for the move
+---@return boolean, string?
+function Turtle:place(argsExtra)
+    return self:_placeDirection(ACTION_DIRECTION.FORWARD, argsExtra)
+end
+
+
+---Place a block above the turtle
+---@param argsExtra? MovementArgsExtra Extra arguments for the move
+---@return boolean, string?
+function Turtle:placeUp(argsExtra)
+    return self:_placeDirection(ACTION_DIRECTION.UP, argsExtra)
+end
+
+
+---Place a block below the turtle
+---@param argsExtra? MovementArgsExtra Extra arguments for the move
+---@return boolean, string?
+function Turtle:placeDown(argsExtra)
+    return self:_placeDirection(ACTION_DIRECTION.DOWN, argsExtra)
 end

@@ -576,6 +576,33 @@ function TurtleInventory:isFull(count)
 end
 
 
+---Find an item in the turtle inventory. Can also be a tag.
+---@param search string The name of the item to find
+---@return number?, slotInfo? _ The slot number and the slot info of the item
+function TurtleInventory:findItem(search)
+    for slotNumber, item in pairs(self.slots) do
+        if item.name == search or tableHelpers.contains(item.tags, search) then
+            return slotNumber, item
+        end
+    end
+
+    return nil
+end
+
+
+---Select a slot with a specific item in it
+---@param search string The name of the item to find
+---@return boolean _ Whether the slot was selected
+function TurtleInventory:selectItem(search)
+    local slot, _ = self:findItem(search)
+    if slot then
+        turtle.select(slot)
+        return true
+    end
+
+    return false
+end
+
 
 local function test()
     local inv = TurtleInventory()

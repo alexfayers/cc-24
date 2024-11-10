@@ -254,6 +254,20 @@
                     "lib-discord"
                 ],
                 "usage": "'quarry'"
+            },
+            "farm": {
+                "description": "A simple farm program",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/farm/farm.lua",
+                        "farm.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-turtle"
+                ],
+                "usage": "'farm'"
             }
         }
     }
