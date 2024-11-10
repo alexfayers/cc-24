@@ -135,7 +135,10 @@ if not originRes then
     error("Failed to return to origin! " .. originErr, 0)
 end
 
--- turt.inventory:pushItems()
+local seedSlotNumber, _ = turt.inventory:findItem(seeds)
+local keepSlots = seedSlotNumber and {seedSlotNumber} or nil
+
+turt.inventory:pushItems(keepSlots)
 
 if not farmRes then
     error(farmError, 0)
