@@ -380,8 +380,12 @@ end
 ---Push the items in the turtle inventory into chests in the network until
 ---the turtle is empty or the chests are full.
 ---Updates the slots table to reflect the changes.
+---@param keepSlots number[]? A list of slots to keep in the turtle inventory
 ---@return boolean _ Whether any items were pushed
-function TurtleInventory:pushItems()
+function TurtleInventory:pushItems(keepSlots)
+    if not keepSlots then
+        keepSlots = {}
+    end
     local madeChanges = false
 
     local inventories = self:findInventories()
@@ -402,9 +406,8 @@ function TurtleInventory:pushItems()
         local slotTasks = {}
 
         for slot, item in pairs(self.slots) do
-            if not item then
+            if tableHelpers.valuesContain(keepSlots, slot) or not item then
                 emptySlots = emptySlots + 1
-                break
             else
                 table.insert(slotTasks, function()
                     local amount = inventory.pullItems(localName, slot)
@@ -420,6 +423,7 @@ function TurtleInventory:pushItems()
                     end
                 end)
             end
+            ::continue::
         end
 
         if emptySlots == TURTLE_INVENTORY_SLOTS then
