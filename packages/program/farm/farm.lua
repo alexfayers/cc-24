@@ -93,8 +93,8 @@ local function farm(height, width)
     --- move to the first farmland
     discord.send("Farm", "Starting farm")
 
-    for x = 0, width  do
-        for y = 1, height do
+    for x = 0, width do
+        for y = 1, height + 1 do
             local thisY
             if x % 2 == 0 then
                 thisY = y
