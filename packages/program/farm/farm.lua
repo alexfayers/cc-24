@@ -5,6 +5,8 @@
 ---The turtle will stop if it runs out of fuel, or if it runs out of inventory space (returning to the starting position).
 ---The turtle will also return if it runs out of seeds to plant.
 
+package.path = package.path .. ";/usr/lib/?.lua"
+
 require("lib-turtle.Turtle")
 require("lib-turtle.Position")
 local enums = require("lib-turtle.enums")
