@@ -99,7 +99,7 @@ local function farm(height, width)
             if x % 2 == 0 then
                 thisY = y
             else
-                thisY = height + 1 - y
+                thisY = height + 2 - y
             end
 
             print(x .. ", " .. thisY) -- Debugging
