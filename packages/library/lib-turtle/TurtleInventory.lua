@@ -90,6 +90,8 @@ function TurtleInventory:updateSlots()
 
             if item then
                 newSlots[i] = item
+            else
+                newSlots[i] = nil
             end
         end
     end
@@ -110,8 +112,6 @@ function TurtleInventory:scanForCombustibleItems()
             didAdd = true
         end
     end
-
-    self:selectFirstSlot()
 
     if didAdd then
         self:saveCombustibleItems()
@@ -152,8 +152,6 @@ function TurtleInventory:refuel()
             end
         end
     end
-
-    self:selectFirstSlot()
 
     return madeChanges
 end
@@ -199,8 +197,6 @@ function TurtleInventory:discardItems(itemNames, itemTags, minStackSize)
             end
         end
     end
-
-    self:selectFirstSlot()
 
     return madeChanges
 end
@@ -264,8 +260,6 @@ function TurtleInventory:compress()
         end
         ::continue::
     end
-
-    self:selectFirstSlot()
 
     return madeChanges
 end
@@ -520,13 +514,19 @@ function TurtleInventory:pullFuel(targetFuelLevel, fuelTags)
                             return true
                         end
 
-                        local amount = inventory.pushItems(localName, slot, targetAmount, 1)
+                        local targetSlot = self:findNonFullSlot(item.name) or self:findEmptySlot()
+
+                        if not targetSlot then
+                            return false
+                        end
+
+                        local amount = inventory.pushItems(localName, slot, targetAmount, targetSlot)
 
                         if amount and amount > 0 then
                             self.logger:info("Pulled %d %s from %s", amount, item.displayName, peripheral.getName(inventory))
 
                             madeChanges = true
-                            turtle.select(1)
+                            turtle.select(targetSlot)
                             turtle.refuel()
 
                             fuelLevel = turtle.getFuelLevel()
@@ -582,11 +582,40 @@ end
 
 ---Find an item in the turtle inventory. Can also be a tag.
 ---@param search string The name of the item to find
----@return number?, slotInfo? _ The slot number and the slot info of the item
-function TurtleInventory:findItem(search)
+---@return table<number, slotInfo> _ The slot number and the slot info of the items
+function TurtleInventory:findItems(search)
+    local slots = {}
     for slotNumber, item in pairs(self.slots) do
         if item.name == search or tableHelpers.contains(item.tags, search) then
-            return slotNumber, item
+            slots[slotNumber] = item
+        end
+    end
+
+    return slots
+end
+
+
+---Select the first slot with a specific item in it
+---@param search string The name of the item to find
+---@return boolean _ Whether the slot was selected
+function TurtleInventory:selectItem(search)
+    local slots = self:findItems(search)
+    local slot = next(slots)
+    if slot then
+        turtle.select(slot)
+        return true
+    end
+
+    return false
+end
+
+
+---Find an empty slot in the turtle inventory
+---@return number? _ The slot number of the empty slot
+function TurtleInventory:findEmptySlot()
+    for slotNumber = 1, TURTLE_INVENTORY_SLOTS do
+        if not self.slots[slotNumber] then
+            return slotNumber
         end
     end
 
@@ -594,17 +623,18 @@ function TurtleInventory:findItem(search)
 end
 
 
----Select a slot with a specific item in it
+---Find first non full slot in the turtle inventory with a specific item in it
 ---@param search string The name of the item to find
----@return boolean _ Whether the slot was selected
-function TurtleInventory:selectItem(search)
-    local slot, _ = self:findItem(search)
-    if slot then
-        turtle.select(slot)
-        return true
+---@return number? _ The slot number of the non full slot
+function TurtleInventory:findNonFullSlot(search)
+    local slots = self:findItems(search)
+    for slotNumber, item in pairs(slots) do
+        if item.count < item.maxCount then
+            return slotNumber
+        end
     end
 
-    return false
+    return nil
 end
 
 
