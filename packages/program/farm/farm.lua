@@ -93,13 +93,13 @@ local function farm(height, width)
     --- move to the first farmland
     discord.send("Farm", "Starting farm")
 
-    for x = 0, width do
-        for y = 0, height do
+    for x = 0, width - 1 do
+        for y = 0, height - 1 do
             local thisY
             if x % 2 == 0 then
                 thisY = y
             else
-                thisY = height - y
+                thisY = height - y - 1
             end
 
             print(x .. ", " .. thisY) -- Debugging
@@ -140,7 +140,8 @@ if not originRes then
     error("Failed to return to origin! " .. originErr, 0)
 end
 
-local seedSlotNumber, _ = turt.inventory:findItem(seeds)
+local seedSlots = turt.inventory:findItems(seeds)
+local seedSlotNumber = next(seedSlots)
 local keepSlots = seedSlotNumber and {seedSlotNumber} or nil
 
 turt.inventory:pushItems(keepSlots)
