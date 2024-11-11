@@ -671,6 +671,8 @@ function Turtle:_placeDirection(direction, argsExtra)
     if not res then
         -- self.logger:warn("Place failed: %s", errorMessage)
         return false, errorMessage
+    else
+        self.inventory:removeItems(1)
     end
 
     return true

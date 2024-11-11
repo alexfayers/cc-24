@@ -608,6 +608,33 @@ function TurtleInventory:selectItem(search)
 end
 
 
+---Remove a count of the selected slot from the turtle inventory
+---@param count integer The number of items to remove
+---@param slot? number The slot to remove from (default selected slot)
+---@return boolean _ Whether the items were removed
+function TurtleInventory:removeItems(count, slot)
+    if not slot then
+        slot = turtle.getSelectedSlot()
+    end
+
+    if not self.slots[slot] then
+        return false
+    end
+
+    if self.slots[slot].count < count then
+        return false
+    end
+
+    self.slots[slot].count = turtle.getItemCount(slot)
+
+    if self.slots[slot].count <= 0 then
+        self.slots[slot] = nil
+    end
+
+    return true
+end
+
+
 local function test()
     local inv = TurtleInventory()
     inv:refuel()
