@@ -66,7 +66,7 @@ local MOVEMENT_ARGS = {
 }
 
 
-turt = Turtle()
+turt = Turtle(Position(-1, 0, 0, Direction.NORTH))
 
 
 ---@overload fun(self: Turtle, inspectedBlockPosition: Position, inspectedBlockData: ccTweaked.turtle.inspectInfo): boolean
@@ -94,12 +94,12 @@ local function farm(height, width)
     discord.send("Farm", "Starting farm")
 
     for x = 0, width do
-        for y = 1, height + 1 do
+        for y = 0, height do
             local thisY
             if x % 2 == 0 then
                 thisY = y
             else
-                thisY = height + 2 - y
+                thisY = height - y
             end
 
             print(x .. ", " .. thisY) -- Debugging
