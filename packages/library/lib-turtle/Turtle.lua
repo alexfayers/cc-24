@@ -359,6 +359,7 @@ end
 ---@field failIfFull? boolean If true, will fail digs if the inventory is full. Only used if in safe mode (default false)
 ---@field autoReturnIfFull? boolean If true, return to the starting position if we are full after dig. Only used if in safe mode (default false)
 ---@field refuelOnDig? boolean If true, refuel the turtle after a dig move (default false)
+---@field setResumeOnMove? boolean If true, set the resume position to the current position after a return to origin (default true)
 
 
 ---Move the turtle in a given direction
@@ -373,6 +374,7 @@ function Turtle:_moveDirection(direction, amount, argsExtra)
     if argsExtra.dig == nil then argsExtra.dig = false end
     if argsExtra.safe == nil then argsExtra.safe = true end
     if argsExtra.autoReturn == nil then argsExtra.autoReturn = false end
+    if argsExtra.setResumeOnMove == nil then argsExtra.setResumeOnMove = true end
 
     --- Close the modem after every move if it's open
     self.inventory:detachStorageClient()
@@ -415,7 +417,9 @@ function Turtle:_moveDirection(direction, amount, argsExtra)
         if argsExtra.autoReturn then
             discord.send("Turtle", "About to run out of fuel, returning to start")
             self.logger:warn("About to run out of fuel, returning to start")
-            self:setResumePosition(self.position)
+            if argsExtra.setResumeOnMove then
+                self:setResumePosition(self.position)
+            end
             return self:returnToOrigin(true)
         else
             --- not in safe mode so yolo it
@@ -602,7 +606,11 @@ function Turtle:returnToResumeLocation(argsExtra)
 
     self.logger:info("Returning to last resume location (%s)", self.resumePosition:asString())
 
-    local res, err = self:moveTo(self.resumePosition, argsExtra)
+    if argsExtra == nil then argsExtra = {} end
+    local returnArgsExtra = tableHelpers.copy(argsExtra)
+    returnArgsExtra.setResumeOnMove = false
+
+    local res, err = self:moveTo(self.resumePosition, returnArgsExtra)
 
     if res then
         self:unsetResumePosition()
@@ -619,7 +627,7 @@ end
 function Turtle:returnToOrigin(emergency)
     discord.send("Turtle", "Returning to starting position " .. self.startingPosition:asString())
 
-    local res, err = self:moveTo(self.startingPosition, {dig = true})
+    local res, err = self:moveTo(self.startingPosition, {dig = true, setResumeOnMove = false})
 
     if res then
         if emergency then
