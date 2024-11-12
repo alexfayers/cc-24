@@ -546,6 +546,18 @@ function Turtle:moveTo(position, argsExtra)
     ---@type string?
     local errorMessage
 
+    if diff.y ~= 0 then
+        if diff.y > 0 then
+            res, errorMessage = self:up(math.abs(diff.y), argsExtra)
+        else
+            res, errorMessage = self:down(math.abs(diff.y), argsExtra)
+        end
+
+        if not res then
+            return false, errorMessage
+        end
+    end
+
     if diff.x ~= 0 then
         if diff.x > 0 then
             self:face(Direction.EAST)
@@ -554,18 +566,6 @@ function Turtle:moveTo(position, argsExtra)
         end
 
         res, errorMessage = self:forward(math.abs(diff.x), argsExtra)
-
-        if not res then
-            return false, errorMessage
-        end
-    end
-
-    if diff.y ~= 0 then
-        if diff.y > 0 then
-            res, errorMessage = self:up(math.abs(diff.y), argsExtra)
-        else
-            res, errorMessage = self:down(math.abs(diff.y), argsExtra)
-        end
 
         if not res then
             return false, errorMessage
