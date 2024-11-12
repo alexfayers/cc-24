@@ -172,7 +172,7 @@ local function calculateFuelNeededFromPath(path, skipTo)
         skipTo = 1
     end
 
-    local fuelNeeded = 0
+    local fuelNeeded = turt.position:manhattanDistance(path[skipTo])
 
     for i = skipTo, #path - 1 do
         local currentPos = path[i]
@@ -439,15 +439,9 @@ local queryErr = nil
 while doQuarry do
     local currentPosIndex = nil
 
-    local resumeQuarryPath = tableHelpers.copy(quarryPath)
-    if turt.resumePosition then
-        table.insert(resumeQuarryPath, 1, turt.resumePosition)
-        currentPosIndex = checkTurtlePosition(quarryPath, turt.resumePosition)
-    else
-        currentPosIndex = checkTurtlePosition(quarryPath)
-    end
+    currentPosIndex = checkTurtlePosition(quarryPath, turt.resumePosition)
 
-    if not preStartQuarry(resumeQuarryPath, currentPosIndex) then
+    if not preStartQuarry(quarryPath, currentPosIndex) then
         return false
     end
 
