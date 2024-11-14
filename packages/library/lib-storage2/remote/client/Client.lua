@@ -138,12 +138,14 @@ end
 ---@param outputChestName string The name of the inventory to pull to
 ---@param item string
 ---@param count number
+---@param toSlot number?
 ---@return boolean, table?
-function Client:pull(outputChestName, item, count)
+function Client:pull(outputChestName, item, count, toSlot)
     local res, data = self:baseSendCommand(MessageType.CMD_PULL, {
         item = item,
         count = count,
         invName = outputChestName,
+        toSlot = toSlot,
     })
 
     if res and data then

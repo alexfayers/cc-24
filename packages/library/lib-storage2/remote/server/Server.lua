@@ -150,7 +150,7 @@ function Server:handlePull(clientId, data)
     end
 
 
-    local pulledCount = self.storageMap:pull(pullToChest, data.item, data.count, true)
+    local pulledCount = self.storageMap:pull(pullToChest, data.item, data.count, true, data.toSlot)
 
     local res = {
         count = pulledCount,

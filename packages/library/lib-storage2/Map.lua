@@ -656,8 +656,9 @@ end
 ---@param itemName string The name of the item to pull
 ---@param amount number The amount of the item to pull
 ---@param fuzzy boolean Whether to use fuzzy matching for the item name
+---@param toSlot number? The slot in the output to push the items into (optional)
 ---@return number _ The number of items pulled
-function Map:pull(outputChest, itemName, amount, fuzzy)
+function Map:pull(outputChest, itemName, amount, fuzzy, toSlot)
     local totalPulledCount = 0
     local totalActualPulledCount = 0
     local totalExpectedPulledCount = amount
@@ -700,7 +701,8 @@ function Map:pull(outputChest, itemName, amount, fuzzy)
                 sourceChest,
                 outputChestName,
                 slot.slot,
-                expectedSlotPullCount
+                expectedSlotPullCount,
+                toSlot
             )
             
             if not quantity then
