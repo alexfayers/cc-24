@@ -293,6 +293,10 @@ local function smelt(autoPull)
 
     local distrubuted = distributeItems()
 
+    if not distrubuted then
+        return
+    end
+
     doAllFuelTicks()
 
     if autoPull then
