@@ -97,5 +97,5 @@ return {
     getInputChest = getInputChest,
     getOutputChest = getOutputChest,
     getStorageChests = getStorageChests,
-    wrapPeripheral = wrapInventory,
+    wrapInventory = wrapInventory,
 }
