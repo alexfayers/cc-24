@@ -560,6 +560,8 @@ function Map:push(inputChest)
     local totalPushedCount = 0
     local totalExpectedPushedCount = 0
 
+    local inputChestName = peripheral.getName(inputChest)
+
     local inputChestList = helpers.chestListRetry(inputChest)
 
     if not inputChestList then
@@ -577,6 +579,11 @@ function Map:push(inputChest)
         totalExpectedPushedCount = totalExpectedPushedCount + inputItem.count
 
         for _, slot in ipairs(availableSlots) do
+            if slot.chestName == inputChestName then
+                -- don't push to the input chest
+                goto continue
+            end
+
             logger:debug("Pushing %d %s to slot %d in chest %s", inputItem.count, inputItem.name, slot.slot, slot.chestName)
             local quantity = helpers.chestPushItemsRetry(
                 inputChest,
@@ -653,6 +660,8 @@ function Map:pull(outputChest, itemName, amount, fuzzy)
     local totalActualPulledCount = 0
     local totalExpectedPulledCount = amount
 
+    local outputChestName = peripheral.getName(outputChest)
+
     ---@type MapSlot[]
     local slots = self:getSlotsBySearchString(itemName, fuzzy)
 
@@ -663,6 +672,11 @@ function Map:pull(outputChest, itemName, amount, fuzzy)
     local slotTasks = {}
 
     for _, slot in ipairs(slots) do
+        if slot.chestName == outputChestName then
+            -- don't pull from the output chest
+            goto continue
+        end
+
         local expectedSlotPullCount = math.min(slot.count, totalExpectedPulledCount - totalPulledCount)
 
         table.insert(slotTasks, function()
@@ -703,6 +717,8 @@ function Map:pull(outputChest, itemName, amount, fuzzy)
         if totalPulledCount >= totalExpectedPulledCount then
             break
         end
+
+        ::continue::
     end
 
     parallel.waitForAll(table.unpack(slotTasks))
