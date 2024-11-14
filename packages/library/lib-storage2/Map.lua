@@ -6,6 +6,7 @@ require("lib-storage2.MapSlot")
 
 local helpers = require("lib-storage2.helpers")
 local tableHelpers = require("lexicon-lib.lib-table")
+local chestHelpers = require "chestHelpers"
 
 local logger = require("lexicon-lib.lib-logging").getLogger("storage2.Map")
 
@@ -682,9 +683,22 @@ function Map:pull(outputChest, itemName, amount, fuzzy)
 
         table.insert(slotTasks, function()
             logger:debug("Pulling %d %s from slot %d in chest %s", amount, slot.name, slot.slot, slot.chestName)
-            local quantity = helpers.chestPullItemsRetry(
-                outputChest,
-                slot.chestName,
+            -- local quantity = helpers.chestPullItemsRetry(
+            --     outputChest,
+            --     slot.chestName,
+            --     slot.slot,
+            --     expectedSlotPullCount
+            -- )
+
+            local sourceChest = chestHelpers.wrapInventory(slot.chestName)
+            if not sourceChest then
+                logger:error("Failed to wrap chest %s", slot.chestName)
+                return
+            end
+
+            local quantity = helpers.chestPushItemsRetry(
+                sourceChest,
+                outputChestName,
                 slot.slot,
                 expectedSlotPullCount
             )
