@@ -235,7 +235,9 @@ local function distributeItems()
 
     parallel.waitForAll(table.unpack(threads))
 
-    logger:info("Distrubuted %d items", totalTransferred)
+    local expectedSmeltTime = math.ceil(totalTransferred / furnaceCount) * FURNANCE_SMELT_TIME_SECS
+
+    logger:info("Distrubuted %d items (expected smelt time: %d seconds)", totalTransferred, expectedSmeltTime)
 
     return totalTransferred
 end
