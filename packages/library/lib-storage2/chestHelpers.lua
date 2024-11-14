@@ -20,6 +20,23 @@ logger:setLevel(logging.LEVELS.INFO)
 -- functions
 
 
+---Wrap a peripheral's name as an inventory, or return nil if it is not an inventory
+---@param inventoryName string The name of the inventory to wrap
+---@return ccTweaked.peripherals.Inventory|nil
+local function wrapInventory(inventoryName)
+    local wrappedPeripheral = peripheral.wrap(inventoryName)
+
+    if not wrappedPeripheral then
+        logger:error("Peripheral %s not found", inventoryName)
+        return
+    end
+
+    wrappedPeripheral = helpers.ensureInventory(wrappedPeripheral); if not wrappedPeripheral then return end
+
+    return wrappedPeripheral
+end
+
+
 ---Get the wrapped input chest
 ---@return ccTweaked.peripherals.Inventory|nil
 local function getInputChest()
@@ -80,4 +97,5 @@ return {
     getInputChest = getInputChest,
     getOutputChest = getOutputChest,
     getStorageChests = getStorageChests,
+    wrapPeripheral = wrapInventory,
 }

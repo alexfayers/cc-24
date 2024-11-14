@@ -655,6 +655,7 @@ end
 ---@param itemName string The name of the item to pull
 ---@param amount number The amount of the item to pull
 ---@param fuzzy boolean Whether to use fuzzy matching for the item name
+---@return number _ The number of items pulled
 function Map:pull(outputChest, itemName, amount, fuzzy)
     local totalPulledCount = 0
     local totalActualPulledCount = 0
@@ -737,4 +738,6 @@ function Map:pull(outputChest, itemName, amount, fuzzy)
             self:deleteSlotList(slot.name)
         end
     end
+
+    return totalActualPulledCount
 end

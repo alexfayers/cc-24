@@ -36,6 +36,7 @@ function Server:init()
         [MessageType.CMD_REFRESH] = self.handleRefresh,
         [MessageType.CMD_DATA_IO_CHESTS] = self.handleDataIoChests,
         [MessageType.CMD_PING] = self.handlePing,
+        [MessageType.CMD_PULL] = self.handlePull,
     }
 
     self:startUp()
@@ -126,6 +127,36 @@ end
 ---@return boolean, table
 function Server:handlePing(clientId, data)
     return true, {pong = true}
+end
+
+
+---Handle a pull request from a client
+---@param clientId number
+---@param data? table
+---@return boolean, table?
+function Server:handlePull(clientId, data)
+    if not data then
+        return false
+    end
+
+    if not data.invName or not data.itemName or not data.quantity then
+        return false
+    end
+
+    local pullToChest = chestHelpers.wrapInventory(data.invName)
+
+    if not pullToChest then
+        return false
+    end
+
+
+    local pulledCount = self.storageMap:pull(pullToChest, data.itemName, data.quantity, true)
+
+    local res = {
+        count = pulledCount,
+    }
+
+    return true, res
 end
 
 

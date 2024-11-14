@@ -134,6 +134,30 @@ function Client:ping()
 end
 
 
+---Pull items from the storage chests to an inventory
+---@param outputChestName string The name of the inventory to pull to
+---@param item string
+---@param count number
+---@return boolean, table?
+function Client:pull(outputChestName, item, count)
+    local res, data = self:baseSendCommand(MessageType.CMD_PULL, {
+        item = item,
+        count = count,
+        outputChestName = outputChestName,
+    })
+
+    if res and data then
+        if data.count == 0 then
+            logger:info("No %s found", item)
+        else
+            logger:info("Pulled %d %s", data.count, item)
+        end
+    end
+
+    return res, data
+end
+
+
 ---Safely call a command, closing the connection if there are any issues
 ---@param func fun(): boolean, table?
 ---@return boolean, table?

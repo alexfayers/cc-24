@@ -11,6 +11,7 @@ MessageType = {  ---@class _MessageType
     CMD_REFRESH = "CMD_REFRESH",
     CMD_DATA_IO_CHESTS = "CMD_DATA_IO_CHESTS",
     CMD_PING = "CMD_PING",
+    CMD_PULL = "CMD_PULL",
 }
 
 
