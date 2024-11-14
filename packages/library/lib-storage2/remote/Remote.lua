@@ -189,7 +189,7 @@ function Remote:sendCommandWait(remoteId, messageType, data)
     end
 
     --- we got an ACK, now wait for the actual response
-    senderId, responseMessageType, responseData = self:receiveData(remoteId)
+    senderId, responseMessageType, responseData = self:receiveData(remoteId, 10)
 
     if not senderId then
         -- no response
