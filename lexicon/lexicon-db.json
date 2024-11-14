@@ -284,6 +284,25 @@
                     "lib-discord"
                 ],
                 "usage": "'smelter'"
+            },
+            "jukebox": {
+                "description": "A simple jukebox program",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/jukebox/jukebox.lua",
+                        "jukebox.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/music/157_2.dfpwm",
+                        "music/157_2.dfpwm"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-logging",
+                    "lib-discord"
+                ],
+                "usage": "'jukebox'"
             }
         }
     }
