@@ -112,6 +112,10 @@ local function doSmeltSingleFuel(furnace)
         os.sleep(FURNANCE_SMELT_TIME_SECS)
         furnace.pendingSmeltItems = furnace.pendingSmeltItems - 1
         furnace.smeltedItems = furnace.smeltedItems + 1
+
+        if furnace.pendingSmeltItems <= 0 then
+            break
+        end
     end
 end
 
