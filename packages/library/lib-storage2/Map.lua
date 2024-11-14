@@ -6,7 +6,7 @@ require("lib-storage2.MapSlot")
 
 local helpers = require("lib-storage2.helpers")
 local tableHelpers = require("lexicon-lib.lib-table")
-local chestHelpers = require "chestHelpers"
+local chestHelpers = require("lib-storage2.chestHelpers")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("storage2.Map")
 
