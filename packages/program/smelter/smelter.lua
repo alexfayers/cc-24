@@ -51,12 +51,15 @@ end
 ---Initialise the furnace map
 local function initSingleFurnace(furnaceIndex, furnace)
     local itemList = furnace.list()
+    local inputItem = itemList[FURNACE_INPUT_SLOT]
+    local fuelItem = itemList[FURNACE_FUEL_SLOT]
+    local outputItem = itemList[FURNACE_OUTPUT_SLOT]
 
     FURNACE_MAP[furnaceIndex] = {
-        currentFuelCount = itemList[FURNACE_FUEL_SLOT] and itemList[FURNACE_FUEL_SLOT].count or 0,
-        currentFuelPower = FUEL_MAP[itemList[FURNACE_FUEL_SLOT].name] or 0,
-        pendingSmeltItems = itemList[FURNACE_INPUT_SLOT] and itemList[FURNACE_INPUT_SLOT].count or 0,
-        smeltedItems = itemList[FURNACE_OUTPUT_SLOT] and itemList[FURNACE_OUTPUT_SLOT].count or 0,
+        currentFuelCount = fuelItem and fuelItem.count or 0,
+        currentFuelPower = FUEL_MAP[fuelItem.name] or 0,
+        pendingSmeltItems = inputItem and inputItem.count or 0,
+        smeltedItems = outputItem and outputItem.count or 0,
         wrappedFurnace = furnace,
         wrappedFurnaceName = peripheral.getName(furnace),
     }
