@@ -38,7 +38,7 @@ local FURNACE_OUTPUT_SLOT = 3
 local FURNACE_MAP = {}
 
 
-local inputOutputChest = peripheral.wrap("chest")
+local inputOutputChest = peripheral.wrap("minecraft:chest")
 
 if not inputOutputChest then
     logger:error("Input/output chest not found")
