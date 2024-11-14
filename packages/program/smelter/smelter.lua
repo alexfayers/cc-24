@@ -55,9 +55,15 @@ local function initSingleFurnace(furnaceIndex, furnace)
     local fuelItem = itemList[FURNACE_FUEL_SLOT]
     local outputItem = itemList[FURNACE_OUTPUT_SLOT]
 
+    local fuelPower = 0
+
+    if fuelItem then
+        fuelPower = FUEL_MAP[fuelItem.name] or 0
+    end
+
     FURNACE_MAP[furnaceIndex] = {
         currentFuelCount = fuelItem and fuelItem.count or 0,
-        currentFuelPower = FUEL_MAP[fuelItem.name] or 0,
+        currentFuelPower = fuelPower,
         pendingSmeltItems = inputItem and inputItem.count or 0,
         smeltedItems = outputItem and outputItem.count or 0,
         wrappedFurnace = furnace,
