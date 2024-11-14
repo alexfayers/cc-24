@@ -489,7 +489,7 @@ function TurtleInventory:pullFuel(targetFuelLevel, fuelTags)
             return true
         end
 
-        local pullRes, pullData = self.storageClient:pull(localName, fuelTag, targetAmount, targetSlot)
+        local pullRes, pullData = self.storageClient:pull(localName, "#" .. fuelTag, targetAmount, targetSlot)
 
         if pullRes and pullData and pullData.count > 0 then
             self.logger:info("Pulled %d %s", pullData.count, fuelTag)
