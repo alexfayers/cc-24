@@ -159,12 +159,12 @@ end
 
 
 ---Safely call a command, closing the connection if there are any issues
----@param func fun(): boolean, table?
+---@param func fun(...): boolean, table?
 ---@return boolean, table?
-function Client:callCommand(func)
+function Client:callCommand(func, ...)
     local status, res, data = xpcall(func, function(err)
         logger:error("Error: %s", err)
-    end, self)
+    end, self, ...)
 
     self:closeModem()
 
