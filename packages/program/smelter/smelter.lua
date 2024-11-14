@@ -100,10 +100,11 @@ end
 
 ---Process a smelt that uses a single fuel for a furnace
 ---@param furnace furnaceMapItem The index of the furnace
+---@return boolean # Whether the smelt was successful
 local function doSmeltSingleFuel(furnace)
     if furnace.currentFuelCount <= 0 then
         logger:warn("%s out of fuel", furnace.wrappedFurnaceName)
-        return
+        return false
     end
 
     furnace.currentFuelCount = furnace.currentFuelCount - 1
@@ -115,9 +116,11 @@ local function doSmeltSingleFuel(furnace)
 
         if furnace.pendingSmeltItems <= 0 then
             logger:info("%s smelted %d items", furnace.wrappedFurnaceName, furnace.smeltedItems)
-            break
+            return true
         end
     end
+
+    return false
 end
 
 
@@ -130,7 +133,9 @@ local function doFuelTicks(furnace)
     end
 
     for _ = 1, furnace.currentFuelCount do
-        doSmeltSingleFuel(furnace)
+        if doSmeltSingleFuel(furnace) then
+            return
+        end
     end
 end
 
