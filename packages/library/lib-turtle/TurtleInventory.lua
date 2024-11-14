@@ -271,6 +271,11 @@ function TurtleInventory:attachStorageClient()
     if self.storageClient then
         return self.storageClient
     end
+
+    if not peripheral.find("modem") then
+        return nil
+    end
+
     local storageClient = Client()
     if storageClient.serverId then
         self.storageClient = storageClient
@@ -456,6 +461,10 @@ function TurtleInventory:pullFuel(targetFuelLevel, fuelTags)
     ---@cast fuelLevel number
 
     if fuelLevel >= targetFuelLevel then
+        return false, fuelLevel
+    end
+
+    if not self:attachStorageClient() then
         return false, fuelLevel
     end
 
