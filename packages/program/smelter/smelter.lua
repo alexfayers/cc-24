@@ -273,19 +273,20 @@ end
 
 
 ---Refuel
----@return number? # The number of fuel items distributed
+---@return nil
 local function refuel()
     if not populateFurnaceMap() then
         return
     end
 
-    return distributeFuel()
+    distributeFuel()
 end
 
 
 ---Smelt items in the furnaces, wait for all to finish, then pull the smelted items
----@return number? # The number of items smelted
-local function smelt()
+---@param autoPull boolean # Whether to pull the smelted items
+---@return nil
+local function smelt(autoPull)
     if not populateFurnaceMap() then
         return
     end
@@ -294,12 +295,14 @@ local function smelt()
 
     doAllFuelTicks()
 
-    local pulled = pullItems()
-
-    logger:info("Smelted %d/%d items", pulled, distrubuted)
-    discord.send("Smelter", "Smelted " .. pulled .. "/" .. distrubuted .. " items")
-
-    return pulled
+    if autoPull then
+        local pulled = pullItems()
+        logger:info("Smelted %d/%d items", pulled, distrubuted)
+        discord.send("Smelter", "Smelted " .. pulled .. "/" .. distrubuted .. " items")
+    else
+        logger:info("Smelted %d items (didn't pull)", distrubuted)
+        discord.send("Smelter", "Smelted " .. distrubuted .. " items (didn't pull")
+    end
 end
 
 
@@ -311,7 +314,9 @@ end
 ---@return table? _ A table of possible completions
 local function complete(_, index, argument, previous)
     if index == 1 then
-        return completion.choice(argument, {"refuel", "smelt"}, false)
+        return completion.choice(argument, {"refuel", "smelt"}, true)
+    elseif previous[#previous] == "smelt" then
+        return completion.choice(argument, {"nopull"}, false)
     end
 
     return {}
@@ -324,8 +329,8 @@ local function help()
     print("Commands:")
     print("  refuel")
     print("    Distribute fuel from the input chest to the furnaces")
-    print("  smelt")
-    print("    Smelt items in the furnaces")
+    print("  smelt [nopull]")
+    print("    Smelt items in the furnaces (won't pull from furnaces if nopull)")
 end
 
 
@@ -341,7 +346,7 @@ local function main()
     if command == "refuel" then
         refuel()
     elseif command == "smelt" then
-        smelt()
+        smelt(arg[2] ~= "nopull")
     else
         help()
     end
