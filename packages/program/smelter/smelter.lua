@@ -38,7 +38,8 @@ local FURNACE_OUTPUT_SLOT = 3
 local FURNACE_MAP = {}
 
 
-local inputOutputChest = peripheral.wrap("minecraft:chest")
+---@diagnostic disable-next-line: param-type-mismatch
+local inputOutputChest = peripheral.find("minecraft:chest")
 
 if not inputOutputChest then
     logger:error("Input/output chest not found")
