@@ -148,14 +148,6 @@ function Client:pull(outputChestName, item, count, toSlot)
         toSlot = toSlot,
     })
 
-    if res and data then
-        if data.count == 0 then
-            logger:info("No %s found", item)
-        else
-            logger:info("Pulled %d %s", data.count, item)
-        end
-    end
-
     return res, data
 end
 

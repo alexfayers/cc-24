@@ -461,101 +461,48 @@ function TurtleInventory:pullFuel(targetFuelLevel, fuelTags)
 
     local madeChanges = false
 
-    local inventories = self:findInventories()
-
-    if tableHelpers.tableIsEmpty(inventories) then
-        return false, fuelLevel
-    end
-
     local localName = self:findLocalName()
 
     if not localName then
         return false, fuelLevel
     end
-
-    ---@type function[]
-    local searchTasks = {}
-
-    ---@type function[]
-    local pullTasks = {}
-
-    for _, inventory in pairs(inventories) do
-        table.insert(searchTasks, function()
-            local inventoryList = inventory.list()
-
-            for slot = 1, inventory.size() do
-                if not inventoryList[slot] then
-                    goto continue
-                end
-
-                local item = inventory.getItemDetail(slot)
-
-                if not item then
-                    goto continue
-                end
-
-                local isFuel = self.combustibleItems[item.name]
-                local fuelGain = 80
-
-                if not isFuel then
-                    for tag, tagFuelGain in pairs(fuelTags) do
-                        if tableHelpers.contains(item.tags, tag) then
-                            isFuel = true
-                            fuelGain = tagFuelGain
-                            break
-                        end
-                    end
-                end
-
-                if isFuel then
-                    table.insert(pullTasks, function()
-                        local targetAmount = math.ceil((targetFuelLevel - fuelLevel) / fuelGain)
-                        if targetAmount <= 0 then
-                            return true
-                        end
-
-                        local targetSlot = self:findNonFullSlot(item.name) or self:findEmptySlot()
-
-                        if not targetSlot then
-                            return false
-                        end
-
-                        local amount = inventory.pushItems(localName, slot, targetAmount, targetSlot)
-
-                        if amount and amount > 0 then
-                            self.logger:info("Pulled %d %s from %s", amount, item.displayName, peripheral.getName(inventory))
-
-                            madeChanges = true
-                            turtle.select(targetSlot)
-                            turtle.refuel()
-
-                            fuelLevel = turtle.getFuelLevel()
-                            ---@cast fuelLevel number
-
-                            if fuelLevel >= targetFuelLevel then
-                                return false
-                            end
-                        end
-
-                        return true
-                    end)
-                end
-                ::continue::
-            end
-        end)
-    end
-
-    parallel.waitForAll(table.unpack(searchTasks))
-
-    for _, task in pairs(pullTasks) do
-        if not task() then
-            break
+    
+    for fuelTag, fuelGain in pairs(fuelTags) do
+        local targetSlot = self:findNonFullSlot(fuelTag) or self:findEmptySlot()
+    
+        if not targetSlot then
+            self.logger:warn("Not enough space to pull %s", fuelTag)
+            goto continue
         end
+
+        local targetAmount = math.ceil((targetFuelLevel - fuelLevel) / fuelGain)
+        if targetAmount <= 0 then
+            return true
+        end
+
+        local pullRes, pullData = self.storageClient:pull(localName, fuelTag, targetAmount, targetSlot)
+
+        if pullRes and pullData and pullData.count > 0 then
+            self.logger:info("Pulled %d %s", pullData.count, fuelTag)
+            turtle.select(targetSlot)
+            turtle.refuel()
+
+            madeChanges = true
+            fuelLevel = turtle.getFuelLevel()
+            ---@cast fuelLevel number
+    
+            if fuelLevel >= targetFuelLevel then
+                break
+            end
+        else
+            self.logger:warn("Failed to pull %s", fuelTag)
+        end
+
+        ::continue::
     end
 
     if madeChanges then
         self:updateSlots()
-        self:refreshStorage()
     end
 
     return madeChanges, fuelLevel
