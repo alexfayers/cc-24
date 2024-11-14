@@ -102,7 +102,7 @@ end
 ---@param furnace furnaceMapItem The index of the furnace
 local function doSmeltSingleFuel(furnace)
     if furnace.currentFuelCount <= 0 then
-        logger:info("%s out of fuel", furnace.wrappedFurnaceName)
+        logger:warn("%s out of fuel", furnace.wrappedFurnaceName)
         return
     end
 
@@ -114,6 +114,7 @@ local function doSmeltSingleFuel(furnace)
         furnace.smeltedItems = furnace.smeltedItems + 1
 
         if furnace.pendingSmeltItems <= 0 then
+            logger:info("%s smelted %d items", furnace.wrappedFurnaceName, furnace.smeltedItems)
             break
         end
     end
@@ -124,7 +125,7 @@ end
 ---@param furnace furnaceMapItem The index of the furnace
 local function doFuelTicks(furnace)
     if furnace.currentFuelCount <= 0 then
-        logger:info("%s out of fuel", furnace.wrappedFurnaceName)
+        logger:info("%s has no fuel", furnace.wrappedFurnaceName)
         return
     end
 
@@ -286,15 +287,7 @@ local function smelt()
 
     local distrubuted = distributeItems()
 
-    local threads = {}
-
-    for _, furnace in pairs(FURNACE_MAP) do
-        table.insert(threads, function ()
-            doAllFuelTicks()
-        end)
-    end
-
-    parallel.waitForAll(table.unpack(threads))
+    doAllFuelTicks()
 
     local pulled = pullItems()
 
