@@ -139,7 +139,7 @@ function Server:handlePull(clientId, data)
         return false
     end
 
-    if not data.invName or not data.itemName or not data.quantity then
+    if not data.invName or not data.item or not data.count then
         return false
     end
 
@@ -150,7 +150,7 @@ function Server:handlePull(clientId, data)
     end
 
 
-    local pulledCount = self.storageMap:pull(pullToChest, data.itemName, data.quantity, true)
+    local pulledCount = self.storageMap:pull(pullToChest, data.item, data.count, true)
 
     local res = {
         count = pulledCount,

@@ -143,7 +143,7 @@ function Client:pull(outputChestName, item, count)
     local res, data = self:baseSendCommand(MessageType.CMD_PULL, {
         item = item,
         count = count,
-        outputChestName = outputChestName,
+        invName = outputChestName,
     })
 
     if res and data then
