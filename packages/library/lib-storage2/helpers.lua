@@ -84,7 +84,7 @@ end
 
 
 ---Run the pushItems function for a chest, but retry if it returns nil
----@param chest ccTweaked.peripherals.Inventory The chest to push items to
+---@param chest ccTweaked.peripherals.Inventory The chest to push items from
 ---@param toName string The name of the chest to push items to
 ---@param sourceSlot number The slot to push items from
 ---@param limit? number The maximum number of items to move
