@@ -269,6 +269,21 @@
                     "lib-discord"
                 ],
                 "usage": "'farm'"
+            },
+            "smelter": {
+                "description": "A simple smelter program",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/smelter/smelter.lua",
+                        "smelter.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-logging",
+                    "lib-discord"
+                ],
+                "usage": "'smelter'"
             }
         }
     }
