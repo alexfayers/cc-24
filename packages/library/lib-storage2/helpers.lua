@@ -74,7 +74,7 @@ local function chestPullItemsRetry(chest, sourceName, sourceSlot, limit, targetS
     if not pcallRes or not quantity then
         attempts = attempts + 1
         if attempts >= Constants.MAX_METHOD_RETRIES then
-            logger:error("Failed to pull items from %s in slot %d in chest %s after %d attempts", sourceName, sourceSlot, peripheral.getName(chest), Constants.MAX_METHOD_RETRIES)
+            logger:error("Failed to pull items from %s in slot %d to chest %s after %d attempts", sourceName, sourceSlot, peripheral.getName(chest), Constants.MAX_METHOD_RETRIES)
             return
         end
         goto retry
