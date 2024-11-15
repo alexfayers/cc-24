@@ -309,7 +309,11 @@ local function waitSmeltTime(time)
 
         os.sleep(1)
     end
-    
+
+    term.setCursorPos(1, 1)
+    term.clearLine()
+
+    logger:info("Smelting took %d seconds", time)
 end
 
 
@@ -333,7 +337,6 @@ local function smelt(autoPull)
     parallel.waitForAll(function ()
         waitSmeltTime(expectedSmeltTime)
     end, doAllFuelTicks)
-    doAllFuelTicks()
 
     if autoPull then
         local pulled = pullItems()
