@@ -303,6 +303,18 @@
                     "lib-discord"
                 ],
                 "usage": "'jukebox'"
+            },
+            "violence": {
+                "description": "A simple program to repeatedly attack mobs",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/violence/violence.lua",
+                        "violence.lua"
+                    ]
+                ],
+                "dependencies": [],
+                "usage": "'violence'"
             }
         }
     }
