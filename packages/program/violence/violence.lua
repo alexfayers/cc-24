@@ -2,7 +2,8 @@
 
 
 local TURTLE_SLOTS = 16
-local FULL_THRESHOLD = 8
+local FULL_THRESHOLD = 0
+local MISSED_ATTACK_CLEAR_THRESHOLD = 5
 
 
 ---Clear all of the items in the turtle's inventory
@@ -28,8 +29,18 @@ end
 
 
 print("im so angry!")
-while true do
-    turtle.attack() -- will wait until something's there
 
-    clearInventory()
+local missedAttacks = 0
+while true do
+    local didAttack = turtle.attack()
+
+    if not didAttack then
+        missedAttacks = missedAttacks + 1
+    else
+        missedAttacks = 0
+    end
+    
+    if missedAttacks >= MISSED_ATTACK_CLEAR_THRESHOLD then
+        clearInventory()
+    end
 end
