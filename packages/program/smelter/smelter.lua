@@ -331,10 +331,10 @@ local function waitSmeltTime(time)
         os.sleep(1)
     end
 
+    local prevX, prevY = term.getCursorPos()
     term.setCursorPos(1, 1)
     term.clearLine()
-
-    logger:info("Smelting took %d seconds", time)
+    term.setCursorPos(prevX, prevY)
 end
 
 
@@ -356,7 +356,7 @@ local function smelt(autoPull)
     local expectedSmeltTime = math.ceil(distrubuted / furnaceCount) * FURNANCE_SMELT_TIME_SECS
 
     term.clear()
-    term.setCursorPos(1, 1)
+    term.setCursorPos(1, 2)
 
     parallel.waitForAll(function ()
         waitSmeltTime(expectedSmeltTime)
