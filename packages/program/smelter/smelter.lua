@@ -250,7 +250,8 @@ local function pullItems()
 
     for _, furnace in pairs(FURNACE_MAP) do
         table.insert(threads, function ()
-            local smeltedItems = furnace.wrappedFurnace.list()[FURNACE_OUTPUT_SLOT]
+            local furnaceList = furnace.wrappedFurnace.list()
+            local smeltedItems = furnaceList[FURNACE_OUTPUT_SLOT]
 
             if smeltedItems then
                 local transferred = inputOutputChest.pullItems(furnace.wrappedFurnaceName, FURNACE_OUTPUT_SLOT, smeltedItems.count)
@@ -260,6 +261,22 @@ local function pullItems()
 
                     totalTransferred = totalTransferred + transferred
                 end
+            end
+
+            local unsmeltedItems = furnaceList[FURNACE_INPUT_SLOT]
+
+            if unsmeltedItems then
+                furnace.pendingSmeltItems = unsmeltedItems.count
+
+                local transferred = inputOutputChest.pullItems(furnace.wrappedFurnaceName, FURNACE_INPUT_SLOT, unsmeltedItems.count)
+
+                if transferred then
+                    furnace.pendingSmeltItems = furnace.pendingSmeltItems - transferred
+                end
+
+                logger:warn("%s had %d unsmelted items", furnace.wrappedFurnaceName, transferred)
+
+                totalTransferred = totalTransferred + transferred
             end
         end)
     end
