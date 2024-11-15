@@ -335,6 +335,7 @@ local function waitSmeltTime(time)
     term.setCursorPos(1, 1)
     term.clearLine()
     term.setCursorPos(prevX, prevY)
+    term.scroll(1)
 end
 
 
