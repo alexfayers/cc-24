@@ -235,9 +235,7 @@ local function distributeItems()
 
     parallel.waitForAll(table.unpack(threads))
 
-    local expectedSmeltTime = math.ceil(totalTransferred / furnaceCount) * FURNANCE_SMELT_TIME_SECS
-
-    logger:info("Distrubuted %d items (expected smelt time: %d seconds)", totalTransferred, expectedSmeltTime)
+    logger:info("Distrubuted %d items", totalTransferred)
 
     return totalTransferred
 end
@@ -285,6 +283,36 @@ local function refuel()
 end
 
 
+---Wait the specified time for the furnaces to smelt items, and output the current process on a bar at the top of the screen
+---@param time number # The time to wait
+local function waitSmeltTime(time)
+    local termWidth, termHeight = term.getSize()
+    local startTime = os.clock()
+
+    local barWidth = termWidth - 6
+
+    while os.clock() - startTime < time do
+        local bar = ""
+        local progress = (os.clock() - startTime) / time
+
+        for i = 1, barWidth do
+            if i <= progress * barWidth then
+                bar = bar .. "="
+            else
+                bar = bar .. " "
+            end
+        end
+
+        term.setCursorPos(1, 1)
+        term.clearLine()
+        term.write("[" .. bar .. "] " .. math.floor(progress * 100) .. "%")
+
+        os.sleep(1)
+    end
+    
+end
+
+
 ---Smelt items in the furnaces, wait for all to finish, then pull the smelted items
 ---@param autoPull boolean # Whether to pull the smelted items
 ---@return nil
@@ -299,6 +327,12 @@ local function smelt(autoPull)
         return
     end
 
+    local furnaceCount = getFurnaceCount()
+    local expectedSmeltTime = math.ceil(distrubuted / furnaceCount) * FURNANCE_SMELT_TIME_SECS
+
+    parallel.waitForAll(function ()
+        waitSmeltTime(expectedSmeltTime)
+    end, doAllFuelTicks)
     doAllFuelTicks()
 
     if autoPull then
