@@ -441,6 +441,34 @@ function TurtleInventory:pushItems(keepSlots)
 end
 
 
+---Pull an item from the network into the turtle inventory
+---@param itemName string The name of the item to pull
+---@param amount integer The amount of the item to pull
+---@return boolean, number? _ Whether the item was pulled and how many were pulled
+function TurtleInventory:pullItems(itemName, amount)
+    if not self:attachStorageClient() then
+        return false
+    end
+
+    local localName = self:findLocalName()
+
+    if not localName then
+        return false
+    end
+
+    local pullRes, pullData = self.storageClient:pull(localName, itemName, amount)
+
+    if pullRes and pullData and pullData.count > 0 then
+        self.logger:info("Pulled %d %s", pullData.count, itemName)
+        self:updateSlots()
+        return true, pullData.count
+    else
+        self.logger:warn("Failed to pull %s", itemName)
+        return false
+    end
+end
+
+
 ---Pull fuel from chests in the network into the turtle inventory and use it to refuel the turtle until a target fuel level is reached or the chests no longer have fuel in them.
 ---@param targetFuelLevel integer The target fuel level to reach
 ---@param fuelTags table<string, integer>? The tags of the fuel items to pull (default {"c:coal"})

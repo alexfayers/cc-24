@@ -315,6 +315,22 @@
                 ],
                 "dependencies": [],
                 "usage": "'violence'"
+            },
+            "breeder": {
+                "description": "A simple program to breed animals using a turtle",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/breeder/breeder.lua",
+                        "breeder.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-turtle",
+                    "lib-discord",
+                    "lib-logging"
+                ],
+                "usage": "'breeder'"
             }
         }
     }
