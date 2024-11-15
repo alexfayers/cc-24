@@ -53,16 +53,13 @@ local function main()
     logger:info("Starting breeding program")
 
     while true do
-        if not pullBreedingItem() then
-            logger:warn("Out of breeding items")
-            discord.send("Breeder", "Out of breeding items")
-            return
-        end
-
         if not feedAnimals() then
-            logger:warn("No breeding items in inventory")
-            discord.send("Breeder", "No breeding items in inventory")
-            return
+            logger:warn("No breeding items in inventory, trying to pull")
+            if not pullBreedingItem() then
+                logger:warn("Out of breeding items")
+                discord.send("Breeder", "Out of breeding items")
+                return
+            end
         end
     end
 end
