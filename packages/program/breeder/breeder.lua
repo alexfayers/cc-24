@@ -22,13 +22,7 @@ end
 ---Pull a stack of the breeding item from the storage2 system
 ---@return boolean, number?
 local function pullBreedingItem()
-    local res, count = turt.inventory:pullItems(BREEDING_ITEM, 64)
-    if res then
-        logger:info("Pulled %d %s", count, BREEDING_ITEM)
-    else
-        logger:warn("Failed to pull %s", BREEDING_ITEM)
-    end
-    return res, count
+    return turt.inventory:pullItems(BREEDING_ITEM, 64)
 end
 
 
