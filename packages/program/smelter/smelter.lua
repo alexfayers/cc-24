@@ -334,6 +334,9 @@ local function smelt(autoPull)
     local furnaceCount = getFurnaceCount()
     local expectedSmeltTime = math.ceil(distrubuted / furnaceCount) * FURNANCE_SMELT_TIME_SECS
 
+    term.clear()
+    term.setCursorPos(1, 1)
+
     parallel.waitForAll(function ()
         waitSmeltTime(expectedSmeltTime)
     end, doAllFuelTicks)
