@@ -27,6 +27,7 @@ local function clearInventory()
 end
 
 
+print("im so angry!")
 while true do
     turtle.attack() -- will wait until something's there
 
