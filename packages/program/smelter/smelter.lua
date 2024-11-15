@@ -303,9 +303,13 @@ local function waitSmeltTime(time)
             end
         end
 
+        local prevX, prevY = term.getCursorPos()
+
         term.setCursorPos(1, 1)
         term.clearLine()
         term.write("[" .. bar .. "] " .. math.floor(progress * 100) .. "%")
+
+        term.setCursorPos(prevX, prevY)
 
         os.sleep(1)
     end
