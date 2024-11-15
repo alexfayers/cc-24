@@ -22,7 +22,7 @@ local function clearInventory()
 
     for i = 1, #toDrop do
         turtle.select(toDrop[i])
-        turtle.drop()
+        turtle.dropDown()
     end
 end
 
