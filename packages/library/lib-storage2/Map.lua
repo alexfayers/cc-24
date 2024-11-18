@@ -45,21 +45,19 @@ end
 ---Load filters from disk
 ---@return boolean _ Whether the filters were loaded successfully
 function Map:loadFilters()
+    ---@type ChestFilter[]
+    self.filters = {}
+
     for _, path in pairs(fs.find(self.filterDirectory .. "/*.json")) do
-        ---@type SerializedChestFilter[]?
+        ---@type SerializedChestFilter?
         local serialized, loadError = tableHelpers.loadTable(path)
     
         if not serialized then
-            logger:error("Failed to load filters: %s", loadError)
+            logger:error("Failed to load %s: %s", path, loadError)
             return false
         end
-    
-        ---@type ChestFilter[]
-        self.filters = {}
-    
-        for _, filter in ipairs(serialized) do
-            table.insert(self.filters, ChestFilter(filter.name, filter.itemNames, filter.itemTags, filter.slotNumbers))
-        end
+
+        table.insert(self.filters, ChestFilter(serialized.name, serialized.itemNames, serialized.itemTags, serialized.slotNumbers))
     end
 
     return true
