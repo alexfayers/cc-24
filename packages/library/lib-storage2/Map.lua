@@ -44,7 +44,7 @@ end
 ---Load filters from disk
 ---@return boolean _ Whether the filters were loaded successfully
 function Map:loadFilters()
-    for path in fs.find(self.filterDirectory .. "/*.json") do
+    for _, path in pairs(fs.find(self.filterDirectory .. "/*.json")) do
         ---@type SerializedChestFilter[]?
         local serialized, loadError = tableHelpers.loadTable(path)
     
