@@ -476,56 +476,60 @@ function Map:populate(force)
     logger:warn("Populating storage map")
     self:clear()
 
-    ---@type function[]
-    local chestTasks = {}
+    
+    for _, chestBatch in pairs(tableHelpers.batch(self.chests, 20)) do
 
-    for _, chest in ipairs(self.chests) do
-        table.insert(chestTasks, function()
+        ---@type function[]
+        local chestTasks = {}
+        for _, chest in ipairs(chestBatch) do
+            table.insert(chestTasks, function()
 
-            local chestList = helpers.chestListRetry(chest)
+                local chestList = helpers.chestListRetry(chest)
 
-            if not chestList then
-                return
-            end
+                if not chestList then
+                    return
+                end
 
-            local slotTasks = {}
+                local slotTasks = {}
 
-            for slotNumber = 1, chest.size() do
-                table.insert(slotTasks, function()
-                    local item = chestList[slotNumber]
+                for slotNumber = 1, chest.size() do
+                    table.insert(slotTasks, function()
+                        local item = chestList[slotNumber]
 
-                    if not item then
-                        self:addSlotEmpty(chest, slotNumber)
-                        return
-                    end
+                        if not item then
+                            self:addSlotEmpty(chest, slotNumber)
+                            return
+                        end
 
-                    local slotDetails = helpers.chestGetItemDetailRetry(chest, slotNumber)
+                        local slotDetails = helpers.chestGetItemDetailRetry(chest, slotNumber)
 
-                    if not slotDetails then
-                        return
-                    end
+                        if not slotDetails then
+                            return
+                        end
 
-                    self:addSlot(MapSlot(
-                        slotDetails.name,
-                        chest,
-                        slotNumber,
-                        slotDetails.count,
-                        slotDetails.maxCount,
-                        nil,
-                        slotDetails.tags,
-                        slotDetails.displayName
-                    ))
-                end)
-            end
+                        self:addSlot(MapSlot(
+                            slotDetails.name,
+                            chest,
+                            slotNumber,
+                            slotDetails.count,
+                            slotDetails.maxCount,
+                            nil,
+                            slotDetails.tags,
+                            slotDetails.displayName
+                        ))
+                    end)
+                end
 
-            parallel.waitForAll(table.unpack(slotTasks))
-        end)
+                parallel.waitForAll(table.unpack(slotTasks))
+            end)
+        end
+
+        parallel.waitForAll(table.unpack(chestTasks))
+        -- for _, task in ipairs(chestTasks) do
+        --     task()
+        -- end
     end
 
-    -- parallel.waitForAll(table.unpack(chestTasks))
-    for _, task in ipairs(chestTasks) do
-        task()
-    end
 
     while self:compress() do
         -- keep compressing until we can't compress anymore
