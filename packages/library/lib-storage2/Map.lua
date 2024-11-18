@@ -584,6 +584,33 @@ function Map:load()
 end
 
 
+---Order slots by putting filter slots first
+---@param slots MapSlot[] The slots to order
+---@return MapSlot[]
+function Map:orderSlotsByFilter(slots)
+    local filterSlots = {}
+    local nonFilterSlots = {}
+
+    for _, slot in ipairs(slots) do
+        local isFilterSlot = false
+        for _, filter in ipairs(self.filters) do
+            if filter:appliesTo(slot.chestName) then
+                isFilterSlot = true
+                break
+            end
+        end
+
+        if isFilterSlot then
+            table.insert(filterSlots, slot)
+        else
+            table.insert(nonFilterSlots, slot)
+        end
+    end
+
+    return tableHelpers.concatTables(filterSlots, nonFilterSlots)
+end
+
+
 ---Push all items from an input chest to the storage chests, updating the map as needed
 ---@param inputChest ccTweaked.peripherals.Inventory The chest to push items from
 function Map:push(inputChest)
@@ -605,6 +632,7 @@ function Map:push(inputChest)
         logger:debug("Pushing %s, slot %s", inputItem.name, inputSlot)
 
         local availableSlots = self:getItemSlotsWithSpace(inputItem.name)
+        availableSlots = self:orderSlotsByFilter(availableSlots)
 
         totalExpectedPushedCount = totalExpectedPushedCount + inputItem.count
 
