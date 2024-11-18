@@ -18,13 +18,25 @@ if not outputChest then
     return
 end
 
-local storageChests = chestHelpers.getStorageChests(inputChest, outputChest)
-if not storageChests then
-    return
-end
+local storageMap = nil
 
-local storageMap = Map(storageChests)
-storageMap:save()
+---Get the cached storage map
+---@return Map
+local function cachedStorageMap()
+    if storageMap then
+        return storageMap
+    end
+
+    local storageChests = chestHelpers.getStorageChests(inputChest, outputChest)
+    if not storageChests then
+        error("Failed to get storage chests", 0)
+    end
+
+    storageMap = Map(storageChests)
+    storageMap:save()
+
+    return storageMap
+end
 
 
 -- functions
@@ -61,7 +73,8 @@ local function complete(_, index, argument, previous)
         return completion.choice(argument, {"pull", "push", "remap", "undo", "check", "usage", "help"}, true)
     elseif index == 2 then
         if previousArg == "pull" then
-            return completion.choice(argument, storageMap:getAllItemStubs(), previousArg == "pull")
+            
+            return completion.choice(argument, cachedStorageMap():getAllItemStubs(), previousArg == "pull")
         end
     elseif index == 3 then
         if previousArg == "pull" then
@@ -79,7 +92,7 @@ shell.setCompletionFunction(shell.getRunningProgram(), complete)
 ---@param item string The item stub to search for
 ---@return nil
 local function showItemMatches(item)
-    local matches = storageMap:searchItemNames(item)
+    local matches = cachedStorageMap():searchItemNames(item)
 
     if #matches == 0 then
         print("No matches found for '" .. item .. "'")
@@ -88,7 +101,7 @@ local function showItemMatches(item)
 
     print("Matches for '" .. item .. "':")
     for _, match in pairs(matches) do
-        local count = storageMap:getTotalItemCount(match)
+        local count = cachedStorageMap():getTotalItemCount(match)
         print("  " .. match .. " (" .. count .. ")")
     end
 end
@@ -97,8 +110,8 @@ end
 ---Show the usage and capacity of the storage chests
 ---@return nil
 local function showUsage()
-    local allSlots = storageMap:getAllSlots()
-    local fullSlotCount = #storageMap:getFullSlots()
+    local allSlots = cachedStorageMap():getAllSlots()
+    local fullSlotCount = #cachedStorageMap():getFullSlots()
     local allSlotsCount = #allSlots
 
     print("Usage:")
@@ -108,8 +121,8 @@ local function showUsage()
         " (" .. math.floor(fullSlotCount / allSlotsCount * 100) .. "%)"
     )
 
-    local itemCount = storageMap.getTotalCount(allSlots)
-    local maxItemCount = storageMap.getTotalMaxCount(allSlots)
+    local itemCount = cachedStorageMap().getTotalCount(allSlots)
+    local maxItemCount = cachedStorageMap().getTotalMaxCount(allSlots)
     print(
         "  Items:  " .. itemCount .. "/" .. maxItemCount ..
         " (" .. math.floor(itemCount / maxItemCount * 100) .. "%)"
@@ -128,15 +141,15 @@ local function main()
     local command = arg[1]
 
     if command == "push" then
-        storageMap:push(inputChest)
-        storageMap:save()
+        cachedStorageMap():push(inputChest)
+        cachedStorageMap():save()
     elseif command == "usage" then
         showUsage()
     elseif command == "remap" then
-        storageMap:populate(true)
-        storageMap:save()
+        cachedStorageMap():populate(true)
+        cachedStorageMap():save()
     elseif command == "check" then
-        storageMap:checkDiffs()
+        cachedStorageMap():checkDiffs()
     elseif command == "pull" then
         if #arg < 2 then
             help()
@@ -153,7 +166,7 @@ local function main()
         end
 
         if amountStr == "all" then
-            amount = storageMap:getTotalItemCount(item, true)
+            amount = cachedStorageMap():getTotalItemCount(item, true)
         else
             local amountMaybe = tonumber(amountStr)
             if amountMaybe == nil then
@@ -167,11 +180,11 @@ local function main()
             return
         end
 
-        storageMap:pull(outputChest, item, amount, true)
-        storageMap:save()
+        cachedStorageMap():pull(outputChest, item, amount, true)
+        cachedStorageMap():save()
     elseif command == "undo" then
-        storageMap:push(outputChest)
-        storageMap:save()
+        cachedStorageMap():push(outputChest)
+        cachedStorageMap():save()
     elseif command == "help" then
         help()
     else
