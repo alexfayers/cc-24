@@ -22,7 +22,7 @@ end
 ---Pull a stack of the breeding item from the storage2 system
 ---@return boolean, number?
 local function pullBreedingItem()
-    return turt.inventory:pullItems(BREEDING_ITEM, 64)
+    return turt.inventory:pullItems(BREEDING_ITEM .. "$", 64)
 end
 
 
