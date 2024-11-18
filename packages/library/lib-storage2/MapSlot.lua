@@ -123,6 +123,11 @@ function MapSlot:enrich()
         return
     end
 
+    if self.displayName ~= nil then
+        -- we've already enriched this slot
+        return
+    end
+
     self.maxCount = itemDetail.maxCount
     self.displayName = itemDetail.displayName
     self.tags = self.ensureUniqueTags(itemDetail.tags)

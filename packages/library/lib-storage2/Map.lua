@@ -3,6 +3,7 @@ package.path = package.path .. ";/usr/lib/?.lua"
 require("class-lua.class")
 
 require("lib-storage2.MapSlot")
+require("lib-storage2.ChestFilter")
 
 local helpers = require("lib-storage2.helpers")
 local tableHelpers = require("lexicon-lib.lib-table")
@@ -25,6 +26,7 @@ Map = class()
 
 Map.saveFilename = settings.get("storage2.storageFile")
 Map.detailMapFilename = settings.get("storage2.itemDetailCacheFile")
+Map.filterDirectory = settings.get("storage2.filterDirectory")
 
 ---Initialise a new Map
 ---@param chests ccTweaked.peripherals.Inventory[] The chests to use for the map
@@ -32,8 +34,33 @@ function Map:init(chests)
     self.chests = chests
     ---@type MapTable
     self.mapTable = {}
+    self.filters = {}
 
     self:populate()
+    self:loadFilters()
+end
+
+
+---Load filters from disk
+---@return boolean _ Whether the filters were loaded successfully
+function Map:loadFilters()
+    for path in fs.find(self.filterDirectory .. "/*.json") do
+        ---@type SerializedChestFilter[]?
+        local serialized, loadError = tableHelpers.loadTable(path)
+    
+        if not serialized then
+            logger:error("Failed to load filters: %s", loadError)
+            return false
+        end
+    
+        self.filters = {}
+    
+        for _, filter in ipairs(serialized) do
+            table.insert(self.filters, ChestFilter(filter.name, filter.itemNames, filter.itemTags, filter.slotNumbers))
+        end
+    end
+
+    return true
 end
 
 
@@ -582,6 +609,40 @@ function Map:push(inputChest)
         for _, slot in ipairs(availableSlots) do
             if slot.chestName == inputChestName then
                 -- don't push to the input chest
+                goto continue
+            end
+
+            local filterCheckTasks = {}
+            local filterDoSkip = false
+
+            for _, filter in ipairs(self.filters) do
+                table.insert(filterCheckTasks, function()
+
+                    if filter:appliesTo(slot.chestName) then
+                        if not filter:acceptsName(inputItem.name) then
+                            filterDoSkip = true
+                            return
+                        end
+
+                        if not filter:acceptsSlot(slot.slot) then
+                            filterDoSkip = true
+                            return
+                        end
+
+                        -- enrich to check for tags
+                        slot:enrich()
+
+                        if not filter:acceptsTags(slot.tags) then
+                            filterDoSkip = true
+                            return
+                        end
+                    end
+                end)
+            end
+
+            parallel.waitForAll(table.unpack(filterCheckTasks))
+
+            if filterDoSkip then
                 goto continue
             end
 
