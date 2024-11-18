@@ -4,27 +4,27 @@ require("class-lua.class")
 
 ---@class ChestFilter
 ---@field public name string The name of the chest to apply the filter to. Can be a pattern.
----@field public itemNames string[] The item names to filter by
----@field public itemTags table<string, boolean> The item tags to filter by
+---@field public itemNames string[]? The item names to filter by
+---@field public itemTags string[]? The item tags to filter by
 ---@field public slotNumbers number[]? The slot numbers that this filter applies to (default is all slots in the inventory)
 
 
 ---@class ChestFilter
----@overload fun(name: string, itemNames: string[], itemTags: table<string, boolean>, slotNumbers: number[]?): ChestFilter
+---@overload fun(name: string, itemNames: string[]?, itemTags: string[]?, slotNumbers: number[]?): ChestFilter
 ChestFilter = class()
 
 
 ---@class SerializedChestFilter
 ---@field name string
----@field itemNames string[]
----@field itemTags table<string, boolean>
+---@field itemNames string[]?
+---@field itemTags string[]?
 ---@field slotNumbers number[]?
 
 
 ---Initialise a new ChestFilter
 ---@param name string The name of the chest to apply the filter to. Can be a pattern.
----@param itemNames string[] The item names to filter by
----@param itemTags table<string, boolean> The item tags to filter by
+---@param itemNames string[]? The item names to filter by
+---@param itemTags string[]? The item tags to filter by
 ---@param slotNumbers number[]? The slot numbers that this filter applies to (default is all slots in the inventory)
 function ChestFilter:init(name, itemNames, itemTags, slotNumbers)
     self.name = name
@@ -64,6 +64,10 @@ end
 ---@param itemName string The name of the item
 ---@return boolean
 function ChestFilter:acceptsName(itemName)
+    if self.itemNames == nil then
+        return true
+    end
+
     for _, v in ipairs(self.itemNames) do
         if string.match(itemName, v) then
             return true
@@ -78,9 +82,13 @@ end
 ---@param tags table<string, boolean> The tags of the item
 ---@return boolean
 function ChestFilter:acceptsTags(tags)
-    for k, _ in pairs(self.itemTags) do
-        if not tags[k] then
-            return false
+    if self.itemTags == nil then
+        return true
+    end
+
+    for _, v in ipairs(self.itemTags) do
+        if tags[v] then
+            return true
         end
     end
 
@@ -90,7 +98,7 @@ end
 
 ---Check if an item can be accepted by the filter
 ---@param itemName string The name of the item
----@param tags table<string, boolean> The tags of the item
+---@param tags string[] The tags of the item
 ---@param slot number The slot number
 ---@return boolean
 function ChestFilter:acceptsItem(itemName, tags, slot)

@@ -1,0 +1,7 @@
+{
+    "name": "minecraft:furnace_1",
+    "itemTags": [
+        "c:coal"
+    ],
+    "slotNumbers": [2]
+}

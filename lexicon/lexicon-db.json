@@ -222,6 +222,18 @@
                     [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/storage2/storage2-watch.lua",
                         "storage2-watch.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/storage2/filters/exampleFurnaceFuel.json",
+                        "/.storage2/filters/examples/exampleFurnaceFuel.json"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/storage2/filters/exampleNames.json",
+                        "/.storage2/filters/examples/exampleNames.json"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/storage2/filters/exampleTags.json",
+                        "/.storage2/filters/examples/exampleTags.json"
                     ]
                 ],
                 "dependencies": [
