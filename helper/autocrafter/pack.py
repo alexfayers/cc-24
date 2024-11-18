@@ -4,8 +4,8 @@ import json
 from pathlib import Path
 from typing import Iterator, Optional
 
-SOURCE_DIR = "recipe"
-OUTPUT_DIR = "recipe_prepared"
+SOURCE_DIR = "raw_recipes"
+OUTPUT_DIR = "recipes"
 
 
 def find_all_recipes() -> Iterator[Path]:
@@ -73,8 +73,36 @@ def prepare_recipe(recipe: dict) -> Optional[dict]:
                 for row_index, row in enumerate(recipe["pattern"]):
                     for column_index, column in enumerate(row):
                         if column == key:
-                            # convert the row and column index into a slot index
+                            # convert the row and column index into a crafting table
+                            # 0,0 -> 1
+                            # 0,1 -> 2
+                            # 0,2 -> 3
+                            # 1,0 -> 4
+                            # 1,1 -> 5
+                            # 1,2 -> 6
+                            # 2,0 -> 7
+                            # 2,1 -> 8
+                            # 2,2 -> 9
+
                             slot = row_index * 3 + column_index + 1
+
+                            # convert the crafting table index into the turtle slot index
+                            # 1 -> 1
+                            # 2 -> 2
+                            # 3 -> 3
+                            # 4 -> 5
+                            # 5 -> 6
+                            # 6 -> 7
+                            # 7 -> 9
+                            # 8 -> 10
+                            # 9 -> 11
+
+                            # idk how to do this with math
+                            if slot > 3:
+                                slot += 1
+                            if slot > 7:
+                                slot += 1
+
                             if slot in recipe_map:
                                 recipe_map[slot].append(search_val)
                             else:
