@@ -34,6 +34,7 @@ function Map:init(chests)
     self.chests = chests
     ---@type MapTable
     self.mapTable = {}
+    ---@type ChestFilter[]
     self.filters = {}
 
     self:populate()
@@ -53,6 +54,7 @@ function Map:loadFilters()
             return false
         end
     
+        ---@type ChestFilter[]
         self.filters = {}
     
         for _, filter in ipairs(serialized) do
