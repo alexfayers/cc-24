@@ -680,9 +680,23 @@ function Map:push(inputChest)
             end
 
             logger:debug("Pushing %d %s to slot %d in chest %s", inputItem.count, inputItem.name, slot.slot, slot.chestName)
-            local quantity = helpers.chestPushItemsRetry(
-                inputChest,
-                slot.chestName,
+            -- local quantity = helpers.chestPushItemsRetry(
+            --     inputChest,
+            --     slot.chestName,
+            --     inputSlot,
+            --     inputItem.count,
+            --     slot.slot
+            -- )
+
+            local targetChest = chestHelpers.wrapInventory(slot.chestName)
+            if not targetChest then
+                logger:error("Failed to wrap chest %s", slot.chestName)
+                goto continue
+            end
+
+            local quantity = helpers.chestPullItemsRetry(
+                targetChest,
+                inputChestName,
                 inputSlot,
                 inputItem.count,
                 slot.slot
