@@ -149,8 +149,13 @@ function Server:handlePull(clientId, data)
         return false
     end
 
+    self.storageMap:populate()
 
     local pulledCount = self.storageMap:pull(pullToChest, data.item, data.count, true, data.toSlot)
+
+    if pulledCount > 0 then
+        self.storageMap:save()
+    end
 
     local res = {
         count = pulledCount,
