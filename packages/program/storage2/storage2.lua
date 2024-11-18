@@ -36,6 +36,8 @@ local function help()
     print("    Pull items from the storage chests to the output chest")
     print("  push")
     print("    Push items from the input chest to the storage chests")
+    print("  remap")
+    print("    Force a remap the storage chests")
     print("  undo")
     print("    Push items from the output chest back to the storage chests")
     print("  check")
@@ -56,7 +58,7 @@ local function complete(_, index, argument, previous)
     local previousArg = previous[#previous]
 
     if index == 1 then
-        return completion.choice(argument, {"pull", "push", "undo", "check", "usage", "help"}, true)
+        return completion.choice(argument, {"pull", "push", "remap", "undo", "check", "usage", "help"}, true)
     elseif index == 2 then
         if previousArg == "pull" then
             return completion.choice(argument, storageMap:getAllItemStubs(), previousArg == "pull")
@@ -130,6 +132,9 @@ local function main()
         storageMap:save()
     elseif command == "usage" then
         showUsage()
+    elseif command == "remap" then
+        storageMap:populate(true)
+        storageMap:save()
     elseif command == "check" then
         storageMap:checkDiffs()
     elseif command == "pull" then
