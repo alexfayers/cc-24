@@ -525,7 +525,7 @@ function Map:populate(force)
     --     task()
     -- end
 
-    for _, slotEnrichmentTaskBatch in pairs(tableHelpers.batch(slotEnrichmentTasks, 50)) do
+    for _, slotEnrichmentTaskBatch in pairs(tableHelpers.batch(slotEnrichmentTasks, 128)) do
         parallel.waitForAll(table.unpack(slotEnrichmentTaskBatch))
     end
 
