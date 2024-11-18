@@ -29,7 +29,7 @@ MapSlot.EMPTY_SLOT_NAME = "empty"
 ---@param count number The number of items in the slot
 ---@param maxCount number The maximum number of items that can be in the slot
 ---@param isFull boolean Whether the slot is full or not
----@param tags string[]|nil The tags of the item
+---@param tags table<string, boolean>|nil The tags of the item
 ---@param displayName? string The readable name of the item
 function MapSlot:init(name, chest, slot, count, maxCount, isFull, tags, displayName)
     self.name = name
