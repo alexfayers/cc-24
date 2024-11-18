@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "5": [
+                "minecraft:cobblestone"
+            ],
+            "7": [
+                "minecraft:cobblestone"
+            ],
+            "9": [
+                "minecraft:cobblestone"
+            ],
+            "11": [
+                "minecraft:cobblestone"
+            ],
+            "10": [
+                "minecraft:redstone"
+            ],
+            "1": [
+                "#minecraft:planks"
+            ],
+            "2": [
+                "#minecraft:planks"
+            ],
+            "3": [
+                "#minecraft:planks"
+            ],
+            "6": [
+                "minecraft:iron_ingot"
+            ]
+        },
+        "output": {
+            "id": "minecraft:piston",
+            "count": 1
+        }
+    }
+]

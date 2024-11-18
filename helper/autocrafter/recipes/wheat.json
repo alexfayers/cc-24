@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:hay_block"
+            ]
+        },
+        "output": {
+            "id": "minecraft:wheat",
+            "count": 9
+        }
+    }
+]

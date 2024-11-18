@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "9": [
+                "minecraft:stick"
+            ],
+            "1": [
+                "minecraft:diamond"
+            ],
+            "5": [
+                "minecraft:diamond"
+            ]
+        },
+        "output": {
+            "id": "minecraft:diamond_sword",
+            "count": 1
+        }
+    }
+]

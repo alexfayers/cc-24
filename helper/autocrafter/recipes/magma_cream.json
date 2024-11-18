@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:blaze_powder"
+            ],
+            "2": [
+                "minecraft:slime_ball"
+            ]
+        },
+        "output": {
+            "id": "minecraft:magma_cream",
+            "count": 1
+        }
+    }
+]

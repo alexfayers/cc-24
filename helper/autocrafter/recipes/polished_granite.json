@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:granite"
+            ],
+            "2": [
+                "minecraft:granite"
+            ],
+            "5": [
+                "minecraft:granite"
+            ],
+            "6": [
+                "minecraft:granite"
+            ]
+        },
+        "output": {
+            "id": "minecraft:polished_granite",
+            "count": 4
+        }
+    }
+]

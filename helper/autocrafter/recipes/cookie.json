@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:wheat"
+            ],
+            "3": [
+                "minecraft:wheat"
+            ],
+            "2": [
+                "minecraft:cocoa_beans"
+            ]
+        },
+        "output": {
+            "id": "minecraft:cookie",
+            "count": 8
+        }
+    }
+]

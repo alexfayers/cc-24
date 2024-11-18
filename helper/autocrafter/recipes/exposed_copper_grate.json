@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:exposed_copper"
+            ],
+            "5": [
+                "minecraft:exposed_copper"
+            ],
+            "7": [
+                "minecraft:exposed_copper"
+            ],
+            "10": [
+                "minecraft:exposed_copper"
+            ]
+        },
+        "output": {
+            "id": "minecraft:exposed_copper_grate",
+            "count": 4
+        }
+    }
+]

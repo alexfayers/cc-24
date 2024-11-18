@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "5": [
+                "minecraft:popped_chorus_fruit"
+            ],
+            "1": [
+                "minecraft:blaze_rod"
+            ]
+        },
+        "output": {
+            "id": "minecraft:end_rod",
+            "count": 4
+        }
+    }
+]

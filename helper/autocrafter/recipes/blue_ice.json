@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:packed_ice"
+            ],
+            "2": [
+                "minecraft:packed_ice"
+            ],
+            "3": [
+                "minecraft:packed_ice"
+            ],
+            "4": [
+                "minecraft:packed_ice"
+            ],
+            "5": [
+                "minecraft:packed_ice"
+            ],
+            "6": [
+                "minecraft:packed_ice"
+            ],
+            "7": [
+                "minecraft:packed_ice"
+            ],
+            "8": [
+                "minecraft:packed_ice"
+            ],
+            "9": [
+                "minecraft:packed_ice"
+            ]
+        },
+        "output": {
+            "id": "minecraft:blue_ice",
+            "count": 1
+        }
+    }
+]

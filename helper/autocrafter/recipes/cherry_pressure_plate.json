@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:cherry_planks"
+            ],
+            "2": [
+                "minecraft:cherry_planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:cherry_pressure_plate",
+            "count": 1
+        }
+    }
+]

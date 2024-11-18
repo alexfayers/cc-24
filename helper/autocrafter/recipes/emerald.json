@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:emerald_block"
+            ]
+        },
+        "output": {
+            "id": "minecraft:emerald",
+            "count": 9
+        }
+    }
+]

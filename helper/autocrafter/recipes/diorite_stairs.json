@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:diorite"
+            ],
+            "5": [
+                "minecraft:diorite"
+            ],
+            "6": [
+                "minecraft:diorite"
+            ],
+            "9": [
+                "minecraft:diorite"
+            ],
+            "10": [
+                "minecraft:diorite"
+            ],
+            "11": [
+                "minecraft:diorite"
+            ]
+        },
+        "output": {
+            "id": "minecraft:diorite_stairs",
+            "count": 4
+        }
+    }
+]

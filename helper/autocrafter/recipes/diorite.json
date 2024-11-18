@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:cobblestone"
+            ],
+            "6": [
+                "minecraft:cobblestone"
+            ],
+            "2": [
+                "minecraft:quartz"
+            ],
+            "5": [
+                "minecraft:quartz"
+            ]
+        },
+        "output": {
+            "id": "minecraft:diorite",
+            "count": 2
+        }
+    }
+]

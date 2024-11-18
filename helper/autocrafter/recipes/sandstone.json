@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:sand"
+            ],
+            "2": [
+                "minecraft:sand"
+            ],
+            "5": [
+                "minecraft:sand"
+            ],
+            "6": [
+                "minecraft:sand"
+            ]
+        },
+        "output": {
+            "id": "minecraft:sandstone",
+            "count": 1
+        }
+    }
+]

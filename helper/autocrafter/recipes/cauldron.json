@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:iron_ingot"
+            ],
+            "3": [
+                "minecraft:iron_ingot"
+            ],
+            "5": [
+                "minecraft:iron_ingot"
+            ],
+            "7": [
+                "minecraft:iron_ingot"
+            ],
+            "9": [
+                "minecraft:iron_ingot"
+            ],
+            "10": [
+                "minecraft:iron_ingot"
+            ],
+            "11": [
+                "minecraft:iron_ingot"
+            ]
+        },
+        "output": {
+            "id": "minecraft:cauldron",
+            "count": 1
+        }
+    }
+]

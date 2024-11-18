@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:prismarine_shard"
+            ],
+            "2": [
+                "minecraft:prismarine_shard"
+            ],
+            "3": [
+                "minecraft:prismarine_shard"
+            ],
+            "4": [
+                "minecraft:prismarine_shard"
+            ],
+            "5": [
+                "minecraft:prismarine_shard"
+            ],
+            "6": [
+                "minecraft:prismarine_shard"
+            ],
+            "7": [
+                "minecraft:prismarine_shard"
+            ],
+            "8": [
+                "minecraft:prismarine_shard"
+            ],
+            "9": [
+                "minecraft:prismarine_shard"
+            ]
+        },
+        "output": {
+            "id": "minecraft:prismarine_bricks",
+            "count": 1
+        }
+    }
+]

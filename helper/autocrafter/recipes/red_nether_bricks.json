@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:nether_brick"
+            ],
+            "6": [
+                "minecraft:nether_brick"
+            ],
+            "2": [
+                "minecraft:nether_wart"
+            ],
+            "5": [
+                "minecraft:nether_wart"
+            ]
+        },
+        "output": {
+            "id": "minecraft:red_nether_bricks",
+            "count": 1
+        }
+    }
+]

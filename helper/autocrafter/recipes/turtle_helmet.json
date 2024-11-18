@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:turtle_scute"
+            ],
+            "2": [
+                "minecraft:turtle_scute"
+            ],
+            "3": [
+                "minecraft:turtle_scute"
+            ],
+            "5": [
+                "minecraft:turtle_scute"
+            ],
+            "7": [
+                "minecraft:turtle_scute"
+            ]
+        },
+        "output": {
+            "id": "minecraft:turtle_helmet",
+            "count": 1
+        }
+    }
+]

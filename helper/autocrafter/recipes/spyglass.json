@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:amethyst_shard"
+            ],
+            "6": [
+                "minecraft:copper_ingot"
+            ],
+            "10": [
+                "minecraft:copper_ingot"
+            ]
+        },
+        "output": {
+            "id": "minecraft:spyglass",
+            "count": 1
+        }
+    }
+]

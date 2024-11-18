@@ -1,0 +1,45 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:netherite_block"
+            ]
+        },
+        "output": {
+            "id": "minecraft:netherite_ingot",
+            "count": 9
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "minecraft:netherite_scrap"
+            ],
+            "2": [
+                "minecraft:netherite_scrap"
+            ],
+            "3": [
+                "minecraft:netherite_scrap"
+            ],
+            "4": [
+                "minecraft:netherite_scrap"
+            ],
+            "5": [
+                "minecraft:gold_ingot"
+            ],
+            "6": [
+                "minecraft:gold_ingot"
+            ],
+            "7": [
+                "minecraft:gold_ingot"
+            ],
+            "8": [
+                "minecraft:gold_ingot"
+            ]
+        },
+        "output": {
+            "id": "minecraft:netherite_ingot",
+            "count": 1
+        }
+    }
+]

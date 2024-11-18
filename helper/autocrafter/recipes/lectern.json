@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:bookshelf"
+            ],
+            "1": [
+                "#minecraft:wooden_slabs"
+            ],
+            "2": [
+                "#minecraft:wooden_slabs"
+            ],
+            "3": [
+                "#minecraft:wooden_slabs"
+            ],
+            "10": [
+                "#minecraft:wooden_slabs"
+            ]
+        },
+        "output": {
+            "id": "minecraft:lectern",
+            "count": 1
+        }
+    }
+]

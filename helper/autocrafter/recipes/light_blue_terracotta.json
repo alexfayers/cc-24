@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:terracotta"
+            ],
+            "2": [
+                "minecraft:terracotta"
+            ],
+            "3": [
+                "minecraft:terracotta"
+            ],
+            "5": [
+                "minecraft:terracotta"
+            ],
+            "7": [
+                "minecraft:terracotta"
+            ],
+            "9": [
+                "minecraft:terracotta"
+            ],
+            "10": [
+                "minecraft:terracotta"
+            ],
+            "11": [
+                "minecraft:terracotta"
+            ],
+            "6": [
+                "minecraft:light_blue_dye"
+            ]
+        },
+        "output": {
+            "id": "minecraft:light_blue_terracotta",
+            "count": 8
+        }
+    }
+]

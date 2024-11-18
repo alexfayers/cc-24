@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "5": [
+                "minecraft:honeycomb"
+            ],
+            "6": [
+                "minecraft:honeycomb"
+            ],
+            "7": [
+                "minecraft:honeycomb"
+            ],
+            "1": [
+                "#minecraft:planks"
+            ],
+            "2": [
+                "#minecraft:planks"
+            ],
+            "3": [
+                "#minecraft:planks"
+            ],
+            "9": [
+                "#minecraft:planks"
+            ],
+            "10": [
+                "#minecraft:planks"
+            ],
+            "11": [
+                "#minecraft:planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:beehive",
+            "count": 1
+        }
+    }
+]

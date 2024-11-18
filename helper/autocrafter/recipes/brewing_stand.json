@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "5": [
+                "#minecraft:stone_crafting_materials"
+            ],
+            "6": [
+                "#minecraft:stone_crafting_materials"
+            ],
+            "7": [
+                "#minecraft:stone_crafting_materials"
+            ],
+            "2": [
+                "minecraft:blaze_rod"
+            ]
+        },
+        "output": {
+            "id": "minecraft:brewing_stand",
+            "count": 1
+        }
+    }
+]

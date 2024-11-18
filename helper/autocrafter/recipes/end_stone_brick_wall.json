@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:end_stone_bricks"
+            ],
+            "2": [
+                "minecraft:end_stone_bricks"
+            ],
+            "3": [
+                "minecraft:end_stone_bricks"
+            ],
+            "5": [
+                "minecraft:end_stone_bricks"
+            ],
+            "6": [
+                "minecraft:end_stone_bricks"
+            ],
+            "7": [
+                "minecraft:end_stone_bricks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:end_stone_brick_wall",
+            "count": 6
+        }
+    }
+]

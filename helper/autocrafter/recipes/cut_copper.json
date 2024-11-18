@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:copper_block"
+            ],
+            "2": [
+                "minecraft:copper_block"
+            ],
+            "5": [
+                "minecraft:copper_block"
+            ],
+            "6": [
+                "minecraft:copper_block"
+            ]
+        },
+        "output": {
+            "id": "minecraft:cut_copper",
+            "count": 4
+        }
+    }
+]

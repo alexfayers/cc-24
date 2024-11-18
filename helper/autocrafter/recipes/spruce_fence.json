@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:stick"
+            ],
+            "6": [
+                "minecraft:stick"
+            ],
+            "1": [
+                "minecraft:spruce_planks"
+            ],
+            "3": [
+                "minecraft:spruce_planks"
+            ],
+            "5": [
+                "minecraft:spruce_planks"
+            ],
+            "7": [
+                "minecraft:spruce_planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:spruce_fence",
+            "count": 3
+        }
+    }
+]

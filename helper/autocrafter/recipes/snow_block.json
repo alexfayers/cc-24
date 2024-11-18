@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:snowball"
+            ],
+            "2": [
+                "minecraft:snowball"
+            ],
+            "5": [
+                "minecraft:snowball"
+            ],
+            "6": [
+                "minecraft:snowball"
+            ]
+        },
+        "output": {
+            "id": "minecraft:snow_block",
+            "count": 1
+        }
+    }
+]

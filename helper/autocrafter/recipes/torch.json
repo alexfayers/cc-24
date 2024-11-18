@@ -1,0 +1,17 @@
+[
+    {
+        "input": {
+            "5": [
+                "minecraft:stick"
+            ],
+            "1": [
+                "minecraft:coal",
+                "minecraft:charcoal"
+            ]
+        },
+        "output": {
+            "id": "minecraft:torch",
+            "count": 4
+        }
+    }
+]

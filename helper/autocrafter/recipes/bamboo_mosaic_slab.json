@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:bamboo_mosaic"
+            ],
+            "2": [
+                "minecraft:bamboo_mosaic"
+            ],
+            "3": [
+                "minecraft:bamboo_mosaic"
+            ]
+        },
+        "output": {
+            "id": "minecraft:bamboo_mosaic_slab",
+            "count": 6
+        }
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "5": [
+                "minecraft:piston"
+            ],
+            "1": [
+                "minecraft:slime_ball"
+            ]
+        },
+        "output": {
+            "id": "minecraft:sticky_piston",
+            "count": 1
+        }
+    }
+]

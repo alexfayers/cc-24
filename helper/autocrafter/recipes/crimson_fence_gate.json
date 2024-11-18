@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:stick"
+            ],
+            "3": [
+                "minecraft:stick"
+            ],
+            "5": [
+                "minecraft:stick"
+            ],
+            "7": [
+                "minecraft:stick"
+            ],
+            "2": [
+                "minecraft:crimson_planks"
+            ],
+            "6": [
+                "minecraft:crimson_planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:crimson_fence_gate",
+            "count": 1
+        }
+    }
+]

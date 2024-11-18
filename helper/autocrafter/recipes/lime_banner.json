@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:lime_wool"
+            ],
+            "2": [
+                "minecraft:lime_wool"
+            ],
+            "3": [
+                "minecraft:lime_wool"
+            ],
+            "5": [
+                "minecraft:lime_wool"
+            ],
+            "6": [
+                "minecraft:lime_wool"
+            ],
+            "7": [
+                "minecraft:lime_wool"
+            ],
+            "10": [
+                "minecraft:stick"
+            ]
+        },
+        "output": {
+            "id": "minecraft:lime_banner",
+            "count": 1
+        }
+    }
+]

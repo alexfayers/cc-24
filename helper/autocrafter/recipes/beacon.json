@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:glass"
+            ],
+            "2": [
+                "minecraft:glass"
+            ],
+            "3": [
+                "minecraft:glass"
+            ],
+            "5": [
+                "minecraft:glass"
+            ],
+            "7": [
+                "minecraft:glass"
+            ],
+            "9": [
+                "minecraft:obsidian"
+            ],
+            "10": [
+                "minecraft:obsidian"
+            ],
+            "11": [
+                "minecraft:obsidian"
+            ],
+            "6": [
+                "minecraft:nether_star"
+            ]
+        },
+        "output": {
+            "id": "minecraft:beacon",
+            "count": 1
+        }
+    }
+]

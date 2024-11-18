@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:andesite"
+            ],
+            "5": [
+                "minecraft:andesite"
+            ],
+            "6": [
+                "minecraft:andesite"
+            ],
+            "9": [
+                "minecraft:andesite"
+            ],
+            "10": [
+                "minecraft:andesite"
+            ],
+            "11": [
+                "minecraft:andesite"
+            ]
+        },
+        "output": {
+            "id": "minecraft:andesite_stairs",
+            "count": 4
+        }
+    }
+]

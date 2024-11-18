@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:diamond"
+            ],
+            "2": [
+                "minecraft:diamond"
+            ],
+            "3": [
+                "minecraft:diamond"
+            ],
+            "5": [
+                "minecraft:diamond"
+            ],
+            "7": [
+                "minecraft:diamond"
+            ]
+        },
+        "output": {
+            "id": "minecraft:diamond_helmet",
+            "count": 1
+        }
+    }
+]

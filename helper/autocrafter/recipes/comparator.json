@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:redstone_torch"
+            ],
+            "5": [
+                "minecraft:redstone_torch"
+            ],
+            "7": [
+                "minecraft:redstone_torch"
+            ],
+            "9": [
+                "minecraft:stone"
+            ],
+            "10": [
+                "minecraft:stone"
+            ],
+            "11": [
+                "minecraft:stone"
+            ],
+            "6": [
+                "minecraft:quartz"
+            ]
+        },
+        "output": {
+            "id": "minecraft:comparator",
+            "count": 1
+        }
+    }
+]

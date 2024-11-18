@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:blaze_rod"
+            ],
+            "2": [
+                "minecraft:weathered_copper"
+            ],
+            "5": [
+                "minecraft:weathered_copper"
+            ],
+            "7": [
+                "minecraft:weathered_copper"
+            ],
+            "10": [
+                "minecraft:redstone"
+            ]
+        },
+        "output": {
+            "id": "minecraft:weathered_copper_bulb",
+            "count": 4
+        }
+    }
+]

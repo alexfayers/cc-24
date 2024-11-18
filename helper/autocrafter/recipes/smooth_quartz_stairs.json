@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:smooth_quartz"
+            ],
+            "5": [
+                "minecraft:smooth_quartz"
+            ],
+            "6": [
+                "minecraft:smooth_quartz"
+            ],
+            "9": [
+                "minecraft:smooth_quartz"
+            ],
+            "10": [
+                "minecraft:smooth_quartz"
+            ],
+            "11": [
+                "minecraft:smooth_quartz"
+            ]
+        },
+        "output": {
+            "id": "minecraft:smooth_quartz_stairs",
+            "count": 4
+        }
+    }
+]

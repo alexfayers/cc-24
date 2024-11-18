@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:hay_block"
+            ],
+            "2": [
+                "minecraft:redstone"
+            ],
+            "5": [
+                "minecraft:redstone"
+            ],
+            "7": [
+                "minecraft:redstone"
+            ],
+            "10": [
+                "minecraft:redstone"
+            ]
+        },
+        "output": {
+            "id": "minecraft:target",
+            "count": 1
+        }
+    }
+]

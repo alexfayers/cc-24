@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:stick"
+            ],
+            "6": [
+                "minecraft:stick"
+            ],
+            "1": [
+                "minecraft:jungle_planks"
+            ],
+            "3": [
+                "minecraft:jungle_planks"
+            ],
+            "5": [
+                "minecraft:jungle_planks"
+            ],
+            "7": [
+                "minecraft:jungle_planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:jungle_fence",
+            "count": 3
+        }
+    }
+]

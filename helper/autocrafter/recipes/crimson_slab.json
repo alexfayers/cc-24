@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:crimson_planks"
+            ],
+            "2": [
+                "minecraft:crimson_planks"
+            ],
+            "3": [
+                "minecraft:crimson_planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:crimson_slab",
+            "count": 6
+        }
+    }
+]

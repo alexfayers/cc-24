@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:gold_ingot"
+            ],
+            "3": [
+                "minecraft:gold_ingot"
+            ],
+            "5": [
+                "minecraft:gold_ingot"
+            ],
+            "7": [
+                "minecraft:gold_ingot"
+            ]
+        },
+        "output": {
+            "id": "minecraft:golden_boots",
+            "count": 1
+        }
+    }
+]

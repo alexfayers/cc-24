@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:bamboo_mosaic"
+            ],
+            "5": [
+                "minecraft:bamboo_mosaic"
+            ],
+            "6": [
+                "minecraft:bamboo_mosaic"
+            ],
+            "9": [
+                "minecraft:bamboo_mosaic"
+            ],
+            "10": [
+                "minecraft:bamboo_mosaic"
+            ],
+            "11": [
+                "minecraft:bamboo_mosaic"
+            ]
+        },
+        "output": {
+            "id": "minecraft:bamboo_mosaic_stairs",
+            "count": 4
+        }
+    }
+]

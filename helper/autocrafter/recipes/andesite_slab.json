@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:andesite"
+            ],
+            "2": [
+                "minecraft:andesite"
+            ],
+            "3": [
+                "minecraft:andesite"
+            ]
+        },
+        "output": {
+            "id": "minecraft:andesite_slab",
+            "count": 6
+        }
+    }
+]

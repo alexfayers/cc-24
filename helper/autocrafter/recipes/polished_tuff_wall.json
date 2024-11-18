@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:polished_tuff"
+            ],
+            "2": [
+                "minecraft:polished_tuff"
+            ],
+            "3": [
+                "minecraft:polished_tuff"
+            ],
+            "5": [
+                "minecraft:polished_tuff"
+            ],
+            "6": [
+                "minecraft:polished_tuff"
+            ],
+            "7": [
+                "minecraft:polished_tuff"
+            ]
+        },
+        "output": {
+            "id": "minecraft:polished_tuff_wall",
+            "count": 6
+        }
+    }
+]

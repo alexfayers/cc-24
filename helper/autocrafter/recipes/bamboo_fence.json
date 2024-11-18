@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:stick"
+            ],
+            "6": [
+                "minecraft:stick"
+            ],
+            "1": [
+                "minecraft:bamboo_planks"
+            ],
+            "3": [
+                "minecraft:bamboo_planks"
+            ],
+            "5": [
+                "minecraft:bamboo_planks"
+            ],
+            "7": [
+                "minecraft:bamboo_planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:bamboo_fence",
+            "count": 3
+        }
+    }
+]

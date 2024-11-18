@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:tuff"
+            ],
+            "5": [
+                "minecraft:tuff"
+            ],
+            "6": [
+                "minecraft:tuff"
+            ],
+            "9": [
+                "minecraft:tuff"
+            ],
+            "10": [
+                "minecraft:tuff"
+            ],
+            "11": [
+                "minecraft:tuff"
+            ]
+        },
+        "output": {
+            "id": "minecraft:tuff_stairs",
+            "count": 4
+        }
+    }
+]

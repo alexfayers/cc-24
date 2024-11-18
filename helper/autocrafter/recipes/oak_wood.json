@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:oak_log"
+            ],
+            "2": [
+                "minecraft:oak_log"
+            ],
+            "5": [
+                "minecraft:oak_log"
+            ],
+            "6": [
+                "minecraft:oak_log"
+            ]
+        },
+        "output": {
+            "id": "minecraft:oak_wood",
+            "count": 3
+        }
+    }
+]

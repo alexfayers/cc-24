@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:oak_planks"
+            ],
+            "2": [
+                "minecraft:oak_planks"
+            ],
+            "3": [
+                "minecraft:oak_planks"
+            ],
+            "5": [
+                "minecraft:oak_planks"
+            ],
+            "6": [
+                "minecraft:oak_planks"
+            ],
+            "7": [
+                "minecraft:oak_planks"
+            ],
+            "10": [
+                "minecraft:stick"
+            ]
+        },
+        "output": {
+            "id": "minecraft:oak_sign",
+            "count": 3
+        }
+    }
+]

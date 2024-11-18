@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "#minecraft:cherry_logs"
+            ]
+        },
+        "output": {
+            "id": "minecraft:cherry_planks",
+            "count": 4
+        }
+    }
+]

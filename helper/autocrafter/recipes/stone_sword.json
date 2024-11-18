@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "9": [
+                "minecraft:stick"
+            ],
+            "1": [
+                "#minecraft:stone_tool_materials"
+            ],
+            "5": [
+                "#minecraft:stone_tool_materials"
+            ]
+        },
+        "output": {
+            "id": "minecraft:stone_sword",
+            "count": 1
+        }
+    }
+]

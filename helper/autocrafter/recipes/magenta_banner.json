@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:magenta_wool"
+            ],
+            "2": [
+                "minecraft:magenta_wool"
+            ],
+            "3": [
+                "minecraft:magenta_wool"
+            ],
+            "5": [
+                "minecraft:magenta_wool"
+            ],
+            "6": [
+                "minecraft:magenta_wool"
+            ],
+            "7": [
+                "minecraft:magenta_wool"
+            ],
+            "10": [
+                "minecraft:stick"
+            ]
+        },
+        "output": {
+            "id": "minecraft:magenta_banner",
+            "count": 1
+        }
+    }
+]

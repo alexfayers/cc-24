@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:ender_pearl"
+            ],
+            "2": [
+                "minecraft:blaze_powder"
+            ]
+        },
+        "output": {
+            "id": "minecraft:ender_eye",
+            "count": 1
+        }
+    }
+]

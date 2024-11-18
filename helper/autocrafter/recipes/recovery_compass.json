@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:compass"
+            ],
+            "1": [
+                "minecraft:echo_shard"
+            ],
+            "2": [
+                "minecraft:echo_shard"
+            ],
+            "3": [
+                "minecraft:echo_shard"
+            ],
+            "5": [
+                "minecraft:echo_shard"
+            ],
+            "7": [
+                "minecraft:echo_shard"
+            ],
+            "9": [
+                "minecraft:echo_shard"
+            ],
+            "10": [
+                "minecraft:echo_shard"
+            ],
+            "11": [
+                "minecraft:echo_shard"
+            ]
+        },
+        "output": {
+            "id": "minecraft:recovery_compass",
+            "count": 1
+        }
+    }
+]

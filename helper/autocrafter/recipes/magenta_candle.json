@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:candle"
+            ],
+            "2": [
+                "minecraft:magenta_dye"
+            ]
+        },
+        "output": {
+            "id": "minecraft:magenta_candle",
+            "count": 1
+        }
+    }
+]

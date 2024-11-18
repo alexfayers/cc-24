@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:blackstone"
+            ],
+            "5": [
+                "minecraft:blackstone"
+            ],
+            "6": [
+                "minecraft:blackstone"
+            ],
+            "9": [
+                "minecraft:blackstone"
+            ],
+            "10": [
+                "minecraft:blackstone"
+            ],
+            "11": [
+                "minecraft:blackstone"
+            ]
+        },
+        "output": {
+            "id": "minecraft:blackstone_stairs",
+            "count": 4
+        }
+    }
+]

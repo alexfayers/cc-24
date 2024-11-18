@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:heavy_core"
+            ],
+            "6": [
+                "minecraft:breeze_rod"
+            ]
+        },
+        "output": {
+            "id": "minecraft:mace",
+            "count": 1
+        }
+    }
+]

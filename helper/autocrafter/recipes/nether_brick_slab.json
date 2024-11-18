@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:nether_bricks"
+            ],
+            "2": [
+                "minecraft:nether_bricks"
+            ],
+            "3": [
+                "minecraft:nether_bricks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:nether_brick_slab",
+            "count": 6
+        }
+    }
+]

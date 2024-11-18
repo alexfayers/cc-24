@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:stick"
+            ],
+            "6": [
+                "minecraft:stick"
+            ],
+            "1": [
+                "minecraft:warped_planks"
+            ],
+            "3": [
+                "minecraft:warped_planks"
+            ],
+            "5": [
+                "minecraft:warped_planks"
+            ],
+            "7": [
+                "minecraft:warped_planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:warped_fence",
+            "count": 3
+        }
+    }
+]

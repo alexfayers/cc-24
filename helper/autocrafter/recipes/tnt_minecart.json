@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:tnt"
+            ],
+            "2": [
+                "minecraft:minecart"
+            ]
+        },
+        "output": {
+            "id": "minecraft:tnt_minecart",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:leather"
+            ],
+            "2": [
+                "minecraft:leather"
+            ],
+            "3": [
+                "minecraft:leather"
+            ],
+            "5": [
+                "minecraft:leather"
+            ],
+            "7": [
+                "minecraft:leather"
+            ],
+            "9": [
+                "minecraft:leather"
+            ],
+            "11": [
+                "minecraft:leather"
+            ]
+        },
+        "output": {
+            "id": "minecraft:leather_leggings",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,38 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:red_dye"
+            ],
+            "2": [
+                "minecraft:yellow_dye"
+            ]
+        },
+        "output": {
+            "id": "minecraft:orange_dye",
+            "count": 2
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "minecraft:orange_tulip"
+            ]
+        },
+        "output": {
+            "id": "minecraft:orange_dye",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "minecraft:torchflower"
+            ]
+        },
+        "output": {
+            "id": "minecraft:orange_dye",
+            "count": 1
+        }
+    }
+]

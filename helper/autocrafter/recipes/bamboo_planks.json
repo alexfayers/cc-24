@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "#minecraft:bamboo_blocks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:bamboo_planks",
+            "count": 2
+        }
+    }
+]

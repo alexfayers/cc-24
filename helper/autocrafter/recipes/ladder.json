@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:stick"
+            ],
+            "3": [
+                "minecraft:stick"
+            ],
+            "5": [
+                "minecraft:stick"
+            ],
+            "6": [
+                "minecraft:stick"
+            ],
+            "7": [
+                "minecraft:stick"
+            ],
+            "9": [
+                "minecraft:stick"
+            ],
+            "11": [
+                "minecraft:stick"
+            ]
+        },
+        "output": {
+            "id": "minecraft:ladder",
+            "count": 3
+        }
+    }
+]

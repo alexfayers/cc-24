@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:glass"
+            ],
+            "2": [
+                "minecraft:glass"
+            ],
+            "3": [
+                "minecraft:glass"
+            ],
+            "5": [
+                "minecraft:glass"
+            ],
+            "6": [
+                "minecraft:glass"
+            ],
+            "7": [
+                "minecraft:glass"
+            ]
+        },
+        "output": {
+            "id": "minecraft:glass_pane",
+            "count": 16
+        }
+    }
+]

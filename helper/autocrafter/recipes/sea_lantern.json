@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:prismarine_crystals"
+            ],
+            "5": [
+                "minecraft:prismarine_crystals"
+            ],
+            "6": [
+                "minecraft:prismarine_crystals"
+            ],
+            "7": [
+                "minecraft:prismarine_crystals"
+            ],
+            "10": [
+                "minecraft:prismarine_crystals"
+            ],
+            "1": [
+                "minecraft:prismarine_shard"
+            ],
+            "3": [
+                "minecraft:prismarine_shard"
+            ],
+            "9": [
+                "minecraft:prismarine_shard"
+            ],
+            "11": [
+                "minecraft:prismarine_shard"
+            ]
+        },
+        "output": {
+            "id": "minecraft:sea_lantern",
+            "count": 1
+        }
+    }
+]

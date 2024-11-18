@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:copper_ingot"
+            ],
+            "2": [
+                "minecraft:copper_ingot"
+            ],
+            "3": [
+                "minecraft:copper_ingot"
+            ],
+            "5": [
+                "minecraft:copper_ingot"
+            ],
+            "6": [
+                "minecraft:copper_ingot"
+            ],
+            "7": [
+                "minecraft:copper_ingot"
+            ],
+            "9": [
+                "minecraft:copper_ingot"
+            ],
+            "10": [
+                "minecraft:copper_ingot"
+            ],
+            "11": [
+                "minecraft:copper_ingot"
+            ]
+        },
+        "output": {
+            "id": "minecraft:copper_block",
+            "count": 1
+        }
+    }
+]

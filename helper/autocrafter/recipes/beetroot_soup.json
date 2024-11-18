@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:bowl"
+            ],
+            "2": [
+                "minecraft:beetroot"
+            ],
+            "3": [
+                "minecraft:beetroot"
+            ],
+            "4": [
+                "minecraft:beetroot"
+            ],
+            "5": [
+                "minecraft:beetroot"
+            ],
+            "6": [
+                "minecraft:beetroot"
+            ],
+            "7": [
+                "minecraft:beetroot"
+            ]
+        },
+        "output": {
+            "id": "minecraft:beetroot_soup",
+            "count": 1
+        }
+    }
+]

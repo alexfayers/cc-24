@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "5": [
+                "#minecraft:planks"
+            ],
+            "7": [
+                "#minecraft:planks"
+            ],
+            "2": [
+                "minecraft:stone_slab"
+            ],
+            "1": [
+                "minecraft:stick"
+            ],
+            "3": [
+                "minecraft:stick"
+            ]
+        },
+        "output": {
+            "id": "minecraft:grindstone",
+            "count": 1
+        }
+    }
+]

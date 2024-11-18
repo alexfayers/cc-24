@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:stick"
+            ],
+            "6": [
+                "minecraft:stick"
+            ],
+            "1": [
+                "minecraft:acacia_planks"
+            ],
+            "3": [
+                "minecraft:acacia_planks"
+            ],
+            "5": [
+                "minecraft:acacia_planks"
+            ],
+            "7": [
+                "minecraft:acacia_planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:acacia_fence",
+            "count": 3
+        }
+    }
+]

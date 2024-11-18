@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "5": [
+                "minecraft:iron_ingot"
+            ],
+            "1": [
+                "minecraft:iron_nugget"
+            ],
+            "9": [
+                "minecraft:iron_nugget"
+            ]
+        },
+        "output": {
+            "id": "minecraft:chain",
+            "count": 1
+        }
+    }
+]

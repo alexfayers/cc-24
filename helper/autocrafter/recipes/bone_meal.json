@@ -1,0 +1,24 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:bone_block"
+            ]
+        },
+        "output": {
+            "id": "minecraft:bone_meal",
+            "count": 9
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "minecraft:bone"
+            ]
+        },
+        "output": {
+            "id": "minecraft:bone_meal",
+            "count": 3
+        }
+    }
+]

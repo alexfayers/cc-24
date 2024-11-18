@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:prismarine_shard"
+            ],
+            "2": [
+                "minecraft:prismarine_shard"
+            ],
+            "5": [
+                "minecraft:prismarine_shard"
+            ],
+            "6": [
+                "minecraft:prismarine_shard"
+            ]
+        },
+        "output": {
+            "id": "minecraft:prismarine",
+            "count": 1
+        }
+    }
+]

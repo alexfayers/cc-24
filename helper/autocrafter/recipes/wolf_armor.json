@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:armadillo_scute"
+            ],
+            "5": [
+                "minecraft:armadillo_scute"
+            ],
+            "6": [
+                "minecraft:armadillo_scute"
+            ],
+            "7": [
+                "minecraft:armadillo_scute"
+            ],
+            "9": [
+                "minecraft:armadillo_scute"
+            ],
+            "11": [
+                "minecraft:armadillo_scute"
+            ]
+        },
+        "output": {
+            "id": "minecraft:wolf_armor",
+            "count": 1
+        }
+    }
+]

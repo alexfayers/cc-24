@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:diamond_block"
+            ]
+        },
+        "output": {
+            "id": "minecraft:diamond",
+            "count": 9
+        }
+    }
+]

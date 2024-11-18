@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:stick"
+            ],
+            "10": [
+                "minecraft:stick"
+            ],
+            "1": [
+                "#minecraft:planks"
+            ],
+            "2": [
+                "#minecraft:planks"
+            ],
+            "5": [
+                "#minecraft:planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:wooden_axe",
+            "count": 1
+        }
+    }
+]

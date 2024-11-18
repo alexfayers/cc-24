@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:polished_blackstone_bricks"
+            ],
+            "2": [
+                "minecraft:polished_blackstone_bricks"
+            ],
+            "3": [
+                "minecraft:polished_blackstone_bricks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:polished_blackstone_brick_slab",
+            "count": 6
+        }
+    }
+]

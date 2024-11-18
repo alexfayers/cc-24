@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:iron_ingot"
+            ],
+            "2": [
+                "minecraft:iron_ingot"
+            ],
+            "5": [
+                "minecraft:iron_ingot"
+            ],
+            "6": [
+                "minecraft:iron_ingot"
+            ],
+            "9": [
+                "minecraft:iron_ingot"
+            ],
+            "10": [
+                "minecraft:iron_ingot"
+            ]
+        },
+        "output": {
+            "id": "minecraft:iron_door",
+            "count": 3
+        }
+    }
+]

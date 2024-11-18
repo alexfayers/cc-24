@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:netherite_ingot"
+            ],
+            "1": [
+                "minecraft:chiseled_stone_bricks"
+            ],
+            "2": [
+                "minecraft:chiseled_stone_bricks"
+            ],
+            "3": [
+                "minecraft:chiseled_stone_bricks"
+            ],
+            "5": [
+                "minecraft:chiseled_stone_bricks"
+            ],
+            "7": [
+                "minecraft:chiseled_stone_bricks"
+            ],
+            "9": [
+                "minecraft:chiseled_stone_bricks"
+            ],
+            "10": [
+                "minecraft:chiseled_stone_bricks"
+            ],
+            "11": [
+                "minecraft:chiseled_stone_bricks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:lodestone",
+            "count": 1
+        }
+    }
+]

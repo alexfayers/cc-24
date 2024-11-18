@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:brick"
+            ],
+            "5": [
+                "minecraft:brick"
+            ],
+            "7": [
+                "minecraft:brick"
+            ],
+            "10": [
+                "minecraft:brick"
+            ]
+        },
+        "output": {
+            "id": "minecraft:decorated_pot",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:jungle_planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:jungle_button",
+            "count": 1
+        }
+    }
+]

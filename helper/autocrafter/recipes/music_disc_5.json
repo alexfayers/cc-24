@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:disc_fragment_5"
+            ],
+            "2": [
+                "minecraft:disc_fragment_5"
+            ],
+            "3": [
+                "minecraft:disc_fragment_5"
+            ],
+            "4": [
+                "minecraft:disc_fragment_5"
+            ],
+            "5": [
+                "minecraft:disc_fragment_5"
+            ],
+            "6": [
+                "minecraft:disc_fragment_5"
+            ],
+            "7": [
+                "minecraft:disc_fragment_5"
+            ],
+            "8": [
+                "minecraft:disc_fragment_5"
+            ],
+            "9": [
+                "minecraft:disc_fragment_5"
+            ]
+        },
+        "output": {
+            "id": "minecraft:music_disc_5",
+            "count": 1
+        }
+    }
+]

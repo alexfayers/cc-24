@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:cut_sandstone"
+            ],
+            "2": [
+                "minecraft:cut_sandstone"
+            ],
+            "3": [
+                "minecraft:cut_sandstone"
+            ]
+        },
+        "output": {
+            "id": "minecraft:cut_sandstone_slab",
+            "count": 6
+        }
+    }
+]

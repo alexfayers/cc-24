@@ -1,0 +1,49 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:red_dye"
+            ],
+            "2": [
+                "minecraft:white_dye"
+            ]
+        },
+        "output": {
+            "id": "minecraft:pink_dye",
+            "count": 2
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "minecraft:pink_tulip"
+            ]
+        },
+        "output": {
+            "id": "minecraft:pink_dye",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "minecraft:peony"
+            ]
+        },
+        "output": {
+            "id": "minecraft:pink_dye",
+            "count": 2
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "minecraft:pink_petals"
+            ]
+        },
+        "output": {
+            "id": "minecraft:pink_dye",
+            "count": 1
+        }
+    }
+]

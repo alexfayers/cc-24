@@ -1,0 +1,20 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:gunpowder"
+            ],
+            "2": [
+                "minecraft:blaze_powder"
+            ],
+            "3": [
+                "minecraft:coal",
+                "minecraft:charcoal"
+            ]
+        },
+        "output": {
+            "id": "minecraft:fire_charge",
+            "count": 3
+        }
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:cobbled_deepslate_slab"
+            ],
+            "5": [
+                "minecraft:cobbled_deepslate_slab"
+            ]
+        },
+        "output": {
+            "id": "minecraft:chiseled_deepslate",
+            "count": 1
+        }
+    }
+]

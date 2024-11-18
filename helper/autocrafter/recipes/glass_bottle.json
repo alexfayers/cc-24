@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:glass"
+            ],
+            "3": [
+                "minecraft:glass"
+            ],
+            "6": [
+                "minecraft:glass"
+            ]
+        },
+        "output": {
+            "id": "minecraft:glass_bottle",
+            "count": 3
+        }
+    }
+]

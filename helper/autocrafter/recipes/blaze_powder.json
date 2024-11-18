@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:blaze_rod"
+            ]
+        },
+        "output": {
+            "id": "minecraft:blaze_powder",
+            "count": 2
+        }
+    }
+]

@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:smooth_sandstone"
+            ],
+            "2": [
+                "minecraft:smooth_sandstone"
+            ],
+            "3": [
+                "minecraft:smooth_sandstone"
+            ]
+        },
+        "output": {
+            "id": "minecraft:smooth_sandstone_slab",
+            "count": 6
+        }
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:orange_dye"
+            ],
+            "2": [
+                "minecraft:sand"
+            ],
+            "3": [
+                "minecraft:sand"
+            ],
+            "4": [
+                "minecraft:sand"
+            ],
+            "5": [
+                "minecraft:sand"
+            ],
+            "6": [
+                "minecraft:gravel"
+            ],
+            "7": [
+                "minecraft:gravel"
+            ],
+            "8": [
+                "minecraft:gravel"
+            ],
+            "9": [
+                "minecraft:gravel"
+            ]
+        },
+        "output": {
+            "id": "minecraft:orange_concrete_powder",
+            "count": 8
+        }
+    }
+]

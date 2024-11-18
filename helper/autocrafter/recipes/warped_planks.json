@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "#minecraft:warped_stems"
+            ]
+        },
+        "output": {
+            "id": "minecraft:warped_planks",
+            "count": 4
+        }
+    }
+]

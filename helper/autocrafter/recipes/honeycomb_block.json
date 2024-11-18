@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:honeycomb"
+            ],
+            "2": [
+                "minecraft:honeycomb"
+            ],
+            "5": [
+                "minecraft:honeycomb"
+            ],
+            "6": [
+                "minecraft:honeycomb"
+            ]
+        },
+        "output": {
+            "id": "minecraft:honeycomb_block",
+            "count": 1
+        }
+    }
+]

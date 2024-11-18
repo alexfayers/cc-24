@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:mangrove_planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:mangrove_button",
+            "count": 1
+        }
+    }
+]

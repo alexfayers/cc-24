@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:stick"
+            ],
+            "5": [
+                "minecraft:stick"
+            ],
+            "10": [
+                "minecraft:stick"
+            ],
+            "3": [
+                "minecraft:string"
+            ],
+            "7": [
+                "minecraft:string"
+            ],
+            "11": [
+                "minecraft:string"
+            ]
+        },
+        "output": {
+            "id": "minecraft:bow",
+            "count": 1
+        }
+    }
+]

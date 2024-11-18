@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "5": [
+                "minecraft:honeycomb"
+            ],
+            "1": [
+                "minecraft:string"
+            ]
+        },
+        "output": {
+            "id": "minecraft:candle",
+            "count": 1
+        }
+    }
+]

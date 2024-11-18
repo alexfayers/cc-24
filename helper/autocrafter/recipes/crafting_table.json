@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "#minecraft:planks"
+            ],
+            "2": [
+                "#minecraft:planks"
+            ],
+            "5": [
+                "#minecraft:planks"
+            ],
+            "6": [
+                "#minecraft:planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:crafting_table",
+            "count": 1
+        }
+    }
+]

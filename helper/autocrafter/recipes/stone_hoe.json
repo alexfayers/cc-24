@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:stick"
+            ],
+            "10": [
+                "minecraft:stick"
+            ],
+            "1": [
+                "#minecraft:stone_tool_materials"
+            ],
+            "2": [
+                "#minecraft:stone_tool_materials"
+            ]
+        },
+        "output": {
+            "id": "minecraft:stone_hoe",
+            "count": 1
+        }
+    }
+]

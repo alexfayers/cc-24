@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:mossy_cobblestone"
+            ],
+            "2": [
+                "minecraft:mossy_cobblestone"
+            ],
+            "3": [
+                "minecraft:mossy_cobblestone"
+            ],
+            "5": [
+                "minecraft:mossy_cobblestone"
+            ],
+            "6": [
+                "minecraft:mossy_cobblestone"
+            ],
+            "7": [
+                "minecraft:mossy_cobblestone"
+            ]
+        },
+        "output": {
+            "id": "minecraft:mossy_cobblestone_wall",
+            "count": 6
+        }
+    }
+]

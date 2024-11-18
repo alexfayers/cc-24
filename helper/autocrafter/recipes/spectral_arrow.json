@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:glowstone_dust"
+            ],
+            "5": [
+                "minecraft:glowstone_dust"
+            ],
+            "7": [
+                "minecraft:glowstone_dust"
+            ],
+            "10": [
+                "minecraft:glowstone_dust"
+            ],
+            "6": [
+                "minecraft:arrow"
+            ]
+        },
+        "output": {
+            "id": "minecraft:spectral_arrow",
+            "count": 2
+        }
+    }
+]

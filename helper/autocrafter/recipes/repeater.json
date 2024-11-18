@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:redstone_torch"
+            ],
+            "3": [
+                "minecraft:redstone_torch"
+            ],
+            "5": [
+                "minecraft:stone"
+            ],
+            "6": [
+                "minecraft:stone"
+            ],
+            "7": [
+                "minecraft:stone"
+            ],
+            "2": [
+                "minecraft:redstone"
+            ]
+        },
+        "output": {
+            "id": "minecraft:repeater",
+            "count": 1
+        }
+    }
+]

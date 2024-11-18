@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:diorite"
+            ],
+            "2": [
+                "minecraft:diorite"
+            ],
+            "5": [
+                "minecraft:diorite"
+            ],
+            "6": [
+                "minecraft:diorite"
+            ]
+        },
+        "output": {
+            "id": "minecraft:polished_diorite",
+            "count": 4
+        }
+    }
+]

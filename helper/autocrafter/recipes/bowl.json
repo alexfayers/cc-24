@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "#minecraft:planks"
+            ],
+            "3": [
+                "#minecraft:planks"
+            ],
+            "6": [
+                "#minecraft:planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:bowl",
+            "count": 4
+        }
+    }
+]

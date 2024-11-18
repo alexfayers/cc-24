@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:stick"
+            ],
+            "10": [
+                "minecraft:stick"
+            ],
+            "1": [
+                "minecraft:iron_ingot"
+            ],
+            "2": [
+                "minecraft:iron_ingot"
+            ]
+        },
+        "output": {
+            "id": "minecraft:iron_hoe",
+            "count": 1
+        }
+    }
+]

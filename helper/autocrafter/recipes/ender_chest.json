@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:obsidian"
+            ],
+            "2": [
+                "minecraft:obsidian"
+            ],
+            "3": [
+                "minecraft:obsidian"
+            ],
+            "5": [
+                "minecraft:obsidian"
+            ],
+            "7": [
+                "minecraft:obsidian"
+            ],
+            "9": [
+                "minecraft:obsidian"
+            ],
+            "10": [
+                "minecraft:obsidian"
+            ],
+            "11": [
+                "minecraft:obsidian"
+            ],
+            "6": [
+                "minecraft:ender_eye"
+            ]
+        },
+        "output": {
+            "id": "minecraft:ender_chest",
+            "count": 1
+        }
+    }
+]

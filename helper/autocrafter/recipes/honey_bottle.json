@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:honey_block"
+            ],
+            "2": [
+                "minecraft:glass_bottle"
+            ],
+            "3": [
+                "minecraft:glass_bottle"
+            ],
+            "4": [
+                "minecraft:glass_bottle"
+            ],
+            "5": [
+                "minecraft:glass_bottle"
+            ]
+        },
+        "output": {
+            "id": "minecraft:honey_bottle",
+            "count": 4
+        }
+    }
+]

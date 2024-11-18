@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:nether_bricks"
+            ],
+            "5": [
+                "minecraft:nether_bricks"
+            ],
+            "6": [
+                "minecraft:nether_bricks"
+            ],
+            "9": [
+                "minecraft:nether_bricks"
+            ],
+            "10": [
+                "minecraft:nether_bricks"
+            ],
+            "11": [
+                "minecraft:nether_bricks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:nether_brick_stairs",
+            "count": 4
+        }
+    }
+]

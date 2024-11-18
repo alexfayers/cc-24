@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:acacia_planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:acacia_button",
+            "count": 1
+        }
+    }
+]

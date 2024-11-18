@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:raw_iron_block"
+            ]
+        },
+        "output": {
+            "id": "minecraft:raw_iron",
+            "count": 9
+        }
+    }
+]

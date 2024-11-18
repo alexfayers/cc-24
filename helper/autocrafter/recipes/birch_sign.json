@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:birch_planks"
+            ],
+            "2": [
+                "minecraft:birch_planks"
+            ],
+            "3": [
+                "minecraft:birch_planks"
+            ],
+            "5": [
+                "minecraft:birch_planks"
+            ],
+            "6": [
+                "minecraft:birch_planks"
+            ],
+            "7": [
+                "minecraft:birch_planks"
+            ],
+            "10": [
+                "minecraft:stick"
+            ]
+        },
+        "output": {
+            "id": "minecraft:birch_sign",
+            "count": 3
+        }
+    }
+]

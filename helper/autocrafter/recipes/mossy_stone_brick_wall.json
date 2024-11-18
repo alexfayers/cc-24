@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:mossy_stone_bricks"
+            ],
+            "2": [
+                "minecraft:mossy_stone_bricks"
+            ],
+            "3": [
+                "minecraft:mossy_stone_bricks"
+            ],
+            "5": [
+                "minecraft:mossy_stone_bricks"
+            ],
+            "6": [
+                "minecraft:mossy_stone_bricks"
+            ],
+            "7": [
+                "minecraft:mossy_stone_bricks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:mossy_stone_brick_wall",
+            "count": 6
+        }
+    }
+]

@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:cobbled_deepslate"
+            ],
+            "5": [
+                "minecraft:cobbled_deepslate"
+            ],
+            "6": [
+                "minecraft:cobbled_deepslate"
+            ],
+            "9": [
+                "minecraft:cobbled_deepslate"
+            ],
+            "10": [
+                "minecraft:cobbled_deepslate"
+            ],
+            "11": [
+                "minecraft:cobbled_deepslate"
+            ]
+        },
+        "output": {
+            "id": "minecraft:cobbled_deepslate_stairs",
+            "count": 4
+        }
+    }
+]

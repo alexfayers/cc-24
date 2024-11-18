@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:black_dye"
+            ],
+            "2": [
+                "minecraft:white_dye"
+            ]
+        },
+        "output": {
+            "id": "minecraft:gray_dye",
+            "count": 2
+        }
+    }
+]

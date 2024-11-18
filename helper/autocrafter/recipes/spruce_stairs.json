@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:spruce_planks"
+            ],
+            "5": [
+                "minecraft:spruce_planks"
+            ],
+            "6": [
+                "minecraft:spruce_planks"
+            ],
+            "9": [
+                "minecraft:spruce_planks"
+            ],
+            "10": [
+                "minecraft:spruce_planks"
+            ],
+            "11": [
+                "minecraft:spruce_planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:spruce_stairs",
+            "count": 4
+        }
+    }
+]

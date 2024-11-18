@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:milk_bucket"
+            ],
+            "2": [
+                "minecraft:milk_bucket"
+            ],
+            "3": [
+                "minecraft:milk_bucket"
+            ],
+            "5": [
+                "minecraft:sugar"
+            ],
+            "7": [
+                "minecraft:sugar"
+            ],
+            "9": [
+                "minecraft:wheat"
+            ],
+            "10": [
+                "minecraft:wheat"
+            ],
+            "11": [
+                "minecraft:wheat"
+            ],
+            "6": [
+                "minecraft:egg"
+            ]
+        },
+        "output": {
+            "id": "minecraft:cake",
+            "count": 1
+        }
+    }
+]

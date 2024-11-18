@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:paper"
+            ],
+            "2": [
+                "minecraft:paper"
+            ],
+            "3": [
+                "minecraft:paper"
+            ],
+            "4": [
+                "minecraft:leather"
+            ]
+        },
+        "output": {
+            "id": "minecraft:book",
+            "count": 1
+        }
+    }
+]

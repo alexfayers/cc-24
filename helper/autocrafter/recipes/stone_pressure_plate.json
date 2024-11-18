@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:stone"
+            ],
+            "2": [
+                "minecraft:stone"
+            ]
+        },
+        "output": {
+            "id": "minecraft:stone_pressure_plate",
+            "count": 1
+        }
+    }
+]

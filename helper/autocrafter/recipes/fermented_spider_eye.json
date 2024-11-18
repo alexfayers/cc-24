@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:spider_eye"
+            ],
+            "2": [
+                "minecraft:brown_mushroom"
+            ],
+            "3": [
+                "minecraft:sugar"
+            ]
+        },
+        "output": {
+            "id": "minecraft:fermented_spider_eye",
+            "count": 1
+        }
+    }
+]

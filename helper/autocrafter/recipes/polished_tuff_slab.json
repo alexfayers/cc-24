@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:polished_tuff"
+            ],
+            "2": [
+                "minecraft:polished_tuff"
+            ],
+            "3": [
+                "minecraft:polished_tuff"
+            ]
+        },
+        "output": {
+            "id": "minecraft:polished_tuff_slab",
+            "count": 6
+        }
+    }
+]

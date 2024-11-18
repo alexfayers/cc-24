@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:blue_wool"
+            ],
+            "2": [
+                "minecraft:blue_wool"
+            ],
+            "3": [
+                "minecraft:blue_wool"
+            ],
+            "5": [
+                "minecraft:blue_wool"
+            ],
+            "6": [
+                "minecraft:blue_wool"
+            ],
+            "7": [
+                "minecraft:blue_wool"
+            ],
+            "10": [
+                "minecraft:stick"
+            ]
+        },
+        "output": {
+            "id": "minecraft:blue_banner",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:smooth_red_sandstone"
+            ],
+            "5": [
+                "minecraft:smooth_red_sandstone"
+            ],
+            "6": [
+                "minecraft:smooth_red_sandstone"
+            ],
+            "9": [
+                "minecraft:smooth_red_sandstone"
+            ],
+            "10": [
+                "minecraft:smooth_red_sandstone"
+            ],
+            "11": [
+                "minecraft:smooth_red_sandstone"
+            ]
+        },
+        "output": {
+            "id": "minecraft:smooth_red_sandstone_stairs",
+            "count": 4
+        }
+    }
+]

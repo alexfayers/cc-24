@@ -1,0 +1,24 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:waxed_copper_block"
+            ]
+        },
+        "output": {
+            "id": "minecraft:copper_ingot",
+            "count": 9
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "minecraft:copper_block"
+            ]
+        },
+        "output": {
+            "id": "minecraft:copper_ingot",
+            "count": 9
+        }
+    }
+]

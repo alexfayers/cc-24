@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:tuff_brick_slab"
+            ],
+            "5": [
+                "minecraft:tuff_brick_slab"
+            ]
+        },
+        "output": {
+            "id": "minecraft:chiseled_tuff_bricks",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:basalt"
+            ],
+            "2": [
+                "minecraft:basalt"
+            ],
+            "5": [
+                "minecraft:basalt"
+            ],
+            "6": [
+                "minecraft:basalt"
+            ]
+        },
+        "output": {
+            "id": "minecraft:polished_basalt",
+            "count": 4
+        }
+    }
+]

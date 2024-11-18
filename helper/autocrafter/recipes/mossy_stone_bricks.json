@@ -1,0 +1,30 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:stone_bricks"
+            ],
+            "2": [
+                "minecraft:vine"
+            ]
+        },
+        "output": {
+            "id": "minecraft:mossy_stone_bricks",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "minecraft:stone_bricks"
+            ],
+            "2": [
+                "minecraft:moss_block"
+            ]
+        },
+        "output": {
+            "id": "minecraft:mossy_stone_bricks",
+            "count": 1
+        }
+    }
+]

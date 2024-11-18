@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "9": [
+                "minecraft:stick"
+            ],
+            "1": [
+                "#minecraft:planks"
+            ],
+            "5": [
+                "#minecraft:planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:wooden_sword",
+            "count": 1
+        }
+    }
+]

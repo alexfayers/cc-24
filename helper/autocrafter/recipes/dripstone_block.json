@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:pointed_dripstone"
+            ],
+            "2": [
+                "minecraft:pointed_dripstone"
+            ],
+            "5": [
+                "minecraft:pointed_dripstone"
+            ],
+            "6": [
+                "minecraft:pointed_dripstone"
+            ]
+        },
+        "output": {
+            "id": "minecraft:dripstone_block",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:emerald"
+            ],
+            "2": [
+                "minecraft:emerald"
+            ],
+            "3": [
+                "minecraft:emerald"
+            ],
+            "5": [
+                "minecraft:emerald"
+            ],
+            "6": [
+                "minecraft:emerald"
+            ],
+            "7": [
+                "minecraft:emerald"
+            ],
+            "9": [
+                "minecraft:emerald"
+            ],
+            "10": [
+                "minecraft:emerald"
+            ],
+            "11": [
+                "minecraft:emerald"
+            ]
+        },
+        "output": {
+            "id": "minecraft:emerald_block",
+            "count": 1
+        }
+    }
+]

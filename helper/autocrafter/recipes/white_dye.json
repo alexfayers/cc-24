@@ -1,0 +1,24 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:lily_of_the_valley"
+            ]
+        },
+        "output": {
+            "id": "minecraft:white_dye",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "minecraft:bone_meal"
+            ]
+        },
+        "output": {
+            "id": "minecraft:white_dye",
+            "count": 1
+        }
+    }
+]

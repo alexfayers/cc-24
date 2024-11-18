@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:stripped_warped_stem"
+            ],
+            "2": [
+                "minecraft:stripped_warped_stem"
+            ],
+            "5": [
+                "minecraft:stripped_warped_stem"
+            ],
+            "6": [
+                "minecraft:stripped_warped_stem"
+            ]
+        },
+        "output": {
+            "id": "minecraft:stripped_warped_hyphae",
+            "count": 3
+        }
+    }
+]

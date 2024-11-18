@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:cobblestone"
+            ],
+            "5": [
+                "minecraft:cobblestone"
+            ],
+            "6": [
+                "minecraft:cobblestone"
+            ],
+            "9": [
+                "minecraft:cobblestone"
+            ],
+            "10": [
+                "minecraft:cobblestone"
+            ],
+            "11": [
+                "minecraft:cobblestone"
+            ]
+        },
+        "output": {
+            "id": "minecraft:cobblestone_stairs",
+            "count": 4
+        }
+    }
+]

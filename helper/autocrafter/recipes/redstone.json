@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:redstone_block"
+            ]
+        },
+        "output": {
+            "id": "minecraft:redstone",
+            "count": 9
+        }
+    }
+]

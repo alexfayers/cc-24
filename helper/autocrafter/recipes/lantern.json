@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:torch"
+            ],
+            "1": [
+                "minecraft:iron_nugget"
+            ],
+            "2": [
+                "minecraft:iron_nugget"
+            ],
+            "3": [
+                "minecraft:iron_nugget"
+            ],
+            "5": [
+                "minecraft:iron_nugget"
+            ],
+            "7": [
+                "minecraft:iron_nugget"
+            ],
+            "9": [
+                "minecraft:iron_nugget"
+            ],
+            "10": [
+                "minecraft:iron_nugget"
+            ],
+            "11": [
+                "minecraft:iron_nugget"
+            ]
+        },
+        "output": {
+            "id": "minecraft:lantern",
+            "count": 1
+        }
+    }
+]

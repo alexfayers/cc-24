@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:polished_blackstone"
+            ]
+        },
+        "output": {
+            "id": "minecraft:polished_blackstone_button",
+            "count": 1
+        }
+    }
+]

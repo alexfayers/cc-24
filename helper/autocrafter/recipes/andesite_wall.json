@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:andesite"
+            ],
+            "2": [
+                "minecraft:andesite"
+            ],
+            "3": [
+                "minecraft:andesite"
+            ],
+            "5": [
+                "minecraft:andesite"
+            ],
+            "6": [
+                "minecraft:andesite"
+            ],
+            "7": [
+                "minecraft:andesite"
+            ]
+        },
+        "output": {
+            "id": "minecraft:andesite_wall",
+            "count": 6
+        }
+    }
+]

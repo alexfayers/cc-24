@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:quartz_block"
+            ],
+            "2": [
+                "minecraft:quartz_block"
+            ],
+            "5": [
+                "minecraft:quartz_block"
+            ],
+            "6": [
+                "minecraft:quartz_block"
+            ]
+        },
+        "output": {
+            "id": "minecraft:quartz_bricks",
+            "count": 4
+        }
+    }
+]

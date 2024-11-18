@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "5": [
+                "minecraft:stone"
+            ],
+            "6": [
+                "minecraft:stone"
+            ],
+            "7": [
+                "minecraft:stone"
+            ],
+            "2": [
+                "minecraft:iron_ingot"
+            ]
+        },
+        "output": {
+            "id": "minecraft:stonecutter",
+            "count": 1
+        }
+    }
+]

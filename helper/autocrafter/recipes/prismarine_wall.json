@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:prismarine"
+            ],
+            "2": [
+                "minecraft:prismarine"
+            ],
+            "3": [
+                "minecraft:prismarine"
+            ],
+            "5": [
+                "minecraft:prismarine"
+            ],
+            "6": [
+                "minecraft:prismarine"
+            ],
+            "7": [
+                "minecraft:prismarine"
+            ]
+        },
+        "output": {
+            "id": "minecraft:prismarine_wall",
+            "count": 6
+        }
+    }
+]

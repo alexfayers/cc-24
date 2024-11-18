@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:stone"
+            ]
+        },
+        "output": {
+            "id": "minecraft:stone_button",
+            "count": 1
+        }
+    }
+]

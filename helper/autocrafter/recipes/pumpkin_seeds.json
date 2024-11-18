@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:pumpkin"
+            ]
+        },
+        "output": {
+            "id": "minecraft:pumpkin_seeds",
+            "count": 4
+        }
+    }
+]

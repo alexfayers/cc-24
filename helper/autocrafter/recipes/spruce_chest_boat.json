@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:chest"
+            ],
+            "2": [
+                "minecraft:spruce_boat"
+            ]
+        },
+        "output": {
+            "id": "minecraft:spruce_chest_boat",
+            "count": 1
+        }
+    }
+]

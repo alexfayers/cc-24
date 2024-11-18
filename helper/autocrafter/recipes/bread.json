@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:wheat"
+            ],
+            "2": [
+                "minecraft:wheat"
+            ],
+            "3": [
+                "minecraft:wheat"
+            ]
+        },
+        "output": {
+            "id": "minecraft:bread",
+            "count": 1
+        }
+    }
+]

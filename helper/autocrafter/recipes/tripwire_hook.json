@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "9": [
+                "#minecraft:planks"
+            ],
+            "1": [
+                "minecraft:iron_ingot"
+            ],
+            "5": [
+                "minecraft:stick"
+            ]
+        },
+        "output": {
+            "id": "minecraft:tripwire_hook",
+            "count": 2
+        }
+    }
+]

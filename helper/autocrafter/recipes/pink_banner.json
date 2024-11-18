@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:pink_wool"
+            ],
+            "2": [
+                "minecraft:pink_wool"
+            ],
+            "3": [
+                "minecraft:pink_wool"
+            ],
+            "5": [
+                "minecraft:pink_wool"
+            ],
+            "6": [
+                "minecraft:pink_wool"
+            ],
+            "7": [
+                "minecraft:pink_wool"
+            ],
+            "10": [
+                "minecraft:stick"
+            ]
+        },
+        "output": {
+            "id": "minecraft:pink_banner",
+            "count": 1
+        }
+    }
+]

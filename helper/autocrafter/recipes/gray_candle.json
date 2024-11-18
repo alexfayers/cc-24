@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:candle"
+            ],
+            "2": [
+                "minecraft:gray_dye"
+            ]
+        },
+        "output": {
+            "id": "minecraft:gray_candle",
+            "count": 1
+        }
+    }
+]

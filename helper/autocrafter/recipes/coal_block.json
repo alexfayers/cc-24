@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:coal"
+            ],
+            "2": [
+                "minecraft:coal"
+            ],
+            "3": [
+                "minecraft:coal"
+            ],
+            "5": [
+                "minecraft:coal"
+            ],
+            "6": [
+                "minecraft:coal"
+            ],
+            "7": [
+                "minecraft:coal"
+            ],
+            "9": [
+                "minecraft:coal"
+            ],
+            "10": [
+                "minecraft:coal"
+            ],
+            "11": [
+                "minecraft:coal"
+            ]
+        },
+        "output": {
+            "id": "minecraft:coal_block",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:stripped_birch_log"
+            ],
+            "2": [
+                "minecraft:stripped_birch_log"
+            ],
+            "5": [
+                "minecraft:stripped_birch_log"
+            ],
+            "6": [
+                "minecraft:stripped_birch_log"
+            ]
+        },
+        "output": {
+            "id": "minecraft:stripped_birch_wood",
+            "count": 3
+        }
+    }
+]

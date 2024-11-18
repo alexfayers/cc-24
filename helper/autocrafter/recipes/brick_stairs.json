@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:bricks"
+            ],
+            "5": [
+                "minecraft:bricks"
+            ],
+            "6": [
+                "minecraft:bricks"
+            ],
+            "9": [
+                "minecraft:bricks"
+            ],
+            "10": [
+                "minecraft:bricks"
+            ],
+            "11": [
+                "minecraft:bricks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:brick_stairs",
+            "count": 4
+        }
+    }
+]

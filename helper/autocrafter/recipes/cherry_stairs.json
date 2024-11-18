@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:cherry_planks"
+            ],
+            "5": [
+                "minecraft:cherry_planks"
+            ],
+            "6": [
+                "minecraft:cherry_planks"
+            ],
+            "9": [
+                "minecraft:cherry_planks"
+            ],
+            "10": [
+                "minecraft:cherry_planks"
+            ],
+            "11": [
+                "minecraft:cherry_planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:cherry_stairs",
+            "count": 4
+        }
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:paper"
+            ],
+            "2": [
+                "minecraft:paper"
+            ],
+            "3": [
+                "minecraft:paper"
+            ],
+            "5": [
+                "minecraft:paper"
+            ],
+            "7": [
+                "minecraft:paper"
+            ],
+            "9": [
+                "minecraft:paper"
+            ],
+            "10": [
+                "minecraft:paper"
+            ],
+            "11": [
+                "minecraft:paper"
+            ],
+            "6": [
+                "minecraft:compass"
+            ]
+        },
+        "output": {
+            "id": "minecraft:map",
+            "count": 1
+        }
+    }
+]

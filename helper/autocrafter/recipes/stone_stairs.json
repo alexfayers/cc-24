@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:stone"
+            ],
+            "5": [
+                "minecraft:stone"
+            ],
+            "6": [
+                "minecraft:stone"
+            ],
+            "9": [
+                "minecraft:stone"
+            ],
+            "10": [
+                "minecraft:stone"
+            ],
+            "11": [
+                "minecraft:stone"
+            ]
+        },
+        "output": {
+            "id": "minecraft:stone_stairs",
+            "count": 4
+        }
+    }
+]

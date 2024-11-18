@@ -1,0 +1,24 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:sugar_cane"
+            ]
+        },
+        "output": {
+            "id": "minecraft:sugar",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "minecraft:honey_bottle"
+            ]
+        },
+        "output": {
+            "id": "minecraft:sugar",
+            "count": 3
+        }
+    }
+]

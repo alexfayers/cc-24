@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:tuff"
+            ],
+            "2": [
+                "minecraft:tuff"
+            ],
+            "5": [
+                "minecraft:tuff"
+            ],
+            "6": [
+                "minecraft:tuff"
+            ]
+        },
+        "output": {
+            "id": "minecraft:polished_tuff",
+            "count": 4
+        }
+    }
+]

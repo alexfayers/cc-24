@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:glass"
+            ],
+            "2": [
+                "minecraft:amethyst_shard"
+            ],
+            "5": [
+                "minecraft:amethyst_shard"
+            ],
+            "7": [
+                "minecraft:amethyst_shard"
+            ],
+            "10": [
+                "minecraft:amethyst_shard"
+            ]
+        },
+        "output": {
+            "id": "minecraft:tinted_glass",
+            "count": 2
+        }
+    }
+]

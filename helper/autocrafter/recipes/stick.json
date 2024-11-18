@@ -1,0 +1,30 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:bamboo"
+            ],
+            "5": [
+                "minecraft:bamboo"
+            ]
+        },
+        "output": {
+            "id": "minecraft:stick",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "#minecraft:planks"
+            ],
+            "5": [
+                "#minecraft:planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:stick",
+            "count": 4
+        }
+    }
+]

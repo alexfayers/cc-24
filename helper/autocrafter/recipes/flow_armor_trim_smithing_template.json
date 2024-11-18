@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:diamond"
+            ],
+            "3": [
+                "minecraft:diamond"
+            ],
+            "5": [
+                "minecraft:diamond"
+            ],
+            "7": [
+                "minecraft:diamond"
+            ],
+            "9": [
+                "minecraft:diamond"
+            ],
+            "10": [
+                "minecraft:diamond"
+            ],
+            "11": [
+                "minecraft:diamond"
+            ],
+            "6": [
+                "minecraft:breeze_rod"
+            ],
+            "2": [
+                "minecraft:flow_armor_trim_smithing_template"
+            ]
+        },
+        "output": {
+            "id": "minecraft:flow_armor_trim_smithing_template",
+            "count": 2
+        }
+    }
+]

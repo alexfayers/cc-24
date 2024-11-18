@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "2": [
+                "#minecraft:logs"
+            ],
+            "5": [
+                "#minecraft:logs"
+            ],
+            "7": [
+                "#minecraft:logs"
+            ],
+            "10": [
+                "#minecraft:logs"
+            ],
+            "6": [
+                "minecraft:furnace"
+            ]
+        },
+        "output": {
+            "id": "minecraft:smoker",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,34 @@
+[
+    {
+        "input": {
+            "1": [
+                "#minecraft:planks"
+            ],
+            "3": [
+                "#minecraft:planks"
+            ],
+            "5": [
+                "#minecraft:planks"
+            ],
+            "7": [
+                "#minecraft:planks"
+            ],
+            "9": [
+                "#minecraft:planks"
+            ],
+            "11": [
+                "#minecraft:planks"
+            ],
+            "2": [
+                "#minecraft:wooden_slabs"
+            ],
+            "10": [
+                "#minecraft:wooden_slabs"
+            ]
+        },
+        "output": {
+            "id": "minecraft:barrel",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:diorite"
+            ],
+            "2": [
+                "minecraft:cobblestone"
+            ]
+        },
+        "output": {
+            "id": "minecraft:andesite",
+            "count": 2
+        }
+    }
+]

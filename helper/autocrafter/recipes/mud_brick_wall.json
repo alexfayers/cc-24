@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:mud_bricks"
+            ],
+            "2": [
+                "minecraft:mud_bricks"
+            ],
+            "3": [
+                "minecraft:mud_bricks"
+            ],
+            "5": [
+                "minecraft:mud_bricks"
+            ],
+            "6": [
+                "minecraft:mud_bricks"
+            ],
+            "7": [
+                "minecraft:mud_bricks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:mud_brick_wall",
+            "count": 6
+        }
+    }
+]

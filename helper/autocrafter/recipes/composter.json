@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "1": [
+                "#minecraft:wooden_slabs"
+            ],
+            "3": [
+                "#minecraft:wooden_slabs"
+            ],
+            "5": [
+                "#minecraft:wooden_slabs"
+            ],
+            "7": [
+                "#minecraft:wooden_slabs"
+            ],
+            "9": [
+                "#minecraft:wooden_slabs"
+            ],
+            "10": [
+                "#minecraft:wooden_slabs"
+            ],
+            "11": [
+                "#minecraft:wooden_slabs"
+            ]
+        },
+        "output": {
+            "id": "minecraft:composter",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:mud"
+            ],
+            "2": [
+                "minecraft:mangrove_roots"
+            ]
+        },
+        "output": {
+            "id": "minecraft:muddy_mangrove_roots",
+            "count": 1
+        }
+    }
+]

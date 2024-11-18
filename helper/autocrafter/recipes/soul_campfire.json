@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "6": [
+                "#minecraft:soul_fire_base_blocks"
+            ],
+            "9": [
+                "#minecraft:logs"
+            ],
+            "10": [
+                "#minecraft:logs"
+            ],
+            "11": [
+                "#minecraft:logs"
+            ],
+            "2": [
+                "minecraft:stick"
+            ],
+            "5": [
+                "minecraft:stick"
+            ],
+            "7": [
+                "minecraft:stick"
+            ]
+        },
+        "output": {
+            "id": "minecraft:soul_campfire",
+            "count": 1
+        }
+    }
+]

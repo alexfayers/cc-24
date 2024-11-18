@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "9": [
+                "minecraft:stick"
+            ],
+            "1": [
+                "minecraft:gold_ingot"
+            ],
+            "5": [
+                "minecraft:gold_ingot"
+            ]
+        },
+        "output": {
+            "id": "minecraft:golden_sword",
+            "count": 1
+        }
+    }
+]

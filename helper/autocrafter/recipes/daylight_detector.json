@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:glass"
+            ],
+            "2": [
+                "minecraft:glass"
+            ],
+            "3": [
+                "minecraft:glass"
+            ],
+            "5": [
+                "minecraft:quartz"
+            ],
+            "6": [
+                "minecraft:quartz"
+            ],
+            "7": [
+                "minecraft:quartz"
+            ],
+            "9": [
+                "#minecraft:wooden_slabs"
+            ],
+            "10": [
+                "#minecraft:wooden_slabs"
+            ],
+            "11": [
+                "#minecraft:wooden_slabs"
+            ]
+        },
+        "output": {
+            "id": "minecraft:daylight_detector",
+            "count": 1
+        }
+    }
+]

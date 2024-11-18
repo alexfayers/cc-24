@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:popped_chorus_fruit"
+            ],
+            "2": [
+                "minecraft:popped_chorus_fruit"
+            ],
+            "5": [
+                "minecraft:popped_chorus_fruit"
+            ],
+            "6": [
+                "minecraft:popped_chorus_fruit"
+            ]
+        },
+        "output": {
+            "id": "minecraft:purpur_block",
+            "count": 4
+        }
+    }
+]

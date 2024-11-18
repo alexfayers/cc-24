@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:mangrove_planks"
+            ],
+            "5": [
+                "minecraft:mangrove_planks"
+            ],
+            "6": [
+                "minecraft:mangrove_planks"
+            ],
+            "9": [
+                "minecraft:mangrove_planks"
+            ],
+            "10": [
+                "minecraft:mangrove_planks"
+            ],
+            "11": [
+                "minecraft:mangrove_planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:mangrove_stairs",
+            "count": 4
+        }
+    }
+]

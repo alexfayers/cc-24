@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:dark_oak_planks"
+            ],
+            "2": [
+                "minecraft:dark_oak_planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:dark_oak_pressure_plate",
+            "count": 1
+        }
+    }
+]

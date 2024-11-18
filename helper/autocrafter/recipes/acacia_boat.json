@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:acacia_planks"
+            ],
+            "3": [
+                "minecraft:acacia_planks"
+            ],
+            "5": [
+                "minecraft:acacia_planks"
+            ],
+            "6": [
+                "minecraft:acacia_planks"
+            ],
+            "7": [
+                "minecraft:acacia_planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:acacia_boat",
+            "count": 1
+        }
+    }
+]

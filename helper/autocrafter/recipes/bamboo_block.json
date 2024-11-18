@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:bamboo"
+            ],
+            "2": [
+                "minecraft:bamboo"
+            ],
+            "3": [
+                "minecraft:bamboo"
+            ],
+            "4": [
+                "minecraft:bamboo"
+            ],
+            "5": [
+                "minecraft:bamboo"
+            ],
+            "6": [
+                "minecraft:bamboo"
+            ],
+            "7": [
+                "minecraft:bamboo"
+            ],
+            "8": [
+                "minecraft:bamboo"
+            ],
+            "9": [
+                "minecraft:bamboo"
+            ]
+        },
+        "output": {
+            "id": "minecraft:bamboo_block",
+            "count": 1
+        }
+    }
+]

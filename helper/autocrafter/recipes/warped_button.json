@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:warped_planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:warped_button",
+            "count": 1
+        }
+    }
+]

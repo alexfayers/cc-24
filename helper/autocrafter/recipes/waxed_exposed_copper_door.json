@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:exposed_copper_door"
+            ],
+            "2": [
+                "minecraft:honeycomb"
+            ]
+        },
+        "output": {
+            "id": "minecraft:waxed_exposed_copper_door",
+            "count": 1
+        }
+    }
+]

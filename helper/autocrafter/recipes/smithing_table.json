@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "5": [
+                "#minecraft:planks"
+            ],
+            "6": [
+                "#minecraft:planks"
+            ],
+            "9": [
+                "#minecraft:planks"
+            ],
+            "10": [
+                "#minecraft:planks"
+            ],
+            "1": [
+                "minecraft:iron_ingot"
+            ],
+            "2": [
+                "minecraft:iron_ingot"
+            ]
+        },
+        "output": {
+            "id": "minecraft:smithing_table",
+            "count": 1
+        }
+    }
+]

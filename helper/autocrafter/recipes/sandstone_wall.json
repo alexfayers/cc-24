@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:sandstone"
+            ],
+            "2": [
+                "minecraft:sandstone"
+            ],
+            "3": [
+                "minecraft:sandstone"
+            ],
+            "5": [
+                "minecraft:sandstone"
+            ],
+            "6": [
+                "minecraft:sandstone"
+            ],
+            "7": [
+                "minecraft:sandstone"
+            ]
+        },
+        "output": {
+            "id": "minecraft:sandstone_wall",
+            "count": 6
+        }
+    }
+]

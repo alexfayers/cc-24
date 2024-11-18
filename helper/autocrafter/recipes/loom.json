@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "5": [
+                "#minecraft:planks"
+            ],
+            "6": [
+                "#minecraft:planks"
+            ],
+            "1": [
+                "minecraft:string"
+            ],
+            "2": [
+                "minecraft:string"
+            ]
+        },
+        "output": {
+            "id": "minecraft:loom",
+            "count": 1
+        }
+    }
+]

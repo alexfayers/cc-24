@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:hopper"
+            ],
+            "2": [
+                "minecraft:minecart"
+            ]
+        },
+        "output": {
+            "id": "minecraft:hopper_minecart",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:polished_diorite"
+            ],
+            "2": [
+                "minecraft:polished_diorite"
+            ],
+            "3": [
+                "minecraft:polished_diorite"
+            ]
+        },
+        "output": {
+            "id": "minecraft:polished_diorite_slab",
+            "count": 6
+        }
+    }
+]

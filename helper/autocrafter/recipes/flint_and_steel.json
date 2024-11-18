@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:iron_ingot"
+            ],
+            "2": [
+                "minecraft:flint"
+            ]
+        },
+        "output": {
+            "id": "minecraft:flint_and_steel",
+            "count": 1
+        }
+    }
+]

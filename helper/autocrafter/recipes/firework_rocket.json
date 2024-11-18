@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:gunpowder"
+            ],
+            "2": [
+                "minecraft:paper"
+            ]
+        },
+        "output": {
+            "id": "minecraft:firework_rocket",
+            "count": 3
+        }
+    }
+]

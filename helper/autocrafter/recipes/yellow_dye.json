@@ -1,0 +1,24 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:dandelion"
+            ]
+        },
+        "output": {
+            "id": "minecraft:yellow_dye",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "minecraft:sunflower"
+            ]
+        },
+        "output": {
+            "id": "minecraft:yellow_dye",
+            "count": 2
+        }
+    }
+]

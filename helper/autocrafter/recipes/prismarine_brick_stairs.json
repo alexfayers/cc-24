@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:prismarine_bricks"
+            ],
+            "5": [
+                "minecraft:prismarine_bricks"
+            ],
+            "6": [
+                "minecraft:prismarine_bricks"
+            ],
+            "9": [
+                "minecraft:prismarine_bricks"
+            ],
+            "10": [
+                "minecraft:prismarine_bricks"
+            ],
+            "11": [
+                "minecraft:prismarine_bricks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:prismarine_brick_stairs",
+            "count": 4
+        }
+    }
+]

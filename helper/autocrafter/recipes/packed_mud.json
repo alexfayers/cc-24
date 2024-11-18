@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:mud"
+            ],
+            "2": [
+                "minecraft:wheat"
+            ]
+        },
+        "output": {
+            "id": "minecraft:packed_mud",
+            "count": 1
+        }
+    }
+]

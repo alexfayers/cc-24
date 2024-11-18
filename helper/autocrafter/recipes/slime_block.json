@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:slime_ball"
+            ],
+            "2": [
+                "minecraft:slime_ball"
+            ],
+            "3": [
+                "minecraft:slime_ball"
+            ],
+            "5": [
+                "minecraft:slime_ball"
+            ],
+            "6": [
+                "minecraft:slime_ball"
+            ],
+            "7": [
+                "minecraft:slime_ball"
+            ],
+            "9": [
+                "minecraft:slime_ball"
+            ],
+            "10": [
+                "minecraft:slime_ball"
+            ],
+            "11": [
+                "minecraft:slime_ball"
+            ]
+        },
+        "output": {
+            "id": "minecraft:slime_block",
+            "count": 1
+        }
+    }
+]

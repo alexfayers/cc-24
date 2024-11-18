@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:bamboo"
+            ],
+            "3": [
+                "minecraft:bamboo"
+            ],
+            "5": [
+                "minecraft:bamboo"
+            ],
+            "7": [
+                "minecraft:bamboo"
+            ],
+            "9": [
+                "minecraft:bamboo"
+            ],
+            "11": [
+                "minecraft:bamboo"
+            ],
+            "2": [
+                "minecraft:string"
+            ]
+        },
+        "output": {
+            "id": "minecraft:scaffolding",
+            "count": 6
+        }
+    }
+]

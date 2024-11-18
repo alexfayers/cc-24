@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:weathered_cut_copper"
+            ],
+            "2": [
+                "minecraft:weathered_cut_copper"
+            ],
+            "3": [
+                "minecraft:weathered_cut_copper"
+            ]
+        },
+        "output": {
+            "id": "minecraft:weathered_cut_copper_slab",
+            "count": 6
+        }
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:paper"
+            ],
+            "2": [
+                "minecraft:oxeye_daisy"
+            ]
+        },
+        "output": {
+            "id": "minecraft:flower_banner_pattern",
+            "count": 1
+        }
+    }
+]

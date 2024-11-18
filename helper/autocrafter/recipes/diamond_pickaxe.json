@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:stick"
+            ],
+            "10": [
+                "minecraft:stick"
+            ],
+            "1": [
+                "minecraft:diamond"
+            ],
+            "2": [
+                "minecraft:diamond"
+            ],
+            "3": [
+                "minecraft:diamond"
+            ]
+        },
+        "output": {
+            "id": "minecraft:diamond_pickaxe",
+            "count": 1
+        }
+    }
+]

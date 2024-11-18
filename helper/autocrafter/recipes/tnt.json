@@ -1,0 +1,41 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:sand",
+                "minecraft:red_sand"
+            ],
+            "5": [
+                "minecraft:sand",
+                "minecraft:red_sand"
+            ],
+            "7": [
+                "minecraft:sand",
+                "minecraft:red_sand"
+            ],
+            "10": [
+                "minecraft:sand",
+                "minecraft:red_sand"
+            ],
+            "1": [
+                "minecraft:gunpowder"
+            ],
+            "3": [
+                "minecraft:gunpowder"
+            ],
+            "6": [
+                "minecraft:gunpowder"
+            ],
+            "9": [
+                "minecraft:gunpowder"
+            ],
+            "11": [
+                "minecraft:gunpowder"
+            ]
+        },
+        "output": {
+            "id": "minecraft:tnt",
+            "count": 1
+        }
+    }
+]

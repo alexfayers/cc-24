@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:obsidian"
+            ],
+            "9": [
+                "minecraft:obsidian"
+            ],
+            "10": [
+                "minecraft:obsidian"
+            ],
+            "11": [
+                "minecraft:obsidian"
+            ],
+            "2": [
+                "minecraft:book"
+            ],
+            "5": [
+                "minecraft:diamond"
+            ],
+            "7": [
+                "minecraft:diamond"
+            ]
+        },
+        "output": {
+            "id": "minecraft:enchanting_table",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,36 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:waxed_weathered_copper"
+            ],
+            "5": [
+                "minecraft:waxed_weathered_copper"
+            ],
+            "7": [
+                "minecraft:waxed_weathered_copper"
+            ],
+            "10": [
+                "minecraft:waxed_weathered_copper"
+            ]
+        },
+        "output": {
+            "id": "minecraft:waxed_weathered_copper_grate",
+            "count": 4
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "minecraft:weathered_copper_grate"
+            ],
+            "2": [
+                "minecraft:honeycomb"
+            ]
+        },
+        "output": {
+            "id": "minecraft:waxed_weathered_copper_grate",
+            "count": 1
+        }
+    }
+]

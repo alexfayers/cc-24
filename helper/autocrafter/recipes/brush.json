@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "5": [
+                "minecraft:copper_ingot"
+            ],
+            "9": [
+                "minecraft:stick"
+            ],
+            "1": [
+                "minecraft:feather"
+            ]
+        },
+        "output": {
+            "id": "minecraft:brush",
+            "count": 1
+        }
+    }
+]

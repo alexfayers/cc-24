@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "#minecraft:crimson_stems"
+            ]
+        },
+        "output": {
+            "id": "minecraft:crimson_planks",
+            "count": 4
+        }
+    }
+]

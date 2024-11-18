@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:raw_copper_block"
+            ]
+        },
+        "output": {
+            "id": "minecraft:raw_copper",
+            "count": 9
+        }
+    }
+]

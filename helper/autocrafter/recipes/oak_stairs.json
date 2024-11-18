@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:oak_planks"
+            ],
+            "5": [
+                "minecraft:oak_planks"
+            ],
+            "6": [
+                "minecraft:oak_planks"
+            ],
+            "9": [
+                "minecraft:oak_planks"
+            ],
+            "10": [
+                "minecraft:oak_planks"
+            ],
+            "11": [
+                "minecraft:oak_planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:oak_stairs",
+            "count": 4
+        }
+    }
+]

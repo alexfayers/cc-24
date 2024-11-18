@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:tuff"
+            ],
+            "2": [
+                "minecraft:tuff"
+            ],
+            "3": [
+                "minecraft:tuff"
+            ],
+            "5": [
+                "minecraft:tuff"
+            ],
+            "6": [
+                "minecraft:tuff"
+            ],
+            "7": [
+                "minecraft:tuff"
+            ]
+        },
+        "output": {
+            "id": "minecraft:tuff_wall",
+            "count": 6
+        }
+    }
+]

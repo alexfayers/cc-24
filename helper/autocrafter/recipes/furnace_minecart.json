@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:furnace"
+            ],
+            "2": [
+                "minecraft:minecart"
+            ]
+        },
+        "output": {
+            "id": "minecraft:furnace_minecart",
+            "count": 1
+        }
+    }
+]

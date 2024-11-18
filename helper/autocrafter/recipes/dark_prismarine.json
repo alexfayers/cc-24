@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:black_dye"
+            ],
+            "1": [
+                "minecraft:prismarine_shard"
+            ],
+            "2": [
+                "minecraft:prismarine_shard"
+            ],
+            "3": [
+                "minecraft:prismarine_shard"
+            ],
+            "5": [
+                "minecraft:prismarine_shard"
+            ],
+            "7": [
+                "minecraft:prismarine_shard"
+            ],
+            "9": [
+                "minecraft:prismarine_shard"
+            ],
+            "10": [
+                "minecraft:prismarine_shard"
+            ],
+            "11": [
+                "minecraft:prismarine_shard"
+            ]
+        },
+        "output": {
+            "id": "minecraft:dark_prismarine",
+            "count": 1
+        }
+    }
+]

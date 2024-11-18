@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "#minecraft:jungle_logs"
+            ]
+        },
+        "output": {
+            "id": "minecraft:jungle_planks",
+            "count": 4
+        }
+    }
+]

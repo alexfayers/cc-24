@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:leather"
+            ],
+            "3": [
+                "minecraft:leather"
+            ],
+            "5": [
+                "minecraft:leather"
+            ],
+            "7": [
+                "minecraft:leather"
+            ]
+        },
+        "output": {
+            "id": "minecraft:leather_boots",
+            "count": 1
+        }
+    }
+]

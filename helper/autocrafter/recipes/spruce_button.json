@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:spruce_planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:spruce_button",
+            "count": 1
+        }
+    }
+]

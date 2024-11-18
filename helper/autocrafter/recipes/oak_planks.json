@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "#minecraft:oak_logs"
+            ]
+        },
+        "output": {
+            "id": "minecraft:oak_planks",
+            "count": 4
+        }
+    }
+]

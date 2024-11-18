@@ -1,0 +1,34 @@
+[
+    {
+        "input": {
+            "1": [
+                "#minecraft:stone_crafting_materials"
+            ],
+            "2": [
+                "#minecraft:stone_crafting_materials"
+            ],
+            "3": [
+                "#minecraft:stone_crafting_materials"
+            ],
+            "5": [
+                "#minecraft:stone_crafting_materials"
+            ],
+            "7": [
+                "#minecraft:stone_crafting_materials"
+            ],
+            "9": [
+                "#minecraft:stone_crafting_materials"
+            ],
+            "10": [
+                "#minecraft:stone_crafting_materials"
+            ],
+            "11": [
+                "#minecraft:stone_crafting_materials"
+            ]
+        },
+        "output": {
+            "id": "minecraft:furnace",
+            "count": 1
+        }
+    }
+]

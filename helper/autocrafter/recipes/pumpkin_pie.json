@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:pumpkin"
+            ],
+            "2": [
+                "minecraft:sugar"
+            ],
+            "3": [
+                "minecraft:egg"
+            ]
+        },
+        "output": {
+            "id": "minecraft:pumpkin_pie",
+            "count": 1
+        }
+    }
+]

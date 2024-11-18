@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:blackstone"
+            ],
+            "2": [
+                "minecraft:blackstone"
+            ],
+            "3": [
+                "minecraft:blackstone"
+            ],
+            "5": [
+                "minecraft:blackstone"
+            ],
+            "6": [
+                "minecraft:blackstone"
+            ],
+            "7": [
+                "minecraft:blackstone"
+            ]
+        },
+        "output": {
+            "id": "minecraft:blackstone_wall",
+            "count": 6
+        }
+    }
+]
