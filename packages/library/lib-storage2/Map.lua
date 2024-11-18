@@ -588,7 +588,9 @@ end
 ---@param slots MapSlot[] The slots to order
 ---@return MapSlot[]
 function Map:orderSlotsByFilter(slots)
+    ---@type MapSlot[]
     local filterSlots = {}
+    ---@type MapSlot[]
     local nonFilterSlots = {}
 
     for _, slot in ipairs(slots) do
@@ -607,7 +609,7 @@ function Map:orderSlotsByFilter(slots)
         end
     end
 
-    return tableHelpers.concatTables(filterSlots, nonFilterSlots)
+    return tableHelpers.concat(filterSlots, nonFilterSlots)
 end
 
 

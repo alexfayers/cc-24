@@ -193,6 +193,23 @@ local function copy(t)
 end
 
 
+---Concatenate two lists
+---@generic T: any[]
+---@param list1 T The first list
+---@param list2 T The second list
+---@return T
+local function concat(list1, list2)
+    local newList = {}
+    for _, item in ipairs(list1) do
+        table.insert(newList, item)
+    end
+    for _, item in ipairs(list2) do
+        table.insert(newList, item)
+    end
+    return newList
+end
+
+
 return {
     spairs = spairs,
     filterTable = filterTable,
@@ -205,4 +222,5 @@ return {
     groupBy = groupBy,
     batch = batch,
     copy = copy,
+    concat = concat,
 }
