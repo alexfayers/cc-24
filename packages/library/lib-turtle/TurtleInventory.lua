@@ -444,8 +444,9 @@ end
 ---Pull an item from the network into the turtle inventory
 ---@param itemName string The name of the item to pull
 ---@param amount integer The amount of the item to pull
+---@param toSlot? integer The slot to pull the item into (default first empty slot)
 ---@return boolean, number? _ Whether the item was pulled and how many were pulled
-function TurtleInventory:pullItems(itemName, amount)
+function TurtleInventory:pullItems(itemName, amount, toSlot)
     if not self:attachStorageClient() then
         return false
     end
@@ -456,14 +457,14 @@ function TurtleInventory:pullItems(itemName, amount)
         return false
     end
 
-    local pullRes, pullData = self.storageClient:pull(localName, itemName, amount)
+    local pullRes, pullData = self.storageClient:pull(localName, itemName, amount, toSlot)
 
     if pullRes and pullData and pullData.count > 0 then
-        self.logger:info("Pulled %d %s", pullData.count, itemName)
+        -- self.logger:info("Pulled %d %s", pullData.count, itemName)
         self:updateSlots()
         return true, pullData.count
     else
-        self.logger:warn("Failed to pull %s", itemName)
+        -- self.logger:warn("Failed to pull %s", itemName)
         return false
     end
 end
