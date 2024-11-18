@@ -616,7 +616,9 @@ end
 
 ---Push all items from an input chest to the storage chests, updating the map as needed
 ---@param inputChest ccTweaked.peripherals.Inventory The chest to push items from
-function Map:push(inputChest)
+---@param fromSlots number[] The slots to push items from (default all slots)
+---@return boolean _ Whether the push was successful
+function Map:push(inputChest, fromSlots)
     local totalPushedCount = 0
     local totalExpectedPushedCount = 0
 
@@ -625,7 +627,7 @@ function Map:push(inputChest)
     local inputChestList = helpers.chestListRetry(inputChest)
 
     if not inputChestList then
-        return
+        return false
     end
 
     ---@type function[]
@@ -694,6 +696,10 @@ function Map:push(inputChest)
                 goto continue
             end
 
+            if fromSlots and not tableHelpers.valuesContain(fromSlots, inputSlot) then
+                goto continue
+            end
+
             local quantity = helpers.chestPullItemsRetry(
                 targetChest,
                 inputChestName,
@@ -753,8 +759,10 @@ function Map:push(inputChest)
 
     if totalPushedCount < totalExpectedPushedCount then
         logger:error("Only pushed %d/%d items", totalPushedCount, totalExpectedPushedCount)
+        return false
     else
         logger:info("Pushed %d/%d items", totalPushedCount, totalExpectedPushedCount)
+        return true
     end
 end
 
