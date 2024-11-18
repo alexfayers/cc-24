@@ -477,7 +477,7 @@ function Map:populate(force)
     self:clear()
 
     
-    for _, chestBatch in pairs(tableHelpers.batch(self.chests, 20)) do
+    for _, chestBatch in pairs(tableHelpers.batch(self.chests, 10)) do
 
         ---@type function[]
         local chestTasks = {}
