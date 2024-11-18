@@ -117,14 +117,14 @@ end
 ---Enrich a slot by using the item details function (meant to be called as a parallel task because it's slow)
 ---@return nil
 function MapSlot:enrich()
-    local itemDetail = helpers.chestGetItemDetailRetry(self.chest, self.slot)
-
-    if not itemDetail then
+    if self.displayName ~= nil then
+        -- we've already enriched this slot
         return
     end
 
-    if self.displayName ~= nil then
-        -- we've already enriched this slot
+    local itemDetail = helpers.chestGetItemDetailRetry(self.chest, self.slot)
+
+    if not itemDetail then
         return
     end
 
