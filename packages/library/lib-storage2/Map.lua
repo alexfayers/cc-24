@@ -498,7 +498,7 @@ function Map:populate(force)
                     goto continue
                 end
 
-                self:addSlot(MapSlot(
+                local newSlot = MapSlot(
                     item.name,
                     chest,
                     slotNumber,
@@ -507,7 +507,13 @@ function Map:populate(force)
                     nil,
                     nil,
                     nil
-                ))
+                )
+
+                table.insert(slotEnrichmentTasks, function()
+                    newSlot:enrich()
+                end)
+
+                self:addSlot(newSlot)
 
                 ::continue::
             end
