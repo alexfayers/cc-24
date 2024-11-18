@@ -131,6 +131,8 @@ function MapSlot:enrich()
     self.maxCount = itemDetail.maxCount
     self.displayName = itemDetail.displayName
     self.tags = self.ensureUniqueTags(itemDetail.tags)
+
+    self:updateIsFull()
 end
 
 ---Serialize the slot
