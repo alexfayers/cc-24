@@ -75,6 +75,10 @@
                     [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/helpers.lua",
                         "/usr/lib/lib-storage2/helpers.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/ChestFilter.lua",
+                        "/usr/lib/lib-storage2/ChestFilter.lua"
                     ]
                 ],
                 "dependencies": [
