@@ -476,58 +476,51 @@ function Map:populate(force)
     logger:warn("Populating storage map")
     self:clear()
 
-    
-    for _, chestBatch in pairs(tableHelpers.batch(self.chests, 10)) do
+    ---@type function[]
+    local slotEnrichmentTasks = {}
 
-        ---@type function[]
-        local chestTasks = {}
-        for _, chest in ipairs(chestBatch) do
-            table.insert(chestTasks, function()
+    ---@type function[]
+    local chestTasks = {}
+    for _, chest in ipairs(self.chests) do
+        table.insert(chestTasks, function()
 
-                local chestList = helpers.chestListRetry(chest)
+            local chestList = helpers.chestListRetry(chest)
 
-                if not chestList then
-                    return
+            if not chestList then
+                return
+            end
+
+            for slotNumber = 1, chest.size() do
+                local item = chestList[slotNumber]
+
+                if not item then
+                    self:addSlotEmpty(chest, slotNumber)
+                    goto continue
                 end
 
-                local slotTasks = {}
+                self:addSlot(MapSlot(
+                    item.name,
+                    chest,
+                    slotNumber,
+                    item.count,
+                    0,
+                    nil,
+                    nil,
+                    nil
+                ))
 
-                for slotNumber = 1, chest.size() do
-                    table.insert(slotTasks, function()
-                        local item = chestList[slotNumber]
+                ::continue::
+            end
+        end)
+    end
 
-                        if not item then
-                            self:addSlotEmpty(chest, slotNumber)
-                            return
-                        end
+    parallel.waitForAll(table.unpack(chestTasks))
+    -- for _, task in ipairs(chestTasks) do
+    --     task()
+    -- end
 
-                        local slotDetails = helpers.chestGetItemDetailRetry(chest, slotNumber)
-
-                        if not slotDetails then
-                            return
-                        end
-
-                        self:addSlot(MapSlot(
-                            slotDetails.name,
-                            chest,
-                            slotNumber,
-                            slotDetails.count,
-                            slotDetails.maxCount,
-                            nil,
-                            slotDetails.tags,
-                            slotDetails.displayName
-                        ))
-                    end)
-                end
-
-                parallel.waitForAll(table.unpack(slotTasks))
-            end)
-        end
-
-        -- parallel.waitForAll(table.unpack(chestTasks))
-        for _, task in ipairs(chestTasks) do
-            task()
-        end
+    for _, slotEnrichmentTaskBatch in pairs(tableHelpers.batch(slotEnrichmentTasks, 1000)) do
+        parallel.waitForAll(table.unpack(slotEnrichmentTaskBatch))
     end
 
 
