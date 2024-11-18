@@ -524,10 +524,10 @@ function Map:populate(force)
             end)
         end
 
-        parallel.waitForAll(table.unpack(chestTasks))
-        -- for _, task in ipairs(chestTasks) do
-        --     task()
-        -- end
+        -- parallel.waitForAll(table.unpack(chestTasks))
+        for _, task in ipairs(chestTasks) do
+            task()
+        end
     end
 
 
