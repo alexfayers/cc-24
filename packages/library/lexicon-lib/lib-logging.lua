@@ -52,9 +52,17 @@ local Logger = {
     ---@param name string The name of the logger
     ---@return table
     new = function(self, name)
+        settings.define("logger." .. name, {
+            description = "The log level for the " .. name .. " logger",
+            type = "number",
+            default = LEVELS.INFO
+        })
+
+        local level = settings.get("logger." .. name)
+
         local logger = {
             _name = name,
-            _level = LEVELS.INFO
+            _level = level
         }
 
         setmetatable(logger, { __index = self })
