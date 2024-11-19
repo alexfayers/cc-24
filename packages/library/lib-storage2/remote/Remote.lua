@@ -213,8 +213,8 @@ end
 ---Handles the ACKNOWLEDGE and then waits for a DONE message.
 ---@param remoteId number
 ---@param messageType MessageType
----@param data? table
----@return boolean, MessageType?, table?
+---@param data? MessageData
+---@return boolean, MessageType?, MessageEndData?
 function Remote:sendDataWait(remoteId, messageType, data)
     if not self:sendData(remoteId, messageType, data) then
         return false, nil

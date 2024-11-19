@@ -62,7 +62,7 @@ MessageTypeArgs = {
 
 ---@class MessageCommandData
 ---@field type string
----@field data table
+---@field data? table
 
 ---@alias MessageData MessageErrorData|MessageCommandData|MessageEndData
 
