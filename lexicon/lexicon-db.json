@@ -7,7 +7,7 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lexicon-lib/lib-term.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lexicon-lib/lib-term.lua",
                         "/usr/lib/lexicon-lib/lib-term.lua"
                     ]
                 ],
@@ -18,7 +18,7 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lexicon-lib/lib-logging.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lexicon-lib/lib-logging.lua",
                         "/usr/lib/lexicon-lib/lib-logging.lua"
                     ]
                 ],
@@ -31,7 +31,7 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lexicon-lib/lib-table.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lexicon-lib/lib-table.lua",
                         "/usr/lib/lexicon-lib/lib-table.lua"
                     ]
                 ],
@@ -42,7 +42,7 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/class-lua/class.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/class-lua/class.lua",
                         "/usr/lib/class-lua/class.lua"
                     ]
                 ],
@@ -53,31 +53,31 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/chestHelpers.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/chestHelpers.lua",
                         "/usr/lib/lib-storage2/chestHelpers.lua"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/MapSlot.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/MapSlot.lua",
                         "/usr/lib/lib-storage2/MapSlot.lua"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/Map.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/Map.lua",
                         "/usr/lib/lib-storage2/Map.lua"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/Constants.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/Constants.lua",
                         "/usr/lib/lib-storage2/Constants.lua"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/Settings.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/Settings.lua",
                         "/usr/lib/lib-storage2/Settings.lua"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/helpers.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/helpers.lua",
                         "/usr/lib/lib-storage2/helpers.lua"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/ChestFilter.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/ChestFilter.lua",
                         "/usr/lib/lib-storage2/ChestFilter.lua"
                     ]
                 ],
@@ -92,11 +92,11 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/remote/enums.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/remote/enums.lua",
                         "/usr/lib/lib-storage2/remote/enums.lua"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/remote/Remote.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/remote/Remote.lua",
                         "/usr/lib/lib-storage2/remote/Remote.lua"
                     ]
                 ],
@@ -110,11 +110,11 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/remote/client/Client.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/remote/client/Client.lua",
                         "/usr/lib/lib-storage2/remote/client/Client.lua"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/remote/client/examplePing.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/remote/client/examplePing.lua",
                         "/usr/lib/lib-storage2/remote/client/examplePing.lua"
                     ]
                 ],
@@ -129,7 +129,7 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-storage2/remote/server/Server.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/remote/server/Server.lua",
                         "/usr/lib/lib-storage2/remote/server/Server.lua"
                     ]
                 ],
@@ -145,23 +145,23 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-turtle/enums.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-turtle/enums.lua",
                         "/usr/lib/lib-turtle/enums.lua"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-turtle/helpers.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-turtle/helpers.lua",
                         "/usr/lib/lib-turtle/helpers.lua"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-turtle/Position.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-turtle/Position.lua",
                         "/usr/lib/lib-turtle/Position.lua"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-turtle/Turtle.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-turtle/Turtle.lua",
                         "/usr/lib/lib-turtle/Turtle.lua"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-turtle/TurtleInventory.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-turtle/TurtleInventory.lua",
                         "/usr/lib/lib-turtle/TurtleInventory.lua"
                     ]
                 ],
@@ -189,7 +189,7 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/library/lib-discord/discord.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-discord/discord.lua",
                         "/usr/lib/lib-discord/discord.lua"
                     ]
                 ],
@@ -202,7 +202,7 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/package-example/package-example.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/package-example/package-example.lua",
                         "package-example.lua"
                     ]
                 ],
@@ -216,23 +216,23 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/storage2/storage2.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/storage2/storage2.lua",
                         "storage2.lua"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/storage2/storage2-watch.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/storage2/storage2-watch.lua",
                         "storage2-watch.lua"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/storage2/filters/exampleFurnaceFuel.json",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/storage2/filters/exampleFurnaceFuel.json",
                         "/.storage2/filters/examples/exampleFurnaceFuel.json"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/storage2/filters/exampleNames.json",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/storage2/filters/exampleNames.json",
                         "/.storage2/filters/examples/exampleNames.json"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/storage2/filters/exampleTags.json",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/storage2/filters/exampleTags.json",
                         "/.storage2/filters/examples/exampleTags.json"
                     ]
                 ],
@@ -246,7 +246,7 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/storage2/storage2-server.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/storage2/storage2-server.lua",
                         "storage2-server.lua"
                     ]
                 ],
@@ -260,7 +260,7 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/quarry/quarry.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/quarry/quarry.lua",
                         "quarry.lua"
                     ]
                 ],
@@ -276,7 +276,7 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/farm/farm.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/farm/farm.lua",
                         "farm.lua"
                     ]
                 ],
@@ -291,7 +291,7 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/smelter/smelter.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/smelter/smelter.lua",
                         "smelter.lua"
                     ]
                 ],
@@ -306,11 +306,11 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/jukebox/jukebox.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/jukebox/jukebox.lua",
                         "jukebox.lua"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/music/157_2.dfpwm",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/music/157_2.dfpwm",
                         "music/157_2.dfpwm"
                     ]
                 ],
@@ -325,7 +325,7 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/violence/violence.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/violence/violence.lua",
                         "violence.lua"
                     ]
                 ],
@@ -337,7 +337,7 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/main/packages/program/breeder/breeder.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/breeder/breeder.lua",
                         "breeder.lua"
                     ]
                 ],
