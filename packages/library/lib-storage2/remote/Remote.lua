@@ -70,7 +70,7 @@ function Remote:unserialiseMessage(message)
         return messageType, data
     end
 
-    return MessageType[messageType], nil
+    return messageType, nil
 end
 
 
