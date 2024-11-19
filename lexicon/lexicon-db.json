@@ -149,6 +149,10 @@
                 "version": "1.0.0",
                 "files": [
                     [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-turtle/enums.lua",
+                        "/usr/lib/lib-turtle/enums.lua"
+                    ],
+                    [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-turtle/helpers.lua",
                         "/usr/lib/lib-turtle/helpers.lua"
                     ],
