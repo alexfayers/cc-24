@@ -19,7 +19,7 @@ MessageErrorCode = {  ---@class _MessageErrorCode
 
 ---@class MessageDataArg
 ---@field name string
----@field type string
+---@field type string|string[]
 
 ---@alias MessageDataArgs MessageDataArg[]
 
@@ -29,7 +29,7 @@ MessageTypeArgs = {
     [MessageType.END] = {
         {
             name = "data",
-            type = "table",
+            type = {"table", "nil"},
         },
     },
     [MessageType.ERR] = {
@@ -39,7 +39,7 @@ MessageTypeArgs = {
         },
         {
             name = "message",
-            type = "string",
+            type = {"string", "nil"},
         }
     },
     [MessageType.CMD] = {
@@ -49,12 +49,12 @@ MessageTypeArgs = {
         },
         {
             name = "data",
-            type = "table",
+            type = {"table", "nil"},
         },
     },
 }
 
----@alias MessageEndData table
+---@alias MessageEndData table?
 
 ---@class MessageErrorData
 ---@field code MessageErrorCode
