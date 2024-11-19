@@ -4,6 +4,12 @@
 local completion = require("cc.completion")
 local pretty = require("cc.pretty")
 
+settings.define("lexicon.selfUrl", {
+    description = "The URL to the lexicon program",
+    default = "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/lexicon/lexicon.lua",
+    type = "string",
+})
+
 settings.define("lexicon.dbUrl", {
     description = "The URL to the lexicon database",
     default = "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/lexicon/lexicon-db.json",
@@ -235,11 +241,12 @@ local function downloadPackage(packageName, parentPackage, previouslyDownloadedP
 
             local request = http.get(prepareUrl(sourceUrl))
 
-            CURRENT_HTTP_TASKS = CURRENT_HTTP_TASKS - 1
 
             if request then
                 local fileContents = request.readAll()
                 request.close()
+
+                CURRENT_HTTP_TASKS = CURRENT_HTTP_TASKS - 1
 
                 local f = fs.open(downloadPath, "w")
                 if not f then
@@ -250,6 +257,7 @@ local function downloadPackage(packageName, parentPackage, previouslyDownloadedP
 
                 table.insert(downloadedFiles, downloadPath)
             else
+                CURRENT_HTTP_TASKS = CURRENT_HTTP_TASKS - 1
                 error("Failed to download file from " .. sourceUrl, 0)
             end
         end)
@@ -291,6 +299,32 @@ local function downloadPackage(packageName, parentPackage, previouslyDownloadedP
 end
 
 
+---Update the lexicon program
+---@return nil
+local function updateSelf()
+    local lexiconUrl = settings.get("lexicon.selfUrl")
+    local currentProgramName = shell.getRunningProgram()
+    local request = http.get(prepareUrl(lexiconUrl))
+    if request then
+        local data = request.readAll()
+        request.close()
+
+        local f = fs.open(currentProgramName, "w")
+        if not f then
+            error("Failed to open file for writing: " .. currentProgramName, 0)
+        end
+        f.write(data)
+        f.close()
+
+        term.setTextColor(colors.lime)
+        print("Updated lexicon :)")
+        term.setTextColor(colors.white)
+    else
+        error("Failed to get latest lexicon program from " .. lexiconUrl, 0)
+    end
+end
+
+
 ---Update all packages in the lexicon database
 ---@return nil
 local function updatePrograms()
@@ -306,6 +340,8 @@ local function updatePrograms()
     end
 
     parallel.waitForAll(table.unpack(updateTasks))
+
+    updateSelf()
 end
 
 
@@ -464,7 +500,7 @@ local function usage()
     print("Commands:")
     print("  get <package> - Download a package from the lexicon repository")
     print("  remove <package> - Uninstall a package")
-    print("  upgrade - Update all previously downloaded PROGRAMS (not libraries)")
+    print("  upgrade - Update all previously downloaded PROGRAMS (not libraries) (and lexicon itself)")
     print("  list - List all available packages")
     print("  list-installed - List all installed packages")
 end
