@@ -294,7 +294,7 @@ function Remote:receiveData(expectedSender, expectedMessageType, timeout)
     end
 
     if expectedMessageType and messageType ~= expectedMessageType then
-        logger:debug("<%d|Expected type: %s", senderId, expectedMessageType)
+        logger:debug("<%d|Expected %s, got %s", senderId, expectedMessageType, messageType)
         goto receive
     end
 
