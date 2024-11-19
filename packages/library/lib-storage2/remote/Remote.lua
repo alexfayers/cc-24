@@ -43,16 +43,16 @@ function Remote:unserialiseMessage(message)
     local messageTypeRaw = string.sub(message, 1, split - 1)
     local dataRaw = string.sub(message, split + 1)
 
+    ---@type MessageType?
     local messageType = MessageType[messageTypeRaw]
     if not messageType then
         return nil, nil
     end
 
-    local data = textutils.unserialize(dataRaw)
-
     local messageTypeArgs = MessageTypeArgs[messageType]
 
     if messageTypeArgs then
+        local data = textutils.unserialize(dataRaw)
         if not data then
             return nil, nil
         end
