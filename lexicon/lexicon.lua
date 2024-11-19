@@ -28,6 +28,9 @@ local MANIFEST_URL = settings.get("lexicon.dbUrl")
 local LEXICON_DB_PATH = settings.get("lexicon.dbPath")
 local GIT_BRANCH = settings.get("lexicon.gitBranch")
 
+local MAX_HTTP_TASKS = 8
+local CURRENT_HTTP_TASKS = 0
+
 local packagesDownloadedThisRun = {}
 
 ---Load the lexicon database from disk
@@ -191,44 +194,68 @@ local function downloadPackage(packageName, parentPackage, previouslyDownloadedP
         -- term.setTextColor(colors.blue)
         -- print("Found " .. #packageDependencies .. " dependencies for '" .. packageName .. "'")
         -- term.setTextColor(colors.white)
+        local packageDownloadTasks = {}
+
         for _, dependecyName in pairs(packageDependencies) do
-            local depDbPackageData = downloadPackage(dependecyName, packageName, previouslyDownloadedPackages)
-            if depDbPackageData["alreadyDownloaded"] then
-                -- already downloaded that package, go to the next
-                goto continue
-            end
-
-            for _, file in ipairs(depDbPackageData["files"]) do
-                table.insert(depenencyFiles, file)
-            end
-
-            for _, file in ipairs(depDbPackageData["dependencyFiles"]) do
-                table.insert(depenencyFiles, file)
-            end
-            ::continue::
+            table.insert(packageDownloadTasks, function ()
+                local depDbPackageData = downloadPackage(dependecyName, packageName, previouslyDownloadedPackages)
+                if depDbPackageData["alreadyDownloaded"] then
+                    -- already downloaded that package, go to the next
+                    return
+                end
+                
+                for _, file in ipairs(depDbPackageData["files"]) do
+                    table.insert(depenencyFiles, file)
+                end
+                
+                for _, file in ipairs(depDbPackageData["dependencyFiles"]) do
+                    table.insert(depenencyFiles, file)
+                end
+            end)
         end
+
+        parallel.waitForAll(table.unpack(packageDownloadTasks))
     end
 
     local packageFiles = packageData["files"]
     -- files are an array of {url, downloadPath}
+
+    local downloadTasks = {}
+
     for _, file in ipairs(packageFiles) do
-        local sourceUrl = file[1]
-        local downloadPath = file[2]
+        table.insert(downloadTasks, function ()
+            while CURRENT_HTTP_TASKS >= MAX_HTTP_TASKS do
+                os.sleep(0.05)
+            end
 
-        local request = http.get(prepareUrl(sourceUrl))
-        if request then
-            local fileContents = request.readAll()
-            request.close()
+            CURRENT_HTTP_TASKS = CURRENT_HTTP_TASKS + 1
 
-            local f = fs.open(downloadPath, "w")
-            f.write(fileContents)
-            f.close()
+            local sourceUrl = file[1]
+            local downloadPath = file[2]
 
-            table.insert(downloadedFiles, downloadPath)
-        else
-            error("Failed to download file from " .. sourceUrl, 0)
-        end
+            local request = http.get(prepareUrl(sourceUrl))
+
+            CURRENT_HTTP_TASKS = CURRENT_HTTP_TASKS - 1
+
+            if request then
+                local fileContents = request.readAll()
+                request.close()
+
+                local f = fs.open(downloadPath, "w")
+                if not f then
+                    error("Failed to open file for writing: " .. downloadPath, 0)
+                end
+                f.write(fileContents)
+                f.close()
+
+                table.insert(downloadedFiles, downloadPath)
+            else
+                error("Failed to download file from " .. sourceUrl, 0)
+            end
+        end)
     end
+
+    parallel.waitForAll(table.unpack(downloadTasks))
 
     if not parentPackage then
         term.setTextColor(colors.lime)
@@ -268,11 +295,17 @@ end
 ---@return nil
 local function updatePrograms()
     local db = loadLexiconDb()
+
+    local updateTasks = {}
     for packageName, packageData in pairs(db["packages"]) do
         if packageData["type"] == "program" then
-            downloadPackage(packageName)
+            table.insert(updateTasks, function ()
+                downloadPackage(packageName)
+            end)
         end
     end
+
+    parallel.waitForAll(table.unpack(updateTasks))
 end
 
 
