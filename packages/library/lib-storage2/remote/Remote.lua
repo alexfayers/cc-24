@@ -2,18 +2,16 @@
 package.path = package.path .. ";/usr/lib/?.lua"
 require("class-lua.class")
 
-local enums = require("lib-storage2.remote.enums")
+require("lib-storage2.remote.RemoteMessageType")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("Remote")
-
-local MessageType = enums.MessageType
 
 
 ---@class Remote: Class
 ---@overload fun(): Remote
 Remote = class()
 
-Remote.protocol = "storage2-remote"
+Remote.protocol = "lexicon-remote"
 ---@type table<string, boolean>
 Remote.filterCommands = {}
 
@@ -28,7 +26,7 @@ end
 
 ---Deserialise a message received over the network
 ---@param message string
----@return MessageType?, table?
+---@return MessageType?, MessageData?
 function Remote:unserialiseMessage(message)
     ---Messages are in the following format:
     ---<messageType>|<serialised data...>
@@ -42,16 +40,56 @@ function Remote:unserialiseMessage(message)
         return MessageType[message], nil
     end
 
-    local messageType = string.sub(message, 1, split - 1)
-    local data = string.sub(message, split + 1)
+    local messageTypeRaw = string.sub(message, 1, split - 1)
+    local dataRaw = string.sub(message, split + 1)
 
-    return MessageTypeInverted[messageType], textutils.unserialize(data)
+    ---@type MessageType?
+    local messageType = MessageType[messageTypeRaw]
+    if not messageType then
+        return nil, nil
+    end
+
+    local messageTypeArgs = MessageTypeArgs[messageType]
+
+    if messageTypeArgs then
+        local data = textutils.unserialize(dataRaw)
+        if not data then
+            return nil, nil
+        end
+
+        for _, arg in ipairs(messageTypeArgs) do
+            local receivedArgType = type(data[arg.name])
+            local argType = arg.type
+
+            if type(argType) == "table" then
+                local valid = false
+                for _, t in ipairs(argType) do
+                    if receivedArgType == t then
+                        valid = true
+                        break
+                    end
+                end
+
+                if not valid then
+                    return nil, nil
+                end
+            else
+                if receivedArgType ~= argType then
+                    return nil, nil
+                end
+            end
+        end
+
+        return messageType, data
+    end
+
+    return messageType, nil
 end
 
 
 ---Serialise a message to be sent over the network
 ---@param messageType MessageType
----@param data? table
+---@param data? MessageData
 ---@return string?
 function Remote:serialiseMessage(messageType, data)
     if not MessageType[messageType] then
@@ -133,13 +171,29 @@ end
 ---@param remoteId number
 ---@param message MessageType
 ---@return boolean
-function Remote:sendData(remoteId, message)
+function Remote:sendDataRaw(remoteId, message)
     if not self:openModem() then
         return false
     end
 
-    local res = rednet.send(remoteId, message, self.protocol)
-    if not res then
+    return rednet.send(remoteId, message, self.protocol)
+end
+
+
+---Send a command to a computer
+---@param remoteId number
+---@param messageType MessageType
+---@param data? MessageData
+---@return boolean
+function Remote:sendData(remoteId, messageType, data)
+    local message = self:serialiseMessage(messageType, data)
+    if not message then
+        return false
+    end
+    local res = self:sendDataRaw(remoteId, message)
+    if res then
+        logger:debug(">%d|Sent %s", remoteId, messageType)
+    else
         logger:warn(">%d|Send failed: %s", remoteId, message)
     end
 
@@ -147,22 +201,24 @@ function Remote:sendData(remoteId, message)
 end
 
 
----Send a command to a computer
+---Send an error message to a computer
 ---@param remoteId number
----@param messageType MessageType
----@param data? table
----@return boolean
-function Remote:sendCommand(remoteId, messageType, data)
-    local message = self:serialiseMessage(messageType, data)
-    if not message then
-        return false
-    end
-    local res = self:sendData(remoteId, message)
-    if res then
-        logger:debug(">%d|Sent %s", remoteId, messageType)
+---@param errorCode MessageErrorCode
+---@param message? string
+function Remote:sendError(remoteId, errorCode, message, ...)
+    if message then
+        message = string.format(message, ...)
     end
 
-    return res
+    local payload = {
+        code = errorCode,
+    }
+
+    if message then
+        payload.message = message
+    end
+
+    self:sendData(remoteId, MessageType.ERR, payload)
 end
 
 
@@ -170,34 +226,26 @@ end
 ---Handles the ACKNOWLEDGE and then waits for a DONE message.
 ---@param remoteId number
 ---@param messageType MessageType
----@param data? table
----@return boolean, MessageType?, table?
-function Remote:sendCommandWait(remoteId, messageType, data)
-    if not self:sendCommand(remoteId, messageType, data) then
+---@param data? MessageData
+---@return boolean, MessageType?, MessageEndData?
+function Remote:sendDataWait(remoteId, messageType, data)
+    if not self:sendData(remoteId, messageType, data) then
         return false, nil
     end
 
-    local senderId, responseMessageType, responseData = self:receiveData(remoteId, 1)
+    local senderId, responseMessageType, responseData = self:receiveData(remoteId, MessageType.ACK, 1)
 
     if not senderId then
         -- no response
         return false, nil
-    end
-
-    if responseMessageType ~= MessageType.ACK then
-        return false, responseMessageType, responseData
     end
 
     --- we got an ACK, now wait for the actual response
-    senderId, responseMessageType, responseData = self:receiveData(remoteId, 10)
+    senderId, responseMessageType, responseData = self:receiveData(remoteId, MessageType.END, 10)
 
     if not senderId then
         -- no response
         return false, nil
-    end
-
-    if responseMessageType ~= MessageType.DONE then
-        return false, responseMessageType, responseData
     end
 
     return true, responseMessageType, responseData
@@ -206,9 +254,10 @@ end
 
 ---Receive data from a computer
 ---@param expectedSender? number
+---@param expectedMessageType? MessageType
 ---@param timeout? number
 ---@return number, MessageType?, table?
-function Remote:receiveData(expectedSender, timeout)
+function Remote:receiveData(expectedSender, expectedMessageType, timeout)
     local senderId, message
     ---@type MessageType?
     local messageType, data
@@ -234,14 +283,17 @@ function Remote:receiveData(expectedSender, timeout)
     end
 
     if expectedSender and senderId ~= expectedSender then
-        logger:debug("<%d|Expected: %d", senderId, expectedSender)
+        logger:debug("<%d|Expected id: %d", senderId, expectedSender)
         goto receive
     end
 
     --- make sure the message is a string
     if type(message) ~= "string" then
         logger:warn("<%d|Non-string: %s", senderId, message)
-        self:sendData(senderId, MessageType.ERR_INVALID_DATA_TYPE)
+
+        self:sendData(senderId, MessageType.ERR, {
+            code = MessageErrorCode.INVALID_DATA_TYPE
+        })
         goto nilReturn
     end
     ---@cast message string
@@ -250,11 +302,22 @@ function Remote:receiveData(expectedSender, timeout)
 
     if not messageType then
         logger:warn("<%d|Unknown message type: %s", senderId, message)
-        self:sendData(senderId, MessageType.ERR_UNKNOWN_COMMAND)
+        self:sendError(senderId, MessageErrorCode.UNKNOWN_COMMAND, message)
         goto nilReturn
     end
 
-    logger:debug("<%d|Valid: %s", messageType, senderId)
+    if messageType == MessageType.ERR then
+        ---@cast data MessageErrorData
+        logger:warn("<%d|Error: %s", senderId, data.message and ("%s (%s)"):format(data.code, data.message) or data.code)
+        goto nilReturn
+    end
+
+    if expectedMessageType and messageType ~= expectedMessageType then
+        logger:debug("<%d|Expected %s, got %s", senderId, expectedMessageType, messageType)
+        goto receive
+    end
+
+    logger:debug("<%d|Valid: %s", senderId, messageType)
 
     if message ~= MessageType.ACK and not self:sendData(senderId, MessageType.ACK) then
         goto nilReturn

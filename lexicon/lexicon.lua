@@ -6,7 +6,7 @@ local pretty = require("cc.pretty")
 
 settings.define("lexicon.dbUrl", {
     description = "The URL to the lexicon database",
-    default = "https://raw.githubusercontent.com/alexfayers/cc-24/main/lexicon/lexicon-db.json",
+    default = "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/lexicon/lexicon-db.json",
     type = "string",
 })
 

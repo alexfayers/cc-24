@@ -2,17 +2,14 @@
 package.path = package.path .. ";/usr/lib/?.lua"
 require("class-lua.class")
 
-local enums = require("lib-storage2.remote.enums")
 local chestHelpers = require("lib-storage2.chestHelpers")
 require("lib-storage2.Map")
 require("lib-storage2.remote.Remote")
+require("lib-storage2.remote.RemoteMessageType")
+require("lib-storage2.remote.CommandType")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("Server")
 
-local MessageType = enums.MessageType
-
-
----@alias CommandHandler fun(clientId: number, data?: table): boolean, table?
 
 -- Class definition
 
@@ -22,9 +19,8 @@ Server = Remote:extend()
 
 Server.filterCommands = {
     [MessageType.ACK] = true,
-    [MessageType.DONE] = true,
-    [MessageType.ERR_UNKNOWN_COMMAND] = true,
-    [MessageType.ERR_UNKNOWN] = true,
+    [MessageType.END] = true,
+    [MessageType.ERR] = true,
 }
 
 ---Initialise a new storage2 server
@@ -33,14 +29,14 @@ function Server:init()
     self.hostname = self.protocol .. "-" .. os.getComputerID()
 
     self.commandHandlers = {
-        [MessageType.CMD_REFRESH] = self.handleRefresh,
-        [MessageType.CMD_DATA_IO_CHESTS] = self.handleDataIoChests,
-        [MessageType.CMD_PING] = self.handlePing,
-        [MessageType.CMD_PULL] = self.handlePull,
-        [MessageType.CMD_PUSH] = self.handlePush,
+        [CommandType.REFRESH] = self.handleRefresh,
+        [CommandType.DATA_IO_CHESTS] = self.handleDataIoChests,
+        [CommandType.PING] = self.handlePing,
+        [CommandType.PULL] = self.handlePull,
+        [CommandType.PUSH] = self.handlePush,
     }
 
-    self:startUp()
+    self:initPeripherals()
 end
 
 
@@ -74,8 +70,14 @@ end
 ---Start up the server
 ---@return boolean
 function Server:startUp()
-    self:initPeripherals()
-    self:openModem()
+    logger:info("Starting up...", self.protocol, self.hostname)
+    if not self:openModem() then
+        return false
+    end
+
+    rednet.host(self.protocol, self.hostname)
+
+    logger:info("%s server started!", self.protocol)
 
     return true
 end
@@ -204,40 +206,49 @@ end
 ---Listen for commands
 ---@return boolean
 function Server:_listen()
-    if not self:openModem() then
+    if not self:startUp() then
         return false
     end
 
-    logger:info("Starting up...", self.protocol, self.hostname)
-    rednet.host(self.protocol, self.hostname)
-
-    logger:info("%s server started!", self.protocol)
-
     while true do
-        local senderId, messageType, data = self:receiveData()
+        local senderId, messageType, data = self:receiveData(nil, MessageType.CMD)
         if not messageType then
             goto continue
         end
+        ---@cast data MessageCommandData
 
-        local handler = self.commandHandlers[messageType]
+        local commandType = data.type
+        local commandData = data.data
+
+        local handler = self.commandHandlers[commandType]
 
         if not handler then
             logger:warn("<%d|No handler for %s", senderId, messageType)
-            self:sendData(senderId, MessageType.ERR_UNKNOWN_COMMAND)
+            self:sendError(
+                senderId,
+                MessageErrorCode.UNKNOWN_COMMAND,
+                "No handler for %s",
+                messageType
+            )
             goto continue
         end
 
-        local handlerRes, handlerData = handler(self, senderId, data)
+        local handlerRes, handlerData = handler(self, senderId, commandData)
 
         if not handlerRes then
             logger:warn("<%d|Failed to handle %s", senderId, messageType)
-            self:sendData(senderId, MessageType.ERR_UNKNOWN)
+            self:sendError(
+                senderId,
+                MessageErrorCode.UNKNOWN,
+                "Failed to handle %s",
+                messageType
+            )
             goto continue
         else
-            self:sendCommand(senderId, MessageType.DONE, handlerData)
+            self:sendData(senderId, MessageType.END, handlerData)
         end
 
-        logger:info("<%d|Handled %s", senderId, messageType)
+        logger:info("<%d|Handled %s (%s)", senderId, messageType, commandType)
 
         ::continue::
     end

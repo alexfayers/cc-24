@@ -92,8 +92,12 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/remote/enums.lua",
-                        "/usr/lib/lib-storage2/remote/enums.lua"
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/remote/RemoteMessageType.lua",
+                        "/usr/lib/lib-storage2/remote/RemoteMessageType.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/remote/CommandType.lua",
+                        "/usr/lib/lib-storage2/remote/CommandType.lua"
                     ],
                     [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/remote/Remote.lua",

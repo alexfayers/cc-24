@@ -42,6 +42,7 @@ local LEVEL_COLORS = {
 
 local LOGGERS = {}
 
+---@class Logger
 local Logger = {
     _name = nil,
     _level = nil,
@@ -51,9 +52,17 @@ local Logger = {
     ---@param name string The name of the logger
     ---@return table
     new = function(self, name)
+        settings.define("logger." .. name, {
+            description = "The log level for the " .. name .. " logger",
+            type = "number",
+            default = LEVELS.INFO
+        })
+
+        local level = settings.get("logger." .. name)
+
         local logger = {
             _name = name,
-            _level = LEVELS.INFO
+            _level = level
         }
 
         setmetatable(logger, { __index = self })
@@ -167,7 +176,7 @@ local Logger = {
 
 ---Get a logger by name
 ---@param name string The name of the logger
----@return table
+---@return Logger
 local function getLogger(name)
     if LOGGERS[name] then
         return LOGGERS[name]
