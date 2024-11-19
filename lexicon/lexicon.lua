@@ -330,16 +330,11 @@ end
 local function updatePrograms()
     local db = loadLexiconDb()
 
-    local updateTasks = {}
     for packageName, packageData in pairs(db["packages"]) do
         if packageData["type"] == "program" then
-            table.insert(updateTasks, function ()
-                downloadPackage(packageName)
-            end)
+            downloadPackage(packageName)
         end
     end
-
-    parallel.waitForAll(table.unpack(updateTasks))
 
     updateSelf()
 end
