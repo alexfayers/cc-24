@@ -2,7 +2,7 @@
 package.path = package.path .. ";/usr/lib/?.lua"
 require("class-lua.class")
 
-require("lib-storage2.remote.MessageType")
+require("lib-storage2.remote.RemoteMessageType")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("Remote")
 
