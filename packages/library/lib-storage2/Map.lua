@@ -616,7 +616,7 @@ end
 
 ---Push all items from an input chest to the storage chests, updating the map as needed
 ---@param inputChest ccTweaked.peripherals.Inventory The chest to push items from
----@param fromSlots number[] The slots to push items from (default all slots)
+---@param fromSlots? number[] The slots to push items from (default all slots)
 ---@return number _ The number of items pushed
 function Map:push(inputChest, fromSlots)
     local totalPushedCount = 0
