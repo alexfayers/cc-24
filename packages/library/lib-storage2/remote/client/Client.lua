@@ -4,12 +4,11 @@ require("class-lua.class")
 
 local pretty = require("cc.pretty")
 
-local enums = require("lib-storage2.remote.enums")
 require("lib-storage2.remote.Remote")
+require("lib-storage2.remote.RemoteMessageType")
+require("lib-storage2.remote.CommandType")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("Client")
-
-local MessageType = enums.MessageType
 
 
 local SERVER_ID_SETTING_NAME = "storage2-remote.server-id"
@@ -69,16 +68,23 @@ end
 
 
 ---Send a command to the server, handling any responses
----@param sendMessageType MessageType
+---@param commandType CommandType
 ---@param sendData? table
 ---@return boolean, table?
-function Client:baseSendCommand(sendMessageType, sendData)
+function Client:baseSendCommand(commandType, sendData)
     if not self.serverId then
         logger:error("No server to send to")
         return false
     end
 
-    local isProcessing, messageType, messageData = self:sendCommandWait(self.serverId, sendMessageType, sendData)
+    local isProcessing, messageType, messageData = self:sendDataWait(
+        self.serverId,
+        MessageType.CMD,
+        {
+            type = commandType,
+            data = sendData,
+        }
+    )
 
     if not isProcessing then
         if not messageType then
@@ -90,7 +96,7 @@ function Client:baseSendCommand(sendMessageType, sendData)
         return false
     end
 
-    if messageType == MessageType.DONE then
+    if messageType == MessageType.END then
         return true, messageData
     end
 
@@ -102,7 +108,7 @@ end
 ---Send a refresh request to the server
 ---@return boolean, nil
 function Client:refresh()
-    local res, _ = self:baseSendCommand(MessageType.CMD_REFRESH)
+    local res, _ = self:baseSendCommand(CommandType.REFRESH)
 
     if res then
         return true
@@ -115,7 +121,7 @@ end
 ---Get the input and output chest names from the server
 ---@return boolean, table?
 function Client:getChestNames()
-    return self:baseSendCommand(MessageType.CMD_DATA_IO_CHESTS)
+    return self:baseSendCommand(CommandType.DATA_IO_CHESTS)
 end
 
 
@@ -123,7 +129,7 @@ end
 ---@return boolean, table?
 function Client:ping()
     local start = os.clock()
-    local res, data = self:baseSendCommand(MessageType.CMD_PING)
+    local res, data = self:baseSendCommand(CommandType.PING)
     local duration = os.clock() - start
 
     if res then
@@ -141,7 +147,7 @@ end
 ---@param toSlot number?
 ---@return boolean, table?
 function Client:pull(outputChestName, item, count, toSlot)
-    local res, data = self:baseSendCommand(MessageType.CMD_PULL, {
+    local res, data = self:baseSendCommand(CommandType.PULL, {
         item = item,
         count = count,
         invName = outputChestName,
@@ -157,7 +163,7 @@ end
 ---@param slots? number[]
 ---@return boolean, table?
 function Client:push(inputChestName, slots)
-    local res, data = self:baseSendCommand(MessageType.CMD_PUSH, {
+    local res, data = self:baseSendCommand(CommandType.PUSH, {
         invName = inputChestName,
         fromSlots = slots,
     })
