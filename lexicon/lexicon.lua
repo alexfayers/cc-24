@@ -35,8 +35,17 @@ local packagesDownloadedThisRun = {}
 local function loadLexiconDb()
     local f = fs.open(LEXICON_DB_PATH, "r")
     if f then
-        local db = textutils.unserialiseJSON(f.readAll())
+        local data = f.readAll()
+        if not data then
+            error("Failed to read lexicon database from " .. LEXICON_DB_PATH, 0)
+        end
+        local db = textutils.unserialiseJSON(data)
         f.close()
+
+        if not db then
+            error("Failed to parse lexicon database from " .. LEXICON_DB_PATH, 0)
+        end
+
         return db
     end
 
@@ -50,6 +59,9 @@ end
 ---@return nil
 local function saveLexiconDb(db)
     local f = fs.open(LEXICON_DB_PATH, "w")
+    if not f then
+        error("Failed to open lexicon database for writing: " .. LEXICON_DB_PATH, 0)
+    end
     f.write(textutils.serialiseJSON(db))
     f.close()
 end
@@ -72,8 +84,16 @@ local function getLatestManifest()
     -- use a token to prevent caching
     local request = http.get(prepareUrl(MANIFEST_URL))
     if request then
-        local manifest = textutils.unserialiseJSON(request.readAll())
+        local data = request.readAll()
+        if not data then
+            error("Failed to get latest manifest from " .. MANIFEST_URL, 0)
+        end
+        local manifest = textutils.unserialiseJSON(data)
         request.close()
+
+        if not manifest then
+            error("Failed to parse manifest from " .. MANIFEST_URL, 0)
+        end
         return manifest
     end
 
