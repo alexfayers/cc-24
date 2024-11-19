@@ -24,8 +24,6 @@ settings.define(SERVER_ID_SETTING_NAME, {
 ---@overload fun(): Client
 Client = Remote:extend()
 
-Client.protocol = "storage2-remote"
-
 
 ---Initialise a new storage2 client
 function Client:init()
