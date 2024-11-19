@@ -42,6 +42,7 @@ local LEVEL_COLORS = {
 
 local LOGGERS = {}
 
+---@class Logger
 local Logger = {
     _name = nil,
     _level = nil,
@@ -167,7 +168,7 @@ local Logger = {
 
 ---Get a logger by name
 ---@param name string The name of the logger
----@return table
+---@return Logger
 local function getLogger(name)
     if LOGGERS[name] then
         return LOGGERS[name]
