@@ -295,7 +295,7 @@ function Remote:receiveData(expectedSender, expectedMessageType, timeout)
 
     if messageType == MessageType.ERR then
         ---@cast data MessageErrorData
-        logger:warn("<%d|Error: %s", senderId, data.message and ("%s: %s"):format(data.code, data.message) or data.code)
+        logger:warn("<%d|Error: %s", senderId, data.message and ("%s (%s)"):format(data.code, data.message) or data.code)
         goto nilReturn
     end
 
