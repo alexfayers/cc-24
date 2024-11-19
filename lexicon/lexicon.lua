@@ -451,5 +451,5 @@ local function handleArgs()
 end
 
 -- Download package-example as a test
-shell.setCompletionFunction("lexicon.lua", complete)
+shell.setCompletionFunction(shell.getRunningProgram(), complete)
 handleArgs()
