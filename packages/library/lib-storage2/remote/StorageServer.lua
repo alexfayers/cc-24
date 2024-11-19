@@ -4,7 +4,7 @@ require("class-lua.class")
 
 local chestHelpers = require("lib-storage2.chestHelpers")
 require("lib-storage2.Map")
-require("lib-remote.server.Server")
+require("lib-remote.Server")
 require("lib-storage2.remote.CommandType")
 
 
