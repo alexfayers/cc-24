@@ -317,7 +317,7 @@ function Remote:receiveData(expectedSender, expectedMessageType, timeout)
         goto receive
     end
 
-    logger:debug("<%d|Valid: %s", messageType, senderId)
+    logger:debug("<%d|Valid: %s", senderId, messageType)
 
     if message ~= MessageType.ACK and not self:sendData(senderId, MessageType.ACK) then
         goto nilReturn
