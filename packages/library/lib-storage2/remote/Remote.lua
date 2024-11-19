@@ -26,7 +26,7 @@ end
 
 ---Deserialise a message received over the network
 ---@param message string
----@return MessageType?, table?
+---@return MessageType?, MessageData?
 function Remote:unserialiseMessage(message)
     ---Messages are in the following format:
     ---<messageType>|<serialised data...>
@@ -290,6 +290,12 @@ function Remote:receiveData(expectedSender, expectedMessageType, timeout)
     if not messageType then
         logger:warn("<%d|Unknown message type: %s", senderId, message)
         self:sendError(senderId, MessageErrorCode.UNKNOWN_COMMAND, "Unknown message type: %s", message)
+        goto nilReturn
+    end
+
+    if messageType == MessageType.ERR then
+        ---@cast data MessageErrorData
+        logger:warn("<%d|Error: %s", senderId, data.message and ("%s: %s"):format(data.code, data.message) or data.code)
         goto nilReturn
     end
 
