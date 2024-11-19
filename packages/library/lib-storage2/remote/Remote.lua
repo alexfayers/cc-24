@@ -306,7 +306,7 @@ function Remote:receiveData(expectedSender, expectedMessageType, timeout)
 
     if not messageType then
         logger:warn("<%d|Unknown message type: %s", senderId, message)
-        self:sendError(senderId, MessageErrorCode.UNKNOWN_COMMAND, "Unknown message type: %s", message)
+        self:sendError(senderId, MessageErrorCode.UNKNOWN_COMMAND, message)
         goto nilReturn
     end
 
