@@ -248,7 +248,7 @@ function Server:_listen()
             self:sendData(senderId, MessageType.END, handlerData)
         end
 
-        logger:info("<%d|Handled %s", senderId, messageType)
+        logger:info("<%d|Handled %s (%s)", senderId, messageType, commandType)
 
         ::continue::
     end
