@@ -11,7 +11,7 @@ local logger = require("lexicon-lib.lib-logging").getLogger("Remote")
 ---@overload fun(): Remote
 Remote = class()
 
-Remote.protocol = "storage2-remote"
+Remote.protocol = "lexicon-remote"
 ---@type table<string, boolean>
 Remote.filterCommands = {}
 
