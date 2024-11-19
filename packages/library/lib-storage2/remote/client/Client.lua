@@ -152,6 +152,20 @@ function Client:pull(outputChestName, item, count, toSlot)
 end
 
 
+---Push items from an inventory to the storage chests
+---@param inputChestName string The name of the inventory to push from
+---@param slots? number[]
+---@return boolean, table?
+function Client:push(inputChestName, slots)
+    local res, data = self:baseSendCommand(MessageType.CMD_PUSH, {
+        invName = inputChestName,
+        fromSlots = slots,
+    })
+
+    return res, data
+end
+
+
 ---Safely call a command, closing the connection if there are any issues
 ---@param func fun(...): boolean, table?
 ---@return boolean, table?

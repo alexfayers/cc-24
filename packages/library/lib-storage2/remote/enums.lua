@@ -12,6 +12,7 @@ MessageType = {  ---@class _MessageType
     CMD_DATA_IO_CHESTS = "CMD_DATA_IO_CHESTS",
     CMD_PING = "CMD_PING",
     CMD_PULL = "CMD_PULL",
+    CMD_PUSH = "CMD_PUSH",
 }
 
 

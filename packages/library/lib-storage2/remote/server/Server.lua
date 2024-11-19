@@ -37,6 +37,7 @@ function Server:init()
         [MessageType.CMD_DATA_IO_CHESTS] = self.handleDataIoChests,
         [MessageType.CMD_PING] = self.handlePing,
         [MessageType.CMD_PULL] = self.handlePull,
+        [MessageType.CMD_PUSH] = self.handlePush,
     }
 
     self:startUp()
@@ -159,6 +160,41 @@ function Server:handlePull(clientId, data)
 
     local res = {
         count = pulledCount,
+    }
+
+    return true, res
+end
+
+
+---Handle a push request from a client
+---@param clientId number
+---@param data? table
+---@return boolean, table?
+function Server:handlePush(clientId, data)
+    if not data then
+        return false
+    end
+
+    if not data.invName then
+        return false
+    end
+
+    local pushFromChest = chestHelpers.wrapInventory(data.invName)
+
+    if not pushFromChest then
+        return false
+    end
+
+    self.storageMap:populate()
+
+    local pushedCount = self.storageMap:push(pushFromChest, data.fromSlots)
+
+    if pushedCount > 0 then
+        self.storageMap:save()
+    end
+
+    local res = {
+        count = pushedCount,
     }
 
     return true, res
