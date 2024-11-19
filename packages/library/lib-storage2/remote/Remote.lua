@@ -269,11 +269,6 @@ function Remote:receiveData(expectedSender, expectedMessageType, timeout)
         goto nilReturn
     end
 
-    if expectedMessageType and messageType ~= expectedMessageType then
-        logger:debug("<%d|Expected type: %s", senderId, expectedMessageType)
-        goto receive
-    end
-
     if expectedSender and senderId ~= expectedSender then
         logger:debug("<%d|Expected id: %d", senderId, expectedSender)
         goto receive
@@ -296,6 +291,11 @@ function Remote:receiveData(expectedSender, expectedMessageType, timeout)
         logger:warn("<%d|Unknown message type: %s", senderId, message)
         self:sendError(senderId, MessageErrorCode.UNKNOWN_COMMAND, "Unknown message type: %s", message)
         goto nilReturn
+    end
+
+    if expectedMessageType and messageType ~= expectedMessageType then
+        logger:debug("<%d|Expected type: %s", senderId, expectedMessageType)
+        goto receive
     end
 
     logger:debug("<%d|Valid: %s", messageType, senderId)
