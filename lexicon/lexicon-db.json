@@ -87,21 +87,33 @@
                     "class-lua"
                 ]
             },
-            "lib-storage2-remote": {
-                "description": "Helper library for remote control of storage2",
+            "lib-remote": {
+                "description": "Helper library for remote control of computers",
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/remote/RemoteMessageType.lua",
-                        "/usr/lib/lib-storage2/remote/RemoteMessageType.lua"
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-remote/types/MessageErrorCode.lua",
+                        "/usr/lib/lib-remote/types/MessageErrorCode.lua"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/remote/CommandType.lua",
-                        "/usr/lib/lib-storage2/remote/CommandType.lua"
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-remote/types/MessageType.lua",
+                        "/usr/lib/lib-remote/types/MessageType.lua"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/remote/Remote.lua",
-                        "/usr/lib/lib-storage2/remote/Remote.lua"
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-remote/types/MessageTypeArgs.lua",
+                        "/usr/lib/lib-remote/types/MessageTypeArgs.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-remote/Client.lua",
+                        "/usr/lib/lib-remote/Client.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-remote/Remote.lua",
+                        "/usr/lib/lib-remote/Remote.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-remote/Server.lua",
+                        "/usr/lib/lib-remote/Server.lua"
                     ]
                 ],
                 "dependencies": [
@@ -114,18 +126,21 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/remote/client/Client.lua",
-                        "/usr/lib/lib-storage2/remote/client/Client.lua"
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/remote/StorageClient.lua",
+                        "/usr/lib/lib-storage2/remote/StorageClient.lua"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/remote/client/examplePing.lua",
-                        "/usr/lib/lib-storage2/remote/client/examplePing.lua"
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/remote/CommandType.lua",
+                        "/usr/lib/lib-storage2/remote/CommandType.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/remote/examplePing.lua",
+                        "/usr/lib/lib-storage2/remote/examplePing.lua"
                     ]
                 ],
                 "dependencies": [
-                    "lib-logging",
                     "class-lua",
-                    "lib-storage2-remote"
+                    "lib-remote"
                 ]
             },
             "lib-storage2-remote-server": {
@@ -133,14 +148,17 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/remote/server/Server.lua",
-                        "/usr/lib/lib-storage2/remote/server/Server.lua"
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/remote/StorageServer.lua",
+                        "/usr/lib/lib-storage2/remote/StorageServer.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-storage2/remote/CommandType.lua",
+                        "/usr/lib/lib-storage2/remote/CommandType.lua"
                     ]
                 ],
                 "dependencies": [
-                    "lib-logging",
                     "class-lua",
-                    "lib-storage2-remote",
+                    "lib-remote",
                     "lib-storage2"
                 ]
             },
