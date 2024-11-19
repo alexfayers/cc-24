@@ -2,13 +2,6 @@
 ---Available via the `storage2-server` package
 package.path = package.path .. ";/usr/lib/?.lua"
 
-require("lib-storage2.remote.server.Server")
+require("lib-storage2.remote.StorageServer")
 
-
-local function runServer()
-    local server = Server()
-    server:listen()
-end
-
-
-runServer()
+StorageServer():listen()

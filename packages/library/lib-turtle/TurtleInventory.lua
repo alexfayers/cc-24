@@ -7,7 +7,7 @@ local tableHelpers = require("lexicon-lib.lib-table")
 local pretty = require("cc.pretty")
 local logging = require("lexicon-lib.lib-logging")
 
-require("lib-storage2.remote.client.Client")
+require("lib-storage2.remote.StorageClient")
 
 ---This class represents the turtle inventory
 ---It has a lot of parallels with the Map and MapSlot classes in lib-storage2,
@@ -39,7 +39,7 @@ function TurtleInventory:init()
     ---@type table<string, string>?
     self.remoteStorageIOChests = nil
 
-    ---@type Client?
+    ---@type StorageClient?
     self.storageClient = nil
 
     self:updateSlots()
@@ -266,7 +266,7 @@ end
 
 
 ---Attach a storageClient if we're attached to a network with inventories
----@return Client? _ Whether a storageClient was attached
+---@return StorageClient? _ Whether a storageClient was attached
 function TurtleInventory:attachStorageClient()
     if self.storageClient then
         return self.storageClient
@@ -276,7 +276,7 @@ function TurtleInventory:attachStorageClient()
         return nil
     end
 
-    local storageClient = Client()
+    local storageClient = StorageClient()
     if storageClient.serverId then
         self.storageClient = storageClient
 

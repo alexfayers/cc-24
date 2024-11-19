@@ -2,7 +2,9 @@
 package.path = package.path .. ";/usr/lib/?.lua"
 require("class-lua.class")
 
-require("lib-storage2.remote.RemoteMessageType")
+require("lib-remote.types.MessageErrorCode")
+require("lib-remote.types.MessageType")
+require("lib-remote.types.MessageTypeArgs")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("Remote")
 
@@ -12,6 +14,7 @@ local logger = require("lexicon-lib.lib-logging").getLogger("Remote")
 Remote = class()
 
 Remote.protocol = "lexicon-remote"
+
 ---@type table<string, boolean>
 Remote.filterCommands = {}
 
