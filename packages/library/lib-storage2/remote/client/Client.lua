@@ -100,7 +100,7 @@ function Client:baseSendCommand(commandType, sendData)
         return true, messageData
     end
 
-    logger:error("Unexpected response: " .. messageType)
+    logger:error("Unexpected response: %s", messageType)
     return false
 end
 
