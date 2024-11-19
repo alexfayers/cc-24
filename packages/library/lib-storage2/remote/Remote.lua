@@ -62,8 +62,25 @@ function Remote:unserialiseMessage(message)
                 return nil, nil
             end
 
-            if type(data[arg.name]) ~= arg.type then
-                return nil, nil
+            local receivedArgType = type(data[arg.name])
+            local argType = arg.type
+
+            if type(argType) == "table" then
+                local valid = false
+                for _, t in ipairs(argType) do
+                    if receivedArgType == t then
+                        valid = true
+                        break
+                    end
+                end
+
+                if not valid then
+                    return nil, nil
+                end
+            else
+                if receivedArgType ~= argType then
+                    return nil, nil
+                end
             end
         end
 
