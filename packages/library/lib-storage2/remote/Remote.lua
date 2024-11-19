@@ -58,10 +58,6 @@ function Remote:unserialiseMessage(message)
         end
 
         for _, arg in ipairs(messageTypeArgs) do
-            if not data[arg.name] then
-                return nil, nil
-            end
-
             local receivedArgType = type(data[arg.name])
             local argType = arg.type
 
