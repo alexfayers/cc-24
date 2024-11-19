@@ -16,10 +16,17 @@ settings.define("lexicon.dbPath", {
     type = "string",
 })
 
+settings.define("lexicon.gitBranch", {
+    description = "The branch to use for the lexicon repository",
+    default = "main",
+    type = "string",
+})
+
 local MANIFEST_URL = settings.get("lexicon.dbUrl")
 
 -- local pretty = require("cc.pretty")
 local LEXICON_DB_PATH = settings.get("lexicon.dbPath")
+local GIT_BRANCH = settings.get("lexicon.gitBranch")
 
 local packagesDownloadedThisRun = {}
 
@@ -50,16 +57,20 @@ end
 ---Add a token to the end of a URL to prevent caching
 ---@param url string
 ---@return string
-local function addTokenToUrl(url)
-    ---@diagnostic disable-next-line: undefined-field
-    return url .. "?token=" .. os.epoch("utc")
+local function prepareUrl(url)
+    url = url .. "?token=" .. os.epoch("utc")
+
+    -- replace <branch> with the current branch
+    url = string.gsub(url, "<branch>", GIT_BRANCH)
+
+    return url
 end
 
 ---Get the latest manifest from the lexicon repository
 ---@return table
 local function getLatestManifest()
     -- use a token to prevent caching
-    local request = http.get(addTokenToUrl(MANIFEST_URL))
+    local request = http.get(prepareUrl(MANIFEST_URL))
     if request then
         local manifest = textutils.unserialiseJSON(request.readAll())
         request.close()
@@ -184,7 +195,7 @@ local function downloadPackage(packageName, parentPackage, previouslyDownloadedP
         local sourceUrl = file[1]
         local downloadPath = file[2]
 
-        local request = http.get(addTokenToUrl(sourceUrl))
+        local request = http.get(prepareUrl(sourceUrl))
         if request then
             local fileContents = request.readAll()
             request.close()
