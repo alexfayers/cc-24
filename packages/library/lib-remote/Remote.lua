@@ -293,7 +293,7 @@ function Remote:receiveData(expectedSender, expectedChatId, expectedMessageType,
     local senderId, message
     ---@type MessageType?, MessageData?
     local messageType, data
-
+    local chatId = nil
     if not self:openModem() then
         goto nilReturn
     end
@@ -339,7 +339,7 @@ function Remote:receiveData(expectedSender, expectedChatId, expectedMessageType,
         goto nilReturn
     end
 
-    local chatId = data and data.chat_id
+    chatId = data and data.chat_id
 
     if expectedChatId then
         if not chatId or chatId ~= expectedChatId then
