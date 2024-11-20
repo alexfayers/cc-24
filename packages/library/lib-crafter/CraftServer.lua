@@ -18,6 +18,7 @@ function CraftServer:init()
     Server.init(self)
 
     self.commandHandlers = {
+        [CrafterCommandType.GET_LOCAL_NAME] = self.getLocalName,
         [CrafterCommandType.CRAFT] = self.handleCraft,
     }
 end
