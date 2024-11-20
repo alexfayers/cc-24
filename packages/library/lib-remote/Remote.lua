@@ -314,7 +314,7 @@ function Remote:receiveData(expectedSender, expectedChatId, expectedMessageType,
     if expectedChatId then
         local chatId = data and data.chat_id
         if not chatId or chatId ~= expectedChatId then
-            logger:debug("<%d|Expected chat id: %d", senderId, expectedChatId)
+            logger:debug("<%d|Expected chat id: %d, got %s", senderId, expectedChatId, chatId)
             goto receive
         end
     end
