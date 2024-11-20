@@ -201,10 +201,13 @@ function Remote:sendData(remoteId, messageType, data)
         return false
     end
     local res = self:sendDataRaw(remoteId, message)
+
+    local chatId = data and data.chat_id
+    local chatIdStr = chatId and (" (chat id: %d)"):format(chatId) or ""
     if res then
-        logger:debug(">%d|Sent %s", remoteId, messageType)
+        logger:debug(">%d|Sent %s%s", remoteId, messageType, chatIdStr)
     else
-        logger:warn(">%d|Send failed: %s", remoteId, message)
+        logger:warn(">%d|Send failed: %s%s", remoteId, message, chatIdStr)
     end
 
     return res
