@@ -27,6 +27,7 @@ function StorageServer:init()
         [CommandType.PING] = self.handlePing,
         [CommandType.PULL] = self.handlePull,
         [CommandType.PUSH] = self.handlePush,
+        [CommandType.ITEM_COUNT] = self.handleCount,
     }
 
     self:initPeripherals()
@@ -159,6 +160,27 @@ function StorageServer:handlePush(clientId, data)
 
     local res = {
         count = pushedCount,
+    }
+
+    return true, res
+end
+
+
+---Handle a count request from a client
+---@param clientId number
+---@param data table
+---@return boolean, table?
+function StorageServer:handleCount(clientId, data)
+    if not data.item then
+        return false
+    end
+
+    self.storageMap:populate()
+
+    local count = self.storageMap:getTotalItemCount(data.item, false)
+
+    local res = {
+        count = count,
     }
 
     return true, res

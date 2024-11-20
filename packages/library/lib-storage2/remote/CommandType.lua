@@ -5,4 +5,5 @@ CommandType = {  ---@class _CommandTypes
     PING = "PING",
     PULL = "PULL",
     PUSH = "PUSH",
+    ITEM_COUNT = "ITEM_COUNT",
 }

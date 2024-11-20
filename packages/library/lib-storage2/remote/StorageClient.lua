@@ -68,3 +68,13 @@ function StorageClient:push(inputChestName, slots)
         fromSlots = slots,
     })
 end
+
+
+---Get the count of an item in the storage chests
+---@param item string
+---@return boolean, table?
+function StorageClient:getItemCount(item)
+    return self:baseSendCommand(CommandType.ITEM_COUNT, {
+        item = item,
+    })
+end
