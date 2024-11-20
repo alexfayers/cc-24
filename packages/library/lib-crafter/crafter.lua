@@ -5,6 +5,8 @@ require("lib-storage2.remote.StorageClient")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("Crafter")
 
+BASE_RECIPE_URL = "https://raw.githubusercontent.com/alexfayers/cc-24/refs/heads/main/helper/autocrafter/recipes/"
+
 local craftClient = CraftClient()
 local storageClient = StorageClient()
 
