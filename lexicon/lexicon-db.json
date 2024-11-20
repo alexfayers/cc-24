@@ -216,6 +216,34 @@
                     ]
                 ],
                 "dependencies": []
+            },
+            "lib-crafter": {
+                "description": "A library for crafting items",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-crafter/CraftClient.lua",
+                        "/usr/lib/lib-crafter/CraftClient.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-crafter/crafter.lua",
+                        "/usr/lib/lib-crafter/crafter.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-crafter/CrafterCommandType.lua",
+                        "/usr/lib/lib-crafter/CrafterCommandType.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-crafter/CraftServer.lua",
+                        "/usr/lib/lib-crafter/CraftServer.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "class-lua",
+                    "lib-logging",
+                    "lib-remote",
+                    "lib-storage2-remote-client"
+                ]
             }
         },
         "program": {
