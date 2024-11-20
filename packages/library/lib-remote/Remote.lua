@@ -202,7 +202,7 @@ function Remote:sendData(remoteId, messageType, data)
     end
     local res = self:sendDataRaw(remoteId, message)
 
-    local chatId = data and data.chat_id
+    local chatId = data and data.chat_id or nil
     local chatIdStr = chatId and (" (chat id: %d)"):format(chatId) or ""
     if res then
         logger:debug(">%d|Sent %s%s", remoteId, messageType, chatIdStr)
