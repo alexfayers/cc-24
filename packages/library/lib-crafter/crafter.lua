@@ -184,7 +184,13 @@ local function craft_item(craftItemName, craftCount)
         return false
     end
 
-    local success = craftClient:craft(craftCount)
+    local success, craftErrors = craftClient:craft(craftCount)
+
+    if craftErrors then
+        logger:error("Failed to craft %s: %s", craftItemName, craftErrors.error)
+        return false
+    end
+
     transfer_all_slots(remoteName)
 
     if not success then

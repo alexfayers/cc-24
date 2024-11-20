@@ -48,7 +48,13 @@ end
 ---Handle a craft command
 ---@param clientId number
 ---@param data table
----@return boolean
+---@return boolean, table?
 function CraftServer:handleCraft(clientId, data)
-    return turtle.craft(data.limit)
+    local craftRes, craftError = turtle.craft(data.limit)
+
+    if not craftRes then
+        return false, {error = craftError}
+    end
+
+    return craftRes
 end
