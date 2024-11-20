@@ -72,7 +72,7 @@ function Server:_listen()
     end
 
     while true do
-        local senderId, messageType, data = self:receiveData(nil, MessageType.CMD)
+        local senderId, messageType, data = self:receiveData(nil, nil, MessageType.CMD)
         if not messageType then
             goto continue
         end
@@ -80,6 +80,7 @@ function Server:_listen()
 
         local commandType = data.type
         local commandData = data.data
+        local chatId = data.chat_id
 
         local handler = self.commandHandlers[commandType]
 
@@ -87,6 +88,7 @@ function Server:_listen()
             logger:warn("<%d|No handler for %s", senderId, commandType)
             self:sendError(
                 senderId,
+                chatId,
                 MessageErrorCode.UNKNOWN_COMMAND,
                 "No handler for %s",
                 commandType
@@ -100,12 +102,19 @@ function Server:_listen()
             logger:warn("<%d|Failed to handle %s", senderId, commandType)
             self:sendError(
                 senderId,
+                chatId,
                 MessageErrorCode.UNKNOWN,
                 "Failed to handle %s",
                 commandType
             )
             goto continue
         else
+            if not handlerData then
+                handlerData = {}
+            end
+
+            handlerData.chat_id = chatId
+
             self:sendData(senderId, MessageType.END, handlerData)
         end
 
@@ -120,7 +129,7 @@ end
 ---@return boolean
 function Server:listen()
     local status, listenRes = xpcall(self._listen, function (err)
-        logger:error("Error: %s", err)
+        logger:fatal("Fatal server error: %s", err)
     end, self)
 
     self:shutDown()
