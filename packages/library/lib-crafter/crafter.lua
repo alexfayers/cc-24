@@ -99,7 +99,6 @@ local function transfer_slot(crafterName, slot)
         logger:info("Pulled %d items from crafter", pullCount)
         return true
     else
-        logger:error("Failed to pull slot %d from crafter", slot)
         return false
     end
 end
