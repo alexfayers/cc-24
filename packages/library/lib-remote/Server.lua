@@ -84,12 +84,12 @@ function Server:_listen()
         local handler = self.commandHandlers[commandType]
 
         if not handler then
-            logger:warn("<%d|No handler for %s", senderId, messageType)
+            logger:warn("<%d|No handler for %s", senderId, commandType)
             self:sendError(
                 senderId,
                 MessageErrorCode.UNKNOWN_COMMAND,
                 "No handler for %s",
-                messageType
+                commandType
             )
             goto continue
         end
