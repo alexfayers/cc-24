@@ -144,7 +144,7 @@ local function craft_item(craftItemName, craftCount)
         filledSlots = 0
         totalSlots = 0
 
-        local outputCount = recipe["output"]["count"]
+        local outputCount = recipe.output.count
         local repeatCount = math.ceil(craftCount / outputCount)
 
         for slotStr, slotItemNames in pairs(recipe.input) do
@@ -157,7 +157,7 @@ local function craft_item(craftItemName, craftCount)
             end
 
             for _, slotItemName in pairs(slotItemNames) do
-                local pullRes, pullData = storageClient:callCommand(storageClient.pull, remoteName, slotItemName, craftCount, slotNumber)
+                local pullRes, pullData = storageClient:callCommand(storageClient.pull, remoteName, slotItemName, repeatCount, slotNumber)
 
                 if pullRes and pullData and pullData.count > 0 then
                     -- logger:info("Pulled " .. slotItemName .. " from storage")
