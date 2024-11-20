@@ -97,12 +97,12 @@ function Server:_listen()
         local handlerRes, handlerData = handler(self, senderId, commandData)
 
         if not handlerRes then
-            logger:warn("<%d|Failed to handle %s", senderId, messageType)
+            logger:warn("<%d|Failed to handle %s", senderId, commandType)
             self:sendError(
                 senderId,
                 MessageErrorCode.UNKNOWN,
                 "Failed to handle %s",
-                messageType
+                commandType
             )
             goto continue
         else
