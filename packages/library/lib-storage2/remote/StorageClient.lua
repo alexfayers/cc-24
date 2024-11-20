@@ -47,13 +47,15 @@ end
 ---@param item string
 ---@param count number
 ---@param toSlot number?
+---@param fuzzy boolean?
 ---@return boolean, table?
-function StorageClient:pull(outputChestName, item, count, toSlot)
+function StorageClient:pull(outputChestName, item, count, toSlot, fuzzy)
     return self:baseSendCommand(CommandType.PULL, {
         item = item,
         count = count,
         invName = outputChestName,
         toSlot = toSlot,
+        fuzzy = fuzzy,
     })
 end
 

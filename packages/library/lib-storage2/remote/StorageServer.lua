@@ -117,7 +117,12 @@ function StorageServer:handlePull(clientId, data)
 
     self.storageMap:populate()
 
-    local pulledCount = self.storageMap:pull(pullToChest, data.item, data.count, true, data.toSlot)
+    local fuzzy = true
+    if data.fuzzy ~= nil then
+        fuzzy = data.fuzzy
+    end
+
+    local pulledCount = self.storageMap:pull(pullToChest, data.item, data.count, fuzzy, data.toSlot)
 
     if pulledCount > 0 then
         self.storageMap:save()
