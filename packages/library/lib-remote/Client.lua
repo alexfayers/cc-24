@@ -94,7 +94,11 @@ function Client:baseSendCommand(commandType, sendData)
         return true, messageData
     end
 
-    logger:error("Unexpected response: %s", messageType)
+    if messageType ~= nil then
+        logger:error("Unexpected response: %s", messageType)
+        return false
+    end
+
     return false
 end
 
