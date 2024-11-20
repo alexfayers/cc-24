@@ -157,7 +157,7 @@ local function craft_item(craftItemName, craftCount)
             end
 
             for _, slotItemName in pairs(slotItemNames) do
-                local pullRes, pullData = storageClient:callCommand(storageClient.pull, remoteName, craftItemName, craftCount, slotNumber)
+                local pullRes, pullData = storageClient:callCommand(storageClient.pull, remoteName, slotItemName, craftCount, slotNumber)
 
                 if pullRes and pullData and pullData.count > 0 then
                     -- logger:info("Pulled " .. slotItemName .. " from storage")
