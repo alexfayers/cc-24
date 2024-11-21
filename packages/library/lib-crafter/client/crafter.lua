@@ -19,11 +19,16 @@ settings.define("crafter.outputChestName", {
     type = "string",
 })
 
+settings.define("crafter.modemLocalName", {
+    description = "The local name of the crafty turtle on it's modem",
+    type = "string",
+})
+
 ---@type ccTweaked.peripherals.Inventory?
 local outputChest = nil
 
 ---@type string?
-local remoteName = nil
+local remoteName = settings.get("crafter.modemLocalName")
 
 
 local function getItemStub(itemName)
@@ -326,6 +331,9 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems, 
             logger:error("Failed to get remote name")
             return false
         end
+
+        settings.set("crafter.modemLocalName", remoteName)
+        settings.save()
     end
 
     if previousCraftAttemptItems == nil then
