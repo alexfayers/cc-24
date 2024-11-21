@@ -4,24 +4,27 @@ import json
 from pathlib import Path
 from typing import Iterator, Optional
 
-SOURCE_DIR = "raw_recipes"
-OUTPUT_DIR = "recipes"
+RECIPE_SOURCE_DIR = "raw_recipes"
+RECIPE_OUTPUT_DIR = "recipes"
+
+TAG_SOURCE_DIR = "raw_tags"
+TAG_OUTPUT_DIR = "tags"
 
 
-def find_all_recipes() -> Iterator[Path]:
+def find_all_json(source_dir: Path) -> Iterator[tuple[Path, Path]]:
     """Find all recipes in the source directory
 
     Returns:
         Iterator[Path]: A generator for all recipe files
     """
-    source_dir = Path(SOURCE_DIR)
-
     if not source_dir.exists():
         raise FileNotFoundError(f"Source directory '{source_dir}' does not exist")
-    
-    for file in source_dir.rglob("*.json"):
-        if file.is_file():
-            yield file
+
+    for directory in source_dir.glob("*"):
+        if directory.is_dir():
+            for file in directory.rglob("*.json"):
+                if file.is_file():
+                    yield file, file.relative_to(directory)
 
 
 def ingredient_to_string(ingredient: dict) -> str | list[str]:
@@ -137,13 +140,13 @@ def prepare_recipe(recipe: dict) -> Optional[dict]:
 def pack_recipes() -> None:
     """Pack all recipes into a single file
     """
-    output_dir = Path(OUTPUT_DIR)
+    output_dir = Path(RECIPE_OUTPUT_DIR)
     output_dir.mkdir(exist_ok=True)
 
     grouped_recipes = {}
     
-    for recipe_file in find_all_recipes():
-        with open(recipe_file, "r") as f:
+    for recipe_file_read, recipe_file_write in find_all_json(Path(RECIPE_SOURCE_DIR)):
+        with recipe_file_read.open("r") as f:
             recipe = json.load(f)
 
         prepared_recipe = prepare_recipe(recipe)
@@ -159,10 +162,42 @@ def pack_recipes() -> None:
 
 
     for output_item, recipes in grouped_recipes.items():
-        filename = f"{output_item.split(':')[1]}.json"
-        with Path(output_dir, filename).open("w") as f:
+        output_path = Path(output_dir, f"{output_item.split(':')[1]}.json")
+        # output_path = Path(output_dir, recipe_file_write.stem)
+        output_path.parent.mkdir(exist_ok=True, parents=True)
+
+        with output_path.open("w") as f:
             json.dump(recipes, f, indent=4)
+
+
+def pack_tags() -> None:
+    output_dir = Path(TAG_OUTPUT_DIR)
+    output_dir.mkdir(exist_ok=True)
+
+    for tag_file_read, tag_file_write in find_all_json(Path(TAG_SOURCE_DIR)):
+        with open(tag_file_read, "r") as f:
+            tag = json.load(f)
+
+            new_values = []
+            for value in tag["values"]:
+                if not isinstance(value, str):
+                    continue
+                else:
+                    new_values.append(value)
+
+            if not new_values:
+                continue
+
+            tag["values"] = new_values
+
+        output_path = Path(output_dir, tag_file_write)
+        output_path.parent.mkdir(exist_ok=True, parents=True)
+
+        with output_path.open("w") as f:
+            json.dump(tag, f, indent=2)
+
 
 
 if __name__ == "__main__":
     pack_recipes()
+    pack_tags()
