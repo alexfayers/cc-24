@@ -462,6 +462,18 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems, 
                     goto nextItem
                 end
 
+                local itemCountRes, itemCountData = storageClient:getItemCount(slotItemName)
+                if not itemCountRes or itemCountData == nil then
+                    logger:error("Failed to get item count for %s", slotItemName)
+                    goto nextItem
+                end
+
+                if itemCountData.count and itemCountData.count < repeatCount then
+                    logger:warn("Not enough %s in storage (%d/%d)", slotItemName, itemCountData.count, repeatCount)
+                    table.insert(previousPullFailedItems, slotItemNameStub)
+                    goto nextItem
+                end
+
                 local pullRes, pullData = storageClient:callCommand(storageClient.pull, remoteName, slotItemName, repeatCount, slotNumber, false)
 
                 if pullRes and pullData and pullData.count > 0 then
