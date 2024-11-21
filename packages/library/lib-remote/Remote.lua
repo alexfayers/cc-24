@@ -336,7 +336,7 @@ function Remote:receiveData(expectedSender, expectedChatId, expectedMessageType,
     end
 
     if self.filterCommands[messageType] then
-        goto nilReturn
+        goto receive
     end
 
     chatId = data and data.chat_id
