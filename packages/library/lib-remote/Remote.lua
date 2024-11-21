@@ -27,6 +27,13 @@ function Remote:init()
 end
 
 
+---Generate a random ID for a conversation
+---@return number
+function Remote:generateId()
+    return os.epoch("utc") + (math.random(100000, 999999) * 10)
+end
+
+
 ---Deserialise a message received over the network
 ---@param message string
 ---@return MessageType?, MessageData?
@@ -194,10 +201,13 @@ function Remote:sendData(remoteId, messageType, data)
         return false
     end
     local res = self:sendDataRaw(remoteId, message)
+
+    local chatId = data and data.chat_id or nil
+    local chatIdStr = chatId and (" (chat id: %d)"):format(chatId) or ""
     if res then
-        logger:debug(">%d|Sent %s", remoteId, messageType)
+        logger:debug(">%d|Sent %s%s", remoteId, messageType, chatIdStr)
     else
-        logger:warn(">%d|Send failed: %s", remoteId, message)
+        logger:warn(">%d|Send failed: %s%s", remoteId, message, chatIdStr)
     end
 
     return res
@@ -206,9 +216,10 @@ end
 
 ---Send an error message to a computer
 ---@param remoteId number
+---@param chatId? number
 ---@param errorCode MessageErrorCode
 ---@param message? string
-function Remote:sendError(remoteId, errorCode, message, ...)
+function Remote:sendError(remoteId, chatId, errorCode, message, ...)
     if message then
         message = string.format(message, ...)
     end
@@ -219,6 +230,10 @@ function Remote:sendError(remoteId, errorCode, message, ...)
 
     if message then
         payload.message = message
+    end
+
+    if chatId then
+        payload.chat_id = chatId
     end
 
     self:sendData(remoteId, MessageType.ERR, payload)
@@ -232,11 +247,19 @@ end
 ---@param data? MessageData
 ---@return boolean, MessageType?, MessageEndData?
 function Remote:sendDataWait(remoteId, messageType, data)
+    local chat_id = self:generateId()
+
+    if not data then
+        data = {}
+    end
+
+    data.chat_id = chat_id
+
     if not self:sendData(remoteId, messageType, data) then
         return false, nil
     end
 
-    local senderId, responseMessageType, responseData = self:receiveData(remoteId, MessageType.ACK, 1)
+    local senderId, responseMessageType, responseData = self:receiveData(remoteId, chat_id, MessageType.ACK, 1)
 
     if not senderId then
         -- no response
@@ -244,11 +267,16 @@ function Remote:sendDataWait(remoteId, messageType, data)
     end
 
     --- we got an ACK, now wait for the actual response
-    senderId, responseMessageType, responseData = self:receiveData(remoteId, MessageType.END, 10)
+    senderId, responseMessageType, responseData = self:receiveData(remoteId, chat_id, nil, 10)
 
     if not senderId then
         -- no response
         return false, nil
+    end
+
+    if responseMessageType ~= MessageType.END then
+        logger:warn("<%d|Expected END, got %s", senderId, responseMessageType)
+        return false, responseMessageType, responseData
     end
 
     return true, responseMessageType, responseData
@@ -257,14 +285,15 @@ end
 
 ---Receive data from a computer
 ---@param expectedSender? number
+---@param expectedChatId? number
 ---@param expectedMessageType? MessageType
 ---@param timeout? number
 ---@return number, MessageType?, table?
-function Remote:receiveData(expectedSender, expectedMessageType, timeout)
+function Remote:receiveData(expectedSender, expectedChatId, expectedMessageType, timeout)
     local senderId, message
-    ---@type MessageType?
+    ---@type MessageType?, MessageData?
     local messageType, data
-
+    local chatId = nil
     if not self:openModem() then
         goto nilReturn
     end
@@ -281,10 +310,6 @@ function Remote:receiveData(expectedSender, expectedMessageType, timeout)
         goto nilReturn
     end
 
-    if self.filterCommands[message] then
-        goto nilReturn
-    end
-
     if expectedSender and senderId ~= expectedSender then
         logger:debug("<%d|Expected id: %d", senderId, expectedSender)
         goto receive
@@ -295,6 +320,7 @@ function Remote:receiveData(expectedSender, expectedMessageType, timeout)
         logger:warn("<%d|Non-string: %s", senderId, message)
 
         self:sendData(senderId, MessageType.ERR, {
+            chat_id = expectedChatId,
             code = MessageErrorCode.INVALID_DATA_TYPE
         })
         goto nilReturn
@@ -304,9 +330,22 @@ function Remote:receiveData(expectedSender, expectedMessageType, timeout)
     messageType, data = self:unserialiseMessage(message)
 
     if not messageType then
-        logger:warn("<%d|Unknown message type: %s", senderId, message)
-        self:sendError(senderId, MessageErrorCode.UNKNOWN_COMMAND, message)
+        logger:warn("<%d|Unknown message type: %s", senderId, messageType)
+        self:sendError(senderId, expectedChatId, MessageErrorCode.UNKNOWN_COMMAND, messageType)
         goto nilReturn
+    end
+
+    if self.filterCommands[messageType] then
+        goto receive
+    end
+
+    chatId = data and data.chat_id
+
+    if expectedChatId then
+        if not chatId or chatId ~= expectedChatId then
+            logger:debug("<%d|Expected chat id: %d, got %s", senderId, expectedChatId, chatId)
+            goto receive
+        end
     end
 
     if messageType == MessageType.ERR then
@@ -320,9 +359,9 @@ function Remote:receiveData(expectedSender, expectedMessageType, timeout)
         goto receive
     end
 
-    logger:debug("<%d|Valid: %s", senderId, messageType)
+    logger:debug("<%d|Valid: %s (chat %s)", senderId, messageType, chatId)
 
-    if message ~= MessageType.ACK and not self:sendData(senderId, MessageType.ACK) then
+    if messageType == MessageType.CMD and not self:sendData(senderId, MessageType.ACK, {chat_id = chatId}) then
         goto nilReturn
     end
 
@@ -332,5 +371,5 @@ function Remote:receiveData(expectedSender, expectedMessageType, timeout)
 
     ::nilReturn::
     self.processing = false
-    return senderId, nil
+    return senderId, nil, nil
 end

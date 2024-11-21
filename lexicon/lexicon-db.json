@@ -216,6 +216,49 @@
                     ]
                 ],
                 "dependencies": []
+            },
+            "lib-crafter-server": {
+                "description": "A library for auto crafting (server)",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-crafter/server/CraftServer.lua",
+                        "/usr/lib/lib-crafter/server/CraftServer.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-crafter/CrafterCommandType.lua",
+                        "/usr/lib/lib-crafter/CrafterCommandType.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "class-lua",
+                    "lib-remote"
+                ]
+            },
+            "lib-crafter-client": {
+                "description": "A library for auto crafting (client)",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-crafter/client/CraftClient.lua",
+                        "/usr/lib/lib-crafter/client/CraftClient.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-crafter/client/crafter.lua",
+                        "/usr/lib/lib-crafter/client/crafter.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-crafter/CrafterCommandType.lua",
+                        "/usr/lib/lib-crafter/CrafterCommandType.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "class-lua",
+                    "lib-table",
+                    "lib-logging",
+                    "lib-remote",
+                    "lib-storage2-remote-client"
+                ]
             }
         },
         "program": {
@@ -369,6 +412,36 @@
                     "lib-logging"
                 ],
                 "usage": "'breeder'"
+            },
+            "autocraft": {
+                "description": "A simple program to auto craft items using a turtle and a storage2 network",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/autocraft/autocraft.lua",
+                        "autocraft.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-crafter-client",
+                    "lib-logging",
+                    "metis-argparse"
+                ],
+                "usage": "'autocraft'"
+            },
+            "autocraft-server": {
+                "description": "A simple program to auto craft items using a turtle and a storage2 network (server)",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/autocraft/autocraft-server.lua",
+                        "autocraft-server.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-crafter-server"
+                ],
+                "usage": "'autocraft-server'"
             }
         }
     }

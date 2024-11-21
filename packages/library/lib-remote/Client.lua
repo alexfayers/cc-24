@@ -12,6 +12,10 @@ local logger = require("lexicon-lib.lib-logging").getLogger("Client")
 ---@overload fun(): Client
 Client = Remote:extend()
 
+Client.filterCommands = {
+    [MessageType.CMD] = true,
+}
+
 
 ---Initialise a new storage2 client
 function Client:init()
@@ -94,7 +98,11 @@ function Client:baseSendCommand(commandType, sendData)
         return true, messageData
     end
 
-    logger:error("Unexpected response: %s", messageType)
+    if messageType ~= nil then
+        logger:error("Unexpected response: %s", messageType)
+        return false
+    end
+
     return false
 end
 
@@ -104,7 +112,7 @@ end
 ---@return boolean, table?
 function Client:callCommand(func, ...)
     local status, res, data = xpcall(func, function(err)
-        logger:error("Error: %s", err)
+        logger:fatal("Fatal client error: %s", err)
     end, self, ...)
 
     self:closeModem()
