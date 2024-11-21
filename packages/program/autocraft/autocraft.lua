@@ -39,7 +39,7 @@ local item_name = args.item_name
 local countRaw = args.count
 
 local count = tonumber(countRaw)
-if not count then
+if countRaw and not count then
     error("Invalid count: " .. countRaw, 0)
 end
 
