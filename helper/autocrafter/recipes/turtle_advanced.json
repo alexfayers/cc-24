@@ -1,0 +1,121 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:ingots/gold"
+            ],
+            "2": [
+                "#c:ingots/gold"
+            ],
+            "3": [
+                "#c:ingots/gold"
+            ],
+            "5": [
+                "#c:ingots/gold"
+            ],
+            "7": [
+                "#c:ingots/gold"
+            ],
+            "9": [
+                "#c:ingots/gold"
+            ],
+            "11": [
+                "#c:ingots/gold"
+            ],
+            "6": [
+                "computercraft:computer_advanced"
+            ],
+            "10": [
+                "#c:chests/wooden"
+            ]
+        },
+        "output": {
+            "id": "computercraft:turtle_advanced",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "#c:ingots/gold"
+            ],
+            "2": [
+                "#c:ingots/gold"
+            ],
+            "3": [
+                "#c:ingots/gold"
+            ],
+            "5": [
+                "#c:ingots/gold"
+            ],
+            "7": [
+                "#c:ingots/gold"
+            ],
+            "10": [
+                "#c:storage_blocks/gold"
+            ],
+            "6": [
+                "computercraft:turtle_normal"
+            ]
+        },
+        "output": {
+            "id": "computercraft:turtle_advanced",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "#c:dyes/red"
+            ],
+            "2": [
+                "#c:dyes/orange"
+            ],
+            "3": [
+                "#c:dyes/yellow"
+            ],
+            "4": [
+                "#c:dyes/green"
+            ],
+            "5": [
+                "#c:dyes/blue"
+            ],
+            "6": [
+                "#c:dyes/purple"
+            ],
+            "7": [
+                "minecraft:stick"
+            ],
+            "8": [
+                "computercraft:turtle_advanced"
+            ]
+        },
+        "output": {
+            "id": "computercraft:turtle_advanced",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "#c:dyes/light_blue"
+            ],
+            "2": [
+                "#c:dyes/pink"
+            ],
+            "3": [
+                "#c:dyes/white"
+            ],
+            "4": [
+                "minecraft:stick"
+            ],
+            "5": [
+                "computercraft:turtle_advanced"
+            ]
+        },
+        "output": {
+            "id": "computercraft:turtle_advanced",
+            "count": 1
+        }
+    }
+]

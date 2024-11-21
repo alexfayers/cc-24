@@ -22,6 +22,38 @@
             "11": [
                 "#c:ingots/gold"
             ],
+            "6": [
+                "computercraft:computer_normal"
+            ]
+        },
+        "output": {
+            "id": "computercraft:computer_advanced",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "#c:ingots/gold"
+            ],
+            "2": [
+                "#c:ingots/gold"
+            ],
+            "3": [
+                "#c:ingots/gold"
+            ],
+            "5": [
+                "#c:ingots/gold"
+            ],
+            "7": [
+                "#c:ingots/gold"
+            ],
+            "9": [
+                "#c:ingots/gold"
+            ],
+            "11": [
+                "#c:ingots/gold"
+            ],
             "10": [
                 "#c:glass_panes"
             ],
