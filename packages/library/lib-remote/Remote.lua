@@ -361,7 +361,7 @@ function Remote:receiveData(expectedSender, expectedChatId, expectedMessageType,
 
     logger:debug("<%d|Valid: %s (chat %s)", senderId, messageType, chatId)
 
-    if message ~= MessageType.ACK and not self:sendData(senderId, MessageType.ACK, {chat_id = chatId}) then
+    if messageType ~= MessageType.ACK and not self:sendData(senderId, MessageType.ACK, {chat_id = chatId}) then
         goto nilReturn
     end
 
