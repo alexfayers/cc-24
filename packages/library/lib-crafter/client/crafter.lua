@@ -239,21 +239,16 @@ end
 ---Transfer a slot from the crafter to the output chest
 ---@param crafterName string The name of the crafter
 ---@param slot number The slot to transfer
----@return boolean
+---@return number
 local function transfer_slot(crafterName, slot)
     if not ensureOutputChest() then
-        return false
+        return 0
     end
     ---@cast outputChest ccTweaked.peripherals.Inventory
 
     local pullCount = outputChest.pullItems(crafterName, slot)
 
-    if pullCount > 0 then
-        logger:info("Pulled %d items from crafter", pullCount)
-        return true
-    else
-        return false
-    end
+    return pullCount
 end
 
 
@@ -265,22 +260,23 @@ local function transfer_all_slots(crafterName)
         return false
     end
 
-    local didTransfer = false
+    local totalTransferred = 0
 
     local transferTasks = {}
     for slot = 1, 16 do
         table.insert(transferTasks, function ()
-            local success = transfer_slot(crafterName, slot)
+            local transferCount = transfer_slot(crafterName, slot)
     
-            if success and not didTransfer then
-                didTransfer = true
+            if transferCount > 0 then
+                totalTransferred = totalTransferred + transferCount
             end
         end)
     end
 
     parallel.waitForAll(table.unpack(transferTasks))
 
-    if didTransfer then
+    if totalTransferred > 0 then
+        logger:info("Transferred %d item%s from turtle to storage", totalTransferred, totalTransferred > 1 and "s" or "")
         return push_output_chest()
     end
 
