@@ -38,7 +38,7 @@ mc_colors = (
 )
 
 
-def find_loops() -> list[tuple[str, str]]:
+def find_loops() -> dict[str, str]:
     """Find crafting loops from the recipes folder
     """
     recipes = load_all_recipes()
@@ -54,7 +54,7 @@ def find_loops() -> list[tuple[str, str]]:
                 for item in items:
                     input_output_map[output_item].add(item)
 
-    loops = set()
+    loops = {}
 
     for output_item, input_items in input_output_map.items():
         for input_item in input_items:
@@ -64,17 +64,17 @@ def find_loops() -> list[tuple[str, str]]:
                 if any(mc_color in input_item for mc_color in mc_colors) and any(mc_color in output_item for mc_color in mc_colors):
                     # filter out colored blocks
                     continue
-                loops.add((input_item.split(":")[1], output_item.split(":")[1]))
+                loops[input_item.split(":")[1]] = output_item.split(":")[1]
 
-    return list(loops)
+    return loops
 
 
 def main():
     loops = find_loops()
 
     print(f"Found {len(loops)} loops:")
-    for loop in loops:
-        print(f" - {loop[0]} -> {loop[1]}")
+    for loop, loop2 in loops.items():
+        print(f" - {loop} -> {loop2}")
 
     with Path(OUTPUT_FILE).open("w") as f:
         json.dump(loops, f, indent=4)
