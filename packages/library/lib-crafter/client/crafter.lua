@@ -7,7 +7,7 @@ local tableHelpers = require("lexicon-lib.lib-table")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("Crafter")
 
-local BASE_URL = "https://raw.githubusercontent.com/alexfayers/cc-24/refs/heads/main/helper/autocrafter/"
+local BASE_URL = "https://raw.githubusercontent.com/alexfayers/cc-24/refs/heads/autocrafter/helper/autocrafter/"
 
 local craftClient = CraftClient()
 local storageClient = StorageClient()
@@ -38,6 +38,9 @@ local remoteName = settings.get("crafter.modemLocalName")
 
 ---@type string
 local cacheFolder = settings.get("crafter.cacheFolder")
+
+---@type table<string, string>?
+local recipeLoops = nil
 
 
 local function getItemStub(itemName)
@@ -165,7 +168,7 @@ end
 ---@param itemName string The name of the item to fetch the recipe for
 ---@return Recipe[]?
 local function fetch_recipe_remote(itemName)
-    itemName = itemName:match(".*:(.*)") or itemName
+    itemName = getItemStub(itemName)
 
     local recipeTable = getRemoteItem("recipes", itemName)
 
@@ -353,6 +356,19 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems, 
         settings.save()
     end
 
+    if craftCount > 64 then
+        logger:error("Can't craft more than 64 items at a time")
+        return false
+    end
+
+    if recipeLoops == nil then
+        recipeLoops = getRemoteItem("recipe_loops", "loops")
+        if not recipeLoops then
+            logger:error("Failed to get recipe loops")
+            return false
+        end
+    end
+
     if previousCraftAttemptItems == nil then
         previousCraftAttemptItems = {}
     end
@@ -360,6 +376,20 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems, 
     if previousPullFailedItems == nil then
         previousPullFailedItems = {}
     end
+
+    local craftItemNameStub = getItemStub(craftItemName)
+    local loopPrevent = recipeLoops[craftItemNameStub]
+
+    if loopPrevent then
+        if not tableHelpers.valuesContain(previousCraftAttemptItems, loopPrevent) then
+            table.insert(previousCraftAttemptItems, loopPrevent)
+        end
+
+        -- if not tableHelpers.valuesContain(previousPullFailedItems, loopPrevent) then
+        --     table.insert(previousPullFailedItems, loopPrevent)
+        -- end
+    end
+
 
     local recipes = nil
 
@@ -396,24 +426,25 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems, 
             local doCraftBeforePull = false
             ::retryPulls::
             for _, slotItemName in pairs(slotItemNames) do
+                local slotItemNameStub = getItemStub(slotItemName)
                 if doCraftBeforePull  then
-                    if tableHelpers.valuesContain(previousCraftAttemptItems, slotItemName) then
+                    if tableHelpers.valuesContain(previousCraftAttemptItems, slotItemNameStub) then
                         goto nextItem
                     end
 
-                    table.insert(previousCraftAttemptItems, slotItemName)
+                    table.insert(previousCraftAttemptItems, slotItemNameStub)
                     if not craft_item(slotItemName, repeatCount, previousCraftAttemptItems, previousPullFailedItems) then
                         goto nextItem
                     else
                         --- Remove the item from the previousCraftAttemptItems list if it was successfully crafted
                         for previousPullFailedItemsIndex, previousPullFailedItem in pairs(previousPullFailedItems) do
-                            if previousPullFailedItem == slotItemName then
+                            if previousPullFailedItem == slotItemNameStub then
                                 table.remove(previousPullFailedItems, previousPullFailedItemsIndex)
                             end
                         end
 
                         for previousCraftAttemptItemsIndex, previousCraftAttemptItem in pairs(previousCraftAttemptItems) do
-                            if previousCraftAttemptItem == slotItemName then
+                            if previousCraftAttemptItem == slotItemNameStub then
                                 table.remove(previousCraftAttemptItems, previousCraftAttemptItemsIndex)
                             end
                         end
@@ -422,7 +453,7 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems, 
                     end
                 end
 
-                if tableHelpers.valuesContain(previousPullFailedItems, slotItemName) then
+                if tableHelpers.valuesContain(previousPullFailedItems, slotItemNameStub) then
                     goto nextItem
                 end
 
@@ -433,8 +464,8 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems, 
                     filledSlots = filledSlots + 1
                     goto nextSlot
                 else
-                    logger:warn("Failed to pull " .. slotItemName .. " from storage")
-                    table.insert(previousPullFailedItems, slotItemName)
+                    logger:warn("Failed to pull " .. slotItemNameStub .. " from storage")
+                    table.insert(previousPullFailedItems, slotItemNameStub)
                     goto nextItem
                 end
                 ::nextItem::
@@ -449,7 +480,7 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems, 
         end
 
         if filledSlots == totalSlots then
-            logger:info("Pulled %d %s ", filledSlots, craftItemName)
+            -- logger:info("Pulled %d items ", filledSlots)
             break
         end
     end
@@ -470,7 +501,7 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems, 
         return false
     end
 
-    logger:info("Crafted " .. craftItemName)
+    logger:info("Crafted %d %s", craftCount, craftItemName)
     return true
 end
 
