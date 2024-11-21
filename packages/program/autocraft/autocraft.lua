@@ -46,4 +46,4 @@ if not count then
     error("Invalid count: " .. countRaw, 0)
 end
 
-crafter.craft_item(item_name, countRaw)
+crafter.craft_item(item_name, count)
