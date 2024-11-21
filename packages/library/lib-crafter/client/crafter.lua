@@ -396,7 +396,7 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems)
                     filledSlots = filledSlots + 1
                     goto nextSlot
                 else
-                    -- logger:error("Failed to pull " .. slotItemName .. " from storage")
+                    logger:warn("Failed to pull " .. slotItemName .. " from storage")
                     table.insert(previousPullFailedItems, slotItemName)
                     goto nextItem
                 end
@@ -418,7 +418,7 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems)
     end
 
     if filledSlots < totalSlots then
-        logger:warn("Couldn't pull %d %s ", totalSlots, craftItemName)
+        logger:warn("Couldn't pull items for %s", craftItemName)
         transfer_all_slots(remoteName)
         return false
     end
