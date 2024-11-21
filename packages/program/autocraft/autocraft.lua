@@ -1,6 +1,6 @@
 package.path = package.path .. ";/usr/lib/?.lua"
 
-local crafter = require("lib-crafter.crafter")
+local crafter = require("lib-crafter.client.crafter")
 local argparse = require("metis.argparse")
 local completion = require("cc.completion")
 
