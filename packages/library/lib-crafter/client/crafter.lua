@@ -1,6 +1,6 @@
 package.path = package.path .. ";/usr/lib/?.lua"
 
-require("lib-crafter.CraftClient")
+require("lib-crafter.client.CraftClient")
 require("lib-storage2.remote.StorageClient")
 
 local tableHelpers = require("lexicon-lib.lib-table")
