@@ -371,5 +371,5 @@ function Remote:receiveData(expectedSender, expectedChatId, expectedMessageType,
 
     ::nilReturn::
     self.processing = false
-    return senderId, nil
+    return senderId, nil, nil
 end
