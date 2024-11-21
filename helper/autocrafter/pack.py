@@ -66,7 +66,7 @@ def prepare_recipe(recipe: dict) -> Optional[dict]:
     """
     recipe_map = {}
 
-    if recipe["type"] == "minecraft:crafting_shaped":
+    if recipe["type"] in ("minecraft:crafting_shaped", "computercraft:transform_shaped"):
         for key, value in recipe["key"].items():
             search = ingredient_to_string(value)
             if isinstance(search, str):
@@ -111,7 +111,7 @@ def prepare_recipe(recipe: dict) -> Optional[dict]:
                             else:
                                 recipe_map[slot] = [search_val]
 
-    elif recipe["type"] == "minecraft:crafting_shapeless":
+    elif recipe["type"] in ("minecraft:crafting_shapeless", "computercraft:transform_shapeless"):
         for index, ingredient in enumerate(recipe["ingredients"]):
             slot = index + 1
             search = ingredient_to_string(ingredient)
