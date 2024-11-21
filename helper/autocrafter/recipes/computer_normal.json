@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:stone"
+            ],
+            "2": [
+                "minecraft:stone"
+            ],
+            "3": [
+                "minecraft:stone"
+            ],
+            "5": [
+                "minecraft:stone"
+            ],
+            "7": [
+                "minecraft:stone"
+            ],
+            "9": [
+                "minecraft:stone"
+            ],
+            "11": [
+                "minecraft:stone"
+            ],
+            "10": [
+                "#c:glass_panes"
+            ],
+            "6": [
+                "#c:dusts/redstone"
+            ]
+        },
+        "output": {
+            "id": "computercraft:computer_normal",
+            "count": 1
+        }
+    }
+]

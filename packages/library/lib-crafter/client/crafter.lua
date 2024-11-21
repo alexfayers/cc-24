@@ -122,6 +122,11 @@ end
 local function tag_to_items(tag)
     local items = {}
 
+    if type(tag) ~= "string" then
+        logger:error("Tag %s is not a string", tag)
+        return
+    end
+
     if tag:sub(1, 1) == "#" then
         local tagItems = getItemStub(tag:sub(2))
 

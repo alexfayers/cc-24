@@ -1,0 +1,48 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:stone"
+            ],
+            "2": [
+                "minecraft:stone"
+            ],
+            "3": [
+                "minecraft:stone"
+            ],
+            "5": [
+                "minecraft:stone"
+            ],
+            "7": [
+                "minecraft:stone"
+            ],
+            "9": [
+                "minecraft:stone"
+            ],
+            "10": [
+                "minecraft:stone"
+            ],
+            "11": [
+                "minecraft:stone"
+            ],
+            "6": [
+                "#c:dusts/redstone"
+            ]
+        },
+        "output": {
+            "id": "computercraft:wired_modem",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "computercraft:wired_modem_full"
+            ]
+        },
+        "output": {
+            "id": "computercraft:wired_modem",
+            "count": 1
+        }
+    }
+]

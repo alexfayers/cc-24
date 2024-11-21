@@ -1,0 +1,30 @@
+[
+    {
+        "input": {
+            "1": [
+                "#minecraft:skulls"
+            ],
+            "2": [
+                "computercraft:computer_advanced"
+            ]
+        },
+        "output": {
+            "id": "minecraft:player_head",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "#minecraft:skulls"
+            ],
+            "2": [
+                "computercraft:monitor_normal"
+            ]
+        },
+        "output": {
+            "id": "minecraft:player_head",
+            "count": 1
+        }
+    }
+]
