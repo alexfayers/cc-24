@@ -7,8 +7,7 @@ local tableHelpers = require("lexicon-lib.lib-table")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("Crafter")
 
-local BASE_RECIPE_URL = "https://raw.githubusercontent.com/alexfayers/cc-24/refs/heads/main/helper/autocrafter/recipes/"
-local BASE_TAG_URL = "https://raw.githubusercontent.com/alexfayers/cc-24/refs/heads/autocrafter/helper/autocrafter/tags/"
+local BASE_URL = "https://raw.githubusercontent.com/alexfayers/cc-24/refs/heads/main/helper/autocrafter/"
 
 local craftClient = CraftClient()
 local storageClient = StorageClient()
@@ -24,6 +23,12 @@ settings.define("crafter.modemLocalName", {
     type = "string",
 })
 
+settings.define("crafter.cacheFolder", {
+    description = "The folder to save cached recipes and tags to",
+    type = "string",
+    default = ".autocraft/cache/"
+})
+
 ---@type ccTweaked.peripherals.Inventory?
 local outputChest = nil
 
@@ -31,8 +36,80 @@ local outputChest = nil
 local remoteName = settings.get("crafter.modemLocalName")
 
 
+---@type string
+local cacheFolder = settings.get("crafter.cacheFolder")
+
+
 local function getItemStub(itemName)
     return itemName:match(".*:(.*)") or itemName
+end
+
+
+---Get the item from the remote repo and save it to disk if it doesn't exist, or load it from disk if it does
+---@param itemPath string The subpath to save the item to/load the item from
+---@param itemName string The name of the item to fetch
+---@return table?
+local function getRemoteItem(itemPath, itemName)
+    local itemFile = fs.combine(cacheFolder, itemPath, itemName .. ".json")
+
+    local diskData = tableHelpers.loadTable(itemFile)
+
+    if diskData ~= nil then
+        if tableHelpers.tableIsEmpty(diskData) then
+            -- logger:warn("Item %s %s is empty", itemPath, itemName)
+            return
+        end
+
+        return diskData
+    end
+
+    local itemUrl = BASE_URL .. itemPath .. "/" .. itemName .. ".json" .. "?token=" .. os.epoch("utc")
+
+    local response = http.get(itemUrl)
+
+    if response == nil then
+        logger:error("Failed to fetch %s %s", itemPath, itemName)
+        return
+    end
+
+    local responseCode = response.getResponseCode()
+
+    if responseCode == 404 then
+        logger:warn("Item %s %s not found", itemPath, itemName)
+        response.close()
+
+        tableHelpers.saveTable(itemFile, {})
+        return
+    end
+
+    if responseCode ~= 200 then
+        logger:error("Failed to fetch %s %s (%d)", itemPath, itemName, responseCode)
+        response.close()
+        return
+    end
+
+    local itemJson = response.readAll()
+    response.close()
+
+    if itemJson == nil then
+        logger:error("Item was empty for %s %s", itemPath, itemName)
+        return
+    end
+
+    local itemTable = textutils.unserializeJSON(itemJson)
+
+    if itemTable == nil then
+        logger:error("Failed to parse %s %s", itemPath, itemName)
+        return
+    end
+
+    local saveRes, saveErr = tableHelpers.saveTable(itemFile, itemTable)
+
+    if not saveRes then
+        logger:error("Failed to save %s %s: %s", itemPath, itemName, saveErr)
+    end
+
+    return itemTable
 end
 
 
@@ -44,34 +121,11 @@ local function tag_to_items(tag)
 
     if tag:sub(1, 1) == "#" then
         local tagItems = getItemStub(tag:sub(2))
-        local tagItemsUrl = BASE_TAG_URL .. tagItems .. ".json" .. "?token=" .. os.epoch("utc")
-        local response = http.get(tagItemsUrl)
 
-        if response == nil then
-            logger:error("Failed to fetch tag items for " .. tag)
-            return
-        end
-
-        local responseCode = response.getResponseCode()
-
-        if responseCode ~= 200 then
-            logger:error("Failed to fetch tag items for " .. tag .. " (" .. responseCode .. ")")
-            response.close()
-            return
-        end
-
-        local tagItemsJson = response.readAll()
-        response.close()
-
-        if tagItemsJson == nil then
-            logger:error("Tag items was empty for " .. tag)
-            return
-        end
-
-        local tagItemsTable = textutils.unserializeJSON(tagItemsJson)
+        local tagItemsTable = getRemoteItem("tags", tagItems)
 
         if tagItemsTable == nil then
-            logger:error("Failed to parse tag items for " .. tag)
+            logger:error("Failed to get tag items for " .. tag)
             return
         end
 
@@ -113,43 +167,10 @@ end
 local function fetch_recipe_remote(itemName)
     itemName = itemName:match(".*:(.*)") or itemName
 
-    local url = BASE_RECIPE_URL .. itemName .. ".json" .. "?token=" .. os.epoch("utc")
-    local response = http.get(url)
-
-    local doReturn = false
-
-    if response == nil then
-        logger:error("Failed to fetch recipe for " .. itemName)
-        return
-    end
-
-    local responseCode = response.getResponseCode()
-
-    if responseCode == 404 then
-        logger:warn("Recipe for " .. itemName .. " not found")
-        doReturn = true
-    elseif responseCode ~= 200 then
-        logger:error("Failed to fetch recipe for " .. itemName .. " (" .. responseCode .. ")")
-        doReturn = true
-    end
-
-    if doReturn == true then
-        response.close()
-        return
-    end
-
-    local recipe = response.readAll()
-    response.close()
-
-    if recipe == nil then
-        logger:error("Recipe was empty for " .. itemName)
-        return
-    end
-
-    local recipeTable = textutils.unserializeJSON(recipe)
+    local recipeTable = getRemoteItem("recipes", itemName)
 
     if recipeTable == nil then
-        logger:error("Failed to parse recipe for " .. itemName)
+        logger:error("Failed to get recipe for " .. itemName)
         return
     end
 
