@@ -356,6 +356,7 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems, 
     local totalSlots = 0
 
     for _, recipe in pairs(recipes) do
+        ::retryRecipe::
         filledSlots = 0
         totalSlots = 0
 
@@ -395,6 +396,8 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems, 
                                 table.remove(previousCraftAttemptItems, previousCraftAttemptItemsIndex)
                             end
                         end
+
+                        goto retryRecipe
                     end
                 end
 
