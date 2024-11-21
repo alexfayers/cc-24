@@ -412,13 +412,13 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems)
         end
 
         if filledSlots == totalSlots then
-            logger:info("Pulled all items for " .. craftItemName)
+            logger:info("Pulled %d %s ", filledSlots, craftItemName)
             break
         end
     end
 
     if filledSlots < totalSlots then
-        logger:warn("Didn't pull all items for " .. craftItemName)
+        logger:warn("Couldn't pull %d %s ", totalSlots, craftItemName)
         transfer_all_slots(remoteName)
         return false
     end
