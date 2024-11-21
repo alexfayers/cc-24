@@ -28,9 +28,8 @@ parser:add({"item_name"}, {
 })
 
 parser:add({"count"}, {
-    doc = "The number of items to craft",
+    doc = "The number of items to craft (default 1)",
     required = false,
-    default = 1,
 })
 
 local args = parser:parse(table.unpack(arg))
@@ -38,8 +37,12 @@ local args = parser:parse(table.unpack(arg))
 local item_name = args.item_name
 local countRaw = args.count
 
+if not countRaw then
+    countRaw = "1"
+end
+
 local count = tonumber(countRaw)
-if countRaw and not count then
+if not count then
     error("Invalid count: " .. countRaw, 0)
 end
 
