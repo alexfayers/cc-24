@@ -389,6 +389,12 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems, 
                                 table.remove(previousPullFailedItems, previousPullFailedItemsIndex)
                             end
                         end
+
+                        for previousCraftAttemptItemsIndex, previousCraftAttemptItem in pairs(previousCraftAttemptItems) do
+                            if previousCraftAttemptItem == slotItemName then
+                                table.remove(previousCraftAttemptItems, previousCraftAttemptItemsIndex)
+                            end
+                        end
                     end
                 end
 
