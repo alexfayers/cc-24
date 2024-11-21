@@ -276,7 +276,7 @@ local function transfer_all_slots(crafterName)
     parallel.waitForAll(table.unpack(transferTasks))
 
     if totalTransferred > 0 then
-        logger:info("Transferred %d item%s from turtle to storage", totalTransferred, totalTransferred > 1 and "s" or "")
+        logger:info("Pulled %d item%s from turtle", totalTransferred, totalTransferred > 1 and "s" or "")
         return push_output_chest()
     end
 
