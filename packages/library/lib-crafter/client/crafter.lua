@@ -7,7 +7,7 @@ local tableHelpers = require("lexicon-lib.lib-table")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("Crafter")
 
-local BASE_URL = "https://raw.githubusercontent.com/alexfayers/cc-24/refs/heads/autocrafter/helper/autocrafter/"
+local BASE_URL = "https://raw.githubusercontent.com/alexfayers/cc-24/refs/heads/main/helper/autocrafter/"
 
 local craftClient = CraftClient()
 local storageClient = StorageClient()
