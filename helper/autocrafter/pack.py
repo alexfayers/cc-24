@@ -19,8 +19,8 @@ def find_all_recipes() -> Iterator[Path]:
     if not source_dir.exists():
         raise FileNotFoundError(f"Source directory '{source_dir}' does not exist")
     
-    for file in source_dir.iterdir():
-        if file.is_file() and file.suffix == ".json":
+    for file in source_dir.rglob("*.json"):
+        if file.is_file():
             yield file
 
 
