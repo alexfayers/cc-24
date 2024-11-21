@@ -315,9 +315,10 @@ end
 ---Craft an item
 ---@param craftItemName string The name of the item to craft
 ---@param craftCount number The number of items to craft
----@param previousCraftAttemptItems string[]?
+---@param previousCraftAttemptItems string[]? The items that have already been attempted to craft
+---@param previousPullFailedItems string[]? The items that have failed to pull
 ---@return boolean
-local function craft_item(craftItemName, craftCount, previousCraftAttemptItems)
+local function craft_item(craftItemName, craftCount, previousCraftAttemptItems, previousPullFailedItems)
     if remoteName == nil then
         local remoteNameRes, remoteNameData = craftClient:getLocalName()
         remoteName = remoteNameData and remoteNameData.localName or nil
@@ -329,6 +330,10 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems)
 
     if previousCraftAttemptItems == nil then
         previousCraftAttemptItems = {}
+    end
+
+    if previousPullFailedItems == nil then
+        previousPullFailedItems = {}
     end
 
     local recipes = nil
@@ -345,8 +350,6 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems)
 
     local filledSlots = 0
     local totalSlots = 0
-
-    local previousPullFailedItems = {}
 
     for _, recipe in pairs(recipes) do
         filledSlots = 0
@@ -373,7 +376,7 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems)
                     end
 
                     table.insert(previousCraftAttemptItems, slotItemName)
-                    if not craft_item(slotItemName, repeatCount, previousCraftAttemptItems) then
+                    if not craft_item(slotItemName, repeatCount, previousCraftAttemptItems, previousPullFailedItems) then
                         goto nextItem
                     else
                         --- Remove the item from the previousCraftAttemptItems list if it was successfully crafted
@@ -418,7 +421,7 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems)
     end
 
     if filledSlots < totalSlots then
-        logger:warn("Couldn't pull items for %s", craftItemName)
+        logger:error("Can't craft %s", craftItemName)
         transfer_all_slots(remoteName)
         return false
     end
