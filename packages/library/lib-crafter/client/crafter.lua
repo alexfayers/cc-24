@@ -434,7 +434,7 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems, 
     end
 
     if filledSlots < totalSlots then
-        logger:error("Can't craft %s", craftItemName)
+        logger:error("Can't craft %d %s", craftCount, craftItemName)
         transfer_all_slots(remoteName)
         return false
     end
