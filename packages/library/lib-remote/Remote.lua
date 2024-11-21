@@ -310,10 +310,6 @@ function Remote:receiveData(expectedSender, expectedChatId, expectedMessageType,
         goto nilReturn
     end
 
-    if self.filterCommands[message] then
-        goto nilReturn
-    end
-
     if expectedSender and senderId ~= expectedSender then
         logger:debug("<%d|Expected id: %d", senderId, expectedSender)
         goto receive
@@ -334,8 +330,12 @@ function Remote:receiveData(expectedSender, expectedChatId, expectedMessageType,
     messageType, data = self:unserialiseMessage(message)
 
     if not messageType then
-        logger:warn("<%d|Unknown message type: %s", senderId, message)
-        self:sendError(senderId, expectedChatId, MessageErrorCode.UNKNOWN_COMMAND, message)
+        logger:warn("<%d|Unknown message type: %s", senderId, messageType)
+        self:sendError(senderId, expectedChatId, MessageErrorCode.UNKNOWN_COMMAND, messageType)
+        goto nilReturn
+    end
+
+    if self.filterCommands[messageType] then
         goto nilReturn
     end
 
