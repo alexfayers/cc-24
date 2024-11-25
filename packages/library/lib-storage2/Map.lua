@@ -857,9 +857,9 @@ function Map:pull(outputChest, itemName, amount, fuzzy, toSlot)
     parallel.waitForAll(table.unpack(slotTasks))
 
     if totalActualPulledCount < totalExpectedPulledCount then
-        logger:warn("Only pulled %d/%d items", totalActualPulledCount, totalExpectedPulledCount)
+        logger:warn("Only pulled %d/%d %s", totalActualPulledCount, totalExpectedPulledCount, itemName)
     else
-        logger:info("Pulled %d/%d items", totalActualPulledCount, totalExpectedPulledCount)
+        logger:info("Pulled %d/%d %s", totalActualPulledCount, totalExpectedPulledCount, itemName)
     end
 
     for _, slot in ipairs(mapRemovals) do
