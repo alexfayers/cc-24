@@ -7,6 +7,8 @@ require("lib-storage2.Map")
 require("lib-remote.Server")
 require("lib-storage2.remote.CommandType")
 
+local logger = require("lexicon-lib.lib-logging").getLogger("StorageServer")
+
 
 -- Class definition
 
@@ -30,7 +32,17 @@ function StorageServer:init()
         [CommandType.ITEM_COUNT] = self.handleCount,
     }
 
+    self.backgroundTasks = {
+        function ()
+            self:backgroundSave()
+        end,
+    }
+
     self:initPeripherals()
+
+    self.refreshing = false
+    self.lastRefresh = os.clock()
+    self.needSave = false
 end
 
 
@@ -66,10 +78,79 @@ end
 ---@param data? table
 ---@return boolean, RefreshData
 function StorageServer:handleRefresh(clientId, data)
+    self.refreshing = true
+
     self.storageMap:populate(true)
-    self.storageMap:save()
+
+    self.lastRefresh = os.clock()
+
+    self.refreshing = false
+    self.needSave = true
 
     return true
+end
+
+
+---Check if the storage map needs to be refreshed
+---@return boolean
+function StorageServer:needsRefresh()
+    return os.clock() - self.lastRefresh > 10
+end
+
+
+---Refresh the storage map if the last refresh was more than 10 seconds ago
+---@return boolean
+function StorageServer:refreshIfNeeded()
+    if self:needsRefresh() then
+        self:handleRefresh(0, nil)
+    end
+
+    return true
+end
+
+
+---Wait for refresh to finish
+---@return boolean
+function StorageServer:waitForRefresh()
+    while self.refreshing do
+        os.sleep(0.05)
+    end
+
+    return true
+end
+
+
+---Ensure the storage map is up to date
+---@return boolean
+function StorageServer:ensureUpToDate()
+    self:refreshIfNeeded()
+    self:waitForRefresh()
+
+    return true
+end
+
+
+---Save the storage map if it needs saving
+---@return boolean
+function StorageServer:saveIfNeeded()
+    if self.needSave then
+        logger:warn("Saving storage map...")
+        self.storageMap:save()
+        self.needSave = false
+    end
+
+    return true
+end
+
+
+---Check if the storage map needs saving
+---@return boolean
+function StorageServer:backgroundSave()
+    logger:info("Started background save process")
+    while true do
+        os.sleep(10)
+        self:saveIfNeeded()
+    end
 end
 
 
@@ -115,7 +196,7 @@ function StorageServer:handlePull(clientId, data)
         return false
     end
 
-    self.storageMap:populate()
+    self:ensureUpToDate()
 
     local fuzzy = true
     if data.fuzzy ~= nil then
@@ -125,7 +206,7 @@ function StorageServer:handlePull(clientId, data)
     local pulledCount = self.storageMap:pull(pullToChest, data.item, data.count, fuzzy, data.toSlot)
 
     if pulledCount > 0 then
-        self.storageMap:save()
+        self.needSave = true
     end
 
     local res = {
@@ -155,12 +236,12 @@ function StorageServer:handlePush(clientId, data)
         return false
     end
 
-    self.storageMap:populate()
+    self:ensureUpToDate()
 
     local pushedCount = self.storageMap:push(pushFromChest, data.fromSlots)
 
     if pushedCount > 0 then
-        self.storageMap:save()
+        self.needSave = true
     end
 
     local res = {
@@ -180,7 +261,7 @@ function StorageServer:handleCount(clientId, data)
         return false
     end
 
-    self.storageMap:populate()
+    self:ensureUpToDate()
 
     local count = self.storageMap:getTotalItemCount(data.item, false)
 
