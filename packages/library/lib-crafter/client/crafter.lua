@@ -141,7 +141,7 @@ local function tag_to_items(tag)
         local tagItemsTable = getRemoteItem("tags", tagItems)
 
         if tagItemsTable == nil then
-            logger:error("Failed to get tag items for " .. tag)
+            -- logger:error("Failed to get tag items for " .. tag)
             return
         end
 
@@ -391,6 +391,10 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands)
             return itemCounts, {}
         end
 
+        local triedPullAllItems = false
+
+        ::retryPulls::
+
         -- for item in slot
         for _, slotItemName in pairs(slotItemNames) do
             if newItemCounts[slotItemName] == nil then
@@ -421,6 +425,10 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands)
 
                 goto nextSlot
             else
+                if not triedPullAllItems then
+                    -- not tried all the pulls yet, so don't try crafting yet
+                    goto nextItem
+                end
                 -- need to craft
                 if itemRecipeLoops and tableHelpers.valuesContain(itemRecipeLoops, getItemStub(slotItemName)) then
                     goto nextItem
@@ -464,6 +472,13 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands)
             end
             ::nextItem::
         end
+
+        -- couldn't get the item from storage
+        if not triedPullAllItems then
+            triedPullAllItems = true
+            goto retryPulls
+        end
+
         local itemNamesString = table.concat(slotItemNames, ",")
         logger:warn("Couldn't fill slot %d with %s for %s", slotNumber, itemNamesString, getItemStub(recipe.output.id))
 
