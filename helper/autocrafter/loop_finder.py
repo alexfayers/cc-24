@@ -11,6 +11,9 @@ def load_all_recipes() -> list[dict]:
     """
     recipes = []
     for recipe_file in Path("recipes").glob("*.json"):
+        if recipe_file.stem.startswith("_"):
+            continue
+
         with open(recipe_file, "r") as f:
             recipe = json.load(f)
             recipes.append(recipe)
@@ -37,6 +40,40 @@ mc_colors = (
     "pink"
 )
 
+def to_stub(item: str) -> str:
+    """Convert an item to a stub
+    """
+    split = item.split(":")
+    if len(split) == 1:
+        return split[0]
+    return split[1]
+
+
+def tag_to_items(tag: str) -> list[str]:
+    """Convert a tag to a list of items
+    """
+    if not tag.startswith("#"):
+        return [tag]
+
+    load_path = Path("tags", f"{to_stub(tag).lstrip('#')}.json")
+
+    if not load_path.exists():
+        print("Tag not found:", tag)
+        return [tag]
+
+    with load_path.open("r") as f:
+        tag_data = json.load(f)
+        values = tag_data["values"]
+        new_values = []
+
+        for value in values:
+            if value.startswith("#"):
+                new_values.extend(tag_to_items(value))
+            else:
+                new_values.append(value)
+
+        return new_values
+
 
 def find_loops() -> dict[str, str]:
     """Find crafting loops from the recipes folder
@@ -52,7 +89,8 @@ def find_loops() -> dict[str, str]:
 
             for items in recipe["input"].values():
                 for item in items:
-                    input_output_map[output_item].add(item)
+                    for expanded_item in tag_to_items(item):
+                        input_output_map[output_item].add(expanded_item)
 
     loops = {}
 

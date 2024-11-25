@@ -24,10 +24,10 @@
     "lapis_lazuli": [
         "lapis_block"
     ],
-    "iron_block": [
+    "iron_nugget": [
         "iron_ingot"
     ],
-    "iron_nugget": [
+    "iron_block": [
         "iron_ingot"
     ],
     "chiseled_sandstone": [
@@ -109,10 +109,10 @@
     "coal": [
         "coal_block"
     ],
-    "gold_block": [
+    "gold_nugget": [
         "gold_ingot"
     ],
-    "gold_nugget": [
+    "gold_block": [
         "gold_ingot"
     ]
 }
