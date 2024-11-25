@@ -409,6 +409,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands)
                 newItemCounts[slotItemName] = itemCountData.count
             end
 
+            local didRetrySlotPull = false
             ::retrySlotPull::
 
             if newItemCounts[slotItemName] >= craftCount then
@@ -466,7 +467,10 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands)
 
                     newItemCounts = postCraftItemCounts
 
-                    goto retrySlotPull
+                    if not didRetrySlotPull then
+                        didRetrySlotPull = true
+                        goto retrySlotPull
+                    end
                     ::nextRecipeLoop::
                 end
             end
