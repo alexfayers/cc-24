@@ -64,7 +64,7 @@ end
 ---Handle a refresh request from a client
 ---@param clientId number
 ---@param data? table
----@return boolean
+---@return boolean, RefreshData
 function StorageServer:handleRefresh(clientId, data)
     self.storageMap:populate(true)
     self.storageMap:save()
@@ -76,7 +76,7 @@ end
 ---Handle an input/output chests request from a client
 ---@param clientId number
 ---@param data? table
----@return boolean, table?
+---@return boolean, IoChestData?
 function StorageServer:handleDataIoChests(clientId, data)
     local res = {
         inputChest = peripheral.getName(self.inputChest),
@@ -90,7 +90,7 @@ end
 ---Handle an ping request from a client
 ---@param clientId number
 ---@param data? table
----@return boolean, table
+---@return boolean, PongData
 function StorageServer:handlePing(clientId, data)
     return true, {pong = true}
 end
@@ -99,7 +99,7 @@ end
 ---Handle a pull request from a client
 ---@param clientId number
 ---@param data? table
----@return boolean, table?
+---@return boolean, PullData?
 function StorageServer:handlePull(clientId, data)
     if not data then
         return false
@@ -139,7 +139,7 @@ end
 ---Handle a push request from a client
 ---@param clientId number
 ---@param data? table
----@return boolean, table?
+---@return boolean, PushData?
 function StorageServer:handlePush(clientId, data)
     if not data then
         return false
@@ -174,7 +174,7 @@ end
 ---Handle a count request from a client
 ---@param clientId number
 ---@param data table
----@return boolean, table?
+---@return boolean, ItemCountData?
 function StorageServer:handleCount(clientId, data)
     if not data.item then
         return false

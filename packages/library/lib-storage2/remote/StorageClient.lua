@@ -14,21 +14,21 @@ StorageClient.protocol = "storage2-remote"
 
 
 ---Send a refresh request to the server
----@return boolean, nil
+---@return boolean, RefreshData
 function StorageClient:refresh()
     return self:baseSendCommand(CommandType.REFRESH)
 end
 
 
 ---Get the input and output chest names from the server
----@return boolean, table?
+---@return boolean, IoChestData?
 function StorageClient:getChestNames()
     return self:baseSendCommand(CommandType.DATA_IO_CHESTS)
 end
 
 
 ---Ping the server, printing how long it took
----@return boolean, table?
+---@return boolean, PongData?
 function StorageClient:ping()
     local start = os.clock()
     local res, data = self:baseSendCommand(CommandType.PING)
@@ -48,7 +48,7 @@ end
 ---@param count number
 ---@param toSlot number?
 ---@param fuzzy boolean?
----@return boolean, table?
+---@return boolean, PullData?
 function StorageClient:pull(outputChestName, item, count, toSlot, fuzzy)
     return self:baseSendCommand(CommandType.PULL, {
         item = item,
@@ -63,7 +63,7 @@ end
 ---Push items from an inventory to the storage chests
 ---@param inputChestName string The name of the inventory to push from
 ---@param slots? number[]
----@return boolean, table?
+---@return boolean, PushData?
 function StorageClient:push(inputChestName, slots)
     return self:baseSendCommand(CommandType.PUSH, {
         invName = inputChestName,
@@ -74,7 +74,7 @@ end
 
 ---Get the count of an item in the storage chests
 ---@param item string
----@return boolean, table?
+---@return boolean, ItemCountData?
 function StorageClient:getItemCount(item)
     return self:baseSendCommand(CommandType.ITEM_COUNT, {
         item = item,
