@@ -589,10 +589,21 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems, 
                 local errorMessage = craftErrors and craftErrors.error or "Unknown error"
                 logger:error("Failed to craft %s %s", craftItemName, errorMessage)
                 return false
+            else
+                didCraft = true
             end
         end
 
+        if didCraft then
+            break
+        end
+
         ::nextRecipe::
+    end
+
+    if not didCraft then
+        logger:error("Failed to craft %d %s", craftCount, craftItemName)
+        return false
     end
 
     logger:info("Crafted %d %s", craftCount, craftItemName)
