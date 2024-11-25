@@ -65,6 +65,11 @@ local Logger = {
             _level = level
         }
 
+        --ensure the log dir exists
+        if not fs.exists("/logs") then
+            fs.makeDir("/logs")
+        end
+
         setmetatable(logger, { __index = self })
 
         return logger
@@ -86,6 +91,9 @@ local Logger = {
     ---@param text string
     ---@return nil
     logToFile = function(self, text)
+        do
+            return
+        end
         local file = fs.open("/logs/" .. self._name .. ".log", "a")
         if not file then
             error("Failed to open log file (" .. self._name .. ")")
