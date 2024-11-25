@@ -115,7 +115,7 @@ function Client:callCommand(func, ...)
         logger:fatal("Fatal client error: %s", err)
     end, self, ...)
 
-    self:closeModem()
+    -- self:closeModem()
 
     if not status then
         return false
