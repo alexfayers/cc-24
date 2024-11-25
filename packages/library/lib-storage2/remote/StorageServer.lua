@@ -115,8 +115,15 @@ end
 ---Wait for refresh to finish
 ---@return boolean
 function StorageServer:waitForRefresh()
+    local waitedTime = 0
     while self.refreshing do
         os.sleep(0.05)
+        waitedTime = waitedTime + 0.05
+
+        if waitedTime > 10 then
+            logger:error("Waited too long for refresh to finish")
+            return false
+        end
     end
 
     return true
