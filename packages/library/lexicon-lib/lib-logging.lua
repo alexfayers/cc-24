@@ -46,7 +46,7 @@ local LOGGERS = {}
 local Logger = {
     _name = nil,
     _level = nil,
-    _file = false,
+    _file = nil,
 
     ---Create a new logger and register it with the logging system
     ---@param self any
@@ -62,7 +62,7 @@ local Logger = {
         settings.define("logger." .. name .. ".file", {
             description = "If the " .. name .. " logger should log to a file",
             type = "boolean",
-            default = false
+            default = true
         })
 
         local level = settings.get("logger." .. name)
