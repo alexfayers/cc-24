@@ -510,10 +510,8 @@ end
 ---Craft an item
 ---@param craftItemName string The name of the item to craft
 ---@param craftCount number The number of items to craft
----@param previousCraftAttemptItems string[]? The items that have already been attempted to craft
----@param previousPullFailedItems string[]? The items that have failed to pull
 ---@return boolean
-local function craft_item(craftItemName, craftCount, previousCraftAttemptItems, previousPullFailedItems)
+local function craft_item(craftItemName, craftCount)
     if remoteName == nil then
         local remoteNameRes, remoteNameData = craftClient:getLocalName()
         remoteName = remoteNameData and remoteNameData.localName or nil
@@ -529,14 +527,6 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems, 
     if craftCount > 64 then
         logger:error("Can't craft more than 64 items at a time")
         return false
-    end
-
-    if previousCraftAttemptItems == nil then
-        previousCraftAttemptItems = {}
-    end
-
-    if previousPullFailedItems == nil then
-        previousPullFailedItems = {}
     end
 
     local recipes = nil
