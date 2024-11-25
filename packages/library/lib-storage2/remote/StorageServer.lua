@@ -43,6 +43,9 @@ function StorageServer:init()
     self.refreshing = false
     self.lastRefresh = os.clock()
     self.needSave = false
+
+    self.checkRefreshRate = 2
+    self.checkSaveRate = 2
 end
 
 
@@ -94,7 +97,7 @@ end
 ---Check if the storage map needs to be refreshed
 ---@return boolean
 function StorageServer:needsRefresh()
-    return os.clock() - self.lastRefresh > 10
+    return os.clock() - self.lastRefresh > self.checkRefreshRate
 end
 
 
@@ -148,7 +151,7 @@ end
 function StorageServer:backgroundSave()
     logger:info("Started background save process")
     while true do
-        os.sleep(10)
+        os.sleep(self.checkSaveRate)
         self:saveIfNeeded()
     end
 end
