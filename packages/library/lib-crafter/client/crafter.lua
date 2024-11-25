@@ -264,7 +264,7 @@ local function push_output_chest()
     local pushRes, pushData = storageClient:callCommand(storageClient.push, outputChestName)
 
     if pushRes and pushData and pushData.count > 0 then
-        logger:info("Pushed %d items to storage", pushData.count)
+        logger:debug("Pushed %d items to storage", pushData.count)
         return true
     else
         return false
