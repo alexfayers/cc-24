@@ -5,6 +5,19 @@ local argparse = require("metis.argparse")
 local completion = require("cc.completion")
 
 
+---Get possible completions for the script
+---@return string[]
+local function complete_item_names()
+    local res = crafter.getRemoteItem("recipes", "_complete")
+
+    if not res then
+        return {}
+    end
+
+    return res
+end
+
+
 ---Argument completion for the script
 ---@param _ any
 ---@param index number The index of the argument
@@ -13,7 +26,7 @@ local completion = require("cc.completion")
 ---@return table? _ A table of possible completions
 local function complete(_, index, argument, previous)
     if index == 1 then
-        return completion.choice(argument, {"diamond_pickaxe"}, true)
+        return completion.choice(argument, complete_item_names(), true)
     end
 
     return {}
