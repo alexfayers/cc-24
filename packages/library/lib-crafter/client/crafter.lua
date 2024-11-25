@@ -464,7 +464,8 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands)
             end
             ::nextItem::
         end
-        logger:debug("Couldn't fill slot %d for %s", slotNumber, recipe.output.id)
+        local itemNamesString = table.concat(slotItemNames, ",")
+        logger:warn("Couldn't fill slot %d with %s for %s", slotNumber, itemNamesString, getItemStub(recipe.output.id))
 
         do
             return itemCounts, {}
@@ -586,5 +587,6 @@ end
 
 return {
     fetch_recipe_remote = fetch_recipe_remote,
+    getRemoteItem = getRemoteItem,
     craft_item = craft_item,
 }
