@@ -26,6 +26,10 @@ Server.filterCommands = {
 ---@type table<string, CommandHandler>[]
 Server.commandHandlers = {}
 
+---@type fun()[]
+Server.backgroundTasks = {}
+
+
 ---Initialise a new storage2 server
 function Server:init()
     Remote.init(self)
@@ -128,11 +132,22 @@ end
 ---Listen for commands and safely shutdown the server on error/exit using xpcall
 ---@return boolean
 function Server:listen()
-    local status, listenRes = xpcall(self._listen, function (err)
-        logger:fatal("Fatal server error: %s", err)
-    end, self)
+    local status, listenRes = nil, nil
+
+    table.insert(self.backgroundTasks, function()
+        status, listenRes = xpcall(self._listen, function (err)
+            logger:fatal("Fatal server error: %s", err)
+        end, self)
+    end)
+
+    parallel.waitForAny(table.unpack(self.backgroundTasks))
 
     self:shutDown()
+
+    if status == nil then
+        logger:fatal("A server background task failed")
+        return false
+    end
 
     if not status or not listenRes then
         return false
