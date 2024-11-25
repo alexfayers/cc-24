@@ -25,8 +25,18 @@ end
 ---@param previous table
 ---@return table? _ A table of possible completions
 local function complete(_, index, argument, previous)
-    if index <= 2 then
+    if index == 1 then
         return completion.choice(argument, complete_item_names(), true)
+    elseif index == 2 then
+        if previous[2] == "-c" or previous[2] == "--check" then
+            return completion.choice(argument, complete_item_names(), true)
+        else
+            return completion.choice(argument, {"1"}, false)
+        end
+    elseif index == 3 then
+        if previous[2] == "-c" or previous[2] == "--check" then
+            return completion.choice(argument, {"1"}, false)
+        end
     end
 
     return {}
