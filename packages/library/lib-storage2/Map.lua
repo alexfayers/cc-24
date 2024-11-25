@@ -776,7 +776,7 @@ function Map:push(inputChest, fromSlots)
     local pushedItemsStrings = {}
 
     for name, countData in pairs(pushedItems) do
-        table.insert(pushedItemsStrings, string.format("%d/%d %s", countData.pushed, countData.expectedPushed, name))
+        table.insert(pushedItemsStrings, string.format("%d/%d %s", countData.pushed, countData.expectedPushed, MapSlot.getNameStub(name)))
     end
 
     local pushedItemsStrings = table.concat(pushedItemsStrings, ", ")
