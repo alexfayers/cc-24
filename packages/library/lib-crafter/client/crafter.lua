@@ -3,6 +3,7 @@ package.path = package.path .. ";/usr/lib/?.lua"
 require("lib-crafter.client.CraftClient")
 require("lib-storage2.remote.StorageClient")
 
+local pretty = require("cc.pretty")
 local tableHelpers = require("lexicon-lib.lib-table")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("Crafter")
@@ -39,7 +40,7 @@ local remoteName = settings.get("crafter.modemLocalName")
 ---@type string
 local cacheFolder = settings.get("crafter.cacheFolder")
 
----@type table<string, string>?
+---@type table<string, string[]>?
 local recipeLoops = nil
 
 
@@ -72,16 +73,23 @@ local function getRemoteItem(itemPath, itemName)
 
     if response == nil then
         logger:error("Failed to fetch %s %s", itemPath, itemName)
+        tableHelpers.saveTable(itemFile, {})
         return
     end
 
     local responseCode = response.getResponseCode()
 
-    if responseCode == 404 then
-        logger:warn("Item %s %s not found", itemPath, itemName)
-        response.close()
+    if response == nil then
 
-        tableHelpers.saveTable(itemFile, {})
+        if responseCode == 404 then
+            logger:warn("Item %s %s not found", itemPath, itemName)
+
+            tableHelpers.saveTable(itemFile, {})
+            return
+        else
+            logger:error("Failed to fetch %s %s (%d)", itemPath, itemName, responseCode)
+        end
+
         return
     end
 
@@ -178,7 +186,7 @@ local function fetch_recipe_remote(itemName)
     local recipeTable = getRemoteItem("recipes", itemName)
 
     if recipeTable == nil then
-        logger:error("Failed to get recipe for " .. itemName)
+        logger:debug("Failed to get recipe for " .. itemName)
         return
     end
 
@@ -342,6 +350,143 @@ local function get_tag_recipes(tag)
 end
 
 
+---@alias PullCommand { itemName: string, count: number, slot: number }
+
+---@alias StorageCountData table<string, number?>
+---@alias CraftCommands (PullCommand[])[]
+
+---Check if there are enough items for a single recipe in storage
+---@param recipe Recipe The recipe to check
+---@param craftCount number The number of times to repeat the recipe
+---@param itemCounts StorageCountData The counts of items in storage (or not in storage)
+---@param craftCommands CraftCommands The commands to craft the items
+---@return StorageCountData, CraftCommands
+local function check_storage(recipe, craftCount, itemCounts, craftCommands)
+    craftCount = math.ceil(craftCount / recipe.output.count)
+
+    local newItemCounts = tableHelpers.copy(itemCounts)
+    local nextCraftCommands = tableHelpers.copy(craftCommands)
+    local pullCommands = {}
+
+    local totalSlots = 0
+    local filledSlots = 0
+
+    if recipeLoops == nil then
+        recipeLoops = getRemoteItem("recipe_loops", "loops")
+        if not recipeLoops then
+            logger:error("Failed to get recipe loops")
+            return itemCounts, {}
+        end
+    end
+
+    local itemRecipeLoops = recipeLoops[getItemStub(recipe.output.id)]
+
+    -- for slot in recipe inputs
+    for slotStr, slotItemNames in pairs(recipe.input) do
+        totalSlots = totalSlots + 1
+
+        local slotNumber = tonumber(slotStr)
+        if slotNumber == nil then
+            logger:error("Failed to parse slot number")
+            return itemCounts, {}
+        end
+
+        -- for item in slot
+        for _, slotItemName in pairs(slotItemNames) do
+            if newItemCounts[slotItemName] == nil then
+                -- we don't have the count for this item yet
+                local itemCountRes, itemCountData = storageClient:getItemCount(slotItemName)
+
+                if not itemCountRes or itemCountData == nil then
+                    logger:error("Failed to get item count for %s", slotItemName)
+                    goto nextItem
+                end
+
+                newItemCounts[slotItemName] = itemCountData.count
+            end
+
+            ::retrySlotPull::
+
+            if newItemCounts[slotItemName] >= craftCount then
+                -- have enough items in storage, so don't need to craft
+                table.insert(pullCommands, {
+                    itemName = slotItemName,
+                    count = craftCount,
+                    slot = slotNumber,
+                })
+
+                newItemCounts[slotItemName] = newItemCounts[slotItemName] - craftCount
+
+                filledSlots = filledSlots + 1
+
+                goto nextSlot
+            else
+                -- need to craft
+                if itemRecipeLoops and tableHelpers.valuesContain(itemRecipeLoops, getItemStub(slotItemName)) then
+                    goto nextItem
+                end
+
+                logger:debug("Not enough %s in storage (%d/%d)", slotItemName, newItemCounts[slotItemName], craftCount)
+
+                -- need to craft the item
+                local nextRecipes
+
+                if slotItemName:sub(1, 1) == "#" then
+                    nextRecipes = get_tag_recipes(slotItemName)
+                else
+                    nextRecipes = fetch_recipe_remote(slotItemName)
+                end
+
+                if not nextRecipes then
+                    goto nextItem
+                end
+
+                for _, nextRecipe in pairs(nextRecipes) do
+                    local nextRepeatCount = math.ceil(craftCount / nextRecipe.output.count)
+
+                    local postCraftItemCounts, postCraftCraftCommands
+                    postCraftItemCounts, postCraftCraftCommands = check_storage(nextRecipe, nextRepeatCount, itemCounts, craftCommands)
+
+                    if tableHelpers.tableIsEmpty(postCraftCraftCommands) then
+                        -- logger:error("Failed to get pre-craft commands for %s", slotItemName)
+                        goto nextRecipeLoop
+                    end
+
+                    for i, command in ipairs(postCraftCraftCommands) do
+                        table.insert(nextCraftCommands, i, command)
+                    end
+
+                    newItemCounts = postCraftItemCounts
+
+                    goto retrySlotPull
+                    ::nextRecipeLoop::
+                end
+            end
+            ::nextItem::
+        end
+        logger:debug("Couldn't fill slot %d for %s", slotNumber, recipe.output.id)
+
+        do
+            return itemCounts, {}
+        end
+
+        ::nextSlot::
+    end
+
+    if filledSlots >= totalSlots then
+        -- have enough items in storage to craft the recipe
+        newItemCounts[recipe.output.id] = (newItemCounts[recipe.output.id] or 0) + (recipe.output.count * craftCount)
+
+        table.insert(nextCraftCommands, pullCommands)
+    else
+        -- not enough items in storage to craft the recipe
+        return itemCounts, {}
+    end
+
+    return newItemCounts, nextCraftCommands
+end
+
+
 ---Craft an item
 ---@param craftItemName string The name of the item to craft
 ---@param craftCount number The number of items to craft
@@ -366,14 +511,6 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems, 
         return false
     end
 
-    if recipeLoops == nil then
-        recipeLoops = getRemoteItem("recipe_loops", "loops")
-        if not recipeLoops then
-            logger:error("Failed to get recipe loops")
-            return false
-        end
-    end
-
     if previousCraftAttemptItems == nil then
         previousCraftAttemptItems = {}
     end
@@ -381,20 +518,6 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems, 
     if previousPullFailedItems == nil then
         previousPullFailedItems = {}
     end
-
-    local craftItemNameStub = getItemStub(craftItemName)
-    local loopPrevent = recipeLoops[craftItemNameStub]
-
-    if loopPrevent then
-        if not tableHelpers.valuesContain(previousCraftAttemptItems, loopPrevent) then
-            table.insert(previousCraftAttemptItems, loopPrevent)
-        end
-
-        -- if not tableHelpers.valuesContain(previousPullFailedItems, loopPrevent) then
-        --     table.insert(previousPullFailedItems, loopPrevent)
-        -- end
-    end
-
 
     local recipes = nil
 
@@ -408,114 +531,52 @@ local function craft_item(craftItemName, craftCount, previousCraftAttemptItems, 
         return false
     end
 
-    local filledSlots = 0
-    local totalSlots = 0
+    local didCraft = false
 
-    for _, recipe in pairs(recipes) do
-        ::retryRecipe::
-        filledSlots = 0
-        totalSlots = 0
+    for recipeNumber, recipe in ipairs(recipes) do
+        local itemCounts = {}
+        local craftCommands = {}
 
-        local outputCount = recipe.output.count
-        local repeatCount = math.ceil(craftCount / outputCount)
+        local recipeItemCount, recipeCraftCommands = check_storage(recipe, craftCount, itemCounts, craftCommands)
 
-        for slotStr, slotItemNames in pairs(recipe.input) do
-            totalSlots = totalSlots + 1
+        if tableHelpers.tableIsEmpty(recipeCraftCommands) then
+            logger:error("%s recipe %d failed", craftItemName, recipeNumber)
 
-            local slotNumber = tonumber(slotStr)
-            if slotNumber == nil then
-                logger:error("Failed to parse slot number")
+            if recipeNumber == #recipes then
+                logger:error("Failed to craft %d %s", craftCount, craftItemName)
                 return false
             end
 
-            local doCraftBeforePull = false
-            ::retryPulls::
-            for _, slotItemName in pairs(slotItemNames) do
-                local slotItemNameStub = getItemStub(slotItemName)
-                if doCraftBeforePull  then
-                    if tableHelpers.valuesContain(previousCraftAttemptItems, slotItemNameStub) then
-                        goto nextItem
-                    end
+            goto nextRecipe
+        end
 
-                    table.insert(previousCraftAttemptItems, slotItemNameStub)
-                    if not craft_item(slotItemName, repeatCount, previousCraftAttemptItems, previousPullFailedItems) then
-                        goto nextItem
-                    else
-                        --- Remove the item from the previousCraftAttemptItems list if it was successfully crafted
-                        for previousPullFailedItemsIndex, previousPullFailedItem in pairs(previousPullFailedItems) do
-                            if previousPullFailedItem == slotItemNameStub then
-                                table.remove(previousPullFailedItems, previousPullFailedItemsIndex)
-                            end
-                        end
+        transfer_all_slots(remoteName)
 
-                        for previousCraftAttemptItemsIndex, previousCraftAttemptItem in pairs(previousCraftAttemptItems) do
-                            if previousCraftAttemptItem == slotItemNameStub then
-                                table.remove(previousCraftAttemptItems, previousCraftAttemptItemsIndex)
-                            end
-                        end
-
-                        goto retryRecipe
-                    end
-                end
-
-                if tableHelpers.valuesContain(previousPullFailedItems, slotItemNameStub) then
-                    goto nextItem
-                end
-
-                local itemCountRes, itemCountData = storageClient:getItemCount(slotItemName)
-                if not itemCountRes or itemCountData == nil then
-                    logger:error("Failed to get item count for %s", slotItemName)
-                    goto nextItem
-                end
-
-                if itemCountData.count and itemCountData.count < repeatCount then
-                    logger:warn("Not enough %s in storage (%d/%d)", slotItemName, itemCountData.count, repeatCount)
-                    table.insert(previousPullFailedItems, slotItemNameStub)
-                    goto nextItem
-                end
-
-                local pullRes, pullData = storageClient:callCommand(storageClient.pull, remoteName, slotItemName, repeatCount, slotNumber, false)
+        for _, commandBatch in ipairs(recipeCraftCommands) do
+            for _, command in ipairs(commandBatch) do
+                local pullRes, pullData = storageClient:callCommand(storageClient.pull, remoteName, command.itemName, command.count, command.slot, false)
 
                 if pullRes and pullData and pullData.count > 0 then
-                    -- logger:info("Pulled " .. slotItemName .. " from storage")
-                    filledSlots = filledSlots + 1
-                    goto nextSlot
+                    -- got it
                 else
-                    logger:warn("Failed to pull " .. slotItemNameStub .. " from storage")
-                    table.insert(previousPullFailedItems, slotItemNameStub)
-                    goto nextItem
+                    logger:warn("Failed to pull " .. command.itemName .. " from storage")
+                    transfer_all_slots(remoteName)
+                    return false
                 end
-                ::nextItem::
-            end
-            if not doCraftBeforePull then
-                doCraftBeforePull = true
-                transfer_all_slots(remoteName)
-                goto retryPulls
             end
 
-            ::nextSlot::
+            local success, craftErrors = craftClient:craft(craftCount)
+
+            transfer_all_slots(remoteName)
+
+            if not success then
+                local errorMessage = craftErrors and craftErrors.error or "Unknown error"
+                logger:error("Failed to craft %s %s", craftItemName, errorMessage)
+                return false
+            end
         end
 
-        if filledSlots == totalSlots then
-            -- logger:info("Pulled %d items ", filledSlots)
-            break
-        end
-    end
-
-    if filledSlots < totalSlots then
-        logger:error("Can't craft %d %s", craftCount, craftItemName)
-        transfer_all_slots(remoteName)
-        return false
-    end
-
-    local success, craftErrors = craftClient:craft(craftCount)
-
-    transfer_all_slots(remoteName)
-
-    if not success then
-        local errorMessage = craftErrors and craftErrors.error or "Unknown error"
-        logger:error("Failed to craft %s %s", craftItemName, errorMessage)
-        return false
+        ::nextRecipe::
     end
 
     logger:info("Crafted %d %s", craftCount, craftItemName)
