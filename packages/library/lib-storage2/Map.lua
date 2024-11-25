@@ -630,6 +630,9 @@ function Map:push(inputChest, fromSlots)
         return totalPushedCount
     end
 
+    ---@type table<string, {pushed: number, expectedPushed: number}>
+    local pushedItems = {}
+
     ---@type function[]
     local slotEnrichmentTasks = {}
 
@@ -743,6 +746,18 @@ function Map:push(inputChest, fromSlots)
                     -- slot was not empty, update the count
                     slot:addCount(quantity)
                 end
+
+                if not pushedItems[inputItem.name] then
+                    pushedItems[inputItem.name] = {
+                        pushed = quantity,
+                        expectedPushed = inputItem.count
+                    }
+                else
+                    pushedItems[inputItem.name] = {
+                        pushed = pushedItems[inputItem.name].pushed + quantity,
+                        expectedPushed = pushedItems[inputItem.name].expectedPushed + inputItem.count
+                    }
+                end
             end
 
             totalPushedCount = totalPushedCount + quantity
@@ -757,10 +772,19 @@ function Map:push(inputChest, fromSlots)
 
     parallel.waitForAll(table.unpack(slotEnrichmentTasks))
 
+    ---@type string[]
+    local pushedItemsStrings = {}
+
+    for name, countData in pairs(pushedItems) do
+        table.insert(pushedItemsStrings, string.format("%d/%d %s", countData.pushed, countData.expectedPushed, name))
+    end
+
+    local pushedItemsStrings = table.concat(pushedItemsStrings, ", ")
+
     if totalPushedCount < totalExpectedPushedCount then
-        logger:error("Only pushed %d/%d items", totalPushedCount, totalExpectedPushedCount)
+        logger:error("Only pushed %s", pushedItemsStrings)
     else
-        logger:info("Pushed %d/%d items", totalPushedCount, totalExpectedPushedCount)
+        logger:info("Pushed %s", pushedItemsStrings)
     end
 
     return totalPushedCount
