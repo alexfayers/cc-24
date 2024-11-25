@@ -25,7 +25,7 @@ end
 ---@param previous table
 ---@return table? _ A table of possible completions
 local function complete(_, index, argument, previous)
-    if index == 1 then
+    if index <= 2 then
         return completion.choice(argument, complete_item_names(), true)
     end
 
@@ -45,10 +45,16 @@ parser:add({"count"}, {
     required = false,
 })
 
+parser:add({"-c", "--check"}, {
+    doc = "Only check if the item can be crafted",
+    required = false,
+})
+
 local args = parser:parse(table.unpack(arg))
 
 local item_name = args.item_name
 local countRaw = args.count
+local doCheck = args.c
 
 if not countRaw then
     countRaw = "1"
@@ -59,4 +65,4 @@ if not count then
     error("Invalid count: " .. countRaw, 0)
 end
 
-crafter.craft_item(item_name, count)
+crafter.craft_item(item_name, count, doCheck)

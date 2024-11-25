@@ -510,8 +510,9 @@ end
 ---Craft an item
 ---@param craftItemName string The name of the item to craft
 ---@param craftCount number The number of items to craft
+---@param doCheck boolean Whether to only check if the item can be crafted, and not actually craft it
 ---@return boolean
-local function craft_item(craftItemName, craftCount)
+local function craft_item(craftItemName, craftCount, doCheck)
     if remoteName == nil then
         local remoteNameRes, remoteNameData = craftClient:getLocalName()
         remoteName = remoteNameData and remoteNameData.localName or nil
@@ -553,11 +554,21 @@ local function craft_item(craftItemName, craftCount)
             logger:error("%s recipe %d failed", craftItemName, recipeNumber)
 
             if recipeNumber == #recipes then
+                if doCheck then
+                    logger:info("Can't craft %d %s", craftCount, craftItemName)
+                    return true
+                end
+
                 logger:error("Failed to craft %d %s", craftCount, craftItemName)
                 return false
             end
 
             goto nextRecipe
+        end
+
+        if doCheck then
+            logger:info("Can craft %d %s", craftCount, craftItemName)
+            return true
         end
 
         transfer_all_slots(remoteName)
