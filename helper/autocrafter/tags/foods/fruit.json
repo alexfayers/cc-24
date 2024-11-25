@@ -4,6 +4,7 @@
     "minecraft:golden_apple",
     "minecraft:enchanted_golden_apple",
     "minecraft:chorus_fruit",
-    "minecraft:melon_slice"
+    "minecraft:melon_slice",
+    "#foods/fruits"
   ]
 }

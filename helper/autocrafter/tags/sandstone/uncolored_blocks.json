@@ -3,6 +3,7 @@
     "minecraft:sandstone",
     "minecraft:cut_sandstone",
     "minecraft:smooth_sandstone",
-    "minecraft:chiseled_sandstone"
+    "minecraft:chiseled_sandstone",
+    "#uncolored_sandstone_blocks"
   ]
 }

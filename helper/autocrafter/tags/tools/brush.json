@@ -1,5 +1,6 @@
 {
   "values": [
-    "minecraft:brush"
+    "minecraft:brush",
+    "#tools/brushes"
   ]
 }

@@ -1,5 +1,6 @@
 {
   "values": [
-    "minecraft:lapis_lazuli"
+    "minecraft:lapis_lazuli",
+    "#lapis"
   ]
 }

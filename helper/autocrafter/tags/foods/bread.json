@@ -1,5 +1,6 @@
 {
   "values": [
-    "minecraft:bread"
+    "minecraft:bread",
+    "#foods/breads"
   ]
 }

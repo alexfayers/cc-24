@@ -1,5 +1,6 @@
 {
   "values": [
-    "minecraft:raw_gold"
+    "minecraft:raw_gold",
+    "#raw_gold_ores"
   ]
 }

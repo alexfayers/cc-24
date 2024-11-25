@@ -4,6 +4,21 @@
     "minecraft:pumpkin_pie",
     "minecraft:honey_bottle",
     "minecraft:ominous_bottle",
-    "minecraft:dried_kelp"
+    "minecraft:dried_kelp",
+    "#foods/fruit",
+    "#foods/vegetable",
+    "#foods/berry",
+    "#foods/bread",
+    "#foods/cookie",
+    "#foods/raw_meat",
+    "#foods/raw_fish",
+    "#foods/cooked_meat",
+    "#foods/cooked_fish",
+    "#foods/soup",
+    "#foods/candy",
+    "#foods/pie",
+    "#foods/golden",
+    "#foods/edible_when_placed",
+    "#foods/food_poisoning"
   ]
 }

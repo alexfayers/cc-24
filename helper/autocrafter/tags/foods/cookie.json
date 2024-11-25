@@ -1,5 +1,6 @@
 {
   "values": [
-    "minecraft:cookie"
+    "minecraft:cookie",
+    "#foods/cookies"
   ]
 }

@@ -1,0 +1,28 @@
+{
+  "values": [
+    "#armadillo_food",
+    "#axolotl_food",
+    "#bee_food",
+    "#camel_food",
+    "#cat_food",
+    "#chicken_food",
+    "#cow_food",
+    "#fox_food",
+    "#frog_food",
+    "#goat_food",
+    "#hoglin_food",
+    "#horse_food",
+    "#llama_food",
+    "#ocelot_food",
+    "#panda_food",
+    "#parrot_food",
+    "#pig_food",
+    "#piglin_food",
+    "#rabbit_food",
+    "#sheep_food",
+    "#sniffer_food",
+    "#strider_food",
+    "#turtle_food",
+    "#wolf_food"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "values": [
+    "#buckets/empty",
+    "#buckets/water",
+    "#buckets/lava",
+    "#buckets/milk",
+    "#buckets/powder_snow",
+    "#buckets/entity_water"
+  ]
+}

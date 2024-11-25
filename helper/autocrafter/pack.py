@@ -184,10 +184,16 @@ def pack_tags() -> None:
 
             new_values = []
             for value in tag["values"]:
-                if not isinstance(value, str):
-                    continue
-                else:
+                if isinstance(value, str):
                     new_values.append(value)
+                elif isinstance(value, dict):
+                    if "id" in value:
+                        dict_value = value["id"].split(":")[1]
+                        if value["id"].startswith("#"):
+                            dict_value = f"#{dict_value}"
+                        new_values.append(dict_value)
+                else:
+                    continue
 
             if not new_values:
                 continue

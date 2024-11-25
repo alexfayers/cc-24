@@ -1,5 +1,6 @@
 {
   "values": [
-    "minecraft:red_dye"
+    "minecraft:red_dye",
+    "#red_dyes"
   ]
 }

@@ -1,5 +1,7 @@
 {
   "values": [
-    "minecraft:shears"
+    "minecraft:shears",
+    "#tools/shears",
+    "#shears"
   ]
 }

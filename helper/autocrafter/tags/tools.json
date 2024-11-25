@@ -1,0 +1,20 @@
+{
+  "values": [
+    "#axes",
+    "#hoes",
+    "#pickaxes",
+    "#shovels",
+    "#swords",
+    "#tools/bow",
+    "#tools/brush",
+    "#tools/crossbow",
+    "#tools/fishing_rod",
+    "#tools/igniter",
+    "#tools/shear",
+    "#tools/shield",
+    "#tools/spear",
+    "#tools/mining_tool",
+    "#tools/melee_weapon",
+    "#tools/ranged_weapon"
+  ]
+}

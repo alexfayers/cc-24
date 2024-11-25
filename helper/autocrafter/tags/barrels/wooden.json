@@ -1,5 +1,7 @@
 {
   "values": [
-    "minecraft:barrel"
+    "minecraft:barrel",
+    "#wooden_barrels",
+    "#wooden_barrels"
   ]
 }

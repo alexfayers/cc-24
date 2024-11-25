@@ -1,5 +1,7 @@
 {
   "values": [
-    "minecraft:bow"
+    "minecraft:bow",
+    "#tools/bows",
+    "#bows"
   ]
 }

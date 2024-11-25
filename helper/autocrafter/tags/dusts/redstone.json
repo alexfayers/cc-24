@@ -1,5 +1,6 @@
 {
   "values": [
-    "minecraft:redstone"
+    "minecraft:redstone",
+    "#redstone_dusts"
   ]
 }

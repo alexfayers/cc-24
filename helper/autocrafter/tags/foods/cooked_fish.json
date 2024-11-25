@@ -1,6 +1,7 @@
 {
   "values": [
     "minecraft:cooked_cod",
-    "minecraft:cooked_salmon"
+    "minecraft:cooked_salmon",
+    "#foods/cooked_fishes"
   ]
 }
