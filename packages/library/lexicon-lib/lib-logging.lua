@@ -46,6 +46,7 @@ local LOGGERS = {}
 local Logger = {
     _name = nil,
     _level = nil,
+    _file = false,
 
     ---Create a new logger and register it with the logging system
     ---@param self any
@@ -58,15 +59,23 @@ local Logger = {
             default = LEVELS.INFO
         })
 
+        settings.define("logger." .. name .. ".file", {
+            description = "If the " .. name .. " logger should log to a file",
+            type = "boolean",
+            default = false
+        })
+
         local level = settings.get("logger." .. name)
+        local fileLog = settings.get("logger." .. name .. ".file")
 
         local logger = {
             _name = name,
-            _level = level
+            _level = level,
+            _file = fileLog,
         }
 
         --ensure the log dir exists
-        if not fs.exists("/logs") then
+        if fileLog and not fs.exists("/logs") then
             fs.makeDir("/logs")
         end
 
@@ -91,7 +100,7 @@ local Logger = {
     ---@param text string
     ---@return nil
     logToFile = function(self, text)
-        do
+        if not self._file then
             return
         end
         local file = fs.open("/logs/" .. self._name .. ".log", "a")
