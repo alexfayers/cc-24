@@ -169,6 +169,10 @@ def pack_recipes() -> None:
         with output_path.open("w") as f:
             json.dump(recipes, f, indent=4)
 
+    with Path(output_dir, "_complete.json").open("w") as f:
+        stub_list = sorted([recipe_file.stem for recipe_file in output_dir.glob("*.json") if not recipe_file.stem.startswith("_")])
+        json.dump(stub_list, f, indent=4)
+
 
 def pack_tags() -> None:
     output_dir = Path(TAG_OUTPUT_DIR)
