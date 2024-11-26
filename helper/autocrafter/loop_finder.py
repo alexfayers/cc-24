@@ -22,22 +22,22 @@ def load_all_recipes() -> list[dict]:
 
 
 mc_colors = (
-    "white",
-    "light_gray",
-    "gray",
-    "black",
-    "brown",
-    "red",
-    "orange",
-    "yellow",
-    "lime",
-    "green",
-    "cyan",
-    "light_blue",
-    "blue",
-    "purple",
-    "magenta",
-    "pink"
+    # "white",
+    # "light_gray",
+    # "gray",
+    # "black",
+    # "brown",
+    # "red",
+    # "orange",
+    # "yellow",
+    # "lime",
+    # "green",
+    # "cyan",
+    # "light_blue",
+    # "blue",
+    # "purple",
+    # "magenta",
+    # "pink"
 )
 
 def to_stub(item: str) -> str:
