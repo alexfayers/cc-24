@@ -40,6 +40,7 @@ Turtle.MAX_BREAK_ATTEMPTS = 30
 Turtle.trashItemTags = {}
 Turtle.trashItemNames = {}
 Turtle.trashMinStackSize = 8
+Turtle.gpsTimeout = 2
 
 ---@alias inspectHandler fun(self: Turtle, inspectedBlockPosition: Position, inspectData: ccTweaked.turtle.inspectInfo): nil
 
@@ -64,11 +65,19 @@ function Turtle:init(startingPosition)
     self.inventory = TurtleInventory()
     self.inventory:refuel()
 
+    self.hasGps = self.hasGps or gps.locate(self.gpsTimeout, false) ~= nil
+
+    local gpsPosition = self:getGPSPosition()
+    if gpsPosition then
+        self.position = gpsPosition
+        self.hasGps = true
+    end
+
     self:saveState()
 end
 
 
----@alias TurtleStateSerialised {position: string, startingPosition: string, resumePosition?: string}
+---@alias TurtleStateSerialised {position: string, startingPosition: string, resumePosition?: string, hasGps?: boolean}
 
 ---Load the turtle state from the statefile
 ---@return nil
@@ -106,6 +115,7 @@ function Turtle:loadState()
         self.position = position
         self.startingPosition = startingPosition
         self.resumePosition = resumePosition
+        self.hasGps = state.hasGps
     end
 end
 
@@ -118,10 +128,62 @@ function Turtle:saveState()
     local state = {
         position = self.position:serialise(),
         startingPosition = self.startingPosition:serialise(),
-        resumePosition = self.resumePosition and self.resumePosition:serialise() or nil
+        resumePosition = self.resumePosition and self.resumePosition:serialise() or nil,
+        hasGps = self.hasGps,
     }
 
     tableHelpers.saveTable(stateFile, state)
+end
+
+
+---Get the turtles current position via GPS if a wireless modem is attached
+---@return Position?
+function Turtle:getGPSPosition()
+    if not self.hasGps then
+        return
+    end
+
+    local x, y, z = gps.locate(self.gpsTimeout, false)
+    if x == nil then
+        self.hasGps = false
+        self:saveState()
+        return
+    end
+
+    if not self:forward(1, {safe = false}) then
+        self.logger:error("Failed to move forward to get GPS position")
+        return
+    end
+
+    local x2, y2, z2 = gps.locate(self.gpsTimeout, false)
+
+    if x2 == nil then
+        self.logger:error("Failed to get GPS position after moving")
+        self.hasGps = false
+        self:saveState()
+        return
+    end
+
+    if not self:back(1, {safe = false}) then
+        self.logger:error("Failed to move back after getting GPS position")
+        return
+    end
+
+    self:turnAround()
+
+    local direction = Direction.NIL
+
+    if x2 > x then
+        direction = Direction.EAST
+    elseif x2 < x then
+        direction = Direction.WEST
+    elseif z2 > z then
+        direction = Direction.SOUTH
+    elseif z2 < z then
+        direction = Direction.NORTH
+    end
+
+    return Position(x, y, z, direction)
 end
 
 

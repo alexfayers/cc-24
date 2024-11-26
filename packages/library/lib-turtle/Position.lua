@@ -27,6 +27,14 @@ function Position:init(x, y, z, facing)
     self.facing = facing
 end
 
+
+---Return the origin position
+---@return Position
+function Position.getOrigin()
+    return Position(0, 0, 0, Direction.NORTH)
+end
+
+
 ---Return the position if we move up a number of blocks
 ---@param amount? integer The number of blocks to move (default 1)
 ---@return Position
@@ -137,6 +145,14 @@ function Position:add(position)
 end
 
 
+---Multiply a position vector by another position (removing facing direction)
+---@param position Position The position to multiply by
+---@return Position
+function Position:multiply(position)
+    return Position(self.x * position.x, self.y * position.y, self.z * position.z, enums.Direction.NIL)
+end
+
+
 ---Calculate the manhattan distance between the current position and another position
 ---@param position Position The position to compare to
 ---@return integer
@@ -228,4 +244,29 @@ function Position.unserialise(str)
     end
 
     return Position(x, y, z, facingNumber)
+end
+
+
+---Convert the position into global space from local space
+---@param globalStartingPosition Position The global space starting position
+---@return Position
+function Position:toGlobal(globalStartingPosition)
+    local localPosition = self:copy()
+
+    -- rotate to face the correct direction in global space
+    local rotationDiff = globalStartingPosition.facing
+
+    localPosition = localPosition
+
+    if rotationDiff == 1 then
+        localPosition.x, localPosition.z = -localPosition.z, localPosition.x
+    elseif rotationDiff == 2 then
+        localPosition.x, localPosition.z = -localPosition.x, -localPosition.z
+    elseif rotationDiff == 3 then
+        localPosition.x, localPosition.z = localPosition.z, -localPosition.x
+    end
+
+    localPosition = localPosition:add(globalStartingPosition)
+
+    return localPosition
 end

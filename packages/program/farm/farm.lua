@@ -65,8 +65,15 @@ local MOVEMENT_ARGS = {
     autoReturnIfFull = true,
 }
 
+local origin = Position.getOrigin()
 
-turt = Turtle(Position(-1, 0, 0, Direction.NORTH))
+turt = Turtle(origin)
+
+if turt.hasGps and turt.startingPosition:equals(origin) then
+    -- If we have GPS, we need to convert the starting position to global space
+    turt.startingPosition = turt.position
+    turt:saveState()
+end
 
 
 ---@overload fun(self: Turtle, inspectedBlockPosition: Position, inspectedBlockData: ccTweaked.turtle.inspectInfo): boolean
@@ -102,9 +109,15 @@ local function farm(height, width)
                 thisY = height - y - 1
             end
 
-            print(x .. ", " .. thisY) -- Debugging
-            
-            local moveRes, moveError = turt:moveTo(Position(x, 0, -thisY, Direction.NIL), MOVEMENT_ARGS)
+            local nextPosition = Position(x + 1, 0, -thisY, Direction.NIL)
+
+            if turt.hasGps then
+                nextPosition = nextPosition:toGlobal(turt.startingPosition)
+            end
+
+            print(nextPosition:asString()) -- Debugging
+
+            local moveRes, moveError = turt:moveTo(nextPosition, MOVEMENT_ARGS)
             if not moveRes then
                 return false, moveError
             end
