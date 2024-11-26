@@ -54,6 +54,22 @@ def ingredient_to_string(ingredient: dict) -> str | list[str]:
         raise Exception(f"Unknown ingredient type: {ingredient}")
 
 
+def crafting_slot_to_turtle_slot(slot: int) -> int:
+    """Convert a crafting table slot to a turtle slot
+
+    Args:
+        slot (int): The crafting table slot
+
+    Returns:
+        int: The turtle slot
+    """
+    if slot > 3:
+        slot += 1
+    if slot > 7:
+        slot += 1
+
+    return slot
+
 
 def prepare_recipe(recipe: dict) -> Optional[dict]:
     """Convert the recipe into something easily usable by the autocrafter.
@@ -101,10 +117,7 @@ def prepare_recipe(recipe: dict) -> Optional[dict]:
                             # 9 -> 11
 
                             # idk how to do this with math
-                            if slot > 3:
-                                slot += 1
-                            if slot > 7:
-                                slot += 1
+                            slot = crafting_slot_to_turtle_slot(slot)
 
                             if slot in recipe_map:
                                 recipe_map[slot].append(search_val)
@@ -114,6 +127,8 @@ def prepare_recipe(recipe: dict) -> Optional[dict]:
     elif recipe["type"] in ("minecraft:crafting_shapeless", "computercraft:transform_shapeless"):
         for index, ingredient in enumerate(recipe["ingredients"]):
             slot = index + 1
+            slot = crafting_slot_to_turtle_slot(slot)
+
             search = ingredient_to_string(ingredient)
             if isinstance(search, str):
                 search = [search]
