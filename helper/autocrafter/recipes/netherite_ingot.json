@@ -21,11 +21,8 @@
             "3": [
                 "minecraft:netherite_scrap"
             ],
-            "4": [
-                "minecraft:netherite_scrap"
-            ],
             "5": [
-                "minecraft:gold_ingot"
+                "minecraft:netherite_scrap"
             ],
             "6": [
                 "minecraft:gold_ingot"
@@ -33,7 +30,10 @@
             "7": [
                 "minecraft:gold_ingot"
             ],
-            "8": [
+            "9": [
+                "minecraft:gold_ingot"
+            ],
+            "10": [
                 "minecraft:gold_ingot"
             ]
         },

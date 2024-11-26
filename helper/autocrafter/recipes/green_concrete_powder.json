@@ -10,22 +10,22 @@
             "3": [
                 "minecraft:sand"
             ],
-            "4": [
-                "minecraft:sand"
-            ],
             "5": [
                 "minecraft:sand"
             ],
             "6": [
-                "minecraft:gravel"
+                "minecraft:sand"
             ],
             "7": [
                 "minecraft:gravel"
             ],
-            "8": [
+            "9": [
                 "minecraft:gravel"
             ],
-            "9": [
+            "10": [
+                "minecraft:gravel"
+            ],
+            "11": [
                 "minecraft:gravel"
             ]
         },

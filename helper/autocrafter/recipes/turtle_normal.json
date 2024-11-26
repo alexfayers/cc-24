@@ -45,19 +45,19 @@
             "3": [
                 "#c:dyes/yellow"
             ],
-            "4": [
+            "5": [
                 "#c:dyes/green"
             ],
-            "5": [
+            "6": [
                 "#c:dyes/blue"
             ],
-            "6": [
+            "7": [
                 "#c:dyes/purple"
             ],
-            "7": [
+            "9": [
                 "minecraft:stick"
             ],
-            "8": [
+            "10": [
                 "computercraft:turtle_normal"
             ]
         },
@@ -77,10 +77,10 @@
             "3": [
                 "#c:dyes/white"
             ],
-            "4": [
+            "5": [
                 "minecraft:stick"
             ],
-            "5": [
+            "6": [
                 "computercraft:turtle_normal"
             ]
         },
