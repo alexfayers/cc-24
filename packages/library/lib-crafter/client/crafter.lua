@@ -612,6 +612,12 @@ local function craft_item(craftItemName, craftCount, doCheck)
     end
 
     logger:info("Crafted %d %s", craftCount, craftItemName)
+
+    local storageOutputChest = settings.get("storage2.outputChest")
+    if not storageClient:pull(storageOutputChest, craftItemName, craftCount) then
+        logger:error("Failed to pull %d %s from storage", craftCount, craftItemName)
+    end
+
     return true
 end
 
