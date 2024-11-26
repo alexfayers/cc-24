@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:deepslate"
+            ],
+            "2": [
+                "minecraft:flint"
+            ]
+        },
+        "output": {
+            "id": "waystones:deepslate_shard",
+            "count": 1
+        }
+    }
+]

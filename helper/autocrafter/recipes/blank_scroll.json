@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:feather"
+            ],
+            "1": [
+                "#c:nuggets/gold"
+            ],
+            "3": [
+                "#c:nuggets/gold"
+            ],
+            "5": [
+                "minecraft:paper"
+            ],
+            "6": [
+                "minecraft:paper"
+            ],
+            "7": [
+                "minecraft:paper"
+            ]
+        },
+        "output": {
+            "id": "waystones:blank_scroll",
+            "count": 3
+        }
+    }
+]

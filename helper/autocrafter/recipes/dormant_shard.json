@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "waystones:warp_dust"
+            ],
+            "2": [
+                "waystones:warp_dust"
+            ],
+            "3": [
+                "minecraft:flint"
+            ]
+        },
+        "output": {
+            "id": "waystones:dormant_shard",
+            "count": 1
+        }
+    }
+]

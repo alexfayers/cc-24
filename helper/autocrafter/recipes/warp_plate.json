@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "6": [
+                "waystones:dormant_shard"
+            ],
+            "1": [
+                "minecraft:stone_bricks"
+            ],
+            "3": [
+                "minecraft:stone_bricks"
+            ],
+            "9": [
+                "minecraft:stone_bricks"
+            ],
+            "11": [
+                "minecraft:stone_bricks"
+            ],
+            "2": [
+                "waystones:warp_dust"
+            ],
+            "5": [
+                "waystones:warp_dust"
+            ],
+            "7": [
+                "waystones:warp_dust"
+            ],
+            "10": [
+                "waystones:warp_dust"
+            ]
+        },
+        "output": {
+            "id": "waystones:warp_plate",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "9": [
+                "minecraft:polished_andesite"
+            ],
+            "10": [
+                "minecraft:polished_andesite"
+            ],
+            "11": [
+                "minecraft:polished_andesite"
+            ],
+            "1": [
+                "#c:dyes/gray"
+            ],
+            "3": [
+                "#c:dyes/gray"
+            ],
+            "2": [
+                "minecraft:stone_bricks"
+            ],
+            "5": [
+                "minecraft:stone_bricks"
+            ],
+            "7": [
+                "minecraft:stone_bricks"
+            ],
+            "6": [
+                "waystones:warp_stone"
+            ]
+        },
+        "output": {
+            "id": "waystones:gray_portstone",
+            "count": 1
+        }
+    }
+]

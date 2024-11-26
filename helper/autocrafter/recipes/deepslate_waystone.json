@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "9": [
+                "minecraft:obsidian"
+            ],
+            "10": [
+                "minecraft:obsidian"
+            ],
+            "11": [
+                "minecraft:obsidian"
+            ],
+            "2": [
+                "minecraft:deepslate"
+            ],
+            "5": [
+                "minecraft:deepslate"
+            ],
+            "7": [
+                "minecraft:deepslate"
+            ],
+            "6": [
+                "waystones:warp_stone"
+            ]
+        },
+        "output": {
+            "id": "waystones:deepslate_waystone",
+            "count": 1
+        }
+    }
+]

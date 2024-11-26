@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "5": [
+                "#c:dyes/brown"
+            ],
+            "7": [
+                "#c:dyes/brown"
+            ],
+            "9": [
+                "minecraft:obsidian"
+            ],
+            "10": [
+                "minecraft:obsidian"
+            ],
+            "11": [
+                "minecraft:obsidian"
+            ],
+            "1": [
+                "minecraft:stone_bricks"
+            ],
+            "2": [
+                "minecraft:stone_bricks"
+            ],
+            "3": [
+                "minecraft:stone_bricks"
+            ],
+            "6": [
+                "waystones:warp_stone"
+            ]
+        },
+        "output": {
+            "id": "waystones:brown_sharestone",
+            "count": 1
+        }
+    }
+]

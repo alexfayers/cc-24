@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "9": [
+                "minecraft:obsidian"
+            ],
+            "10": [
+                "minecraft:obsidian"
+            ],
+            "11": [
+                "minecraft:obsidian"
+            ],
+            "2": [
+                "minecraft:end_stone_bricks"
+            ],
+            "5": [
+                "minecraft:end_stone_bricks"
+            ],
+            "7": [
+                "minecraft:end_stone_bricks"
+            ],
+            "6": [
+                "waystones:warp_stone"
+            ]
+        },
+        "output": {
+            "id": "waystones:end_stone_waystone",
+            "count": 1
+        }
+    }
+]
