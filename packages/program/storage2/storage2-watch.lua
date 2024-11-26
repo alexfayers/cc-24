@@ -39,6 +39,8 @@ local function main()
             if hasItems then
                 break
             end
+
+            os.sleep(0.05)
         end
 
         -- Load the storage map
