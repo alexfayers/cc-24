@@ -81,6 +81,10 @@ end
 ---@param data? table
 ---@return boolean, RefreshData
 function StorageServer:handleRefresh(clientId, data)
+    if self.refreshing then
+        return true
+    end
+
     self.refreshing = true
 
     self.storageMap:populate(true)
