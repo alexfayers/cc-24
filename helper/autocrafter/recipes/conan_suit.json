@@ -1,0 +1,34 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:blue_wool"
+            ],
+            "3": [
+                "minecraft:blue_wool"
+            ],
+            "6": [
+                "doggytalents:cape_coloured"
+            ],
+            "5": [
+                "minecraft:light_blue_wool"
+            ],
+            "7": [
+                "minecraft:light_blue_wool"
+            ],
+            "9": [
+                "minecraft:red_wool"
+            ],
+            "11": [
+                "minecraft:red_wool"
+            ],
+            "2": [
+                "doggytalents:bowtie"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:conan_suit",
+            "count": 1
+        }
+    }
+]

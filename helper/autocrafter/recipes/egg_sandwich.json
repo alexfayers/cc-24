@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:bread"
+            ],
+            "10": [
+                "minecraft:bread"
+            ],
+            "5": [
+                "minecraft:egg"
+            ],
+            "6": [
+                "minecraft:egg"
+            ],
+            "7": [
+                "minecraft:egg"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:egg_sandwich",
+            "count": 3
+        }
+    }
+]

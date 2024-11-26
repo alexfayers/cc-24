@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:glass_pane"
+            ],
+            "3": [
+                "minecraft:glass_pane"
+            ],
+            "2": [
+                "doggytalents:sake"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:doggy_contacts",
+            "count": 1
+        }
+    }
+]

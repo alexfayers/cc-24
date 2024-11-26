@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "P": {
+      "item": "minecraft:phantom_membrane"
+    },
+    "T": {
+      "item": "doggytalents:super_treat"
+    }
+  },
+  "pattern": [
+    " FP",
+    "FTF",
+    "PF "
+  ],
+  "result": {
+    "count": 1,
+    "id": "doggytalents:feathered_mantle"
+  }
+}

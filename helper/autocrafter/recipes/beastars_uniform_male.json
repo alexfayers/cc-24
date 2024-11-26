@@ -1,0 +1,34 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:blue_wool"
+            ],
+            "3": [
+                "minecraft:blue_wool"
+            ],
+            "2": [
+                "doggytalents:cape_coloured"
+            ],
+            "6": [
+                "minecraft:gray_wool"
+            ],
+            "9": [
+                "minecraft:brown_wool"
+            ],
+            "11": [
+                "minecraft:brown_wool"
+            ],
+            "5": [
+                "minecraft:white_wool"
+            ],
+            "7": [
+                "minecraft:white_wool"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:beastars_uniform_male",
+            "count": 1
+        }
+    }
+]

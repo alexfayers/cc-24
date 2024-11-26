@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:black_dye"
+    },
+    "E": {
+      "item": "minecraft:phantom_membrane"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    }
+  },
+  "pattern": [
+    "FBF",
+    "BEB",
+    "FBF"
+  ],
+  "result": {
+    "count": 1,
+    "id": "doggytalents:crow_wings"
+  }
+}

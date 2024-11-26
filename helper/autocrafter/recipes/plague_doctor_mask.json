@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:black_carpet"
+            ],
+            "3": [
+                "minecraft:black_carpet"
+            ],
+            "10": [
+                "#minecraft:flowers"
+            ],
+            "9": [
+                "minecraft:leather"
+            ],
+            "11": [
+                "minecraft:leather"
+            ],
+            "6": [
+                "doggytalents:snorkel"
+            ],
+            "2": [
+                "minecraft:black_wool"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:plague_doctor_mask",
+            "count": 1
+        }
+    }
+]

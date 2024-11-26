@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "6": [
+                "doggytalents:amnesia_bone"
+            ],
+            "3": [
+                "minecraft:blue_dye"
+            ],
+            "2": [
+                "minecraft:lapis_lazuli"
+            ],
+            "7": [
+                "minecraft:lapis_lazuli"
+            ],
+            "5": [
+                "minecraft:amethyst_shard"
+            ],
+            "10": [
+                "minecraft:amethyst_shard"
+            ],
+            "9": [
+                "minecraft:pink_dye"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:gender_bone",
+            "count": 1
+        }
+    }
+]

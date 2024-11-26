@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "6": [
+                "doggytalents:wool_collar"
+            ],
+            "2": [
+                "minecraft:white_wool"
+            ],
+            "5": [
+                "minecraft:white_wool"
+            ],
+            "7": [
+                "minecraft:white_wool"
+            ],
+            "10": [
+                "minecraft:white_wool"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:wig",
+            "count": 1
+        }
+    }
+]

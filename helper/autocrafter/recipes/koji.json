@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "doggytalents:koji"
+            ],
+            "2": [
+                "doggytalents:uncooked_rice"
+            ],
+            "3": [
+                "minecraft:sugar"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:koji",
+            "count": 3
+        }
+    }
+]

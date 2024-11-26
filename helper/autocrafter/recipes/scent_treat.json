@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "6": [
+                "doggytalents:training_treat"
+            ],
+            "2": [
+                "#minecraft:wool"
+            ],
+            "5": [
+                "#minecraft:wool"
+            ],
+            "7": [
+                "#minecraft:wool"
+            ],
+            "10": [
+                "#minecraft:wool"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:scent_treat",
+            "count": 1
+        }
+    }
+]

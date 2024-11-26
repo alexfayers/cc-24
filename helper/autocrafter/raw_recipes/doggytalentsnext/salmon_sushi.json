@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "R": {
+      "item": "doggytalents:rice_bowl"
+    },
+    "S": {
+      "item": "minecraft:salmon"
+    }
+  },
+  "pattern": [
+    "S",
+    "R"
+  ],
+  "result": {
+    "count": 1,
+    "id": "doggytalents:salmon_sushi"
+  }
+}

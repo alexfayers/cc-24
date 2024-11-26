@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:bone"
+            ],
+            "3": [
+                "minecraft:netherite_ingot"
+            ],
+            "2": [
+                "minecraft:blaze_rod"
+            ],
+            "7": [
+                "minecraft:blaze_rod"
+            ],
+            "9": [
+                "minecraft:soul_soil"
+            ],
+            "5": [
+                "minecraft:nether_wart"
+            ],
+            "10": [
+                "minecraft:nether_wart"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:amnesia_bone",
+            "count": 1
+        }
+    }
+]

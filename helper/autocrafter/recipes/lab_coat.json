@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "2": [
+                "doggytalents:cape_coloured"
+            ],
+            "6": [
+                "#minecraft:wool"
+            ],
+            "9": [
+                "#minecraft:wool"
+            ],
+            "10": [
+                "#minecraft:wool"
+            ],
+            "11": [
+                "#minecraft:wool"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:lab_coat",
+            "count": 1
+        }
+    }
+]

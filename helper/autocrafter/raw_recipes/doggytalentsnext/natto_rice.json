@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "doggytalents:rice_bowl"
+    },
+    "N": {
+      "item": "doggytalents:natto"
+    }
+  },
+  "pattern": [
+    "N",
+    "B"
+  ],
+  "result": {
+    "count": 1,
+    "id": "doggytalents:natto_rice"
+  }
+}

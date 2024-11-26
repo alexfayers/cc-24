@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "doggytalents:cape_coloured"
+            ],
+            "2": [
+                "minecraft:soul_torch"
+            ],
+            "3": [
+                "minecraft:nether_wart"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:death_hood",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:leather_helmet"
+            ],
+            "1": [
+                "#minecraft:wool"
+            ],
+            "2": [
+                "#minecraft:wool"
+            ],
+            "3": [
+                "#minecraft:wool"
+            ],
+            "5": [
+                "#minecraft:wool"
+            ],
+            "7": [
+                "#minecraft:wool"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:baker_hat",
+            "count": 1
+        }
+    }
+]

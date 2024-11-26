@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "doggytalents:miso_paste"
+            ],
+            "2": [
+                "doggytalents:tofu"
+            ],
+            "3": [
+                "minecraft:bowl"
+            ],
+            "5": [
+                "minecraft:dried_kelp"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:miso_soup",
+            "count": 1
+        }
+    }
+]

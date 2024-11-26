@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bread"
+    },
+    "E": {
+      "item": "minecraft:egg"
+    }
+  },
+  "pattern": [
+    " B ",
+    "EEE",
+    " B "
+  ],
+  "result": {
+    "count": 3,
+    "id": "doggytalents:egg_sandwich"
+  }
+}

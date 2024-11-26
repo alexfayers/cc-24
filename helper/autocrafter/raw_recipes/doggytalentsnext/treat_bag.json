@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "doggytalents:energizer_stick"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "pattern": [
+    "LCL",
+    "LLL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "doggytalents:treat_bag"
+  }
+}

@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "5": [
+                "doggytalents:rice_bowl"
+            ],
+            "1": [
+                "doggytalents:natto"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:natto_rice",
+            "count": 1
+        }
+    }
+]

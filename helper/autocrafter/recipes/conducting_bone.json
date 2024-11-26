@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:bone"
+            ],
+            "6": [
+                "minecraft:bone"
+            ],
+            "10": [
+                "minecraft:end_crystal"
+            ],
+            "9": [
+                "minecraft:shulker_shell"
+            ],
+            "11": [
+                "minecraft:shulker_shell"
+            ],
+            "5": [
+                "minecraft:netherite_ingot"
+            ],
+            "7": [
+                "minecraft:netherite_ingot"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:conducting_bone",
+            "count": 1
+        }
+    }
+]

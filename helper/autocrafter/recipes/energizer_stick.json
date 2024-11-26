@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:sugar"
+            ],
+            "6": [
+                "minecraft:sugar"
+            ],
+            "2": [
+                "minecraft:wheat"
+            ],
+            "5": [
+                "minecraft:wheat"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:energizer_stick",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:white_carpet"
+            ],
+            "2": [
+                "doggytalents:wool_collar"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:striped_scarf",
+            "count": 1
+        }
+    }
+]

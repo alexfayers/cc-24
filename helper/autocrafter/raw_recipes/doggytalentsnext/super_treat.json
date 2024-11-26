@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "doggytalents:training_treat"
+    },
+    {
+      "item": "doggytalents:training_treat"
+    },
+    {
+      "item": "doggytalents:training_treat"
+    },
+    {
+      "item": "doggytalents:training_treat"
+    },
+    {
+      "item": "doggytalents:training_treat"
+    },
+    {
+      "item": "minecraft:golden_apple"
+    }
+  ],
+  "result": {
+    "count": 5,
+    "id": "doggytalents:super_treat"
+  }
+}

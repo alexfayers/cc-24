@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:feather"
+            ],
+            "5": [
+                "minecraft:feather"
+            ],
+            "7": [
+                "minecraft:feather"
+            ],
+            "10": [
+                "minecraft:feather"
+            ],
+            "3": [
+                "minecraft:phantom_membrane"
+            ],
+            "9": [
+                "minecraft:phantom_membrane"
+            ],
+            "6": [
+                "doggytalents:super_treat"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:feathered_mantle",
+            "count": 1
+        }
+    }
+]

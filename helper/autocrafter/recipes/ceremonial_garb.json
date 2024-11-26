@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "5": [
+                "#minecraft:wool_carpets"
+            ],
+            "7": [
+                "#minecraft:wool_carpets"
+            ],
+            "10": [
+                "#minecraft:wool_carpets"
+            ],
+            "2": [
+                "minecraft:lead"
+            ],
+            "6": [
+                "doggytalents:wool_collar"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:ceremonial_garb",
+            "count": 1
+        }
+    }
+]

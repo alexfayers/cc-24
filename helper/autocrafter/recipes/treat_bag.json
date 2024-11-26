@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "2": [
+                "doggytalents:energizer_stick"
+            ],
+            "1": [
+                "minecraft:leather"
+            ],
+            "3": [
+                "minecraft:leather"
+            ],
+            "5": [
+                "minecraft:leather"
+            ],
+            "6": [
+                "minecraft:leather"
+            ],
+            "7": [
+                "minecraft:leather"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:treat_bag",
+            "count": 1
+        }
+    }
+]

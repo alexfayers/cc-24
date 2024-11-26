@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:leather_helmet"
+            ],
+            "1": [
+                "minecraft:stick"
+            ],
+            "3": [
+                "minecraft:stick"
+            ],
+            "6": [
+                "doggytalents:training_treat"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:deer_antlers",
+            "count": 1
+        }
+    }
+]

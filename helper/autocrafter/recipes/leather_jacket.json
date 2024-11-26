@@ -1,0 +1,34 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:leather"
+            ],
+            "3": [
+                "minecraft:leather"
+            ],
+            "5": [
+                "minecraft:leather"
+            ],
+            "7": [
+                "minecraft:leather"
+            ],
+            "9": [
+                "minecraft:leather"
+            ],
+            "11": [
+                "minecraft:leather"
+            ],
+            "6": [
+                "#minecraft:wool"
+            ],
+            "10": [
+                "#minecraft:wool"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:leather_jacket",
+            "count": 1
+        }
+    }
+]

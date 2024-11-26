@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "doggytalents:rice_wheat"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:rice_grains",
+            "count": 3
+        }
+    }
+]

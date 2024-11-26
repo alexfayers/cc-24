@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bone"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "R": {
+      "item": "minecraft:blaze_rod"
+    },
+    "S": {
+      "item": "minecraft:soul_soil"
+    },
+    "W": {
+      "item": "minecraft:nether_wart"
+    }
+  },
+  "pattern": [
+    " RN",
+    "WBR",
+    "SW "
+  ],
+  "result": {
+    "count": 1,
+    "id": "doggytalents:amnesia_bone"
+  }
+}

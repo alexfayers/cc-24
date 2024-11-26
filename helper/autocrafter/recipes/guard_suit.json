@@ -1,0 +1,34 @@
+[
+    {
+        "input": {
+            "5": [
+                "minecraft:black_wool"
+            ],
+            "7": [
+                "minecraft:black_wool"
+            ],
+            "9": [
+                "minecraft:black_wool"
+            ],
+            "11": [
+                "minecraft:black_wool"
+            ],
+            "1": [
+                "minecraft:string"
+            ],
+            "3": [
+                "minecraft:string"
+            ],
+            "6": [
+                "minecraft:white_wool"
+            ],
+            "10": [
+                "minecraft:white_wool"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:guard_suit",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:bamboo"
+            ],
+            "2": [
+                "minecraft:bamboo"
+            ],
+            "3": [
+                "minecraft:bamboo"
+            ],
+            "9": [
+                "minecraft:green_wool"
+            ],
+            "6": [
+                "minecraft:iron_ingot"
+            ],
+            "7": [
+                "minecraft:blue_wool"
+            ],
+            "5": [
+                "minecraft:red_wool"
+            ],
+            "10": [
+                "doggytalents:training_treat"
+            ],
+            "11": [
+                "minecraft:yellow_wool"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:propeller_hat",
+            "count": 1
+        }
+    }
+]

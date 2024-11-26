@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "10": [
+                "minecraft:leather_helmet"
+            ],
+            "1": [
+                "#minecraft:wool"
+            ],
+            "2": [
+                "#minecraft:wool"
+            ],
+            "3": [
+                "#minecraft:wool"
+            ],
+            "5": [
+                "#minecraft:wool"
+            ],
+            "6": [
+                "#minecraft:wool"
+            ],
+            "7": [
+                "#minecraft:wool"
+            ],
+            "9": [
+                "#minecraft:wool"
+            ],
+            "11": [
+                "#minecraft:wool"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:chef_hat",
+            "count": 1
+        }
+    }
+]

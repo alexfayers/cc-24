@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "B": {
+      "item": "minecraft:bone"
+    },
+    "E": {
+      "item": "minecraft:end_crystal"
+    },
+    "P": {
+      "item": "minecraft:shulker_shell"
+    },
+    "R": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "pattern": [
+    " B ",
+    "RBR",
+    "PEP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "doggytalents:conducting_bone"
+  }
+}

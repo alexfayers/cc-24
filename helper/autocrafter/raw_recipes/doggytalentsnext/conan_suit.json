@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:blue_wool"
+    },
+    "C": {
+      "item": "doggytalents:cape_coloured"
+    },
+    "L": {
+      "item": "minecraft:light_blue_wool"
+    },
+    "R": {
+      "item": "minecraft:red_wool"
+    },
+    "Z": {
+      "item": "doggytalents:bowtie"
+    }
+  },
+  "pattern": [
+    "BZB",
+    "LCL",
+    "R R"
+  ],
+  "result": {
+    "count": 1,
+    "id": "doggytalents:conan_suit"
+  }
+}

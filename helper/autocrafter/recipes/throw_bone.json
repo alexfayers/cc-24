@@ -1,0 +1,36 @@
+[
+    {
+        "input": {
+            "1": [
+                "doggytalents:throw_bone_wet"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:throw_bone",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "2": [
+                "minecraft:bone"
+            ],
+            "5": [
+                "minecraft:bone"
+            ],
+            "7": [
+                "minecraft:bone"
+            ],
+            "10": [
+                "minecraft:bone"
+            ],
+            "6": [
+                "minecraft:slime_ball"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:throw_bone",
+            "count": 1
+        }
+    }
+]

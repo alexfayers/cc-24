@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "doggytalents:master_treat"
+    },
+    {
+      "item": "doggytalents:master_treat"
+    },
+    {
+      "item": "doggytalents:master_treat"
+    },
+    {
+      "item": "doggytalents:master_treat"
+    },
+    {
+      "item": "doggytalents:master_treat"
+    },
+    {
+      "item": "minecraft:end_stone"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "doggytalents:kami_treat"
+  }
+}

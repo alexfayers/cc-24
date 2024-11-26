@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "doggytalents:wool_collar"
+            ],
+            "2": [
+                "doggytalents:wool_collar"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:wool_collar_thicc",
+            "count": 1
+        }
+    }
+]

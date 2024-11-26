@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:blue_wool"
+    },
+    "C": {
+      "item": "doggytalents:cape_coloured"
+    },
+    "G": {
+      "item": "minecraft:gray_wool"
+    },
+    "R": {
+      "item": "minecraft:brown_wool"
+    },
+    "W": {
+      "item": "minecraft:white_wool"
+    }
+  },
+  "pattern": [
+    "BCB",
+    "WGW",
+    "R R"
+  ],
+  "result": {
+    "count": 1,
+    "id": "doggytalents:beastars_uniform_male"
+  }
+}

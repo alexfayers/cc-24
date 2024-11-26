@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    "L L",
+    "LWL",
+    "LWL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "doggytalents:leather_jacket"
+  }
+}

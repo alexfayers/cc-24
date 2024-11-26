@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "9": [
+                "minecraft:black_wool"
+            ],
+            "11": [
+                "minecraft:black_wool"
+            ],
+            "6": [
+                "doggytalents:cape_coloured"
+            ],
+            "1": [
+                "minecraft:gray_wool"
+            ],
+            "3": [
+                "minecraft:gray_wool"
+            ],
+            "5": [
+                "minecraft:gray_wool"
+            ],
+            "7": [
+                "minecraft:gray_wool"
+            ],
+            "2": [
+                "minecraft:white_wool"
+            ],
+            "10": [
+                "minecraft:white_wool"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:pianist_suit",
+            "count": 1
+        }
+    }
+]

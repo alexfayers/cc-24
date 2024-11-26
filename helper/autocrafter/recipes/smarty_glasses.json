@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "doggytalents:sunglasses"
+            ],
+            "2": [
+                "minecraft:redstone"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:smarty_glasses",
+            "count": 1
+        }
+    }
+]

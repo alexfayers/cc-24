@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:lead"
+            ],
+            "5": [
+                "minecraft:paper"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:head_band_blank",
+            "count": 1
+        }
+    }
+]

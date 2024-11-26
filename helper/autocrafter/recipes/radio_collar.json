@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:iron_ingot"
+            ],
+            "2": [
+                "minecraft:iron_ingot"
+            ],
+            "6": [
+                "minecraft:iron_ingot"
+            ],
+            "5": [
+                "minecraft:redstone"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:radio_collar",
+            "count": 1
+        }
+    }
+]

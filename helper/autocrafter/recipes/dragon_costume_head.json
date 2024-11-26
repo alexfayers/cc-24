@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "doggytalents:training_treat"
+            ],
+            "2": [
+                "minecraft:dragon_head"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:dragon_costume_head",
+            "count": 1
+        }
+    }
+]

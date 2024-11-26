@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:cobblestone_slab"
+            ],
+            "10": [
+                "doggytalents:rice_wheat"
+            ],
+            "1": [
+                "#minecraft:fences"
+            ],
+            "3": [
+                "#minecraft:fences"
+            ],
+            "9": [
+                "#minecraft:fences"
+            ],
+            "11": [
+                "#minecraft:fences"
+            ],
+            "2": [
+                "#minecraft:logs"
+            ],
+            "5": [
+                "#minecraft:logs"
+            ],
+            "7": [
+                "#minecraft:logs"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:rice_mill",
+            "count": 1
+        }
+    }
+]

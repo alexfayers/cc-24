@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "doggytalents:super_treat"
+    },
+    {
+      "item": "doggytalents:super_treat"
+    },
+    {
+      "item": "doggytalents:super_treat"
+    },
+    {
+      "item": "doggytalents:super_treat"
+    },
+    {
+      "item": "doggytalents:super_treat"
+    },
+    {
+      "item": "minecraft:diamond"
+    }
+  ],
+  "result": {
+    "count": 5,
+    "id": "doggytalents:master_treat"
+  }
+}

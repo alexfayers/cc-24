@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:brown_dye"
+            ],
+            "3": [
+                "minecraft:brown_dye"
+            ],
+            "9": [
+                "minecraft:brown_dye"
+            ],
+            "11": [
+                "minecraft:brown_dye"
+            ],
+            "6": [
+                "minecraft:phantom_membrane"
+            ],
+            "2": [
+                "minecraft:leather"
+            ],
+            "5": [
+                "minecraft:leather"
+            ],
+            "7": [
+                "minecraft:leather"
+            ],
+            "10": [
+                "minecraft:leather"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:bat_wings",
+            "count": 1
+        }
+    }
+]

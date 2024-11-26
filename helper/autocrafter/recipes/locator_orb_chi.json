@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "doggytalents:empty_locator_orb"
+            ],
+            "2": [
+                "minecraft:magenta_dye"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:locator_orb_chi",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:yellow_dye"
+            ],
+            "2": [
+                "minecraft:red_dye"
+            ],
+            "3": [
+                "minecraft:blue_dye"
+            ],
+            "5": [
+                "minecraft:iron_ingot"
+            ],
+            "6": [
+                "doggytalents:leather_jacket"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:superdog_suit",
+            "count": 1
+        }
+    }
+]

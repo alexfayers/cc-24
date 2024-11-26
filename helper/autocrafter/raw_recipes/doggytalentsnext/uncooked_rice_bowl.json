@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "doggytalents:uncooked_rice"
+    },
+    {
+      "item": "doggytalents:uncooked_rice"
+    },
+    {
+      "item": "doggytalents:uncooked_rice"
+    },
+    {
+      "item": "doggytalents:uncooked_rice"
+    },
+    {
+      "item": "doggytalents:uncooked_rice"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "doggytalents:uncooked_rice_bowl"
+  }
+}

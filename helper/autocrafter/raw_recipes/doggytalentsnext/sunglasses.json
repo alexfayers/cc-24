@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:black_stained_glass_pane"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "S S",
+    "GSG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "doggytalents:sunglasses"
+  }
+}

@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:egg"
+            ],
+            "3": [
+                "minecraft:egg"
+            ],
+            "2": [
+                "minecraft:cooked_chicken"
+            ],
+            "6": [
+                "doggytalents:rice_bowl"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:oyakodon",
+            "count": 1
+        }
+    }
+]

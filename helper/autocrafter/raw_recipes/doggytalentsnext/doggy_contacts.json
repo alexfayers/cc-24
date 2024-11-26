@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:glass_pane"
+    },
+    "K": {
+      "item": "doggytalents:sake"
+    }
+  },
+  "pattern": [
+    "GKG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "doggytalents:doggy_contacts"
+  }
+}

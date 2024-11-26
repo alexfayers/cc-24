@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "2": [
+                "doggytalents:throw_bone"
+            ],
+            "1": [
+                "#minecraft:slabs"
+            ],
+            "3": [
+                "#minecraft:slabs"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:frisbee",
+            "count": 1
+        }
+    }
+]

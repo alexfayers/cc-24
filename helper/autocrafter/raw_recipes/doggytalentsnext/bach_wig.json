@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bone"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SBS",
+    "S S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "doggytalents:bach_wig"
+  }
+}

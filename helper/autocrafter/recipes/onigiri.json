@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "5": [
+                "minecraft:dried_kelp"
+            ],
+            "1": [
+                "doggytalents:rice_bowl"
+            ]
+        },
+        "output": {
+            "id": "doggytalents:onigiri",
+            "count": 1
+        }
+    }
+]
