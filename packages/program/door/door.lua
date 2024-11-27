@@ -58,12 +58,12 @@ elseif args.action == "close" then
     success, successCount, totalCount = doorClient:close(name)
 end
 
-local countString = successCount .. "/" .. totalCount
-local actionString
-
 if success then
-    actionString = args.action == "open" and "Opened" or "Closed"
-    print(string.format("%s %s (%s)", actionString, name, countString))
+    print(string.format("%s %s (%d)",
+        args.action == "open" and "Opened" or "Closed",
+        name,
+        totalCount
+    ))
 
     for _, doorName in ipairs(knownDoorNames) do
         if doorName == name then
@@ -74,6 +74,29 @@ if success then
     settings.set("door.names", knownDoorNames)
     settings.save()
 else
-    actionString = args.action == "open" and "open" or "close"
-    print(string.format("%s failed to %s (%s)", name, actionString, countString))
+    if totalCount == 0 then
+        printError(string.format(
+            "No door called %s",
+            name
+        ))
+        return
+    end
+
+    if successCount == 0 then
+        printError(string.format(
+            "%s already %s (%d)",
+            name,
+            args.action == "open" and "open" or "closed",
+            totalCount
+        ))
+        return
+    else
+        printError(string.format(
+            "Only %s %d/%d for %s",
+            args.action == "open" and "opened" or "closed",
+            successCount,
+            totalCount,
+            name
+        ))
+    end
 end
