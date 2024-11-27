@@ -151,7 +151,7 @@ end
 ---Listen for open commands on the modem
 ---@return boolean
 function DoorServer:listen()
-    local listenPort = lib.getPort()
+    local listenPort = lib.getServerPort()
     logger:info("%s listening on port %d...", lib.PROTOCOL_NAME, listenPort)
     self:openModem(listenPort)
 
