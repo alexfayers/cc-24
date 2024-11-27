@@ -514,6 +514,20 @@
                     "lib-door-server"
                 ],
                 "usage": "'door-server'"
+            },
+            "column-miner": {
+                "description": "A simple program to mine a column of blocks above a turtle",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/column-miner/column-miner.lua",
+                        "column-miner.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-turtle"
+                ],
+                "usage": "'column-miner'"
             }
         }
     }
