@@ -29,7 +29,7 @@ parser:add({"action"}, {
     doc = "The action to perform on the door server",
 })
 
-local args = parser:parse({...})
+local args = parser:parse(table.unpack(arg))
 
 local doorClient = DoorClient()
 
