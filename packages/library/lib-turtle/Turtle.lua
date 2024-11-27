@@ -191,14 +191,18 @@ function Turtle:getGPSPosition()
 
     local direction = Direction.NIL
 
-    if x2 > x then
-        direction = Direction.EAST
-    elseif x2 < x then
-        direction = Direction.WEST
-    elseif z2 > z then
-        direction = Direction.SOUTH
-    elseif z2 < z then
-        direction = Direction.NORTH
+    if movedForward then
+        if x2 > x then
+            direction = Direction.EAST
+        elseif x2 < x then
+            direction = Direction.WEST
+        elseif z2 > z then
+            direction = Direction.SOUTH
+        elseif z2 < z then
+            direction = Direction.NORTH
+        end
+    else
+        direction = (direction + 2) % 4
     end
 
     return Position(x, y, z, direction)
