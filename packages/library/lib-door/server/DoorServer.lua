@@ -40,7 +40,7 @@ function DoorServer:init()
     })
 
     self.direction = self:getDirection()
-    self.name = settings.get(NAME_SETTING) or error(NAME_SETTING .. "must be set", 0)
+    self.name = settings.get(NAME_SETTING) or error(NAME_SETTING .. " must be set", 0)
 end
 
 
