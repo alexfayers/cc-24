@@ -17,6 +17,7 @@ Remote.protocol = "lexicon-remote"
 
 ---@type table<string, boolean>
 Remote.filterCommands = {}
+Remote.wired = true
 
 
 ---Initialise a new storage2 client
@@ -116,7 +117,17 @@ end
 ---Find a modem and open it with rednet, returning true if successful
 ---@return boolean
 function Remote:_findAndAddModem()
-    local modem = peripheral.find("modem")
+    local modem = nil
+    if self.wired then
+        modem = peripheral.find("modem", function (name, wrapped)
+            return not wrapped.isWireless()
+        end)
+    else
+        modem = peripheral.find("modem", function (name, wrapped)
+            return wrapped.isWireless()
+        end)
+    end
+
     if not modem then
         logger:error("No modem found. Remote will not work.")
         return false
