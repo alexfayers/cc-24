@@ -37,11 +37,10 @@ function DoorServer:init()
     settings.define(GROUP_SETTING, {
         description = "The name of the door group",
         type = "string",
-        default = "all",
     })
 
     self.direction = self:getDirection()
-    self.group = settings.get(GROUP_SETTING)
+    self.group = settings.get(GROUP_SETTING) or error("door.name must be set", 0)
 end
 
 
@@ -95,7 +94,7 @@ end
 ---@param data table
 ---@return boolean
 function DoorServer:isInGroup(data)
-    return data.group == self.group
+    return data.group == self.group or data.group == "all"
 end
 
 
