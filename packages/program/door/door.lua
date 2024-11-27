@@ -9,7 +9,7 @@ require("lib-door.client.DoorClient")
 settings.define("door.names", {
     description = "Known door names",
     type = "table",
-    default = {"main"},
+    default = {"all"},
 })
 
 local knownDoorNames = settings.get("door.names")
