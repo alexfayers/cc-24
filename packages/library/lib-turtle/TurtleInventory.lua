@@ -547,6 +547,18 @@ function TurtleInventory:pullFuel(targetFuelLevel, fuelTags)
 end
 
 
+---Return the total count of items in the turtle inventory
+---@return number _ The total count of items
+function TurtleInventory:totalItemCount()
+    local count = 0
+    for _, item in pairs(self.slots) do
+        count = count + item.count
+    end
+
+    return count
+end
+
+
 ---Check if all slots in there turtle inventory are being used (or a specific count of slots are full)
 ---@param count? integer The number of slots to check (default all)
 ---@return boolean _ Whether all slots are full
