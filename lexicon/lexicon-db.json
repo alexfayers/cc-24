@@ -259,6 +259,50 @@
                     "lib-remote",
                     "lib-storage2-remote-client"
                 ]
+            },
+            "lib-door-server": {
+                "description": "A library for controlling doors (server)",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-door/DoorCommandType.lua",
+                        "/usr/lib/lib-door/lib.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-door/server/DoorServer.lua",
+                        "/usr/lib/lib-door/server/DoorRemote.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-door/server/DoorServer.lua",
+                        "/usr/lib/lib-door/server/DoorServer.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "class-lua",
+                    "lib-logging"
+                ]
+            },
+            "lib-door-client": {
+                "description": "A library for controlling doors (client)",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-door/DoorCommandType.lua",
+                        "/usr/lib/lib-door/lib.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-door/server/DoorServer.lua",
+                        "/usr/lib/lib-door/server/DoorRemote.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-door/client/DoorClient.lua",
+                        "/usr/lib/lib-door/client/DoorClient.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "class-lua",
+                    "lib-logging"
+                ]
             }
         },
         "program": {
@@ -442,6 +486,35 @@
                     "lib-crafter-server"
                 ],
                 "usage": "'autocraft-server'"
+            },
+            "door": {
+                "description": "A simple program to control doors using a turtle and a storage2 network",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/door/door.lua",
+                        "door.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-door-client",
+                    "metis-argparse"
+                ],
+                "usage": "'door'"
+            },
+            "door-server": {
+                "description": "A simple program to control doors using a turtle and a storage2 network (server)",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/door/door-server.lua",
+                        "door-server.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-door-server"
+                ],
+                "usage": "'door-server'"
             }
         }
     }
