@@ -265,7 +265,7 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-door/DoorCommandType.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-door/lib.lua",
                         "/usr/lib/lib-door/lib.lua"
                     ],
                     [
@@ -287,7 +287,7 @@
                 "version": "1.0.0",
                 "files": [
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-door/DoorCommandType.lua",
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-door/lib.lua",
                         "/usr/lib/lib-door/lib.lua"
                     ],
                     [
