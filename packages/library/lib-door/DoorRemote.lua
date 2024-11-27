@@ -90,3 +90,28 @@ function DoorRemote:receive(listenPort, timeout)
 
     return data, replyChannel
 end
+
+
+---Receive data on a channel until a timeout, and return all of the data
+---@param listenPort number
+---@param timeout number
+---@return table<number, table, number>
+function DoorRemote:receiveAll(listenPort, timeout)
+    self:openModem(listenPort)
+
+    local data = {}
+
+    while true do
+        local receivedData, replyChannel = self:_receive(listenPort, timeout)
+
+        if receivedData == nil then
+            break
+        end
+
+        table.insert(data, receivedData)
+    end
+
+    self:closeModem(listenPort)
+
+    return data
+end
