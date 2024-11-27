@@ -25,7 +25,7 @@ end
 ---@return table?
 local function unserialiseMessage(message)
     -- Messages are in the format `protocol|serialised_data`
-    local data = string.match(message, "^" .. PROTOCOL_NAME .. "|(.+)$")
+    local data = string.match(message, "^" .. string.gsub(PROTOCOL_NAME, "%-", "%%-") .. "|(.+)$")
 
     if not data then
         return
@@ -45,7 +45,9 @@ end
 ---@param data table
 ---@return string
 local function serialiseMessage(data)
-    return PROTOCOL_NAME .. "|" .. textutils.serialise(data)
+    return PROTOCOL_NAME .. "|" .. textutils.serialise(data, {
+        compact = true
+    })
 end
 
 
