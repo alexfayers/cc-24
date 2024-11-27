@@ -150,9 +150,20 @@ function Turtle:getGPSPosition()
         return
     end
 
+    local movedForward = true
+
     if not self:forward(1, {safe = false}) then
         self.logger:error("Failed to move forward to get GPS position")
-        return
+        movedForward = false
+    end
+
+    if not movedForward then
+        if not self:back(1, {safe = false}) then
+            self.logger:error("Failed to move forward to get GPS position")
+            return
+        end
+
+        self:turnAround()
     end
 
     local x2, y2, z2 = gps.locate(self.gpsTimeout, false)
@@ -164,12 +175,19 @@ function Turtle:getGPSPosition()
         return
     end
 
-    if not self:back(1, {safe = false}) then
-        self.logger:error("Failed to move back after getting GPS position")
-        return
-    end
+    if movedForward then
+        if not self:back(1, {safe = false}) then
+            self.logger:error("Failed to move back after getting GPS position")
+            return
+        end
 
-    self:turnAround()
+        self:turnAround()
+    else
+        if not self:forward(1, {safe = false}) then
+            self.logger:error("Failed to move forward after getting GPS position")
+            return
+        end
+    end
 
     local direction = Direction.NIL
 
