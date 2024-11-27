@@ -52,7 +52,7 @@ function DoorRemote:receive(listenPort, timeout)
 
         local event = eventData[1]
 
-        if event == "timer" and timer ~ nil then
+        if event == "timer" and timer ~= nil then
             local timerId = eventData[2]
             if timerId ~= timer then
                 goto continue
