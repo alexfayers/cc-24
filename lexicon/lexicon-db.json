@@ -270,7 +270,7 @@
                     ],
                     [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-door/server/DoorServer.lua",
-                        "/usr/lib/lib-door/server/DoorRemote.lua"
+                        "/usr/lib/lib-door/DoorRemote.lua"
                     ],
                     [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-door/server/DoorServer.lua",
@@ -292,7 +292,7 @@
                     ],
                     [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-door/server/DoorServer.lua",
-                        "/usr/lib/lib-door/server/DoorRemote.lua"
+                        "/usr/lib/lib-door/DoorRemote.lua"
                     ],
                     [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-door/client/DoorClient.lua",
