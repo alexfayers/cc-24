@@ -31,6 +31,7 @@ end
 
 ---Send a command to the door servers
 ---@param action string
+---@return boolean, number?, number?
 function DoorClient:sendCommand(action)
     local serverPort = lib.getServerPort()
     local serverReplyChannel = math.random(1, 65534)
@@ -40,29 +41,43 @@ function DoorClient:sendCommand(action)
 
     self:send(serverPort, serverReplyChannel, {action = action})
 
-    local responseData, _ = self:receive(serverReplyChannel, 5)
+    local responses = self:receiveAll(serverReplyChannel, 0.1)
 
-    if responseData == nil then
+    if responses == nil then
         return false
     end
 
-    if not self:validateData(responseData) then
-        return false
+    local totalComponents = 0
+    local successfulComponents = 0
+
+    for _, responseData, _ in pairs(responses) do
+        if not self:validateData(responseData) then
+            goto continue
+        end
+
+        totalComponents = totalComponents + 1
+
+        if responseData.result then
+            successfulComponents = successfulComponents + 1
+        end
+        ::continue::
     end
 
-    return responseData.result
+    local success = successfulComponents == totalComponents
+
+    return success, successfulComponents, totalComponents
 end
 
 
 ---Open the door
----@return boolean
+---@return boolean, number?, number?
 function DoorClient:open()
     return self:sendCommand("open")
 end
 
 
 ---Close the door
----@return boolean
+---@return boolean, number?, number?
 function DoorClient:close()
     return self:sendCommand("close")
 end

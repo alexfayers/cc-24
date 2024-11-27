@@ -33,16 +33,19 @@ local args = parser:parse(table.unpack(arg))
 
 local doorClient = DoorClient()
 
+local success, successCount, totalCount
+
 if args.action == "open" then
-    if doorClient:open() then
-        print("Door opened")
-    else
-        print("Failed to open door")
-    end
+    success, successCount, totalCount = doorClient:open()
 elseif args.action == "close" then
-    if doorClient:close() then
-        print("Door closed")
-    else
-        print("Failed to close door")
-    end
+    success, successCount, totalCount = doorClient:close()
+end
+
+local countString = successCount .. "/" .. totalCount
+local actionSting = args.action == "open" and "Open" or "Close"
+
+if success then
+    print(actionSting .. " success (" .. countString .. ")")
+else
+    print(actionSting .. " failed (" .. countString .. ")")
 end
