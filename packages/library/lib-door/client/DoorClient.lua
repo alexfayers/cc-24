@@ -66,7 +66,7 @@ function DoorClient:sendCommand(name, action)
         ::continue::
     end
 
-    local success = successfulComponents == totalComponents
+    local success = totalComponents > 0 and successfulComponents == totalComponents
 
     return success, successfulComponents, totalComponents
 end
