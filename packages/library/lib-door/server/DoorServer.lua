@@ -82,8 +82,8 @@ function DoorServer:validateData(data)
         return false
     end
 
-    if not data.groupId then
-        logger:error("No group ID received")
+    if not data.group then
+        logger:error("No group received")
         return false
     end
 
