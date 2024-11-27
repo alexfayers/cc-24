@@ -9,11 +9,13 @@ local lib = require("lib-door.lib")
 local logger = require("lexicon-lib.lib-logging").getLogger("DoorServer")
 
 local DIRECTION_SETTING = "door.direction"
+local GROUP_SETTING = "door.group"
 
 ---Types
 
 ---@class DoorServerData
 ---@field action DoorDirection
+---@field group string
 
 
 ---Class
@@ -26,14 +28,20 @@ DoorServer = DoorRemote:extend()
 function DoorServer:init()
     DoorRemote.init(self)
 
-    settings.define(
-    DIRECTION_SETTING, {
+    settings.define(DIRECTION_SETTING, {
         description = "The direction to break blocks in. Can be 'down', 'up', 'front'",
         type = "string",
         default = "down",
     })
 
+    settings.define(GROUP_SETTING, {
+        description = "The name of the door group",
+        type = "string",
+        default = "all",
+    })
+
     self.direction = self:getDirection()
+    self.group = settings.get(GROUP_SETTING)
 end
 
 
@@ -74,7 +82,20 @@ function DoorServer:validateData(data)
         return false
     end
 
+    if not data.groupId then
+        logger:error("No group ID received")
+        return false
+    end
+
     return true
+end
+
+
+---Return if the turtle is in the door group
+---@param data table
+---@return boolean
+function DoorServer:isInGroup(data)
+    return data.group == self.group
 end
 
 
@@ -87,6 +108,10 @@ function DoorServer:handleMessage(replyChannel, data)
         return
     end
     ---@cast data DoorServerData
+
+    if not self:isInGroup(data) then
+        return
+    end
 
     local result = false
     if data.action == "open" then
@@ -161,11 +186,7 @@ function DoorServer:listen()
             -- not the right protocol or timeout
             goto continue
         end
-
-        if replyChannel == nil then
-            logger:error("No reply channel")
-            goto continue
-        end
+        ---@cast replyChannel number
 
         self:handleMessage(replyChannel, data)
 
