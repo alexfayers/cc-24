@@ -4,7 +4,6 @@ require("class-lua.class")
 require("lib-door.DoorRemote")
 local lib = require("lib-door.lib")
 
-local logger = require("lexicon-lib.lib-logging").getLogger("DoorClient")
 
 ---@class DoorClient: DoorRemote
 ---@overload fun(): DoorClient

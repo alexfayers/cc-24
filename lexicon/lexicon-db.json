@@ -300,8 +300,7 @@
                     ]
                 ],
                 "dependencies": [
-                    "class-lua",
-                    "lib-logging"
+                    "class-lua"
                 ]
             }
         },
