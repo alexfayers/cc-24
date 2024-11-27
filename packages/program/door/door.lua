@@ -59,10 +59,11 @@ elseif args.action == "close" then
 end
 
 local countString = successCount .. "/" .. totalCount
-local actionSting = args.action == "open" and "Open" or "Close"
+local actionString
 
 if success then
-    print(actionSting .. " success (" .. countString .. ")")
+    actionString = args.action == "open" and "Opened" or "Closed"
+    print(string.format("%s %s (%s)", actionString, name, countString))
 
     for _, doorName in ipairs(knownDoorNames) do
         if doorName == name then
@@ -73,5 +74,6 @@ if success then
     settings.set("door.names", knownDoorNames)
     settings.save()
 else
-    print(actionSting .. " failed (" .. countString .. ")")
+    actionString = args.action == "open" and "open" or "close"
+    print(string.format("%s failed to %s (%s)", name, actionString, countString))
 end
