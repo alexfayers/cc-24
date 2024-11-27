@@ -239,11 +239,29 @@ local function downloadPackage(packageName, parentPackage, previouslyDownloadedP
             local sourceUrl = file[1]
             local downloadPath = file[2]
 
+            local requestFailures = 0
+            ::retryRequest::
             local request = http.get(prepareUrl(sourceUrl))
 
 
             if request then
-                local fileContents = request.readAll()
+                local errorMessage = nil
+                local requestReadResult, fileContents = xpcall(request.readAll, function (err)
+                    CURRENT_HTTP_TASKS = CURRENT_HTTP_TASKS - 1
+                    errorMessage = err
+                end)
+
+                if not requestReadResult then
+                    requestFailures = requestFailures + 1
+
+                    if requestFailures >= 3 then
+                        CURRENT_HTTP_TASKS = CURRENT_HTTP_TASKS - 1
+                        error("Failed to read file from " .. sourceUrl .. " - " .. errorMessage, 0)
+                    end
+
+                    goto retryRequest
+                end
+
                 request.close()
 
                 CURRENT_HTTP_TASKS = CURRENT_HTTP_TASKS - 1
