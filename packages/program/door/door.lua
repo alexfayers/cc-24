@@ -64,6 +64,11 @@ local actionSting = args.action == "open" and "Open" or "Close"
 if success then
     print(actionSting .. " success (" .. countString .. ")")
 
+    for _, doorName in ipairs(knownDoorNames) do
+        if doorName == group then
+            return
+        end
+    end
     table.insert(knownDoorNames, group)
     settings.set("door.names", knownDoorNames)
     settings.save()
