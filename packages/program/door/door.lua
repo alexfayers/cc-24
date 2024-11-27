@@ -3,7 +3,7 @@ package.path = package.path .. ";/usr/lib/?.lua"
 
 local argparse = require("metis.argparse")
 local completion = require("cc.completion")
-require("lib-door.DoorClient")
+require("lib-door.client.DoorClient")
 
 
 ---Argument completion for the script
