@@ -29,10 +29,10 @@ end
 
 
 ---Send a command to the door servers
----@param group string
+---@param name string
 ---@param action string
 ---@return boolean, number?, number?
-function DoorClient:sendCommand(group, action)
+function DoorClient:sendCommand(name, action)
     local serverPort = lib.getServerPort()
     local serverReplyChannel = math.random(1, 65534)
     if serverReplyChannel == serverPort then
@@ -40,7 +40,7 @@ function DoorClient:sendCommand(group, action)
     end
 
     self:send(serverPort, serverReplyChannel, {
-        group = group,
+        name = name,
         action = action,
     })
 
@@ -73,16 +73,16 @@ end
 
 
 ---Open the door
----@param group string
+---@param name string
 ---@return boolean, number?, number?
-function DoorClient:open(group)
-    return self:sendCommand(group, "open")
+function DoorClient:open(name)
+    return self:sendCommand(name, "open")
 end
 
 
 ---Close the door
----@param group string
+---@param name string
 ---@return boolean, number?, number?
-function DoorClient:close(group)
-    return self:sendCommand(group, "close")
+function DoorClient:close(name)
+    return self:sendCommand(name, "close")
 end

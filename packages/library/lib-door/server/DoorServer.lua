@@ -9,13 +9,13 @@ local lib = require("lib-door.lib")
 local logger = require("lexicon-lib.lib-logging").getLogger("DoorServer")
 
 local DIRECTION_SETTING = "door.direction"
-local GROUP_SETTING = "door.group"
+local NAME_SETTING = "door.name"
 
 ---Types
 
 ---@class DoorServerData
 ---@field action DoorDirection
----@field group string
+---@field name string
 
 
 ---Class
@@ -34,13 +34,13 @@ function DoorServer:init()
         default = "down",
     })
 
-    settings.define(GROUP_SETTING, {
-        description = "The name of the door group",
+    settings.define(NAME_SETTING, {
+        description = "The name of the door",
         type = "string",
     })
 
     self.direction = self:getDirection()
-    self.group = settings.get(GROUP_SETTING) or error("door.name must be set", 0)
+    self.name = settings.get(NAME_SETTING) or error(NAME_SETTING .. "must be set", 0)
 end
 
 
@@ -81,8 +81,8 @@ function DoorServer:validateData(data)
         return false
     end
 
-    if not data.group then
-        logger:error("No group received")
+    if not data.name then
+        logger:error("No name received")
         return false
     end
 
@@ -93,8 +93,8 @@ end
 ---Return if the turtle is in the door group
 ---@param data table
 ---@return boolean
-function DoorServer:isInGroup(data)
-    return data.group == self.group or data.group == "all"
+function DoorServer:isCorrectName(data)
+    return data.name == self.name or data.name == "all"
 end
 
 
@@ -108,7 +108,7 @@ function DoorServer:handleMessage(replyChannel, data)
     end
     ---@cast data DoorServerData
 
-    if not self:isInGroup(data) then
+    if not self:isCorrectName(data) then
         return
     end
 

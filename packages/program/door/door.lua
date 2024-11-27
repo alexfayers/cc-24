@@ -50,12 +50,12 @@ local doorClient = DoorClient()
 
 local success, successCount, totalCount
 
-local group = args.name
+local name = args.name
 
 if args.action == "open" then
-    success, successCount, totalCount = doorClient:open(group)
+    success, successCount, totalCount = doorClient:open(name)
 elseif args.action == "close" then
-    success, successCount, totalCount = doorClient:close(group)
+    success, successCount, totalCount = doorClient:close(name)
 end
 
 local countString = successCount .. "/" .. totalCount
@@ -65,11 +65,11 @@ if success then
     print(actionSting .. " success (" .. countString .. ")")
 
     for _, doorName in ipairs(knownDoorNames) do
-        if doorName == group then
+        if doorName == name then
             return
         end
     end
-    table.insert(knownDoorNames, group)
+    table.insert(knownDoorNames, name)
     settings.set("door.names", knownDoorNames)
     settings.save()
 else
