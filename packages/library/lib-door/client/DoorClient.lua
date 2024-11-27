@@ -13,7 +13,7 @@ DoorClient = DoorRemote:extend()
 
 ---Initialise a new door client
 function DoorClient:init()
-    DoorRemote:init()
+    DoorRemote.init(self)
 end
 
 

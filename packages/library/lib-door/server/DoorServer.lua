@@ -24,7 +24,7 @@ DoorServer = DoorRemote:extend()
 
 ---Initialise a new door server
 function DoorServer:init()
-    DoorRemote:init()
+    DoorRemote.init(self)
 
     settings.define(
     DIRECTION_SETTING, {
