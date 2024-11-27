@@ -153,7 +153,6 @@ end
 function DoorServer:listen()
     local listenPort = lib.getServerPort()
     logger:info("%s listening on port %d...", lib.PROTOCOL_NAME, listenPort)
-    self:openModem(listenPort)
 
     while true do
         local data, replyChannel = self:receive(listenPort)

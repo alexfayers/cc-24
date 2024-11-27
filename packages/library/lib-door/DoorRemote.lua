@@ -24,7 +24,9 @@ end
 ---Open a modem port
 ---@param portNumber number
 function DoorRemote:openModem(portNumber)
-    self.modem.open(portNumber)
+    if not self.modem.isOpen(portNumber) then
+        self.modem.open(portNumber)
+    end
 end
 
 
@@ -36,11 +38,11 @@ function DoorRemote:send(channel, replyChannel, data)
 end
 
 
----Receive data on a channel
+---Receive data on a channel - assuming the modem is open
 ---@param listenPort number
 ---@param timeout number?
 ---@return table?, number?
-function DoorRemote:receive(listenPort, timeout)
+function DoorRemote:_receive(listenPort, timeout)
     local timer = nil
 
     if timeout ~= nil then
@@ -74,3 +76,17 @@ function DoorRemote:receive(listenPort, timeout)
     end
 end
 
+
+---Receive data on a channel
+---@param listenPort number
+---@param timeout number?
+---@return table?, number?
+function DoorRemote:receive(listenPort, timeout)
+    self:openModem(listenPort)
+
+    local data, replyChannel = self:_receive(listenPort, timeout)
+
+    self:closeModem(listenPort)
+
+    return data, replyChannel
+end
