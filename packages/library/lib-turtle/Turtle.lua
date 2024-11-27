@@ -373,6 +373,9 @@ end
 ---@param amount? number The number of times to turn (default 1)
 ---@return nil
 function Turtle:turnLeft(amount)
+    -- Close the modem after every move if it's open
+    self.inventory:detachStorageClient()
+
     if amount == nil then
         amount = 1
     end
@@ -390,6 +393,9 @@ end
 ---@param amount? number The number of times to turn (default 1)
 ---@return nil
 function Turtle:turnRight(amount)
+    -- Close the modem after every move if it's open
+    self.inventory:detachStorageClient()
+
     if amount == nil then
         amount = 1
     end
