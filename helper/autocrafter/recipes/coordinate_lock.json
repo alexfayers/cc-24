@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "#mini_tardis:compasses"
+            ],
+            "3": [
+                "minecraft:clock"
+            ],
+            "6": [
+                "#minecraft:stone_buttons"
+            ]
+        },
+        "output": {
+            "id": "mini_tardis:coordinate_lock",
+            "count": 1
+        }
+    }
+]

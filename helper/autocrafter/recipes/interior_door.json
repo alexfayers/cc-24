@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "2": [
+                "#mini_tardis:compasses"
+            ],
+            "6": [
+                "#minecraft:wooden_doors"
+            ],
+            "1": [
+                "#minecraft:planks"
+            ],
+            "3": [
+                "#minecraft:planks"
+            ],
+            "5": [
+                "#minecraft:planks"
+            ],
+            "7": [
+                "#minecraft:planks"
+            ]
+        },
+        "output": {
+            "id": "mini_tardis:interior_door",
+            "count": 1
+        }
+    }
+]

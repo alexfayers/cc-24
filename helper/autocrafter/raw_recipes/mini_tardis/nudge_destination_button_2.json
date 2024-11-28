@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "#  ",
+    " B ",
+    "  #"
+  ],
+  "key": {
+    "#": {
+      "tag": "mini_tardis:compasses"
+    },
+    "B": {
+      "tag": "minecraft:wooden_buttons"
+    }
+  },
+  "result": {
+    "id": "mini_tardis:nudge_destination_button_2",
+    "count": 1
+  }
+}

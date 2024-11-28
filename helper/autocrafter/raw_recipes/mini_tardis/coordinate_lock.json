@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "# $",
+    " B "
+  ],
+  "key": {
+    "#": {
+      "tag": "mini_tardis:compasses"
+    },
+    "$": {
+      "item": "minecraft:clock"
+    },
+    "B": {
+      "tag": "minecraft:stone_buttons"
+    }
+  },
+  "result": {
+    "id": "mini_tardis:coordinate_lock",
+    "count": 1
+  }
+}

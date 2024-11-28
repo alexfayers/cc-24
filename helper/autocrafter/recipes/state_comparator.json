@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "#mini_tardis:compasses"
+            ],
+            "5": [
+                "minecraft:comparator"
+            ]
+        },
+        "output": {
+            "id": "mini_tardis:state_comparator",
+            "count": 1
+        }
+    }
+]

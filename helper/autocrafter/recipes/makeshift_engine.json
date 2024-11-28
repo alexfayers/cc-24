@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:glass"
+            ],
+            "3": [
+                "minecraft:glass"
+            ],
+            "5": [
+                "minecraft:glass"
+            ],
+            "7": [
+                "minecraft:glass"
+            ],
+            "9": [
+                "minecraft:glass"
+            ],
+            "11": [
+                "minecraft:glass"
+            ],
+            "2": [
+                "#mini_tardis:compasses"
+            ],
+            "6": [
+                "minecraft:nether_star"
+            ],
+            "10": [
+                "minecraft:ender_eye"
+            ]
+        },
+        "output": {
+            "id": "mini_tardis:makeshift_engine",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,34 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:smooth_stone"
+            ],
+            "3": [
+                "minecraft:smooth_stone"
+            ],
+            "9": [
+                "minecraft:smooth_stone"
+            ],
+            "11": [
+                "minecraft:smooth_stone"
+            ],
+            "2": [
+                "minecraft:iron_ingot"
+            ],
+            "5": [
+                "minecraft:iron_ingot"
+            ],
+            "7": [
+                "minecraft:iron_ingot"
+            ],
+            "10": [
+                "minecraft:iron_ingot"
+            ]
+        },
+        "output": {
+            "id": "mini_tardis:tardis_plating",
+            "count": 16
+        }
+    }
+]

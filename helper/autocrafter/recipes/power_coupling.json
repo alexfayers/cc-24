@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:smooth_stone"
+            ],
+            "3": [
+                "minecraft:smooth_stone"
+            ],
+            "9": [
+                "minecraft:smooth_stone"
+            ],
+            "11": [
+                "minecraft:smooth_stone"
+            ],
+            "2": [
+                "minecraft:redstone"
+            ],
+            "5": [
+                "minecraft:redstone"
+            ],
+            "7": [
+                "minecraft:redstone"
+            ],
+            "10": [
+                "minecraft:redstone"
+            ],
+            "6": [
+                "minecraft:comparator"
+            ]
+        },
+        "output": {
+            "id": "mini_tardis:power_coupling",
+            "count": 1
+        }
+    }
+]

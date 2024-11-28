@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:waxed_oxidized_copper_bulb"
+            ],
+            "3": [
+                "minecraft:waxed_oxidized_copper_bulb"
+            ],
+            "2": [
+                "minecraft:gold_ingot"
+            ]
+        },
+        "output": {
+            "id": "mini_tardis:waxed_oxidized_copper_interior_light",
+            "count": 2
+        }
+    }
+]

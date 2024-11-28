@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "#R#"
+  ],
+  "key": {
+    "#": {
+      "tag": "mini_tardis:compasses"
+    },
+    "R": {
+      "item": "minecraft:repeater"
+    }
+  },
+  "result": {
+    "id": "mini_tardis:coordinate_scale_selector",
+    "count": 1
+  }
+}

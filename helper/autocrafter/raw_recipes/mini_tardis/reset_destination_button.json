@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "mini_tardis:compasses"
+    },
+    {
+      "item": "minecraft:clock"
+    },
+    {
+      "tag": "minecraft:wooden_buttons"
+    }
+  ],
+  "result": {
+    "id": "mini_tardis:reset_destination_button",
+    "count": 1
+  }
+}

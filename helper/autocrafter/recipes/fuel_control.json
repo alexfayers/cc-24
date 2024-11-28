@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:lever"
+            ],
+            "2": [
+                "minecraft:lever"
+            ],
+            "3": [
+                "minecraft:lever"
+            ],
+            "6": [
+                "minecraft:daylight_detector"
+            ]
+        },
+        "output": {
+            "id": "mini_tardis:fuel_control",
+            "count": 1
+        }
+    }
+]

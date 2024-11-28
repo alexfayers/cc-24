@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "#mini_tardis:compasses"
+            ],
+            "11": [
+                "#mini_tardis:compasses"
+            ],
+            "6": [
+                "#minecraft:wooden_buttons"
+            ]
+        },
+        "output": {
+            "id": "mini_tardis:nudge_destination_button_2",
+            "count": 1
+        }
+    }
+]

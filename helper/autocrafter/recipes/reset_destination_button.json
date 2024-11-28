@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "#mini_tardis:compasses"
+            ],
+            "2": [
+                "minecraft:clock"
+            ],
+            "3": [
+                "#minecraft:wooden_buttons"
+            ]
+        },
+        "output": {
+            "id": "mini_tardis:reset_destination_button",
+            "count": 1
+        }
+    }
+]

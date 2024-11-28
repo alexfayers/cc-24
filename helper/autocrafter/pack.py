@@ -141,11 +141,16 @@ def prepare_recipe(recipe: dict) -> Optional[dict]:
     else:
         return None
 
+    recipe_id = recipe["result"]["id"]
+    count = recipe["result"].get("count", None)
+    if not count:
+        return
+
     prepared_recipe = {
         "input": recipe_map,
         "output": {
-            "id": recipe["result"]["id"],
-            "count": recipe["result"]["count"]
+            "id": recipe_id,
+            "count": count
         }
     }
 
