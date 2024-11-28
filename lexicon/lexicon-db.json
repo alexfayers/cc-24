@@ -528,6 +528,20 @@
                     "lib-turtle"
                 ],
                 "usage": "'column-miner'"
+            },
+            "redstone-trigger": {
+                "description": "A simple program to trigger commands from redstone signals",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/redstone-trigger/redstone-trigger.lua",
+                        "redstone-trigger.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "metis-argparse"
+                ],
+                "usage": "'redstone-trigger'"
             }
         }
     }
