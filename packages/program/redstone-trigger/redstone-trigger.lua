@@ -53,9 +53,10 @@ if not validSide then
 end
 
 
+print("Waiting for redstone signal on " .. targetSide)
+
 while true do
     -- wait for a redstone signal
-    print("Waiting for redstone signal on " .. targetSide)
     os.pullEvent("redstone")
 
     if redstone.getInput(targetSide) then
