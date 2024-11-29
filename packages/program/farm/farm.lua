@@ -134,6 +134,11 @@ local function farm(height, width)
     return true
 end
 
+local originRes, originErr = turt:returnToOrigin()
+if not originRes then
+    error("Failed to return to origin! " .. originErr, 0)
+end
+
 local farmArea = farmHeight * farmWidth
 local worstCaseFuel = farmArea + farmHeight + farmWidth
 
