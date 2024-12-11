@@ -267,7 +267,19 @@ local function main()
         end
 
         local newSubject = "Re: " .. replyToMessage.subject
-        local newMessage = "On " .. replyToMessage:timestampString() .. ", " .. replyToMessage.from .. " wrote:\n" .. replyToMessage.body .. "\n\n---\n\n" .. message
+
+        local newMessage = ""
+
+        ---Add "On <date>, <time>, <from> wrote:" to the end of the line with the last "---" on
+        for line in message:gmatch("[^\n]+") do
+            newMessage = newMessage .. line
+
+            if line:match("^---$") then
+                newMessage = newMessage .. " On " .. os.date("%Y-%m-%d %H:%M:%S", os.time()) .. ", " .. replyToMessage.from .. " wrote:\n"
+            else
+                newMessage = newMessage .. "\n"
+            end
+        end
 
         local success = client:sendMail({replyToMessage.from}, newSubject, newMessage)
 
