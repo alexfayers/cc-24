@@ -7,6 +7,44 @@ local MailClient = require("lib-mail.client.MailClient")
 local client = MailClient()
 
 
+---Generate autocompletes for unread mails
+---@return string[]
+local function getUnreadAutocomplete()
+    local unread_messages = client:getInboxUnread()
+
+    if unread_messages == nil then
+        return {}
+    end
+
+    local completions = {}
+
+    for i, message in ipairs(unread_messages) do
+        table.insert(completions, "u." .. i)
+    end
+
+    return completions
+end
+
+
+---Generate autocompletes for read mails
+---@return string[]
+local function getReadAutocomplete()
+    local read_messages = client:getInboxRead()
+
+    if read_messages == nil then
+        return {}
+    end
+
+    local completions = {}
+
+    for i, message in ipairs(read_messages) do
+        table.insert(completions, "r." .. i)
+    end
+
+    return completions
+end
+
+
 ---Argument completion for the script
 ---@param _ any
 ---@param index number The index of the argument
@@ -15,14 +53,29 @@ local client = MailClient()
 ---@return table? _ A table of possible completions
 local function complete(_, index, argument, previous)
     if index == 1 then
-        return completion.choice(argument, {"read", "send", "delete"}, true)
+        return completion.choice(argument, {"read", "send", "reply", "delete"}, true)
     elseif index == 2 then
+
         if previous[2] == "read" then
-            return completion.choice(argument, {"u.1"}, false)
+            return completion.choice(argument, getUnreadAutocomplete(), false)
         elseif previous[2] == "send" then
             return completion.choice(argument, {"recipient"}, true)
+        elseif previous[2] == "reply" then
+            local choices = {}
+            local unread_completes = getUnreadAutocomplete()
+            local read_completes = getReadAutocomplete()
+
+            for _, v in ipairs(unread_completes) do
+                table.insert(choices, v)
+            end
+
+            for _, v in ipairs(read_completes) do
+                table.insert(choices, v)
+            end
+
+            return completion.choice(argument, choices, false)
         elseif previous[2] == "delete" then
-            return completion.choice(argument, {"r.1"}, false)
+            return completion.choice(argument, getReadAutocomplete(), false)
         end
     elseif index == 3 then
         if previous[2] == "send" then
