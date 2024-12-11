@@ -86,7 +86,13 @@ function MailClient:fetchMail(folder)
         end
     end
 
-    return messages
+    local reversedMessages = {}
+
+    for i = #messages, 1, -1 do
+        table.insert(reversedMessages, messages[i])
+    end
+
+    return reversedMessages
 end
 
 
