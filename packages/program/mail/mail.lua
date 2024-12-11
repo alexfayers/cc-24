@@ -153,14 +153,14 @@ local function main()
                 return
             end
 
-            if #unread_messages > 0 then
-                print("Unread messages:")
-                printMessages(unread_messages)
-            end
-
             if #read_messages > 0 then
                 print("Read messages:")
                 printMessages(read_messages)
+            end
+
+            if #unread_messages > 0 then
+                print("Unread messages:")
+                printMessages(unread_messages)
             end
 
             return
@@ -374,14 +374,14 @@ local function main()
                 return
             end
 
-            if #unread_messages > 0 then
-                print("Unread messages:")
-                printMessages(unread_messages)
-            end
-
             if #read_messages > 0 then
                 print("Read messages:")
                 printMessages(read_messages)
+            end
+
+            if #unread_messages > 0 then
+                print("Unread messages:")
+                printMessages(unread_messages)
             end
 
             return
