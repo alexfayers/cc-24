@@ -302,6 +302,58 @@
                 "dependencies": [
                     "class-lua"
                 ]
+            },
+            "lib-mail-client": {
+                "description": "A library for sending mail",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-mail/Constants.lua",
+                        "/usr/lib/lib-mail/client/Constants.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-mail/MailBase.lua",
+                        "/usr/lib/lib-mail/MailBase.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-mail/MailMessage.lua",
+                        "/usr/lib/lib-mail/MailMessage.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-mail/client/MailClient.lua",
+                        "/usr/lib/lib-mail/client/MailClient.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-logging",
+                    "class-lua"
+                ]
+            },
+            "lib-mail-server": {
+                "description": "A library for sending mail (server)",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-mail/Constants.lua",
+                        "/usr/lib/lib-mail/server/Constants.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-mail/MailBase.lua",
+                        "/usr/lib/lib-mail/MailBase.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-mail/MailMessage.lua",
+                        "/usr/lib/lib-mail/MailMessage.lua"
+                    ],
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-mail/server/MailServer.lua",
+                        "/usr/lib/lib-mail/server/MailServer.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-logging",
+                    "class-lua"
+                ]
             }
         },
         "program": {
@@ -542,6 +594,34 @@
                     "metis-argparse"
                 ],
                 "usage": "'redstone-trigger'"
+            },
+            "mail-server": {
+                "description": "A simple program to send mail (server)",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/mail/mail-server.lua",
+                        "mail-server.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-mail-server"
+                ],
+                "usage": "'mail-server'"
+            },
+            "mail": {
+                "description": "A simple program to send mail (client)",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/mail/mail.lua",
+                        "mail.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-mail-client"
+                ],
+                "usage": "'mail-client'"
             }
         }
     }
