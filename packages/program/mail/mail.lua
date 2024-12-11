@@ -271,7 +271,7 @@ local function main()
 
         local newMessage = ""
 
-        ---Add "On <date>, <time>, <from> wrote:" to the end of the line with the last "---" on
+        ---Add "On <date>, <time>, <from> wrote:" to the end of the line with the last "---" line in the message
         local insertLine = 0
 
         local index = 0
@@ -279,7 +279,7 @@ local function main()
             index = index + 1
             newMessage = newMessage .. line
 
-            if line:match("^---") then
+            if line:match("^%-%-%-") then
                 insertLine = index
             end
         end
@@ -289,7 +289,7 @@ local function main()
             index = index + 1
 
             if index == insertLine then
-                newMessage = newMessage .. " On " .. os.date("%Y-%m-%d %H:%M:%S", os.time()) .. ", " .. replyToMessage.from .. " wrote:\n"
+                newMessage = newMessage .. line .. " On " .. os.date("%Y-%m-%d %H:%M:%S", os.time()) .. ", " .. replyToMessage.from .. " wrote:\n"
             end
 
             newMessage = newMessage .. line .. "\n"
