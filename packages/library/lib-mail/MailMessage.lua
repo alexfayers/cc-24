@@ -26,17 +26,17 @@ function MailMessage:init(from, to, subject, body, id, timestamp)
     self.subject = subject
     self.body = body
 
+    self.timestamp = timestamp or os.epoch("utc")
+
     self.id = id or self:makeId()
     self.filename = self.id .. ".mail"
-
-    self.timestamp = timestamp or os.epoch("utc")
 end
 
 
 ---Make a filename for the message
 ---@return string
 function MailMessage:makeId()
-    return self.subject:gsub("%s+", "_"):gsub("[^%w]", "") .. "-" .. os.epoch("utc") .. "-" .. math.random(1000, 9999)
+    return self.timestamp .. self.subject:gsub("%s+", "_"):gsub("[^%w]", "") .. "-" .. math.random(1000, 9999)
 end
 
 
