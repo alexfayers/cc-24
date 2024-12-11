@@ -31,9 +31,10 @@ Server.backgroundTasks = {}
 
 
 ---Initialise a new storage2 server
-function Server:init()
+---@param hostname string?
+function Server:init(hostname)
     Remote.init(self)
-    self.hostname = self.protocol .. "-" .. os.getComputerID()
+    self.hostname = hostname or (self.protocol .. "-" .. os.getComputerID())
 end
 
 
