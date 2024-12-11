@@ -309,7 +309,7 @@
                 "files": [
                     [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-mail/Constants.lua",
-                        "/usr/lib/lib-mail/client/Constants.lua"
+                        "/usr/lib/lib-mail/Constants.lua"
                     ],
                     [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-mail/MailBase.lua",
@@ -336,7 +336,7 @@
                 "files": [
                     [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-mail/Constants.lua",
-                        "/usr/lib/lib-mail/server/Constants.lua"
+                        "/usr/lib/lib-mail/Constants.lua"
                     ],
                     [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-mail/MailBase.lua",
