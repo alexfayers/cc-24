@@ -53,8 +53,6 @@ end
 ---Notify the user that they have mail
 ---@param unreadCount number
 function MailServer:notify(unreadCount)
-    logger:info("You have %d unread mails!", unreadCount)
-
     if self.speaker then
         for _ = 1, unreadCount do
             while not self.speaker.playSound(Constants.NOTIFY_SOUND) do
@@ -62,6 +60,8 @@ function MailServer:notify(unreadCount)
                 os.sleep(0.5)
             end
         end
+    else
+        logger:info("You have %d unread mails!", unreadCount)
     end
 end
 
@@ -106,6 +106,8 @@ function MailServer:handleMail(clientId, data)
     file.close()
 
     logger:info("New message from %s!", message.from)
+
+    self:notify(1)
 
     return true
 end
