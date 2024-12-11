@@ -271,7 +271,7 @@ local function main()
         local newMessage = ""
 
         ---Add "On <date>, <time>, <from> wrote:" to the end of the line with the last "---" on
-        for line in message:gmatch("[^\n]+") do
+        for line in replyToMessage.body:gmatch("[^\n]+") do
             newMessage = newMessage .. line
 
             if line:match("^---$") then
