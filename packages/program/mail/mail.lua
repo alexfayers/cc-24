@@ -79,7 +79,9 @@ local function complete(_, index, argument, previous)
         end
     elseif index == 3 then
         if previous[2] == "send" then
-            return completion.choice(argument, {"subject"}, false)
+            return completion.choice(argument, {"subject"}, true)
+        elseif previous[2] == "reply" then
+            return completion.choice(argument, {"message"}, false)
         end
     elseif index == 4 then
         if previous[2] == "send" then
@@ -151,43 +153,37 @@ local function main()
 
         local id = tonumber(id_string)
 
+        local range, message
+
         if group == "u" then
             if id < 1 or id > #unread_messages then
-                local range = #unread_messages > 0 and "1-" .. #unread_messages or "no unread messages"
+                range = #unread_messages > 0 and "1-" .. #unread_messages or "no unread messages"
                 printError("Invalid message ID (" .. range .. ")")
                 return
             end
 
-            local message = unread_messages[id]
-
-            print("From: " .. message.from)
-            print("Subject: " .. message.subject)
-            print()
-            print(message.body)
-
-            if not client:markInboxRead(message) then
-                printError("Failed to mark message as read")
-            end
-
-            return
+            message = unread_messages[id]
         elseif group == "r" then
             if id < 1 or id > #read_messages then
-                local range = #read_messages > 0 and "1-" .. #read_messages or "no read messages"
+                range = #read_messages > 0 and "1-" .. #read_messages or "no read messages"
                 printError("Invalid message ID (" .. range .. ")")
                 return
             end
 
-            local message = read_messages[id]
-
-            print("From: " .. message.from)
-            print("Subject: " .. message.subject)
-            print()
-            print(message.body)
-
+            message = read_messages[id]
+        else
+            printError("Invalid group (u, r)")
             return
         end
 
-        printError("Invalid group (u, r)")
+        print("From: " .. message.from)
+        print("Subject: " .. message.subject)
+        print()
+        print(message.body)
+
+        if group == "u" and not client:markInboxRead(message) then
+            printError("Failed to mark message as read")
+        end
 
         return
     elseif command == "send" then
@@ -207,6 +203,73 @@ local function main()
         end
 
         local success = client:sendMail(recipients, subject, message)
+
+        if success then
+            print("Mail sent successfully")
+        else
+            printError("Failed to send mail")
+        end
+
+        return
+    elseif command == "reply" then
+        local raw_id = args[2]
+        local message = args[3]
+
+        if not raw_id or not message then
+            printError("Usage: mail reply <message ID> <message>")
+        end
+
+        local unread_messages = client:getInboxUnread()
+
+        if unread_messages == nil then
+            printError("Failed to fetch unread mail")
+            return
+        end
+
+        local read_messages = client:getInboxRead()
+
+        if read_messages == nil then
+            printError("Failed to fetch read mail")
+            return
+        end
+
+        local group, id_string = raw_id:match("^(%a)%.(%d+)$")
+
+        if not group or not id_string then
+            printError("Invalid message ID")
+            return
+        end
+
+        local id = tonumber(id_string)
+
+        local range, replyToMessage
+
+        if group == "u" then
+            if id < 1 or id > #unread_messages then
+                range = #unread_messages > 0 and "1-" .. #unread_messages or "no unread messages"
+                printError("Invalid message ID (" .. range .. ")")
+                return
+            end
+
+            replyToMessage = unread_messages[id]
+        elseif group == "r" then
+            if id < 1 or id > #read_messages then
+                range = #read_messages > 0 and "1-" .. #read_messages or "no read messages"
+                printError("Invalid message ID (" .. range .. ")")
+                return
+            end
+
+            replyToMessage = read_messages[id]
+        else
+            printError("Invalid group (u, r)")
+
+            return
+        end
+
+        local newSubject = "Re: " .. replyToMessage.subject
+        local newMessage = "On " .. replyToMessage:timestampString() .. ", " .. replyToMessage.from .. " wrote:\n" .. replyToMessage.body .. "\n\n---\n\n" .. message
+
+        local success = client:sendMail({replyToMessage.from}, newSubject, newMessage)
 
         if success then
             print("Mail sent successfully")
@@ -260,38 +323,40 @@ local function main()
 
         local id = tonumber(id_string)
 
+        local range, message
+
         if group == "u" then
             if id < 1 or id > #unread_messages then
-                local range = #unread_messages > 0 and "1-" .. #unread_messages or "no unread messages"
+                range = #unread_messages > 0 and "1-" .. #unread_messages or "no unread messages"
                 printError("Invalid message ID (" .. range .. ")")
                 return
             end
 
-            local message = unread_messages[id]
-
-            client:deleteInboxMessage(message)
+            message = unread_messages[id]
         elseif group == "r" then
             if id < 1 or id > #read_messages then
-                local range = #read_messages > 0 and "1-" .. #read_messages or "no read messages"
+                range = #read_messages > 0 and "1-" .. #read_messages or "no read messages"
                 printError("Invalid message ID (" .. range .. ")")
                 return
             end
 
-            local message = read_messages[id]
-
-            client:deleteInboxMessage(message)
+            message = read_messages[id]
         else
             printError("Invalid group (u, r)")
 
             return
         end
 
-        print("Message deleted")
+        if client:deleteInboxMessage(message) then
+            print("Message deleted")
+        else
+            printError("Failed to delete message")
+        end
 
         return
     end
 
-    printError("Invalid command (read, send, delete)")
+    printError("Invalid command (read, send, reply, delete)")
 end
 
 

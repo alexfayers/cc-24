@@ -5,7 +5,7 @@ local logger = require("lexicon-lib.lib-logging").getLogger("MailMessage")
 
 
 ---@class MailMessage: Class
----@overload fun(from: string, to: string[], subject: string, body: string, id: string?): MailMessage
+---@overload fun(from: string, to: string[], subject: string, body: string, id: string?, timestamp: number?): MailMessage
 local MailMessage = class()
 
 
@@ -15,7 +15,8 @@ local MailMessage = class()
 ---@param subject string
 ---@param body string
 ---@param id string?
-function MailMessage:init(from, to, subject, body, id)
+---@param timestamp number?
+function MailMessage:init(from, to, subject, body, id, timestamp)
     self.from = from
     self.to = to
     if #self.to == 0 then
@@ -27,6 +28,8 @@ function MailMessage:init(from, to, subject, body, id)
 
     self.id = id or self:makeId()
     self.filename = self.id .. ".mail"
+
+    self.timestamp = timestamp or os.epoch("utc")
 end
 
 
@@ -34,6 +37,14 @@ end
 ---@return string
 function MailMessage:makeId()
     return self.subject:gsub("%s+", "_"):gsub("[^%w]", "") .. "-" .. os.epoch("utc") .. "-" .. math.random(1000, 9999)
+end
+
+
+---Get the creation timestamp of the message as a pretty string
+---@return string
+function MailMessage:timestampString()
+    ---@type string
+    return os.date("%Y-%m-%d %H:%M:%S", self.timestamp)
 end
 
 
@@ -46,6 +57,7 @@ function MailMessage:serialise()
         subject = self.subject,
         body = self.body,
         id = self.id,
+        timestamp = self.timestamp,
     }, { compact = true })
 end
 
@@ -107,12 +119,27 @@ function MailMessage.deserialise(data)
         return
     end
 
-    if message.id and not type(message.id) == "string" then
+    if not message.id then
+        logger:error("Message is missing 'id' field")
+        return
+    end
+
+    if not type(message.id) == "string" then
         logger:error("Message 'id' field must be a string")
         return
     end
 
-    return MailMessage(message.from, message.to, message.subject, message.body, message.id)
+    if not message.timestamp then
+        logger:error("Message is missing 'timestamp' field")
+        return
+    end
+
+    if not type(message.timestamp) == "number" then
+        logger:error("Message 'timestamp' field must be a number")
+        return
+    end
+
+    return MailMessage(message.from, message.to, message.subject, message.body, message.id, message.timestamp)
 end
 
 
