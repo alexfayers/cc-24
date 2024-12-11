@@ -52,6 +52,26 @@ local function getReadAutocomplete()
 end
 
 
+---Generate autocompletes for both read and unread mails
+---@return string[]
+local function getAllAutocomplete()
+    local unread_completes = getUnreadAutocomplete()
+    local read_completes = getReadAutocomplete()
+
+    local choices = {}
+
+    for _, v in ipairs(unread_completes) do
+        table.insert(choices, v)
+    end
+
+    for _, v in ipairs(read_completes) do
+        table.insert(choices, v)
+    end
+
+    return choices
+end
+
+
 ---Get the list of known mail addresses
 ---@return string[]
 local function getAddressBook()
@@ -71,23 +91,11 @@ local function complete(_, index, argument, previous)
     elseif index == 2 then
 
         if previous[2] == "read" then
-            return completion.choice(argument, getUnreadAutocomplete(), false)
+            return completion.choice(argument, getAllAutocomplete(), false)
         elseif previous[2] == "send" then
             return completion.choice(argument, getAddressBook(), true)
         elseif previous[2] == "reply" then
-            local choices = {}
-            local unread_completes = getUnreadAutocomplete()
-            local read_completes = getReadAutocomplete()
-
-            for _, v in ipairs(unread_completes) do
-                table.insert(choices, v)
-            end
-
-            for _, v in ipairs(read_completes) do
-                table.insert(choices, v)
-            end
-
-            return completion.choice(argument, choices, false)
+            return completion.choice(argument, getAllAutocomplete(), false)
         elseif previous[2] == "delete" then
             return completion.choice(argument, getReadAutocomplete(), false)
         end
