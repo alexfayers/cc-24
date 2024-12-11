@@ -79,7 +79,7 @@ end
 ---@param url string
 ---@return string
 local function prepareUrl(url)
-    url = url .. "?token=" .. os.epoch("utc")
+    url = url .. "?t=" .. os.epoch("utc")
 
     -- replace <branch> with the current branch
     url = string.gsub(url, "<branch>", GIT_BRANCH)

@@ -67,7 +67,7 @@ local function getRemoteItem(itemPath, itemName)
         return diskData
     end
 
-    local itemUrl = BASE_URL .. itemPath .. "/" .. itemName .. ".json" .. "?token=" .. os.epoch("utc")
+    local itemUrl = BASE_URL .. itemPath .. "/" .. itemName .. ".json" .. "?t=" .. os.epoch("utc")
 
     local response = http.get(itemUrl)
 
