@@ -37,11 +37,12 @@ function MailClient:sendMail(recipients, subject, body)
     for _, to in ipairs(message.to) do
         logger:info("Sending mail to %s...", to)
 
-        if not self:baseSendCommand(Constants.MAIL_COMMAND, {
+        if self:baseSendCommand(Constants.MAIL_COMMAND, {
             message = message:serialise(),
         }, to)
         then
             successCount = successCount + 1
+        else
             logger:error("Failed to send mail to '%s'", to)
         end
     end
