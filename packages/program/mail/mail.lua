@@ -330,10 +330,12 @@ local function main()
 
             if index == insertLine then
                 newMessage = newMessage .. line .. " On " .. os.date("%Y-%m-%d %H:%M:%S", os.time()) .. ", " .. replyToMessage.from .. " wrote:\n"
+            else
+                newMessage = newMessage .. line .. "\n"
             end
-
-            newMessage = newMessage .. line .. "\n"
         end
+
+        newMessage = newMessage .. "\n---\n\n" .. message
 
         local success = client:sendMail({replyToMessage.from}, newSubject, newMessage)
 
