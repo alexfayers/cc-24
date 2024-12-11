@@ -214,8 +214,6 @@ local function main()
             local message = unread_messages[id]
 
             client:deleteInboxMessage(message)
-
-            return
         elseif group == "r" then
             if id < 1 or id > #read_messages then
                 printError("Invalid message ID (1-" .. #read_messages .. ")")
@@ -225,11 +223,13 @@ local function main()
             local message = read_messages[id]
 
             client:deleteInboxMessage(message)
+        else
+            printError("Invalid group (u, r)")
 
             return
         end
 
-        printError("Invalid group (u, r)")
+        print("Message deleted")
 
         return
     end
