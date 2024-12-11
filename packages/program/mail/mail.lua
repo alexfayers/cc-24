@@ -10,15 +10,15 @@ local client = MailClient()
 ---Generate autocompletes for unread mails
 ---@return string[]
 local function getUnreadAutocomplete()
-    local unread_messages = client:getInboxUnread()
+    local unread_messages = client:getInboxUnreadCount()
 
-    if unread_messages == nil then
+    if unread_messages == 0 then
         return {}
     end
 
     local completions = {}
 
-    for i, message in ipairs(unread_messages) do
+    for i = 1, unread_messages do
         table.insert(completions, "u." .. i)
     end
 
@@ -29,15 +29,15 @@ end
 ---Generate autocompletes for read mails
 ---@return string[]
 local function getReadAutocomplete()
-    local read_messages = client:getInboxRead()
+    local read_messages = client:getInboxReadCount()
 
-    if read_messages == nil then
+    if read_messages == 0 then
         return {}
     end
 
     local completions = {}
 
-    for i, message in ipairs(read_messages) do
+    for i = 1, read_messages do
         table.insert(completions, "r." .. i)
     end
 
