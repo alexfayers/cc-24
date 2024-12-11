@@ -331,7 +331,7 @@ local function main()
                 local historyStub = "On " .. os.date("%Y-%m-%d %H:%M:%S", replyToMessage.timestamp) .. ", " .. replyToMessage.from .. " wrote:\n"
 
                 if insertLine == 0 then
-                    newMessage = newMessage .. historyStub .. line .. "\n"
+                    newMessage = newMessage .. "--- " .. historyStub .. "\n" .. line .. "\n"
                 else
                     newMessage = newMessage .. line .. " " .. historyStub
                 end
@@ -340,7 +340,7 @@ local function main()
             end
         end
 
-        newMessage = newMessage .. "\n---\n" .. message
+        newMessage = newMessage .. "\n---\n\n" .. message
 
         local success = client:sendMail({replyToMessage.from}, newSubject, newMessage)
 
