@@ -7,6 +7,13 @@ local MailClient = require("lib-mail.client.MailClient")
 local client = MailClient()
 
 
+settings.define("mail.address-book", {
+    description = "Known valid mail addresses",
+    type = "table",
+    default = {},
+})
+
+
 ---Generate autocompletes for unread mails
 ---@return string[]
 local function getUnreadAutocomplete()
@@ -45,6 +52,13 @@ local function getReadAutocomplete()
 end
 
 
+---Get the list of known mail addresses
+---@return string[]
+local function getAddressBook()
+    return settings.get("mail.address-book") or {"recipient"}
+end
+
+
 ---Argument completion for the script
 ---@param _ any
 ---@param index number The index of the argument
@@ -59,7 +73,7 @@ local function complete(_, index, argument, previous)
         if previous[2] == "read" then
             return completion.choice(argument, getUnreadAutocomplete(), false)
         elseif previous[2] == "send" then
-            return completion.choice(argument, {"recipient"}, true)
+            return completion.choice(argument, getAddressBook(), true)
         elseif previous[2] == "reply" then
             local choices = {}
             local unread_completes = getUnreadAutocomplete()
@@ -206,6 +220,24 @@ local function main()
 
         if success then
             print("Mail sent successfully")
+
+            local address_book = settings.get("mail.address-book") or {}
+            for _, recipient in ipairs(recipients) do
+                local found_match = false
+
+                for _, known_recipient in ipairs(address_book) do
+                    if known_recipient == recipient then
+                        found_match = true
+                    end
+                end
+
+                if not found_match then
+                    table.insert(address_book, recipient)
+                end
+
+                settings.set("mail.address-book", address_book)
+                settings.save()
+            end
         else
             printError("Failed to send mail")
         end

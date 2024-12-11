@@ -78,6 +78,7 @@ function Client:findServer(hostname)
 
     self.serverIds = serverIds
     settings.set(self.server_id_cache_setting_name, serverIds)
+    settings.save()
 
     return foundServerIds[1]
 end
