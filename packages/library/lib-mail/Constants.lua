@@ -24,6 +24,10 @@ settings.define("mail.client.local-server-hostname", {
 local LOCAL_SERVER_HOSTNAME = settings.get("mail.client.local-server-hostname") or error("mail.client.local-server-hostname setting must be set", 0)
 
 
+local INBOX_FOLDER = fs.combine(Constants.MAIL_FOLDER, Constants.INBOX_FOLDER_NAME)
+local OUTBOX_FOLDER = fs.combine(Constants.MAIL_FOLDER, Constants.OUTBOX_FOLDER_NAME)
+
+
 local Constants = {
     INBOX_FOLDER_NAME = "inbox",
     OUTBOX_FOLDER_NAME = "outbox",
@@ -39,6 +43,9 @@ local Constants = {
     HOSTNAME_REQUEST_COMMAND = "HOST",
 
     PROTOCOL_NAME = "mail",
+
+    INBOX_FOLDER = INBOX_FOLDER,
+    OUTBOX_FOLDER = OUTBOX_FOLDER,
 }
 
 return Constants

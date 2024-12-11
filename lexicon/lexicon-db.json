@@ -312,8 +312,8 @@
                         "/usr/lib/lib-mail/Constants.lua"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-mail/MailBase.lua",
-                        "/usr/lib/lib-mail/MailBase.lua"
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-mail/lib.lua",
+                        "/usr/lib/lib-mail/lib.lua"
                     ],
                     [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-mail/MailMessage.lua",
@@ -339,8 +339,8 @@
                         "/usr/lib/lib-mail/Constants.lua"
                     ],
                     [
-                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-mail/MailBase.lua",
-                        "/usr/lib/lib-mail/MailBase.lua"
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-mail/lib.lua",
+                        "/usr/lib/lib-mail/lib.lua"
                     ],
                     [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/library/lib-mail/MailMessage.lua",

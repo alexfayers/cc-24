@@ -2,28 +2,14 @@
 package.path = package.path .. ";/usr/lib/?.lua"
 require("class-lua.class")
 
-local MailMessage = require("lib-mail.MailMessage")
 local Constants = require("lib-mail.Constants")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("MailBase")
 
----@class MailBase: Class
----@overload fun(): MailBase
-local MailBase = class()
-
-
----Initialise a new mail base
-function MailBase:init()
-    self.inboxFolder = fs.combine(Constants.MAIL_FOLDER, Constants.INBOX_FOLDER_NAME)
-    self.outboxFolder = fs.combine(Constants.MAIL_FOLDER, Constants.OUTBOX_FOLDER_NAME)
-
-    self:ensureFolders()
-end
-
 
 ---Ensure the mail folders exist
 ---@param folder string
-function MailBase.ensureFolder(folder)
+local function ensureFolder(folder)
     if not fs.exists(folder) then
         fs.makeDir(folder)
     end
@@ -33,35 +19,35 @@ end
 ---Ensure the read and unread subfolder folders exist in a folder
 ---Will also create parent folder if it does not exist
 ---@param folder string
-function MailBase.ensureReadUnreadFolders(folder)
+local function ensureReadUnreadFolders(folder)
     local unreadFolder = fs.combine(folder, Constants.UNREAD_FOLDER_NAME)
-    MailBase.ensureFolder(unreadFolder)
+    ensureFolder(unreadFolder)
 
     local readFolder = fs.combine(folder, Constants.READ_FOLDER_NAME)
-    MailBase.ensureFolder(readFolder)
+    ensureFolder(readFolder)
 end
 
 
 ---Ensure the mail folders exist
-function MailBase:ensureFolders()
-    MailBase.ensureFolder(Constants.MAIL_FOLDER)
+local function ensureFolders()
+    ensureFolder(Constants.MAIL_FOLDER)
 
-    MailBase.ensureReadUnreadFolders(self.inboxFolder)
-    MailBase.ensureReadUnreadFolders(self.outboxFolder)
+    ensureReadUnreadFolders(Constants.INBOX_FOLDER)
+    ensureReadUnreadFolders(Constants.OUTBOX_FOLDER)
 end
 
 
 ---Get the count of unread mail in a folder
 ---@param folder string
 ---@return number
-function MailBase:getUnreadCount(folder)
+local function getUnreadCount(folder)
     return #fs.list(fs.combine(folder, Constants.UNREAD_FOLDER_NAME))
 end
 
 ---Get the count of read mail in a folder
 ---@param folder string
 ---@return number
-function MailBase:getReadCount(folder)
+local function getReadCount(folder)
     return #fs.list(fs.combine(folder, Constants.READ_FOLDER_NAME))
 end
 
@@ -70,7 +56,7 @@ end
 ---@param folder string
 ---@param message MailMessage
 ---@return boolean
-function MailBase:markRead(folder, message)
+local function markRead(folder, message)
     local unreadPath = fs.combine(folder, Constants.UNREAD_FOLDER_NAME, message.filename)
     local readPath = fs.combine(folder, Constants.READ_FOLDER_NAME, message.filename)
 
@@ -89,7 +75,7 @@ end
 ---@param folder string
 ---@param message MailMessage
 ---@return boolean
-function MailBase:markUnread(folder, message)
+local function markUnread(folder, message)
     local readPath = fs.combine(folder, Constants.READ_FOLDER_NAME, message.filename)
     local unreadPath = fs.combine(folder, Constants.UNREAD_FOLDER_NAME, message.filename)
 
@@ -108,7 +94,7 @@ end
 ---@param folder string
 ---@param message MailMessage
 ---@return boolean
-function MailBase:deleteMessage(folder, message)
+local function deleteMessage(folder, message)
     local unreadPath = fs.combine(folder, Constants.UNREAD_FOLDER_NAME, message.filename)
     local readPath = fs.combine(folder, Constants.READ_FOLDER_NAME, message.filename)
 
@@ -123,5 +109,13 @@ function MailBase:deleteMessage(folder, message)
     return true
 end
 
+ensureFolders()
 
-return MailBase
+
+return {
+    getUnreadCount = getUnreadCount,
+    getReadCount = getReadCount,
+    markRead = markRead,
+    markUnread = markUnread,
+    deleteMessage = deleteMessage,
+}

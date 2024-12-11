@@ -6,13 +6,14 @@ require("lib-remote.Client")
 local MailMessage = require("lib-mail.MailMessage")
 local MailBase = require("lib-mail.MailBase")
 local Constants = require("lib-mail.Constants")
+local lib = require("lib-mail.lib")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("MailClient")
 
 
----@class MailClient: Client, MailBase
+---@class MailClient: Client
 ---@overload fun(): MailClient
-local MailClient = Client:extend(MailBase())
+local MailClient = Client:extend()
 
 MailClient.protocol = Constants.PROTOCOL_NAME
 
@@ -116,28 +117,28 @@ end
 ---Get the unread mails from the inbox
 ---@return MailMessage[]?
 function MailClient:getInboxUnread()
-    return self:fetchUnreadMail(self.inboxFolder)
+    return self:fetchUnreadMail(Constants.INBOX_FOLDER)
 end
 
 
 ---Get the read mails from the inbox
 ---@return MailMessage[]?
 function MailClient:getInboxRead()
-    return self:fetchReadMail(self.inboxFolder)
+    return self:fetchReadMail(Constants.INBOX_FOLDER)
 end
 
 
 ---Get the count of unread mail in the inbox
 ---@return number
 function MailClient:getInboxUnreadCount()
-    return self:getUnreadCount(self.inboxFolder)
+    return lib.getUnreadCount(Constants.INBOX_FOLDER)
 end
 
 
 ---Get the count of read mail in the inbox
 ---@return number
 function MailClient:getInboxReadCount()
-    return self:getReadCount(self.inboxFolder)
+    return lib.getReadCount(Constants.INBOX_FOLDER)
 end
 
 
@@ -145,7 +146,7 @@ end
 ---@param message MailMessage
 ---@return boolean
 function MailClient:markInboxRead(message)
-    return self:markRead(self.inboxFolder, message)
+    return lib.markRead(Constants.INBOX_FOLDER, message)
 end
 
 
@@ -153,7 +154,7 @@ end
 ---@param message MailMessage
 ---@return boolean
 function MailClient:markInboxUnread(message)
-    return self:markUnread(self.inboxFolder, message)
+    return lib.markUnread(Constants.INBOX_FOLDER, message)
 end
 
 
@@ -161,8 +162,8 @@ end
 ---@param message MailMessage
 ---@return boolean
 function MailClient:deleteInboxMessage(message)
-    local readPath = fs.combine(self.inboxFolder, Constants.READ_FOLDER_NAME, message.filename)
-    local unreadPath = fs.combine(self.inboxFolder, Constants.UNREAD_FOLDER_NAME, message.filename)
+    local readPath = fs.combine(Constants.INBOX_FOLDER, Constants.READ_FOLDER_NAME, message.filename)
+    local unreadPath = fs.combine(Constants.INBOX_FOLDER, Constants.UNREAD_FOLDER_NAME, message.filename)
 
     if fs.exists(readPath) then
         fs.delete(readPath)

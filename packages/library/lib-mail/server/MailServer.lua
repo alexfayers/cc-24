@@ -10,15 +10,16 @@ require("lib-remote.Server")
 local MailMessage = require("lib-mail.MailMessage")
 local MailBase = require("lib-mail.MailBase")
 local Constants = require("lib-mail.Constants")
+local lib = require("lib-mail.lib")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("MailServer")
 
 local NOTIFY_POLL_INTERVAL = 30
 
 
----@class MailServer: Server, MailBase
+---@class MailServer: Server
 ---@overload fun(): MailServer
-local MailServer = Server.extend(MailBase())
+local MailServer = Server:extend()
 
 MailServer.protocol = Constants.PROTOCOL_NAME
 
@@ -71,7 +72,7 @@ end
 ---@return boolean
 function MailServer:checkNotify()
     while true do
-        local unreadCount = self:getUnreadCount(self.inboxFolder)
+        local unreadCount = lib.getUnreadCount(Constants.INBOX_FOLDER)
         if unreadCount > 0 then
             self:notify(unreadCount)
         end
@@ -91,7 +92,7 @@ function MailServer:handleMail(clientId, data)
         return false, { error = "Invalid message" }
     end
 
-    local path = fs.combine(self.inboxFolder, Constants.UNREAD_FOLDER_NAME, message.filename)
+    local path = fs.combine(Constants.INBOX_FOLDER, Constants.UNREAD_FOLDER_NAME, message.filename)
 
     if fs.exists(path) then
         return false, { error = "Mail already exists" }
