@@ -100,7 +100,8 @@ local function main()
 
         if group == "u" then
             if id < 1 or id > #unread_messages then
-                printError("Invalid message ID (1-" .. #unread_messages .. ")")
+                local range = #unread_messages > 0 and "1-" .. #unread_messages or "no unread messages"
+                printError("Invalid message ID (" .. range .. ")")
                 return
             end
 
@@ -118,7 +119,8 @@ local function main()
             return
         elseif group == "r" then
             if id < 1 or id > #read_messages then
-                printError("Invalid message ID (1-" .. #read_messages .. ")")
+                local range = #read_messages > 0 and "1-" .. #read_messages or "no read messages"
+                printError("Invalid message ID (" .. range .. ")")
                 return
             end
 
@@ -207,7 +209,8 @@ local function main()
 
         if group == "u" then
             if id < 1 or id > #unread_messages then
-                printError("Invalid message ID (1-" .. #unread_messages .. ")")
+                local range = #unread_messages > 0 and "1-" .. #unread_messages or "no unread messages"
+                printError("Invalid message ID (" .. range .. ")")
                 return
             end
 
@@ -216,7 +219,8 @@ local function main()
             client:deleteInboxMessage(message)
         elseif group == "r" then
             if id < 1 or id > #read_messages then
-                printError("Invalid message ID (1-" .. #read_messages .. ")")
+                local range = #read_messages > 0 and "1-" .. #read_messages or "no read messages"
+                printError("Invalid message ID (" .. range .. ")")
                 return
             end
 
