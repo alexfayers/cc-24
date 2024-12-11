@@ -22,7 +22,7 @@ local function complete(_, index, argument, previous)
         elseif previous[2] == "send" then
             return completion.choice(argument, {"recipient"}, true)
         elseif previous[2] == "delete" then
-            return completion.choice(argument, {"1"}, false)
+            return completion.choice(argument, {"r.1"}, false)
         end
     elseif index == 3 then
         if previous[2] == "send" then
