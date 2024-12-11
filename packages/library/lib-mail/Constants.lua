@@ -9,7 +9,7 @@ local MAIL_FOLDER = settings.get("mail.folder") or error("mail.folder setting mu
 settings.define("mail.notifySound", {
     description = "The sound to play when a new mail is received",
     type = "string",
-    default = "ui.toast.in",
+    default = "block.note_block.bit",
 })
 ---@type string
 local NOTIFY_SOUND = settings.get("mail.notifySound")
