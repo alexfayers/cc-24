@@ -315,7 +315,7 @@ local function main()
         local insertLine = 0
 
         local index = 0
-        for line in replyToMessage.body:gmatch("[^\n]+") do
+        for line in replyToMessage.body:gmatch("[^\n]*") do
             index = index + 1
 
             if line:match("^%-%-%-") then
@@ -324,7 +324,7 @@ local function main()
         end
 
         index = 0
-        for line in replyToMessage.body:gmatch("[^\n]+") do
+        for line in replyToMessage.body:gmatch("[^\n]*") do
             index = index + 1
 
             if index == insertLine or index == 1 and insertLine == 0 then
