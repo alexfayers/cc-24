@@ -23,14 +23,17 @@ settings.define("mail.client.local-server-hostname", {
 ---@type string
 local LOCAL_SERVER_HOSTNAME = settings.get("mail.client.local-server-hostname") or error("mail.client.local-server-hostname setting must be set", 0)
 
+local INBOX_FOLDER_NAME = "inbox"
+local OUTBOX_FOLDER_NAME = "outbox"
 
-local INBOX_FOLDER = fs.combine(Constants.MAIL_FOLDER, Constants.INBOX_FOLDER_NAME)
-local OUTBOX_FOLDER = fs.combine(Constants.MAIL_FOLDER, Constants.OUTBOX_FOLDER_NAME)
+
+local INBOX_FOLDER = fs.combine(MAIL_FOLDER, INBOX_FOLDER_NAME)
+local OUTBOX_FOLDER = fs.combine(MAIL_FOLDER, OUTBOX_FOLDER_NAME)
 
 
 local Constants = {
-    INBOX_FOLDER_NAME = "inbox",
-    OUTBOX_FOLDER_NAME = "outbox",
+    INBOX_FOLDER_NAME = INBOX_FOLDER_NAME,
+    OUTBOX_FOLDER_NAME = OUTBOX_FOLDER_NAME,
 
     UNREAD_FOLDER_NAME = "unread",
     READ_FOLDER_NAME = "read",
