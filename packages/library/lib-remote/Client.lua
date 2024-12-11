@@ -39,6 +39,7 @@ end
 ---@param hostname string?
 ---@return number?
 function Client:findServer(hostname)
+    ---@type table<string, number>
     local serverIds = self.serverIds or settings.get(self.server_id_cache_setting_name)
 
     local lookupHostname = hostname or DEFAULT_CACHE_HOSTNAME
@@ -71,7 +72,7 @@ function Client:findServer(hostname)
         return nil
     end
 
-    logger:info("%s is running on %d", self.protocol, serverIds)
+    logger:info("%s is running on %d", self.protocol, foundServerIds[1])
 
     serverIds[lookupHostname] = foundServerIds[1]
 
