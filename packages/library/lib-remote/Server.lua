@@ -48,7 +48,7 @@ function Server:startUp()
 
     rednet.host(self.protocol, self.hostname)
 
-    logger:info("%s server started!", self.protocol)
+    logger:info("%s server started (%s)!", self.protocol, self.hostname)
 
     return true
 end
