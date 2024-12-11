@@ -317,7 +317,6 @@ local function main()
         local index = 0
         for line in replyToMessage.body:gmatch("[^\n]+") do
             index = index + 1
-            newMessage = newMessage .. line
 
             if line:match("^%-%-%-") then
                 insertLine = index
@@ -328,14 +327,20 @@ local function main()
         for line in replyToMessage.body:gmatch("[^\n]+") do
             index = index + 1
 
-            if index == insertLine then
-                newMessage = newMessage .. line .. " On " .. os.date("%Y-%m-%d %H:%M:%S", os.time()) .. ", " .. replyToMessage.from .. " wrote:\n"
+            if index == insertLine or index == 1 and insertLine == 0 then
+                local historyStub = "On " .. os.date("%Y-%m-%d %H:%M:%S", replyToMessage.timestamp) .. ", " .. replyToMessage.from .. " wrote:\n"
+
+                if insertLine == 0 then
+                    newMessage = historyStub .. newMessage
+                else
+                    newMessage = newMessage .. line .. " " .. historyStub
+                end
             else
                 newMessage = newMessage .. line .. "\n"
             end
         end
 
-        newMessage = newMessage .. "\n---\n\n" .. message
+        newMessage = newMessage .. "\n---\n" .. message
 
         local success = client:sendMail({replyToMessage.from}, newSubject, newMessage)
 
