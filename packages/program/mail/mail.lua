@@ -217,6 +217,7 @@ local function main()
 
         if not raw_id or not message then
             printError("Usage: mail reply <message ID> <message>")
+            return
         end
 
         local unread_messages = client:getInboxUnread()
