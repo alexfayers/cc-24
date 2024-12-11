@@ -326,7 +326,8 @@
                 ],
                 "dependencies": [
                     "lib-logging",
-                    "class-lua"
+                    "class-lua",
+                    "lib-remote"
                 ]
             },
             "lib-mail-server": {
@@ -352,7 +353,8 @@
                 ],
                 "dependencies": [
                     "lib-logging",
-                    "class-lua"
+                    "class-lua",
+                    "lib-remote"
                 ]
             }
         },
@@ -595,33 +597,24 @@
                 ],
                 "usage": "'redstone-trigger'"
             },
-            "mail-server": {
-                "description": "A simple program to send mail (server)",
+            "mail": {
+                "description": "A simple program to send and receive mail (client)",
                 "version": "1.0.0",
                 "files": [
                     [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/mail/mail-server.lua",
                         "mail-server.lua"
-                    ]
-                ],
-                "dependencies": [
-                    "lib-mail-server"
-                ],
-                "usage": "'mail-server'"
-            },
-            "mail": {
-                "description": "A simple program to send mail (client)",
-                "version": "1.0.0",
-                "files": [
+                    ],
                     [
                         "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/mail/mail.lua",
                         "mail.lua"
                     ]
                 ],
                 "dependencies": [
+                    "lib-mail-server",
                     "lib-mail-client"
                 ],
-                "usage": "'mail-client'"
+                "usage": "'bg mail-server' and then you can use 'mail'"
             }
         }
     }
