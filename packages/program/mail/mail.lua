@@ -275,7 +275,7 @@ local function main()
         for line in replyToMessage.body:gmatch("[^\n]+") do
             newMessage = newMessage .. line
 
-            if line:match("^---$") then
+            if line:match("^---") then
                 newMessage = newMessage .. " On " .. os.date("%Y-%m-%d %H:%M:%S", os.time()) .. ", " .. replyToMessage.from .. " wrote:\n"
             else
                 newMessage = newMessage .. "\n"
