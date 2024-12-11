@@ -47,6 +47,17 @@ function MailClient:sendMail(recipients, subject, body)
         end
     end
 
+    local outboxPath = fs.combine(Constants.OUTBOX_FOLDER, Constants.READ_FOLDER_NAME, message.filename)
+    local outboxFile = fs.open(outboxPath, "w")
+
+    if not outboxFile then
+        logger:error("Failed to open file for writing: %s", outboxPath)
+        return false
+    end
+
+    outboxFile.write(message:serialise())
+    outboxFile.close()
+
     if successCount == expectedSuccessCount then
         return true
     end
