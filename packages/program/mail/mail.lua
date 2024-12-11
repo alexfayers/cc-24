@@ -272,14 +272,27 @@ local function main()
         local newMessage = ""
 
         ---Add "On <date>, <time>, <from> wrote:" to the end of the line with the last "---" on
+        local insertLine = 0
+
+        local index = 0
         for line in replyToMessage.body:gmatch("[^\n]+") do
+            index = index + 1
             newMessage = newMessage .. line
 
             if line:match("^---") then
-                newMessage = newMessage .. " On " .. os.date("%Y-%m-%d %H:%M:%S", os.time()) .. ", " .. replyToMessage.from .. " wrote:\n"
-            else
-                newMessage = newMessage .. "\n"
+                insertLine = index
             end
+        end
+
+        index = 0
+        for line in replyToMessage.body:gmatch("[^\n]+") do
+            index = index + 1
+
+            if index == insertLine then
+                newMessage = newMessage .. " On " .. os.date("%Y-%m-%d %H:%M:%S", os.time()) .. ", " .. replyToMessage.from .. " wrote:\n"
+            end
+
+            newMessage = newMessage .. line .. "\n"
         end
 
         local success = client:sendMail({replyToMessage.from}, newSubject, newMessage)
