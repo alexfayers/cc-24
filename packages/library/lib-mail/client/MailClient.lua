@@ -4,7 +4,6 @@ require("class-lua.class")
 require("lib-remote.Client")
 
 local MailMessage = require("lib-mail.MailMessage")
-local MailBase = require("lib-mail.MailBase")
 local Constants = require("lib-mail.Constants")
 local lib = require("lib-mail.lib")
 
@@ -20,7 +19,6 @@ MailClient.protocol = Constants.PROTOCOL_NAME
 
 ---Initialise a new mail client
 function MailClient:init()
-    MailBase.init(self)
     Client.init(self)
 end
 

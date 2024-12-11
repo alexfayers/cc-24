@@ -8,7 +8,6 @@ require("class-lua.class")
 
 require("lib-remote.Server")
 local MailMessage = require("lib-mail.MailMessage")
-local MailBase = require("lib-mail.MailBase")
 local Constants = require("lib-mail.Constants")
 local lib = require("lib-mail.lib")
 
@@ -26,7 +25,6 @@ MailServer.protocol = Constants.PROTOCOL_NAME
 
 ---Initialise a new mail server
 function MailServer:init()
-    MailBase.init(self)
     Server.init(self, Constants.LOCAL_SERVER_HOSTNAME)
 
     self.speaker = self:wrapSpeaker()

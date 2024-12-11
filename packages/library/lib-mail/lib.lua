@@ -4,9 +4,6 @@ require("class-lua.class")
 
 local Constants = require("lib-mail.Constants")
 
-local logger = require("lexicon-lib.lib-logging").getLogger("MailBase")
-
-
 ---Ensure the mail folders exist
 ---@param folder string
 local function ensureFolder(folder)
@@ -61,7 +58,6 @@ local function markRead(folder, message)
     local readPath = fs.combine(folder, Constants.READ_FOLDER_NAME, message.filename)
 
     if not fs.exists(unreadPath) then
-        logger:error("Mail message does not exist: %s", unreadPath)
         return false
     end
 
@@ -80,7 +76,6 @@ local function markUnread(folder, message)
     local unreadPath = fs.combine(folder, Constants.UNREAD_FOLDER_NAME, message.filename)
 
     if not fs.exists(readPath) then
-        logger:error("Mail message does not exist: %s", readPath)
         return false
     end
 

@@ -111,7 +111,9 @@ local function main()
             print()
             print(message.body)
 
-            client:markInboxRead(message)
+            if not client:markInboxRead(message) then
+                printError("Failed to mark message as read")
+            end
 
             return
         elseif group == "r" then
