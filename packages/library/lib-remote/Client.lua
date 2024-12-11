@@ -7,6 +7,8 @@ require("lib-remote.types.MessageType")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("Client")
 
+DEFAULT_CACHE_HOSTNAME = "?"
+
 
 ---@class Client: Remote
 ---@overload fun(): Client
@@ -20,47 +22,63 @@ Client.filterCommands = {
 ---Initialise a new storage2 client
 function Client:init()
     Remote.init(self)
-    ---@type number?
-    self.serverId = self:findServer()
+
+    ---@type table<string, number>?
+    self.serverIds = nil
+
+    self.server_id_cache_setting_name = self.protocol .. ".server-id-map"
+    settings.define(self.server_id_cache_setting_name, {
+        description = self.protocol .. " server id cache",
+        type = "table",
+        default = {},
+    })
 end
 
 
 ---Find the server to connect to
+---@param hostname string?
 ---@return number?
-function Client:findServer()
-    local SERVER_ID_SETTING_NAME = self.protocol .. ".server-id"
+function Client:findServer(hostname)
+    local serverIds = self.serverIds or settings.get(self.server_id_cache_setting_name)
 
-    settings.define(SERVER_ID_SETTING_NAME, {
-        description = "The ID of the " .. self.protocol .. " server to connect to",
-        type = "number",
-        default = nil,
-    })
+    local lookupHostname = hostname or DEFAULT_CACHE_HOSTNAME
 
-    local serverId = settings.get(SERVER_ID_SETTING_NAME)
-    if serverId then
-        logger:debug("Using server ID from settings: %d", serverId)
-        return serverId
+    if serverIds[lookupHostname] then
+        logger:debug("Using cached server ID: %d", serverIds[lookupHostname])
+        return serverIds[lookupHostname]
     end
 
     if not self:openModem() then
         return nil
     end
 
-    logger:info("Searching for a %s server...", self.protocol)
+    if hostname then
+        logger:info("Searching for a %s server with hostname %s...", self.protocol, hostname)
+    else
+        logger:info("Searching for a %s server...", self.protocol)
+    end
 
-    serverId = rednet.lookup(self.protocol)
+    local foundServerIds = { rednet.lookup(self.protocol, hostname) }
     self:closeModem()
 
-    if not serverId then
+    if #foundServerIds == 0 then
         logger:error("No server found")
         return nil
     end
 
-    logger:info("%s is running on %d", self.protocol, serverId)
+    if #foundServerIds > 1 then
+        logger:error("Multiple servers found (%d)", #foundServerIds)
+        return nil
+    end
 
-    settings.set(SERVER_ID_SETTING_NAME, serverId)
+    logger:info("%s is running on %d", self.protocol, serverIds)
 
-    return serverId
+    serverIds[lookupHostname] = foundServerIds[1]
+
+    self.serverIds = serverIds
+    settings.set(self.server_id_cache_setting_name, serverIds)
+
+    return foundServerIds[1]
 end
 
 
@@ -68,15 +86,18 @@ end
 ---Send a command to the server, handling any responses
 ---@param commandType string
 ---@param sendData? table
+---@param hostname? string
 ---@return boolean, table?
-function Client:baseSendCommand(commandType, sendData)
-    if not self.serverId then
+function Client:baseSendCommand(commandType, sendData, hostname)
+    local serverId = self:findServer(hostname)
+
+    if not serverId then
         logger:error("No server to send to")
         return false
     end
 
     local isProcessing, messageType, messageData = self:sendDataWait(
-        self.serverId,
+        serverId,
         MessageType.CMD,
         {
             type = commandType,
