@@ -215,7 +215,7 @@ local function main()
         local raw_id = args[2]
         local message = args[3]
 
-        if raw_id == nil or message == nil then
+        if not raw_id or not message then
             printError("Usage: mail reply <message ID> <message>")
         end
 
