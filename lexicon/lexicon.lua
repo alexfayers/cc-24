@@ -349,7 +349,7 @@ local function updatePrograms()
     local db = loadLexiconDb()
 
     for packageName, packageData in pairs(db["packages"]) do
-        if packageData["type"] == "program" then
+        if packageData["type"] == "program" and packageName ~= "autoupdate" then
             downloadPackage(packageName)
         end
     end
