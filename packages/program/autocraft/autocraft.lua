@@ -85,7 +85,7 @@ local remainingCount = count
 while remainingCount > 0 do
     local thisCount = remainingCount % 64
 
-    if not crafter.craft_item(item_name, count, doCheck, doPull) then
+    if not crafter.craft_item(item_name, thisCount, doCheck, doPull) then
         error("Crafting failed", 0)
     end
 
