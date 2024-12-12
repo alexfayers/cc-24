@@ -167,7 +167,7 @@ end
 ---@param text string The text to display
 ---@param header string The header to display at the top of the screen
 local function functionPagedPrintFancy(text, header)
-    local footer = "Hold Ctrl+T to exit | Press up/down to scroll"
+    local footer = "Hold Ctrl+T to exit | Scroll with up/down or mouse"
 
     local lines = strings.wrap(text, termWidth)
 
@@ -192,17 +192,27 @@ local function functionPagedPrintFancy(text, header)
     draw()
 
     while true do
-        local event, key = os.pullEvent()
+        local event, keyOrDir = os.pullEvent()
+
+        local scrollDir = 0
 
         if event == "key" then
-            if key == keys.up then
-                currentTopLine = math.max(1, currentTopLine - 1)
-                draw()
-            elseif key == keys.down then
-                currentTopLine = math.min(#lines - termHeight + 1, currentTopLine + 1)
-                currentTopLine = math.max(1, currentTopLine)
-                draw()
+            if keyOrDir == keys.up then
+                scrollDir = -1
+            elseif keyOrDir == keys.down then
+                scrollDir = 1
             end
+        elseif event == "mouse_scroll" then
+            scrollDir = -keyOrDir
+        end
+
+        if scrollDir == 1 then
+            currentTopLine = math.max(1, currentTopLine - 1)
+            draw()
+        elseif scrollDir == -1 then
+            currentTopLine = math.min(#lines - termHeight + 1, currentTopLine + 1)
+            currentTopLine = math.max(1, currentTopLine)
+            draw()
         end
     end
 end
@@ -344,7 +354,16 @@ local function main()
         end
 
         local statusString = "From: " .. message.from .. " | " .. message.subject
-        functionPagedPrintFancy(message.body, statusString)
+
+        local success, err = pcall(functionPagedPrintFancy, message.body, statusString)
+
+        if not success then
+            cleanup()
+            if err ~= "Terminated" then
+                printError(err)
+                return
+            end
+        end
 
         if group == "u" and not client:markInboxRead(message) then
             printError("Failed to mark message as read")
