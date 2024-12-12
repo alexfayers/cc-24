@@ -307,7 +307,11 @@ local function main()
             return
         end
 
-        local newSubject = "Re: " .. replyToMessage.subject
+        local newSubject = replyToMessage.subject
+
+        if not replyToMessage.subject:match("^Re: ") then
+            newSubject = "Re: " .. replyToMessage.subject
+        end
 
         local newMessage = ""
 
