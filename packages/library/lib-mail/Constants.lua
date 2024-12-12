@@ -21,7 +21,7 @@ settings.define("mail.username", {
     default = nil,
 })
 ---@type string
-local LOCAL_SERVER_HOSTNAME = settings.get("mail.client.local-server-hostname") or error("mail.username setting must be set", 0)
+local LOCAL_SERVER_HOSTNAME = settings.get("mail.username") or error("mail.username setting must be set", 0)
 
 settings.define("mail.client.notify-poll-interval", {
     description = "The interval to poll for new mail",
