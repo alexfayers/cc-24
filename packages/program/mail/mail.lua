@@ -126,6 +126,58 @@ local function printMessages(messages)
 end
 
 
+local function getMultilineInput()
+    ---Put the exit instructions at the bottom of the screen, with a grey background.
+    ---Then take input from the user, making sure to scroll everything up if the user goes past the bottom of the screen.
+    ---(but make sure to keep the exit instructions at the bottom of the screen)
+    local _, termHeight = term.getSize()
+
+    local function writeExitInstruction()
+        local prevX, prevY = term.getCursorPos()
+        local prevBG = term.getBackgroundColor()
+        term.setCursorPos(1, termHeight)
+        term.setBackgroundColor(colors.gray)
+        term.clearLine()
+        term.write("Press . on a blank line to finish")
+        term.setBackgroundColor(prevBG)
+
+        term.setCursorPos(prevX, prevY)
+    end
+
+    writeExitInstruction()
+    
+    local lines = {}
+
+    while true do
+        term.clearLine()
+        term.write("> ")
+
+        local line = read()
+
+        if line == "." then
+            break
+        end
+
+        table.insert(lines, line)
+
+        if #lines + 1 >= termHeight then
+            local prevX, prevY = term.getCursorPos()
+            term.setCursorPos(1, termHeight)
+            term.clearLine()
+
+            term.scroll(1)
+
+            term.setCursorPos(prevX, prevY - 1)
+
+            writeExitInstruction()
+        end
+    end
+
+    return table.concat(lines, "\n")
+end
+    
+
+
 local function main()
     local args = arg
     local command = args[1]
@@ -198,7 +250,7 @@ local function main()
             return
         end
 
-        local statusString = "From: " .. message.from .. "\nSubject: " .. message.subject .. "\n\n" .. message.body
+        local statusString = "From: " .. message.from .. "\nTo: " .. table.concat(message.to, ", ") .. "\nSubject: " .. message.subject .. "\n\n" .. message.body
         term.clear()
         term.setCursorPos(1, 1)
         textutils.pagedPrint(statusString)
@@ -211,10 +263,9 @@ local function main()
     elseif command == "send" then
         local recipients_raw = args[2]
         local subject = args[3]
-        local message = args[4]
 
-        if not recipients_raw or not subject or not message then
-            printError("Usage: mail send <recipients> <subject> <message>")
+        if not recipients_raw or not subject then
+            printError("Usage: mail send <recipients> <subject>")
             return
         end
 
@@ -223,6 +274,13 @@ local function main()
         for recipient in recipients_raw:gmatch("[^,]+") do
             table.insert(recipients, recipient)
         end
+
+        local statusString = "To: " .. table.concat(recipients, ", ") .. "\nSubject: " .. subject
+        term.clear()
+        term.setCursorPos(1, 1)
+        print(statusString)
+
+        local message = getMultilineInput()
 
         local success = client:sendMail(recipients, subject, message)
 
@@ -253,10 +311,9 @@ local function main()
         return
     elseif command == "reply" then
         local raw_id = args[2]
-        local message = args[3]
 
-        if not raw_id or not message then
-            printError("Usage: mail reply <message ID> <message>")
+        if not raw_id then
+            printError("Usage: mail reply <message ID>")
             return
         end
 
@@ -346,6 +403,13 @@ local function main()
 
             newMessage = newMessage .. "\n"
         end
+
+        local statusString = "To: " .. replyToMessage.from .. "\nSubject: " .. newSubject
+        term.clear()
+        term.setCursorPos(1, 1)
+        print(statusString)
+
+        local message = getMultilineInput()
 
         newMessage = newMessage .. "\n---\n\n" .. message
 
