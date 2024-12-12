@@ -33,7 +33,7 @@ parser:add({"command"}, {
     doc = "The command to run when the redstone signal is received",
 })
 
-parser:add({"-s", "--switch"}, {
+parser:add({"--switch", "-s"}, {
     doc = "Terminate the program when the redstone signal stops",
     required = false,
 })
