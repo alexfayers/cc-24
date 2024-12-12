@@ -1,2 +1,2 @@
 ---Auto update all lexicon packages
-shell.run("bg lexicon upgrade")
+shell.run("lexicon upgrade")
