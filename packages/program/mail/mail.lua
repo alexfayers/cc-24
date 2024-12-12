@@ -340,7 +340,7 @@ local function main()
             end
         end
 
-        newMessage = newMessage .. "---\n\n" .. message
+        newMessage = newMessage .. "\n---\n\n" .. message
 
         local success = client:sendMail({replyToMessage.from}, newSubject, newMessage)
 
