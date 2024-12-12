@@ -15,13 +15,13 @@ settings.define("mail.notifySound", {
 local NOTIFY_SOUND = settings.get("mail.notifySound")
 
 
-settings.define("mail.client.local-server-hostname", {
+settings.define("mail.username", {
     description = "The hostname of the local mail server",
     type = "string",
     default = nil,
 })
 ---@type string
-local LOCAL_SERVER_HOSTNAME = settings.get("mail.client.local-server-hostname") or error("mail.client.local-server-hostname setting must be set", 0)
+local LOCAL_SERVER_HOSTNAME = settings.get("mail.client.local-server-hostname") or error("mail.username setting must be set", 0)
 
 settings.define("mail.client.notify-poll-interval", {
     description = "The interval to poll for new mail",
