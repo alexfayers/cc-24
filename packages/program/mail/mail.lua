@@ -3,6 +3,8 @@ package.path = package.path .. ";/usr/lib/?.lua"
 local completion = require("cc.completion")
 local strings = require("cc.strings")
 
+local NO_MAIL_MESSAGE = "You don't have any mail. Try getting some friends om"
+
 local MailClient = require("lib-mail.client.MailClient")
 
 local client = MailClient()
@@ -300,17 +302,17 @@ local function main()
 
         if not raw_id then
             if #unread_messages == 0 and #read_messages == 0 then
-                print("No mail")
+                print(NO_MAIL_MESSAGE)
                 return
             end
 
             if #read_messages > 0 then
-                print("Read messages:")
+                print("Read mail:")
                 printMessages(read_messages)
             end
 
             if #unread_messages > 0 then
-                print("Unread messages:")
+                print("Unread mail:")
                 printMessages(unread_messages)
             end
 
@@ -320,7 +322,7 @@ local function main()
         local group, id_string = raw_id:match("^(%a)%.(%d+)$")
 
         if not group or not id_string then
-            printError("Invalid message ID")
+            printError("Invalid mail ID (u.1, r.1)")
             return
         end
 
@@ -331,7 +333,7 @@ local function main()
         if group == "u" then
             if id < 1 or id > #unread_messages then
                 range = #unread_messages > 0 and "1-" .. #unread_messages or "no unread messages"
-                printError("Invalid message ID (" .. range .. ")")
+                printError("Invalid mail ID (u." .. range .. ")")
                 return
             end
 
@@ -339,7 +341,7 @@ local function main()
         elseif group == "r" then
             if id < 1 or id > #read_messages then
                 range = #read_messages > 0 and "1-" .. #read_messages or "no read messages"
-                printError("Invalid message ID (" .. range .. ")")
+                printError("Invalid mail ID (r." .. range .. ")")
                 return
             end
 
@@ -352,7 +354,7 @@ local function main()
         local statusString = "From: " .. message.from .. " | " .. message.subject
 
         if group == "u" and not client:markInboxRead(message) then
-            printError("Failed to mark message as read")
+            printError("Failed to mark mail as read")
         end
 
         local success, err = pcall(functionPagedPrintFancy, message.body, statusString)
@@ -416,7 +418,7 @@ local function main()
         local raw_id = args[2]
 
         if not raw_id then
-            printError("Usage: mail reply <message ID>")
+            printError("Usage: mail reply <mail ID>")
             return
         end
 
@@ -437,7 +439,7 @@ local function main()
         local group, id_string = raw_id:match("^(%a)%.(%d+)$")
 
         if not group or not id_string then
-            printError("Invalid message ID")
+            printError("Invalid mail ID (u.1, r.1)")
             return
         end
 
@@ -448,7 +450,7 @@ local function main()
         if group == "u" then
             if id < 1 or id > #unread_messages then
                 range = #unread_messages > 0 and "1-" .. #unread_messages or "no unread messages"
-                printError("Invalid message ID (" .. range .. ")")
+                printError("Invalid mail ID (u." .. range .. ")")
                 return
             end
 
@@ -456,7 +458,7 @@ local function main()
         elseif group == "r" then
             if id < 1 or id > #read_messages then
                 range = #read_messages > 0 and "1-" .. #read_messages or "no read messages"
-                printError("Invalid message ID (" .. range .. ")")
+                printError("Invalid mail ID (r." .. range .. ")")
                 return
             end
 
@@ -541,17 +543,17 @@ local function main()
 
         if not raw_id then
             if #unread_messages == 0 and #read_messages == 0 then
-                print("No mail")
+                print(NO_MAIL_MESSAGE)
                 return
             end
 
             if #read_messages > 0 then
-                print("Read messages:")
+                print("Read mail:")
                 printMessages(read_messages)
             end
 
             if #unread_messages > 0 then
-                print("Unread messages:")
+                print("Unread mail:")
                 printMessages(unread_messages)
             end
 
@@ -561,7 +563,7 @@ local function main()
         local group, id_string = raw_id:match("^(%a)%.(%d+)$")
 
         if not group or not id_string then
-            printError("Invalid message ID")
+            printError("Invalid mail ID (u.1, r.1)")
             return
         end
 
@@ -572,7 +574,7 @@ local function main()
         if group == "u" then
             if id < 1 or id > #unread_messages then
                 range = #unread_messages > 0 and "1-" .. #unread_messages or "no unread messages"
-                printError("Invalid message ID (" .. range .. ")")
+                printError("Invalid mail ID (u." .. range .. ")")
                 return
             end
 
@@ -580,7 +582,7 @@ local function main()
         elseif group == "r" then
             if id < 1 or id > #read_messages then
                 range = #read_messages > 0 and "1-" .. #read_messages or "no read messages"
-                printError("Invalid message ID (" .. range .. ")")
+                printError("Invalid mail ID (r." .. range .. ")")
                 return
             end
 
@@ -592,9 +594,9 @@ local function main()
         end
 
         if client:deleteInboxMessage(message) then
-            print("Message deleted")
+            print("Mail deleted")
         else
-            printError("Failed to delete message")
+            printError("Failed to delete mail")
         end
 
         return

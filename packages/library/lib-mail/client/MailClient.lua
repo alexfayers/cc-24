@@ -181,7 +181,7 @@ function MailClient:deleteInboxMessage(message)
     elseif fs.exists(unreadPath) then
         fs.delete(unreadPath)
     else
-        logger:error("Mail message does not exist: %s", readPath)
+        logger:error("Mail does not exist: %s", readPath)
         return false
     end
 
