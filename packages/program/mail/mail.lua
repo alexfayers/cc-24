@@ -1,6 +1,7 @@
 ---Mail program for cc:t. Uses lib-mail.
 package.path = package.path .. ";/usr/lib/?.lua"
 local completion = require("cc.completion")
+local strings = require("cc.strings")
 
 local MailClient = require("lib-mail.client.MailClient")
 
@@ -125,27 +126,118 @@ local function printMessages(messages)
     end
 end
 
+local defaultTermBG = term.getBackgroundColor()
+local termWidth, termHeight = term.getSize()
 
-local function getMultilineInput()
+
+local function cleanup()
+    term.clear()
+    term.setCursorPos(1, 1)
+end
+
+
+local function writeHeader(header)
+    local prevX, prevY = term.getCursorPos()
+    term.setCursorPos(1, 1)
+
+    term.setBackgroundColor(colors.blue)
+    term.clearLine()
+    term.write(strings.ensure_width(header, termWidth))
+    term.setBackgroundColor(defaultTermBG)
+
+    term.setCursorPos(prevX, prevY)
+end
+
+
+local function writeFooter(footer)
+    local prevX, prevY = term.getCursorPos()
+    term.setCursorPos(1, termHeight)
+
+    term.setBackgroundColor(colors.lightBlue)
+    term.clearLine()
+    term.write(strings.ensure_width(footer, termWidth))
+    term.setBackgroundColor(defaultTermBG)
+
+    term.setCursorPos(prevX, prevY)
+end
+
+
+---Show a fancy paged print, like the "more" command in linux
+---User can press the up and down arrow keys to scroll up and down
+---@param text string The text to display
+---@param header string The header to display at the top of the screen
+local function functionPagedPrintFancy(text, header)
+    local footer = "Hold Ctrl+T to exit | Press up/down to scroll"
+
+    local lines = strings.wrap(text, termWidth)
+
+    if #lines < termHeight - 3 then
+        footer = "Hold Ctrl+T to exit"
+    end
+
+    local currentTopLine = 1
+
+    local function draw()
+        term.clear()
+        term.setCursorPos(1, 2)
+
+        writeHeader(header)
+        writeFooter(footer)
+
+        for i = currentTopLine, math.min(#lines, currentTopLine + termHeight - 3) do
+            print(lines[i])
+        end
+    end
+
+    draw()
+
+    while true do
+        local event, key = os.pullEvent()
+
+        if event == "key" then
+            if key == keys.up then
+                currentTopLine = math.max(1, currentTopLine - 1)
+                draw()
+            elseif key == keys.down then
+                currentTopLine = math.min(#lines - termHeight + 1, currentTopLine + 1)
+                currentTopLine = math.max(1, currentTopLine)
+                draw()
+            end
+        end
+    end
+end
+
+
+---Get a user's multiline input
+---@param header string The header to display at the top of the screen
+---@param preamble string? Some string to display before the user's input
+---@return string
+local function getMultilineInput(header, preamble)
     ---Put the exit instructions at the bottom of the screen, with a grey background.
     ---Then take input from the user, making sure to scroll everything up if the user goes past the bottom of the screen.
     ---(but make sure to keep the exit instructions at the bottom of the screen)
-    local _, termHeight = term.getSize()
-
-    local function writeExitInstruction()
-        local prevX, prevY = term.getCursorPos()
-        local prevBG = term.getBackgroundColor()
-        term.setCursorPos(1, termHeight)
-        term.setBackgroundColor(colors.gray)
-        term.clearLine()
-        term.write("Press . on a blank line to finish")
-        term.setBackgroundColor(prevBG)
-
-        term.setCursorPos(prevX, prevY)
+    local function writeHeaderAndFooter()
+        writeHeader(header)
+        writeFooter("Hold Ctrl+T to exit | Put . by itself to send")
     end
 
-    writeExitInstruction()
-    
+    term.setCursorPos(1, 2)
+    term.clear()
+
+    for line in (preamble or ""):gmatch("([^\n]*)\n?") do
+        print(line .. "\n")
+
+        local prevX, prevY = term.getCursorPos()
+
+        if prevY == termHeight then
+            term.scroll(1)
+            term.setCursorPos(prevX, prevY - 1)
+            -- writeHeaderAndFooter()
+        end
+    end
+
+    writeHeaderAndFooter()
+
     local lines = {}
 
     while true do
@@ -160,18 +252,19 @@ local function getMultilineInput()
 
         table.insert(lines, line)
 
-        if #lines + 1 >= termHeight then
+        local _, currentY = term.getCursorPos()
+
+        if currentY == termHeight then
             local prevX, prevY = term.getCursorPos()
-            term.setCursorPos(1, termHeight)
-            term.clearLine()
 
             term.scroll(1)
-
             term.setCursorPos(prevX, prevY - 1)
 
-            writeExitInstruction()
+            writeHeaderAndFooter()
         end
     end
+
+    cleanup()
 
     return table.concat(lines, "\n")
 end
@@ -250,10 +343,8 @@ local function main()
             return
         end
 
-        local statusString = "From: " .. message.from .. "\nTo: " .. table.concat(message.to, ", ") .. "\nSubject: " .. message.subject .. "\n\n" .. message.body
-        term.clear()
-        term.setCursorPos(1, 1)
-        textutils.pagedPrint(statusString)
+        local statusString = "From: " .. message.from .. " | " .. message.subject
+        functionPagedPrintFancy(message.body, statusString)
 
         if group == "u" and not client:markInboxRead(message) then
             printError("Failed to mark message as read")
@@ -275,12 +366,9 @@ local function main()
             table.insert(recipients, recipient)
         end
 
-        local statusString = "To: " .. table.concat(recipients, ", ") .. "\nSubject: " .. subject
-        term.clear()
-        term.setCursorPos(1, 1)
-        print(statusString)
+        local statusString = "To: " .. table.concat(recipients, ", ") .. " | " .. subject
 
-        local message = getMultilineInput()
+        local message = getMultilineInput(statusString)
 
         local success = client:sendMail(recipients, subject, message)
 
@@ -404,12 +492,9 @@ local function main()
             newMessage = newMessage .. "\n"
         end
 
-        local statusString = "To: " .. replyToMessage.from .. "\nSubject: " .. newSubject
-        term.clear()
-        term.setCursorPos(1, 1)
-        print(statusString)
+        local statusString = "To: " .. replyToMessage.from .. " | " .. newSubject
 
-        local message = getMultilineInput()
+        local message = getMultilineInput(statusString, "\n\n" .. newMessage)
 
         newMessage = newMessage .. "\n---\n\n" .. message
 
@@ -504,5 +589,11 @@ local function main()
 end
 
 
-main()
+local success, err = pcall(main)
 
+if not success then
+    cleanup()
+    if err ~= "Terminated" then
+        printError(err)
+    end
+end
