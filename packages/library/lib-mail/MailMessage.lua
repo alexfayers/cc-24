@@ -26,7 +26,7 @@ function MailMessage:init(from, to, subject, body, id, timestamp)
     self.subject = subject
     self.body = body
 
-    self.timestamp = timestamp or os.epoch("utc")
+    self.timestamp = timestamp or os.epoch("utc") / 1000
 
     self.id = id or self:makeId()
     self.filename = self.id .. ".mail"
@@ -44,7 +44,7 @@ end
 ---@return string
 function MailMessage:timestampString()
     ---@type string
-    return os.date("%Y-%m-%d %H:%M:%S", self.timestamp)
+    return os.date("%F %T", self.timestamp)
 end
 
 

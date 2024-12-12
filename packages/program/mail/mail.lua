@@ -495,7 +495,7 @@ local function main()
             index = index + 1
 
             if index == insertLine or index == 1 and insertLine == 0 then
-                local historyStub = "On " .. os.date("%Y-%m-%d %H:%M:%S", replyToMessage.timestamp) .. ", " .. replyToMessage.from .. " wrote:"
+                local historyStub = "On " .. replyToMessage:timestampString() .. ", " .. replyToMessage.from .. " wrote:"
 
                 if insertLine == 0 then
                     newMessage = newMessage .. "--- " .. historyStub .. "\n\n" .. line
