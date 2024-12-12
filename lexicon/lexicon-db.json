@@ -628,6 +628,18 @@
                     "lib-mail-client"
                 ],
                 "usage": "'mail' (NOTE: REQUIRES 'mail-server' TO BE RUNNING)"
+            },
+            "autoupdate": {
+                "description": "A simple program to update all packages on startup",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/autoupdate/startup.lua",
+                        "startup.lua"
+                    ]
+                ],
+                "dependencies": [],
+                "usage": "NOTHING, IT WILL AUTO RUN"
             }
         }
     }
