@@ -315,7 +315,7 @@ local function main()
         local insertLine = 0
 
         local index = 0
-        for line in replyToMessage.body:gmatch("[^\n]*") do
+        for line in replyToMessage.body:gmatch("^.*$") do
             index = index + 1
 
             if line:match("^%-%-%-") then
@@ -324,20 +324,22 @@ local function main()
         end
 
         index = 0
-        for line in replyToMessage.body:gmatch("[^\n]*") do
+        for line in replyToMessage.body:gmatch("^.*$") do
             index = index + 1
 
             if index == insertLine or index == 1 and insertLine == 0 then
-                local historyStub = "On " .. os.date("%Y-%m-%d %H:%M:%S", replyToMessage.timestamp) .. ", " .. replyToMessage.from .. " wrote:\n"
+                local historyStub = "On " .. os.date("%Y-%m-%d %H:%M:%S", replyToMessage.timestamp) .. ", " .. replyToMessage.from .. " wrote:"
 
                 if insertLine == 0 then
-                    newMessage = newMessage .. "--- " .. historyStub .. "\n" .. line .. "\n"
+                    newMessage = newMessage .. "--- " .. historyStub .. "\n" .. line
                 else
                     newMessage = newMessage .. line .. " " .. historyStub
                 end
             else
-                newMessage = newMessage .. line .. "\n"
+                newMessage = newMessage .. line
             end
+
+            newMessage = newMessage .. "\n"
         end
 
         newMessage = newMessage .. "\n---\n\n" .. message
