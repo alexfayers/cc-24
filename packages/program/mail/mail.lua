@@ -357,6 +357,10 @@ local function main()
 
         local statusString = "From: " .. message.from .. " | " .. message.subject
 
+        if group == "u" and not client:markInboxRead(message) then
+            printError("Failed to mark message as read")
+        end
+
         local success, err = pcall(functionPagedPrintFancy, message.body, statusString)
 
         if not success then
@@ -365,10 +369,6 @@ local function main()
                 printError(err)
                 return
             end
-        end
-
-        if group == "u" and not client:markInboxRead(message) then
-            printError("Failed to mark message as read")
         end
 
         return
