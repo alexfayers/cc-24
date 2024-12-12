@@ -453,8 +453,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands)
                 for _, nextRecipe in pairs(nextRecipes) do
                     local nextRepeatCount = math.ceil(craftCount / nextRecipe.output.count)
 
-                    local postCraftItemCounts, postCraftCraftCommands
-                    postCraftItemCounts, postCraftCraftCommands = check_storage(nextRecipe, nextRepeatCount, itemCounts, craftCommands)
+                    local postCraftItemCounts, postCraftCraftCommands = check_storage(nextRecipe, nextRepeatCount, itemCounts, craftCommands)
 
                     if tableHelpers.tableIsEmpty(postCraftCraftCommands) then
                         -- logger:error("Failed to get pre-craft commands for %s", slotItemName)
