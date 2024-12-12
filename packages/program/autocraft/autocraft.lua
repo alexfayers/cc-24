@@ -60,7 +60,7 @@ parser:add({"-c", "--check"}, {
     required = false,
 })
 
-parser:add({"p", "--pull"}, {
+parser:add({"-p", "--pull"}, {
     doc = "Pull the crafted item into the output chest after crafting",
     required = false,
 })
