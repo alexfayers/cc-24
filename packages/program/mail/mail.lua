@@ -336,7 +336,7 @@ local function main()
                 local historyStub = "On " .. os.date("%Y-%m-%d %H:%M:%S", replyToMessage.timestamp) .. ", " .. replyToMessage.from .. " wrote:"
 
                 if insertLine == 0 then
-                    newMessage = newMessage .. "--- " .. historyStub .. "\n" .. line
+                    newMessage = newMessage .. "--- " .. historyStub .. "\n\n" .. line
                 else
                     newMessage = newMessage .. line .. " " .. historyStub
                 end
