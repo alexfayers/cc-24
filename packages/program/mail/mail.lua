@@ -199,6 +199,8 @@ local function main()
         end
 
         local statusString = "From: " .. message.from .. "\nSubject: " .. message.subject .. "\n\n" .. message.body
+        term.clear()
+        term.setCursorPos(1, 1)
         textutils.pagedPrint(statusString)
 
         if group == "u" and not client:markInboxRead(message) then
