@@ -18,6 +18,7 @@ local logger = require("lexicon-lib.lib-logging").getLogger("MailServer")
 ---@overload fun(): MailServer
 local MailServer = Server:extend()
 
+MailServer.wired = false
 MailServer.protocol = Constants.PROTOCOL_NAME
 
 
