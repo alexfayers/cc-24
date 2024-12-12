@@ -201,7 +201,7 @@ local function main()
         print("From: " .. message.from)
         print("Subject: " .. message.subject)
         print()
-        print(message.body)
+        textutils.pagedPrint(message.body)
 
         if group == "u" and not client:markInboxRead(message) then
             printError("Failed to mark message as read")
