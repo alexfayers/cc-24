@@ -102,13 +102,7 @@ local function complete(_, index, argument, previous)
         end
     elseif index == 3 then
         if previous[2] == "send" then
-            return completion.choice(argument, {"subject"}, true)
-        elseif previous[2] == "reply" then
-            return completion.choice(argument, {"message"}, false)
-        end
-    elseif index == 4 then
-        if previous[2] == "send" then
-            return completion.choice(argument, {"message"}, false)
+            return completion.choice(argument, {"subject"}, false)
         end
     end
 
