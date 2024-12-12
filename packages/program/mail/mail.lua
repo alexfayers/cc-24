@@ -185,7 +185,9 @@ local function functionPagedPrintFancy(text, header)
         writeFooter(footer)
 
         for i = currentTopLine, math.min(#lines, currentTopLine + termHeight - 3) do
-            print(lines[i])
+            term.write(lines[i])
+            local _, currentY = term.getCursorPos()
+            term.setCursorPos(1, currentY + 1)
         end
     end
 
@@ -210,7 +212,7 @@ local function functionPagedPrintFancy(text, header)
             currentTopLine = math.max(1, currentTopLine - 1)
             draw()
         elseif scrollDir == -1 then
-            currentTopLine = math.min(#lines - termHeight + 1, currentTopLine + 1)
+            currentTopLine = math.min(#lines - termHeight + 3, currentTopLine + 1)
             currentTopLine = math.max(1, currentTopLine)
             draw()
         end
