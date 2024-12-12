@@ -23,6 +23,15 @@ settings.define("mail.client.local-server-hostname", {
 ---@type string
 local LOCAL_SERVER_HOSTNAME = settings.get("mail.client.local-server-hostname") or error("mail.client.local-server-hostname setting must be set", 0)
 
+settings.define("mail.client.notify-poll-interval", {
+    description = "The interval to poll for new mail",
+    type = "number",
+    default = 60,
+})
+---@type number
+local NOTIFY_POLL_INTERVAL = settings.get("mail.client.notify-poll-interval")
+
+
 local INBOX_FOLDER_NAME = "inbox"
 local OUTBOX_FOLDER_NAME = "outbox"
 
@@ -49,6 +58,8 @@ local Constants = {
 
     INBOX_FOLDER = INBOX_FOLDER,
     OUTBOX_FOLDER = OUTBOX_FOLDER,
+
+    NOTIFY_POLL_INTERVAL = NOTIFY_POLL_INTERVAL,
 }
 
 return Constants

@@ -13,8 +13,6 @@ local lib = require("lib-mail.lib")
 
 local logger = require("lexicon-lib.lib-logging").getLogger("MailServer")
 
-local NOTIFY_POLL_INTERVAL = 30
-
 
 ---@class MailServer: Server
 ---@overload fun(): MailServer
@@ -75,7 +73,7 @@ function MailServer:checkNotify()
             self:notify(unreadCount)
         end
 
-        os.sleep(NOTIFY_POLL_INTERVAL)
+        os.sleep(Constants.NOTIFY_POLL_INTERVAL)
     end
 end
 
