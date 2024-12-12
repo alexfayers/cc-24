@@ -53,10 +53,8 @@ end
 function MailServer:notify(unreadCount)
     if self.speaker then
         for _ = 1, unreadCount do
-            while not self.speaker.playSound(Constants.NOTIFY_SOUND) do
-                -- wait for the speaker to be ready again
-                os.sleep(0.5)
-            end
+            self.speaker.playSound(Constants.NOTIFY_SOUND)
+            os.pullEvent("speaker_audio_empty")
         end
     else
         logger:info("You have %d unread mails!", unreadCount)
