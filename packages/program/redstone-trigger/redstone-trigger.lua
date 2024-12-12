@@ -33,10 +33,16 @@ parser:add({"command"}, {
     doc = "The command to run when the redstone signal is received",
 })
 
+parser:add({"-s", "--switch"}, {
+    doc = "Terminate the program when the redstone signal stops",
+    required = false,
+})
+
 local args = parser:parse(table.unpack(arg))
 
 local targetSide = args.side
 local command = args.command
+local switchMode = args.switch
 
 local sides = redstone.getSides()
 
@@ -55,12 +61,31 @@ end
 
 print("Waiting for redstone signal on " .. targetSide)
 
+local function runCommand()
+    shell.run(command)
+end
+
+local function waitForSignalStop()
+    while true do
+        os.pullEvent("redstone")
+        if not redstone.getInput(targetSide) then
+            print("Signal stopped, terminating")
+            return
+        end
+    end
+end
+
 while true do
     -- wait for a redstone signal
     os.pullEvent("redstone")
 
     if redstone.getInput(targetSide) then
         print("Got input on " .. targetSide .. ", running command")
-        shell.run(command)
+
+        if switchMode then
+            parallel.waitForAny(runCommand, waitForSignalStop)
+        else
+            runCommand()
+        end
     end
 end
