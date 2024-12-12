@@ -60,11 +60,17 @@ parser:add({"-c", "--check"}, {
     required = false,
 })
 
+parser:add({"p", "--pull"}, {
+    doc = "Pull the crafted item into the output chest after crafting",
+    required = false,
+})
+
 local args = parser:parse(table.unpack(arg))
 
 local item_name = args.item_name
 local countRaw = args.count
 local doCheck = args.c
+local doPull = args.p
 
 if not countRaw then
     countRaw = "1"
@@ -75,4 +81,4 @@ if not count then
     error("Invalid count: " .. countRaw, 0)
 end
 
-crafter.craft_item(item_name, count, doCheck)
+crafter.craft_item(item_name, count, doCheck, doPull)
