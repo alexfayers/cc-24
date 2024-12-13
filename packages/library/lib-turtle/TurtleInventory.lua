@@ -277,7 +277,7 @@ function TurtleInventory:attachStorageClient()
     end
 
     local storageClient = StorageClient()
-    if storageClient.serverId then
+    if storageClient.serverIds["?"] then
         self.storageClient = storageClient
 
         if not self.remoteStorageIOChests then
