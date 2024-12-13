@@ -640,6 +640,20 @@
                 ],
                 "dependencies": [],
                 "usage": "NOTHING, IT WILL AUTO RUN"
+            },
+            "photo-print": {
+                "description": "A simple program to print photos in color",
+                "version": "1.0.0",
+                "files": [
+                    [
+                        "https://raw.githubusercontent.com/alexfayers/cc-24/<branch>/packages/program/photo-print/photo-print.lua",
+                        "photo-print.lua"
+                    ]
+                ],
+                "dependencies": [
+                    "lib-storage2-remote-client"
+                ],
+                "usage": "'photo-print'"
             }
         }
     }
