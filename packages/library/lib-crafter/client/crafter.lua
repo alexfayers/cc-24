@@ -369,15 +369,17 @@ end
 ---@alias CraftCommands (PullCommand[])[]
 ---@alias CannotFillList table<string, boolean>
 
+---@type CannotFillList
+local cannotFillList = {}
+
 ---Check if there are enough items for a single recipe in storage
 ---@param recipe Recipe The recipe to check
 ---@param craftCount number The number of times to repeat the recipe
 ---@param itemCounts StorageCountData The counts of items in storage (or not in storage)
 ---@param craftCommands CraftCommands The commands to craft the items
----@param cannotFillList CannotFillList The map of items that can't be crafted
 ---@param craftDepth number The depth of the crafting tree
----@return StorageCountData, CraftCommands, CannotFillList
-local function check_storage(recipe, craftCount, itemCounts, craftCommands, cannotFillList, craftDepth)
+---@return StorageCountData, CraftCommands
+local function check_storage(recipe, craftCount, itemCounts, craftCommands, craftDepth)
     craftCount = math.ceil(craftCount / recipe.output.count)
 
     local newItemCounts = tableHelpers.copy(itemCounts)
@@ -391,7 +393,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, cann
         recipeLoops = getRemoteItem("recipe_loops", "loops")
         if not recipeLoops then
             logger:error("Failed to get recipe loops")
-            return itemCounts, {}, cannotFillList
+            return itemCounts, {}
         end
     end
 
@@ -404,7 +406,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, cann
         local slotNumber = tonumber(slotStr)
         if slotNumber == nil then
             logger:error("Failed to parse slot number")
-            return itemCounts, {}, cannotFillList
+            return itemCounts, {}
         end
 
         local triedPullAllItems = false
@@ -478,7 +480,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, cann
                     local nextRepeatCount = math.ceil(craftCount / nextRecipe.output.count)
 
                     local postCraftItemCounts, postCraftCraftCommands
-                    postCraftItemCounts, postCraftCraftCommands, cannotFillList = check_storage(nextRecipe, nextRepeatCount, itemCounts, craftCommands, cannotFillList, craftDepth + 1)
+                    postCraftItemCounts, postCraftCraftCommands = check_storage(nextRecipe, nextRepeatCount, itemCounts, craftCommands, craftDepth + 1)
 
                     if tableHelpers.tableIsEmpty(postCraftCraftCommands) then
                         -- can't craft with this recipe
@@ -525,7 +527,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, cann
         logFunc(logger, "Couldn't fill slot %d with %s for %s", slotNumber, itemNamesString, getItemStub(recipe.output.id))
 
         do
-            return itemCounts, {}, cannotFillList
+            return itemCounts, {}
         end
 
         ::nextSlot::
@@ -538,10 +540,10 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, cann
         table.insert(nextCraftCommands, pullCommands)
     else
         -- not enough items in storage to craft the recipe
-        return itemCounts, {}, cannotFillList
+        return itemCounts, {}
     end
 
-    return newItemCounts, nextCraftCommands, cannotFillList
+    return newItemCounts, nextCraftCommands
 end
 
 
@@ -583,14 +585,11 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
 
     local didCraft = false
 
-    local cannotCraftList = {}
-
     for recipeNumber, recipe in ipairs(recipes) do
         local itemCounts = {}
         local craftCommands = {}
 
-        local recipeItemCount, recipeCraftCommands
-        recipeItemCount, recipeCraftCommands, cannotCraftList = check_storage(recipe, craftCount, itemCounts, craftCommands, cannotCraftList, 1)
+        local recipeItemCount, recipeCraftCommands = check_storage(recipe, craftCount, itemCounts, craftCommands, cannotCraftList, 1)
 
         if tableHelpers.tableIsEmpty(recipeCraftCommands) then
             logger:error("%s recipe %d/%d failed", craftItemName, recipeNumber, #recipes)
