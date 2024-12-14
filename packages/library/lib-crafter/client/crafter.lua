@@ -367,14 +367,15 @@ end
 
 ---@alias StorageCountData table<string, number?>
 ---@alias CraftCommands (PullCommand[])[]
+---@alias CannotFillList table<string, boolean>
 
 ---Check if there are enough items for a single recipe in storage
 ---@param recipe Recipe The recipe to check
 ---@param craftCount number The number of times to repeat the recipe
 ---@param itemCounts StorageCountData The counts of items in storage (or not in storage)
 ---@param craftCommands CraftCommands The commands to craft the items
----@param cannotFillList table<string, boolean> The map of items that can't be crafted
----@return StorageCountData, CraftCommands
+---@param cannotFillList CannotFillList The map of items that can't be crafted
+---@return StorageCountData, CraftCommands, CannotFillList
 local function check_storage(recipe, craftCount, itemCounts, craftCommands, cannotFillList)
     craftCount = math.ceil(craftCount / recipe.output.count)
 
@@ -389,7 +390,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, cann
         recipeLoops = getRemoteItem("recipe_loops", "loops")
         if not recipeLoops then
             logger:error("Failed to get recipe loops")
-            return itemCounts, {}
+            return itemCounts, {}, cannotFillList
         end
     end
 
@@ -402,7 +403,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, cann
         local slotNumber = tonumber(slotStr)
         if slotNumber == nil then
             logger:error("Failed to parse slot number")
-            return itemCounts, {}
+            return itemCounts, {}, cannotFillList
         end
 
         local triedPullAllItems = false
@@ -475,7 +476,8 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, cann
                 for _, nextRecipe in pairs(nextRecipes) do
                     local nextRepeatCount = math.ceil(craftCount / nextRecipe.output.count)
 
-                    local postCraftItemCounts, postCraftCraftCommands = check_storage(nextRecipe, nextRepeatCount, itemCounts, craftCommands, cannotFillList)
+                    local postCraftItemCounts, postCraftCraftCommands
+                    postCraftItemCounts, postCraftCraftCommands, cannotFillList = check_storage(nextRecipe, nextRepeatCount, itemCounts, craftCommands, cannotFillList)
 
                     if tableHelpers.tableIsEmpty(postCraftCraftCommands) then
                         -- can't craft with this recipe
@@ -522,7 +524,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, cann
         logFunc(logger, "Couldn't fill slot %d with %s for %s", slotNumber, itemNamesString, getItemStub(recipe.output.id))
 
         do
-            return itemCounts, {}
+            return itemCounts, {}, cannotFillList
         end
 
         ::nextSlot::
@@ -535,10 +537,10 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, cann
         table.insert(nextCraftCommands, pullCommands)
     else
         -- not enough items in storage to craft the recipe
-        return itemCounts, {}
+        return itemCounts, {}, cannotFillList
     end
 
-    return newItemCounts, nextCraftCommands
+    return newItemCounts, nextCraftCommands, cannotFillList
 end
 
 
@@ -580,12 +582,14 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
 
     local didCraft = false
 
+    local cannotCraftList = {}
+
     for recipeNumber, recipe in ipairs(recipes) do
         local itemCounts = {}
         local craftCommands = {}
-        local cannotCraftList = {}
 
-        local recipeItemCount, recipeCraftCommands = check_storage(recipe, craftCount, itemCounts, craftCommands, cannotCraftList)
+        local recipeItemCount, recipeCraftCommands
+        recipeItemCount, recipeCraftCommands, cannotCraftList = check_storage(recipe, craftCount, itemCounts, craftCommands, cannotCraftList)
 
         if tableHelpers.tableIsEmpty(recipeCraftCommands) then
             logger:error("%s recipe %d/%d failed", craftItemName, recipeNumber, #recipes)
