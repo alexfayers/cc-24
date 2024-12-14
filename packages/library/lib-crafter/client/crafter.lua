@@ -467,6 +467,8 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, cann
                 end
 
                 if not nextRecipes then
+                    -- recipe doesn't exist, so can't craft the item
+                    cannotFillList[slotItemName] = true
                     goto nextItem
                 end
 
