@@ -624,7 +624,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
 
             for i, requiredItem in ipairs(requiredItems[craftDepth]) do
                 if requiredItem[1] == (slotItemNameColorAmbivalent or slotItemName) then
-                    requiredItems[craftDepth][i][2] = requiredItem[2] + 1
+                    requiredItems[craftDepth][i][2] = requiredItem[2] + craftCount
                     break
                 end
             end
