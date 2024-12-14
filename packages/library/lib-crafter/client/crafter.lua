@@ -641,6 +641,9 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
             logger:error("%s recipe %d/%d failed", craftItemName, recipeNumber, #recipes)
 
             if recipeNumber == #recipes then
+                local requiredItemsString = table.concat(requiredItems, ", ")
+                logger:error("Required items: %s", requiredItemsString)
+
                 if doCheck then
                     logger:info("Can't craft %d %s", craftCount, craftItemName)
                     return true
@@ -680,9 +683,6 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
             if not success then
                 local errorMessage = craftErrors and craftErrors.error or "Unknown error"
                 logger:error("Failed to craft %s %s", craftItemName, errorMessage)
-
-                local requiredItemsString = table.concat(requiredItems, ", ")
-                logger:error("Required items: %s", requiredItemsString)
 
                 return false
             else
