@@ -478,7 +478,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
                     goto nextItem
                 end
 
-                logger:debug("Not enough %s in storage (%d/%d)", slotItemName, newItemCounts[slotItemName], craftCount)
+                logger:debug("Need to craft %d %s (already have %d)", craftCount, slotItemName, newItemCounts[slotItemName])
 
                 -- need to craft the item
                 local nextRecipes
@@ -492,6 +492,8 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
                 if not nextRecipes or #nextRecipes == 0 then
                     -- recipe doesn't exist, so can't craft the item
                     cannotFillList[slotItemName] = true
+
+                    logger:debug("%s is uncraftable", slotItemName)
 
                     local isInRequiredItems = false
                     for _, requiredItem in pairs(requiredItems) do
