@@ -375,8 +375,9 @@ end
 ---@param itemCounts StorageCountData The counts of items in storage (or not in storage)
 ---@param craftCommands CraftCommands The commands to craft the items
 ---@param cannotFillList CannotFillList The map of items that can't be crafted
+---@param craftDepth number The depth of the crafting tree
 ---@return StorageCountData, CraftCommands, CannotFillList
-local function check_storage(recipe, craftCount, itemCounts, craftCommands, cannotFillList)
+local function check_storage(recipe, craftCount, itemCounts, craftCommands, cannotFillList, craftDepth)
     craftCount = math.ceil(craftCount / recipe.output.count)
 
     local newItemCounts = tableHelpers.copy(itemCounts)
@@ -477,7 +478,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, cann
                     local nextRepeatCount = math.ceil(craftCount / nextRecipe.output.count)
 
                     local postCraftItemCounts, postCraftCraftCommands
-                    postCraftItemCounts, postCraftCraftCommands, cannotFillList = check_storage(nextRecipe, nextRepeatCount, itemCounts, craftCommands, cannotFillList)
+                    postCraftItemCounts, postCraftCraftCommands, cannotFillList = check_storage(nextRecipe, nextRepeatCount, itemCounts, craftCommands, cannotFillList, craftDepth + 1)
 
                     if tableHelpers.tableIsEmpty(postCraftCraftCommands) then
                         -- can't craft with this recipe
@@ -520,7 +521,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, cann
 
         local itemNamesString = table.concat(slotItemNames, ",")
 
-        local logFunc = #itemCounts > 0 and logger.warn or logger.error
+        local logFunc = craftDepth > 1 and logger.warn or logger.error
         logFunc(logger, "Couldn't fill slot %d with %s for %s", slotNumber, itemNamesString, getItemStub(recipe.output.id))
 
         do
@@ -589,7 +590,7 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
         local craftCommands = {}
 
         local recipeItemCount, recipeCraftCommands
-        recipeItemCount, recipeCraftCommands, cannotCraftList = check_storage(recipe, craftCount, itemCounts, craftCommands, cannotCraftList)
+        recipeItemCount, recipeCraftCommands, cannotCraftList = check_storage(recipe, craftCount, itemCounts, craftCommands, cannotCraftList, 1)
 
         if tableHelpers.tableIsEmpty(recipeCraftCommands) then
             logger:error("%s recipe %d/%d failed", craftItemName, recipeNumber, #recipes)
