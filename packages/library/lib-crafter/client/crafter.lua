@@ -536,7 +536,14 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
             goto retryPulls
         end
 
-        local itemNamesString = table.concat(slotItemNames, ",")
+        local slotItemNamesStubs = {}
+        for _, slotItemName in pairs(slotItemNames) do
+            table.insert(slotItemNamesStubs, getItemStub(slotItemName))
+        end
+
+        if #itemNamesString > 20 then
+            itemNamesString = itemNamesString:sub(1, 20) .. "..."
+        end
 
         local logFunc = craftDepth > 1 and logger.warn or logger.error
         logFunc(logger, "Couldn't fill slot %d with %s for %s (depth %d)", slotNumber, itemNamesString, getItemStub(recipe.output.id), craftDepth)
