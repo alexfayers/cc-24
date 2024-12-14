@@ -40,7 +40,6 @@ function StorageServer:init()
 
     self:initPeripherals()
 
-    self.refreshing = false
     self.lastRefresh = os.clock()
     self.needSave = false
 
@@ -81,17 +80,14 @@ end
 ---@param data? table
 ---@return boolean, RefreshData
 function StorageServer:handleRefresh(clientId, data)
-    if self.refreshing then
+    if self.storageMap.populating then
         return true
     end
-
-    self.refreshing = true
 
     self.storageMap:populate(true)
 
     self.lastRefresh = os.clock()
 
-    self.refreshing = false
     self.needSave = true
 
     return true
@@ -120,7 +116,7 @@ end
 ---@return boolean
 function StorageServer:waitForRefresh()
     local waitedTime = 0
-    while self.refreshing do
+    while self.storageMap.populating do
         os.sleep(0.05)
         waitedTime = waitedTime + 0.05
 
