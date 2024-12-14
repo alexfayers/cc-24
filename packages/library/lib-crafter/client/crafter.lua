@@ -406,6 +406,8 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
 
     local itemRecipeLoops = recipeLoops[getItemStub(recipe.output.id)]
 
+    local didSubCraft = false
+
     -- for slot in recipe inputs
     for slotStr, slotItemNames in pairs(recipe.input) do
         totalSlots = totalSlots + 1
@@ -509,6 +511,8 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
 
                     newItemCounts = postCraftItemCounts
 
+                    didSubCraft = true
+
                     if not didRetrySlotPull then
                         didRetrySlotPull = true
                         goto retrySlotPull
@@ -547,8 +551,11 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
             itemNamesString = itemNamesString:sub(1, 30) .. "..."
         end
 
-        local logFunc = craftDepth > 1 and logger.warn or logger.error
-        logFunc(logger, "Couldn't fill slot %d with %s for %s (depth %d)", slotNumber, itemNamesString, getItemStub(recipe.output.id), craftDepth)
+        if not didSubCraft or craftDepth > 1 then
+            logger:error("Couldn't fill slot %d with %s for %s (depth %d)", slotNumber, itemNamesString, getItemStub(recipe.output.id), craftDepth)
+        -- else
+        --     logger:warn("Couldn't fill slot %d with %s for %s (depth %d)", slotNumber, itemNamesString, getItemStub(recipe.output.id), craftDepth)
+        end
 
         do
             return itemCounts, {}
