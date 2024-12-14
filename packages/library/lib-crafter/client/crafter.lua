@@ -10,6 +10,8 @@ local logger = require("lexicon-lib.lib-logging").getLogger("Crafter")
 
 local BASE_URL = "https://raw.githubusercontent.com/alexfayers/cc-24/refs/heads/main/helper/autocrafter/"
 
+local FAIL_FAST = false
+
 local craftClient = CraftClient()
 local storageClient = StorageClient()
 
@@ -398,6 +400,22 @@ local minecraftColors = {
 }
 
 
+---Make color names ambivalent
+---@param itemName string The name of the item to make ambivalent
+---@return string
+local function make_color_ambivalent(itemName)
+    for _, minecraftColor in pairs(minecraftColors) do
+        if itemName:find(minecraftColor) then
+            itemName = itemName:gsub(":" .. minecraftColor, ":ANY_COLOR")
+            return itemName
+        end
+    end
+
+    return itemName
+end
+
+
+
 ---Check if there are enough items for a single recipe in storage
 ---@param recipe Recipe The recipe to check
 ---@param craftCount number The number of times to repeat the recipe
@@ -454,7 +472,8 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
         -- for item in slot
         for _, slotItemName in pairs(slotItemNames) do
             if cannotFillList[slotItemName] then
-                -- previously established that we craft this item, so there's no point trying
+                -- previously established that we craft this item (in a different run),
+                -- so there's no point trying
                 -- we also can't pull the item - if we could, we would have done so already
                 goto nextItem
             end
@@ -495,26 +514,17 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
 
                 local isInRequiredItems = false
 
-                local slotItemNameColorAmbivalent = nil
+                local slotItemNameColorAmbivalent = make_color_ambivalent(slotItemName)
 
-                for _, minecraftColor in pairs(minecraftColors) do
-                    if slotItemName:find(minecraftColor) then
-                        slotItemNameColorAmbivalent = slotItemName:gsub(minecraftColor, "ANY_COLOR")
-                        break
-                    end
-                end
-
-                for i, requiredItem in ipairs(requiredItems[craftDepth]) do
+                for _, requiredItem in ipairs(requiredItems[craftDepth]) do
                     if requiredItem[1] == (slotItemNameColorAmbivalent or slotItemName) then
                         isInRequiredItems = true
-
-                        requiredItems[craftDepth][i][2] = requiredItem[2] + 1
                         break
                     end
                 end
 
                 if not isInRequiredItems then
-                    table.insert(requiredItems[craftDepth], {(slotItemNameColorAmbivalent or slotItemName), 1})
+                    table.insert(requiredItems[craftDepth], {(slotItemNameColorAmbivalent or slotItemName), 0})
                 end
 
                 -- need to craft
@@ -592,6 +602,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
                 else
                     -- can't craft this item, try the next item
                     cannotFillList[slotItemName] = true
+
                     logger:debug("Won't retry %s", slotItemName)
                     goto nextItem
                 end
@@ -608,6 +619,15 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
         local slotItemNamesStubs = {}
         for _, slotItemName in pairs(slotItemNames) do
             table.insert(slotItemNamesStubs, getItemStub(slotItemName))
+
+            local slotItemNameColorAmbivalent = make_color_ambivalent(slotItemName)
+
+            for i, requiredItem in ipairs(requiredItems[craftDepth]) do
+                if requiredItem[1] == (slotItemNameColorAmbivalent or slotItemName) then
+                    requiredItems[craftDepth][i][2] = requiredItem[2] + 1
+                    break
+                end
+            end
         end
 
         local itemNamesString = table.concat(slotItemNamesStubs, ",")
@@ -620,7 +640,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
             logger:debug("Couldn't fill slot %d with %s for %s (depth %d)", slotNumber, itemNamesString, getItemStub(recipe.output.id), craftDepth)
         end
 
-        do
+        if FAIL_FAST then
             return itemCounts, {}
         end
 
@@ -716,6 +736,16 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
 
             local requiredItemNamesStubs = {}
             for _, requiredItem in ipairs(requiredItemsFlatUnique) do
+                -- local requiredItemHighestDepth = 0
+                -- for i, requiredItemDepth in ipairs(requiredItems) do
+                --     for _, requiredItemDepthItem in pairs(requiredItemDepth) do
+                --         if requiredItemDepthItem[1] == requiredItem[1] then
+                --             requiredItemHighestDepth = i
+                --             break
+                --         end
+                --     end
+                -- end
+
                 table.insert(requiredItemNamesStubs, getItemStub(requiredItem[1] .. " (" .. requiredItem[2] .. ")"))
             end
             local requiredItemNamesString = table.concat(requiredItemNamesStubs, ", ")
