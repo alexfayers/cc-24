@@ -69,6 +69,8 @@ end
 ---Add a new slot
 ---@param slot MapSlot The slot to add
 function Map:addSlot(slot)
+    self:waitIfPopulating()
+
     if not self.mapTable[slot.name] then
         self.mapTable[slot.name] = {}
     end
@@ -79,6 +81,8 @@ end
 ---Delete a slot list
 ---@param name string The name of the item
 function Map:deleteSlotList(name)
+    self:waitIfPopulating()
+
     self.mapTable[name] = nil
 end
 
@@ -108,6 +112,8 @@ end
 ---@param search string The regex to search for
 ---@return string[]
 function Map:searchItemNames(search)
+    self:waitIfPopulating()
+
     local results = {}
     local doTagSearch = string.sub(search, 1, 1) == "#" and string.len(search) > 1
 
@@ -139,6 +145,8 @@ end
 ---@param name string The name of the item
 ---@return MapSlot[]
 function Map:getItemSlots(name)
+    self:waitIfPopulating()
+
     return self.mapTable[name] or {}
 end
 
@@ -147,6 +155,8 @@ end
 ---@param tag string The tag to search for
 ---@return MapSlot[]
 function Map:getItemSlotsByTag(tag)
+    self:waitIfPopulating()
+
     local results = {}
     for _, slots in pairs(self.mapTable) do
         for _, slot in ipairs(slots) do
@@ -263,6 +273,8 @@ end
 ---Get a list of all name stubs in the map
 ---@return string[]
 function Map:getAllItemStubs()
+    self:waitIfPopulating()
+
     local itemStubs = {}
     for name, _ in pairs(self.mapTable) do
         if name ~= MapSlot.EMPTY_SLOT_NAME then
@@ -306,6 +318,8 @@ end
 ---Get all slots in the map
 ---@return MapSlot[]
 function Map:getAllSlots()
+    self:waitIfPopulating()
+
     local slots = {}
     for _, slotList in pairs(self.mapTable) do
         for _, slot in ipairs(slotList) do
@@ -331,12 +345,16 @@ end
 
 ---Clear the current map
 function Map:clear()
+    self:waitIfPopulating()
+
     self.mapTable = {}
 end
 
 
 ---Order the empty slots by chestName and slot
 function Map:orderEmptySlots()
+    self:waitIfPopulating()
+
     local emptySlots = self:getItemSlots(MapSlot.EMPTY_SLOT_NAME)
     table.sort(emptySlots, function(a, b)
         if a.chestName == b.chestName then
