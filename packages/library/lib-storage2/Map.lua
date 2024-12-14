@@ -39,6 +39,8 @@ function Map:init(chests)
 
     self:populate()
     self:loadFilters()
+
+    self.populating = false
 end
 
 
@@ -466,9 +468,9 @@ function Map:checkDiffs()
 end
 
 
----Populate the map with the items in the chests
+---Populate the map with the items in the chests (unwrapped version)
 ---@param force? boolean Whether to force a repopulation
-function Map:populate(force)
+function Map:_populate(force)
     if not force and self:load() then
         return
     end
@@ -538,8 +540,41 @@ function Map:populate(force)
 end
 
 
+---Populate the map with the items in the chests (wrapped version that updates the populating flag)
+---@param force? boolean Whether to force a repopulation
+function Map:populate(force)
+    self.populating = true
+    self:_populate(force)
+    self.populating = false
+end
+
+
+---Wait for the map to finish populating
+---@return boolean _ Whether the map was populated successfully
+function Map:waitIfPopulating()
+    local waitedTime = 0
+    local waitSlice = 0.05
+    while self.populating do
+        os.sleep(waitSlice)
+        waitedTime = waitedTime + waitSlice
+        if waitedTime % 2 == 0 then
+            logger:warn("Waiting for map to populate...")
+        end
+
+        if waitedTime > 10 then
+            logger:error("Waited too long for map to populate")
+            return false
+        end
+    end
+
+    return true
+end
+
+
 ---Save the map to a file
 function Map:save()
+    self:waitIfPopulating()
+
     self:orderEmptySlots()
 
     local serialized = {}
