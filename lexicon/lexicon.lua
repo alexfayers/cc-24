@@ -266,6 +266,20 @@ local function downloadPackage(packageName, parentPackage, previouslyDownloadedP
 
                 CURRENT_HTTP_TASKS = CURRENT_HTTP_TASKS - 1
 
+                local existingContent = nil
+                if fs.exists(downloadPath) then
+                    local f = fs.open(downloadPath, "r")
+                    if not f then
+                        error("Failed to open file for reading: " .. downloadPath, 0)
+                    end
+                    existingContent = f.readAll()
+                    f.close()
+                end
+
+                if existingContent == fileContents then
+                    return
+                end
+
                 local f = fs.open(downloadPath, "w")
                 if not f then
                     error("Failed to open file for writing: " .. downloadPath, 0)
@@ -274,6 +288,10 @@ local function downloadPackage(packageName, parentPackage, previouslyDownloadedP
                 f.close()
 
                 table.insert(downloadedFiles, downloadPath)
+
+                term.setTextColor(colors.yellow)
+                print("Got " .. fs.getName(downloadPath))
+                term.setTextColor(colors.white)
             else
                 CURRENT_HTTP_TASKS = CURRENT_HTTP_TASKS - 1
                 error("Failed to download file from " .. sourceUrl, 0)
