@@ -373,9 +373,9 @@ end
 ---@param craftCount number The number of times to repeat the recipe
 ---@param itemCounts StorageCountData The counts of items in storage (or not in storage)
 ---@param craftCommands CraftCommands The commands to craft the items
----@param cannotCraftList table<string, boolean> The map of items that can't be crafted
+---@param cannotFillList table<string, boolean> The map of items that can't be crafted
 ---@return StorageCountData, CraftCommands
-local function check_storage(recipe, craftCount, itemCounts, craftCommands, cannotCraftList)
+local function check_storage(recipe, craftCount, itemCounts, craftCommands, cannotFillList)
     craftCount = math.ceil(craftCount / recipe.output.count)
 
     local newItemCounts = tableHelpers.copy(itemCounts)
@@ -411,7 +411,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, cann
 
         -- for item in slot
         for _, slotItemName in pairs(slotItemNames) do
-            if cannotCraftList[slotItemName] then
+            if cannotFillList[slotItemName] then
                 -- previously established that we craft this item, so there's no point trying
                 -- we also can't pull the item - if we could, we would have done so already
                 goto nextItem
@@ -473,7 +473,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, cann
                 for _, nextRecipe in pairs(nextRecipes) do
                     local nextRepeatCount = math.ceil(craftCount / nextRecipe.output.count)
 
-                    local postCraftItemCounts, postCraftCraftCommands = check_storage(nextRecipe, nextRepeatCount, itemCounts, craftCommands, cannotCraftList)
+                    local postCraftItemCounts, postCraftCraftCommands = check_storage(nextRecipe, nextRepeatCount, itemCounts, craftCommands, cannotFillList)
 
                     if tableHelpers.tableIsEmpty(postCraftCraftCommands) then
                         -- can't craft with this recipe
@@ -497,11 +497,11 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, cann
                 -- tried all the recipes for this item
                 if not tableHelpers.tableIsEmpty(nextCraftCommands) then
                     -- can craft the item
-                    cannotCraftList[slotItemName] = nil
+                    cannotFillList[slotItemName] = nil
                     goto nextSlot
                 else
                     -- can't craft this item, try the next item
-                    cannotCraftList[slotItemName] = true
+                    cannotFillList[slotItemName] = true
                     goto nextItem
                 end
             end
