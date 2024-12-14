@@ -190,7 +190,9 @@ local function fetch_recipe_remote(itemName)
         return
     end
 
-    for _, subRecipeTable in ipairs(recipeTable) do
+    local emptyRecipeIndexes = {}
+
+    for subRecipeIndex, subRecipeTable in ipairs(recipeTable) do
         for slotStr, slotItemNames in pairs(subRecipeTable.input) do
             local slotItems = {}
     
@@ -204,17 +206,28 @@ local function fetch_recipe_remote(itemName)
                     end
     
                     for _, tagItem in pairs(tagItems) do
-                        table.insert(slotItems, tagItem)
+                        if tagItem ~= subRecipeTable.output.id then
+                            table.insert(slotItems, tagItem)
+                        end
                     end
                 else
-                    table.insert(slotItems, slotItemName)
+                    if slotItemName ~= subRecipeTable.output.id then
+                        table.insert(slotItems, slotItemName)
+                    end
                 end
             end
-    
+
+            if tableHelpers.tableIsEmpty(slotItems) then
+                emptyRecipeIndexes[subRecipeIndex] = true
+            end
+
             subRecipeTable.input[slotStr] = slotItems
         end
     end
 
+    for emptyRecipeIndex, _ in pairs(emptyRecipeIndexes) do
+        table.remove(recipeTable, emptyRecipeIndex)
+    end
 
     return recipeTable
 end
