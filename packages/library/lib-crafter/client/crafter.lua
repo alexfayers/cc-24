@@ -550,6 +550,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
                 else
                     -- can't craft this item, try the next item
                     cannotFillList[slotItemName] = true
+                    logger:debug("Won't retry %s", slotItemName)
                     goto nextItem
                 end
             end
