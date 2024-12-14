@@ -1,0 +1,42 @@
+[
+    {
+        "input": {
+            "7": [
+                "loadmychunks:tickometer"
+            ],
+            "5": [
+                "loadmychunks:dimensional_locator"
+            ],
+            "2": [
+                "loadmychunks:player_spoofer"
+            ],
+            "6": [
+                "minecraft:obsidian"
+            ],
+            "9": [
+                "minecraft:obsidian"
+            ],
+            "10": [
+                "minecraft:obsidian"
+            ],
+            "11": [
+                "minecraft:obsidian"
+            ]
+        },
+        "output": {
+            "id": "loadmychunks:chunk_loader",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "#loadmychunks:chunk_loaders"
+            ]
+        },
+        "output": {
+            "id": "loadmychunks:chunk_loader",
+            "count": 1
+        }
+    }
+]

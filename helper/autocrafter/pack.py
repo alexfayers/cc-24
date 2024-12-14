@@ -144,7 +144,9 @@ def prepare_recipe(recipe: dict) -> Optional[dict]:
     recipe_id = recipe["result"]["id"]
     count = recipe["result"].get("count", None)
     if not count:
-        return
+        print(f"Force count to 1 for {recipe_id}")
+        count = 1
+        # return
 
     prepared_recipe = {
         "input": recipe_map,

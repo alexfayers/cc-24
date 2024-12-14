@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "3": [
+                "minecraft:glowstone_dust"
+            ],
+            "9": [
+                "minecraft:glowstone_dust"
+            ],
+            "6": [
+                "minecraft:emerald"
+            ],
+            "1": [
+                "loadmychunks:diamond_wire"
+            ],
+            "2": [
+                "loadmychunks:diamond_wire"
+            ],
+            "5": [
+                "loadmychunks:diamond_wire"
+            ],
+            "7": [
+                "loadmychunks:diamond_wire"
+            ],
+            "10": [
+                "loadmychunks:diamond_wire"
+            ],
+            "11": [
+                "loadmychunks:diamond_wire"
+            ]
+        },
+        "output": {
+            "id": "loadmychunks:player_spoofer",
+            "count": 1
+        }
+    }
+]

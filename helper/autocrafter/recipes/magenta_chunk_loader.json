@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "#loadmychunks:chunk_loaders"
+            ],
+            "2": [
+                "minecraft:magenta_dye"
+            ]
+        },
+        "output": {
+            "id": "loadmychunks:magenta_chunk_loader",
+            "count": 1
+        }
+    }
+]
