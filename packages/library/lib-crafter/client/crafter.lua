@@ -373,7 +373,9 @@ end
 ---@type CannotFillList
 local cannotFillList = {}
 
----@type table<number, string[]>
+---@alias RequiredItem { [1]: string, [2]: integer }
+
+---@type table<number, RequiredItem[]>
 local requiredItems = {}
 
 local minecraftColors = {
@@ -502,15 +504,17 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
                     end
                 end
 
-                for _, requiredItem in pairs(requiredItems[craftDepth]) do
-                    if requiredItem == (slotItemNameColorAmbivalent or slotItemName) then
+                for i, requiredItem in ipairs(requiredItems[craftDepth]) do
+                    if requiredItem[1] == (slotItemNameColorAmbivalent or slotItemName) then
                         isInRequiredItems = true
+
+                        requiredItems[craftDepth][i][2] = requiredItem[2] + 1
                         break
                     end
                 end
 
                 if not isInRequiredItems then
-                    table.insert(requiredItems[craftDepth], (slotItemNameColorAmbivalent or slotItemName))
+                    table.insert(requiredItems[craftDepth], {(slotItemNameColorAmbivalent or slotItemName), 1})
                 end
 
                 -- need to craft
@@ -683,16 +687,26 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
 
         if tableHelpers.tableIsEmpty(recipeCraftCommands) then
             -- a flattened and unique list of required items
+            ---@type RequiredItem[]
             local requiredItemsFlatUnique = {}
 
-            for _, requiredItemDepth in pairs(requiredItems) do
-                for _, requiredItemName in pairs(requiredItemDepth) do
-                    if not tableHelpers.valuesContain(requiredItemsFlatUnique, requiredItemName) then
-                        table.insert(requiredItemsFlatUnique, requiredItemName)
+            for _, requiredItemDepth in ipairs(requiredItems) do
+                for _, requiredItem in pairs(requiredItemDepth) do
+                    local foundUnique = false
+                    for _, requiredItemNameFlatUniqueItem in pairs(requiredItemsFlatUnique) do
+                        if requiredItemNameFlatUniqueItem[1] == requiredItem[1] then
+                            foundUnique = true
+                            break
+                        end
+                    end
+
+                    if not foundUnique then
+                        table.insert(requiredItemsFlatUnique, requiredItem)
                     end
                 end
             end
 
+            ---@type RequiredItem[]
             local requiredItemsFlatUniqueReversed = {}
             for i = #requiredItemsFlatUnique, 1, -1 do
                 table.insert(requiredItemsFlatUniqueReversed, requiredItemsFlatUnique[i])
@@ -701,8 +715,8 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
             requiredItemsFlatUnique = requiredItemsFlatUniqueReversed
 
             local requiredItemNamesStubs = {}
-            for _, requiredItemName in ipairs(requiredItemsFlatUnique) do
-                table.insert(requiredItemNamesStubs, getItemStub(requiredItemName))
+            for _, requiredItem in ipairs(requiredItemsFlatUnique) do
+                table.insert(requiredItemNamesStubs, getItemStub(requiredItem[1] .. " (" .. requiredItem[2] .. ")"))
             end
             local requiredItemNamesString = table.concat(requiredItemNamesStubs, ", ")
 
