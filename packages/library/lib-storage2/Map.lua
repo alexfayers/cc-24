@@ -312,9 +312,12 @@ end
 
 
 ---Get all slots in the map
+---@param skipWaitPopulate? boolean Whether to skip waiting for the map to populate
 ---@return MapSlot[]
-function Map:getAllSlots()
-    self:waitIfPopulating()
+function Map:getAllSlots(skipWaitPopulate)
+    if not skipWaitPopulate then
+        self:waitIfPopulating()
+    end
 
     local slots = {}
     for _, slotList in pairs(self.mapTable) do
@@ -359,9 +362,10 @@ end
 
 
 ---Compress the map to reduce the number of empty slots. Essentially, will create as many full stacks as possible.
+---@param skipWaitPopulate boolean Whether the map is currently populating
 ---@return boolean _ Whether any changes were made
-function Map:compress()
-    local allSlots = self:getAllSlots()
+function Map:compress(skipWaitPopulate)
+    local allSlots = self:getAllSlots(skipWaitPopulate)
 
     local nonEmptyNotFullSlots = tableHelpers.filterTable(allSlots, function(slot)
         return slot.isFull == false and slot.name ~= MapSlot.EMPTY_SLOT_NAME
@@ -542,7 +546,7 @@ function Map:_populate(force)
     end
 
 
-    while self:compress() do
+    while self:compress(true) do
         -- keep compressing until we can't compress anymore
     end
 
