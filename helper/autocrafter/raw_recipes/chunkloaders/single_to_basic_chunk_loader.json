@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "AAA",
+    "AAA"
+  ],
+  "key": {
+    "A": "chunkloaders:single_chunk_loader"
+  },
+  "result": {
+    "id": "chunkloaders:basic_chunk_loader"
+  }
+}

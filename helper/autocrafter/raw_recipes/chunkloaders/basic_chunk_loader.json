@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "BCB",
+    "ABA"
+  ],
+  "key": {
+    "A": "#c:ingots/iron",
+    "B": "minecraft:obsidian",
+    "C": "minecraft:ender_pearl"
+  },
+  "result": {
+    "id": "chunkloaders:basic_chunk_loader"
+  }
+}

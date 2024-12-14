@@ -50,6 +50,8 @@ def ingredient_to_string(ingredient: dict) -> str | list[str]:
     elif isinstance(ingredient, list):
         return [ingredient_to_string(v) for v in ingredient]
 
+    elif isinstance(ingredient, str):
+        return ingredient
     else:
         raise Exception(f"Unknown ingredient type: {ingredient}")
 

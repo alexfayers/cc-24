@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "CDC",
+    "ABA"
+  ],
+  "key": {
+    "A": "#c:dusts/redstone",
+    "B": "#c:gems/diamond",
+    "C": "minecraft:ender_eye",
+    "D": "chunkloaders:advanced_chunk_loader"
+  },
+  "result": {
+    "id": "chunkloaders:ultimate_chunk_loader"
+  }
+}
