@@ -373,8 +373,28 @@ end
 ---@type CannotFillList
 local cannotFillList = {}
 
----@type string[]
+---@type table<number, string[]>
 local requiredItems = {}
+
+local minecraftColors = {
+    "white",
+    "orange",
+    "magenta",
+    "light_blue",
+    "yellow",
+    "lime",
+    "pink",
+    "light_gray",
+    "gray",
+    "cyan",
+    "purple",
+    "blue",
+    "brown",
+    "green",
+    "red",
+    "black",
+}
+
 
 ---Check if there are enough items for a single recipe in storage
 ---@param recipe Recipe The recipe to check
@@ -410,6 +430,10 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
     local itemRecipeLoops = recipeLoops[getItemStub(recipe.output.id)]
 
     local didSubCraft = false
+
+    if requiredItems[craftDepth] == nil then
+        requiredItems[craftDepth] = {}
+    end
 
     -- for slot in recipe inputs
     for slotStr, slotItemNames in pairs(recipe.input) do
@@ -466,6 +490,29 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
                     -- not tried all the pulls yet, so don't try crafting yet
                     goto nextItem
                 end
+
+                local isInRequiredItems = false
+
+                local slotItemNameColorAmbivalent = nil
+
+                for _, minecraftColor in pairs(minecraftColors) do
+                    if slotItemName:find(minecraftColor) then
+                        slotItemNameColorAmbivalent = slotItemName:gsub(minecraftColor, "ANY_COLOR")
+                        break
+                    end
+                end
+
+                for _, requiredItem in pairs(requiredItems[craftDepth]) do
+                    if requiredItem == (slotItemNameColorAmbivalent or slotItemName) then
+                        isInRequiredItems = true
+                        break
+                    end
+                end
+
+                if not isInRequiredItems then
+                    table.insert(requiredItems[craftDepth], (slotItemNameColorAmbivalent or slotItemName))
+                end
+
                 -- need to craft
                 if itemRecipeLoops and tableHelpers.valuesContain(itemRecipeLoops, getItemStub(slotItemName)) then
                     goto nextItem
@@ -495,23 +542,12 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
 
                     logger:debug("%s is uncraftable", slotItemName)
 
-                    local isInRequiredItems = false
-                    for _, requiredItem in pairs(requiredItems) do
-                        if requiredItem == slotItemName then
-                            isInRequiredItems = true
-                            break
-                        end
-                    end
-
-                    if not isInRequiredItems then
-                        table.insert(requiredItems, slotItemName)
-                    end
-
                     goto nextItem
                 end
 
                 for _, nextRecipe in pairs(nextRecipes) do
                     local nextRepeatCount = math.ceil(craftCount / nextRecipe.output.count)
+                    local nextTotalCraftCount = nextRecipe.output.count * craftCount
 
                     local postCraftItemCounts, postCraftCraftCommands
 
@@ -519,13 +555,15 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
 
                     if tableHelpers.tableIsEmpty(postCraftCraftCommands) then
                         -- can't craft with this recipe
-                        logger:debug("Can't craft %d %s", craftCount, slotItemName)
+                        logger:debug("Can't craft %d %s", nextTotalCraftCount, slotItemName)
 
                         -- logger:error("Failed to get pre-craft commands for %s", slotItemName)
                         goto nextRecipeLoop
                     end
 
-                    logger:debug("Crafted %d %s", craftCount, slotItemName)
+                    logger:debug("Crafted %d %s", nextTotalCraftCount, slotItemName)
+
+                    table.remove(requiredItems[craftDepth], #requiredItems[craftDepth])
 
                     for i, command in ipairs(postCraftCraftCommands) do
                         table.insert(nextCraftCommands, i, command)
@@ -575,9 +613,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
         end
 
         if not didSubCraft or craftDepth > 1 then
-            logger:warn("Couldn't fill slot %d with %s for %s (depth %d)", slotNumber, itemNamesString, getItemStub(recipe.output.id), craftDepth)
-        -- else
-        --     logger:warn("Couldn't fill slot %d with %s for %s (depth %d)", slotNumber, itemNamesString, getItemStub(recipe.output.id), craftDepth)
+            logger:debug("Couldn't fill slot %d with %s for %s (depth %d)", slotNumber, itemNamesString, getItemStub(recipe.output.id), craftDepth)
         end
 
         do
@@ -646,15 +682,38 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
         local recipeItemCount, recipeCraftCommands = check_storage(recipe, craftCount, itemCounts, craftCommands, 1, {})
 
         if tableHelpers.tableIsEmpty(recipeCraftCommands) then
-            logger:error("%s recipe %d/%d failed", craftItemName, recipeNumber, #recipes)
+            -- a flattened and unique list of required items
+            local requiredItemsFlatUnique = {}
 
-            local requiredItemsStubs = {}
-            for _, requiredItem in pairs(requiredItems) do
-                table.insert(requiredItemsStubs, getItemStub(requiredItem))
+            for _, requiredItemDepth in pairs(requiredItems) do
+                for _, requiredItemName in pairs(requiredItemDepth) do
+                    if not tableHelpers.valuesContain(requiredItemsFlatUnique, requiredItemName) then
+                        table.insert(requiredItemsFlatUnique, requiredItemName)
+                    end
+                end
             end
-            local requiredItemsString = table.concat(requiredItemsStubs, ", ")
 
-            logger:error("Required items: %s", requiredItemsString)
+            local requiredItemsFlatUniqueReversed = {}
+            for i = #requiredItemsFlatUnique, 1, -1 do
+                table.insert(requiredItemsFlatUniqueReversed, requiredItemsFlatUnique[i])
+            end
+
+            requiredItemsFlatUnique = requiredItemsFlatUniqueReversed
+
+            local requiredItemNamesStubs = {}
+            for _, requiredItemName in ipairs(requiredItemsFlatUnique) do
+                local requiredItemHighestDepth = 1
+                for depth, requiredItemDepth in pairs(requiredItems) do
+                    if tableHelpers.valuesContain(requiredItemDepth, requiredItemName) then
+                        requiredItemHighestDepth = math.max(requiredItemHighestDepth, depth)
+                    end
+                end
+
+                table.insert(requiredItemNamesStubs, getItemStub(requiredItemName) .. " (d:" .. requiredItemHighestDepth .. ")")
+            end
+            local requiredItemNamesString = table.concat(requiredItemNamesStubs, ", ")
+
+            logger:error("%s recipe %d/%d failed (need: %s)", craftItemName, recipeNumber, #recipes, requiredItemNamesString)
 
             requiredItems = {}
 
