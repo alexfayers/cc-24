@@ -589,7 +589,7 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
         local itemCounts = {}
         local craftCommands = {}
 
-        local recipeItemCount, recipeCraftCommands = check_storage(recipe, craftCount, itemCounts, craftCommands, cannotCraftList, 1)
+        local recipeItemCount, recipeCraftCommands = check_storage(recipe, craftCount, itemCounts, craftCommands, 1)
 
         if tableHelpers.tableIsEmpty(recipeCraftCommands) then
             logger:error("%s recipe %d/%d failed", craftItemName, recipeNumber, #recipes)
