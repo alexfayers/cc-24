@@ -139,9 +139,12 @@ end
 
 ---Get the slots that contain a specific item
 ---@param name string The name of the item
+---@param skipWaitPopulate boolean Whether the map is currently populating
 ---@return MapSlot[]
-function Map:getItemSlots(name)
-    self:waitIfPopulating()
+function Map:getItemSlots(name, skipWaitPopulate)
+    if not skipWaitPopulate then
+        self:waitIfPopulating()
+    end
 
     return self.mapTable[name] or {}
 end
@@ -349,8 +352,9 @@ end
 
 
 ---Order the empty slots by chestName and slot
-function Map:orderEmptySlots()
-    local emptySlots = self:getItemSlots(MapSlot.EMPTY_SLOT_NAME)
+---@param skipWaitPopulate boolean Whether the map is currently populating
+function Map:orderEmptySlots(skipWaitPopulate)
+    local emptySlots = self:getItemSlots(MapSlot.EMPTY_SLOT_NAME, skipWaitPopulate)
     table.sort(emptySlots, function(a, b)
         if a.chestName == b.chestName then
             return a.slot < b.slot
@@ -550,7 +554,7 @@ function Map:_populate(force)
         -- keep compressing until we can't compress anymore
     end
 
-    self:orderEmptySlots()
+    self:orderEmptySlots(true)
 end
 
 
