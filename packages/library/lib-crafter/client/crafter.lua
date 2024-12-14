@@ -489,7 +489,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
                     nextRecipes = fetch_recipe_remote(slotItemName)
                 end
 
-                if not nextRecipes then
+                if not nextRecipes or #nextRecipes == 0 then
                     -- recipe doesn't exist, so can't craft the item
                     cannotFillList[slotItemName] = true
 
