@@ -543,8 +543,8 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
 
         local itemNamesString = table.concat(slotItemNamesStubs, ",")
 
-        if #itemNamesString > 20 then
-            itemNamesString = itemNamesString:sub(1, 20) .. "..."
+        if #itemNamesString > 30 then
+            itemNamesString = itemNamesString:sub(1, 30) .. "..."
         end
 
         local logFunc = craftDepth > 1 and logger.warn or logger.error
