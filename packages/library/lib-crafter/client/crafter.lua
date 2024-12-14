@@ -411,6 +411,12 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, cann
 
         -- for item in slot
         for _, slotItemName in pairs(slotItemNames) do
+            if cannotCraftList[slotItemName] then
+                -- previously established that we craft this item, so there's no point trying
+                -- we also can't pull the item - if we could, we would have done so already
+                goto nextItem
+            end
+
             if newItemCounts[slotItemName] == nil then
                 -- we don't have the count for this item yet
                 local itemCountRes, itemCountData = storageClient:getItemCount(slotItemName)
@@ -440,11 +446,6 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, cann
 
                 goto nextSlot
             else
-                if cannotCraftList[slotItemName] then
-                    -- previously established that we craft this item, so there's no point trying
-                    goto nextItem
-                end
-
                 if not triedPullAllItems then
                     -- not tried all the pulls yet, so don't try crafting yet
                     goto nextItem
