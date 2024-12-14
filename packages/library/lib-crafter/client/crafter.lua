@@ -425,7 +425,7 @@ end
 ---@param previousCraftAttempts PreviousCraftAttempts List of items that have been attempted to craft (used to prevent loops)
 ---@return StorageCountData, CraftCommands
 local function check_storage(recipe, craftCount, itemCounts, craftCommands, craftDepth, previousCraftAttempts)
-    if craftDepth > 20 then
+    if craftDepth > 30 then
         logger:error("Crafting depth too high, aborting")
         return itemCounts, {}
     end
