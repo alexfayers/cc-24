@@ -541,6 +541,8 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
             table.insert(slotItemNamesStubs, getItemStub(slotItemName))
         end
 
+        local itemNamesString = table.concat(slotItemNamesStubs, ",")
+
         if #itemNamesString > 20 then
             itemNamesString = itemNamesString:sub(1, 20) .. "..."
         end
