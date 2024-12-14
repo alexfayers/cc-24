@@ -77,8 +77,13 @@ end
 
 ---Print a photo
 ---@param imagePath string The path to the image
+---@param printChar string The character to print the image with
 ---@return boolean Whether the image was printed
-local function printPhoto(imagePath)
+local function printPhoto(imagePath, printChar)
+    if #printChar ~= 1 then
+        error("Print character must be a single character", 0)
+    end
+
     local printer = peripheral.find("printer")
     if not printer then
         error("No printer found", 0)
@@ -147,12 +152,12 @@ local function printPhoto(imagePath)
                         local prevTextColor = term.getTextColor()
                         term.setCursorPos(x, y + 1)
                         term.setTextColor(pixelColor)
-                        term.write("#")
+                        term.write(printChar)
                         term.setTextColor(prevTextColor)
                     end
 
                     printer.setCursorPos(x, y)
-                    printer.write("#")
+                    printer.write(printChar)
                 end
             end
         end
@@ -181,8 +186,8 @@ local function printPhoto(imagePath)
 end
 
 
-if #arg < 1 then
-    printError("Usage: photo-print <image>")
+if #arg < 2 then
+    printError("Usage: photo-print <image> <print character>")
     return
 end
 
@@ -194,4 +199,4 @@ local complete = shell_completion.build(
 shell.setCompletionFunction(shell.getRunningProgram(), complete)
 
 
-printPhoto(arg[1])
+printPhoto(arg[1], arg[2])
