@@ -438,8 +438,6 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
                 goto nextItem
             end
 
-            previousCraftAttempts[getItemStub(recipe.output.id)] = true
-
             if newItemCounts[slotItemName] == nil then
                 -- we don't have the count for this item yet
                 local itemCountRes, itemCountData = storageClient:getItemCount(slotItemName)
@@ -520,6 +518,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
                     if tableHelpers.tableIsEmpty(postCraftCraftCommands) then
                         -- can't craft with this recipe
                         logger:debug("Can't craft %d %s", craftCount, slotItemName)
+                        previousCraftAttempts[getItemStub(recipe.output.id)] = true
 
                         -- logger:error("Failed to get pre-craft commands for %s", slotItemName)
                         goto nextRecipeLoop
