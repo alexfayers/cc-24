@@ -524,7 +524,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
         local itemNamesString = table.concat(slotItemNames, ",")
 
         local logFunc = craftDepth > 1 and logger.warn or logger.error
-        logFunc(logger, "Couldn't fill slot %d with %s for %s", slotNumber, itemNamesString, getItemStub(recipe.output.id))
+        logFunc(logger, "Couldn't fill slot %d with %s for %s (depth %d)", slotNumber, itemNamesString, getItemStub(recipe.output.id), craftDepth)
 
         do
             return itemCounts, {}
