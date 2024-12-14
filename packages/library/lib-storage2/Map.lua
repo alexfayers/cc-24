@@ -139,7 +139,7 @@ end
 
 ---Get the slots that contain a specific item
 ---@param name string The name of the item
----@param skipWaitPopulate boolean Whether the map is currently populating
+---@param skipWaitPopulate? boolean Whether the map is currently populating
 ---@return MapSlot[]
 function Map:getItemSlots(name, skipWaitPopulate)
     if not skipWaitPopulate then
@@ -352,7 +352,7 @@ end
 
 
 ---Order the empty slots by chestName and slot
----@param skipWaitPopulate boolean Whether the map is currently populating
+---@param skipWaitPopulate? boolean Whether the map is currently populating
 function Map:orderEmptySlots(skipWaitPopulate)
     local emptySlots = self:getItemSlots(MapSlot.EMPTY_SLOT_NAME, skipWaitPopulate)
     table.sort(emptySlots, function(a, b)
