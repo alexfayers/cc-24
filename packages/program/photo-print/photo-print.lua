@@ -1,5 +1,7 @@
 ---Program to print computercraft nfp images
 package.path = package.path .. ";/usr/lib/?.lua"
+local completion = require("cc.completion")
+local shell_completion = require("cc.shell.completion")
 require("lib-storage2.remote.StorageClient")
 
 
@@ -183,5 +185,13 @@ if #arg < 1 then
     printError("Usage: photo-print <image>")
     return
 end
+
+local complete = shell_completion.build(
+    shell_completion.file
+)
+
+---@diagnostic disable-next-line: param-type-mismatch
+shell.setCompletionFunction(shell.getRunningProgram(), complete)
+
 
 printPhoto(arg[1])
