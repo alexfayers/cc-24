@@ -640,10 +640,17 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
         if tableHelpers.tableIsEmpty(recipeCraftCommands) then
             logger:error("%s recipe %d/%d failed", craftItemName, recipeNumber, #recipes)
 
-            if recipeNumber == #recipes then
-                local requiredItemsString = table.concat(requiredItems, ", ")
-                logger:error("Required items: %s", requiredItemsString)
+            local requiredItemsStubs = {}
+            for _, requiredItem in pairs(requiredItems) do
+                table.insert(requiredItemsStubs, getItemStub(requiredItem))
+            end
+            local requiredItemsString = table.concat(requiredItemsStubs, ", ")
 
+            logger:error("Required items: %s", requiredItemsString)
+
+            requiredItems = {}
+
+            if recipeNumber == #recipes then
                 if doCheck then
                     logger:info("Can't craft %d %s", craftCount, craftItemName)
                     return true
