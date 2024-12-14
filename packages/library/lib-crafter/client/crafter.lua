@@ -368,6 +368,7 @@ end
 ---@alias StorageCountData table<string, number?>
 ---@alias CraftCommands (PullCommand[])[]
 ---@alias CannotFillList table<string, boolean>
+---@alias PreviousCraftAttempts table<string, boolean>
 
 ---@type CannotFillList
 local cannotFillList = {}
@@ -378,8 +379,9 @@ local cannotFillList = {}
 ---@param itemCounts StorageCountData The counts of items in storage (or not in storage)
 ---@param craftCommands CraftCommands The commands to craft the items
 ---@param craftDepth number The depth of the crafting tree
+---@param previousCraftAttempts PreviousCraftAttempts List of items that have been attempted to craft (used to prevent loops)
 ---@return StorageCountData, CraftCommands
-local function check_storage(recipe, craftCount, itemCounts, craftCommands, craftDepth)
+local function check_storage(recipe, craftCount, itemCounts, craftCommands, craftDepth, previousCraftAttempts)
     if craftDepth > 20 then
         logger:error("Crafting depth too high, aborting")
         return itemCounts, {}
@@ -425,6 +427,13 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
                 -- we also can't pull the item - if we could, we would have done so already
                 goto nextItem
             end
+
+            if previousCraftAttempts[getItemStub(slotItemName)] then
+                -- we've already tried to craft this item, so don't try again (to prevent loops)
+                goto nextItem
+            end
+
+            previousCraftAttempts[getItemStub(recipe.output.id)] = true
 
             if newItemCounts[slotItemName] == nil then
                 -- we don't have the count for this item yet
@@ -485,7 +494,8 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
                     local nextRepeatCount = math.ceil(craftCount / nextRecipe.output.count)
 
                     local postCraftItemCounts, postCraftCraftCommands
-                    postCraftItemCounts, postCraftCraftCommands = check_storage(nextRecipe, nextRepeatCount, itemCounts, craftCommands, craftDepth + 1)
+
+                    postCraftItemCounts, postCraftCraftCommands = check_storage(nextRecipe, nextRepeatCount, itemCounts, craftCommands, craftDepth + 1, previousCraftAttempts)
 
                     if tableHelpers.tableIsEmpty(postCraftCraftCommands) then
                         -- can't craft with this recipe
@@ -594,7 +604,7 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
         local itemCounts = {}
         local craftCommands = {}
 
-        local recipeItemCount, recipeCraftCommands = check_storage(recipe, craftCount, itemCounts, craftCommands, 1)
+        local recipeItemCount, recipeCraftCommands = check_storage(recipe, craftCount, itemCounts, craftCommands, 1, {})
 
         if tableHelpers.tableIsEmpty(recipeCraftCommands) then
             logger:error("%s recipe %d/%d failed", craftItemName, recipeNumber, #recipes)
