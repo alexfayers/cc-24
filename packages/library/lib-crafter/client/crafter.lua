@@ -702,14 +702,7 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
 
             local requiredItemNamesStubs = {}
             for _, requiredItemName in ipairs(requiredItemsFlatUnique) do
-                local requiredItemHighestDepth = 1
-                for depth, requiredItemDepth in pairs(requiredItems) do
-                    if tableHelpers.valuesContain(requiredItemDepth, requiredItemName) then
-                        requiredItemHighestDepth = math.max(requiredItemHighestDepth, depth)
-                    end
-                end
-
-                table.insert(requiredItemNamesStubs, getItemStub(requiredItemName) .. " (d:" .. requiredItemHighestDepth .. ")")
+                table.insert(requiredItemNamesStubs, getItemStub(requiredItemName))
             end
             local requiredItemNamesString = table.concat(requiredItemNamesStubs, ", ")
 
