@@ -492,6 +492,19 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
                 if not nextRecipes then
                     -- recipe doesn't exist, so can't craft the item
                     cannotFillList[slotItemName] = true
+
+                    local isInRequiredItems = false
+                    for _, requiredItem in pairs(requiredItems) do
+                        if requiredItem == slotItemName then
+                            isInRequiredItems = true
+                            break
+                        end
+                    end
+
+                    if not isInRequiredItems then
+                        table.insert(requiredItems, slotItemName)
+                    end
+
                     goto nextItem
                 end
 
@@ -546,18 +559,6 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
         local slotItemNamesStubs = {}
         for _, slotItemName in pairs(slotItemNames) do
             table.insert(slotItemNamesStubs, getItemStub(slotItemName))
-
-            local isInRequiredItems = false
-            for _, requiredItem in pairs(requiredItems) do
-                if requiredItem == slotItemName then
-                    isInRequiredItems = true
-                    break
-                end
-            end
-
-            if not isInRequiredItems then
-                table.insert(requiredItems, slotItemName)
-            end
         end
 
         local itemNamesString = table.concat(slotItemNamesStubs, ",")
