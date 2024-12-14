@@ -69,8 +69,6 @@ end
 ---Add a new slot
 ---@param slot MapSlot The slot to add
 function Map:addSlot(slot)
-    self:waitIfPopulating()
-
     if not self.mapTable[slot.name] then
         self.mapTable[slot.name] = {}
     end
@@ -81,8 +79,6 @@ end
 ---Delete a slot list
 ---@param name string The name of the item
 function Map:deleteSlotList(name)
-    self:waitIfPopulating()
-
     self.mapTable[name] = nil
 end
 
@@ -345,16 +341,12 @@ end
 
 ---Clear the current map
 function Map:clear()
-    self:waitIfPopulating()
-
     self.mapTable = {}
 end
 
 
 ---Order the empty slots by chestName and slot
 function Map:orderEmptySlots()
-    self:waitIfPopulating()
-
     local emptySlots = self:getItemSlots(MapSlot.EMPTY_SLOT_NAME)
     table.sort(emptySlots, function(a, b)
         if a.chestName == b.chestName then
