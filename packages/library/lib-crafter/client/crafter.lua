@@ -478,7 +478,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
                     goto nextItem
                 end
 
-                logger:debug("Need to craft %d %s (already have %d)", craftCount, slotItemName, newItemCounts[slotItemName])
+                logger:debug("Need to craft %d %s (have %d)", craftCount, slotItemName, newItemCounts[slotItemName])
 
                 -- need to craft the item
                 local nextRecipes
@@ -519,9 +519,13 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
 
                     if tableHelpers.tableIsEmpty(postCraftCraftCommands) then
                         -- can't craft with this recipe
+                        logger:debug("Can't craft %d %s", craftCount, slotItemName)
+
                         -- logger:error("Failed to get pre-craft commands for %s", slotItemName)
                         goto nextRecipeLoop
                     end
+
+                    logger:debug("Crafted %d %s", craftCount, slotItemName)
 
                     for i, command in ipairs(postCraftCraftCommands) do
                         table.insert(nextCraftCommands, i, command)
