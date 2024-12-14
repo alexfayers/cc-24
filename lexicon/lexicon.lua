@@ -149,6 +149,7 @@ end
 ---@param previouslyDownloadedPackages? string[] The names of packages that have already been downloaded in this run
 ---@return table _ The files that were downloaded
 local function downloadPackage(packageName, parentPackage, previouslyDownloadedPackages)
+    local downloadedSomething = false
     for _, downloadedPackageName in ipairs(packagesDownloadedThisRun) do
         if downloadedPackageName == packageName then
             return {alreadyDownloaded = true}
@@ -292,6 +293,7 @@ local function downloadPackage(packageName, parentPackage, previouslyDownloadedP
                 term.setTextColor(colors.yellow)
                 print("Got " .. fs.getName(downloadPath))
                 term.setTextColor(colors.white)
+                downloadedSomething = true
             else
                 CURRENT_HTTP_TASKS = CURRENT_HTTP_TASKS - 1
                 error("Failed to download file from " .. sourceUrl, 0)
@@ -301,7 +303,27 @@ local function downloadPackage(packageName, parentPackage, previouslyDownloadedP
 
     parallel.waitForAll(table.unpack(downloadTasks))
 
+    local db = loadLexiconDb()
+
+    local dbPackageData = {
+        version = packageData["version"],
+        type = packageData["type"],
+        dependencies = packageData["dependencies"],
+        files = downloadedFiles,
+        dependencyFiles = depenencyFiles,
+    }
+
+    -- pretty.pretty_print(dbPackageData)
+    table.insert(packagesDownloadedThisRun, packageName)
+
     if not parentPackage then
+        if not downloadedSomething then
+            term.setTextColor(colors.green)
+            print(packageName .. " is already up to date")
+            term.setTextColor(colors.white)
+            return dbPackageData
+        end
+
         term.setTextColor(colors.lime)
         print("Downloaded " .. packageName .. " (" .. packageData["version"] .. ")")
         if packageData["type"] == "program" then
@@ -315,20 +337,7 @@ local function downloadPackage(packageName, parentPackage, previouslyDownloadedP
         term.setTextColor(colors.white)
     end
 
-    local db = loadLexiconDb()
-
-    local dbPackageData = {
-        version = packageData["version"],
-        type = packageData["type"],
-        dependencies = packageData["dependencies"],
-        files = downloadedFiles,
-        dependencyFiles = depenencyFiles,
-    }
     db["packages"][packageName] = dbPackageData
-
-    -- pretty.pretty_print(dbPackageData)
-    table.insert(packagesDownloadedThisRun, packageName)
-
     saveLexiconDb(db)
 
     return dbPackageData
