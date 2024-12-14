@@ -373,6 +373,9 @@ end
 ---@type CannotFillList
 local cannotFillList = {}
 
+---@type string[]
+local requiredItems = {}
+
 ---Check if there are enough items for a single recipe in storage
 ---@param recipe Recipe The recipe to check
 ---@param craftCount number The number of times to repeat the recipe
@@ -543,6 +546,18 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
         local slotItemNamesStubs = {}
         for _, slotItemName in pairs(slotItemNames) do
             table.insert(slotItemNamesStubs, getItemStub(slotItemName))
+
+            local isInRequiredItems = false
+            for _, requiredItem in pairs(requiredItems) do
+                if requiredItem == slotItemName then
+                    isInRequiredItems = true
+                    break
+                end
+            end
+
+            if not isInRequiredItems then
+                table.insert(requiredItems, slotItemName)
+            end
         end
 
         local itemNamesString = table.concat(slotItemNamesStubs, ",")
@@ -552,7 +567,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
         end
 
         if not didSubCraft or craftDepth > 1 then
-            logger:error("Couldn't fill slot %d with %s for %s (depth %d)", slotNumber, itemNamesString, getItemStub(recipe.output.id), craftDepth)
+            logger:warn("Couldn't fill slot %d with %s for %s (depth %d)", slotNumber, itemNamesString, getItemStub(recipe.output.id), craftDepth)
         -- else
         --     logger:warn("Couldn't fill slot %d with %s for %s (depth %d)", slotNumber, itemNamesString, getItemStub(recipe.output.id), craftDepth)
         end
@@ -665,6 +680,10 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
             if not success then
                 local errorMessage = craftErrors and craftErrors.error or "Unknown error"
                 logger:error("Failed to craft %s %s", craftItemName, errorMessage)
+
+                local requiredItemsString = table.concat(requiredItems, ", ")
+                logger:error("Required items: %s", requiredItemsString)
+
                 return false
             else
                 didCraft = true
