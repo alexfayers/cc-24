@@ -551,7 +551,7 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
         local recipeItemCount, recipeCraftCommands = check_storage(recipe, craftCount, itemCounts, craftCommands)
 
         if tableHelpers.tableIsEmpty(recipeCraftCommands) then
-            logger:error("%s recipe %d failed", craftItemName, recipeNumber)
+            logger:error("%s recipe %d/%d failed", craftItemName, recipeNumber, #recipes)
 
             if recipeNumber == #recipes then
                 if doCheck then
