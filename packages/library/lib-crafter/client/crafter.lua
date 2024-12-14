@@ -380,6 +380,11 @@ local cannotFillList = {}
 ---@param craftDepth number The depth of the crafting tree
 ---@return StorageCountData, CraftCommands
 local function check_storage(recipe, craftCount, itemCounts, craftCommands, craftDepth)
+    if craftDepth > 20 then
+        logger:error("Crafting depth too high, aborting")
+        return itemCounts, {}
+    end
+
     craftCount = math.ceil(craftCount / recipe.output.count)
 
     local newItemCounts = tableHelpers.copy(itemCounts)
