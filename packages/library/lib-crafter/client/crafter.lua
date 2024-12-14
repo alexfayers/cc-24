@@ -373,8 +373,9 @@ end
 ---@param craftCount number The number of times to repeat the recipe
 ---@param itemCounts StorageCountData The counts of items in storage (or not in storage)
 ---@param craftCommands CraftCommands The commands to craft the items
+---@param cannotCraftList table<string, boolean> The map of items that can't be crafted
 ---@return StorageCountData, CraftCommands
-local function check_storage(recipe, craftCount, itemCounts, craftCommands)
+local function check_storage(recipe, craftCount, itemCounts, craftCommands, cannotCraftList)
     craftCount = math.ceil(craftCount / recipe.output.count)
 
     local newItemCounts = tableHelpers.copy(itemCounts)
@@ -439,6 +440,11 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands)
 
                 goto nextSlot
             else
+                if cannotCraftList[slotItemName] then
+                    -- previously established that we craft this item, so there's no point trying
+                    goto nextItem
+                end
+
                 if not triedPullAllItems then
                     -- not tried all the pulls yet, so don't try crafting yet
                     goto nextItem
@@ -466,9 +472,10 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands)
                 for _, nextRecipe in pairs(nextRecipes) do
                     local nextRepeatCount = math.ceil(craftCount / nextRecipe.output.count)
 
-                    local postCraftItemCounts, postCraftCraftCommands = check_storage(nextRecipe, nextRepeatCount, itemCounts, craftCommands)
+                    local postCraftItemCounts, postCraftCraftCommands = check_storage(nextRecipe, nextRepeatCount, itemCounts, craftCommands, cannotCraftList)
 
                     if tableHelpers.tableIsEmpty(postCraftCraftCommands) then
+                        -- can't craft with this recipe
                         -- logger:error("Failed to get pre-craft commands for %s", slotItemName)
                         goto nextRecipeLoop
                     end
@@ -484,6 +491,17 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands)
                         goto retrySlotPull
                     end
                     ::nextRecipeLoop::
+                end
+
+                -- tried all the recipes for this item
+                if not tableHelpers.tableIsEmpty(nextCraftCommands) then
+                    -- can craft the item
+                    cannotCraftList[slotItemName] = nil
+                    goto nextSlot
+                else
+                    -- can't craft this item, try the next item
+                    cannotCraftList[slotItemName] = true
+                    goto nextItem
                 end
             end
             ::nextItem::
@@ -562,8 +580,9 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
     for recipeNumber, recipe in ipairs(recipes) do
         local itemCounts = {}
         local craftCommands = {}
+        local cannotCraftList = {}
 
-        local recipeItemCount, recipeCraftCommands = check_storage(recipe, craftCount, itemCounts, craftCommands)
+        local recipeItemCount, recipeCraftCommands = check_storage(recipe, craftCount, itemCounts, craftCommands, cannotCraftList)
 
         if tableHelpers.tableIsEmpty(recipeCraftCommands) then
             logger:error("%s recipe %d/%d failed", craftItemName, recipeNumber, #recipes)
