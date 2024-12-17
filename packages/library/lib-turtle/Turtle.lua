@@ -150,7 +150,7 @@ function Turtle:saveState()
 end
 
 
----Check what item is currently equipped in the turtles right slot
+---Check what item is currently equipped in the turtles left slot
 ---@return ccTweaked.turtle.slotInfo?
 function Turtle:getEquippedItem()
     local emptySlot = self.inventory:findEmptySlot()
@@ -165,7 +165,7 @@ function Turtle:getEquippedItem()
         return
     end
 
-    if not turtle.equipRight() then
+    if not turtle.equipLeft() then
         self.logger:error("Failed to unequip item to empty slot")
         return
     end
@@ -178,7 +178,7 @@ function Turtle:getEquippedItem()
         return
     end
 
-    if not turtle.equipRight() then
+    if not turtle.equipLeft() then
         self.logger:error("Failed to re-equip item")
         return
     end
@@ -197,7 +197,7 @@ function Turtle:equipModem()
         return
     end
 
-    if not turtle.equipRight() then
+    if not turtle.equipLeft() then
         self.logger:error("Failed to equip modem")
         return
     end
@@ -223,7 +223,7 @@ function Turtle:equipPickaxe()
         return
     end
 
-    if not turtle.equipRight() then
+    if not turtle.equipLeft() then
         self.logger:error("Failed to equip pickaxe")
         return
     end
