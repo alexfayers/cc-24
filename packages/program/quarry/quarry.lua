@@ -223,7 +223,7 @@ end
 ---@param skipTo number? The index of the path to skip to (default 1)
 ---@return boolean _ Whether the pre-start was successful
 local function preStartQuarry(path, skipTo)
-    if not skipTo then
+    if not skipTo or skipTo == 1 then
         skipTo = 1
     else
         logger:info("Skipping to position %d/%d", skipTo, #path)
