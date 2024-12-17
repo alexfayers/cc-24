@@ -474,7 +474,7 @@ while doQuarry do
 
     currentPosIndex = checkTurtlePosition(quarryPath, turt.resumePosition)
 
-    if currentPosIndex and currentPosIndex < 1 then
+    if currentPosIndex and currentPosIndex <= 1 then
         currentPosIndex = highestIndex
     end
 
