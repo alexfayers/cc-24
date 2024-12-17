@@ -199,7 +199,7 @@ settings.define("quarry.highestIndex", {
 ---Load the highest index of the quarry path that has been mined
 ---@return integer
 local function loadHighestIndex()
-    return settings.get("quarry.highestIndex", 0)
+    return settings.get("quarry.highestIndex", 1)
 end
 
 
