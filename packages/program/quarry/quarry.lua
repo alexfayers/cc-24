@@ -187,6 +187,35 @@ local function calculateFuelNeededFromPath(path, skipTo)
 end
 
 
+settings.define("quarry.highestIndex", {
+    description = "The highest index of the quarry path that has been mined",
+    type = "number",
+    default = 0,
+})
+
+
+---Load the highest index of the quarry path that has been mined
+---@return integer
+local function loadHighestIndex()
+    return settings.get("quarry.highestIndex", 0)
+end
+
+
+local highestIndex = loadHighestIndex()
+
+
+---Save the current index as the highest index if it is higher than the current highest index
+---@param currentIndex number
+local function saveHighestIndex(currentIndex)
+    if currentIndex > highestIndex then
+        highestIndex = currentIndex
+        settings.set("quarry.highestIndex", highestIndex)
+        settings.save()
+    end
+end
+
+
+
 ---Do things before starting the quarry
 ---@param path Position[] The path of the turtle through the quarry
 ---@param skipTo number? The index of the path to skip to (default 1)
@@ -408,6 +437,8 @@ local function followQuarryPath(path, skipTo)
             return false, moveErr
         end
 
+        saveHighestIndex(i)
+
         local digDownRes, digDownErr = turt:digDown(MOVEMENT_ARGS)
         if not digDownRes then
             logger:error("Failed to dig down at %s: %s", pos:asString(), digDownErr)
@@ -440,6 +471,15 @@ while doQuarry do
     local currentPosIndex = nil
 
     currentPosIndex = checkTurtlePosition(quarryPath, turt.resumePosition)
+
+    if currentPosIndex and currentPosIndex < 1 then
+        currentPosIndex = highestIndex
+    end
+
+    if currentPosIndex >= #quarryPath then
+        logger:info("Quarrying already complete!")
+        return
+    end
 
     if not preStartQuarry(quarryPath, currentPosIndex) then
         return false
