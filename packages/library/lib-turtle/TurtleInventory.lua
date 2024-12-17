@@ -290,8 +290,13 @@ function TurtleInventory:attachStorageClient()
                 self.logger:error("Failed to get remote chest names!")
             end
         end
+
+        self.logger:info("Attached to storage client")
+
         return self.storageClient
     end
+
+    self.logger:warn("Failed to attach to storage client")
 
     return nil
 end
