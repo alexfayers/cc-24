@@ -162,6 +162,10 @@ local seedSlots = turt.inventory:findItems(seeds)
 local seedSlotNumber = next(seedSlots)
 local keepSlots = seedSlotNumber and {seedSlotNumber} or nil
 
+for _, slot in turt.inventory:findKeyItemSlots() do
+    table.insert(keepSlots, slot)
+end
+
 turt.inventory:pushItems(keepSlots)
 
 if not farmRes then

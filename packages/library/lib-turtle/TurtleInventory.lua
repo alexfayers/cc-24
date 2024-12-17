@@ -689,6 +689,24 @@ function TurtleInventory:findDiamondPickaxeSlot()
 end
 
 
+---Get the slots that wireless modems or diamonds pickaxes are in
+---@return number[] _ The slot numbers of the wireless modems and diamond pickaxes
+function TurtleInventory:findKeyItemSlots()
+    local slots = {}
+    local modemSlot = self:findWirelessModemSlot()
+    if modemSlot then
+        table.insert(slots, modemSlot)
+    end
+
+    local pickaxeSlot = self:findDiamondPickaxeSlot()
+    if pickaxeSlot then
+        table.insert(slots, pickaxeSlot)
+    end
+
+    return slots
+end
+
+
 
 local function test()
     local inv = TurtleInventory()

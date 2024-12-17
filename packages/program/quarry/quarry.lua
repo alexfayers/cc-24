@@ -229,7 +229,7 @@ local function preStartQuarry(path, skipTo)
     -- otherwise, we're in the middle of the quarry, so there's nothing to do
 
     if turt.position:equals(turt.startingPosition, true) then
-        turt.inventory:pushItems()
+        turt.inventory:pushItems(turt.inventory:findKeyItemSlots())
     
         local requiredFuel = calculateFuelNeededFromPath(path, skipTo)
     
@@ -264,7 +264,7 @@ local function postFinishQuarry(success)
 
     turt.inventory:discardItems(turt.trashItemNames, turt.trashItemTags)
 
-    turt.inventory:pushItems()
+    turt.inventory:pushItems(turt.inventory:findKeyItemSlots())
     
     if success then
         -- celebratory spin
