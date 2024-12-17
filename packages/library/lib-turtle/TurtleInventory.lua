@@ -663,6 +663,33 @@ function TurtleInventory:removeItems(count, slot)
 end
 
 
+---Get the slot that a wireless modem is in, if there is one
+---@return number? _ The slot number of the wireless modem
+function TurtleInventory:findWirelessModemSlot()
+    for slotNumber = 1, TURTLE_INVENTORY_SLOTS do
+        if self.slots[slotNumber] and string.match(self.slots[slotNumber].name, "modem") then
+            return slotNumber
+        end
+    end
+
+    return nil
+end
+
+
+---Get the slot that a diamond pickaxe is in, if there is one
+---@return number? _ The slot number of the diamond pickaxe
+function TurtleInventory:findDiamondPickaxeSlot()
+    for slotNumber = 1, TURTLE_INVENTORY_SLOTS do
+        if self.slots[slotNumber] and string.match(self.slots[slotNumber].name, "diamond_pickaxe") then
+            return slotNumber
+        end
+    end
+
+    return nil
+end
+
+
+
 local function test()
     local inv = TurtleInventory()
     inv:refuel()

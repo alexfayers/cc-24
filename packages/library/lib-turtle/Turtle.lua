@@ -190,18 +190,7 @@ end
 ---Equip a wireless modem on the turtle
 ---@return true?
 function Turtle:equipModem()
-    local modemSlots = self.inventory:findItems("computercraft:wireless_modem_advanced")
-
-    if #modemSlots == 0 then
-        modemSlots = self.inventory:findItems("computercraft:wireless_modem_normal")
-    end
-
-    if #modemSlots == 0 then
-        self.logger:error("No wireless modem found")
-        return
-    end
-
-    local modemSlot = next(modemSlots)
+    local modemSlot = self.inventory:findWirelessModemSlot()
 
     if not modemSlot or not turtle.select(modemSlot) then
         self.logger:error("Failed to select modem")
@@ -213,7 +202,12 @@ function Turtle:equipModem()
         return
     end
 
-    self.currentlyEquipped = modemSlots[modemSlot]
+    self.currentlyEquipped = self.inventory.slots[modemSlot]
+
+    local newSlotDetail = turtle.getItemDetail(modemSlot, true)
+    ---@cast newSlotDetail slotInfo?
+
+    self.inventory.slots[modemSlot] = newSlotDetail
 
     return true
 end
@@ -222,14 +216,7 @@ end
 ---Equip a diamond pickaxe on the turtle
 ---@return true?
 function Turtle:equipPickaxe()
-    local pickaxeSlots = Turtle.inventory:findItems("minecraft:diamond_pickaxe")
-
-    if #pickaxeSlots == 0 then
-        self.logger:error("No diamond pickaxe found")
-        return
-    end
-
-    local pickaxeSlot = next(pickaxeSlots)
+    local pickaxeSlot = self.inventory:findDiamondPickaxeSlot()
 
     if not pickaxeSlot or not turtle.select(pickaxeSlot) then
         self.logger:error("Failed to select pickaxe")
@@ -241,7 +228,12 @@ function Turtle:equipPickaxe()
         return
     end
 
-    self.currentlyEquipped = pickaxeSlots[pickaxeSlot]
+    self.currentlyEquipped = self.inventory.slots[pickaxeSlot]
+
+    local newSlotDetail = turtle.getItemDetail(pickaxeSlot, true)
+    ---@cast newSlotDetail slotInfo?
+
+    self.inventory.slots[pickaxeSlot] = newSlotDetail
 
     return true
 end
