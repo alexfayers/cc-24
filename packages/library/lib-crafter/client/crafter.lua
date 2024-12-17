@@ -817,7 +817,7 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
 
     if pullAfterCraft then
         local storageOutputChest = settings.get("storage2.outputChest")
-        if not storageClient:pull(storageOutputChest, craftItemName, craftCount) then
+        if not storageClient:pull(storageOutputChest, craftItemName, craftCount, nil, false) then
             logger:error("Failed to pull %d %s from storage", craftCount, craftItemName)
         end
     end
