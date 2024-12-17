@@ -18,8 +18,10 @@ local function send(username, content)
         return false
     end
 
-    if os.getComputerLabel() then
-        username = username .. " (" .. os.getComputerLabel() .. ")"
+    local computerLabel = os.getComputerLabel()
+
+    if computerLabel then
+        username = username .. " (" .. computerLabel .. ")"
     end
 
     local res = http.post(discord_webhook, textutils.serializeJSON({
