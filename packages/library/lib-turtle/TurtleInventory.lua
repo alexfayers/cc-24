@@ -272,7 +272,9 @@ function TurtleInventory:attachStorageClient()
         return self.storageClient
     end
 
-    if not peripheral.find("modem") then
+    if not peripheral.find("modem", function (name, wrapped)
+        return not wrapped.isWireless()
+    end) then
         return nil
     end
 
