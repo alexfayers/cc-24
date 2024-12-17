@@ -56,6 +56,9 @@ function Turtle:init(startingPosition)
 
     self:loadState()
 
+    self.position = self.position or Turtle.origin
+    self.startingPosition = startingPosition or self.startingPosition or self.position
+
     ---@type TurtleInventory
     self.inventory = TurtleInventory()
     self.inventory:refuel()
@@ -76,14 +79,15 @@ function Turtle:init(startingPosition)
     if gpsPosition then
         self.position = gpsPosition
         self.hasGps = true
+
+        if self.startingPosition:equals(Turtle.origin) then
+            self.startingPosition = self.position
+        end
     end
 
     if not string.match(self.currentlyEquipped.name, "pickaxe") then
         self:equipPickaxe()
     end
-
-    self.startingPosition = startingPosition or self.startingPosition or self.position or Turtle.origin
-    self.position = self.position or self.startingPosition
 
     self.resumePosition = self.resumePosition or nil
 
