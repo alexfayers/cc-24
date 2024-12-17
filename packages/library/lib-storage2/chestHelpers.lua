@@ -79,7 +79,7 @@ local function getStorageChests(inputChest, outputChest)
 
     local chests = {
         peripheral.find("inventory", function(name, _)
-            return name ~= inputChestName and name ~= outputChestName
+            return name ~= inputChestName and name ~= outputChestName and not string.find(name, "furnace")
         end)
     }
     ---@cast chests ccTweaked.peripherals.Inventory[]
