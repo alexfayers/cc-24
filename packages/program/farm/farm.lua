@@ -162,7 +162,7 @@ local seedSlots = turt.inventory:findItems(seeds)
 local seedSlotNumber = next(seedSlots)
 local keepSlots = seedSlotNumber and {seedSlotNumber} or nil
 
-for _, slot in turt.inventory:findKeyItemSlots() do
+for _, slot in pairs(turt.inventory:findKeyItemSlots()) do
     table.insert(keepSlots, slot)
 end
 
