@@ -56,8 +56,10 @@ function Turtle:init(startingPosition)
 
     self:loadState()
 
-    self.position = self.position or Turtle.origin
-    self.startingPosition = startingPosition or self.startingPosition or self.position
+    self.startingPosition = startingPosition or self.startingPosition or Turtle.origin
+    self.position = self.position or self.startingPosition
+
+    self.resumePosition = self.resumePosition or nil
 
     ---@type TurtleInventory
     self.inventory = TurtleInventory()
@@ -88,8 +90,6 @@ function Turtle:init(startingPosition)
     if not string.match(self.currentlyEquipped.name, "pickaxe") then
         self:equipPickaxe()
     end
-
-    self.resumePosition = self.resumePosition or nil
 
     self:saveState()
 end
