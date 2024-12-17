@@ -65,12 +65,26 @@ function Turtle:init(startingPosition)
     self.inventory = TurtleInventory()
     self.inventory:refuel()
 
-    self.hasGps = self.hasGps or gps.locate(self.gpsTimeout, false) ~= nil
+    self.currentlyEquipped = self:getEquippedItem()
 
-    local gpsPosition = self:getGPSPosition()
+    ---@type Position?
+    local gpsPosition = nil
+
+    if string.match(self.currentlyEquipped.name, "pickaxe") then
+        if self:equipModem() then
+            gpsPosition = self:getGPSPosition()
+        end
+    elseif string.match(self.currentlyEquipped.name, "wireless_modem") then
+        gpsPosition = self:getGPSPosition()
+    end
+
     if gpsPosition then
         self.position = gpsPosition
         self.hasGps = true
+    end
+
+    if not string.match(self.currentlyEquipped.name, "pickaxe") then
+        self:equipPickaxe()
     end
 
     self:saveState()
@@ -136,19 +150,114 @@ function Turtle:saveState()
 end
 
 
----Get the turtles current position via GPS if a wireless modem is attached
----@return Position?
-function Turtle:getGPSPosition()
-    if not self.hasGps then
+---Check what item is currently equipped in the turtles right slot
+---@return ccTweaked.turtle.slotInfo?
+function Turtle:getEquippedItem()
+    local emptySlot = self.inventory:findEmptySlot()
+
+    if not emptySlot then
+        self.logger:error("No empty slot found")
         return
     end
 
+    if not turtle.select(emptySlot) then
+        self.logger:error("Failed to select empty slot")
+        return
+    end
+
+    if not turtle.equipRight() then
+        self.logger:error("Failed to unequip item to empty slot")
+        return
+    end
+
+    local item = turtle.getItemDetail(emptySlot)
+    ---@cast item ccTweaked.turtle.slotInfo?
+
+    if not item then
+        self.logger:error("Failed to get item detail")
+        return
+    end
+
+    if not turtle.equipRight() then
+        self.logger:error("Failed to re-equip item")
+        return
+    end
+
+    return item
+end
+
+
+---Equip a wireless modem on the turtle
+---@return true?
+function Turtle:equipModem()
+    local modemSlots = self.inventory:findItems("computercraft:wireless_modem_advanced")
+
+    if #modemSlots == 0 then
+        modemSlots = self.inventory:findItems("computercraft:wireless_modem_normal")
+    end
+
+    if #modemSlots == 0 then
+        self.logger:error("No wireless modem found")
+        return
+    end
+
+    local modemSlot = next(modemSlots)
+
+    if not modemSlot or not turtle.select(modemSlot) then
+        self.logger:error("Failed to select modem")
+        return
+    end
+
+    if not turtle.equipRight() then
+        self.logger:error("Failed to equip modem")
+        return
+    end
+
+    self.currentlyEquipped = modemSlots[modemSlot]
+
+    return true
+end
+
+
+---Equip a diamond pickaxe on the turtle
+---@return true?
+function Turtle:equipPickaxe()
+    local pickaxeSlots = Turtle.inventory:findItems("minecraft:diamond_pickaxe")
+
+    if #pickaxeSlots == 0 then
+        self.logger:error("No diamond pickaxe found")
+        return
+    end
+
+    local pickaxeSlot = next(pickaxeSlots)
+
+    if not pickaxeSlot or not turtle.select(pickaxeSlot) then
+        self.logger:error("Failed to select pickaxe")
+        return
+    end
+
+    if not turtle.equipRight() then
+        self.logger:error("Failed to equip pickaxe")
+        return
+    end
+
+    self.currentlyEquipped = pickaxeSlots[pickaxeSlot]
+
+    return true
+end
+
+
+---Get the turtles current position via GPS if a wireless modem is attached
+---@return Position?
+function Turtle:getGPSPosition()
     local x, y, z = gps.locate(self.gpsTimeout, false)
     if x == nil then
         self.hasGps = false
         self:saveState()
         return
     end
+
+    self.hasGps = true
 
     local movedForward = true
 
