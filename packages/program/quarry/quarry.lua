@@ -223,6 +223,8 @@ end
 local function preStartQuarry(path, skipTo)
     if not skipTo then
         skipTo = 1
+    else
+        logger:info("Skipping to position %d/%d", skipTo, #path)
     end
 
     -- if we're at the origin, push items and refuel.
