@@ -167,9 +167,54 @@ local function getFurnaceCount()
 end
 
 
+---Get the maximum fuel in all the furnaces
+---@return number # The maximum fuel
+local function getMaxFuel()
+    local maxFuel = 0
+
+    for _, furnace in pairs(FURNACE_MAP) do
+        maxFuel = math.max(maxFuel, furnace.currentFuelCount)
+    end
+
+    return maxFuel
+end
+
+
+---Pull all fuel from the furnaces to the IO chest
+---@return number # The number of fuel items pulled
+local function pullAllFuel()
+    local totalTransferred = 0
+
+    local threads = {}
+
+    for _, furnace in pairs(FURNACE_MAP) do
+        table.insert(threads, function ()
+            local fuelItem = furnace.wrappedFurnace.list()[FURNACE_FUEL_SLOT]
+
+            if fuelItem then
+                local transferred = inputOutputChest.pullItems(furnace.wrappedFurnaceName, FURNACE_FUEL_SLOT, fuelItem.count)
+
+                if transferred then
+                    furnace.currentFuelCount = furnace.currentFuelCount - transferred
+
+                    totalTransferred = totalTransferred + transferred
+                end
+            end
+        end)
+    end
+
+    parallel.waitForAll(table.unpack(threads))
+
+    logger:info("Pulled %d fuel items", totalTransferred)
+
+    return totalTransferred
+end
+
+
 ---Distribute fuel from the IO chest to the furnaces
+---@param targetLevel number The target fuel level
 ---@return number # The number of fuel items distributed
-local function distributeFuel()
+local function distributeFuel(targetLevel)
     local totalTransferred = 0
 
     local fuelItems = inputOutputChest.list()
@@ -182,6 +227,10 @@ local function distributeFuel()
         if FUEL_MAP[fuelItem.name] then
             local maxFuelPerFurnace = math.ceil(fuelItem.count / furnaceCount)
 
+            maxFuelPerFurnace = math.min(maxFuelPerFurnace, targetLevel)
+
+            logger:info("Aiming for %d fuel per furnace", maxFuelPerFurnace)
+
             for _, furnace in pairs(FURNACE_MAP) do
                 table.insert(threads, function ()
                     local fuelToTransfer = math.min(maxFuelPerFurnace, fuelItem.count)
@@ -189,6 +238,8 @@ local function distributeFuel()
 
                     if transferred then
                         furnace.currentFuelCount = furnace.currentFuelCount + transferred
+
+                        logger.info("%s: %d/%d fuel", furnace.wrappedFurnaceName, furnace.currentFuelCount, maxFuelPerFurnace)
 
                         totalTransferred = totalTransferred + transferred
                     end
@@ -296,7 +347,17 @@ local function refuel()
         return
     end
 
-    distributeFuel()
+    local totalFuel = pullAllFuel()
+
+    if totalFuel then
+        local fuelPerFurnace = math.ceil(totalFuel / getFurnaceCount())
+
+        ---Ensure the fuel level is equal across all furnaces
+        distributeFuel(fuelPerFurnace)
+    else
+        ---If no fuel was pulled, just try to get the fuel level to the maximum
+        distributeFuel(FURNACE_SLOT_MAX)
+    end
 end
 
 
