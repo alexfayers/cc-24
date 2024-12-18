@@ -573,6 +573,8 @@ end
 function TurtleInventory:isFull(count)
     if not count then
         count = TURTLE_INVENTORY_SLOTS
+    else
+        count = math.min(count, TURTLE_INVENTORY_SLOTS - 1)
     end
 
     for i = 1, count do
