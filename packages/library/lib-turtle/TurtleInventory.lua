@@ -283,7 +283,7 @@ function TurtleInventory:attachStorageClient()
     if storageClient:findServer() then
         self.storageClient = storageClient
 
-        if not self.remoteStorageIOChests then
+        if not self.remoteStorageIOChests or #self.remoteStorageIOChests == 0 then
             local chestNameRes, chestNames = self.storageClient:callCommand(self.storageClient.getChestNames)
             if chestNameRes then
                 self.remoteStorageIOChests = chestNames
