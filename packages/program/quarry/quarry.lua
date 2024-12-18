@@ -480,7 +480,7 @@ while doQuarry do
         currentPosIndex = highestIndex
     end
 
-    if currentPosIndex >= #quarryPath then
+    if currentPosIndex and currentPosIndex >= #quarryPath then
         logger:info("Quarrying already complete!")
         return
     end
