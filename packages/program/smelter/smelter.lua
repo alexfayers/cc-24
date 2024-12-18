@@ -229,8 +229,6 @@ local function distributeFuel(targetLevel)
 
             maxFuelPerFurnace = math.min(maxFuelPerFurnace, targetLevel)
 
-            logger:info("Aiming for %d fuel per furnace", maxFuelPerFurnace)
-
             for _, furnace in pairs(FURNACE_MAP) do
                 table.insert(threads, function ()
                     local fuelToTransfer = math.min(maxFuelPerFurnace, fuelItem.count)
