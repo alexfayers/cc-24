@@ -239,7 +239,7 @@ local function distributeFuel(targetLevel)
                     if transferred then
                         furnace.currentFuelCount = furnace.currentFuelCount + transferred
 
-                        logger.info("%s: %d/%d fuel", furnace.wrappedFurnaceName, furnace.currentFuelCount, maxFuelPerFurnace)
+                        logger:info("%s: %d/%d fuel", furnace.wrappedFurnaceName, furnace.currentFuelCount, maxFuelPerFurnace)
 
                         totalTransferred = totalTransferred + transferred
                     end
