@@ -196,9 +196,9 @@ local function functionPagedPrintFancy(text, header)
 
         if event == "key" then
             if keyOrDir == keys.up then
-                scrollDir = -1
-            elseif keyOrDir == keys.down then
                 scrollDir = 1
+            elseif keyOrDir == keys.down then
+                scrollDir = -1
             end
         elseif event == "mouse_scroll" then
             scrollDir = -keyOrDir
