@@ -816,6 +816,9 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
     logger:info("Crafted %d %s", craftCount, craftItemName)
 
     if pullAfterCraft then
+        -- force a refresh of the storage map
+        storageClient:refresh()
+
         local storageOutputChest = settings.get("storage2.outputChest")
         if not storageClient:pull(storageOutputChest, craftItemName, craftCount, nil, false) then
             logger:error("Failed to pull %d %s from storage", craftCount, craftItemName)
