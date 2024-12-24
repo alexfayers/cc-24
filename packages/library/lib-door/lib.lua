@@ -55,7 +55,7 @@ end
 ---@return number
 local function getServerPort()
     -- TODO: make this non-static!
-    return 1337
+    return 1338
 end
 
 
