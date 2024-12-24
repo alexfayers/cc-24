@@ -93,8 +93,9 @@ end
 
 ---Remove a slot
 ---@param slot MapSlot The slot to remove
-function Map:removeSlot(slot)
-    local slots = self:getItemSlots(slot.name)
+---@param skipWaitPopulate? boolean Whether the map is currently populating
+function Map:removeSlot(slot, skipWaitPopulate)
+    local slots = self:getItemSlots(slot.name, skipWaitPopulate)
     for i, s in ipairs(slots) do
         if s.chest == slot.chest and s.slot == slot.slot then
             table.remove(slots, i)
@@ -366,7 +367,7 @@ end
 
 
 ---Compress the map to reduce the number of empty slots. Essentially, will create as many full stacks as possible.
----@param skipWaitPopulate boolean Whether the map is currently populating
+---@param skipWaitPopulate? boolean Whether the map is currently populating
 ---@return boolean _ Whether any changes were made
 function Map:compress(skipWaitPopulate)
     local allSlots = self:getAllSlots(skipWaitPopulate)
@@ -410,7 +411,7 @@ function Map:compress(skipWaitPopulate)
                 end
 
                 if fromSlot.count == 0 then
-                    self:removeSlot(fromSlot)
+                    self:removeSlot(fromSlot, skipWaitPopulate)
                     self:addSlotEmpty(fromSlot.chest, fromSlot.slot)
                     break
                 end
