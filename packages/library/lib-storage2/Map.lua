@@ -558,6 +558,8 @@ function Map:_populate(force)
         -- keep compressing until we can't compress anymore
     end
 
+    logger:debug("Compress complete")
+
     self:orderEmptySlots(true)
 
     logger:debug("Populate complete")
