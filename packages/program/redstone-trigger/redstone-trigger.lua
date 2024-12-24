@@ -30,7 +30,7 @@ parser:add({"side"}, {
 })
 
 parser:add({"command"}, {
-    doc = "The command to run when the redstone signal is received",
+    doc = "The commands to run when the redstone signal is received (optionally multiple, split by `;`)",
 })
 
 parser:add({"--switch", "-s"}, {
@@ -43,6 +43,12 @@ local args = parser:parse(table.unpack(arg))
 local targetSide = args.side
 local command = args.command
 local switchMode = args.switch
+
+local splitCommands = {}
+
+for subCommand in string.gmatch(command, "[^;]+") do
+    table.insert(splitCommands, subCommand)
+end
 
 local sides = redstone.getSides()
 
@@ -62,7 +68,9 @@ end
 print("Waiting for redstone signal on " .. targetSide)
 
 local function runCommand()
-    shell.run(command)
+    for _, subCommand in ipairs(splitCommands) do
+        shell.run(subCommand)
+    end
 end
 
 local function waitForSignalStop()
