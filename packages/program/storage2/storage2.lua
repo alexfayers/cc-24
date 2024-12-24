@@ -2,6 +2,7 @@
 package.path = package.path .. ";/usr/lib/?.lua"
 
 local chestHelpers = require("lib-storage2.chestHelpers")
+local storageHelpers = require("lib-storage2.helpers")
 local terminal = require("lexicon-lib.lib-term")
 require("lib-storage2.Map")
 local completion = require("cc.completion")
@@ -46,7 +47,7 @@ local function help()
     print("Commands:")
     print("  pull <item> [amount]")
     print("    Pull items from the storage chests to the output chest")
-    print("  push")
+    print("  push [shulker]")
     print("    Push items from the input chest to the storage chests")
     print("  remap")
     print("    Force a remap the storage chests")
@@ -75,6 +76,8 @@ local function complete(_, index, argument, previous)
         if previousArg == "pull" then
             
             return completion.choice(argument, cachedStorageMap():getAllItemStubs(), previousArg == "pull")
+        elseif previousArg == "push" then
+            return completion.choice(argument, {"shulker"}, false)
         end
     elseif index == 3 then
         if previousArg == "pull" then
@@ -130,6 +133,22 @@ local function showUsage()
 end
 
 
+---Wrap a shulker box if it exists
+---@return ccTweaked.peripherals.Inventory?
+local function wrapShulkerIfExists()
+    local wrappedShulker = peripheral.find("inventory", function(name, wrapped)
+        return string.match(name, "shulker_box")
+    end)
+
+    if wrappedShulker then
+        return storageHelpers.ensureInventory(wrappedShulker)
+    end
+
+    return
+end
+
+
+
 ---Main function for the script. Handles the command line interface.
 ---@return nil
 local function main()
@@ -141,6 +160,17 @@ local function main()
     local command = arg[1]
 
     if command == "push" then
+        local chestType = arg[2]
+        if chestType == "shulker" then
+            local shulker = wrapShulkerIfExists()
+            if not shulker then
+                print("No shulker box found")
+                return
+            end
+
+            inputChest = shulker
+        end
+            
         cachedStorageMap():push(inputChest)
         cachedStorageMap():save()
     elseif command == "usage" then
