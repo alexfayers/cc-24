@@ -540,14 +540,16 @@ function Map:_populate(force)
         end)
     end
 
-    for _, chestTaskBatch in pairs(tableHelpers.batch(chestTasks, 64)) do
+    for batchId, chestTaskBatch in pairs(tableHelpers.batch(chestTasks, 128)) do
+        logger:debug("Processing chest batch %d", batchId)
         parallel.waitForAll(table.unpack(chestTaskBatch))
     end
     -- for _, task in ipairs(chestTasks) do
     --     task()
     -- end
 
-    for _, slotEnrichmentTaskBatch in pairs(tableHelpers.batch(slotEnrichmentTasks, 64)) do
+    for batchId, slotEnrichmentTaskBatch in pairs(tableHelpers.batch(slotEnrichmentTasks, 128)) do
+        logger:debug("Processing slot batch %d", batchId)
         parallel.waitForAll(table.unpack(slotEnrichmentTaskBatch))
     end
 
