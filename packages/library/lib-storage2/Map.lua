@@ -540,7 +540,7 @@ function Map:_populate(force)
         end)
     end
 
-    for batchId, chestTaskBatch in pairs(tableHelpers.batch(chestTasks, 128)) do
+    for batchId, chestTaskBatch in pairs(tableHelpers.batch(chestTasks, 64)) do
         logger:debug("Processing chest batch %d", batchId)
         parallel.waitForAll(table.unpack(chestTaskBatch))
     end
