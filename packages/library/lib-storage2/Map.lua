@@ -540,7 +540,9 @@ function Map:_populate(force)
         end)
     end
 
-    parallel.waitForAll(table.unpack(chestTasks))
+    for _, chestTaskBatch in pairs(tableHelpers.batch(chestTasks, 64)) do
+        parallel.waitForAll(table.unpack(chestTaskBatch))
+    end
     -- for _, task in ipairs(chestTasks) do
     --     task()
     -- end
