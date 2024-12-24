@@ -559,6 +559,8 @@ function Map:_populate(force)
     end
 
     self:orderEmptySlots(true)
+
+    logger:debug("Populate complete")
 end
 
 
