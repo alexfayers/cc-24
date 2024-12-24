@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "1": [
+                "#aether:skyroot_tool_crafting"
+            ],
+            "2": [
+                "#aether:skyroot_tool_crafting"
+            ],
+            "3": [
+                "#aether:skyroot_tool_crafting"
+            ],
+            "6": [
+                "#aether:skyroot_stick"
+            ],
+            "10": [
+                "#aether:skyroot_stick"
+            ]
+        },
+        "output": {
+            "id": "aether:skyroot_pickaxe",
+            "count": 1
+        }
+    }
+]

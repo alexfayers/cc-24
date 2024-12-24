@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:holystone"
+            ],
+            "2": [
+                "aether:holystone"
+            ],
+            "6": [
+                "#aether:skyroot_stick"
+            ],
+            "10": [
+                "#aether:skyroot_stick"
+            ]
+        },
+        "output": {
+            "id": "aether:holystone_hoe",
+            "count": 1
+        }
+    }
+]

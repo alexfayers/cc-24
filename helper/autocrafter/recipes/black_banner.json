@@ -27,5 +27,19 @@
             "id": "minecraft:black_banner",
             "count": 1
         }
+    },
+    {
+        "input": {
+            "1": [
+                "#minecraft:banners"
+            ],
+            "2": [
+                "aether:swet_cape"
+            ]
+        },
+        "output": {
+            "id": "minecraft:black_banner",
+            "count": 1
+        }
     }
 ]

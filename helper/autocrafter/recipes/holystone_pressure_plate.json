@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:holystone"
+            ],
+            "2": [
+                "aether:holystone"
+            ]
+        },
+        "output": {
+            "id": "aether:holystone_pressure_plate",
+            "count": 1
+        }
+    }
+]

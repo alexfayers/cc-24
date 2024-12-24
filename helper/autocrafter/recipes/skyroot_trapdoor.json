@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:skyroot_planks"
+            ],
+            "2": [
+                "aether:skyroot_planks"
+            ],
+            "3": [
+                "aether:skyroot_planks"
+            ],
+            "5": [
+                "aether:skyroot_planks"
+            ],
+            "6": [
+                "aether:skyroot_planks"
+            ],
+            "7": [
+                "aether:skyroot_planks"
+            ]
+        },
+        "output": {
+            "id": "aether:skyroot_trapdoor",
+            "count": 2
+        }
+    }
+]

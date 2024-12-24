@@ -12,5 +12,19 @@
             "id": "minecraft:sticky_piston",
             "count": 1
         }
+    },
+    {
+        "input": {
+            "1": [
+                "#aether:swet_balls"
+            ],
+            "5": [
+                "minecraft:piston"
+            ]
+        },
+        "output": {
+            "id": "minecraft:sticky_piston",
+            "count": 1
+        }
     }
 ]

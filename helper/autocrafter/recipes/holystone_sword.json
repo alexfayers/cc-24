@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:holystone"
+            ],
+            "5": [
+                "aether:holystone"
+            ],
+            "9": [
+                "#aether:skyroot_stick"
+            ]
+        },
+        "output": {
+            "id": "aether:holystone_sword",
+            "count": 1
+        }
+    }
+]

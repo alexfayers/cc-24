@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:quicksoil_glass"
+            ],
+            "2": [
+                "aether:quicksoil_glass"
+            ],
+            "3": [
+                "aether:quicksoil_glass"
+            ],
+            "5": [
+                "aether:quicksoil_glass"
+            ],
+            "6": [
+                "aether:quicksoil_glass"
+            ],
+            "7": [
+                "aether:quicksoil_glass"
+            ]
+        },
+        "output": {
+            "id": "aether:quicksoil_glass_pane",
+            "count": 16
+        }
+    }
+]

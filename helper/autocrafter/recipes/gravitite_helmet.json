@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "1": [
+                "#aether:processed/gravitite"
+            ],
+            "2": [
+                "#aether:processed/gravitite"
+            ],
+            "3": [
+                "#aether:processed/gravitite"
+            ],
+            "5": [
+                "#aether:processed/gravitite"
+            ],
+            "7": [
+                "#aether:processed/gravitite"
+            ]
+        },
+        "output": {
+            "id": "aether:gravitite_helmet",
+            "count": 1
+        }
+    }
+]

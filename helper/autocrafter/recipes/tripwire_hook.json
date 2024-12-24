@@ -15,5 +15,22 @@
             "id": "minecraft:tripwire_hook",
             "count": 2
         }
+    },
+    {
+        "input": {
+            "5": [
+                "#c:rods/wooden"
+            ],
+            "1": [
+                "#c:ingots/iron"
+            ],
+            "9": [
+                "#aether:planks_crafting"
+            ]
+        },
+        "output": {
+            "id": "minecraft:tripwire_hook",
+            "count": 2
+        }
     }
 ]

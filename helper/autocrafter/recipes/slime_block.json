@@ -33,5 +33,40 @@
             "id": "minecraft:slime_block",
             "count": 1
         }
+    },
+    {
+        "input": {
+            "1": [
+                "#aether:swet_balls"
+            ],
+            "2": [
+                "#aether:swet_balls"
+            ],
+            "3": [
+                "#aether:swet_balls"
+            ],
+            "5": [
+                "#aether:swet_balls"
+            ],
+            "6": [
+                "#aether:swet_balls"
+            ],
+            "7": [
+                "#aether:swet_balls"
+            ],
+            "9": [
+                "#aether:swet_balls"
+            ],
+            "10": [
+                "#aether:swet_balls"
+            ],
+            "11": [
+                "#aether:swet_balls"
+            ]
+        },
+        "output": {
+            "id": "minecraft:slime_block",
+            "count": 1
+        }
     }
 ]

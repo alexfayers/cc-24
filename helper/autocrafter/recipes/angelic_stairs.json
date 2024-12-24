@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:angelic_stone"
+            ],
+            "5": [
+                "aether:angelic_stone"
+            ],
+            "6": [
+                "aether:angelic_stone"
+            ],
+            "9": [
+                "aether:angelic_stone"
+            ],
+            "10": [
+                "aether:angelic_stone"
+            ],
+            "11": [
+                "aether:angelic_stone"
+            ]
+        },
+        "output": {
+            "id": "aether:angelic_stairs",
+            "count": 4
+        }
+    }
+]

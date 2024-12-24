@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:holystone"
+            ],
+            "2": [
+                "aether:holystone"
+            ],
+            "3": [
+                "aether:holystone"
+            ],
+            "5": [
+                "aether:holystone"
+            ],
+            "7": [
+                "aether:holystone"
+            ],
+            "9": [
+                "aether:holystone"
+            ],
+            "10": [
+                "aether:holystone"
+            ],
+            "11": [
+                "aether:holystone"
+            ],
+            "6": [
+                "#aether:gems/zanite"
+            ]
+        },
+        "output": {
+            "id": "aether:altar",
+            "count": 1
+        }
+    }
+]

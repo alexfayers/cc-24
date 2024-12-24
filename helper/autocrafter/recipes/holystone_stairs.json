@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:holystone"
+            ],
+            "5": [
+                "aether:holystone"
+            ],
+            "6": [
+                "aether:holystone"
+            ],
+            "9": [
+                "aether:holystone"
+            ],
+            "10": [
+                "aether:holystone"
+            ],
+            "11": [
+                "aether:holystone"
+            ]
+        },
+        "output": {
+            "id": "aether:holystone_stairs",
+            "count": 4
+        }
+    }
+]

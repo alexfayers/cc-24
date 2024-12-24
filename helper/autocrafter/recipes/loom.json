@@ -18,5 +18,25 @@
             "id": "minecraft:loom",
             "count": 1
         }
+    },
+    {
+        "input": {
+            "5": [
+                "#aether:planks_crafting"
+            ],
+            "6": [
+                "#aether:planks_crafting"
+            ],
+            "1": [
+                "#c:strings"
+            ],
+            "2": [
+                "#c:strings"
+            ]
+        },
+        "output": {
+            "id": "minecraft:loom",
+            "count": 1
+        }
     }
 ]

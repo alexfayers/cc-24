@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:mossy_holystone"
+            ],
+            "5": [
+                "aether:mossy_holystone"
+            ],
+            "6": [
+                "aether:mossy_holystone"
+            ],
+            "9": [
+                "aether:mossy_holystone"
+            ],
+            "10": [
+                "aether:mossy_holystone"
+            ],
+            "11": [
+                "aether:mossy_holystone"
+            ]
+        },
+        "output": {
+            "id": "aether:mossy_holystone_stairs",
+            "count": 4
+        }
+    }
+]

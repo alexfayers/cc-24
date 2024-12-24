@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:holystone"
+            ],
+            "2": [
+                "aether:holystone"
+            ],
+            "3": [
+                "aether:holystone"
+            ],
+            "5": [
+                "aether:holystone"
+            ],
+            "7": [
+                "aether:holystone"
+            ],
+            "6": [
+                "aether:icestone"
+            ],
+            "9": [
+                "aether:skyroot_planks"
+            ],
+            "10": [
+                "aether:skyroot_planks"
+            ],
+            "11": [
+                "aether:skyroot_planks"
+            ]
+        },
+        "output": {
+            "id": "aether:freezer",
+            "count": 1
+        }
+    }
+]

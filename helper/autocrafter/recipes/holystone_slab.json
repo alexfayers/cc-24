@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:holystone"
+            ],
+            "2": [
+                "aether:holystone"
+            ],
+            "3": [
+                "aether:holystone"
+            ]
+        },
+        "output": {
+            "id": "aether:holystone_slab",
+            "count": 6
+        }
+    }
+]

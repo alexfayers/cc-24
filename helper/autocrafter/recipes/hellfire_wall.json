@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:hellfire_stone"
+            ],
+            "2": [
+                "aether:hellfire_stone"
+            ],
+            "3": [
+                "aether:hellfire_stone"
+            ],
+            "5": [
+                "aether:hellfire_stone"
+            ],
+            "6": [
+                "aether:hellfire_stone"
+            ],
+            "7": [
+                "aether:hellfire_stone"
+            ]
+        },
+        "output": {
+            "id": "aether:hellfire_wall",
+            "count": 6
+        }
+    }
+]

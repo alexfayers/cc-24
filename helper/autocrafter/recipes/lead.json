@@ -21,5 +21,28 @@
             "id": "minecraft:lead",
             "count": 2
         }
+    },
+    {
+        "input": {
+            "6": [
+                "#aether:swet_balls"
+            ],
+            "1": [
+                "#c:strings"
+            ],
+            "2": [
+                "#c:strings"
+            ],
+            "5": [
+                "#c:strings"
+            ],
+            "11": [
+                "#c:strings"
+            ]
+        },
+        "output": {
+            "id": "minecraft:lead",
+            "count": 2
+        }
     }
 ]

@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "#aether:crafts_skyroot_planks"
+            ]
+        },
+        "output": {
+            "id": "aether:skyroot_planks",
+            "count": 4
+        }
+    }
+]

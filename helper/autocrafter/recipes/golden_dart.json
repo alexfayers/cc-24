@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "5": [
+                "#aether:skyroot_stick"
+            ],
+            "1": [
+                "#c:feathers"
+            ],
+            "9": [
+                "aether:golden_amber"
+            ]
+        },
+        "output": {
+            "id": "aether:golden_dart",
+            "count": 4
+        }
+    }
+]

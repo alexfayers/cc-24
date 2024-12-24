@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:skyroot_planks"
+            ],
+            "2": [
+                "aether:skyroot_planks"
+            ],
+            "3": [
+                "aether:skyroot_planks"
+            ]
+        },
+        "output": {
+            "id": "aether:skyroot_slab",
+            "count": 6
+        }
+    }
+]

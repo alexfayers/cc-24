@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:chests/wooden"
+            ],
+            "2": [
+                "aether:skyroot_boat"
+            ]
+        },
+        "output": {
+            "id": "aether:skyroot_chest_boat",
+            "count": 1
+        }
+    }
+]

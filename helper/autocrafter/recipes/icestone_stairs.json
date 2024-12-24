@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:icestone"
+            ],
+            "5": [
+                "aether:icestone"
+            ],
+            "6": [
+                "aether:icestone"
+            ],
+            "9": [
+                "aether:icestone"
+            ],
+            "10": [
+                "aether:icestone"
+            ],
+            "11": [
+                "aether:icestone"
+            ]
+        },
+        "output": {
+            "id": "aether:icestone_stairs",
+            "count": 4
+        }
+    }
+]

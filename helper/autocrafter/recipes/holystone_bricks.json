@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:holystone"
+            ],
+            "2": [
+                "aether:holystone"
+            ],
+            "5": [
+                "aether:holystone"
+            ],
+            "6": [
+                "aether:holystone"
+            ]
+        },
+        "output": {
+            "id": "aether:holystone_bricks",
+            "count": 4
+        }
+    }
+]

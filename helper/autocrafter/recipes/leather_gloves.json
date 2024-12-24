@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:leathers"
+            ],
+            "3": [
+                "#c:leathers"
+            ]
+        },
+        "output": {
+            "id": "aether:leather_gloves",
+            "count": 1
+        }
+    }
+]

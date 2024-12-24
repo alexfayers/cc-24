@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "#aether:processed/gravitite"
+            ],
+            "5": [
+                "#aether:skyroot_stick"
+            ],
+            "9": [
+                "#aether:skyroot_stick"
+            ]
+        },
+        "output": {
+            "id": "aether:gravitite_shovel",
+            "count": 1
+        }
+    }
+]

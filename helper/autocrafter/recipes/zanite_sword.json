@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "#aether:gems/zanite"
+            ],
+            "5": [
+                "#aether:gems/zanite"
+            ],
+            "9": [
+                "#aether:skyroot_stick"
+            ]
+        },
+        "output": {
+            "id": "aether:zanite_sword",
+            "count": 1
+        }
+    }
+]

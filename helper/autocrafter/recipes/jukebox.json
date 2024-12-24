@@ -33,5 +33,110 @@
             "id": "minecraft:jukebox",
             "count": 1
         }
+    },
+    {
+        "input": {
+            "6": [
+                "#c:gems/diamond"
+            ],
+            "1": [
+                "#aether:planks_crafting"
+            ],
+            "2": [
+                "#aether:planks_crafting"
+            ],
+            "3": [
+                "#aether:planks_crafting"
+            ],
+            "5": [
+                "#aether:planks_crafting"
+            ],
+            "7": [
+                "#aether:planks_crafting"
+            ],
+            "9": [
+                "#aether:planks_crafting"
+            ],
+            "10": [
+                "#aether:planks_crafting"
+            ],
+            "11": [
+                "#aether:planks_crafting"
+            ]
+        },
+        "output": {
+            "id": "minecraft:jukebox",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "6": [
+                "#aether:processed/gravitite"
+            ],
+            "1": [
+                "#aether:planks_crafting"
+            ],
+            "2": [
+                "#aether:planks_crafting"
+            ],
+            "3": [
+                "#aether:planks_crafting"
+            ],
+            "5": [
+                "#aether:planks_crafting"
+            ],
+            "7": [
+                "#aether:planks_crafting"
+            ],
+            "9": [
+                "#aether:planks_crafting"
+            ],
+            "10": [
+                "#aether:planks_crafting"
+            ],
+            "11": [
+                "#aether:planks_crafting"
+            ]
+        },
+        "output": {
+            "id": "minecraft:jukebox",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "6": [
+                "#aether:processed/gravitite"
+            ],
+            "1": [
+                "#minecraft:planks"
+            ],
+            "2": [
+                "#minecraft:planks"
+            ],
+            "3": [
+                "#minecraft:planks"
+            ],
+            "5": [
+                "#minecraft:planks"
+            ],
+            "7": [
+                "#minecraft:planks"
+            ],
+            "9": [
+                "#minecraft:planks"
+            ],
+            "10": [
+                "#minecraft:planks"
+            ],
+            "11": [
+                "#minecraft:planks"
+            ]
+        },
+        "output": {
+            "id": "minecraft:jukebox",
+            "count": 1
+        }
     }
 ]

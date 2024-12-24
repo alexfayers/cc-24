@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "5": [
+                "#aether:skyroot_stick"
+            ],
+            "1": [
+                "aether:ambrosium_shard"
+            ]
+        },
+        "output": {
+            "id": "aether:ambrosium_torch",
+            "count": 4
+        }
+    }
+]

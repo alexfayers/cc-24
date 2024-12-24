@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:aerogel"
+            ],
+            "2": [
+                "aether:aerogel"
+            ],
+            "3": [
+                "aether:aerogel"
+            ],
+            "5": [
+                "aether:aerogel"
+            ],
+            "6": [
+                "aether:aerogel"
+            ],
+            "7": [
+                "aether:aerogel"
+            ]
+        },
+        "output": {
+            "id": "aether:aerogel_wall",
+            "count": 6
+        }
+    }
+]

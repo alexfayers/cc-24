@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "10": [
+                "minecraft:iron_ingot"
+            ],
+            "1": [
+                "#c:strings"
+            ],
+            "2": [
+                "#c:strings"
+            ],
+            "3": [
+                "#c:strings"
+            ],
+            "5": [
+                "#c:strings"
+            ],
+            "7": [
+                "#c:strings"
+            ]
+        },
+        "output": {
+            "id": "aether:iron_pendant",
+            "count": 1
+        }
+    }
+]

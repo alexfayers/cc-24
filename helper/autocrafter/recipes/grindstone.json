@@ -21,5 +21,51 @@
             "id": "minecraft:grindstone",
             "count": 1
         }
+    },
+    {
+        "input": {
+            "1": [
+                "#c:rods/wooden"
+            ],
+            "3": [
+                "#c:rods/wooden"
+            ],
+            "2": [
+                "minecraft:stone_slab"
+            ],
+            "5": [
+                "#aether:planks_crafting"
+            ],
+            "7": [
+                "#aether:planks_crafting"
+            ]
+        },
+        "output": {
+            "id": "minecraft:grindstone",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "#c:rods/wooden"
+            ],
+            "3": [
+                "#c:rods/wooden"
+            ],
+            "2": [
+                "aether:holystone_slab"
+            ],
+            "5": [
+                "#aether:planks_crafting"
+            ],
+            "7": [
+                "#aether:planks_crafting"
+            ]
+        },
+        "output": {
+            "id": "minecraft:grindstone",
+            "count": 1
+        }
     }
 ]

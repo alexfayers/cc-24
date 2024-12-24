@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "#aether:skyroot_stick_crafting"
+            ],
+            "5": [
+                "#aether:skyroot_stick_crafting"
+            ]
+        },
+        "output": {
+            "id": "aether:skyroot_stick",
+            "count": 4
+        }
+    }
+]

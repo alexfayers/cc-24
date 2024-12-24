@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "5": [
+                "#aether:planks_crafting"
+            ],
+            "6": [
+                "#aether:planks_crafting"
+            ],
+            "7": [
+                "#aether:planks_crafting"
+            ],
+            "1": [
+                "#minecraft:wool"
+            ],
+            "2": [
+                "#minecraft:wool"
+            ],
+            "3": [
+                "#minecraft:wool"
+            ]
+        },
+        "output": {
+            "id": "aether:skyroot_bed",
+            "count": 1
+        }
+    }
+]

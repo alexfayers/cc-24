@@ -18,5 +18,25 @@
             "id": "minecraft:stonecutter",
             "count": 1
         }
+    },
+    {
+        "input": {
+            "5": [
+                "aether:holystone"
+            ],
+            "6": [
+                "aether:holystone"
+            ],
+            "7": [
+                "aether:holystone"
+            ],
+            "2": [
+                "minecraft:iron_ingot"
+            ]
+        },
+        "output": {
+            "id": "minecraft:stonecutter",
+            "count": 1
+        }
     }
 ]

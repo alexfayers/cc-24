@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:hellfire_stone"
+            ],
+            "2": [
+                "aether:hellfire_stone"
+            ],
+            "3": [
+                "aether:hellfire_stone"
+            ]
+        },
+        "output": {
+            "id": "aether:hellfire_slab",
+            "count": 6
+        }
+    }
+]

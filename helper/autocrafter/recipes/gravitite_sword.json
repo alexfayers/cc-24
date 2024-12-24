@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "#aether:processed/gravitite"
+            ],
+            "5": [
+                "#aether:processed/gravitite"
+            ],
+            "9": [
+                "#aether:skyroot_stick"
+            ]
+        },
+        "output": {
+            "id": "aether:gravitite_sword",
+            "count": 1
+        }
+    }
+]

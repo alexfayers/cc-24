@@ -33,5 +33,40 @@
             "id": "minecraft:piston",
             "count": 1
         }
+    },
+    {
+        "input": {
+            "5": [
+                "minecraft:cobblestone"
+            ],
+            "7": [
+                "minecraft:cobblestone"
+            ],
+            "9": [
+                "minecraft:cobblestone"
+            ],
+            "11": [
+                "minecraft:cobblestone"
+            ],
+            "6": [
+                "#c:ingots/iron"
+            ],
+            "1": [
+                "#aether:planks_crafting"
+            ],
+            "2": [
+                "#aether:planks_crafting"
+            ],
+            "3": [
+                "#aether:planks_crafting"
+            ],
+            "10": [
+                "#c:dusts/redstone"
+            ]
+        },
+        "output": {
+            "id": "minecraft:piston",
+            "count": 1
+        }
     }
 ]

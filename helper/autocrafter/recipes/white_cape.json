@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:white_wool"
+            ],
+            "2": [
+                "minecraft:white_wool"
+            ],
+            "5": [
+                "minecraft:white_wool"
+            ],
+            "6": [
+                "minecraft:white_wool"
+            ],
+            "9": [
+                "minecraft:white_wool"
+            ],
+            "10": [
+                "minecraft:white_wool"
+            ]
+        },
+        "output": {
+            "id": "aether:white_cape",
+            "count": 1
+        }
+    }
+]

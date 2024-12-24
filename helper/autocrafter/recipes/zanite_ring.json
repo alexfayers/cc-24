@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "2": [
+                "#aether:gems/zanite"
+            ],
+            "5": [
+                "#aether:gems/zanite"
+            ],
+            "7": [
+                "#aether:gems/zanite"
+            ],
+            "10": [
+                "#aether:gems/zanite"
+            ]
+        },
+        "output": {
+            "id": "aether:zanite_ring",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "#aether:gems/zanite"
+            ],
+            "2": [
+                "#aether:gems/zanite"
+            ],
+            "6": [
+                "#aether:skyroot_stick"
+            ],
+            "10": [
+                "#aether:skyroot_stick"
+            ]
+        },
+        "output": {
+            "id": "aether:zanite_hoe",
+            "count": 1
+        }
+    }
+]

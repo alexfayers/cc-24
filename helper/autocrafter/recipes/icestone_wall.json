@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:icestone"
+            ],
+            "2": [
+                "aether:icestone"
+            ],
+            "3": [
+                "aether:icestone"
+            ],
+            "5": [
+                "aether:icestone"
+            ],
+            "6": [
+                "aether:icestone"
+            ],
+            "7": [
+                "aether:icestone"
+            ]
+        },
+        "output": {
+            "id": "aether:icestone_wall",
+            "count": 6
+        }
+    }
+]

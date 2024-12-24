@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:icestone"
+            ],
+            "2": [
+                "aether:icestone"
+            ],
+            "3": [
+                "aether:icestone"
+            ]
+        },
+        "output": {
+            "id": "aether:icestone_slab",
+            "count": 6
+        }
+    }
+]

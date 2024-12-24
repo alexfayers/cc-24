@@ -15,5 +15,22 @@
             "id": "minecraft:pumpkin_pie",
             "count": 1
         }
+    },
+    {
+        "input": {
+            "1": [
+                "minecraft:pumpkin"
+            ],
+            "2": [
+                "minecraft:sugar"
+            ],
+            "3": [
+                "#aether:moa_eggs"
+            ]
+        },
+        "output": {
+            "id": "minecraft:pumpkin_pie",
+            "count": 1
+        }
     }
 ]

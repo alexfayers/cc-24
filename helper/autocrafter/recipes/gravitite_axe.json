@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "1": [
+                "#aether:processed/gravitite"
+            ],
+            "2": [
+                "#aether:processed/gravitite"
+            ],
+            "5": [
+                "#aether:processed/gravitite"
+            ],
+            "6": [
+                "#aether:skyroot_stick"
+            ],
+            "10": [
+                "#aether:skyroot_stick"
+            ]
+        },
+        "output": {
+            "id": "aether:gravitite_axe",
+            "count": 1
+        }
+    }
+]

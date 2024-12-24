@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:ingots/gold"
+            ],
+            "3": [
+                "#c:ingots/gold"
+            ]
+        },
+        "output": {
+            "id": "aether:golden_gloves",
+            "count": 1
+        }
+    }
+]

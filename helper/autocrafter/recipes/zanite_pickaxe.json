@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "1": [
+                "#aether:gems/zanite"
+            ],
+            "2": [
+                "#aether:gems/zanite"
+            ],
+            "3": [
+                "#aether:gems/zanite"
+            ],
+            "6": [
+                "#aether:skyroot_stick"
+            ],
+            "10": [
+                "#aether:skyroot_stick"
+            ]
+        },
+        "output": {
+            "id": "aether:zanite_pickaxe",
+            "count": 1
+        }
+    }
+]

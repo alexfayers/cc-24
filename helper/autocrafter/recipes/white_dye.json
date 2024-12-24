@@ -20,5 +20,16 @@
             "id": "minecraft:white_dye",
             "count": 1
         }
+    },
+    {
+        "input": {
+            "1": [
+                "aether:white_flower"
+            ]
+        },
+        "output": {
+            "id": "minecraft:white_dye",
+            "count": 1
+        }
     }
 ]

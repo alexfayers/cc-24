@@ -1,0 +1,34 @@
+[
+    {
+        "input": {
+            "1": [
+                "#aether:processed/gravitite"
+            ],
+            "3": [
+                "#aether:processed/gravitite"
+            ],
+            "5": [
+                "#aether:processed/gravitite"
+            ],
+            "6": [
+                "#aether:processed/gravitite"
+            ],
+            "7": [
+                "#aether:processed/gravitite"
+            ],
+            "9": [
+                "#aether:processed/gravitite"
+            ],
+            "10": [
+                "#aether:processed/gravitite"
+            ],
+            "11": [
+                "#aether:processed/gravitite"
+            ]
+        },
+        "output": {
+            "id": "aether:gravitite_chestplate",
+            "count": 1
+        }
+    }
+]

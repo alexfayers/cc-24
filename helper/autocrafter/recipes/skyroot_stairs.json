@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:skyroot_planks"
+            ],
+            "5": [
+                "aether:skyroot_planks"
+            ],
+            "6": [
+                "aether:skyroot_planks"
+            ],
+            "9": [
+                "aether:skyroot_planks"
+            ],
+            "10": [
+                "aether:skyroot_planks"
+            ],
+            "11": [
+                "aether:skyroot_planks"
+            ]
+        },
+        "output": {
+            "id": "aether:skyroot_stairs",
+            "count": 4
+        }
+    }
+]

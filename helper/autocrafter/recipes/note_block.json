@@ -33,5 +33,40 @@
             "id": "minecraft:note_block",
             "count": 1
         }
+    },
+    {
+        "input": {
+            "1": [
+                "#aether:planks_crafting"
+            ],
+            "2": [
+                "#aether:planks_crafting"
+            ],
+            "3": [
+                "#aether:planks_crafting"
+            ],
+            "5": [
+                "#aether:planks_crafting"
+            ],
+            "7": [
+                "#aether:planks_crafting"
+            ],
+            "9": [
+                "#aether:planks_crafting"
+            ],
+            "10": [
+                "#aether:planks_crafting"
+            ],
+            "11": [
+                "#aether:planks_crafting"
+            ],
+            "6": [
+                "#c:dusts/redstone"
+            ]
+        },
+        "output": {
+            "id": "minecraft:note_block",
+            "count": 1
+        }
     }
 ]

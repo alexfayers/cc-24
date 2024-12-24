@@ -1,0 +1,34 @@
+[
+    {
+        "input": {
+            "1": [
+                "#aether:gems/zanite"
+            ],
+            "3": [
+                "#aether:gems/zanite"
+            ],
+            "5": [
+                "#aether:gems/zanite"
+            ],
+            "6": [
+                "#aether:gems/zanite"
+            ],
+            "7": [
+                "#aether:gems/zanite"
+            ],
+            "9": [
+                "#aether:gems/zanite"
+            ],
+            "10": [
+                "#aether:gems/zanite"
+            ],
+            "11": [
+                "#aether:gems/zanite"
+            ]
+        },
+        "output": {
+            "id": "aether:zanite_chestplate",
+            "count": 1
+        }
+    }
+]

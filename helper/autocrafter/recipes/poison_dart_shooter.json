@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:golden_dart_shooter"
+            ],
+            "2": [
+                "aether:aechor_petal"
+            ]
+        },
+        "output": {
+            "id": "aether:poison_dart_shooter",
+            "count": 1
+        }
+    }
+]

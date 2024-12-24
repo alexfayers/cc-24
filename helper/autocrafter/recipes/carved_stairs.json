@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:carved_stone"
+            ],
+            "5": [
+                "aether:carved_stone"
+            ],
+            "6": [
+                "aether:carved_stone"
+            ],
+            "9": [
+                "aether:carved_stone"
+            ],
+            "10": [
+                "aether:carved_stone"
+            ],
+            "11": [
+                "aether:carved_stone"
+            ]
+        },
+        "output": {
+            "id": "aether:carved_stairs",
+            "count": 4
+        }
+    }
+]

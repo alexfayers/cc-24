@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "#aether:skyroot_tool_crafting"
+            ],
+            "3": [
+                "#aether:skyroot_tool_crafting"
+            ],
+            "6": [
+                "#aether:skyroot_tool_crafting"
+            ]
+        },
+        "output": {
+            "id": "aether:skyroot_bucket",
+            "count": 1
+        }
+    }
+]

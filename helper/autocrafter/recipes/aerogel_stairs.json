@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:aerogel"
+            ],
+            "5": [
+                "aether:aerogel"
+            ],
+            "6": [
+                "aether:aerogel"
+            ],
+            "9": [
+                "aether:aerogel"
+            ],
+            "10": [
+                "aether:aerogel"
+            ],
+            "11": [
+                "aether:aerogel"
+            ]
+        },
+        "output": {
+            "id": "aether:aerogel_stairs",
+            "count": 4
+        }
+    }
+]

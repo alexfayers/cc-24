@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "aether:zanite_gemstone"
+            ],
+            "2": [
+                "aether:zanite_gemstone"
+            ],
+            "3": [
+                "aether:zanite_gemstone"
+            ],
+            "5": [
+                "aether:zanite_gemstone"
+            ],
+            "6": [
+                "aether:zanite_gemstone"
+            ],
+            "7": [
+                "aether:zanite_gemstone"
+            ],
+            "9": [
+                "aether:zanite_gemstone"
+            ],
+            "10": [
+                "aether:zanite_gemstone"
+            ],
+            "11": [
+                "aether:zanite_gemstone"
+            ]
+        },
+        "output": {
+            "id": "aether:zanite_block",
+            "count": 1
+        }
+    }
+]

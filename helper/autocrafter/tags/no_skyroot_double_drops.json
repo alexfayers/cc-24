@@ -1,0 +1,18 @@
+{
+  "values": [
+    "#aether:dungeon_keys",
+    "aether:victory_medal",
+    "aether:skyroot_pickaxe",
+    "aether:iron_ring",
+    "aether:golden_amber",
+    "aether:zanite_gemstone",
+    "aether:holystone_pickaxe",
+    "minecraft:player_head",
+    "minecraft:skeleton_skull",
+    "minecraft:creeper_head",
+    "minecraft:zombie_head",
+    "minecraft:wither_skeleton_skull",
+    "minecraft:dragon_head",
+    "minecraft:nether_star"
+  ]
+}
