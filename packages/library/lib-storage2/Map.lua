@@ -112,11 +112,14 @@ function Map:searchItemNames(search)
     self:waitIfPopulating()
 
     local results = {}
-    local doTagSearch = string.sub(search, 1, 1) == "#" and string.len(search) > 1
+    local stringFirstChar = nil
+    if string.len(search) > 0 then
+        stringFirstChar = string.sub(search, 1, 1)
+    end
 
     for itemName, slots in pairs(self.mapTable) do
         if itemName ~= MapSlot.EMPTY_SLOT_NAME then
-            if doTagSearch then
+            if stringFirstChar == "#" then
                 local firstSlot = slots[1]
                 if not firstSlot then
                     goto continue
@@ -245,7 +248,12 @@ end
 function Map:getSlotsBySearchString(search, fuzzy)
     local slots = {}
 
-    if string.sub(search, 1, 1) == "#" then
+    local stringFirstChar = nil
+    if string.len(search) > 0 then
+        stringFirstChar = string.sub(search, 1, 1)
+    end
+
+    if stringFirstChar == "#" then
         slots = self:getItemSlotsByTag(string.sub(search, 2))
     else
         slots = self:getItemSlots(MapSlot.fullNameFromNameStub(search))
