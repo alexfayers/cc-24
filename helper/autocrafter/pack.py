@@ -210,7 +210,7 @@ def pack_recipes() -> None:
             json.dump(recipes, f, indent=4)
 
     with Path(output_dir, "_complete.json").open("w") as f:
-        stub_list = sorted([recipe_file.relative_to(output_dir).with_suffix("").as_posix() for recipe_file in output_dir.rglob("*.json") if not recipe_file.stem.startswith("_")])
+        stub_list = sorted([recipe_file.relative_to(output_dir).with_suffix("").as_posix().replace("/", ":") for recipe_file in output_dir.rglob("*.json") if not recipe_file.stem.startswith("_")])
         json.dump(stub_list, f, indent=4)
 
 

@@ -189,9 +189,7 @@ end
 ---@param itemName string The name of the item to fetch the recipe for
 ---@return Recipe[]?
 local function fetch_recipe_remote(itemName)
-    itemName = getItemNameRemote(itemName)
-
-    local recipeTable = getRemoteItem("recipes", itemName)
+    local recipeTable = getRemoteItem("recipes", getItemNameRemote(itemName))
 
     if recipeTable == nil then
         logger:debug("Failed to get recipe for " .. itemName)
