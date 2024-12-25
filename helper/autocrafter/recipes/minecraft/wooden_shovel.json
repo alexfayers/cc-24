@@ -2,17 +2,17 @@
     {
         "input": {
             "5": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "9": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "1": [
                 "#minecraft:planks"
             ]
         },
         "output": {
-            "id": "minecraft/wooden_shovel",
+            "id": "minecraft:wooden_shovel",
             "count": 1
         }
     }

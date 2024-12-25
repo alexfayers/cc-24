@@ -2,14 +2,14 @@
     {
         "input": {
             "5": [
-                "minecraft/honeycomb"
+                "minecraft:honeycomb"
             ],
             "1": [
-                "minecraft/string"
+                "minecraft:string"
             ]
         },
         "output": {
-            "id": "minecraft/candle",
+            "id": "minecraft:candle",
             "count": 1
         }
     }

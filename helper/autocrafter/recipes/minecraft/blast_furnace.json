@@ -2,35 +2,35 @@
     {
         "input": {
             "9": [
-                "minecraft/smooth_stone"
+                "minecraft:smooth_stone"
             ],
             "10": [
-                "minecraft/smooth_stone"
+                "minecraft:smooth_stone"
             ],
             "11": [
-                "minecraft/smooth_stone"
+                "minecraft:smooth_stone"
             ],
             "1": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "2": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "3": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "5": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "7": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "6": [
-                "minecraft/furnace"
+                "minecraft:furnace"
             ]
         },
         "output": {
-            "id": "minecraft/blast_furnace",
+            "id": "minecraft:blast_furnace",
             "count": 1
         }
     }

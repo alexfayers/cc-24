@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/basalt"
+                "minecraft:basalt"
             ],
             "2": [
-                "minecraft/basalt"
+                "minecraft:basalt"
             ],
             "5": [
-                "minecraft/basalt"
+                "minecraft:basalt"
             ],
             "6": [
-                "minecraft/basalt"
+                "minecraft:basalt"
             ]
         },
         "output": {
-            "id": "minecraft/polished_basalt",
+            "id": "minecraft:polished_basalt",
             "count": 4
         }
     }

@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "2": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "3": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "5": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "6": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "7": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ]
         },
         "output": {
-            "id": "minecraft/cobblestone_wall",
+            "id": "minecraft:cobblestone_wall",
             "count": 6
         }
     }

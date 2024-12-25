@@ -21,7 +21,7 @@
             ]
         },
         "output": {
-            "id": "aether/skyroot_bed",
+            "id": "aether:skyroot_bed",
             "count": 1
         }
     }

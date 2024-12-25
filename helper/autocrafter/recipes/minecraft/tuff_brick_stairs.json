@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft/tuff_bricks"
+                "minecraft:tuff_bricks"
             ],
             "5": [
-                "minecraft/tuff_bricks"
+                "minecraft:tuff_bricks"
             ],
             "6": [
-                "minecraft/tuff_bricks"
+                "minecraft:tuff_bricks"
             ],
             "9": [
-                "minecraft/tuff_bricks"
+                "minecraft:tuff_bricks"
             ],
             "10": [
-                "minecraft/tuff_bricks"
+                "minecraft:tuff_bricks"
             ],
             "11": [
-                "minecraft/tuff_bricks"
+                "minecraft:tuff_bricks"
             ]
         },
         "output": {
-            "id": "minecraft/tuff_brick_stairs",
+            "id": "minecraft:tuff_brick_stairs",
             "count": 4
         }
     }

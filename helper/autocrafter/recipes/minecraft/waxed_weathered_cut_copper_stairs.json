@@ -2,40 +2,40 @@
     {
         "input": {
             "1": [
-                "minecraft/weathered_cut_copper_stairs"
+                "minecraft:weathered_cut_copper_stairs"
             ],
             "2": [
-                "minecraft/honeycomb"
+                "minecraft:honeycomb"
             ]
         },
         "output": {
-            "id": "minecraft/waxed_weathered_cut_copper_stairs",
+            "id": "minecraft:waxed_weathered_cut_copper_stairs",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft/waxed_weathered_cut_copper"
+                "minecraft:waxed_weathered_cut_copper"
             ],
             "5": [
-                "minecraft/waxed_weathered_cut_copper"
+                "minecraft:waxed_weathered_cut_copper"
             ],
             "6": [
-                "minecraft/waxed_weathered_cut_copper"
+                "minecraft:waxed_weathered_cut_copper"
             ],
             "9": [
-                "minecraft/waxed_weathered_cut_copper"
+                "minecraft:waxed_weathered_cut_copper"
             ],
             "10": [
-                "minecraft/waxed_weathered_cut_copper"
+                "minecraft:waxed_weathered_cut_copper"
             ],
             "11": [
-                "minecraft/waxed_weathered_cut_copper"
+                "minecraft:waxed_weathered_cut_copper"
             ]
         },
         "output": {
-            "id": "minecraft/waxed_weathered_cut_copper_stairs",
+            "id": "minecraft:waxed_weathered_cut_copper_stairs",
             "count": 4
         }
     }

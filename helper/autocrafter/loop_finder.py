@@ -102,8 +102,8 @@ def find_loops() -> dict[str, str]:
                 if any(mc_color in input_item for mc_color in mc_colors) and any(mc_color in output_item for mc_color in mc_colors):
                     # filter out colored blocks
                     continue
-                input_stub = input_item.replace(":", "/")
-                output_stub = output_item.replace(":", "/")
+                input_stub = input_item  # .replace(":", "/")
+                output_stub = output_item  # .replace(":", "/")
                 
                 if input_stub not in loops:
                     loops[input_stub] = [output_stub]

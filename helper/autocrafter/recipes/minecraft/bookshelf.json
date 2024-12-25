@@ -20,17 +20,17 @@
                 "#minecraft:planks"
             ],
             "5": [
-                "minecraft/book"
+                "minecraft:book"
             ],
             "6": [
-                "minecraft/book"
+                "minecraft:book"
             ],
             "7": [
-                "minecraft/book"
+                "minecraft:book"
             ]
         },
         "output": {
-            "id": "minecraft/bookshelf",
+            "id": "minecraft:bookshelf",
             "count": 1
         }
     }

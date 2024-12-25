@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "minecraft/dried_kelp_block"
+                "minecraft:dried_kelp_block"
             ]
         },
         "output": {
-            "id": "minecraft/dried_kelp",
+            "id": "minecraft:dried_kelp",
             "count": 9
         }
     }

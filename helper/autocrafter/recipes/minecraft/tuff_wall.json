@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft/tuff"
+                "minecraft:tuff"
             ],
             "2": [
-                "minecraft/tuff"
+                "minecraft:tuff"
             ],
             "3": [
-                "minecraft/tuff"
+                "minecraft:tuff"
             ],
             "5": [
-                "minecraft/tuff"
+                "minecraft:tuff"
             ],
             "6": [
-                "minecraft/tuff"
+                "minecraft:tuff"
             ],
             "7": [
-                "minecraft/tuff"
+                "minecraft:tuff"
             ]
         },
         "output": {
-            "id": "minecraft/tuff_wall",
+            "id": "minecraft:tuff_wall",
             "count": 6
         }
     }

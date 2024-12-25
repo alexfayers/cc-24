@@ -2,32 +2,32 @@
     {
         "input": {
             "5": [
-                "aether/stripped_skyroot_log"
+                "aether:stripped_skyroot_log"
             ],
             "6": [
-                "aether/stripped_skyroot_log"
+                "aether:stripped_skyroot_log"
             ],
             "7": [
-                "aether/stripped_skyroot_log"
+                "aether:stripped_skyroot_log"
             ],
             "9": [
-                "aether/stripped_skyroot_log"
+                "aether:stripped_skyroot_log"
             ],
             "10": [
-                "aether/stripped_skyroot_log"
+                "aether:stripped_skyroot_log"
             ],
             "11": [
-                "aether/stripped_skyroot_log"
+                "aether:stripped_skyroot_log"
             ],
             "1": [
-                "minecraft/chain"
+                "minecraft:chain"
             ],
             "3": [
-                "minecraft/chain"
+                "minecraft:chain"
             ]
         },
         "output": {
-            "id": "aether/skyroot_hanging_sign",
+            "id": "aether:skyroot_hanging_sign",
             "count": 6
         }
     }

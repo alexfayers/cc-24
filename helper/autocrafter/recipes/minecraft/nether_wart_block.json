@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft/nether_wart"
+                "minecraft:nether_wart"
             ],
             "2": [
-                "minecraft/nether_wart"
+                "minecraft:nether_wart"
             ],
             "3": [
-                "minecraft/nether_wart"
+                "minecraft:nether_wart"
             ],
             "5": [
-                "minecraft/nether_wart"
+                "minecraft:nether_wart"
             ],
             "6": [
-                "minecraft/nether_wart"
+                "minecraft:nether_wart"
             ],
             "7": [
-                "minecraft/nether_wart"
+                "minecraft:nether_wart"
             ],
             "9": [
-                "minecraft/nether_wart"
+                "minecraft:nether_wart"
             ],
             "10": [
-                "minecraft/nether_wart"
+                "minecraft:nether_wart"
             ],
             "11": [
-                "minecraft/nether_wart"
+                "minecraft:nether_wart"
             ]
         },
         "output": {
-            "id": "minecraft/nether_wart_block",
+            "id": "minecraft:nether_wart_block",
             "count": 1
         }
     }

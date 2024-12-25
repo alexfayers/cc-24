@@ -2,26 +2,26 @@
     {
         "input": {
             "5": [
-                "minecraft/iron_block"
+                "minecraft:iron_block"
             ],
             "6": [
-                "minecraft/iron_block"
+                "minecraft:iron_block"
             ],
             "7": [
-                "minecraft/iron_block"
+                "minecraft:iron_block"
             ],
             "9": [
-                "minecraft/iron_block"
+                "minecraft:iron_block"
             ],
             "10": [
-                "minecraft/iron_block"
+                "minecraft:iron_block"
             ],
             "11": [
-                "minecraft/iron_block"
+                "minecraft:iron_block"
             ]
         },
         "output": {
-            "id": "stellaris/iron_plating_block",
+            "id": "stellaris:iron_plating_block",
             "count": 6
         }
     }

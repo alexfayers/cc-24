@@ -2,26 +2,26 @@
     {
         "input": {
             "2": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "6": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "1": [
-                "minecraft/crimson_planks"
+                "minecraft:crimson_planks"
             ],
             "3": [
-                "minecraft/crimson_planks"
+                "minecraft:crimson_planks"
             ],
             "5": [
-                "minecraft/crimson_planks"
+                "minecraft:crimson_planks"
             ],
             "7": [
-                "minecraft/crimson_planks"
+                "minecraft:crimson_planks"
             ]
         },
         "output": {
-            "id": "minecraft/crimson_fence",
+            "id": "minecraft:crimson_fence",
             "count": 3
         }
     }

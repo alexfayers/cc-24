@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "aether/holystone"
+                "aether:holystone"
             ],
             "2": [
-                "aether/holystone"
+                "aether:holystone"
             ],
             "3": [
-                "aether/holystone"
+                "aether:holystone"
             ],
             "5": [
-                "aether/holystone"
+                "aether:holystone"
             ],
             "7": [
-                "aether/holystone"
+                "aether:holystone"
             ],
             "9": [
-                "aether/holystone"
+                "aether:holystone"
             ],
             "10": [
-                "aether/holystone"
+                "aether:holystone"
             ],
             "11": [
-                "aether/holystone"
+                "aether:holystone"
             ],
             "6": [
-                "aether/ambrosium_torch"
+                "aether:ambrosium_torch"
             ]
         },
         "output": {
-            "id": "aether/incubator",
+            "id": "aether:incubator",
             "count": 1
         }
     }

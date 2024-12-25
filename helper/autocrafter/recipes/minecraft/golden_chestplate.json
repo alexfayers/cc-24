@@ -2,32 +2,32 @@
     {
         "input": {
             "1": [
-                "minecraft/gold_ingot"
+                "minecraft:gold_ingot"
             ],
             "3": [
-                "minecraft/gold_ingot"
+                "minecraft:gold_ingot"
             ],
             "5": [
-                "minecraft/gold_ingot"
+                "minecraft:gold_ingot"
             ],
             "6": [
-                "minecraft/gold_ingot"
+                "minecraft:gold_ingot"
             ],
             "7": [
-                "minecraft/gold_ingot"
+                "minecraft:gold_ingot"
             ],
             "9": [
-                "minecraft/gold_ingot"
+                "minecraft:gold_ingot"
             ],
             "10": [
-                "minecraft/gold_ingot"
+                "minecraft:gold_ingot"
             ],
             "11": [
-                "minecraft/gold_ingot"
+                "minecraft:gold_ingot"
             ]
         },
         "output": {
-            "id": "minecraft/golden_chestplate",
+            "id": "minecraft:golden_chestplate",
             "count": 1
         }
     }

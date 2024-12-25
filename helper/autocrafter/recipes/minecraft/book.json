@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/paper"
+                "minecraft:paper"
             ],
             "2": [
-                "minecraft/paper"
+                "minecraft:paper"
             ],
             "3": [
-                "minecraft/paper"
+                "minecraft:paper"
             ],
             "5": [
-                "minecraft/leather"
+                "minecraft:leather"
             ]
         },
         "output": {
-            "id": "minecraft/book",
+            "id": "minecraft:book",
             "count": 1
         }
     }

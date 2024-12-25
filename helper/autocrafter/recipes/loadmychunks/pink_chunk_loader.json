@@ -5,11 +5,11 @@
                 "#loadmychunks:chunk_loaders"
             ],
             "2": [
-                "minecraft/pink_dye"
+                "minecraft:pink_dye"
             ]
         },
         "output": {
-            "id": "loadmychunks/pink_chunk_loader",
+            "id": "loadmychunks:pink_chunk_loader",
             "count": 1
         }
     }

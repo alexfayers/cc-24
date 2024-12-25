@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "doggytalents/sunglasses"
+                "doggytalents:sunglasses"
             ],
             "2": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ]
         },
         "output": {
-            "id": "doggytalents/smarty_glasses",
+            "id": "doggytalents:smarty_glasses",
             "count": 1
         }
     }

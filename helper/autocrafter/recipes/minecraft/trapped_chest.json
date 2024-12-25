@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft/chest"
+                "minecraft:chest"
             ],
             "2": [
-                "minecraft/tripwire_hook"
+                "minecraft:tripwire_hook"
             ]
         },
         "output": {
-            "id": "minecraft/trapped_chest",
+            "id": "minecraft:trapped_chest",
             "count": 1
         }
     }

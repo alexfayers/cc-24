@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "minecraft/pumpkin"
+                "minecraft:pumpkin"
             ]
         },
         "output": {
-            "id": "minecraft/pumpkin_seeds",
+            "id": "minecraft:pumpkin_seeds",
             "count": 4
         }
     }

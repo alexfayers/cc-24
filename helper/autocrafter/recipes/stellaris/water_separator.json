@@ -20,17 +20,17 @@
                 "#c:ore_blocks/steel"
             ],
             "6": [
-                "minecraft/water_bucket"
+                "minecraft:water_bucket"
             ],
             "5": [
-                "stellaris/oxygen_tank"
+                "stellaris:oxygen_tank"
             ],
             "7": [
-                "stellaris/oxygen_tank"
+                "stellaris:oxygen_tank"
             ]
         },
         "output": {
-            "id": "stellaris/water_separator",
+            "id": "stellaris:water_separator",
             "count": 1
         }
     }

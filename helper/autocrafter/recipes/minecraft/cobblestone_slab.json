@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "2": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "3": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ]
         },
         "output": {
-            "id": "minecraft/cobblestone_slab",
+            "id": "minecraft:cobblestone_slab",
             "count": 6
         }
     }

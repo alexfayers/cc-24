@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "doggytalents/head_band_blank"
+                "doggytalents:head_band_blank"
             ],
             "2": [
-                "minecraft/red_dye"
+                "minecraft:red_dye"
             ],
             "3": [
-                "minecraft/red_dye"
+                "minecraft:red_dye"
             ],
             "5": [
-                "minecraft/black_dye"
+                "minecraft:black_dye"
             ]
         },
         "output": {
-            "id": "doggytalents/tengu_mask",
+            "id": "doggytalents:tengu_mask",
             "count": 1
         }
     }

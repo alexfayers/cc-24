@@ -2,14 +2,14 @@
     {
         "input": {
             "5": [
-                "stellaris/mars_stone_brick_slab"
+                "stellaris:mars_stone_brick_slab"
             ],
             "9": [
-                "stellaris/mars_stone_brick_slab"
+                "stellaris:mars_stone_brick_slab"
             ]
         },
         "output": {
-            "id": "stellaris/chiseled_mars_stone_bricks",
+            "id": "stellaris:chiseled_mars_stone_bricks",
             "count": 1
         }
     }

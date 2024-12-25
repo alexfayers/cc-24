@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft/birch_planks"
+                "minecraft:birch_planks"
             ],
             "2": [
-                "minecraft/birch_planks"
+                "minecraft:birch_planks"
             ],
             "5": [
-                "minecraft/birch_planks"
+                "minecraft:birch_planks"
             ],
             "6": [
-                "minecraft/birch_planks"
+                "minecraft:birch_planks"
             ],
             "9": [
-                "minecraft/birch_planks"
+                "minecraft:birch_planks"
             ],
             "10": [
-                "minecraft/birch_planks"
+                "minecraft:birch_planks"
             ]
         },
         "output": {
-            "id": "minecraft/birch_door",
+            "id": "minecraft:birch_door",
             "count": 3
         }
     }

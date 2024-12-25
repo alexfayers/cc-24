@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft/smooth_red_sandstone"
+                "minecraft:smooth_red_sandstone"
             ],
             "2": [
-                "minecraft/smooth_red_sandstone"
+                "minecraft:smooth_red_sandstone"
             ],
             "3": [
-                "minecraft/smooth_red_sandstone"
+                "minecraft:smooth_red_sandstone"
             ]
         },
         "output": {
-            "id": "minecraft/smooth_red_sandstone_slab",
+            "id": "minecraft:smooth_red_sandstone_slab",
             "count": 6
         }
     }

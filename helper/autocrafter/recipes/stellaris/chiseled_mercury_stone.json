@@ -2,14 +2,14 @@
     {
         "input": {
             "5": [
-                "stellaris/marcury_stone_slab"
+                "stellaris:marcury_stone_slab"
             ],
             "9": [
-                "stellaris/marcury_stone_slab"
+                "stellaris:marcury_stone_slab"
             ]
         },
         "output": {
-            "id": "stellaris/chiseled_mercury_stone",
+            "id": "stellaris:chiseled_mercury_stone",
             "count": 1
         }
     }

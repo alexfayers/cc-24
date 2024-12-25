@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft/bamboo_slab"
+                "minecraft:bamboo_slab"
             ],
             "5": [
-                "minecraft/bamboo_slab"
+                "minecraft:bamboo_slab"
             ]
         },
         "output": {
-            "id": "minecraft/bamboo_mosaic",
+            "id": "minecraft:bamboo_mosaic",
             "count": 1
         }
     }

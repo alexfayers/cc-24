@@ -5,11 +5,11 @@
                 "#aether:skyroot_stick"
             ],
             "1": [
-                "aether/ambrosium_shard"
+                "aether:ambrosium_shard"
             ]
         },
         "output": {
-            "id": "aether/ambrosium_torch",
+            "id": "aether:ambrosium_torch",
             "count": 4
         }
     }

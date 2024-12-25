@@ -2,29 +2,29 @@
     {
         "input": {
             "1": [
-                "minecraft/cyan_wool"
+                "minecraft:cyan_wool"
             ],
             "2": [
-                "minecraft/cyan_wool"
+                "minecraft:cyan_wool"
             ],
             "3": [
-                "minecraft/cyan_wool"
+                "minecraft:cyan_wool"
             ],
             "5": [
-                "minecraft/cyan_wool"
+                "minecraft:cyan_wool"
             ],
             "6": [
-                "minecraft/cyan_wool"
+                "minecraft:cyan_wool"
             ],
             "7": [
-                "minecraft/cyan_wool"
+                "minecraft:cyan_wool"
             ],
             "10": [
-                "minecraft/stick"
+                "minecraft:stick"
             ]
         },
         "output": {
-            "id": "minecraft/cyan_banner",
+            "id": "minecraft:cyan_banner",
             "count": 1
         }
     }

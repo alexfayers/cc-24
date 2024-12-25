@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "aether/skyroot_planks"
+                "aether:skyroot_planks"
             ]
         },
         "output": {
-            "id": "aether/skyroot_button",
+            "id": "aether:skyroot_button",
             "count": 1
         }
     }

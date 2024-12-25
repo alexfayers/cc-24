@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "minecraft/jungle_planks"
+                "minecraft:jungle_planks"
             ]
         },
         "output": {
-            "id": "minecraft/jungle_button",
+            "id": "minecraft:jungle_button",
             "count": 1
         }
     }

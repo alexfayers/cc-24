@@ -2,14 +2,14 @@
     {
         "input": {
             "5": [
-                "stellaris/moon_stone_slab"
+                "stellaris:moon_stone_slab"
             ],
             "9": [
-                "stellaris/moon_stone_slab"
+                "stellaris:moon_stone_slab"
             ]
         },
         "output": {
-            "id": "stellaris/chiseled_moon_stone",
+            "id": "stellaris:chiseled_moon_stone",
             "count": 1
         }
     }

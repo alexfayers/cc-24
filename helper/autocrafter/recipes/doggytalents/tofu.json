@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "doggytalents/soy_milk"
+                "doggytalents:soy_milk"
             ],
             "2": [
-                "doggytalents/soy_milk"
+                "doggytalents:soy_milk"
             ],
             "3": [
-                "doggytalents/soy_milk"
+                "doggytalents:soy_milk"
             ],
             "5": [
-                "doggytalents/soy_milk"
+                "doggytalents:soy_milk"
             ],
             "6": [
-                "doggytalents/soy_milk"
+                "doggytalents:soy_milk"
             ],
             "7": [
-                "doggytalents/soy_milk"
+                "doggytalents:soy_milk"
             ]
         },
         "output": {
-            "id": "doggytalents/tofu",
+            "id": "doggytalents:tofu",
             "count": 8
         }
     }

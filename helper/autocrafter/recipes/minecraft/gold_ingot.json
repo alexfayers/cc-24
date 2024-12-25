@@ -2,46 +2,46 @@
     {
         "input": {
             "1": [
-                "minecraft/gold_nugget"
+                "minecraft:gold_nugget"
             ],
             "2": [
-                "minecraft/gold_nugget"
+                "minecraft:gold_nugget"
             ],
             "3": [
-                "minecraft/gold_nugget"
+                "minecraft:gold_nugget"
             ],
             "5": [
-                "minecraft/gold_nugget"
+                "minecraft:gold_nugget"
             ],
             "6": [
-                "minecraft/gold_nugget"
+                "minecraft:gold_nugget"
             ],
             "7": [
-                "minecraft/gold_nugget"
+                "minecraft:gold_nugget"
             ],
             "9": [
-                "minecraft/gold_nugget"
+                "minecraft:gold_nugget"
             ],
             "10": [
-                "minecraft/gold_nugget"
+                "minecraft:gold_nugget"
             ],
             "11": [
-                "minecraft/gold_nugget"
+                "minecraft:gold_nugget"
             ]
         },
         "output": {
-            "id": "minecraft/gold_ingot",
+            "id": "minecraft:gold_ingot",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft/gold_block"
+                "minecraft:gold_block"
             ]
         },
         "output": {
-            "id": "minecraft/gold_ingot",
+            "id": "minecraft:gold_ingot",
             "count": 9
         }
     }

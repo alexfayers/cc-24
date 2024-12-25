@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "aether/golden_oak_log"
+                "aether:golden_oak_log"
             ],
             "2": [
-                "aether/golden_oak_log"
+                "aether:golden_oak_log"
             ],
             "5": [
-                "aether/golden_oak_log"
+                "aether:golden_oak_log"
             ],
             "6": [
-                "aether/golden_oak_log"
+                "aether:golden_oak_log"
             ]
         },
         "output": {
-            "id": "aether/golden_oak_wood",
+            "id": "aether:golden_oak_wood",
             "count": 3
         }
     }

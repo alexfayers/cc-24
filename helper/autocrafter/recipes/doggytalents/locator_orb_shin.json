@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "doggytalents/empty_locator_orb"
+                "doggytalents:empty_locator_orb"
             ],
             "2": [
-                "minecraft/green_dye"
+                "minecraft:green_dye"
             ]
         },
         "output": {
-            "id": "doggytalents/locator_orb_shin",
+            "id": "doggytalents:locator_orb_shin",
             "count": 1
         }
     }

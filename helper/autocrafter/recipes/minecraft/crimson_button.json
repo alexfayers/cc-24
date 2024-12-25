@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "minecraft/crimson_planks"
+                "minecraft:crimson_planks"
             ]
         },
         "output": {
-            "id": "minecraft/crimson_button",
+            "id": "minecraft:crimson_button",
             "count": 1
         }
     }

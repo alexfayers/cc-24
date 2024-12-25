@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft/stone_bricks"
+                "minecraft:stone_bricks"
             ],
             "5": [
-                "minecraft/stone_bricks"
+                "minecraft:stone_bricks"
             ],
             "6": [
-                "minecraft/stone_bricks"
+                "minecraft:stone_bricks"
             ],
             "9": [
-                "minecraft/stone_bricks"
+                "minecraft:stone_bricks"
             ],
             "10": [
-                "minecraft/stone_bricks"
+                "minecraft:stone_bricks"
             ],
             "11": [
-                "minecraft/stone_bricks"
+                "minecraft:stone_bricks"
             ]
         },
         "output": {
-            "id": "minecraft/stone_brick_stairs",
+            "id": "minecraft:stone_brick_stairs",
             "count": 4
         }
     }

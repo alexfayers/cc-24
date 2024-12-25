@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft/raw_gold"
+                "minecraft:raw_gold"
             ],
             "2": [
-                "minecraft/raw_gold"
+                "minecraft:raw_gold"
             ],
             "3": [
-                "minecraft/raw_gold"
+                "minecraft:raw_gold"
             ],
             "5": [
-                "minecraft/raw_gold"
+                "minecraft:raw_gold"
             ],
             "6": [
-                "minecraft/raw_gold"
+                "minecraft:raw_gold"
             ],
             "7": [
-                "minecraft/raw_gold"
+                "minecraft:raw_gold"
             ],
             "9": [
-                "minecraft/raw_gold"
+                "minecraft:raw_gold"
             ],
             "10": [
-                "minecraft/raw_gold"
+                "minecraft:raw_gold"
             ],
             "11": [
-                "minecraft/raw_gold"
+                "minecraft:raw_gold"
             ]
         },
         "output": {
-            "id": "minecraft/raw_gold_block",
+            "id": "minecraft:raw_gold_block",
             "count": 1
         }
     }

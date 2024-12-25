@@ -2,20 +2,20 @@
     {
         "input": {
             "5": [
-                "stellaris/venus_sand"
+                "stellaris:venus_sand"
             ],
             "6": [
-                "stellaris/venus_sand"
+                "stellaris:venus_sand"
             ],
             "9": [
-                "stellaris/venus_sand"
+                "stellaris:venus_sand"
             ],
             "10": [
-                "stellaris/venus_sand"
+                "stellaris:venus_sand"
             ]
         },
         "output": {
-            "id": "stellaris/venus_sandstone",
+            "id": "stellaris:venus_sandstone",
             "count": 4
         }
     }

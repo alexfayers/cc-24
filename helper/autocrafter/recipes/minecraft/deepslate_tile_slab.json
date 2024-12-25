@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft/deepslate_tiles"
+                "minecraft:deepslate_tiles"
             ],
             "2": [
-                "minecraft/deepslate_tiles"
+                "minecraft:deepslate_tiles"
             ],
             "3": [
-                "minecraft/deepslate_tiles"
+                "minecraft:deepslate_tiles"
             ]
         },
         "output": {
-            "id": "minecraft/deepslate_tile_slab",
+            "id": "minecraft:deepslate_tile_slab",
             "count": 6
         }
     }

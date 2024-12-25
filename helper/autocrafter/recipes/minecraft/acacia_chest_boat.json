@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft/chest"
+                "minecraft:chest"
             ],
             "2": [
-                "minecraft/acacia_boat"
+                "minecraft:acacia_boat"
             ]
         },
         "output": {
-            "id": "minecraft/acacia_chest_boat",
+            "id": "minecraft:acacia_chest_boat",
             "count": 1
         }
     }

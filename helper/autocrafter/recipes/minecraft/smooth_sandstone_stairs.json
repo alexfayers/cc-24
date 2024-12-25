@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft/smooth_sandstone"
+                "minecraft:smooth_sandstone"
             ],
             "5": [
-                "minecraft/smooth_sandstone"
+                "minecraft:smooth_sandstone"
             ],
             "6": [
-                "minecraft/smooth_sandstone"
+                "minecraft:smooth_sandstone"
             ],
             "9": [
-                "minecraft/smooth_sandstone"
+                "minecraft:smooth_sandstone"
             ],
             "10": [
-                "minecraft/smooth_sandstone"
+                "minecraft:smooth_sandstone"
             ],
             "11": [
-                "minecraft/smooth_sandstone"
+                "minecraft:smooth_sandstone"
             ]
         },
         "output": {
-            "id": "minecraft/smooth_sandstone_stairs",
+            "id": "minecraft:smooth_sandstone_stairs",
             "count": 4
         }
     }

@@ -2,7 +2,7 @@
     {
         "input": {
             "1": [
-                "aether/holystone"
+                "aether:holystone"
             ],
             "5": [
                 "#aether:skyroot_stick"
@@ -12,7 +12,7 @@
             ]
         },
         "output": {
-            "id": "aether/holystone_shovel",
+            "id": "aether:holystone_shovel",
             "count": 1
         }
     }

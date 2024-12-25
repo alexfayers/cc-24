@@ -2,20 +2,20 @@
     {
         "input": {
             "2": [
-                "minecraft/copper_block"
+                "minecraft:copper_block"
             ],
             "5": [
-                "minecraft/copper_block"
+                "minecraft:copper_block"
             ],
             "7": [
-                "minecraft/copper_block"
+                "minecraft:copper_block"
             ],
             "10": [
-                "minecraft/copper_block"
+                "minecraft:copper_block"
             ]
         },
         "output": {
-            "id": "minecraft/copper_grate",
+            "id": "minecraft:copper_grate",
             "count": 4
         }
     }

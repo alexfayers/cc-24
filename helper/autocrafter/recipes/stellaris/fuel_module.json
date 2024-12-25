@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "stellaris/base_module_tier_1"
+                "stellaris:base_module_tier_1"
             ],
             "2": [
-                "stellaris/fuel_bucket"
+                "stellaris:fuel_bucket"
             ]
         },
         "output": {
-            "id": "stellaris/fuel_module",
+            "id": "stellaris:fuel_module",
             "count": 1
         }
     }

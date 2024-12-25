@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "minecraft/lapis_block"
+                "minecraft:lapis_block"
             ]
         },
         "output": {
-            "id": "minecraft/lapis_lazuli",
+            "id": "minecraft:lapis_lazuli",
             "count": 9
         }
     }

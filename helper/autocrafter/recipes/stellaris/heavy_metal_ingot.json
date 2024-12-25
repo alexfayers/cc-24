@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "stellaris/heavy_metal_plate"
+                "stellaris:heavy_metal_plate"
             ]
         },
         "output": {
-            "id": "stellaris/heavy_metal_ingot",
+            "id": "stellaris:heavy_metal_ingot",
             "count": 9
         }
     }

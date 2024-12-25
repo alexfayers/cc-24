@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "minecraft/stone"
+                "minecraft:stone"
             ]
         },
         "output": {
-            "id": "minecraft/stone_button",
+            "id": "minecraft:stone_button",
             "count": 1
         }
     }

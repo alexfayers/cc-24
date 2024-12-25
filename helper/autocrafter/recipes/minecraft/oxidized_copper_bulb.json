@@ -2,23 +2,23 @@
     {
         "input": {
             "6": [
-                "minecraft/blaze_rod"
+                "minecraft:blaze_rod"
             ],
             "2": [
-                "minecraft/oxidized_copper"
+                "minecraft:oxidized_copper"
             ],
             "5": [
-                "minecraft/oxidized_copper"
+                "minecraft:oxidized_copper"
             ],
             "7": [
-                "minecraft/oxidized_copper"
+                "minecraft:oxidized_copper"
             ],
             "10": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ]
         },
         "output": {
-            "id": "minecraft/oxidized_copper_bulb",
+            "id": "minecraft:oxidized_copper_bulb",
             "count": 4
         }
     }

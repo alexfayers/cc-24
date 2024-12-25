@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft/nether_brick_slab"
+                "minecraft:nether_brick_slab"
             ],
             "5": [
-                "minecraft/nether_brick_slab"
+                "minecraft:nether_brick_slab"
             ]
         },
         "output": {
-            "id": "minecraft/chiseled_nether_bricks",
+            "id": "minecraft:chiseled_nether_bricks",
             "count": 1
         }
     }

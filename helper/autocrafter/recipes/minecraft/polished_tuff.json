@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/tuff"
+                "minecraft:tuff"
             ],
             "2": [
-                "minecraft/tuff"
+                "minecraft:tuff"
             ],
             "5": [
-                "minecraft/tuff"
+                "minecraft:tuff"
             ],
             "6": [
-                "minecraft/tuff"
+                "minecraft:tuff"
             ]
         },
         "output": {
-            "id": "minecraft/polished_tuff",
+            "id": "minecraft:polished_tuff",
             "count": 4
         }
     }

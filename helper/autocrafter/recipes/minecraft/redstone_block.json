@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ],
             "2": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ],
             "3": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ],
             "5": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ],
             "6": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ],
             "7": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ],
             "9": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ],
             "10": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ],
             "11": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ]
         },
         "output": {
-            "id": "minecraft/redstone_block",
+            "id": "minecraft:redstone_block",
             "count": 1
         }
     }

@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "doggytalents/empty_locator_orb"
+                "doggytalents:empty_locator_orb"
             ],
             "2": [
-                "minecraft/paper"
+                "minecraft:paper"
             ]
         },
         "output": {
-            "id": "doggytalents/locator_orb_dyable",
+            "id": "doggytalents:locator_orb_dyable",
             "count": 1
         }
     }

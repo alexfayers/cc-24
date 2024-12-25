@@ -6,7 +6,7 @@
             ]
         },
         "output": {
-            "id": "minecraft/oak_planks",
+            "id": "minecraft:oak_planks",
             "count": 4
         }
     }

@@ -2,29 +2,29 @@
     {
         "input": {
             "1": [
-                "minecraft/iron_block"
+                "minecraft:iron_block"
             ],
             "2": [
-                "minecraft/iron_block"
+                "minecraft:iron_block"
             ],
             "3": [
-                "minecraft/iron_block"
+                "minecraft:iron_block"
             ],
             "6": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "9": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "10": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "11": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ]
         },
         "output": {
-            "id": "minecraft/anvil",
+            "id": "minecraft:anvil",
             "count": 1
         }
     }

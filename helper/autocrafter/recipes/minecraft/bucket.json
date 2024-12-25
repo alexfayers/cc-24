@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "3": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "6": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ]
         },
         "output": {
-            "id": "minecraft/bucket",
+            "id": "minecraft:bucket",
             "count": 1
         }
     }

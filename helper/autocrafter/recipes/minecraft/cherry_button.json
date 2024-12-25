@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "minecraft/cherry_planks"
+                "minecraft:cherry_planks"
             ]
         },
         "output": {
-            "id": "minecraft/cherry_button",
+            "id": "minecraft:cherry_button",
             "count": 1
         }
     }

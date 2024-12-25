@@ -2,61 +2,61 @@
     {
         "input": {
             "1": [
-                "minecraft/light_blue_stained_glass"
+                "minecraft:light_blue_stained_glass"
             ],
             "2": [
-                "minecraft/light_blue_stained_glass"
+                "minecraft:light_blue_stained_glass"
             ],
             "3": [
-                "minecraft/light_blue_stained_glass"
+                "minecraft:light_blue_stained_glass"
             ],
             "5": [
-                "minecraft/light_blue_stained_glass"
+                "minecraft:light_blue_stained_glass"
             ],
             "6": [
-                "minecraft/light_blue_stained_glass"
+                "minecraft:light_blue_stained_glass"
             ],
             "7": [
-                "minecraft/light_blue_stained_glass"
+                "minecraft:light_blue_stained_glass"
             ]
         },
         "output": {
-            "id": "minecraft/light_blue_stained_glass_pane",
+            "id": "minecraft:light_blue_stained_glass_pane",
             "count": 16
         }
     },
     {
         "input": {
             "1": [
-                "minecraft/glass_pane"
+                "minecraft:glass_pane"
             ],
             "2": [
-                "minecraft/glass_pane"
+                "minecraft:glass_pane"
             ],
             "3": [
-                "minecraft/glass_pane"
+                "minecraft:glass_pane"
             ],
             "5": [
-                "minecraft/glass_pane"
+                "minecraft:glass_pane"
             ],
             "7": [
-                "minecraft/glass_pane"
+                "minecraft:glass_pane"
             ],
             "9": [
-                "minecraft/glass_pane"
+                "minecraft:glass_pane"
             ],
             "10": [
-                "minecraft/glass_pane"
+                "minecraft:glass_pane"
             ],
             "11": [
-                "minecraft/glass_pane"
+                "minecraft:glass_pane"
             ],
             "6": [
-                "minecraft/light_blue_dye"
+                "minecraft:light_blue_dye"
             ]
         },
         "output": {
-            "id": "minecraft/light_blue_stained_glass_pane",
+            "id": "minecraft:light_blue_stained_glass_pane",
             "count": 8
         }
     }

@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "2": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "6": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "5": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ]
         },
         "output": {
-            "id": "doggytalents/radio_collar",
+            "id": "doggytalents:radio_collar",
             "count": 1
         }
     }

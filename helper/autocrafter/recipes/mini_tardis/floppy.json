@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/paper"
+                "minecraft:paper"
             ],
             "2": [
-                "minecraft/dried_kelp"
+                "minecraft:dried_kelp"
             ],
             "3": [
-                "minecraft/iron_nugget"
+                "minecraft:iron_nugget"
             ],
             "5": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ]
         },
         "output": {
-            "id": "mini_tardis/floppy",
+            "id": "mini_tardis:floppy",
             "count": 1
         }
     }

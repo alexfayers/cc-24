@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft/fishing_rod"
+                "minecraft:fishing_rod"
             ],
             "6": [
-                "minecraft/warped_fungus"
+                "minecraft:warped_fungus"
             ]
         },
         "output": {
-            "id": "minecraft/warped_fungus_on_a_stick",
+            "id": "minecraft:warped_fungus_on_a_stick",
             "count": 1
         }
     }

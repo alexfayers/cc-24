@@ -2,28 +2,28 @@
     {
         "input": {
             "1": [
-                "minecraft/waxed_weathered_cut_copper_slab"
+                "minecraft:waxed_weathered_cut_copper_slab"
             ],
             "5": [
-                "minecraft/waxed_weathered_cut_copper_slab"
+                "minecraft:waxed_weathered_cut_copper_slab"
             ]
         },
         "output": {
-            "id": "minecraft/waxed_weathered_chiseled_copper",
+            "id": "minecraft:waxed_weathered_chiseled_copper",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft/weathered_chiseled_copper"
+                "minecraft:weathered_chiseled_copper"
             ],
             "2": [
-                "minecraft/honeycomb"
+                "minecraft:honeycomb"
             ]
         },
         "output": {
-            "id": "minecraft/waxed_weathered_chiseled_copper",
+            "id": "minecraft:waxed_weathered_chiseled_copper",
             "count": 1
         }
     }

@@ -2,28 +2,28 @@
     {
         "input": {
             "1": [
-                "minecraft/blue_dye"
+                "minecraft:blue_dye"
             ],
             "2": [
-                "minecraft/black_wool",
-                "minecraft/brown_wool",
-                "minecraft/cyan_wool",
-                "minecraft/gray_wool",
-                "minecraft/green_wool",
-                "minecraft/light_blue_wool",
-                "minecraft/light_gray_wool",
-                "minecraft/lime_wool",
-                "minecraft/magenta_wool",
-                "minecraft/orange_wool",
-                "minecraft/pink_wool",
-                "minecraft/purple_wool",
-                "minecraft/red_wool",
-                "minecraft/yellow_wool",
-                "minecraft/white_wool"
+                "minecraft:black_wool",
+                "minecraft:brown_wool",
+                "minecraft:cyan_wool",
+                "minecraft:gray_wool",
+                "minecraft:green_wool",
+                "minecraft:light_blue_wool",
+                "minecraft:light_gray_wool",
+                "minecraft:lime_wool",
+                "minecraft:magenta_wool",
+                "minecraft:orange_wool",
+                "minecraft:pink_wool",
+                "minecraft:purple_wool",
+                "minecraft:red_wool",
+                "minecraft:yellow_wool",
+                "minecraft:white_wool"
             ]
         },
         "output": {
-            "id": "minecraft/blue_wool",
+            "id": "minecraft:blue_wool",
             "count": 1
         }
     }

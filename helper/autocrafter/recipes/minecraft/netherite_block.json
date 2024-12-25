@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft/netherite_ingot"
+                "minecraft:netherite_ingot"
             ],
             "2": [
-                "minecraft/netherite_ingot"
+                "minecraft:netherite_ingot"
             ],
             "3": [
-                "minecraft/netherite_ingot"
+                "minecraft:netherite_ingot"
             ],
             "5": [
-                "minecraft/netherite_ingot"
+                "minecraft:netherite_ingot"
             ],
             "6": [
-                "minecraft/netherite_ingot"
+                "minecraft:netherite_ingot"
             ],
             "7": [
-                "minecraft/netherite_ingot"
+                "minecraft:netherite_ingot"
             ],
             "9": [
-                "minecraft/netherite_ingot"
+                "minecraft:netherite_ingot"
             ],
             "10": [
-                "minecraft/netherite_ingot"
+                "minecraft:netherite_ingot"
             ],
             "11": [
-                "minecraft/netherite_ingot"
+                "minecraft:netherite_ingot"
             ]
         },
         "output": {
-            "id": "minecraft/netherite_block",
+            "id": "minecraft:netherite_block",
             "count": 1
         }
     }

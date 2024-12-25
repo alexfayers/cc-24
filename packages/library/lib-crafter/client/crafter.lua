@@ -46,13 +46,13 @@ local cacheFolder = settings.get("crafter.cacheFolder")
 local recipeLoops = nil
 
 
-local function getItemStub(itemName)
+local function getItemNameRemote(itemName)
     -- replace : with /
     return itemName:gsub(":", "/")
 end
 
 
-local function getTagStub(itemName)
+local function getStub(itemName)
     return itemName:match(".*:(.*)") or itemName
 end
 
@@ -144,7 +144,7 @@ local function tag_to_items(tag)
     end
 
     if tag:sub(1, 1) == "#" then
-        local tagItems = getTagStub(tag:sub(2))
+        local tagItems = getStub(tag:sub(2))
 
         local tagItemsTable = getRemoteItem("tags", tagItems)
 
@@ -189,7 +189,7 @@ end
 ---@param itemName string The name of the item to fetch the recipe for
 ---@return Recipe[]?
 local function fetch_recipe_remote(itemName)
-    itemName = getItemStub(itemName)
+    itemName = getItemNameRemote(itemName)
 
     local recipeTable = getRemoteItem("recipes", itemName)
 
@@ -458,7 +458,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
         end
     end
 
-    local itemRecipeLoops = recipeLoops[getItemStub(recipe.output.id)]
+    local itemRecipeLoops = recipeLoops[recipe.output.id]
 
     local didSubCraft = false
 
@@ -539,7 +539,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
                 end
 
                 -- need to craft
-                if itemRecipeLoops and tableHelpers.valuesContain(itemRecipeLoops, getItemStub(slotItemName)) then
+                if itemRecipeLoops and tableHelpers.valuesContain(itemRecipeLoops, slotItemName) then
                     goto nextItem
                 end
 
@@ -629,7 +629,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
 
         local slotItemNamesStubs = {}
         for _, slotItemName in pairs(slotItemNames) do
-            table.insert(slotItemNamesStubs, getTagStub(slotItemName))
+            table.insert(slotItemNamesStubs, getStub(slotItemName))
 
             local slotItemNameColorAmbivalent = make_color_ambivalent(slotItemName)
 
@@ -757,7 +757,7 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
                 --     end
                 -- end
 
-                table.insert(requiredItemNamesStubs, getTagStub(requiredItem[1] .. " (" .. requiredItem[2] .. ")"))
+                table.insert(requiredItemNamesStubs, getStub(requiredItem[1] .. " (" .. requiredItem[2] .. ")"))
             end
             local requiredItemNamesString = table.concat(requiredItemNamesStubs, ", ")
 

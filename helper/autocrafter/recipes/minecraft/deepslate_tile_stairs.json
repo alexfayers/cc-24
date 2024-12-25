@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft/deepslate_tiles"
+                "minecraft:deepslate_tiles"
             ],
             "5": [
-                "minecraft/deepslate_tiles"
+                "minecraft:deepslate_tiles"
             ],
             "6": [
-                "minecraft/deepslate_tiles"
+                "minecraft:deepslate_tiles"
             ],
             "9": [
-                "minecraft/deepslate_tiles"
+                "minecraft:deepslate_tiles"
             ],
             "10": [
-                "minecraft/deepslate_tiles"
+                "minecraft:deepslate_tiles"
             ],
             "11": [
-                "minecraft/deepslate_tiles"
+                "minecraft:deepslate_tiles"
             ]
         },
         "output": {
-            "id": "minecraft/deepslate_tile_stairs",
+            "id": "minecraft:deepslate_tile_stairs",
             "count": 4
         }
     }

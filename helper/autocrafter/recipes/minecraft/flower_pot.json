@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft/brick"
+                "minecraft:brick"
             ],
             "3": [
-                "minecraft/brick"
+                "minecraft:brick"
             ],
             "6": [
-                "minecraft/brick"
+                "minecraft:brick"
             ]
         },
         "output": {
-            "id": "minecraft/flower_pot",
+            "id": "minecraft:flower_pot",
             "count": 1
         }
     }

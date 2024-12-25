@@ -2,26 +2,26 @@
     {
         "input": {
             "5": [
-                "stellaris/desh_block"
+                "stellaris:desh_block"
             ],
             "6": [
-                "stellaris/desh_block"
+                "stellaris:desh_block"
             ],
             "7": [
-                "stellaris/desh_block"
+                "stellaris:desh_block"
             ],
             "9": [
-                "stellaris/desh_block"
+                "stellaris:desh_block"
             ],
             "10": [
-                "stellaris/desh_block"
+                "stellaris:desh_block"
             ],
             "11": [
-                "stellaris/desh_block"
+                "stellaris:desh_block"
             ]
         },
         "output": {
-            "id": "stellaris/desh_plating_block",
+            "id": "stellaris:desh_plating_block",
             "count": 6
         }
     }

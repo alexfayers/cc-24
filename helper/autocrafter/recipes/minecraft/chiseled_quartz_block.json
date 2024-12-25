@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft/quartz_slab"
+                "minecraft:quartz_slab"
             ],
             "5": [
-                "minecraft/quartz_slab"
+                "minecraft:quartz_slab"
             ]
         },
         "output": {
-            "id": "minecraft/chiseled_quartz_block",
+            "id": "minecraft:chiseled_quartz_block",
             "count": 1
         }
     }

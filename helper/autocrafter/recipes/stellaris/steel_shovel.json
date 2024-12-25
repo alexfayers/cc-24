@@ -5,14 +5,14 @@
                 "#c:ingots/steel"
             ],
             "6": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "10": [
-                "minecraft/stick"
+                "minecraft:stick"
             ]
         },
         "output": {
-            "id": "stellaris/steel_shovel",
+            "id": "stellaris:steel_shovel",
             "count": 1
         }
     }

@@ -2,35 +2,35 @@
     {
         "input": {
             "6": [
-                "loadmychunks/tickometer"
+                "loadmychunks:tickometer"
             ],
             "1": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "2": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "3": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "5": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "7": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "9": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "11": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "10": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ]
         },
         "output": {
-            "id": "loadmychunks/lagometer",
+            "id": "loadmychunks:lagometer",
             "count": 1
         }
     }

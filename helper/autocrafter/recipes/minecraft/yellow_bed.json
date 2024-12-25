@@ -2,41 +2,41 @@
     {
         "input": {
             "1": [
-                "minecraft/yellow_dye"
+                "minecraft:yellow_dye"
             ],
             "2": [
-                "minecraft/black_bed",
-                "minecraft/blue_bed",
-                "minecraft/brown_bed",
-                "minecraft/cyan_bed",
-                "minecraft/gray_bed",
-                "minecraft/green_bed",
-                "minecraft/light_blue_bed",
-                "minecraft/light_gray_bed",
-                "minecraft/lime_bed",
-                "minecraft/magenta_bed",
-                "minecraft/orange_bed",
-                "minecraft/pink_bed",
-                "minecraft/purple_bed",
-                "minecraft/red_bed",
-                "minecraft/white_bed"
+                "minecraft:black_bed",
+                "minecraft:blue_bed",
+                "minecraft:brown_bed",
+                "minecraft:cyan_bed",
+                "minecraft:gray_bed",
+                "minecraft:green_bed",
+                "minecraft:light_blue_bed",
+                "minecraft:light_gray_bed",
+                "minecraft:lime_bed",
+                "minecraft:magenta_bed",
+                "minecraft:orange_bed",
+                "minecraft:pink_bed",
+                "minecraft:purple_bed",
+                "minecraft:red_bed",
+                "minecraft:white_bed"
             ]
         },
         "output": {
-            "id": "minecraft/yellow_bed",
+            "id": "minecraft:yellow_bed",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft/yellow_wool"
+                "minecraft:yellow_wool"
             ],
             "2": [
-                "minecraft/yellow_wool"
+                "minecraft:yellow_wool"
             ],
             "3": [
-                "minecraft/yellow_wool"
+                "minecraft:yellow_wool"
             ],
             "5": [
                 "#minecraft:planks"
@@ -49,7 +49,7 @@
             ]
         },
         "output": {
-            "id": "minecraft/yellow_bed",
+            "id": "minecraft:yellow_bed",
             "count": 1
         }
     }

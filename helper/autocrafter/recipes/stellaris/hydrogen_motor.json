@@ -2,58 +2,58 @@
     {
         "input": {
             "6": [
-                "stellaris/ice_shard"
+                "stellaris:ice_shard"
             ],
             "7": [
-                "stellaris/ice_shard"
+                "stellaris:ice_shard"
             ],
             "1": [
-                "minecraft/diamond"
+                "minecraft:diamond"
             ],
             "2": [
-                "minecraft/diamond"
+                "minecraft:diamond"
             ],
             "3": [
-                "minecraft/diamond"
+                "minecraft:diamond"
             ],
             "9": [
-                "minecraft/diamond"
+                "minecraft:diamond"
             ],
             "10": [
-                "minecraft/diamond"
+                "minecraft:diamond"
             ],
             "11": [
-                "minecraft/diamond"
+                "minecraft:diamond"
             ],
             "5": [
-                "stellaris/desh_block"
+                "stellaris:desh_block"
             ]
         },
         "output": {
-            "id": "stellaris/hydrogen_motor",
+            "id": "stellaris:hydrogen_motor",
             "count": 1
         }
     },
     {
         "input": {
             "2": [
-                "stellaris/hydrogen_bucket"
+                "stellaris:hydrogen_bucket"
             ],
             "5": [
-                "stellaris/hydrogen_bucket"
+                "stellaris:hydrogen_bucket"
             ],
             "7": [
-                "stellaris/hydrogen_bucket"
+                "stellaris:hydrogen_bucket"
             ],
             "10": [
-                "stellaris/hydrogen_bucket"
+                "stellaris:hydrogen_bucket"
             ],
             "6": [
-                "stellaris/rocket_engine"
+                "stellaris:rocket_engine"
             ]
         },
         "output": {
-            "id": "stellaris/hydrogen_motor",
+            "id": "stellaris:hydrogen_motor",
             "count": 1
         }
     }

@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/cooked_beef"
+                "minecraft:cooked_beef"
             ],
             "3": [
-                "minecraft/cooked_beef"
+                "minecraft:cooked_beef"
             ],
             "2": [
-                "doggytalents/onsen_tamago"
+                "doggytalents:onsen_tamago"
             ],
             "6": [
-                "doggytalents/rice_bowl"
+                "doggytalents:rice_bowl"
             ]
         },
         "output": {
-            "id": "doggytalents/gyudon",
+            "id": "doggytalents:gyudon",
             "count": 1
         }
     }

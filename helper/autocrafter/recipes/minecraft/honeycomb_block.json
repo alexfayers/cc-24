@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/honeycomb"
+                "minecraft:honeycomb"
             ],
             "2": [
-                "minecraft/honeycomb"
+                "minecraft:honeycomb"
             ],
             "5": [
-                "minecraft/honeycomb"
+                "minecraft:honeycomb"
             ],
             "6": [
-                "minecraft/honeycomb"
+                "minecraft:honeycomb"
             ]
         },
         "output": {
-            "id": "minecraft/honeycomb_block",
+            "id": "minecraft:honeycomb_block",
             "count": 1
         }
     }

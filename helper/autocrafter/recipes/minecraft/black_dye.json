@@ -2,22 +2,22 @@
     {
         "input": {
             "1": [
-                "minecraft/ink_sac"
+                "minecraft:ink_sac"
             ]
         },
         "output": {
-            "id": "minecraft/black_dye",
+            "id": "minecraft:black_dye",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft/wither_rose"
+                "minecraft:wither_rose"
             ]
         },
         "output": {
-            "id": "minecraft/black_dye",
+            "id": "minecraft:black_dye",
             "count": 1
         }
     }

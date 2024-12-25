@@ -2,7 +2,7 @@
     {
         "input": {
             "9": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "1": [
                 "#minecraft:planks"
@@ -12,7 +12,7 @@
             ]
         },
         "output": {
-            "id": "minecraft/wooden_sword",
+            "id": "minecraft:wooden_sword",
             "count": 1
         }
     }

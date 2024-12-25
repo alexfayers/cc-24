@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "computercraft/wired_modem"
+                "computercraft:wired_modem"
             ]
         },
         "output": {
-            "id": "computercraft/wired_modem_full",
+            "id": "computercraft:wired_modem_full",
             "count": 1
         }
     }

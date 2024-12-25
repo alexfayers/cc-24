@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft/stone_brick_slab"
+                "minecraft:stone_brick_slab"
             ],
             "5": [
-                "minecraft/stone_brick_slab"
+                "minecraft:stone_brick_slab"
             ]
         },
         "output": {
-            "id": "minecraft/chiseled_stone_bricks",
+            "id": "minecraft:chiseled_stone_bricks",
             "count": 1
         }
     }

@@ -11,11 +11,11 @@
                 "#c:ingots/steel"
             ],
             "3": [
-                "minecraft/gray_wool"
+                "minecraft:gray_wool"
             ]
         },
         "output": {
-            "id": "stellaris/flag",
+            "id": "stellaris:flag",
             "count": 1
         }
     }

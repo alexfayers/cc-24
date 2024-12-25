@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft/mud"
+                "minecraft:mud"
             ],
             "2": [
-                "minecraft/wheat"
+                "minecraft:wheat"
             ]
         },
         "output": {
-            "id": "minecraft/packed_mud",
+            "id": "minecraft:packed_mud",
             "count": 1
         }
     }

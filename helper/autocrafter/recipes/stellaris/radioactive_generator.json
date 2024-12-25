@@ -26,11 +26,11 @@
                 "#c:ore_blocks/steel"
             ],
             "6": [
-                "stellaris/uranium_block"
+                "stellaris:uranium_block"
             ]
         },
         "output": {
-            "id": "stellaris/radioactive_generator",
+            "id": "stellaris:radioactive_generator",
             "count": 1
         }
     }

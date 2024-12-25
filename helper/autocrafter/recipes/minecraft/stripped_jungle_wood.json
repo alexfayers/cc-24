@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/stripped_jungle_log"
+                "minecraft:stripped_jungle_log"
             ],
             "2": [
-                "minecraft/stripped_jungle_log"
+                "minecraft:stripped_jungle_log"
             ],
             "5": [
-                "minecraft/stripped_jungle_log"
+                "minecraft:stripped_jungle_log"
             ],
             "6": [
-                "minecraft/stripped_jungle_log"
+                "minecraft:stripped_jungle_log"
             ]
         },
         "output": {
-            "id": "minecraft/stripped_jungle_wood",
+            "id": "minecraft:stripped_jungle_wood",
             "count": 3
         }
     }

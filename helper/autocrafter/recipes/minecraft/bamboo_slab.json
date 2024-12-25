@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft/bamboo_planks"
+                "minecraft:bamboo_planks"
             ],
             "2": [
-                "minecraft/bamboo_planks"
+                "minecraft:bamboo_planks"
             ],
             "3": [
-                "minecraft/bamboo_planks"
+                "minecraft:bamboo_planks"
             ]
         },
         "output": {
-            "id": "minecraft/bamboo_slab",
+            "id": "minecraft:bamboo_slab",
             "count": 6
         }
     }

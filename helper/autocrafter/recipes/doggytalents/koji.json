@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "doggytalents/koji"
+                "doggytalents:koji"
             ],
             "2": [
-                "doggytalents/uncooked_rice"
+                "doggytalents:uncooked_rice"
             ],
             "3": [
-                "minecraft/sugar"
+                "minecraft:sugar"
             ]
         },
         "output": {
-            "id": "doggytalents/koji",
+            "id": "doggytalents:koji",
             "count": 3
         }
     }

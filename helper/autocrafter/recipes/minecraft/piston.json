@@ -2,19 +2,19 @@
     {
         "input": {
             "5": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "7": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "9": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "11": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "10": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ],
             "1": [
                 "#minecraft:planks"
@@ -26,27 +26,27 @@
                 "#minecraft:planks"
             ],
             "6": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ]
         },
         "output": {
-            "id": "minecraft/piston",
+            "id": "minecraft:piston",
             "count": 1
         }
     },
     {
         "input": {
             "5": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "7": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "9": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "11": [
-                "minecraft/cobblestone"
+                "minecraft:cobblestone"
             ],
             "6": [
                 "#c:ingots/iron"
@@ -65,7 +65,7 @@
             ]
         },
         "output": {
-            "id": "minecraft/piston",
+            "id": "minecraft:piston",
             "count": 1
         }
     }

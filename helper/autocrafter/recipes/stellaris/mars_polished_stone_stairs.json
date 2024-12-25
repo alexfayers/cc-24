@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "stellaris/polished_mars_stone"
+                "stellaris:polished_mars_stone"
             ],
             "5": [
-                "stellaris/polished_mars_stone"
+                "stellaris:polished_mars_stone"
             ],
             "6": [
-                "stellaris/polished_mars_stone"
+                "stellaris:polished_mars_stone"
             ],
             "9": [
-                "stellaris/polished_mars_stone"
+                "stellaris:polished_mars_stone"
             ],
             "10": [
-                "stellaris/polished_mars_stone"
+                "stellaris:polished_mars_stone"
             ],
             "11": [
-                "stellaris/polished_mars_stone"
+                "stellaris:polished_mars_stone"
             ]
         },
         "output": {
-            "id": "stellaris/mars_polished_stone_stairs",
+            "id": "stellaris:mars_polished_stone_stairs",
             "count": 4
         }
     }

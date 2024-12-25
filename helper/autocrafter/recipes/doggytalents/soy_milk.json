@@ -2,26 +2,26 @@
     {
         "input": {
             "6": [
-                "minecraft/bowl"
+                "minecraft:bowl"
             ],
             "1": [
-                "doggytalents/soy_beans_dried"
+                "doggytalents:soy_beans_dried"
             ],
             "2": [
-                "doggytalents/soy_beans_dried"
+                "doggytalents:soy_beans_dried"
             ],
             "3": [
-                "doggytalents/soy_beans_dried"
+                "doggytalents:soy_beans_dried"
             ],
             "5": [
-                "doggytalents/soy_beans_dried"
+                "doggytalents:soy_beans_dried"
             ],
             "7": [
-                "doggytalents/soy_beans_dried"
+                "doggytalents:soy_beans_dried"
             ]
         },
         "output": {
-            "id": "doggytalents/soy_milk",
+            "id": "doggytalents:soy_milk",
             "count": 1
         }
     }

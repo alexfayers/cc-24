@@ -2,17 +2,17 @@
     {
         "input": {
             "2": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "6": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "10": [
-                "minecraft/stick"
+                "minecraft:stick"
             ]
         },
         "output": {
-            "id": "doggytalents/giant_stick",
+            "id": "doggytalents:giant_stick",
             "count": 1
         }
     }

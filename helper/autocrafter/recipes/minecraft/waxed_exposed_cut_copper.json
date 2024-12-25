@@ -2,34 +2,34 @@
     {
         "input": {
             "1": [
-                "minecraft/exposed_cut_copper"
+                "minecraft:exposed_cut_copper"
             ],
             "2": [
-                "minecraft/honeycomb"
+                "minecraft:honeycomb"
             ]
         },
         "output": {
-            "id": "minecraft/waxed_exposed_cut_copper",
+            "id": "minecraft:waxed_exposed_cut_copper",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft/waxed_exposed_copper"
+                "minecraft:waxed_exposed_copper"
             ],
             "2": [
-                "minecraft/waxed_exposed_copper"
+                "minecraft:waxed_exposed_copper"
             ],
             "5": [
-                "minecraft/waxed_exposed_copper"
+                "minecraft:waxed_exposed_copper"
             ],
             "6": [
-                "minecraft/waxed_exposed_copper"
+                "minecraft:waxed_exposed_copper"
             ]
         },
         "output": {
-            "id": "minecraft/waxed_exposed_cut_copper",
+            "id": "minecraft:waxed_exposed_cut_copper",
             "count": 4
         }
     }

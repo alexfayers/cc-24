@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "aether/aerogel"
+                "aether:aerogel"
             ],
             "2": [
-                "aether/aerogel"
+                "aether:aerogel"
             ],
             "3": [
-                "aether/aerogel"
+                "aether:aerogel"
             ]
         },
         "output": {
-            "id": "aether/aerogel_slab",
+            "id": "aether:aerogel_slab",
             "count": 6
         }
     }

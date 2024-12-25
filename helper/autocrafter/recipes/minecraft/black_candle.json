@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft/candle"
+                "minecraft:candle"
             ],
             "2": [
-                "minecraft/black_dye"
+                "minecraft:black_dye"
             ]
         },
         "output": {
-            "id": "minecraft/black_candle",
+            "id": "minecraft:black_candle",
             "count": 1
         }
     }

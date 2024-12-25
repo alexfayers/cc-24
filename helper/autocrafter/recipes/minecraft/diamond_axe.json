@@ -2,23 +2,23 @@
     {
         "input": {
             "6": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "10": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "1": [
-                "minecraft/diamond"
+                "minecraft:diamond"
             ],
             "2": [
-                "minecraft/diamond"
+                "minecraft:diamond"
             ],
             "5": [
-                "minecraft/diamond"
+                "minecraft:diamond"
             ]
         },
         "output": {
-            "id": "minecraft/diamond_axe",
+            "id": "minecraft:diamond_axe",
             "count": 1
         }
     }

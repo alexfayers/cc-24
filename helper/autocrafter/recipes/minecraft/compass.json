@@ -2,23 +2,23 @@
     {
         "input": {
             "2": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "5": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "7": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "10": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "6": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ]
         },
         "output": {
-            "id": "minecraft/compass",
+            "id": "minecraft:compass",
             "count": 1
         }
     }

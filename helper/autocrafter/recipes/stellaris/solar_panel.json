@@ -17,20 +17,20 @@
                 "#c:ingots/steel"
             ],
             "6": [
-                "minecraft/redstone_block"
+                "minecraft:redstone_block"
             ],
             "1": [
-                "minecraft/amethyst_block"
+                "minecraft:amethyst_block"
             ],
             "2": [
-                "minecraft/amethyst_block"
+                "minecraft:amethyst_block"
             ],
             "3": [
-                "minecraft/amethyst_block"
+                "minecraft:amethyst_block"
             ]
         },
         "output": {
-            "id": "stellaris/solar_panel",
+            "id": "stellaris:solar_panel",
             "count": 1
         }
     }

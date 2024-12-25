@@ -2,26 +2,26 @@
     {
         "input": {
             "2": [
-                "minecraft/nether_brick"
+                "minecraft:nether_brick"
             ],
             "6": [
-                "minecraft/nether_brick"
+                "minecraft:nether_brick"
             ],
             "1": [
-                "minecraft/nether_bricks"
+                "minecraft:nether_bricks"
             ],
             "3": [
-                "minecraft/nether_bricks"
+                "minecraft:nether_bricks"
             ],
             "5": [
-                "minecraft/nether_bricks"
+                "minecraft:nether_bricks"
             ],
             "7": [
-                "minecraft/nether_bricks"
+                "minecraft:nether_bricks"
             ]
         },
         "output": {
-            "id": "minecraft/nether_brick_fence",
+            "id": "minecraft:nether_brick_fence",
             "count": 6
         }
     }

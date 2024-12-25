@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "minecraft/raw_iron_block"
+                "minecraft:raw_iron_block"
             ]
         },
         "output": {
-            "id": "minecraft/raw_iron",
+            "id": "minecraft:raw_iron",
             "count": 9
         }
     }

@@ -21,7 +21,7 @@
             ]
         },
         "output": {
-            "id": "stellaris/steel_plating_block",
+            "id": "stellaris:steel_plating_block",
             "count": 6
         }
     }

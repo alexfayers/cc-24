@@ -2,32 +2,32 @@
     {
         "input": {
             "6": [
-                "minecraft/stone_pressure_plate"
+                "minecraft:stone_pressure_plate"
             ],
             "10": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ],
             "1": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "3": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "5": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "7": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "9": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "11": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ]
         },
         "output": {
-            "id": "minecraft/detector_rail",
+            "id": "minecraft:detector_rail",
             "count": 6
         }
     }

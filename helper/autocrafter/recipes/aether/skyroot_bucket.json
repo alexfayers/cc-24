@@ -12,7 +12,7 @@
             ]
         },
         "output": {
-            "id": "aether/skyroot_bucket",
+            "id": "aether:skyroot_bucket",
             "count": 1
         }
     }

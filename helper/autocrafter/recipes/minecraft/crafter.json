@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "2": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "3": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "5": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "7": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ],
             "6": [
-                "minecraft/crafting_table"
+                "minecraft:crafting_table"
             ],
             "10": [
-                "minecraft/dropper"
+                "minecraft:dropper"
             ],
             "9": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ],
             "11": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ]
         },
         "output": {
-            "id": "minecraft/crafter",
+            "id": "minecraft:crafter",
             "count": 1
         }
     }

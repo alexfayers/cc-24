@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/stripped_cherry_log"
+                "minecraft:stripped_cherry_log"
             ],
             "2": [
-                "minecraft/stripped_cherry_log"
+                "minecraft:stripped_cherry_log"
             ],
             "5": [
-                "minecraft/stripped_cherry_log"
+                "minecraft:stripped_cherry_log"
             ],
             "6": [
-                "minecraft/stripped_cherry_log"
+                "minecraft:stripped_cherry_log"
             ]
         },
         "output": {
-            "id": "minecraft/stripped_cherry_wood",
+            "id": "minecraft:stripped_cherry_wood",
             "count": 3
         }
     }

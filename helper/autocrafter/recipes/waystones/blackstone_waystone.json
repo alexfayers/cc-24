@@ -2,29 +2,29 @@
     {
         "input": {
             "9": [
-                "minecraft/obsidian"
+                "minecraft:obsidian"
             ],
             "10": [
-                "minecraft/obsidian"
+                "minecraft:obsidian"
             ],
             "11": [
-                "minecraft/obsidian"
+                "minecraft:obsidian"
             ],
             "2": [
-                "minecraft/blackstone"
+                "minecraft:blackstone"
             ],
             "5": [
-                "minecraft/blackstone"
+                "minecraft:blackstone"
             ],
             "7": [
-                "minecraft/blackstone"
+                "minecraft:blackstone"
             ],
             "6": [
-                "waystones/warp_stone"
+                "waystones:warp_stone"
             ]
         },
         "output": {
-            "id": "waystones/blackstone_waystone",
+            "id": "waystones:blackstone_waystone",
             "count": 1
         }
     }

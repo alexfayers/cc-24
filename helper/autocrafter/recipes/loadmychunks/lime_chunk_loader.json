@@ -5,11 +5,11 @@
                 "#loadmychunks:chunk_loaders"
             ],
             "2": [
-                "minecraft/lime_dye"
+                "minecraft:lime_dye"
             ]
         },
         "output": {
-            "id": "loadmychunks/lime_chunk_loader",
+            "id": "loadmychunks:lime_chunk_loader",
             "count": 1
         }
     }

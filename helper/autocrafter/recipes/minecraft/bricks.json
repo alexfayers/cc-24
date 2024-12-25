@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/brick"
+                "minecraft:brick"
             ],
             "2": [
-                "minecraft/brick"
+                "minecraft:brick"
             ],
             "5": [
-                "minecraft/brick"
+                "minecraft:brick"
             ],
             "6": [
-                "minecraft/brick"
+                "minecraft:brick"
             ]
         },
         "output": {
-            "id": "minecraft/bricks",
+            "id": "minecraft:bricks",
             "count": 1
         }
     }

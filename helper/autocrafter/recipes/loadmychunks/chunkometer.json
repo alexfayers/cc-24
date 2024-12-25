@@ -2,32 +2,32 @@
     {
         "input": {
             "3": [
-                "minecraft/obsidian"
+                "minecraft:obsidian"
             ],
             "6": [
-                "minecraft/obsidian"
+                "minecraft:obsidian"
             ],
             "7": [
-                "minecraft/obsidian"
+                "minecraft:obsidian"
             ],
             "10": [
-                "loadmychunks/tickometer"
+                "loadmychunks:tickometer"
             ],
             "1": [
-                "loadmychunks/diamond_wire"
+                "loadmychunks:diamond_wire"
             ],
             "5": [
-                "loadmychunks/diamond_wire"
+                "loadmychunks:diamond_wire"
             ],
             "9": [
-                "minecraft/glass"
+                "minecraft:glass"
             ],
             "11": [
-                "minecraft/glass"
+                "minecraft:glass"
             ]
         },
         "output": {
-            "id": "loadmychunks/chunkometer",
+            "id": "loadmychunks:chunkometer",
             "count": 1
         }
     }

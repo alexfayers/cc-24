@@ -26,11 +26,11 @@
                 "#c:ore_blocks/steel"
             ],
             "6": [
-                "minecraft/blast_furnace"
+                "minecraft:blast_furnace"
             ]
         },
         "output": {
-            "id": "stellaris/coal_generator",
+            "id": "stellaris:coal_generator",
             "count": 1
         }
     }

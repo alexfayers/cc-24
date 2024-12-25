@@ -1,1082 +1,1398 @@
 {
-    "minecraft/white_carpet": [
-        "minecraft/orange_carpet",
-        "minecraft/purple_carpet",
-        "minecraft/cyan_carpet",
-        "minecraft/lime_carpet",
-        "minecraft/brown_carpet",
-        "minecraft/magenta_carpet",
-        "minecraft/red_carpet",
-        "minecraft/green_carpet",
-        "minecraft/pink_carpet",
-        "minecraft/blue_carpet",
-        "minecraft/light_gray_carpet",
-        "minecraft/light_blue_carpet",
-        "minecraft/yellow_carpet",
-        "minecraft/gray_carpet",
-        "minecraft/black_carpet"
-    ],
-    "minecraft/light_gray_carpet": [
-        "minecraft/orange_carpet",
-        "minecraft/purple_carpet",
-        "minecraft/cyan_carpet",
-        "minecraft/white_carpet",
-        "minecraft/lime_carpet",
-        "minecraft/brown_carpet",
-        "minecraft/magenta_carpet",
-        "minecraft/red_carpet",
-        "minecraft/green_carpet",
-        "minecraft/pink_carpet",
-        "minecraft/blue_carpet",
-        "minecraft/light_blue_carpet",
-        "minecraft/yellow_carpet",
-        "minecraft/gray_carpet",
-        "minecraft/black_carpet"
-    ],
-    "minecraft/red_carpet": [
-        "minecraft/orange_carpet",
-        "minecraft/purple_carpet",
-        "minecraft/cyan_carpet",
-        "minecraft/white_carpet",
-        "minecraft/lime_carpet",
-        "minecraft/brown_carpet",
-        "minecraft/magenta_carpet",
-        "minecraft/green_carpet",
-        "minecraft/pink_carpet",
-        "minecraft/blue_carpet",
-        "minecraft/light_gray_carpet",
-        "minecraft/light_blue_carpet",
-        "minecraft/yellow_carpet",
-        "minecraft/gray_carpet",
-        "minecraft/black_carpet"
-    ],
-    "minecraft/black_carpet": [
-        "minecraft/orange_carpet",
-        "minecraft/purple_carpet",
-        "minecraft/cyan_carpet",
-        "minecraft/white_carpet",
-        "minecraft/lime_carpet",
-        "minecraft/brown_carpet",
-        "minecraft/magenta_carpet",
-        "minecraft/red_carpet",
-        "minecraft/green_carpet",
-        "minecraft/pink_carpet",
-        "minecraft/blue_carpet",
-        "minecraft/light_gray_carpet",
-        "minecraft/light_blue_carpet",
-        "minecraft/yellow_carpet",
-        "minecraft/gray_carpet"
-    ],
-    "minecraft/cyan_carpet": [
-        "minecraft/orange_carpet",
-        "minecraft/purple_carpet",
-        "minecraft/white_carpet",
-        "minecraft/lime_carpet",
-        "minecraft/brown_carpet",
-        "minecraft/magenta_carpet",
-        "minecraft/red_carpet",
-        "minecraft/green_carpet",
-        "minecraft/pink_carpet",
-        "minecraft/blue_carpet",
-        "minecraft/light_gray_carpet",
-        "minecraft/light_blue_carpet",
-        "minecraft/yellow_carpet",
-        "minecraft/gray_carpet",
-        "minecraft/black_carpet"
-    ],
-    "minecraft/green_carpet": [
-        "minecraft/orange_carpet",
-        "minecraft/purple_carpet",
-        "minecraft/cyan_carpet",
-        "minecraft/white_carpet",
-        "minecraft/lime_carpet",
-        "minecraft/brown_carpet",
-        "minecraft/magenta_carpet",
-        "minecraft/red_carpet",
-        "minecraft/pink_carpet",
-        "minecraft/blue_carpet",
-        "minecraft/light_gray_carpet",
-        "minecraft/light_blue_carpet",
-        "minecraft/yellow_carpet",
-        "minecraft/gray_carpet",
-        "minecraft/black_carpet"
-    ],
-    "minecraft/magenta_carpet": [
-        "minecraft/orange_carpet",
-        "minecraft/purple_carpet",
-        "minecraft/cyan_carpet",
-        "minecraft/white_carpet",
-        "minecraft/lime_carpet",
-        "minecraft/brown_carpet",
-        "minecraft/red_carpet",
-        "minecraft/green_carpet",
-        "minecraft/pink_carpet",
-        "minecraft/blue_carpet",
-        "minecraft/light_gray_carpet",
-        "minecraft/light_blue_carpet",
-        "minecraft/yellow_carpet",
-        "minecraft/gray_carpet",
-        "minecraft/black_carpet"
-    ],
-    "minecraft/gray_carpet": [
-        "minecraft/orange_carpet",
-        "minecraft/purple_carpet",
-        "minecraft/cyan_carpet",
-        "minecraft/white_carpet",
-        "minecraft/lime_carpet",
-        "minecraft/brown_carpet",
-        "minecraft/magenta_carpet",
-        "minecraft/red_carpet",
-        "minecraft/green_carpet",
-        "minecraft/pink_carpet",
-        "minecraft/blue_carpet",
-        "minecraft/light_gray_carpet",
-        "minecraft/light_blue_carpet",
-        "minecraft/yellow_carpet",
-        "minecraft/black_carpet"
-    ],
-    "minecraft/light_blue_carpet": [
-        "minecraft/orange_carpet",
-        "minecraft/purple_carpet",
-        "minecraft/cyan_carpet",
-        "minecraft/white_carpet",
-        "minecraft/lime_carpet",
-        "minecraft/brown_carpet",
-        "minecraft/magenta_carpet",
-        "minecraft/red_carpet",
-        "minecraft/green_carpet",
-        "minecraft/pink_carpet",
-        "minecraft/blue_carpet",
-        "minecraft/light_gray_carpet",
-        "minecraft/yellow_carpet",
-        "minecraft/gray_carpet",
-        "minecraft/black_carpet"
-    ],
-    "minecraft/purple_carpet": [
-        "minecraft/orange_carpet",
-        "minecraft/cyan_carpet",
-        "minecraft/white_carpet",
-        "minecraft/lime_carpet",
-        "minecraft/brown_carpet",
-        "minecraft/magenta_carpet",
-        "minecraft/red_carpet",
-        "minecraft/green_carpet",
-        "minecraft/pink_carpet",
-        "minecraft/blue_carpet",
-        "minecraft/light_gray_carpet",
-        "minecraft/light_blue_carpet",
-        "minecraft/yellow_carpet",
-        "minecraft/gray_carpet",
-        "minecraft/black_carpet"
-    ],
-    "minecraft/brown_carpet": [
-        "minecraft/orange_carpet",
-        "minecraft/purple_carpet",
-        "minecraft/cyan_carpet",
-        "minecraft/white_carpet",
-        "minecraft/lime_carpet",
-        "minecraft/magenta_carpet",
-        "minecraft/red_carpet",
-        "minecraft/green_carpet",
-        "minecraft/pink_carpet",
-        "minecraft/blue_carpet",
-        "minecraft/light_gray_carpet",
-        "minecraft/light_blue_carpet",
-        "minecraft/yellow_carpet",
-        "minecraft/gray_carpet",
-        "minecraft/black_carpet"
-    ],
-    "minecraft/lime_carpet": [
-        "minecraft/orange_carpet",
-        "minecraft/purple_carpet",
-        "minecraft/cyan_carpet",
-        "minecraft/white_carpet",
-        "minecraft/brown_carpet",
-        "minecraft/magenta_carpet",
-        "minecraft/red_carpet",
-        "minecraft/green_carpet",
-        "minecraft/pink_carpet",
-        "minecraft/blue_carpet",
-        "minecraft/light_gray_carpet",
-        "minecraft/light_blue_carpet",
-        "minecraft/yellow_carpet",
-        "minecraft/gray_carpet",
-        "minecraft/black_carpet"
-    ],
-    "minecraft/blue_carpet": [
-        "minecraft/orange_carpet",
-        "minecraft/purple_carpet",
-        "minecraft/cyan_carpet",
-        "minecraft/white_carpet",
-        "minecraft/lime_carpet",
-        "minecraft/brown_carpet",
-        "minecraft/magenta_carpet",
-        "minecraft/red_carpet",
-        "minecraft/green_carpet",
-        "minecraft/pink_carpet",
-        "minecraft/light_gray_carpet",
-        "minecraft/light_blue_carpet",
-        "minecraft/yellow_carpet",
-        "minecraft/gray_carpet",
-        "minecraft/black_carpet"
-    ],
-    "minecraft/pink_carpet": [
-        "minecraft/orange_carpet",
-        "minecraft/purple_carpet",
-        "minecraft/cyan_carpet",
-        "minecraft/white_carpet",
-        "minecraft/lime_carpet",
-        "minecraft/brown_carpet",
-        "minecraft/magenta_carpet",
-        "minecraft/red_carpet",
-        "minecraft/green_carpet",
-        "minecraft/blue_carpet",
-        "minecraft/light_gray_carpet",
-        "minecraft/light_blue_carpet",
-        "minecraft/yellow_carpet",
-        "minecraft/gray_carpet",
-        "minecraft/black_carpet"
-    ],
-    "minecraft/yellow_carpet": [
-        "minecraft/orange_carpet",
-        "minecraft/purple_carpet",
-        "minecraft/cyan_carpet",
-        "minecraft/white_carpet",
-        "minecraft/lime_carpet",
-        "minecraft/brown_carpet",
-        "minecraft/magenta_carpet",
-        "minecraft/red_carpet",
-        "minecraft/green_carpet",
-        "minecraft/pink_carpet",
-        "minecraft/blue_carpet",
-        "minecraft/light_gray_carpet",
-        "minecraft/light_blue_carpet",
-        "minecraft/gray_carpet",
-        "minecraft/black_carpet"
-    ],
-    "minecraft/chiseled_red_sandstone": [
-        "minecraft/red_sandstone_slab"
-    ],
-    "minecraft/cyan_wool": [
-        "minecraft/red_wool",
-        "minecraft/light_gray_wool",
-        "minecraft/green_wool",
-        "minecraft/pink_wool",
-        "minecraft/purple_wool",
-        "minecraft/gray_wool",
-        "minecraft/light_blue_wool",
-        "minecraft/blue_wool",
-        "minecraft/yellow_wool",
-        "minecraft/lime_wool",
-        "minecraft/brown_wool",
-        "minecraft/magenta_wool",
-        "minecraft/white_wool",
-        "minecraft/orange_wool",
-        "minecraft/black_wool"
-    ],
-    "minecraft/light_blue_wool": [
-        "minecraft/red_wool",
-        "minecraft/light_gray_wool",
-        "minecraft/green_wool",
-        "minecraft/pink_wool",
-        "minecraft/cyan_wool",
-        "minecraft/purple_wool",
-        "minecraft/gray_wool",
-        "minecraft/blue_wool",
-        "minecraft/yellow_wool",
-        "minecraft/lime_wool",
-        "minecraft/brown_wool",
-        "minecraft/magenta_wool",
-        "minecraft/white_wool",
-        "minecraft/orange_wool",
-        "minecraft/black_wool"
-    ],
-    "minecraft/magenta_wool": [
-        "minecraft/red_wool",
-        "minecraft/light_gray_wool",
-        "minecraft/green_wool",
-        "minecraft/pink_wool",
-        "minecraft/cyan_wool",
-        "minecraft/purple_wool",
-        "minecraft/gray_wool",
-        "minecraft/light_blue_wool",
-        "minecraft/blue_wool",
-        "minecraft/yellow_wool",
-        "minecraft/lime_wool",
-        "minecraft/brown_wool",
-        "minecraft/white_wool",
-        "minecraft/orange_wool",
-        "minecraft/black_wool"
-    ],
-    "minecraft/gray_wool": [
-        "minecraft/red_wool",
-        "minecraft/light_gray_wool",
-        "minecraft/green_wool",
-        "minecraft/pink_wool",
-        "minecraft/cyan_wool",
-        "minecraft/purple_wool",
-        "minecraft/light_blue_wool",
-        "minecraft/blue_wool",
-        "minecraft/yellow_wool",
-        "minecraft/lime_wool",
-        "minecraft/brown_wool",
-        "minecraft/magenta_wool",
-        "minecraft/white_wool",
-        "minecraft/orange_wool",
-        "minecraft/black_wool"
-    ],
-    "minecraft/orange_wool": [
-        "minecraft/red_wool",
-        "minecraft/light_gray_wool",
-        "minecraft/green_wool",
-        "minecraft/pink_wool",
-        "minecraft/cyan_wool",
-        "minecraft/purple_wool",
-        "minecraft/gray_wool",
-        "minecraft/light_blue_wool",
-        "minecraft/blue_wool",
-        "minecraft/yellow_wool",
-        "minecraft/lime_wool",
-        "minecraft/brown_wool",
-        "minecraft/magenta_wool",
-        "minecraft/white_wool",
-        "minecraft/black_wool"
-    ],
-    "minecraft/purple_wool": [
-        "minecraft/red_wool",
-        "minecraft/light_gray_wool",
-        "minecraft/green_wool",
-        "minecraft/pink_wool",
-        "minecraft/cyan_wool",
-        "minecraft/gray_wool",
-        "minecraft/light_blue_wool",
-        "minecraft/blue_wool",
-        "minecraft/yellow_wool",
-        "minecraft/lime_wool",
-        "minecraft/brown_wool",
-        "minecraft/magenta_wool",
-        "minecraft/white_wool",
-        "minecraft/orange_wool",
-        "minecraft/black_wool"
-    ],
-    "minecraft/brown_wool": [
-        "minecraft/red_wool",
-        "minecraft/light_gray_wool",
-        "minecraft/green_wool",
-        "minecraft/pink_wool",
-        "minecraft/cyan_wool",
-        "minecraft/purple_wool",
-        "minecraft/gray_wool",
-        "minecraft/light_blue_wool",
-        "minecraft/blue_wool",
-        "minecraft/yellow_wool",
-        "minecraft/lime_wool",
-        "minecraft/magenta_wool",
-        "minecraft/white_wool",
-        "minecraft/orange_wool",
-        "minecraft/black_wool"
-    ],
-    "minecraft/blue_wool": [
-        "minecraft/red_wool",
-        "minecraft/light_gray_wool",
-        "minecraft/green_wool",
-        "minecraft/pink_wool",
-        "minecraft/cyan_wool",
-        "minecraft/purple_wool",
-        "minecraft/gray_wool",
-        "minecraft/light_blue_wool",
-        "minecraft/yellow_wool",
-        "minecraft/lime_wool",
-        "minecraft/brown_wool",
-        "minecraft/magenta_wool",
-        "minecraft/white_wool",
-        "minecraft/orange_wool",
-        "minecraft/black_wool"
-    ],
-    "minecraft/pink_wool": [
-        "minecraft/red_wool",
-        "minecraft/light_gray_wool",
-        "minecraft/green_wool",
-        "minecraft/cyan_wool",
-        "minecraft/purple_wool",
-        "minecraft/gray_wool",
-        "minecraft/light_blue_wool",
-        "minecraft/blue_wool",
-        "minecraft/yellow_wool",
-        "minecraft/lime_wool",
-        "minecraft/brown_wool",
-        "minecraft/magenta_wool",
-        "minecraft/white_wool",
-        "minecraft/orange_wool",
-        "minecraft/black_wool"
-    ],
-    "minecraft/lime_wool": [
-        "minecraft/red_wool",
-        "minecraft/light_gray_wool",
-        "minecraft/green_wool",
-        "minecraft/pink_wool",
-        "minecraft/cyan_wool",
-        "minecraft/purple_wool",
-        "minecraft/gray_wool",
-        "minecraft/light_blue_wool",
-        "minecraft/blue_wool",
-        "minecraft/yellow_wool",
-        "minecraft/brown_wool",
-        "minecraft/magenta_wool",
-        "minecraft/white_wool",
-        "minecraft/orange_wool",
-        "minecraft/black_wool"
-    ],
-    "minecraft/light_gray_wool": [
-        "minecraft/red_wool",
-        "minecraft/green_wool",
-        "minecraft/pink_wool",
-        "minecraft/cyan_wool",
-        "minecraft/purple_wool",
-        "minecraft/gray_wool",
-        "minecraft/light_blue_wool",
-        "minecraft/blue_wool",
-        "minecraft/yellow_wool",
-        "minecraft/lime_wool",
-        "minecraft/brown_wool",
-        "minecraft/magenta_wool",
-        "minecraft/white_wool",
-        "minecraft/orange_wool",
-        "minecraft/black_wool"
-    ],
-    "minecraft/yellow_wool": [
-        "minecraft/red_wool",
-        "minecraft/light_gray_wool",
-        "minecraft/green_wool",
-        "minecraft/pink_wool",
-        "minecraft/cyan_wool",
-        "minecraft/purple_wool",
-        "minecraft/gray_wool",
-        "minecraft/light_blue_wool",
-        "minecraft/blue_wool",
-        "minecraft/lime_wool",
-        "minecraft/brown_wool",
-        "minecraft/magenta_wool",
-        "minecraft/white_wool",
-        "minecraft/orange_wool",
-        "minecraft/black_wool"
-    ],
-    "minecraft/white_wool": [
-        "minecraft/red_wool",
-        "minecraft/light_gray_wool",
-        "minecraft/green_wool",
-        "minecraft/pink_wool",
-        "minecraft/cyan_wool",
-        "minecraft/purple_wool",
-        "minecraft/gray_wool",
-        "minecraft/light_blue_wool",
-        "minecraft/blue_wool",
-        "minecraft/yellow_wool",
-        "minecraft/lime_wool",
-        "minecraft/brown_wool",
-        "minecraft/magenta_wool",
-        "minecraft/orange_wool",
-        "minecraft/black_wool"
-    ],
-    "minecraft/black_wool": [
-        "minecraft/red_wool",
-        "minecraft/light_gray_wool",
-        "minecraft/green_wool",
-        "minecraft/pink_wool",
-        "minecraft/cyan_wool",
-        "minecraft/purple_wool",
-        "minecraft/gray_wool",
-        "minecraft/light_blue_wool",
-        "minecraft/blue_wool",
-        "minecraft/yellow_wool",
-        "minecraft/lime_wool",
-        "minecraft/brown_wool",
-        "minecraft/magenta_wool",
-        "minecraft/white_wool",
-        "minecraft/orange_wool"
-    ],
-    "minecraft/green_wool": [
-        "minecraft/red_wool",
-        "minecraft/light_gray_wool",
-        "minecraft/pink_wool",
-        "minecraft/cyan_wool",
-        "minecraft/purple_wool",
-        "minecraft/gray_wool",
-        "minecraft/light_blue_wool",
-        "minecraft/blue_wool",
-        "minecraft/yellow_wool",
-        "minecraft/lime_wool",
-        "minecraft/brown_wool",
-        "minecraft/magenta_wool",
-        "minecraft/white_wool",
-        "minecraft/orange_wool",
-        "minecraft/black_wool"
-    ],
-    "minecraft/raw_iron_block": [
-        "minecraft/raw_iron"
-    ],
-    "minecraft/copper_ingot": [
-        "minecraft/copper_block"
-    ],
-    "minecraft/redstone": [
-        "minecraft/redstone_block"
-    ],
-    "minecraft/cyan_bed": [
-        "minecraft/brown_bed",
-        "minecraft/orange_bed",
-        "minecraft/magenta_bed",
-        "minecraft/yellow_bed",
-        "minecraft/purple_bed",
-        "minecraft/pink_bed",
-        "minecraft/green_bed",
-        "minecraft/black_bed",
-        "minecraft/red_bed",
-        "minecraft/blue_bed",
-        "minecraft/gray_bed",
-        "minecraft/white_bed",
-        "minecraft/light_gray_bed",
-        "minecraft/light_blue_bed",
-        "minecraft/lime_bed"
-    ],
-    "minecraft/orange_bed": [
-        "minecraft/brown_bed",
-        "minecraft/magenta_bed",
-        "minecraft/yellow_bed",
-        "minecraft/purple_bed",
-        "minecraft/pink_bed",
-        "minecraft/green_bed",
-        "minecraft/black_bed",
-        "minecraft/red_bed",
-        "minecraft/blue_bed",
-        "minecraft/cyan_bed",
-        "minecraft/gray_bed",
-        "minecraft/white_bed",
-        "minecraft/light_gray_bed",
-        "minecraft/light_blue_bed",
-        "minecraft/lime_bed"
-    ],
-    "minecraft/purple_bed": [
-        "minecraft/brown_bed",
-        "minecraft/orange_bed",
-        "minecraft/magenta_bed",
-        "minecraft/yellow_bed",
-        "minecraft/pink_bed",
-        "minecraft/green_bed",
-        "minecraft/black_bed",
-        "minecraft/red_bed",
-        "minecraft/blue_bed",
-        "minecraft/cyan_bed",
-        "minecraft/gray_bed",
-        "minecraft/white_bed",
-        "minecraft/light_gray_bed",
-        "minecraft/light_blue_bed",
-        "minecraft/lime_bed"
-    ],
-    "minecraft/light_blue_bed": [
-        "minecraft/brown_bed",
-        "minecraft/orange_bed",
-        "minecraft/magenta_bed",
-        "minecraft/yellow_bed",
-        "minecraft/purple_bed",
-        "minecraft/pink_bed",
-        "minecraft/green_bed",
-        "minecraft/black_bed",
-        "minecraft/red_bed",
-        "minecraft/blue_bed",
-        "minecraft/cyan_bed",
-        "minecraft/gray_bed",
-        "minecraft/white_bed",
-        "minecraft/light_gray_bed",
-        "minecraft/lime_bed"
-    ],
-    "minecraft/red_bed": [
-        "minecraft/brown_bed",
-        "minecraft/orange_bed",
-        "minecraft/magenta_bed",
-        "minecraft/yellow_bed",
-        "minecraft/purple_bed",
-        "minecraft/pink_bed",
-        "minecraft/green_bed",
-        "minecraft/black_bed",
-        "minecraft/blue_bed",
-        "minecraft/cyan_bed",
-        "minecraft/gray_bed",
-        "minecraft/white_bed",
-        "minecraft/light_gray_bed",
-        "minecraft/light_blue_bed",
-        "minecraft/lime_bed"
-    ],
-    "minecraft/yellow_bed": [
-        "minecraft/brown_bed",
-        "minecraft/orange_bed",
-        "minecraft/magenta_bed",
-        "minecraft/purple_bed",
-        "minecraft/pink_bed",
-        "minecraft/green_bed",
-        "minecraft/black_bed",
-        "minecraft/red_bed",
-        "minecraft/blue_bed",
-        "minecraft/cyan_bed",
-        "minecraft/gray_bed",
-        "minecraft/white_bed",
-        "minecraft/light_gray_bed",
-        "minecraft/light_blue_bed",
-        "minecraft/lime_bed"
-    ],
-    "minecraft/light_gray_bed": [
-        "minecraft/brown_bed",
-        "minecraft/orange_bed",
-        "minecraft/magenta_bed",
-        "minecraft/yellow_bed",
-        "minecraft/purple_bed",
-        "minecraft/pink_bed",
-        "minecraft/green_bed",
-        "minecraft/black_bed",
-        "minecraft/red_bed",
-        "minecraft/blue_bed",
-        "minecraft/cyan_bed",
-        "minecraft/gray_bed",
-        "minecraft/white_bed",
-        "minecraft/light_blue_bed",
-        "minecraft/lime_bed"
-    ],
-    "minecraft/gray_bed": [
-        "minecraft/brown_bed",
-        "minecraft/orange_bed",
-        "minecraft/magenta_bed",
-        "minecraft/yellow_bed",
-        "minecraft/purple_bed",
-        "minecraft/pink_bed",
-        "minecraft/green_bed",
-        "minecraft/black_bed",
-        "minecraft/red_bed",
-        "minecraft/blue_bed",
-        "minecraft/cyan_bed",
-        "minecraft/white_bed",
-        "minecraft/light_gray_bed",
-        "minecraft/light_blue_bed",
-        "minecraft/lime_bed"
-    ],
-    "minecraft/pink_bed": [
-        "minecraft/brown_bed",
-        "minecraft/orange_bed",
-        "minecraft/magenta_bed",
-        "minecraft/yellow_bed",
-        "minecraft/purple_bed",
-        "minecraft/green_bed",
-        "minecraft/black_bed",
-        "minecraft/red_bed",
-        "minecraft/blue_bed",
-        "minecraft/cyan_bed",
-        "minecraft/gray_bed",
-        "minecraft/white_bed",
-        "minecraft/light_gray_bed",
-        "minecraft/light_blue_bed",
-        "minecraft/lime_bed"
-    ],
-    "minecraft/magenta_bed": [
-        "minecraft/brown_bed",
-        "minecraft/orange_bed",
-        "minecraft/yellow_bed",
-        "minecraft/purple_bed",
-        "minecraft/pink_bed",
-        "minecraft/green_bed",
-        "minecraft/black_bed",
-        "minecraft/red_bed",
-        "minecraft/blue_bed",
-        "minecraft/cyan_bed",
-        "minecraft/gray_bed",
-        "minecraft/white_bed",
-        "minecraft/light_gray_bed",
-        "minecraft/light_blue_bed",
-        "minecraft/lime_bed"
-    ],
-    "minecraft/white_bed": [
-        "minecraft/brown_bed",
-        "minecraft/orange_bed",
-        "minecraft/magenta_bed",
-        "minecraft/yellow_bed",
-        "minecraft/purple_bed",
-        "minecraft/pink_bed",
-        "minecraft/green_bed",
-        "minecraft/black_bed",
-        "minecraft/red_bed",
-        "minecraft/blue_bed",
-        "minecraft/cyan_bed",
-        "minecraft/gray_bed",
-        "minecraft/light_gray_bed",
-        "minecraft/light_blue_bed",
-        "minecraft/lime_bed"
-    ],
-    "minecraft/green_bed": [
-        "minecraft/brown_bed",
-        "minecraft/orange_bed",
-        "minecraft/magenta_bed",
-        "minecraft/yellow_bed",
-        "minecraft/purple_bed",
-        "minecraft/pink_bed",
-        "minecraft/black_bed",
-        "minecraft/red_bed",
-        "minecraft/blue_bed",
-        "minecraft/cyan_bed",
-        "minecraft/gray_bed",
-        "minecraft/white_bed",
-        "minecraft/light_gray_bed",
-        "minecraft/light_blue_bed",
-        "minecraft/lime_bed"
-    ],
-    "minecraft/black_bed": [
-        "minecraft/brown_bed",
-        "minecraft/orange_bed",
-        "minecraft/magenta_bed",
-        "minecraft/yellow_bed",
-        "minecraft/purple_bed",
-        "minecraft/pink_bed",
-        "minecraft/green_bed",
-        "minecraft/red_bed",
-        "minecraft/blue_bed",
-        "minecraft/cyan_bed",
-        "minecraft/gray_bed",
-        "minecraft/white_bed",
-        "minecraft/light_gray_bed",
-        "minecraft/light_blue_bed",
-        "minecraft/lime_bed"
-    ],
-    "minecraft/blue_bed": [
-        "minecraft/brown_bed",
-        "minecraft/orange_bed",
-        "minecraft/magenta_bed",
-        "minecraft/yellow_bed",
-        "minecraft/purple_bed",
-        "minecraft/pink_bed",
-        "minecraft/green_bed",
-        "minecraft/black_bed",
-        "minecraft/red_bed",
-        "minecraft/cyan_bed",
-        "minecraft/gray_bed",
-        "minecraft/white_bed",
-        "minecraft/light_gray_bed",
-        "minecraft/light_blue_bed",
-        "minecraft/lime_bed"
-    ],
-    "minecraft/lime_bed": [
-        "minecraft/brown_bed",
-        "minecraft/orange_bed",
-        "minecraft/magenta_bed",
-        "minecraft/yellow_bed",
-        "minecraft/purple_bed",
-        "minecraft/pink_bed",
-        "minecraft/green_bed",
-        "minecraft/black_bed",
-        "minecraft/red_bed",
-        "minecraft/blue_bed",
-        "minecraft/cyan_bed",
-        "minecraft/gray_bed",
-        "minecraft/white_bed",
-        "minecraft/light_gray_bed",
-        "minecraft/light_blue_bed"
-    ],
-    "minecraft/iron_ingot": [
-        "minecraft/iron_block",
-        "minecraft/iron_nugget"
-    ],
-    "minecraft/raw_copper_block": [
-        "minecraft/raw_copper"
-    ],
-    "minecraft/raw_gold_block": [
-        "minecraft/raw_gold"
-    ],
-    "minecraft/orange_carpet": [
-        "minecraft/purple_carpet",
-        "minecraft/cyan_carpet",
-        "minecraft/white_carpet",
-        "minecraft/lime_carpet",
-        "minecraft/brown_carpet",
-        "minecraft/magenta_carpet",
-        "minecraft/red_carpet",
-        "minecraft/green_carpet",
-        "minecraft/pink_carpet",
-        "minecraft/blue_carpet",
-        "minecraft/light_gray_carpet",
-        "minecraft/light_blue_carpet",
-        "minecraft/yellow_carpet",
-        "minecraft/gray_carpet",
-        "minecraft/black_carpet"
-    ],
-    "minecraft/honey_block": [
-        "minecraft/honey_bottle"
-    ],
-    "minecraft/diamond_block": [
-        "minecraft/diamond"
-    ],
-    "minecraft/brown_bed": [
-        "minecraft/orange_bed",
-        "minecraft/magenta_bed",
-        "minecraft/yellow_bed",
-        "minecraft/purple_bed",
-        "minecraft/pink_bed",
-        "minecraft/green_bed",
-        "minecraft/black_bed",
-        "minecraft/red_bed",
-        "minecraft/blue_bed",
-        "minecraft/cyan_bed",
-        "minecraft/gray_bed",
-        "minecraft/white_bed",
-        "minecraft/light_gray_bed",
-        "minecraft/light_blue_bed",
-        "minecraft/lime_bed"
-    ],
-    "minecraft/red_wool": [
-        "minecraft/light_gray_wool",
-        "minecraft/green_wool",
-        "minecraft/pink_wool",
-        "minecraft/cyan_wool",
-        "minecraft/purple_wool",
-        "minecraft/gray_wool",
-        "minecraft/light_blue_wool",
-        "minecraft/blue_wool",
-        "minecraft/yellow_wool",
-        "minecraft/lime_wool",
-        "minecraft/brown_wool",
-        "minecraft/magenta_wool",
-        "minecraft/white_wool",
-        "minecraft/orange_wool",
-        "minecraft/black_wool"
-    ],
-    "minecraft/lapis_lazuli": [
-        "minecraft/lapis_block"
-    ],
-    "minecraft/iron_block": [
-        "minecraft/iron_ingot"
-    ],
-    "minecraft/iron_nugget": [
-        "minecraft/iron_ingot"
-    ],
-    "minecraft/chiseled_sandstone": [
-        "minecraft/sandstone_slab"
-    ],
-    "minecraft/diamond": [
-        "minecraft/diamond_block"
-    ],
-    "minecraft/raw_gold": [
-        "minecraft/raw_gold_block"
-    ],
-    "minecraft/dried_kelp": [
-        "minecraft/dried_kelp_block"
-    ],
-    "minecraft/coal_block": [
-        "minecraft/coal"
-    ],
-    "minecraft/slime_block": [
-        "minecraft/slime_ball"
-    ],
-    "minecraft/netherite_ingot": [
-        "minecraft/netherite_block"
-    ],
-    "minecraft/gold_ingot": [
-        "minecraft/gold_nugget",
-        "minecraft/gold_block"
-    ],
-    "minecraft/sandstone_slab": [
-        "minecraft/chiseled_sandstone"
-    ],
-    "minecraft/bone_block": [
-        "minecraft/bone_meal"
-    ],
-    "minecraft/honey_bottle": [
-        "minecraft/honey_block"
-    ],
-    "minecraft/hay_block": [
-        "minecraft/wheat"
-    ],
-    "minecraft/purpur_pillar": [
-        "minecraft/purpur_slab"
-    ],
-    "minecraft/lapis_block": [
-        "minecraft/lapis_lazuli"
-    ],
-    "minecraft/raw_copper": [
-        "minecraft/raw_copper_block"
-    ],
-    "minecraft/dried_kelp_block": [
-        "minecraft/dried_kelp"
-    ],
-    "minecraft/netherite_block": [
-        "minecraft/netherite_ingot"
-    ],
-    "minecraft/quartz_slab": [
-        "minecraft/chiseled_quartz_block"
-    ],
-    "minecraft/chiseled_quartz_block": [
-        "minecraft/quartz_slab"
-    ],
-    "minecraft/raw_iron": [
-        "minecraft/raw_iron_block"
-    ],
-    "minecraft/emerald_block": [
-        "minecraft/emerald"
-    ],
-    "minecraft/bone_meal": [
-        "minecraft/bone_block"
-    ],
-    "minecraft/wheat": [
-        "minecraft/hay_block"
-    ],
-    "minecraft/emerald": [
-        "minecraft/emerald_block"
-    ],
-    "minecraft/purpur_slab": [
-        "minecraft/purpur_pillar"
-    ],
-    "minecraft/copper_block": [
-        "minecraft/copper_ingot"
-    ],
-    "minecraft/slime_ball": [
-        "minecraft/slime_block"
-    ],
-    "minecraft/coal": [
-        "minecraft/coal_block"
-    ],
-    "minecraft/gold_nugget": [
-        "minecraft/gold_ingot"
-    ],
-    "minecraft/gold_block": [
-        "minecraft/gold_ingot"
-    ],
-    "minecraft/red_sandstone_slab": [
-        "minecraft/chiseled_red_sandstone"
-    ],
-    "minecraft/redstone_block": [
-        "minecraft/redstone"
-    ],
-    "computercraft/wired_modem": [
-        "computercraft/wired_modem_full"
-    ],
-    "computercraft/wired_modem_full": [
-        "computercraft/wired_modem"
-    ],
-    "stellaris/plutonium_ingot": [
-        "stellaris/plutonium_block",
-        "stellaris/plutonium_nugget"
-    ],
-    "stellaris/vertical_moon_slab": [
-        "stellaris/moon_stone_slab"
-    ],
-    "stellaris/vertical_mars_slab": [
-        "stellaris/mars_stone_slab"
-    ],
-    "stellaris/heavy_metal_ingot": [
-        "stellaris/heavy_metal_plate"
-    ],
-    "stellaris/raw_steel_ingot": [
-        "stellaris/raw_steel_block"
-    ],
-    "stellaris/plutonium_piece": [
-        "stellaris/plutonium_nugget",
-        "stellaris/plutonium_grain"
-    ],
-    "stellaris/vertical_iron_plating_slab": [
-        "stellaris/iron_plating_slab"
-    ],
-    "stellaris/desh_plating_slab": [
-        "stellaris/vertical_desh_plating_slab"
-    ],
-    "stellaris/vertical_venus_slab": [
-        "stellaris/venus_stone_slab"
-    ],
-    "stellaris/vertical_desh_plating_slab": [
-        "stellaris/desh_plating_slab"
-    ],
-    "stellaris/marcury_stone_slab": [
-        "stellaris/vertical_mercury_slab"
-    ],
-    "stellaris/plutonium_nugget": [
-        "stellaris/plutonium_piece",
-        "stellaris/plutonium_ingot"
-    ],
-    "stellaris/plutonium_grain": [
-        "stellaris/plutonium_piece"
-    ],
-    "stellaris/vertical_steel_slab": [
-        "stellaris/steel_slab"
-    ],
-    "stellaris/vertical_heavy_metal_plate_slab": [
-        "stellaris/heavy_metal_slab"
-    ],
-    "stellaris/venus_stone_slab": [
-        "stellaris/vertical_venus_slab"
-    ],
-    "stellaris/heavy_metal_plate": [
-        "stellaris/heavy_metal_ingot"
-    ],
-    "stellaris/plutonium_block": [
-        "stellaris/plutonium_ingot"
-    ],
-    "stellaris/desh_block": [
-        "stellaris/desh_ingot"
-    ],
-    "stellaris/desh_ingot": [
-        "stellaris/desh_block"
-    ],
-    "stellaris/heavy_metal_slab": [
-        "stellaris/vertical_heavy_metal_plate_slab"
-    ],
-    "stellaris/vertical_steel_plating_slab": [
-        "stellaris/steel_plating_slab"
-    ],
-    "stellaris/steel_slab": [
-        "stellaris/vertical_steel_slab"
-    ],
-    "stellaris/steel_plating_slab": [
-        "stellaris/vertical_steel_plating_slab"
-    ],
-    "stellaris/vertical_mercury_slab": [
-        "stellaris/marcury_stone_slab"
-    ],
-    "stellaris/iron_plating_slab": [
-        "stellaris/vertical_iron_plating_slab"
-    ],
-    "stellaris/mars_stone_slab": [
-        "stellaris/vertical_mars_slab"
-    ],
-    "stellaris/neptunium_ingot": [
-        "stellaris/neptunium_block",
-        "stellaris/neptunium_piece"
-    ],
-    "stellaris/moon_stone_slab": [
-        "stellaris/vertical_moon_slab"
-    ],
-    "stellaris/raw_uranium_block": [
-        "stellaris/raw_uranium"
-    ],
-    "stellaris/raw_uranium": [
-        "stellaris/raw_uranium_block"
-    ],
-    "stellaris/raw_steel_block": [
-        "stellaris/raw_steel_ingot"
-    ],
-    "stellaris/neptunium_piece": [
-        "stellaris/neptunium_ingot"
-    ],
-    "stellaris/neptunium_block": [
-        "stellaris/neptunium_ingot"
-    ],
-    "chunkloaders/single_chunk_loader": [
-        "chunkloaders/basic_chunk_loader"
-    ],
-    "chunkloaders/basic_chunk_loader": [
-        "chunkloaders/single_chunk_loader"
-    ],
-    "aether/zanite_gemstone": [
-        "aether/zanite_block"
-    ],
-    "aether/ambrosium_shard": [
-        "aether/ambrosium_block"
-    ],
-    "aether/zanite_block": [
-        "aether/zanite_gemstone"
-    ],
-    "aether/ambrosium_block": [
-        "aether/ambrosium_shard"
+    "minecraft:gray_carpet": [
+        "minecraft:orange_carpet",
+        "minecraft:purple_carpet",
+        "minecraft:cyan_carpet",
+        "minecraft:white_carpet",
+        "minecraft:lime_carpet",
+        "minecraft:brown_carpet",
+        "minecraft:magenta_carpet",
+        "minecraft:red_carpet",
+        "minecraft:green_carpet",
+        "minecraft:pink_carpet",
+        "minecraft:blue_carpet",
+        "minecraft:light_gray_carpet",
+        "minecraft:light_blue_carpet",
+        "minecraft:yellow_carpet",
+        "minecraft:black_carpet"
+    ],
+    "minecraft:green_carpet": [
+        "minecraft:orange_carpet",
+        "minecraft:purple_carpet",
+        "minecraft:cyan_carpet",
+        "minecraft:white_carpet",
+        "minecraft:lime_carpet",
+        "minecraft:brown_carpet",
+        "minecraft:magenta_carpet",
+        "minecraft:red_carpet",
+        "minecraft:pink_carpet",
+        "minecraft:blue_carpet",
+        "minecraft:light_gray_carpet",
+        "minecraft:light_blue_carpet",
+        "minecraft:yellow_carpet",
+        "minecraft:gray_carpet",
+        "minecraft:black_carpet"
+    ],
+    "minecraft:light_blue_carpet": [
+        "minecraft:orange_carpet",
+        "minecraft:purple_carpet",
+        "minecraft:cyan_carpet",
+        "minecraft:white_carpet",
+        "minecraft:lime_carpet",
+        "minecraft:brown_carpet",
+        "minecraft:magenta_carpet",
+        "minecraft:red_carpet",
+        "minecraft:green_carpet",
+        "minecraft:pink_carpet",
+        "minecraft:blue_carpet",
+        "minecraft:light_gray_carpet",
+        "minecraft:yellow_carpet",
+        "minecraft:gray_carpet",
+        "minecraft:black_carpet"
+    ],
+    "minecraft:lime_carpet": [
+        "minecraft:orange_carpet",
+        "minecraft:purple_carpet",
+        "minecraft:cyan_carpet",
+        "minecraft:white_carpet",
+        "minecraft:brown_carpet",
+        "minecraft:magenta_carpet",
+        "minecraft:red_carpet",
+        "minecraft:green_carpet",
+        "minecraft:pink_carpet",
+        "minecraft:blue_carpet",
+        "minecraft:light_gray_carpet",
+        "minecraft:light_blue_carpet",
+        "minecraft:yellow_carpet",
+        "minecraft:gray_carpet",
+        "minecraft:black_carpet"
+    ],
+    "minecraft:cyan_carpet": [
+        "minecraft:orange_carpet",
+        "minecraft:purple_carpet",
+        "minecraft:white_carpet",
+        "minecraft:lime_carpet",
+        "minecraft:brown_carpet",
+        "minecraft:magenta_carpet",
+        "minecraft:red_carpet",
+        "minecraft:green_carpet",
+        "minecraft:pink_carpet",
+        "minecraft:blue_carpet",
+        "minecraft:light_gray_carpet",
+        "minecraft:light_blue_carpet",
+        "minecraft:yellow_carpet",
+        "minecraft:gray_carpet",
+        "minecraft:black_carpet"
+    ],
+    "minecraft:light_gray_carpet": [
+        "minecraft:orange_carpet",
+        "minecraft:purple_carpet",
+        "minecraft:cyan_carpet",
+        "minecraft:white_carpet",
+        "minecraft:lime_carpet",
+        "minecraft:brown_carpet",
+        "minecraft:magenta_carpet",
+        "minecraft:red_carpet",
+        "minecraft:green_carpet",
+        "minecraft:pink_carpet",
+        "minecraft:blue_carpet",
+        "minecraft:light_blue_carpet",
+        "minecraft:yellow_carpet",
+        "minecraft:gray_carpet",
+        "minecraft:black_carpet"
+    ],
+    "minecraft:pink_carpet": [
+        "minecraft:orange_carpet",
+        "minecraft:purple_carpet",
+        "minecraft:cyan_carpet",
+        "minecraft:white_carpet",
+        "minecraft:lime_carpet",
+        "minecraft:brown_carpet",
+        "minecraft:magenta_carpet",
+        "minecraft:red_carpet",
+        "minecraft:green_carpet",
+        "minecraft:blue_carpet",
+        "minecraft:light_gray_carpet",
+        "minecraft:light_blue_carpet",
+        "minecraft:yellow_carpet",
+        "minecraft:gray_carpet",
+        "minecraft:black_carpet"
+    ],
+    "minecraft:yellow_carpet": [
+        "minecraft:orange_carpet",
+        "minecraft:purple_carpet",
+        "minecraft:cyan_carpet",
+        "minecraft:white_carpet",
+        "minecraft:lime_carpet",
+        "minecraft:brown_carpet",
+        "minecraft:magenta_carpet",
+        "minecraft:red_carpet",
+        "minecraft:green_carpet",
+        "minecraft:pink_carpet",
+        "minecraft:blue_carpet",
+        "minecraft:light_gray_carpet",
+        "minecraft:light_blue_carpet",
+        "minecraft:gray_carpet",
+        "minecraft:black_carpet"
+    ],
+    "minecraft:white_carpet": [
+        "minecraft:orange_carpet",
+        "minecraft:purple_carpet",
+        "minecraft:cyan_carpet",
+        "minecraft:lime_carpet",
+        "minecraft:brown_carpet",
+        "minecraft:magenta_carpet",
+        "minecraft:red_carpet",
+        "minecraft:green_carpet",
+        "minecraft:pink_carpet",
+        "minecraft:blue_carpet",
+        "minecraft:light_gray_carpet",
+        "minecraft:light_blue_carpet",
+        "minecraft:yellow_carpet",
+        "minecraft:gray_carpet",
+        "minecraft:black_carpet"
+    ],
+    "minecraft:blue_carpet": [
+        "minecraft:orange_carpet",
+        "minecraft:purple_carpet",
+        "minecraft:cyan_carpet",
+        "minecraft:white_carpet",
+        "minecraft:lime_carpet",
+        "minecraft:brown_carpet",
+        "minecraft:magenta_carpet",
+        "minecraft:red_carpet",
+        "minecraft:green_carpet",
+        "minecraft:pink_carpet",
+        "minecraft:light_gray_carpet",
+        "minecraft:light_blue_carpet",
+        "minecraft:yellow_carpet",
+        "minecraft:gray_carpet",
+        "minecraft:black_carpet"
+    ],
+    "minecraft:magenta_carpet": [
+        "minecraft:orange_carpet",
+        "minecraft:purple_carpet",
+        "minecraft:cyan_carpet",
+        "minecraft:white_carpet",
+        "minecraft:lime_carpet",
+        "minecraft:brown_carpet",
+        "minecraft:red_carpet",
+        "minecraft:green_carpet",
+        "minecraft:pink_carpet",
+        "minecraft:blue_carpet",
+        "minecraft:light_gray_carpet",
+        "minecraft:light_blue_carpet",
+        "minecraft:yellow_carpet",
+        "minecraft:gray_carpet",
+        "minecraft:black_carpet"
+    ],
+    "minecraft:purple_carpet": [
+        "minecraft:orange_carpet",
+        "minecraft:cyan_carpet",
+        "minecraft:white_carpet",
+        "minecraft:lime_carpet",
+        "minecraft:brown_carpet",
+        "minecraft:magenta_carpet",
+        "minecraft:red_carpet",
+        "minecraft:green_carpet",
+        "minecraft:pink_carpet",
+        "minecraft:blue_carpet",
+        "minecraft:light_gray_carpet",
+        "minecraft:light_blue_carpet",
+        "minecraft:yellow_carpet",
+        "minecraft:gray_carpet",
+        "minecraft:black_carpet"
+    ],
+    "minecraft:red_carpet": [
+        "minecraft:orange_carpet",
+        "minecraft:purple_carpet",
+        "minecraft:cyan_carpet",
+        "minecraft:white_carpet",
+        "minecraft:lime_carpet",
+        "minecraft:brown_carpet",
+        "minecraft:magenta_carpet",
+        "minecraft:green_carpet",
+        "minecraft:pink_carpet",
+        "minecraft:blue_carpet",
+        "minecraft:light_gray_carpet",
+        "minecraft:light_blue_carpet",
+        "minecraft:yellow_carpet",
+        "minecraft:gray_carpet",
+        "minecraft:black_carpet"
+    ],
+    "minecraft:brown_carpet": [
+        "minecraft:orange_carpet",
+        "minecraft:purple_carpet",
+        "minecraft:cyan_carpet",
+        "minecraft:white_carpet",
+        "minecraft:lime_carpet",
+        "minecraft:magenta_carpet",
+        "minecraft:red_carpet",
+        "minecraft:green_carpet",
+        "minecraft:pink_carpet",
+        "minecraft:blue_carpet",
+        "minecraft:light_gray_carpet",
+        "minecraft:light_blue_carpet",
+        "minecraft:yellow_carpet",
+        "minecraft:gray_carpet",
+        "minecraft:black_carpet"
+    ],
+    "minecraft:black_carpet": [
+        "minecraft:orange_carpet",
+        "minecraft:purple_carpet",
+        "minecraft:cyan_carpet",
+        "minecraft:white_carpet",
+        "minecraft:lime_carpet",
+        "minecraft:brown_carpet",
+        "minecraft:magenta_carpet",
+        "minecraft:red_carpet",
+        "minecraft:green_carpet",
+        "minecraft:pink_carpet",
+        "minecraft:blue_carpet",
+        "minecraft:light_gray_carpet",
+        "minecraft:light_blue_carpet",
+        "minecraft:yellow_carpet",
+        "minecraft:gray_carpet"
+    ],
+    "minecraft:chiseled_red_sandstone": [
+        "minecraft:red_sandstone_slab"
+    ],
+    "minecraft:gray_wool": [
+        "minecraft:red_wool",
+        "minecraft:light_gray_wool",
+        "minecraft:green_wool",
+        "minecraft:pink_wool",
+        "minecraft:cyan_wool",
+        "minecraft:purple_wool",
+        "minecraft:light_blue_wool",
+        "minecraft:blue_wool",
+        "minecraft:yellow_wool",
+        "minecraft:lime_wool",
+        "minecraft:brown_wool",
+        "minecraft:magenta_wool",
+        "minecraft:white_wool",
+        "minecraft:orange_wool",
+        "minecraft:black_wool"
+    ],
+    "minecraft:cyan_wool": [
+        "minecraft:red_wool",
+        "minecraft:light_gray_wool",
+        "minecraft:green_wool",
+        "minecraft:pink_wool",
+        "minecraft:purple_wool",
+        "minecraft:gray_wool",
+        "minecraft:light_blue_wool",
+        "minecraft:blue_wool",
+        "minecraft:yellow_wool",
+        "minecraft:lime_wool",
+        "minecraft:brown_wool",
+        "minecraft:magenta_wool",
+        "minecraft:white_wool",
+        "minecraft:orange_wool",
+        "minecraft:black_wool"
+    ],
+    "minecraft:green_wool": [
+        "minecraft:red_wool",
+        "minecraft:light_gray_wool",
+        "minecraft:pink_wool",
+        "minecraft:cyan_wool",
+        "minecraft:purple_wool",
+        "minecraft:gray_wool",
+        "minecraft:light_blue_wool",
+        "minecraft:blue_wool",
+        "minecraft:yellow_wool",
+        "minecraft:lime_wool",
+        "minecraft:brown_wool",
+        "minecraft:magenta_wool",
+        "minecraft:white_wool",
+        "minecraft:orange_wool",
+        "minecraft:black_wool"
+    ],
+    "minecraft:light_gray_wool": [
+        "minecraft:red_wool",
+        "minecraft:green_wool",
+        "minecraft:pink_wool",
+        "minecraft:cyan_wool",
+        "minecraft:purple_wool",
+        "minecraft:gray_wool",
+        "minecraft:light_blue_wool",
+        "minecraft:blue_wool",
+        "minecraft:yellow_wool",
+        "minecraft:lime_wool",
+        "minecraft:brown_wool",
+        "minecraft:magenta_wool",
+        "minecraft:white_wool",
+        "minecraft:orange_wool",
+        "minecraft:black_wool"
+    ],
+    "minecraft:white_wool": [
+        "minecraft:red_wool",
+        "minecraft:light_gray_wool",
+        "minecraft:green_wool",
+        "minecraft:pink_wool",
+        "minecraft:cyan_wool",
+        "minecraft:purple_wool",
+        "minecraft:gray_wool",
+        "minecraft:light_blue_wool",
+        "minecraft:blue_wool",
+        "minecraft:yellow_wool",
+        "minecraft:lime_wool",
+        "minecraft:brown_wool",
+        "minecraft:magenta_wool",
+        "minecraft:orange_wool",
+        "minecraft:black_wool"
+    ],
+    "minecraft:lime_wool": [
+        "minecraft:red_wool",
+        "minecraft:light_gray_wool",
+        "minecraft:green_wool",
+        "minecraft:pink_wool",
+        "minecraft:cyan_wool",
+        "minecraft:purple_wool",
+        "minecraft:gray_wool",
+        "minecraft:light_blue_wool",
+        "minecraft:blue_wool",
+        "minecraft:yellow_wool",
+        "minecraft:brown_wool",
+        "minecraft:magenta_wool",
+        "minecraft:white_wool",
+        "minecraft:orange_wool",
+        "minecraft:black_wool"
+    ],
+    "minecraft:yellow_wool": [
+        "minecraft:red_wool",
+        "minecraft:light_gray_wool",
+        "minecraft:green_wool",
+        "minecraft:pink_wool",
+        "minecraft:cyan_wool",
+        "minecraft:purple_wool",
+        "minecraft:gray_wool",
+        "minecraft:light_blue_wool",
+        "minecraft:blue_wool",
+        "minecraft:lime_wool",
+        "minecraft:brown_wool",
+        "minecraft:magenta_wool",
+        "minecraft:white_wool",
+        "minecraft:orange_wool",
+        "minecraft:black_wool"
+    ],
+    "minecraft:black_wool": [
+        "minecraft:red_wool",
+        "minecraft:light_gray_wool",
+        "minecraft:green_wool",
+        "minecraft:pink_wool",
+        "minecraft:cyan_wool",
+        "minecraft:purple_wool",
+        "minecraft:gray_wool",
+        "minecraft:light_blue_wool",
+        "minecraft:blue_wool",
+        "minecraft:yellow_wool",
+        "minecraft:lime_wool",
+        "minecraft:brown_wool",
+        "minecraft:magenta_wool",
+        "minecraft:white_wool",
+        "minecraft:orange_wool"
+    ],
+    "minecraft:magenta_wool": [
+        "minecraft:red_wool",
+        "minecraft:light_gray_wool",
+        "minecraft:green_wool",
+        "minecraft:pink_wool",
+        "minecraft:cyan_wool",
+        "minecraft:purple_wool",
+        "minecraft:gray_wool",
+        "minecraft:light_blue_wool",
+        "minecraft:blue_wool",
+        "minecraft:yellow_wool",
+        "minecraft:lime_wool",
+        "minecraft:brown_wool",
+        "minecraft:white_wool",
+        "minecraft:orange_wool",
+        "minecraft:black_wool"
+    ],
+    "minecraft:orange_wool": [
+        "minecraft:red_wool",
+        "minecraft:light_gray_wool",
+        "minecraft:green_wool",
+        "minecraft:pink_wool",
+        "minecraft:cyan_wool",
+        "minecraft:purple_wool",
+        "minecraft:gray_wool",
+        "minecraft:light_blue_wool",
+        "minecraft:blue_wool",
+        "minecraft:yellow_wool",
+        "minecraft:lime_wool",
+        "minecraft:brown_wool",
+        "minecraft:magenta_wool",
+        "minecraft:white_wool",
+        "minecraft:black_wool"
+    ],
+    "minecraft:light_blue_wool": [
+        "minecraft:red_wool",
+        "minecraft:light_gray_wool",
+        "minecraft:green_wool",
+        "minecraft:pink_wool",
+        "minecraft:cyan_wool",
+        "minecraft:purple_wool",
+        "minecraft:gray_wool",
+        "minecraft:blue_wool",
+        "minecraft:yellow_wool",
+        "minecraft:lime_wool",
+        "minecraft:brown_wool",
+        "minecraft:magenta_wool",
+        "minecraft:white_wool",
+        "minecraft:orange_wool",
+        "minecraft:black_wool"
+    ],
+    "minecraft:purple_wool": [
+        "minecraft:red_wool",
+        "minecraft:light_gray_wool",
+        "minecraft:green_wool",
+        "minecraft:pink_wool",
+        "minecraft:cyan_wool",
+        "minecraft:gray_wool",
+        "minecraft:light_blue_wool",
+        "minecraft:blue_wool",
+        "minecraft:yellow_wool",
+        "minecraft:lime_wool",
+        "minecraft:brown_wool",
+        "minecraft:magenta_wool",
+        "minecraft:white_wool",
+        "minecraft:orange_wool",
+        "minecraft:black_wool"
+    ],
+    "minecraft:brown_wool": [
+        "minecraft:red_wool",
+        "minecraft:light_gray_wool",
+        "minecraft:green_wool",
+        "minecraft:pink_wool",
+        "minecraft:cyan_wool",
+        "minecraft:purple_wool",
+        "minecraft:gray_wool",
+        "minecraft:light_blue_wool",
+        "minecraft:blue_wool",
+        "minecraft:yellow_wool",
+        "minecraft:lime_wool",
+        "minecraft:magenta_wool",
+        "minecraft:white_wool",
+        "minecraft:orange_wool",
+        "minecraft:black_wool"
+    ],
+    "minecraft:pink_wool": [
+        "minecraft:red_wool",
+        "minecraft:light_gray_wool",
+        "minecraft:green_wool",
+        "minecraft:cyan_wool",
+        "minecraft:purple_wool",
+        "minecraft:gray_wool",
+        "minecraft:light_blue_wool",
+        "minecraft:blue_wool",
+        "minecraft:yellow_wool",
+        "minecraft:lime_wool",
+        "minecraft:brown_wool",
+        "minecraft:magenta_wool",
+        "minecraft:white_wool",
+        "minecraft:orange_wool",
+        "minecraft:black_wool"
+    ],
+    "minecraft:blue_wool": [
+        "minecraft:red_wool",
+        "minecraft:light_gray_wool",
+        "minecraft:green_wool",
+        "minecraft:pink_wool",
+        "minecraft:cyan_wool",
+        "minecraft:purple_wool",
+        "minecraft:gray_wool",
+        "minecraft:light_blue_wool",
+        "minecraft:yellow_wool",
+        "minecraft:lime_wool",
+        "minecraft:brown_wool",
+        "minecraft:magenta_wool",
+        "minecraft:white_wool",
+        "minecraft:orange_wool",
+        "minecraft:black_wool"
+    ],
+    "minecraft:raw_iron_block": [
+        "minecraft:raw_iron"
+    ],
+    "minecraft:copper_ingot": [
+        "minecraft:copper_block"
+    ],
+    "minecraft:redstone": [
+        "minecraft:redstone_block"
+    ],
+    "minecraft:orange_bed": [
+        "minecraft:brown_bed",
+        "minecraft:magenta_bed",
+        "minecraft:yellow_bed",
+        "minecraft:purple_bed",
+        "minecraft:pink_bed",
+        "minecraft:green_bed",
+        "minecraft:black_bed",
+        "minecraft:red_bed",
+        "minecraft:blue_bed",
+        "minecraft:cyan_bed",
+        "minecraft:gray_bed",
+        "minecraft:white_bed",
+        "minecraft:light_gray_bed",
+        "minecraft:light_blue_bed",
+        "minecraft:lime_bed"
+    ],
+    "minecraft:magenta_bed": [
+        "minecraft:brown_bed",
+        "minecraft:orange_bed",
+        "minecraft:yellow_bed",
+        "minecraft:purple_bed",
+        "minecraft:pink_bed",
+        "minecraft:green_bed",
+        "minecraft:black_bed",
+        "minecraft:red_bed",
+        "minecraft:blue_bed",
+        "minecraft:cyan_bed",
+        "minecraft:gray_bed",
+        "minecraft:white_bed",
+        "minecraft:light_gray_bed",
+        "minecraft:light_blue_bed",
+        "minecraft:lime_bed"
+    ],
+    "minecraft:white_bed": [
+        "minecraft:brown_bed",
+        "minecraft:orange_bed",
+        "minecraft:magenta_bed",
+        "minecraft:yellow_bed",
+        "minecraft:purple_bed",
+        "minecraft:pink_bed",
+        "minecraft:green_bed",
+        "minecraft:black_bed",
+        "minecraft:red_bed",
+        "minecraft:blue_bed",
+        "minecraft:cyan_bed",
+        "minecraft:gray_bed",
+        "minecraft:light_gray_bed",
+        "minecraft:light_blue_bed",
+        "minecraft:lime_bed"
+    ],
+    "minecraft:black_bed": [
+        "minecraft:brown_bed",
+        "minecraft:orange_bed",
+        "minecraft:magenta_bed",
+        "minecraft:yellow_bed",
+        "minecraft:purple_bed",
+        "minecraft:pink_bed",
+        "minecraft:green_bed",
+        "minecraft:red_bed",
+        "minecraft:blue_bed",
+        "minecraft:cyan_bed",
+        "minecraft:gray_bed",
+        "minecraft:white_bed",
+        "minecraft:light_gray_bed",
+        "minecraft:light_blue_bed",
+        "minecraft:lime_bed"
+    ],
+    "minecraft:light_gray_bed": [
+        "minecraft:brown_bed",
+        "minecraft:orange_bed",
+        "minecraft:magenta_bed",
+        "minecraft:yellow_bed",
+        "minecraft:purple_bed",
+        "minecraft:pink_bed",
+        "minecraft:green_bed",
+        "minecraft:black_bed",
+        "minecraft:red_bed",
+        "minecraft:blue_bed",
+        "minecraft:cyan_bed",
+        "minecraft:gray_bed",
+        "minecraft:white_bed",
+        "minecraft:light_blue_bed",
+        "minecraft:lime_bed"
+    ],
+    "minecraft:yellow_bed": [
+        "minecraft:brown_bed",
+        "minecraft:orange_bed",
+        "minecraft:magenta_bed",
+        "minecraft:purple_bed",
+        "minecraft:pink_bed",
+        "minecraft:green_bed",
+        "minecraft:black_bed",
+        "minecraft:red_bed",
+        "minecraft:blue_bed",
+        "minecraft:cyan_bed",
+        "minecraft:gray_bed",
+        "minecraft:white_bed",
+        "minecraft:light_gray_bed",
+        "minecraft:light_blue_bed",
+        "minecraft:lime_bed"
+    ],
+    "minecraft:cyan_bed": [
+        "minecraft:brown_bed",
+        "minecraft:orange_bed",
+        "minecraft:magenta_bed",
+        "minecraft:yellow_bed",
+        "minecraft:purple_bed",
+        "minecraft:pink_bed",
+        "minecraft:green_bed",
+        "minecraft:black_bed",
+        "minecraft:red_bed",
+        "minecraft:blue_bed",
+        "minecraft:gray_bed",
+        "minecraft:white_bed",
+        "minecraft:light_gray_bed",
+        "minecraft:light_blue_bed",
+        "minecraft:lime_bed"
+    ],
+    "minecraft:green_bed": [
+        "minecraft:brown_bed",
+        "minecraft:orange_bed",
+        "minecraft:magenta_bed",
+        "minecraft:yellow_bed",
+        "minecraft:purple_bed",
+        "minecraft:pink_bed",
+        "minecraft:black_bed",
+        "minecraft:red_bed",
+        "minecraft:blue_bed",
+        "minecraft:cyan_bed",
+        "minecraft:gray_bed",
+        "minecraft:white_bed",
+        "minecraft:light_gray_bed",
+        "minecraft:light_blue_bed",
+        "minecraft:lime_bed"
+    ],
+    "minecraft:lime_bed": [
+        "minecraft:brown_bed",
+        "minecraft:orange_bed",
+        "minecraft:magenta_bed",
+        "minecraft:yellow_bed",
+        "minecraft:purple_bed",
+        "minecraft:pink_bed",
+        "minecraft:green_bed",
+        "minecraft:black_bed",
+        "minecraft:red_bed",
+        "minecraft:blue_bed",
+        "minecraft:cyan_bed",
+        "minecraft:gray_bed",
+        "minecraft:white_bed",
+        "minecraft:light_gray_bed",
+        "minecraft:light_blue_bed"
+    ],
+    "minecraft:purple_bed": [
+        "minecraft:brown_bed",
+        "minecraft:orange_bed",
+        "minecraft:magenta_bed",
+        "minecraft:yellow_bed",
+        "minecraft:pink_bed",
+        "minecraft:green_bed",
+        "minecraft:black_bed",
+        "minecraft:red_bed",
+        "minecraft:blue_bed",
+        "minecraft:cyan_bed",
+        "minecraft:gray_bed",
+        "minecraft:white_bed",
+        "minecraft:light_gray_bed",
+        "minecraft:light_blue_bed",
+        "minecraft:lime_bed"
+    ],
+    "minecraft:blue_bed": [
+        "minecraft:brown_bed",
+        "minecraft:orange_bed",
+        "minecraft:magenta_bed",
+        "minecraft:yellow_bed",
+        "minecraft:purple_bed",
+        "minecraft:pink_bed",
+        "minecraft:green_bed",
+        "minecraft:black_bed",
+        "minecraft:red_bed",
+        "minecraft:cyan_bed",
+        "minecraft:gray_bed",
+        "minecraft:white_bed",
+        "minecraft:light_gray_bed",
+        "minecraft:light_blue_bed",
+        "minecraft:lime_bed"
+    ],
+    "minecraft:pink_bed": [
+        "minecraft:brown_bed",
+        "minecraft:orange_bed",
+        "minecraft:magenta_bed",
+        "minecraft:yellow_bed",
+        "minecraft:purple_bed",
+        "minecraft:green_bed",
+        "minecraft:black_bed",
+        "minecraft:red_bed",
+        "minecraft:blue_bed",
+        "minecraft:cyan_bed",
+        "minecraft:gray_bed",
+        "minecraft:white_bed",
+        "minecraft:light_gray_bed",
+        "minecraft:light_blue_bed",
+        "minecraft:lime_bed"
+    ],
+    "minecraft:gray_bed": [
+        "minecraft:brown_bed",
+        "minecraft:orange_bed",
+        "minecraft:magenta_bed",
+        "minecraft:yellow_bed",
+        "minecraft:purple_bed",
+        "minecraft:pink_bed",
+        "minecraft:green_bed",
+        "minecraft:black_bed",
+        "minecraft:red_bed",
+        "minecraft:blue_bed",
+        "minecraft:cyan_bed",
+        "minecraft:white_bed",
+        "minecraft:light_gray_bed",
+        "minecraft:light_blue_bed",
+        "minecraft:lime_bed"
+    ],
+    "minecraft:red_bed": [
+        "minecraft:brown_bed",
+        "minecraft:orange_bed",
+        "minecraft:magenta_bed",
+        "minecraft:yellow_bed",
+        "minecraft:purple_bed",
+        "minecraft:pink_bed",
+        "minecraft:green_bed",
+        "minecraft:black_bed",
+        "minecraft:blue_bed",
+        "minecraft:cyan_bed",
+        "minecraft:gray_bed",
+        "minecraft:white_bed",
+        "minecraft:light_gray_bed",
+        "minecraft:light_blue_bed",
+        "minecraft:lime_bed"
+    ],
+    "minecraft:light_blue_bed": [
+        "minecraft:brown_bed",
+        "minecraft:orange_bed",
+        "minecraft:magenta_bed",
+        "minecraft:yellow_bed",
+        "minecraft:purple_bed",
+        "minecraft:pink_bed",
+        "minecraft:green_bed",
+        "minecraft:black_bed",
+        "minecraft:red_bed",
+        "minecraft:blue_bed",
+        "minecraft:cyan_bed",
+        "minecraft:gray_bed",
+        "minecraft:white_bed",
+        "minecraft:light_gray_bed",
+        "minecraft:lime_bed"
+    ],
+    "minecraft:iron_ingot": [
+        "minecraft:iron_block",
+        "minecraft:iron_nugget"
+    ],
+    "minecraft:raw_copper_block": [
+        "minecraft:raw_copper"
+    ],
+    "minecraft:raw_gold_block": [
+        "minecraft:raw_gold"
+    ],
+    "minecraft:orange_carpet": [
+        "minecraft:purple_carpet",
+        "minecraft:cyan_carpet",
+        "minecraft:white_carpet",
+        "minecraft:lime_carpet",
+        "minecraft:brown_carpet",
+        "minecraft:magenta_carpet",
+        "minecraft:red_carpet",
+        "minecraft:green_carpet",
+        "minecraft:pink_carpet",
+        "minecraft:blue_carpet",
+        "minecraft:light_gray_carpet",
+        "minecraft:light_blue_carpet",
+        "minecraft:yellow_carpet",
+        "minecraft:gray_carpet",
+        "minecraft:black_carpet"
+    ],
+    "minecraft:honey_block": [
+        "minecraft:honey_bottle"
+    ],
+    "minecraft:diamond_block": [
+        "minecraft:diamond"
+    ],
+    "minecraft:brown_bed": [
+        "minecraft:orange_bed",
+        "minecraft:magenta_bed",
+        "minecraft:yellow_bed",
+        "minecraft:purple_bed",
+        "minecraft:pink_bed",
+        "minecraft:green_bed",
+        "minecraft:black_bed",
+        "minecraft:red_bed",
+        "minecraft:blue_bed",
+        "minecraft:cyan_bed",
+        "minecraft:gray_bed",
+        "minecraft:white_bed",
+        "minecraft:light_gray_bed",
+        "minecraft:light_blue_bed",
+        "minecraft:lime_bed"
+    ],
+    "minecraft:red_wool": [
+        "minecraft:light_gray_wool",
+        "minecraft:green_wool",
+        "minecraft:pink_wool",
+        "minecraft:cyan_wool",
+        "minecraft:purple_wool",
+        "minecraft:gray_wool",
+        "minecraft:light_blue_wool",
+        "minecraft:blue_wool",
+        "minecraft:yellow_wool",
+        "minecraft:lime_wool",
+        "minecraft:brown_wool",
+        "minecraft:magenta_wool",
+        "minecraft:white_wool",
+        "minecraft:orange_wool",
+        "minecraft:black_wool"
+    ],
+    "minecraft:lapis_lazuli": [
+        "minecraft:lapis_block"
+    ],
+    "minecraft:iron_nugget": [
+        "minecraft:iron_ingot"
+    ],
+    "minecraft:iron_block": [
+        "minecraft:iron_ingot"
+    ],
+    "minecraft:chiseled_sandstone": [
+        "minecraft:sandstone_slab"
+    ],
+    "minecraft:diamond": [
+        "minecraft:diamond_block"
+    ],
+    "minecraft:raw_gold": [
+        "minecraft:raw_gold_block"
+    ],
+    "minecraft:dried_kelp": [
+        "minecraft:dried_kelp_block"
+    ],
+    "minecraft:coal_block": [
+        "minecraft:coal"
+    ],
+    "minecraft:slime_block": [
+        "minecraft:slime_ball"
+    ],
+    "minecraft:netherite_ingot": [
+        "minecraft:netherite_block"
+    ],
+    "minecraft:gold_ingot": [
+        "minecraft:gold_nugget",
+        "minecraft:gold_block"
+    ],
+    "minecraft:sandstone_slab": [
+        "minecraft:chiseled_sandstone"
+    ],
+    "minecraft:bone_block": [
+        "minecraft:bone_meal"
+    ],
+    "minecraft:honey_bottle": [
+        "minecraft:honey_block"
+    ],
+    "minecraft:hay_block": [
+        "minecraft:wheat"
+    ],
+    "minecraft:purpur_pillar": [
+        "minecraft:purpur_slab"
+    ],
+    "minecraft:lapis_block": [
+        "minecraft:lapis_lazuli"
+    ],
+    "minecraft:raw_copper": [
+        "minecraft:raw_copper_block"
+    ],
+    "minecraft:dried_kelp_block": [
+        "minecraft:dried_kelp"
+    ],
+    "minecraft:netherite_block": [
+        "minecraft:netherite_ingot"
+    ],
+    "minecraft:quartz_slab": [
+        "minecraft:chiseled_quartz_block"
+    ],
+    "minecraft:chiseled_quartz_block": [
+        "minecraft:quartz_slab"
+    ],
+    "minecraft:raw_iron": [
+        "minecraft:raw_iron_block"
+    ],
+    "minecraft:emerald_block": [
+        "minecraft:emerald"
+    ],
+    "minecraft:bone_meal": [
+        "minecraft:bone_block"
+    ],
+    "minecraft:wheat": [
+        "minecraft:hay_block"
+    ],
+    "minecraft:emerald": [
+        "minecraft:emerald_block"
+    ],
+    "minecraft:purpur_slab": [
+        "minecraft:purpur_pillar"
+    ],
+    "minecraft:copper_block": [
+        "minecraft:copper_ingot"
+    ],
+    "minecraft:slime_ball": [
+        "minecraft:slime_block"
+    ],
+    "minecraft:coal": [
+        "minecraft:coal_block"
+    ],
+    "minecraft:gold_block": [
+        "minecraft:gold_ingot"
+    ],
+    "minecraft:gold_nugget": [
+        "minecraft:gold_ingot"
+    ],
+    "minecraft:red_sandstone_slab": [
+        "minecraft:chiseled_red_sandstone"
+    ],
+    "minecraft:redstone_block": [
+        "minecraft:redstone"
+    ],
+    "loadmychunks:purple_chunk_loader": [
+        "loadmychunks:chunk_loader",
+        "loadmychunks:light_gray_chunk_loader",
+        "loadmychunks:red_chunk_loader",
+        "loadmychunks:cyan_chunk_loader",
+        "loadmychunks:white_chunk_loader",
+        "loadmychunks:lime_chunk_loader",
+        "loadmychunks:yellow_chunk_loader",
+        "loadmychunks:light_blue_chunk_loader",
+        "loadmychunks:pink_chunk_loader",
+        "loadmychunks:gray_chunk_loader",
+        "loadmychunks:magenta_chunk_loader",
+        "loadmychunks:black_chunk_loader",
+        "loadmychunks:orange_chunk_loader",
+        "loadmychunks:green_chunk_loader",
+        "loadmychunks:blue_chunk_loader",
+        "loadmychunks:brown_chunk_loader"
+    ],
+    "loadmychunks:green_chunk_loader": [
+        "loadmychunks:chunk_loader",
+        "loadmychunks:light_gray_chunk_loader",
+        "loadmychunks:red_chunk_loader",
+        "loadmychunks:cyan_chunk_loader",
+        "loadmychunks:white_chunk_loader",
+        "loadmychunks:lime_chunk_loader",
+        "loadmychunks:yellow_chunk_loader",
+        "loadmychunks:light_blue_chunk_loader",
+        "loadmychunks:purple_chunk_loader",
+        "loadmychunks:pink_chunk_loader",
+        "loadmychunks:gray_chunk_loader",
+        "loadmychunks:magenta_chunk_loader",
+        "loadmychunks:black_chunk_loader",
+        "loadmychunks:orange_chunk_loader",
+        "loadmychunks:blue_chunk_loader",
+        "loadmychunks:brown_chunk_loader"
+    ],
+    "loadmychunks:cyan_chunk_loader": [
+        "loadmychunks:chunk_loader",
+        "loadmychunks:light_gray_chunk_loader",
+        "loadmychunks:red_chunk_loader",
+        "loadmychunks:white_chunk_loader",
+        "loadmychunks:lime_chunk_loader",
+        "loadmychunks:yellow_chunk_loader",
+        "loadmychunks:light_blue_chunk_loader",
+        "loadmychunks:purple_chunk_loader",
+        "loadmychunks:pink_chunk_loader",
+        "loadmychunks:gray_chunk_loader",
+        "loadmychunks:magenta_chunk_loader",
+        "loadmychunks:black_chunk_loader",
+        "loadmychunks:orange_chunk_loader",
+        "loadmychunks:green_chunk_loader",
+        "loadmychunks:blue_chunk_loader",
+        "loadmychunks:brown_chunk_loader"
+    ],
+    "loadmychunks:lime_chunk_loader": [
+        "loadmychunks:chunk_loader",
+        "loadmychunks:light_gray_chunk_loader",
+        "loadmychunks:red_chunk_loader",
+        "loadmychunks:cyan_chunk_loader",
+        "loadmychunks:white_chunk_loader",
+        "loadmychunks:yellow_chunk_loader",
+        "loadmychunks:light_blue_chunk_loader",
+        "loadmychunks:purple_chunk_loader",
+        "loadmychunks:pink_chunk_loader",
+        "loadmychunks:gray_chunk_loader",
+        "loadmychunks:magenta_chunk_loader",
+        "loadmychunks:black_chunk_loader",
+        "loadmychunks:orange_chunk_loader",
+        "loadmychunks:green_chunk_loader",
+        "loadmychunks:blue_chunk_loader",
+        "loadmychunks:brown_chunk_loader"
+    ],
+    "loadmychunks:yellow_chunk_loader": [
+        "loadmychunks:chunk_loader",
+        "loadmychunks:light_gray_chunk_loader",
+        "loadmychunks:red_chunk_loader",
+        "loadmychunks:cyan_chunk_loader",
+        "loadmychunks:white_chunk_loader",
+        "loadmychunks:lime_chunk_loader",
+        "loadmychunks:light_blue_chunk_loader",
+        "loadmychunks:purple_chunk_loader",
+        "loadmychunks:pink_chunk_loader",
+        "loadmychunks:gray_chunk_loader",
+        "loadmychunks:magenta_chunk_loader",
+        "loadmychunks:black_chunk_loader",
+        "loadmychunks:orange_chunk_loader",
+        "loadmychunks:green_chunk_loader",
+        "loadmychunks:blue_chunk_loader",
+        "loadmychunks:brown_chunk_loader"
+    ],
+    "loadmychunks:magenta_chunk_loader": [
+        "loadmychunks:chunk_loader",
+        "loadmychunks:light_gray_chunk_loader",
+        "loadmychunks:red_chunk_loader",
+        "loadmychunks:cyan_chunk_loader",
+        "loadmychunks:white_chunk_loader",
+        "loadmychunks:lime_chunk_loader",
+        "loadmychunks:yellow_chunk_loader",
+        "loadmychunks:light_blue_chunk_loader",
+        "loadmychunks:purple_chunk_loader",
+        "loadmychunks:pink_chunk_loader",
+        "loadmychunks:gray_chunk_loader",
+        "loadmychunks:black_chunk_loader",
+        "loadmychunks:orange_chunk_loader",
+        "loadmychunks:green_chunk_loader",
+        "loadmychunks:blue_chunk_loader",
+        "loadmychunks:brown_chunk_loader"
+    ],
+    "loadmychunks:orange_chunk_loader": [
+        "loadmychunks:chunk_loader",
+        "loadmychunks:light_gray_chunk_loader",
+        "loadmychunks:red_chunk_loader",
+        "loadmychunks:cyan_chunk_loader",
+        "loadmychunks:white_chunk_loader",
+        "loadmychunks:lime_chunk_loader",
+        "loadmychunks:yellow_chunk_loader",
+        "loadmychunks:light_blue_chunk_loader",
+        "loadmychunks:purple_chunk_loader",
+        "loadmychunks:pink_chunk_loader",
+        "loadmychunks:gray_chunk_loader",
+        "loadmychunks:magenta_chunk_loader",
+        "loadmychunks:black_chunk_loader",
+        "loadmychunks:green_chunk_loader",
+        "loadmychunks:blue_chunk_loader",
+        "loadmychunks:brown_chunk_loader"
+    ],
+    "loadmychunks:blue_chunk_loader": [
+        "loadmychunks:chunk_loader",
+        "loadmychunks:light_gray_chunk_loader",
+        "loadmychunks:red_chunk_loader",
+        "loadmychunks:cyan_chunk_loader",
+        "loadmychunks:white_chunk_loader",
+        "loadmychunks:lime_chunk_loader",
+        "loadmychunks:yellow_chunk_loader",
+        "loadmychunks:light_blue_chunk_loader",
+        "loadmychunks:purple_chunk_loader",
+        "loadmychunks:pink_chunk_loader",
+        "loadmychunks:gray_chunk_loader",
+        "loadmychunks:magenta_chunk_loader",
+        "loadmychunks:black_chunk_loader",
+        "loadmychunks:orange_chunk_loader",
+        "loadmychunks:green_chunk_loader",
+        "loadmychunks:brown_chunk_loader"
+    ],
+    "loadmychunks:red_chunk_loader": [
+        "loadmychunks:chunk_loader",
+        "loadmychunks:light_gray_chunk_loader",
+        "loadmychunks:cyan_chunk_loader",
+        "loadmychunks:white_chunk_loader",
+        "loadmychunks:lime_chunk_loader",
+        "loadmychunks:yellow_chunk_loader",
+        "loadmychunks:light_blue_chunk_loader",
+        "loadmychunks:purple_chunk_loader",
+        "loadmychunks:pink_chunk_loader",
+        "loadmychunks:gray_chunk_loader",
+        "loadmychunks:magenta_chunk_loader",
+        "loadmychunks:black_chunk_loader",
+        "loadmychunks:orange_chunk_loader",
+        "loadmychunks:green_chunk_loader",
+        "loadmychunks:blue_chunk_loader",
+        "loadmychunks:brown_chunk_loader"
+    ],
+    "loadmychunks:black_chunk_loader": [
+        "loadmychunks:chunk_loader",
+        "loadmychunks:light_gray_chunk_loader",
+        "loadmychunks:red_chunk_loader",
+        "loadmychunks:cyan_chunk_loader",
+        "loadmychunks:white_chunk_loader",
+        "loadmychunks:lime_chunk_loader",
+        "loadmychunks:yellow_chunk_loader",
+        "loadmychunks:light_blue_chunk_loader",
+        "loadmychunks:purple_chunk_loader",
+        "loadmychunks:pink_chunk_loader",
+        "loadmychunks:gray_chunk_loader",
+        "loadmychunks:magenta_chunk_loader",
+        "loadmychunks:orange_chunk_loader",
+        "loadmychunks:green_chunk_loader",
+        "loadmychunks:blue_chunk_loader",
+        "loadmychunks:brown_chunk_loader"
+    ],
+    "loadmychunks:brown_chunk_loader": [
+        "loadmychunks:chunk_loader",
+        "loadmychunks:light_gray_chunk_loader",
+        "loadmychunks:red_chunk_loader",
+        "loadmychunks:cyan_chunk_loader",
+        "loadmychunks:white_chunk_loader",
+        "loadmychunks:lime_chunk_loader",
+        "loadmychunks:yellow_chunk_loader",
+        "loadmychunks:light_blue_chunk_loader",
+        "loadmychunks:purple_chunk_loader",
+        "loadmychunks:pink_chunk_loader",
+        "loadmychunks:gray_chunk_loader",
+        "loadmychunks:magenta_chunk_loader",
+        "loadmychunks:black_chunk_loader",
+        "loadmychunks:orange_chunk_loader",
+        "loadmychunks:green_chunk_loader",
+        "loadmychunks:blue_chunk_loader"
+    ],
+    "loadmychunks:light_gray_chunk_loader": [
+        "loadmychunks:chunk_loader",
+        "loadmychunks:red_chunk_loader",
+        "loadmychunks:cyan_chunk_loader",
+        "loadmychunks:white_chunk_loader",
+        "loadmychunks:lime_chunk_loader",
+        "loadmychunks:yellow_chunk_loader",
+        "loadmychunks:light_blue_chunk_loader",
+        "loadmychunks:purple_chunk_loader",
+        "loadmychunks:pink_chunk_loader",
+        "loadmychunks:gray_chunk_loader",
+        "loadmychunks:magenta_chunk_loader",
+        "loadmychunks:black_chunk_loader",
+        "loadmychunks:orange_chunk_loader",
+        "loadmychunks:green_chunk_loader",
+        "loadmychunks:blue_chunk_loader",
+        "loadmychunks:brown_chunk_loader"
+    ],
+    "loadmychunks:gray_chunk_loader": [
+        "loadmychunks:chunk_loader",
+        "loadmychunks:light_gray_chunk_loader",
+        "loadmychunks:red_chunk_loader",
+        "loadmychunks:cyan_chunk_loader",
+        "loadmychunks:white_chunk_loader",
+        "loadmychunks:lime_chunk_loader",
+        "loadmychunks:yellow_chunk_loader",
+        "loadmychunks:light_blue_chunk_loader",
+        "loadmychunks:purple_chunk_loader",
+        "loadmychunks:pink_chunk_loader",
+        "loadmychunks:magenta_chunk_loader",
+        "loadmychunks:black_chunk_loader",
+        "loadmychunks:orange_chunk_loader",
+        "loadmychunks:green_chunk_loader",
+        "loadmychunks:blue_chunk_loader",
+        "loadmychunks:brown_chunk_loader"
+    ],
+    "loadmychunks:white_chunk_loader": [
+        "loadmychunks:chunk_loader",
+        "loadmychunks:light_gray_chunk_loader",
+        "loadmychunks:red_chunk_loader",
+        "loadmychunks:cyan_chunk_loader",
+        "loadmychunks:lime_chunk_loader",
+        "loadmychunks:yellow_chunk_loader",
+        "loadmychunks:light_blue_chunk_loader",
+        "loadmychunks:purple_chunk_loader",
+        "loadmychunks:pink_chunk_loader",
+        "loadmychunks:gray_chunk_loader",
+        "loadmychunks:magenta_chunk_loader",
+        "loadmychunks:black_chunk_loader",
+        "loadmychunks:orange_chunk_loader",
+        "loadmychunks:green_chunk_loader",
+        "loadmychunks:blue_chunk_loader",
+        "loadmychunks:brown_chunk_loader"
+    ],
+    "loadmychunks:light_blue_chunk_loader": [
+        "loadmychunks:chunk_loader",
+        "loadmychunks:light_gray_chunk_loader",
+        "loadmychunks:red_chunk_loader",
+        "loadmychunks:cyan_chunk_loader",
+        "loadmychunks:white_chunk_loader",
+        "loadmychunks:lime_chunk_loader",
+        "loadmychunks:yellow_chunk_loader",
+        "loadmychunks:purple_chunk_loader",
+        "loadmychunks:pink_chunk_loader",
+        "loadmychunks:gray_chunk_loader",
+        "loadmychunks:magenta_chunk_loader",
+        "loadmychunks:black_chunk_loader",
+        "loadmychunks:orange_chunk_loader",
+        "loadmychunks:green_chunk_loader",
+        "loadmychunks:blue_chunk_loader",
+        "loadmychunks:brown_chunk_loader"
+    ],
+    "loadmychunks:pink_chunk_loader": [
+        "loadmychunks:chunk_loader",
+        "loadmychunks:light_gray_chunk_loader",
+        "loadmychunks:red_chunk_loader",
+        "loadmychunks:cyan_chunk_loader",
+        "loadmychunks:white_chunk_loader",
+        "loadmychunks:lime_chunk_loader",
+        "loadmychunks:yellow_chunk_loader",
+        "loadmychunks:light_blue_chunk_loader",
+        "loadmychunks:purple_chunk_loader",
+        "loadmychunks:gray_chunk_loader",
+        "loadmychunks:magenta_chunk_loader",
+        "loadmychunks:black_chunk_loader",
+        "loadmychunks:orange_chunk_loader",
+        "loadmychunks:green_chunk_loader",
+        "loadmychunks:blue_chunk_loader",
+        "loadmychunks:brown_chunk_loader"
+    ],
+    "loadmychunks:chunk_loader": [
+        "loadmychunks:light_gray_chunk_loader",
+        "loadmychunks:red_chunk_loader",
+        "loadmychunks:cyan_chunk_loader",
+        "loadmychunks:white_chunk_loader",
+        "loadmychunks:lime_chunk_loader",
+        "loadmychunks:yellow_chunk_loader",
+        "loadmychunks:light_blue_chunk_loader",
+        "loadmychunks:purple_chunk_loader",
+        "loadmychunks:pink_chunk_loader",
+        "loadmychunks:gray_chunk_loader",
+        "loadmychunks:magenta_chunk_loader",
+        "loadmychunks:black_chunk_loader",
+        "loadmychunks:orange_chunk_loader",
+        "loadmychunks:green_chunk_loader",
+        "loadmychunks:blue_chunk_loader",
+        "loadmychunks:brown_chunk_loader"
+    ],
+    "computercraft:wired_modem": [
+        "computercraft:wired_modem_full"
+    ],
+    "computercraft:wired_modem_full": [
+        "computercraft:wired_modem"
+    ],
+    "stellaris:plutonium_ingot": [
+        "stellaris:plutonium_block",
+        "stellaris:plutonium_nugget"
+    ],
+    "stellaris:vertical_moon_slab": [
+        "stellaris:moon_stone_slab"
+    ],
+    "stellaris:vertical_mars_slab": [
+        "stellaris:mars_stone_slab"
+    ],
+    "stellaris:heavy_metal_ingot": [
+        "stellaris:heavy_metal_plate"
+    ],
+    "stellaris:raw_steel_ingot": [
+        "stellaris:raw_steel_block"
+    ],
+    "stellaris:plutonium_piece": [
+        "stellaris:plutonium_nugget",
+        "stellaris:plutonium_grain"
+    ],
+    "stellaris:vertical_iron_plating_slab": [
+        "stellaris:iron_plating_slab"
+    ],
+    "stellaris:desh_plating_slab": [
+        "stellaris:vertical_desh_plating_slab"
+    ],
+    "stellaris:vertical_venus_slab": [
+        "stellaris:venus_stone_slab"
+    ],
+    "stellaris:vertical_desh_plating_slab": [
+        "stellaris:desh_plating_slab"
+    ],
+    "stellaris:marcury_stone_slab": [
+        "stellaris:vertical_mercury_slab"
+    ],
+    "stellaris:plutonium_grain": [
+        "stellaris:plutonium_piece"
+    ],
+    "stellaris:plutonium_nugget": [
+        "stellaris:plutonium_piece",
+        "stellaris:plutonium_ingot"
+    ],
+    "stellaris:steel_ingot": [
+        "stellaris:steel_block",
+        "stellaris:steel_nugget"
+    ],
+    "stellaris:steel_block": [
+        "stellaris:steel_ingot"
+    ],
+    "stellaris:steel_nugget": [
+        "stellaris:steel_ingot"
+    ],
+    "stellaris:vertical_steel_slab": [
+        "stellaris:steel_slab"
+    ],
+    "stellaris:vertical_heavy_metal_plate_slab": [
+        "stellaris:heavy_metal_slab"
+    ],
+    "stellaris:venus_stone_slab": [
+        "stellaris:vertical_venus_slab"
+    ],
+    "stellaris:heavy_metal_plate": [
+        "stellaris:heavy_metal_ingot"
+    ],
+    "stellaris:plutonium_block": [
+        "stellaris:plutonium_ingot"
+    ],
+    "stellaris:desh_block": [
+        "stellaris:desh_ingot"
+    ],
+    "stellaris:desh_ingot": [
+        "stellaris:desh_block"
+    ],
+    "stellaris:heavy_metal_slab": [
+        "stellaris:vertical_heavy_metal_plate_slab"
+    ],
+    "stellaris:vertical_steel_plating_slab": [
+        "stellaris:steel_plating_slab"
+    ],
+    "stellaris:steel_slab": [
+        "stellaris:vertical_steel_slab"
+    ],
+    "stellaris:steel_plating_slab": [
+        "stellaris:vertical_steel_plating_slab"
+    ],
+    "stellaris:vertical_mercury_slab": [
+        "stellaris:marcury_stone_slab"
+    ],
+    "stellaris:iron_plating_slab": [
+        "stellaris:vertical_iron_plating_slab"
+    ],
+    "stellaris:mars_stone_slab": [
+        "stellaris:vertical_mars_slab"
+    ],
+    "stellaris:neptunium_ingot": [
+        "stellaris:neptunium_block",
+        "stellaris:neptunium_piece"
+    ],
+    "stellaris:moon_stone_slab": [
+        "stellaris:vertical_moon_slab"
+    ],
+    "stellaris:raw_uranium_block": [
+        "stellaris:raw_uranium"
+    ],
+    "stellaris:raw_uranium": [
+        "stellaris:raw_uranium_block"
+    ],
+    "stellaris:raw_steel_block": [
+        "stellaris:raw_steel_ingot"
+    ],
+    "stellaris:neptunium_block": [
+        "stellaris:neptunium_ingot"
+    ],
+    "stellaris:neptunium_piece": [
+        "stellaris:neptunium_ingot"
+    ],
+    "chunkloaders:single_chunk_loader": [
+        "chunkloaders:basic_chunk_loader"
+    ],
+    "chunkloaders:basic_chunk_loader": [
+        "chunkloaders:single_chunk_loader"
+    ],
+    "aether:zanite_gemstone": [
+        "aether:zanite_block"
+    ],
+    "aether:ambrosium_shard": [
+        "aether:ambrosium_block"
+    ],
+    "aether:zanite_block": [
+        "aether:zanite_gemstone"
+    ],
+    "aether:ambrosium_block": [
+        "aether:ambrosium_shard"
     ]
 }

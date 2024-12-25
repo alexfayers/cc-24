@@ -2,29 +2,29 @@
     {
         "input": {
             "1": [
-                "minecraft/red_wool"
+                "minecraft:red_wool"
             ],
             "2": [
-                "minecraft/red_wool"
+                "minecraft:red_wool"
             ],
             "3": [
-                "minecraft/red_wool"
+                "minecraft:red_wool"
             ],
             "5": [
-                "minecraft/red_wool"
+                "minecraft:red_wool"
             ],
             "6": [
-                "minecraft/red_wool"
+                "minecraft:red_wool"
             ],
             "7": [
-                "minecraft/red_wool"
+                "minecraft:red_wool"
             ],
             "10": [
-                "minecraft/stick"
+                "minecraft:stick"
             ]
         },
         "output": {
-            "id": "minecraft/red_banner",
+            "id": "minecraft:red_banner",
             "count": 1
         }
     }

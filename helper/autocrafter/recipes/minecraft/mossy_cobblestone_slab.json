@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft/mossy_cobblestone"
+                "minecraft:mossy_cobblestone"
             ],
             "2": [
-                "minecraft/mossy_cobblestone"
+                "minecraft:mossy_cobblestone"
             ],
             "3": [
-                "minecraft/mossy_cobblestone"
+                "minecraft:mossy_cobblestone"
             ]
         },
         "output": {
-            "id": "minecraft/mossy_cobblestone_slab",
+            "id": "minecraft:mossy_cobblestone_slab",
             "count": 6
         }
     }

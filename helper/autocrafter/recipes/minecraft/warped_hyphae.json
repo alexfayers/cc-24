@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/warped_stem"
+                "minecraft:warped_stem"
             ],
             "2": [
-                "minecraft/warped_stem"
+                "minecraft:warped_stem"
             ],
             "5": [
-                "minecraft/warped_stem"
+                "minecraft:warped_stem"
             ],
             "6": [
-                "minecraft/warped_stem"
+                "minecraft:warped_stem"
             ]
         },
         "output": {
-            "id": "minecraft/warped_hyphae",
+            "id": "minecraft:warped_hyphae",
             "count": 3
         }
     }

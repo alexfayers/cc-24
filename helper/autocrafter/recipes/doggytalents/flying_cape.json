@@ -2,7 +2,7 @@
     {
         "input": {
             "6": [
-                "minecraft/phantom_membrane"
+                "minecraft:phantom_membrane"
             ],
             "2": [
                 "#minecraft:wool"
@@ -18,7 +18,7 @@
             ]
         },
         "output": {
-            "id": "doggytalents/flying_cape",
+            "id": "doggytalents:flying_cape",
             "count": 1
         }
     }

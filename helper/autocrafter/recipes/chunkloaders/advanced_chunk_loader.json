@@ -2,16 +2,16 @@
     {
         "input": {
             "1": [
-                "minecraft/blaze_powder"
+                "minecraft:blaze_powder"
             ],
             "3": [
-                "minecraft/blaze_powder"
+                "minecraft:blaze_powder"
             ],
             "9": [
-                "minecraft/blaze_powder"
+                "minecraft:blaze_powder"
             ],
             "11": [
-                "minecraft/blaze_powder"
+                "minecraft:blaze_powder"
             ],
             "2": [
                 "#c:ingots/gold"
@@ -26,11 +26,11 @@
                 "#c:ingots/gold"
             ],
             "6": [
-                "chunkloaders/basic_chunk_loader"
+                "chunkloaders:basic_chunk_loader"
             ]
         },
         "output": {
-            "id": "chunkloaders/advanced_chunk_loader",
+            "id": "chunkloaders:advanced_chunk_loader",
             "count": 1
         }
     }

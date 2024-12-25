@@ -6,7 +6,7 @@
             ]
         },
         "output": {
-            "id": "stellaris/steel_ingot",
+            "id": "stellaris:steel_ingot",
             "count": 9
         }
     },
@@ -41,7 +41,7 @@
             ]
         },
         "output": {
-            "id": "stellaris/steel_ingot",
+            "id": "stellaris:steel_ingot",
             "count": 1
         }
     }

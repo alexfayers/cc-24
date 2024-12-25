@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "minecraft/melon_slice"
+                "minecraft:melon_slice"
             ]
         },
         "output": {
-            "id": "minecraft/melon_seeds",
+            "id": "minecraft:melon_seeds",
             "count": 1
         }
     }

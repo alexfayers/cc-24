@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "aether/hellfire_stone"
+                "aether:hellfire_stone"
             ],
             "5": [
-                "aether/hellfire_stone"
+                "aether:hellfire_stone"
             ],
             "6": [
-                "aether/hellfire_stone"
+                "aether:hellfire_stone"
             ],
             "9": [
-                "aether/hellfire_stone"
+                "aether:hellfire_stone"
             ],
             "10": [
-                "aether/hellfire_stone"
+                "aether:hellfire_stone"
             ],
             "11": [
-                "aether/hellfire_stone"
+                "aether:hellfire_stone"
             ]
         },
         "output": {
-            "id": "aether/hellfire_stairs",
+            "id": "aether:hellfire_stairs",
             "count": 4
         }
     }

@@ -23,14 +23,14 @@
                 "#c:ingots/iron"
             ],
             "6": [
-                "computercraft/computer_normal"
+                "computercraft:computer_normal"
             ],
             "10": [
                 "#c:chests/wooden"
             ]
         },
         "output": {
-            "id": "computercraft/turtle_normal",
+            "id": "computercraft:turtle_normal",
             "count": 1
         }
     },
@@ -55,14 +55,14 @@
                 "#c:dyes/purple"
             ],
             "9": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "10": [
-                "computercraft/turtle_normal"
+                "computercraft:turtle_normal"
             ]
         },
         "output": {
-            "id": "computercraft/turtle_normal",
+            "id": "computercraft:turtle_normal",
             "count": 1
         }
     },
@@ -78,14 +78,14 @@
                 "#c:dyes/white"
             ],
             "5": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "6": [
-                "computercraft/turtle_normal"
+                "computercraft:turtle_normal"
             ]
         },
         "output": {
-            "id": "computercraft/turtle_normal",
+            "id": "computercraft:turtle_normal",
             "count": 1
         }
     }

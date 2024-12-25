@@ -2,37 +2,37 @@
     {
         "input": {
             "1": [
-                "minecraft/exposed_copper_bulb"
+                "minecraft:exposed_copper_bulb"
             ],
             "2": [
-                "minecraft/honeycomb"
+                "minecraft:honeycomb"
             ]
         },
         "output": {
-            "id": "minecraft/waxed_exposed_copper_bulb",
+            "id": "minecraft:waxed_exposed_copper_bulb",
             "count": 1
         }
     },
     {
         "input": {
             "6": [
-                "minecraft/blaze_rod"
+                "minecraft:blaze_rod"
             ],
             "2": [
-                "minecraft/waxed_exposed_copper"
+                "minecraft:waxed_exposed_copper"
             ],
             "5": [
-                "minecraft/waxed_exposed_copper"
+                "minecraft:waxed_exposed_copper"
             ],
             "7": [
-                "minecraft/waxed_exposed_copper"
+                "minecraft:waxed_exposed_copper"
             ],
             "10": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ]
         },
         "output": {
-            "id": "minecraft/waxed_exposed_copper_bulb",
+            "id": "minecraft:waxed_exposed_copper_bulb",
             "count": 4
         }
     }

@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft/bamboo"
+                "minecraft:bamboo"
             ],
             "2": [
-                "minecraft/bamboo"
+                "minecraft:bamboo"
             ],
             "3": [
-                "minecraft/bamboo"
+                "minecraft:bamboo"
             ],
             "5": [
-                "minecraft/bamboo"
+                "minecraft:bamboo"
             ],
             "6": [
-                "minecraft/bamboo"
+                "minecraft:bamboo"
             ],
             "7": [
-                "minecraft/bamboo"
+                "minecraft:bamboo"
             ],
             "9": [
-                "minecraft/bamboo"
+                "minecraft:bamboo"
             ],
             "10": [
-                "minecraft/bamboo"
+                "minecraft:bamboo"
             ],
             "11": [
-                "minecraft/bamboo"
+                "minecraft:bamboo"
             ]
         },
         "output": {
-            "id": "minecraft/bamboo_block",
+            "id": "minecraft:bamboo_block",
             "count": 1
         }
     }

@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "aether/mossy_holystone"
+                "aether:mossy_holystone"
             ],
             "2": [
-                "aether/mossy_holystone"
+                "aether:mossy_holystone"
             ],
             "3": [
-                "aether/mossy_holystone"
+                "aether:mossy_holystone"
             ],
             "5": [
-                "aether/mossy_holystone"
+                "aether:mossy_holystone"
             ],
             "6": [
-                "aether/mossy_holystone"
+                "aether:mossy_holystone"
             ],
             "7": [
-                "aether/mossy_holystone"
+                "aether:mossy_holystone"
             ]
         },
         "output": {
-            "id": "aether/mossy_holystone_wall",
+            "id": "aether:mossy_holystone_wall",
             "count": 6
         }
     }

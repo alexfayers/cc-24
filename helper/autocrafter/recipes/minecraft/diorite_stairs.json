@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft/diorite"
+                "minecraft:diorite"
             ],
             "5": [
-                "minecraft/diorite"
+                "minecraft:diorite"
             ],
             "6": [
-                "minecraft/diorite"
+                "minecraft:diorite"
             ],
             "9": [
-                "minecraft/diorite"
+                "minecraft:diorite"
             ],
             "10": [
-                "minecraft/diorite"
+                "minecraft:diorite"
             ],
             "11": [
-                "minecraft/diorite"
+                "minecraft:diorite"
             ]
         },
         "output": {
-            "id": "minecraft/diorite_stairs",
+            "id": "minecraft:diorite_stairs",
             "count": 4
         }
     }

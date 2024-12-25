@@ -2,17 +2,17 @@
     {
         "input": {
             "5": [
-                "minecraft/chest"
+                "minecraft:chest"
             ],
             "1": [
-                "minecraft/shulker_shell"
+                "minecraft:shulker_shell"
             ],
             "9": [
-                "minecraft/shulker_shell"
+                "minecraft:shulker_shell"
             ]
         },
         "output": {
-            "id": "minecraft/shulker_box",
+            "id": "minecraft:shulker_box",
             "count": 1
         }
     }

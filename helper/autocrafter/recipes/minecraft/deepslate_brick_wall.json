@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft/deepslate_bricks"
+                "minecraft:deepslate_bricks"
             ],
             "2": [
-                "minecraft/deepslate_bricks"
+                "minecraft:deepslate_bricks"
             ],
             "3": [
-                "minecraft/deepslate_bricks"
+                "minecraft:deepslate_bricks"
             ],
             "5": [
-                "minecraft/deepslate_bricks"
+                "minecraft:deepslate_bricks"
             ],
             "6": [
-                "minecraft/deepslate_bricks"
+                "minecraft:deepslate_bricks"
             ],
             "7": [
-                "minecraft/deepslate_bricks"
+                "minecraft:deepslate_bricks"
             ]
         },
         "output": {
-            "id": "minecraft/deepslate_brick_wall",
+            "id": "minecraft:deepslate_brick_wall",
             "count": 6
         }
     }

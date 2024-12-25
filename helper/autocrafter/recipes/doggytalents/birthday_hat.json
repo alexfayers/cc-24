@@ -2,20 +2,20 @@
     {
         "input": {
             "2": [
-                "minecraft/paper"
+                "minecraft:paper"
             ],
             "5": [
-                "minecraft/paper"
+                "minecraft:paper"
             ],
             "7": [
-                "minecraft/paper"
+                "minecraft:paper"
             ],
             "6": [
-                "doggytalents/training_treat"
+                "doggytalents:training_treat"
             ]
         },
         "output": {
-            "id": "doggytalents/birthday_hat",
+            "id": "doggytalents:birthday_hat",
             "count": 1
         }
     }

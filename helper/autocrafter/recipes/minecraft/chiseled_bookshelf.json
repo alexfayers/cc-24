@@ -30,7 +30,7 @@
             ]
         },
         "output": {
-            "id": "minecraft/chiseled_bookshelf",
+            "id": "minecraft:chiseled_bookshelf",
             "count": 1
         }
     }

@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/jungle_log"
+                "minecraft:jungle_log"
             ],
             "2": [
-                "minecraft/jungle_log"
+                "minecraft:jungle_log"
             ],
             "5": [
-                "minecraft/jungle_log"
+                "minecraft:jungle_log"
             ],
             "6": [
-                "minecraft/jungle_log"
+                "minecraft:jungle_log"
             ]
         },
         "output": {
-            "id": "minecraft/jungle_wood",
+            "id": "minecraft:jungle_wood",
             "count": 3
         }
     }

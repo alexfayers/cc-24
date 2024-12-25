@@ -2,26 +2,26 @@
     {
         "input": {
             "2": [
-                "minecraft/gold_nugget"
+                "minecraft:gold_nugget"
             ],
             "5": [
-                "minecraft/gold_nugget"
+                "minecraft:gold_nugget"
             ],
             "7": [
-                "minecraft/gold_nugget"
+                "minecraft:gold_nugget"
             ],
             "10": [
-                "minecraft/gold_nugget"
+                "minecraft:gold_nugget"
             ],
             "6": [
-                "minecraft/cooked_beef"
+                "minecraft:cooked_beef"
             ],
             "3": [
-                "doggytalents/training_treat"
+                "doggytalents:training_treat"
             ]
         },
         "output": {
-            "id": "doggytalents/golden_a_five_wagyu",
+            "id": "doggytalents:golden_a_five_wagyu",
             "count": 1
         }
     }

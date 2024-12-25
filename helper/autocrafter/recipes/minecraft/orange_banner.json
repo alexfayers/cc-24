@@ -2,29 +2,29 @@
     {
         "input": {
             "1": [
-                "minecraft/orange_wool"
+                "minecraft:orange_wool"
             ],
             "2": [
-                "minecraft/orange_wool"
+                "minecraft:orange_wool"
             ],
             "3": [
-                "minecraft/orange_wool"
+                "minecraft:orange_wool"
             ],
             "5": [
-                "minecraft/orange_wool"
+                "minecraft:orange_wool"
             ],
             "6": [
-                "minecraft/orange_wool"
+                "minecraft:orange_wool"
             ],
             "7": [
-                "minecraft/orange_wool"
+                "minecraft:orange_wool"
             ],
             "10": [
-                "minecraft/stick"
+                "minecraft:stick"
             ]
         },
         "output": {
-            "id": "minecraft/orange_banner",
+            "id": "minecraft:orange_banner",
             "count": 1
         }
     }

@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "aether/angelic_stone"
+                "aether:angelic_stone"
             ],
             "2": [
-                "aether/angelic_stone"
+                "aether:angelic_stone"
             ],
             "3": [
-                "aether/angelic_stone"
+                "aether:angelic_stone"
             ],
             "5": [
-                "aether/angelic_stone"
+                "aether:angelic_stone"
             ],
             "6": [
-                "aether/angelic_stone"
+                "aether:angelic_stone"
             ],
             "7": [
-                "aether/angelic_stone"
+                "aether:angelic_stone"
             ]
         },
         "output": {
-            "id": "aether/angelic_wall",
+            "id": "aether:angelic_wall",
             "count": 6
         }
     }

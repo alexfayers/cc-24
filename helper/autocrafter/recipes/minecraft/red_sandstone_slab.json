@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/red_sandstone",
-                "minecraft/chiseled_red_sandstone"
+                "minecraft:red_sandstone",
+                "minecraft:chiseled_red_sandstone"
             ],
             "2": [
-                "minecraft/red_sandstone",
-                "minecraft/chiseled_red_sandstone"
+                "minecraft:red_sandstone",
+                "minecraft:chiseled_red_sandstone"
             ],
             "3": [
-                "minecraft/red_sandstone",
-                "minecraft/chiseled_red_sandstone"
+                "minecraft:red_sandstone",
+                "minecraft:chiseled_red_sandstone"
             ]
         },
         "output": {
-            "id": "minecraft/red_sandstone_slab",
+            "id": "minecraft:red_sandstone_slab",
             "count": 6
         }
     }

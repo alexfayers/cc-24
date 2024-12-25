@@ -21,7 +21,7 @@
             ]
         },
         "output": {
-            "id": "mini_tardis/interior_door",
+            "id": "mini_tardis:interior_door",
             "count": 1
         }
     }

@@ -5,11 +5,11 @@
                 "#mini_tardis:compasses"
             ],
             "5": [
-                "minecraft/lever"
+                "minecraft:lever"
             ]
         },
         "output": {
-            "id": "mini_tardis/refuel_toggle",
+            "id": "mini_tardis:refuel_toggle",
             "count": 1
         }
     }

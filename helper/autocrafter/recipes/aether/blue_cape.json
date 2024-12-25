@@ -2,78 +2,78 @@
     {
         "input": {
             "1": [
-                "minecraft/light_blue_wool"
+                "minecraft:light_blue_wool"
             ],
             "2": [
-                "minecraft/light_blue_wool"
+                "minecraft:light_blue_wool"
             ],
             "5": [
-                "minecraft/light_blue_wool"
+                "minecraft:light_blue_wool"
             ],
             "6": [
-                "minecraft/light_blue_wool"
+                "minecraft:light_blue_wool"
             ],
             "9": [
-                "minecraft/light_blue_wool"
+                "minecraft:light_blue_wool"
             ],
             "10": [
-                "minecraft/light_blue_wool"
+                "minecraft:light_blue_wool"
             ]
         },
         "output": {
-            "id": "aether/blue_cape",
+            "id": "aether:blue_cape",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft/blue_wool"
+                "minecraft:blue_wool"
             ],
             "2": [
-                "minecraft/blue_wool"
+                "minecraft:blue_wool"
             ],
             "5": [
-                "minecraft/blue_wool"
+                "minecraft:blue_wool"
             ],
             "6": [
-                "minecraft/blue_wool"
+                "minecraft:blue_wool"
             ],
             "9": [
-                "minecraft/blue_wool"
+                "minecraft:blue_wool"
             ],
             "10": [
-                "minecraft/blue_wool"
+                "minecraft:blue_wool"
             ]
         },
         "output": {
-            "id": "aether/blue_cape",
+            "id": "aether:blue_cape",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft/cyan_wool"
+                "minecraft:cyan_wool"
             ],
             "2": [
-                "minecraft/cyan_wool"
+                "minecraft:cyan_wool"
             ],
             "5": [
-                "minecraft/cyan_wool"
+                "minecraft:cyan_wool"
             ],
             "6": [
-                "minecraft/cyan_wool"
+                "minecraft:cyan_wool"
             ],
             "9": [
-                "minecraft/cyan_wool"
+                "minecraft:cyan_wool"
             ],
             "10": [
-                "minecraft/cyan_wool"
+                "minecraft:cyan_wool"
             ]
         },
         "output": {
-            "id": "aether/blue_cape",
+            "id": "aether:blue_cape",
             "count": 1
         }
     }

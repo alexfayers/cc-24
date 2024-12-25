@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft/waxed_exposed_copper_bulb"
+                "minecraft:waxed_exposed_copper_bulb"
             ],
             "3": [
-                "minecraft/waxed_exposed_copper_bulb"
+                "minecraft:waxed_exposed_copper_bulb"
             ],
             "2": [
-                "minecraft/gold_ingot"
+                "minecraft:gold_ingot"
             ]
         },
         "output": {
-            "id": "mini_tardis/waxed_exposed_copper_interior_light",
+            "id": "mini_tardis:waxed_exposed_copper_interior_light",
             "count": 2
         }
     }

@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft/furnace"
+                "minecraft:furnace"
             ],
             "2": [
-                "minecraft/minecart"
+                "minecraft:minecart"
             ]
         },
         "output": {
-            "id": "minecraft/furnace_minecart",
+            "id": "minecraft:furnace_minecart",
             "count": 1
         }
     }

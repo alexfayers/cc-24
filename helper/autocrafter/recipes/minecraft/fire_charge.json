@@ -2,18 +2,18 @@
     {
         "input": {
             "1": [
-                "minecraft/gunpowder"
+                "minecraft:gunpowder"
             ],
             "2": [
-                "minecraft/blaze_powder"
+                "minecraft:blaze_powder"
             ],
             "3": [
-                "minecraft/coal",
-                "minecraft/charcoal"
+                "minecraft:coal",
+                "minecraft:charcoal"
             ]
         },
         "output": {
-            "id": "minecraft/fire_charge",
+            "id": "minecraft:fire_charge",
             "count": 3
         }
     }

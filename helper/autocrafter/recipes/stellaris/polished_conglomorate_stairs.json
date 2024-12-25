@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "stellaris/polished_conglomorate"
+                "stellaris:polished_conglomorate"
             ],
             "5": [
-                "stellaris/polished_conglomorate"
+                "stellaris:polished_conglomorate"
             ],
             "6": [
-                "stellaris/polished_conglomorate"
+                "stellaris:polished_conglomorate"
             ],
             "9": [
-                "stellaris/polished_conglomorate"
+                "stellaris:polished_conglomorate"
             ],
             "10": [
-                "stellaris/polished_conglomorate"
+                "stellaris:polished_conglomorate"
             ],
             "11": [
-                "stellaris/polished_conglomorate"
+                "stellaris:polished_conglomorate"
             ]
         },
         "output": {
-            "id": "stellaris/polished_conglomorate_stairs",
+            "id": "stellaris:polished_conglomorate_stairs",
             "count": 4
         }
     }

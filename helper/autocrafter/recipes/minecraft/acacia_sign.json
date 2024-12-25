@@ -2,29 +2,29 @@
     {
         "input": {
             "1": [
-                "minecraft/acacia_planks"
+                "minecraft:acacia_planks"
             ],
             "2": [
-                "minecraft/acacia_planks"
+                "minecraft:acacia_planks"
             ],
             "3": [
-                "minecraft/acacia_planks"
+                "minecraft:acacia_planks"
             ],
             "5": [
-                "minecraft/acacia_planks"
+                "minecraft:acacia_planks"
             ],
             "6": [
-                "minecraft/acacia_planks"
+                "minecraft:acacia_planks"
             ],
             "7": [
-                "minecraft/acacia_planks"
+                "minecraft:acacia_planks"
             ],
             "10": [
-                "minecraft/stick"
+                "minecraft:stick"
             ]
         },
         "output": {
-            "id": "minecraft/acacia_sign",
+            "id": "minecraft:acacia_sign",
             "count": 3
         }
     }

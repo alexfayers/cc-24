@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft/polished_deepslate"
+                "minecraft:polished_deepslate"
             ],
             "5": [
-                "minecraft/polished_deepslate"
+                "minecraft:polished_deepslate"
             ],
             "6": [
-                "minecraft/polished_deepslate"
+                "minecraft:polished_deepslate"
             ],
             "9": [
-                "minecraft/polished_deepslate"
+                "minecraft:polished_deepslate"
             ],
             "10": [
-                "minecraft/polished_deepslate"
+                "minecraft:polished_deepslate"
             ],
             "11": [
-                "minecraft/polished_deepslate"
+                "minecraft:polished_deepslate"
             ]
         },
         "output": {
-            "id": "minecraft/polished_deepslate_stairs",
+            "id": "minecraft:polished_deepslate_stairs",
             "count": 4
         }
     }

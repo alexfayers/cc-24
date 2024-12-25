@@ -5,11 +5,11 @@
                 "#loadmychunks:chunk_loaders"
             ],
             "2": [
-                "minecraft/cyan_dye"
+                "minecraft:cyan_dye"
             ]
         },
         "output": {
-            "id": "loadmychunks/cyan_chunk_loader",
+            "id": "loadmychunks:cyan_chunk_loader",
             "count": 1
         }
     }

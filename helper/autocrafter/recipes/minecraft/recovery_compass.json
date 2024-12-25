@@ -2,70 +2,70 @@
     {
         "input": {
             "6": [
-                "mini_tardis/tardis_lodestone_compass"
+                "mini_tardis:tardis_lodestone_compass"
             ],
             "1": [
-                "minecraft/echo_shard"
+                "minecraft:echo_shard"
             ],
             "2": [
-                "minecraft/echo_shard"
+                "minecraft:echo_shard"
             ],
             "3": [
-                "minecraft/echo_shard"
+                "minecraft:echo_shard"
             ],
             "5": [
-                "minecraft/echo_shard"
+                "minecraft:echo_shard"
             ],
             "7": [
-                "minecraft/echo_shard"
+                "minecraft:echo_shard"
             ],
             "9": [
-                "minecraft/echo_shard"
+                "minecraft:echo_shard"
             ],
             "10": [
-                "minecraft/echo_shard"
+                "minecraft:echo_shard"
             ],
             "11": [
-                "minecraft/echo_shard"
+                "minecraft:echo_shard"
             ]
         },
         "output": {
-            "id": "minecraft/recovery_compass",
+            "id": "minecraft:recovery_compass",
             "count": 1
         }
     },
     {
         "input": {
             "6": [
-                "minecraft/compass"
+                "minecraft:compass"
             ],
             "1": [
-                "minecraft/echo_shard"
+                "minecraft:echo_shard"
             ],
             "2": [
-                "minecraft/echo_shard"
+                "minecraft:echo_shard"
             ],
             "3": [
-                "minecraft/echo_shard"
+                "minecraft:echo_shard"
             ],
             "5": [
-                "minecraft/echo_shard"
+                "minecraft:echo_shard"
             ],
             "7": [
-                "minecraft/echo_shard"
+                "minecraft:echo_shard"
             ],
             "9": [
-                "minecraft/echo_shard"
+                "minecraft:echo_shard"
             ],
             "10": [
-                "minecraft/echo_shard"
+                "minecraft:echo_shard"
             ],
             "11": [
-                "minecraft/echo_shard"
+                "minecraft:echo_shard"
             ]
         },
         "output": {
-            "id": "minecraft/recovery_compass",
+            "id": "minecraft:recovery_compass",
             "count": 1
         }
     }

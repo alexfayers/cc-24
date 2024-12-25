@@ -2,35 +2,35 @@
     {
         "input": {
             "2": [
-                "minecraft/white_wool"
+                "minecraft:white_wool"
             ],
             "6": [
-                "minecraft/white_wool"
+                "minecraft:white_wool"
             ],
             "1": [
-                "minecraft/spruce_planks"
+                "minecraft:spruce_planks"
             ],
             "3": [
-                "minecraft/spruce_planks"
+                "minecraft:spruce_planks"
             ],
             "5": [
-                "minecraft/spruce_planks"
+                "minecraft:spruce_planks"
             ],
             "7": [
-                "minecraft/spruce_planks"
+                "minecraft:spruce_planks"
             ],
             "9": [
-                "minecraft/spruce_planks"
+                "minecraft:spruce_planks"
             ],
             "10": [
-                "minecraft/spruce_planks"
+                "minecraft:spruce_planks"
             ],
             "11": [
-                "minecraft/spruce_planks"
+                "minecraft:spruce_planks"
             ]
         },
         "output": {
-            "id": "doggytalents/dog_bed",
+            "id": "doggytalents:dog_bed",
             "count": 1
         }
     }

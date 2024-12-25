@@ -2,28 +2,28 @@
     {
         "input": {
             "1": [
-                "stellaris/mars_stone"
+                "stellaris:mars_stone"
             ],
             "5": [
-                "stellaris/mars_stone"
+                "stellaris:mars_stone"
             ],
             "9": [
-                "stellaris/mars_stone"
+                "stellaris:mars_stone"
             ]
         },
         "output": {
-            "id": "stellaris/vertical_mercury_slab",
+            "id": "stellaris:vertical_mercury_slab",
             "count": 6
         }
     },
     {
         "input": {
             "9": [
-                "stellaris/marcury_stone_slab"
+                "stellaris:marcury_stone_slab"
             ]
         },
         "output": {
-            "id": "stellaris/vertical_mercury_slab",
+            "id": "stellaris:vertical_mercury_slab",
             "count": 1
         }
     }

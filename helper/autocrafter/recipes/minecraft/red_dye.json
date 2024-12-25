@@ -2,44 +2,44 @@
     {
         "input": {
             "1": [
-                "minecraft/poppy"
+                "minecraft:poppy"
             ]
         },
         "output": {
-            "id": "minecraft/red_dye",
+            "id": "minecraft:red_dye",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft/red_tulip"
+                "minecraft:red_tulip"
             ]
         },
         "output": {
-            "id": "minecraft/red_dye",
+            "id": "minecraft:red_dye",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft/rose_bush"
+                "minecraft:rose_bush"
             ]
         },
         "output": {
-            "id": "minecraft/red_dye",
+            "id": "minecraft:red_dye",
             "count": 2
         }
     },
     {
         "input": {
             "1": [
-                "minecraft/beetroot"
+                "minecraft:beetroot"
             ]
         },
         "output": {
-            "id": "minecraft/red_dye",
+            "id": "minecraft:red_dye",
             "count": 1
         }
     }

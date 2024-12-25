@@ -2,29 +2,29 @@
     {
         "input": {
             "1": [
-                "minecraft/brown_wool"
+                "minecraft:brown_wool"
             ],
             "2": [
-                "minecraft/brown_wool"
+                "minecraft:brown_wool"
             ],
             "3": [
-                "minecraft/brown_wool"
+                "minecraft:brown_wool"
             ],
             "5": [
-                "minecraft/brown_wool"
+                "minecraft:brown_wool"
             ],
             "6": [
-                "minecraft/brown_wool"
+                "minecraft:brown_wool"
             ],
             "7": [
-                "minecraft/brown_wool"
+                "minecraft:brown_wool"
             ],
             "10": [
-                "minecraft/stick"
+                "minecraft:stick"
             ]
         },
         "output": {
-            "id": "minecraft/brown_banner",
+            "id": "minecraft:brown_banner",
             "count": 1
         }
     }

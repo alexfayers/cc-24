@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/quartz"
+                "minecraft:quartz"
             ],
             "2": [
-                "minecraft/quartz"
+                "minecraft:quartz"
             ],
             "5": [
-                "minecraft/quartz"
+                "minecraft:quartz"
             ],
             "6": [
-                "minecraft/quartz"
+                "minecraft:quartz"
             ]
         },
         "output": {
-            "id": "minecraft/quartz_block",
+            "id": "minecraft:quartz_block",
             "count": 1
         }
     }

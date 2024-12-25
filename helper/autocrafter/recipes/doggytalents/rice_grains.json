@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "doggytalents/rice_wheat"
+                "doggytalents:rice_wheat"
             ]
         },
         "output": {
-            "id": "doggytalents/rice_grains",
+            "id": "doggytalents:rice_grains",
             "count": 3
         }
     }

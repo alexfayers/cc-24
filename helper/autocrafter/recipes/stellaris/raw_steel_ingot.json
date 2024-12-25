@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "stellaris/raw_steel_block"
+                "stellaris:raw_steel_block"
             ]
         },
         "output": {
-            "id": "stellaris/raw_steel_ingot",
+            "id": "stellaris:raw_steel_ingot",
             "count": 9
         }
     }

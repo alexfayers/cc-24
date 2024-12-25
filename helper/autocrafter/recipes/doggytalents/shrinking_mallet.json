@@ -2,29 +2,29 @@
     {
         "input": {
             "10": [
-                "minecraft/bone"
+                "minecraft:bone"
             ],
             "6": [
-                "minecraft/redstone_block"
+                "minecraft:redstone_block"
             ],
             "1": [
-                "minecraft/gold_ingot"
+                "minecraft:gold_ingot"
             ],
             "2": [
-                "minecraft/gold_ingot"
+                "minecraft:gold_ingot"
             ],
             "3": [
-                "minecraft/gold_ingot"
+                "minecraft:gold_ingot"
             ],
             "5": [
-                "minecraft/gold_ingot"
+                "minecraft:gold_ingot"
             ],
             "7": [
-                "minecraft/gold_ingot"
+                "minecraft:gold_ingot"
             ]
         },
         "output": {
-            "id": "doggytalents/shrinking_mallet",
+            "id": "doggytalents:shrinking_mallet",
             "count": 1
         }
     }

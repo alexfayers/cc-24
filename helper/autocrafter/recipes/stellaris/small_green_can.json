@@ -2,17 +2,17 @@
     {
         "input": {
             "5": [
-                "minecraft/iron_nugget"
+                "minecraft:iron_nugget"
             ],
             "7": [
-                "minecraft/iron_nugget"
+                "minecraft:iron_nugget"
             ],
             "10": [
-                "minecraft/iron_nugget"
+                "minecraft:iron_nugget"
             ]
         },
         "output": {
-            "id": "stellaris/small_green_can",
+            "id": "stellaris:small_green_can",
             "count": 1
         }
     }

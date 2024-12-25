@@ -26,11 +26,11 @@
                 "#c:glass_panes"
             ],
             "6": [
-                "minecraft/command_block"
+                "minecraft:command_block"
             ]
         },
         "output": {
-            "id": "computercraft/computer_command",
+            "id": "computercraft:computer_command",
             "count": 1
         }
     }

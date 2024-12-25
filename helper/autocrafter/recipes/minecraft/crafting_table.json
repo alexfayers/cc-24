@@ -15,7 +15,7 @@
             ]
         },
         "output": {
-            "id": "minecraft/crafting_table",
+            "id": "minecraft:crafting_table",
             "count": 1
         }
     },
@@ -35,7 +35,7 @@
             ]
         },
         "output": {
-            "id": "minecraft/crafting_table",
+            "id": "minecraft:crafting_table",
             "count": 1
         }
     }

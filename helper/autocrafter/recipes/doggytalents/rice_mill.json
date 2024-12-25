@@ -2,10 +2,10 @@
     {
         "input": {
             "6": [
-                "minecraft/cobblestone_slab"
+                "minecraft:cobblestone_slab"
             ],
             "10": [
-                "doggytalents/rice_wheat"
+                "doggytalents:rice_wheat"
             ],
             "1": [
                 "#minecraft:fences"
@@ -30,7 +30,7 @@
             ]
         },
         "output": {
-            "id": "doggytalents/rice_mill",
+            "id": "doggytalents:rice_mill",
             "count": 1
         }
     }

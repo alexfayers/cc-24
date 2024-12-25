@@ -2,23 +2,23 @@
     {
         "input": {
             "2": [
-                "minecraft/gold_ingot"
+                "minecraft:gold_ingot"
             ],
             "5": [
-                "minecraft/gold_ingot"
+                "minecraft:gold_ingot"
             ],
             "7": [
-                "minecraft/gold_ingot"
+                "minecraft:gold_ingot"
             ],
             "10": [
-                "minecraft/gold_ingot"
+                "minecraft:gold_ingot"
             ],
             "6": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ]
         },
         "output": {
-            "id": "minecraft/clock",
+            "id": "minecraft:clock",
             "count": 1
         }
     }

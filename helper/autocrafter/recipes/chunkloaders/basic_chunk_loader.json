@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "chunkloaders/single_chunk_loader"
+                "chunkloaders:single_chunk_loader"
             ],
             "2": [
-                "chunkloaders/single_chunk_loader"
+                "chunkloaders:single_chunk_loader"
             ],
             "3": [
-                "chunkloaders/single_chunk_loader"
+                "chunkloaders:single_chunk_loader"
             ],
             "5": [
-                "chunkloaders/single_chunk_loader"
+                "chunkloaders:single_chunk_loader"
             ],
             "6": [
-                "chunkloaders/single_chunk_loader"
+                "chunkloaders:single_chunk_loader"
             ],
             "7": [
-                "chunkloaders/single_chunk_loader"
+                "chunkloaders:single_chunk_loader"
             ],
             "9": [
-                "chunkloaders/single_chunk_loader"
+                "chunkloaders:single_chunk_loader"
             ],
             "10": [
-                "chunkloaders/single_chunk_loader"
+                "chunkloaders:single_chunk_loader"
             ],
             "11": [
-                "chunkloaders/single_chunk_loader"
+                "chunkloaders:single_chunk_loader"
             ]
         },
         "output": {
-            "id": "chunkloaders/basic_chunk_loader",
+            "id": "chunkloaders:basic_chunk_loader",
             "count": 1
         }
     },
@@ -49,23 +49,23 @@
                 "#c:ingots/iron"
             ],
             "2": [
-                "minecraft/obsidian"
+                "minecraft:obsidian"
             ],
             "5": [
-                "minecraft/obsidian"
+                "minecraft:obsidian"
             ],
             "7": [
-                "minecraft/obsidian"
+                "minecraft:obsidian"
             ],
             "10": [
-                "minecraft/obsidian"
+                "minecraft:obsidian"
             ],
             "6": [
-                "minecraft/ender_pearl"
+                "minecraft:ender_pearl"
             ]
         },
         "output": {
-            "id": "chunkloaders/basic_chunk_loader",
+            "id": "chunkloaders:basic_chunk_loader",
             "count": 1
         }
     }

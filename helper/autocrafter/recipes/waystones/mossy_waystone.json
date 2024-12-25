@@ -2,69 +2,69 @@
     {
         "input": {
             "1": [
-                "waystones/waystone"
+                "waystones:waystone"
             ],
             "2": [
-                "minecraft/moss_block"
+                "minecraft:moss_block"
             ],
             "3": [
-                "minecraft/moss_block"
+                "minecraft:moss_block"
             ],
             "5": [
-                "minecraft/moss_block"
+                "minecraft:moss_block"
             ]
         },
         "output": {
-            "id": "waystones/mossy_waystone",
+            "id": "waystones:mossy_waystone",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "waystones/waystone"
+                "waystones:waystone"
             ],
             "2": [
-                "minecraft/vine"
+                "minecraft:vine"
             ],
             "3": [
-                "minecraft/vine"
+                "minecraft:vine"
             ],
             "5": [
-                "minecraft/vine"
+                "minecraft:vine"
             ]
         },
         "output": {
-            "id": "waystones/mossy_waystone",
+            "id": "waystones:mossy_waystone",
             "count": 1
         }
     },
     {
         "input": {
             "9": [
-                "minecraft/obsidian"
+                "minecraft:obsidian"
             ],
             "10": [
-                "minecraft/obsidian"
+                "minecraft:obsidian"
             ],
             "11": [
-                "minecraft/obsidian"
+                "minecraft:obsidian"
             ],
             "2": [
-                "minecraft/mossy_stone_bricks"
+                "minecraft:mossy_stone_bricks"
             ],
             "5": [
-                "minecraft/mossy_stone_bricks"
+                "minecraft:mossy_stone_bricks"
             ],
             "7": [
-                "minecraft/mossy_stone_bricks"
+                "minecraft:mossy_stone_bricks"
             ],
             "6": [
-                "waystones/warp_stone"
+                "waystones:warp_stone"
             ]
         },
         "output": {
-            "id": "waystones/mossy_waystone",
+            "id": "waystones:mossy_waystone",
             "count": 1
         }
     }

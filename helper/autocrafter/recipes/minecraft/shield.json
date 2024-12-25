@@ -20,11 +20,11 @@
                 "#minecraft:planks"
             ],
             "2": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ]
         },
         "output": {
-            "id": "minecraft/shield",
+            "id": "minecraft:shield",
             "count": 1
         }
     },
@@ -53,7 +53,7 @@
             ]
         },
         "output": {
-            "id": "minecraft/shield",
+            "id": "minecraft:shield",
             "count": 1
         }
     },
@@ -82,7 +82,7 @@
             ]
         },
         "output": {
-            "id": "minecraft/shield",
+            "id": "minecraft:shield",
             "count": 1
         }
     },
@@ -111,7 +111,7 @@
             ]
         },
         "output": {
-            "id": "minecraft/shield",
+            "id": "minecraft:shield",
             "count": 1
         }
     }

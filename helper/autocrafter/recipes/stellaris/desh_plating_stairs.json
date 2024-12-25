@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "stellaris/desh_plating_block"
+                "stellaris:desh_plating_block"
             ],
             "5": [
-                "stellaris/desh_plating_block"
+                "stellaris:desh_plating_block"
             ],
             "6": [
-                "stellaris/desh_plating_block"
+                "stellaris:desh_plating_block"
             ],
             "9": [
-                "stellaris/desh_plating_block"
+                "stellaris:desh_plating_block"
             ],
             "10": [
-                "stellaris/desh_plating_block"
+                "stellaris:desh_plating_block"
             ],
             "11": [
-                "stellaris/desh_plating_block"
+                "stellaris:desh_plating_block"
             ]
         },
         "output": {
-            "id": "stellaris/desh_plating_stairs",
+            "id": "stellaris:desh_plating_stairs",
             "count": 4
         }
     }

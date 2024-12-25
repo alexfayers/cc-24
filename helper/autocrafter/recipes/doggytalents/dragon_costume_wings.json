@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "doggytalents/training_treat"
+                "doggytalents:training_treat"
             ],
             "2": [
-                "minecraft/elytra"
+                "minecraft:elytra"
             ]
         },
         "output": {
-            "id": "doggytalents/dragon_costume_wings",
+            "id": "doggytalents:dragon_costume_wings",
             "count": 1
         }
     }

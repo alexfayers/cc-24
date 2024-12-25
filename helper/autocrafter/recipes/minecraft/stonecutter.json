@@ -2,40 +2,40 @@
     {
         "input": {
             "5": [
-                "minecraft/stone"
+                "minecraft:stone"
             ],
             "6": [
-                "minecraft/stone"
+                "minecraft:stone"
             ],
             "7": [
-                "minecraft/stone"
+                "minecraft:stone"
             ],
             "2": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ]
         },
         "output": {
-            "id": "minecraft/stonecutter",
+            "id": "minecraft:stonecutter",
             "count": 1
         }
     },
     {
         "input": {
             "5": [
-                "aether/holystone"
+                "aether:holystone"
             ],
             "6": [
-                "aether/holystone"
+                "aether:holystone"
             ],
             "7": [
-                "aether/holystone"
+                "aether:holystone"
             ],
             "2": [
-                "minecraft/iron_ingot"
+                "minecraft:iron_ingot"
             ]
         },
         "output": {
-            "id": "minecraft/stonecutter",
+            "id": "minecraft:stonecutter",
             "count": 1
         }
     }

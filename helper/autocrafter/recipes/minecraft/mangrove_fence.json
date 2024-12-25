@@ -2,26 +2,26 @@
     {
         "input": {
             "2": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "6": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "1": [
-                "minecraft/mangrove_planks"
+                "minecraft:mangrove_planks"
             ],
             "3": [
-                "minecraft/mangrove_planks"
+                "minecraft:mangrove_planks"
             ],
             "5": [
-                "minecraft/mangrove_planks"
+                "minecraft:mangrove_planks"
             ],
             "7": [
-                "minecraft/mangrove_planks"
+                "minecraft:mangrove_planks"
             ]
         },
         "output": {
-            "id": "minecraft/mangrove_fence",
+            "id": "minecraft:mangrove_fence",
             "count": 3
         }
     }

@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "stellaris/desh_ingot"
+                "stellaris:desh_ingot"
             ],
             "2": [
-                "stellaris/desh_ingot"
+                "stellaris:desh_ingot"
             ],
             "3": [
-                "stellaris/desh_ingot"
+                "stellaris:desh_ingot"
             ],
             "5": [
-                "stellaris/desh_ingot"
+                "stellaris:desh_ingot"
             ],
             "6": [
-                "stellaris/desh_ingot"
+                "stellaris:desh_ingot"
             ],
             "7": [
-                "stellaris/desh_ingot"
+                "stellaris:desh_ingot"
             ],
             "9": [
-                "stellaris/desh_ingot"
+                "stellaris:desh_ingot"
             ],
             "10": [
-                "stellaris/desh_ingot"
+                "stellaris:desh_ingot"
             ],
             "11": [
-                "stellaris/desh_ingot"
+                "stellaris:desh_ingot"
             ]
         },
         "output": {
-            "id": "stellaris/desh_block",
+            "id": "stellaris:desh_block",
             "count": 1
         }
     }

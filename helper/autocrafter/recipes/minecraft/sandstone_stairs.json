@@ -2,38 +2,38 @@
     {
         "input": {
             "1": [
-                "minecraft/sandstone",
-                "minecraft/chiseled_sandstone",
-                "minecraft/cut_sandstone"
+                "minecraft:sandstone",
+                "minecraft:chiseled_sandstone",
+                "minecraft:cut_sandstone"
             ],
             "5": [
-                "minecraft/sandstone",
-                "minecraft/chiseled_sandstone",
-                "minecraft/cut_sandstone"
+                "minecraft:sandstone",
+                "minecraft:chiseled_sandstone",
+                "minecraft:cut_sandstone"
             ],
             "6": [
-                "minecraft/sandstone",
-                "minecraft/chiseled_sandstone",
-                "minecraft/cut_sandstone"
+                "minecraft:sandstone",
+                "minecraft:chiseled_sandstone",
+                "minecraft:cut_sandstone"
             ],
             "9": [
-                "minecraft/sandstone",
-                "minecraft/chiseled_sandstone",
-                "minecraft/cut_sandstone"
+                "minecraft:sandstone",
+                "minecraft:chiseled_sandstone",
+                "minecraft:cut_sandstone"
             ],
             "10": [
-                "minecraft/sandstone",
-                "minecraft/chiseled_sandstone",
-                "minecraft/cut_sandstone"
+                "minecraft:sandstone",
+                "minecraft:chiseled_sandstone",
+                "minecraft:cut_sandstone"
             ],
             "11": [
-                "minecraft/sandstone",
-                "minecraft/chiseled_sandstone",
-                "minecraft/cut_sandstone"
+                "minecraft:sandstone",
+                "minecraft:chiseled_sandstone",
+                "minecraft:cut_sandstone"
             ]
         },
         "output": {
-            "id": "minecraft/sandstone_stairs",
+            "id": "minecraft:sandstone_stairs",
             "count": 4
         }
     }

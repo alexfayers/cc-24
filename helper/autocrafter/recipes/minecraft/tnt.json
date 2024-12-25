@@ -2,39 +2,39 @@
     {
         "input": {
             "2": [
-                "minecraft/sand",
-                "minecraft/red_sand"
+                "minecraft:sand",
+                "minecraft:red_sand"
             ],
             "5": [
-                "minecraft/sand",
-                "minecraft/red_sand"
+                "minecraft:sand",
+                "minecraft:red_sand"
             ],
             "7": [
-                "minecraft/sand",
-                "minecraft/red_sand"
+                "minecraft:sand",
+                "minecraft:red_sand"
             ],
             "10": [
-                "minecraft/sand",
-                "minecraft/red_sand"
+                "minecraft:sand",
+                "minecraft:red_sand"
             ],
             "1": [
-                "minecraft/gunpowder"
+                "minecraft:gunpowder"
             ],
             "3": [
-                "minecraft/gunpowder"
+                "minecraft:gunpowder"
             ],
             "6": [
-                "minecraft/gunpowder"
+                "minecraft:gunpowder"
             ],
             "9": [
-                "minecraft/gunpowder"
+                "minecraft:gunpowder"
             ],
             "11": [
-                "minecraft/gunpowder"
+                "minecraft:gunpowder"
             ]
         },
         "output": {
-            "id": "minecraft/tnt",
+            "id": "minecraft:tnt",
             "count": 1
         }
     }

@@ -5,11 +5,11 @@
                 "#minecraft:skulls"
             ],
             "2": [
-                "computercraft/computer_advanced"
+                "computercraft:computer_advanced"
             ]
         },
         "output": {
-            "id": "minecraft/player_head",
+            "id": "minecraft:player_head",
             "count": 1
         }
     },
@@ -19,11 +19,11 @@
                 "#minecraft:skulls"
             ],
             "2": [
-                "computercraft/monitor_normal"
+                "computercraft:monitor_normal"
             ]
         },
         "output": {
-            "id": "minecraft/player_head",
+            "id": "minecraft:player_head",
             "count": 1
         }
     }

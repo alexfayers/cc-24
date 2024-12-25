@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/diorite"
+                "minecraft:diorite"
             ],
             "2": [
-                "minecraft/diorite"
+                "minecraft:diorite"
             ],
             "5": [
-                "minecraft/diorite"
+                "minecraft:diorite"
             ],
             "6": [
-                "minecraft/diorite"
+                "minecraft:diorite"
             ]
         },
         "output": {
-            "id": "minecraft/polished_diorite",
+            "id": "minecraft:polished_diorite",
             "count": 4
         }
     }

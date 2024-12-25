@@ -2,25 +2,25 @@
     {
         "input": {
             "1": [
-                "minecraft/blue_orchid"
+                "minecraft:blue_orchid"
             ]
         },
         "output": {
-            "id": "minecraft/light_blue_dye",
+            "id": "minecraft:light_blue_dye",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft/blue_dye"
+                "minecraft:blue_dye"
             ],
             "2": [
-                "minecraft/white_dye"
+                "minecraft:white_dye"
             ]
         },
         "output": {
-            "id": "minecraft/light_blue_dye",
+            "id": "minecraft:light_blue_dye",
             "count": 2
         }
     }

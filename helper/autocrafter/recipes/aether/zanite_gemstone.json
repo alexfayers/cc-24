@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "aether/zanite_block"
+                "aether:zanite_block"
             ]
         },
         "output": {
-            "id": "aether/zanite_gemstone",
+            "id": "aether:zanite_gemstone",
             "count": 9
         }
     }

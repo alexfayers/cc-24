@@ -12,7 +12,7 @@
             ]
         },
         "output": {
-            "id": "stellaris/oxygen_tank",
+            "id": "stellaris:oxygen_tank",
             "count": 1
         }
     }

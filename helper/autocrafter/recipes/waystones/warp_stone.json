@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft/amethyst_shard"
+                "minecraft:amethyst_shard"
             ],
             "3": [
-                "minecraft/amethyst_shard"
+                "minecraft:amethyst_shard"
             ],
             "9": [
-                "minecraft/amethyst_shard"
+                "minecraft:amethyst_shard"
             ],
             "11": [
-                "minecraft/amethyst_shard"
+                "minecraft:amethyst_shard"
             ],
             "2": [
-                "minecraft/ender_pearl"
+                "minecraft:ender_pearl"
             ],
             "5": [
-                "minecraft/ender_pearl"
+                "minecraft:ender_pearl"
             ],
             "7": [
-                "minecraft/ender_pearl"
+                "minecraft:ender_pearl"
             ],
             "10": [
-                "minecraft/ender_pearl"
+                "minecraft:ender_pearl"
             ],
             "6": [
                 "#c:gems/emerald"
             ]
         },
         "output": {
-            "id": "waystones/warp_stone",
+            "id": "waystones:warp_stone",
             "count": 1
         }
     }

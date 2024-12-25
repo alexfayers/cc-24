@@ -20,14 +20,14 @@
                 "#c:ingots/steel"
             ],
             "2": [
-                "minecraft/redstone_torch"
+                "minecraft:redstone_torch"
             ],
             "6": [
-                "minecraft/orange_stained_glass"
+                "minecraft:orange_stained_glass"
             ]
         },
         "output": {
-            "id": "stellaris/jet_suit_helmet",
+            "id": "stellaris:jet_suit_helmet",
             "count": 1
         }
     }

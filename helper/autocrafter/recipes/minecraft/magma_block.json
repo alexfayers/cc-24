@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/magma_cream"
+                "minecraft:magma_cream"
             ],
             "2": [
-                "minecraft/magma_cream"
+                "minecraft:magma_cream"
             ],
             "5": [
-                "minecraft/magma_cream"
+                "minecraft:magma_cream"
             ],
             "6": [
-                "minecraft/magma_cream"
+                "minecraft:magma_cream"
             ]
         },
         "output": {
-            "id": "minecraft/magma_block",
+            "id": "minecraft:magma_block",
             "count": 1
         }
     }

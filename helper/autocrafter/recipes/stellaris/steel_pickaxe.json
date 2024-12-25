@@ -11,14 +11,14 @@
                 "#c:ingots/steel"
             ],
             "6": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "10": [
-                "minecraft/stick"
+                "minecraft:stick"
             ]
         },
         "output": {
-            "id": "stellaris/steel_pickaxe",
+            "id": "stellaris:steel_pickaxe",
             "count": 1
         }
     }

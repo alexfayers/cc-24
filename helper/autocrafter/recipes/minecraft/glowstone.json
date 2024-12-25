@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/glowstone_dust"
+                "minecraft:glowstone_dust"
             ],
             "2": [
-                "minecraft/glowstone_dust"
+                "minecraft:glowstone_dust"
             ],
             "5": [
-                "minecraft/glowstone_dust"
+                "minecraft:glowstone_dust"
             ],
             "6": [
-                "minecraft/glowstone_dust"
+                "minecraft:glowstone_dust"
             ]
         },
         "output": {
-            "id": "minecraft/glowstone",
+            "id": "minecraft:glowstone",
             "count": 1
         }
     }

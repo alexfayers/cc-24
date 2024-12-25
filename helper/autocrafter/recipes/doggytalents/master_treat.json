@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "doggytalents/super_treat"
+                "doggytalents:super_treat"
             ],
             "2": [
-                "doggytalents/super_treat"
+                "doggytalents:super_treat"
             ],
             "3": [
-                "doggytalents/super_treat"
+                "doggytalents:super_treat"
             ],
             "5": [
-                "doggytalents/super_treat"
+                "doggytalents:super_treat"
             ],
             "6": [
-                "doggytalents/super_treat"
+                "doggytalents:super_treat"
             ],
             "7": [
-                "minecraft/diamond"
+                "minecraft:diamond"
             ]
         },
         "output": {
-            "id": "doggytalents/master_treat",
+            "id": "doggytalents:master_treat",
             "count": 5
         }
     }

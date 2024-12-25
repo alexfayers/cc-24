@@ -2,11 +2,11 @@
     {
         "input": {
             "9": [
-                "stellaris/vertical_steel_slab"
+                "stellaris:vertical_steel_slab"
             ]
         },
         "output": {
-            "id": "stellaris/steel_slab",
+            "id": "stellaris:steel_slab",
             "count": 1
         }
     },
@@ -23,7 +23,7 @@
             ]
         },
         "output": {
-            "id": "stellaris/steel_slab",
+            "id": "stellaris:steel_slab",
             "count": 6
         }
     }

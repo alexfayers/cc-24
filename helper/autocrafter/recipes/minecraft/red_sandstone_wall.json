@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft/red_sandstone"
+                "minecraft:red_sandstone"
             ],
             "2": [
-                "minecraft/red_sandstone"
+                "minecraft:red_sandstone"
             ],
             "3": [
-                "minecraft/red_sandstone"
+                "minecraft:red_sandstone"
             ],
             "5": [
-                "minecraft/red_sandstone"
+                "minecraft:red_sandstone"
             ],
             "6": [
-                "minecraft/red_sandstone"
+                "minecraft:red_sandstone"
             ],
             "7": [
-                "minecraft/red_sandstone"
+                "minecraft:red_sandstone"
             ]
         },
         "output": {
-            "id": "minecraft/red_sandstone_wall",
+            "id": "minecraft:red_sandstone_wall",
             "count": 6
         }
     }

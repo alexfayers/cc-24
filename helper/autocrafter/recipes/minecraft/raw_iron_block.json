@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft/raw_iron"
+                "minecraft:raw_iron"
             ],
             "2": [
-                "minecraft/raw_iron"
+                "minecraft:raw_iron"
             ],
             "3": [
-                "minecraft/raw_iron"
+                "minecraft:raw_iron"
             ],
             "5": [
-                "minecraft/raw_iron"
+                "minecraft:raw_iron"
             ],
             "6": [
-                "minecraft/raw_iron"
+                "minecraft:raw_iron"
             ],
             "7": [
-                "minecraft/raw_iron"
+                "minecraft:raw_iron"
             ],
             "9": [
-                "minecraft/raw_iron"
+                "minecraft:raw_iron"
             ],
             "10": [
-                "minecraft/raw_iron"
+                "minecraft:raw_iron"
             ],
             "11": [
-                "minecraft/raw_iron"
+                "minecraft:raw_iron"
             ]
         },
         "output": {
-            "id": "minecraft/raw_iron_block",
+            "id": "minecraft:raw_iron_block",
             "count": 1
         }
     }

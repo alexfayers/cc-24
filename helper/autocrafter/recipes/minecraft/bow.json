@@ -2,26 +2,26 @@
     {
         "input": {
             "2": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "5": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "10": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "3": [
-                "minecraft/string"
+                "minecraft:string"
             ],
             "7": [
-                "minecraft/string"
+                "minecraft:string"
             ],
             "11": [
-                "minecraft/string"
+                "minecraft:string"
             ]
         },
         "output": {
-            "id": "minecraft/bow",
+            "id": "minecraft:bow",
             "count": 1
         }
     }

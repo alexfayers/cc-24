@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/birch_log"
+                "minecraft:birch_log"
             ],
             "2": [
-                "minecraft/birch_log"
+                "minecraft:birch_log"
             ],
             "5": [
-                "minecraft/birch_log"
+                "minecraft:birch_log"
             ],
             "6": [
-                "minecraft/birch_log"
+                "minecraft:birch_log"
             ]
         },
         "output": {
-            "id": "minecraft/birch_wood",
+            "id": "minecraft:birch_wood",
             "count": 3
         }
     }

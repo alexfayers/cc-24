@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft/glass"
+                "minecraft:glass"
             ],
             "2": [
-                "minecraft/glass"
+                "minecraft:glass"
             ],
             "3": [
-                "minecraft/glass"
+                "minecraft:glass"
             ],
             "5": [
-                "minecraft/glass"
+                "minecraft:glass"
             ],
             "7": [
-                "minecraft/glass"
+                "minecraft:glass"
             ],
             "9": [
-                "minecraft/obsidian"
+                "minecraft:obsidian"
             ],
             "10": [
-                "minecraft/obsidian"
+                "minecraft:obsidian"
             ],
             "11": [
-                "minecraft/obsidian"
+                "minecraft:obsidian"
             ],
             "6": [
-                "minecraft/nether_star"
+                "minecraft:nether_star"
             ]
         },
         "output": {
-            "id": "minecraft/beacon",
+            "id": "minecraft:beacon",
             "count": 1
         }
     }

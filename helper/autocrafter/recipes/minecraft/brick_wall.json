@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft/bricks"
+                "minecraft:bricks"
             ],
             "2": [
-                "minecraft/bricks"
+                "minecraft:bricks"
             ],
             "3": [
-                "minecraft/bricks"
+                "minecraft:bricks"
             ],
             "5": [
-                "minecraft/bricks"
+                "minecraft:bricks"
             ],
             "6": [
-                "minecraft/bricks"
+                "minecraft:bricks"
             ],
             "7": [
-                "minecraft/bricks"
+                "minecraft:bricks"
             ]
         },
         "output": {
-            "id": "minecraft/brick_wall",
+            "id": "minecraft:brick_wall",
             "count": 6
         }
     }

@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft/copper_ingot"
+                "minecraft:copper_ingot"
             ],
             "5": [
-                "minecraft/copper_ingot"
+                "minecraft:copper_ingot"
             ],
             "9": [
-                "minecraft/copper_ingot"
+                "minecraft:copper_ingot"
             ]
         },
         "output": {
-            "id": "minecraft/lightning_rod",
+            "id": "minecraft:lightning_rod",
             "count": 1
         }
     }

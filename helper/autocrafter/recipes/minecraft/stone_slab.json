@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft/stone"
+                "minecraft:stone"
             ],
             "2": [
-                "minecraft/stone"
+                "minecraft:stone"
             ],
             "3": [
-                "minecraft/stone"
+                "minecraft:stone"
             ]
         },
         "output": {
-            "id": "minecraft/stone_slab",
+            "id": "minecraft:stone_slab",
             "count": 6
         }
     }

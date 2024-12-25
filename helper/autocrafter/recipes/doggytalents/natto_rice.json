@@ -2,14 +2,14 @@
     {
         "input": {
             "5": [
-                "doggytalents/rice_bowl"
+                "doggytalents:rice_bowl"
             ],
             "1": [
-                "doggytalents/natto"
+                "doggytalents:natto"
             ]
         },
         "output": {
-            "id": "doggytalents/natto_rice",
+            "id": "doggytalents:natto_rice",
             "count": 1
         }
     }

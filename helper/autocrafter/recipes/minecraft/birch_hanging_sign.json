@@ -2,32 +2,32 @@
     {
         "input": {
             "5": [
-                "minecraft/stripped_birch_log"
+                "minecraft:stripped_birch_log"
             ],
             "6": [
-                "minecraft/stripped_birch_log"
+                "minecraft:stripped_birch_log"
             ],
             "7": [
-                "minecraft/stripped_birch_log"
+                "minecraft:stripped_birch_log"
             ],
             "9": [
-                "minecraft/stripped_birch_log"
+                "minecraft:stripped_birch_log"
             ],
             "10": [
-                "minecraft/stripped_birch_log"
+                "minecraft:stripped_birch_log"
             ],
             "11": [
-                "minecraft/stripped_birch_log"
+                "minecraft:stripped_birch_log"
             ],
             "1": [
-                "minecraft/chain"
+                "minecraft:chain"
             ],
             "3": [
-                "minecraft/chain"
+                "minecraft:chain"
             ]
         },
         "output": {
-            "id": "minecraft/birch_hanging_sign",
+            "id": "minecraft:birch_hanging_sign",
             "count": 6
         }
     }

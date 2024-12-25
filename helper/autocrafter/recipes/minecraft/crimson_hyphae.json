@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/crimson_stem"
+                "minecraft:crimson_stem"
             ],
             "2": [
-                "minecraft/crimson_stem"
+                "minecraft:crimson_stem"
             ],
             "5": [
-                "minecraft/crimson_stem"
+                "minecraft:crimson_stem"
             ],
             "6": [
-                "minecraft/crimson_stem"
+                "minecraft:crimson_stem"
             ]
         },
         "output": {
-            "id": "minecraft/crimson_hyphae",
+            "id": "minecraft:crimson_hyphae",
             "count": 3
         }
     }

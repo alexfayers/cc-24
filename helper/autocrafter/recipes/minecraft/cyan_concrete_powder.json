@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft/cyan_dye"
+                "minecraft:cyan_dye"
             ],
             "2": [
-                "minecraft/sand"
+                "minecraft:sand"
             ],
             "3": [
-                "minecraft/sand"
+                "minecraft:sand"
             ],
             "5": [
-                "minecraft/sand"
+                "minecraft:sand"
             ],
             "6": [
-                "minecraft/sand"
+                "minecraft:sand"
             ],
             "7": [
-                "minecraft/gravel"
+                "minecraft:gravel"
             ],
             "9": [
-                "minecraft/gravel"
+                "minecraft:gravel"
             ],
             "10": [
-                "minecraft/gravel"
+                "minecraft:gravel"
             ],
             "11": [
-                "minecraft/gravel"
+                "minecraft:gravel"
             ]
         },
         "output": {
-            "id": "minecraft/cyan_concrete_powder",
+            "id": "minecraft:cyan_concrete_powder",
             "count": 8
         }
     }

@@ -14,24 +14,24 @@
                 "#minecraft:planks"
             ],
             "1": [
-                "minecraft/flint"
+                "minecraft:flint"
             ],
             "2": [
-                "minecraft/flint"
+                "minecraft:flint"
             ]
         },
         "output": {
-            "id": "minecraft/fletching_table",
+            "id": "minecraft:fletching_table",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft/flint"
+                "minecraft:flint"
             ],
             "2": [
-                "minecraft/flint"
+                "minecraft:flint"
             ],
             "5": [
                 "#aether:planks_crafting"
@@ -47,7 +47,7 @@
             ]
         },
         "output": {
-            "id": "minecraft/fletching_table",
+            "id": "minecraft:fletching_table",
             "count": 1
         }
     }

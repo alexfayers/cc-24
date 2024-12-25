@@ -8,29 +8,29 @@
                 "#c:dyes/brown"
             ],
             "9": [
-                "minecraft/obsidian"
+                "minecraft:obsidian"
             ],
             "10": [
-                "minecraft/obsidian"
+                "minecraft:obsidian"
             ],
             "11": [
-                "minecraft/obsidian"
+                "minecraft:obsidian"
             ],
             "1": [
-                "minecraft/stone_bricks"
+                "minecraft:stone_bricks"
             ],
             "2": [
-                "minecraft/stone_bricks"
+                "minecraft:stone_bricks"
             ],
             "3": [
-                "minecraft/stone_bricks"
+                "minecraft:stone_bricks"
             ],
             "6": [
-                "waystones/warp_stone"
+                "waystones:warp_stone"
             ]
         },
         "output": {
-            "id": "waystones/brown_sharestone",
+            "id": "waystones:brown_sharestone",
             "count": 1
         }
     }

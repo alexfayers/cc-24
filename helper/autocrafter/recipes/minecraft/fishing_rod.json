@@ -2,23 +2,23 @@
     {
         "input": {
             "3": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "6": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "9": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "7": [
-                "minecraft/string"
+                "minecraft:string"
             ],
             "11": [
-                "minecraft/string"
+                "minecraft:string"
             ]
         },
         "output": {
-            "id": "minecraft/fishing_rod",
+            "id": "minecraft:fishing_rod",
             "count": 1
         }
     }

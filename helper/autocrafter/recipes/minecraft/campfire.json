@@ -14,17 +14,17 @@
                 "#minecraft:logs"
             ],
             "2": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "5": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "7": [
-                "minecraft/stick"
+                "minecraft:stick"
             ]
         },
         "output": {
-            "id": "minecraft/campfire",
+            "id": "minecraft:campfire",
             "count": 1
         }
     }

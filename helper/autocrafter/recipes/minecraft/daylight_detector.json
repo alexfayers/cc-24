@@ -2,22 +2,22 @@
     {
         "input": {
             "1": [
-                "minecraft/glass"
+                "minecraft:glass"
             ],
             "2": [
-                "minecraft/glass"
+                "minecraft:glass"
             ],
             "3": [
-                "minecraft/glass"
+                "minecraft:glass"
             ],
             "5": [
-                "minecraft/quartz"
+                "minecraft:quartz"
             ],
             "6": [
-                "minecraft/quartz"
+                "minecraft:quartz"
             ],
             "7": [
-                "minecraft/quartz"
+                "minecraft:quartz"
             ],
             "9": [
                 "#minecraft:wooden_slabs"
@@ -30,7 +30,7 @@
             ]
         },
         "output": {
-            "id": "minecraft/daylight_detector",
+            "id": "minecraft:daylight_detector",
             "count": 1
         }
     }

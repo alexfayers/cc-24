@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "doggytalents/training_treat"
+                "doggytalents:training_treat"
             ],
             "2": [
-                "doggytalents/training_treat"
+                "doggytalents:training_treat"
             ],
             "3": [
-                "doggytalents/training_treat"
+                "doggytalents:training_treat"
             ],
             "5": [
-                "doggytalents/training_treat"
+                "doggytalents:training_treat"
             ],
             "6": [
-                "doggytalents/training_treat"
+                "doggytalents:training_treat"
             ],
             "7": [
-                "minecraft/golden_apple"
+                "minecraft:golden_apple"
             ]
         },
         "output": {
-            "id": "doggytalents/super_treat",
+            "id": "doggytalents:super_treat",
             "count": 5
         }
     }

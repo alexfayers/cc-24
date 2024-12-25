@@ -2,14 +2,14 @@
     {
         "input": {
             "5": [
-                "minecraft/piston"
+                "minecraft:piston"
             ],
             "1": [
-                "minecraft/slime_ball"
+                "minecraft:slime_ball"
             ]
         },
         "output": {
-            "id": "minecraft/sticky_piston",
+            "id": "minecraft:sticky_piston",
             "count": 1
         }
     },
@@ -19,11 +19,11 @@
                 "#aether:swet_balls"
             ],
             "5": [
-                "minecraft/piston"
+                "minecraft:piston"
             ]
         },
         "output": {
-            "id": "minecraft/sticky_piston",
+            "id": "minecraft:sticky_piston",
             "count": 1
         }
     }

@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/honey_bottle"
+                "minecraft:honey_bottle"
             ],
             "2": [
-                "minecraft/honey_bottle"
+                "minecraft:honey_bottle"
             ],
             "5": [
-                "minecraft/honey_bottle"
+                "minecraft:honey_bottle"
             ],
             "6": [
-                "minecraft/honey_bottle"
+                "minecraft:honey_bottle"
             ]
         },
         "output": {
-            "id": "minecraft/honey_block",
+            "id": "minecraft:honey_block",
             "count": 1
         }
     }

@@ -5,11 +5,11 @@
                 "#c:chests/wooden"
             ],
             "2": [
-                "aether/skyroot_boat"
+                "aether:skyroot_boat"
             ]
         },
         "output": {
-            "id": "aether/skyroot_chest_boat",
+            "id": "aether:skyroot_chest_boat",
             "count": 1
         }
     }

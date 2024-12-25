@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft/oxidized_cut_copper"
+                "minecraft:oxidized_cut_copper"
             ],
             "2": [
-                "minecraft/oxidized_cut_copper"
+                "minecraft:oxidized_cut_copper"
             ],
             "3": [
-                "minecraft/oxidized_cut_copper"
+                "minecraft:oxidized_cut_copper"
             ]
         },
         "output": {
-            "id": "minecraft/oxidized_cut_copper_slab",
+            "id": "minecraft:oxidized_cut_copper_slab",
             "count": 6
         }
     }

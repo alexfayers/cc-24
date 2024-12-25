@@ -2,13 +2,13 @@
     {
         "input": {
             "5": [
-                "minecraft/honeycomb"
+                "minecraft:honeycomb"
             ],
             "6": [
-                "minecraft/honeycomb"
+                "minecraft:honeycomb"
             ],
             "7": [
-                "minecraft/honeycomb"
+                "minecraft:honeycomb"
             ],
             "1": [
                 "#minecraft:planks"
@@ -30,20 +30,20 @@
             ]
         },
         "output": {
-            "id": "minecraft/beehive",
+            "id": "minecraft:beehive",
             "count": 1
         }
     },
     {
         "input": {
             "5": [
-                "minecraft/honeycomb"
+                "minecraft:honeycomb"
             ],
             "6": [
-                "minecraft/honeycomb"
+                "minecraft:honeycomb"
             ],
             "7": [
-                "minecraft/honeycomb"
+                "minecraft:honeycomb"
             ],
             "1": [
                 "#aether:planks_crafting"
@@ -65,7 +65,7 @@
             ]
         },
         "output": {
-            "id": "minecraft/beehive",
+            "id": "minecraft:beehive",
             "count": 1
         }
     }

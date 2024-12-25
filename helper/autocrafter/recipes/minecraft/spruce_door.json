@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft/spruce_planks"
+                "minecraft:spruce_planks"
             ],
             "2": [
-                "minecraft/spruce_planks"
+                "minecraft:spruce_planks"
             ],
             "5": [
-                "minecraft/spruce_planks"
+                "minecraft:spruce_planks"
             ],
             "6": [
-                "minecraft/spruce_planks"
+                "minecraft:spruce_planks"
             ],
             "9": [
-                "minecraft/spruce_planks"
+                "minecraft:spruce_planks"
             ],
             "10": [
-                "minecraft/spruce_planks"
+                "minecraft:spruce_planks"
             ]
         },
         "output": {
-            "id": "minecraft/spruce_door",
+            "id": "minecraft:spruce_door",
             "count": 3
         }
     }

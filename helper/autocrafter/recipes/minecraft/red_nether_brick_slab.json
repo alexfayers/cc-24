@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft/red_nether_bricks"
+                "minecraft:red_nether_bricks"
             ],
             "2": [
-                "minecraft/red_nether_bricks"
+                "minecraft:red_nether_bricks"
             ],
             "3": [
-                "minecraft/red_nether_bricks"
+                "minecraft:red_nether_bricks"
             ]
         },
         "output": {
-            "id": "minecraft/red_nether_brick_slab",
+            "id": "minecraft:red_nether_brick_slab",
             "count": 6
         }
     }

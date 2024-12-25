@@ -26,11 +26,11 @@
                 "#c:ingots/desh"
             ],
             "6": [
-                "stellaris/tiny_rocket_upgrade"
+                "stellaris:tiny_rocket_upgrade"
             ]
         },
         "output": {
-            "id": "stellaris/small_rocket_upgrade",
+            "id": "stellaris:small_rocket_upgrade",
             "count": 1
         }
     }

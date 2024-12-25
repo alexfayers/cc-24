@@ -26,11 +26,11 @@
                 "#c:ingots/gold"
             ],
             "6": [
-                "minecraft/ender_eye"
+                "minecraft:ender_eye"
             ]
         },
         "output": {
-            "id": "computercraft/wireless_modem_advanced",
+            "id": "computercraft:wireless_modem_advanced",
             "count": 1
         }
     }

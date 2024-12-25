@@ -24,7 +24,7 @@
             ]
         },
         "output": {
-            "id": "minecraft/composter",
+            "id": "minecraft:composter",
             "count": 1
         }
     }

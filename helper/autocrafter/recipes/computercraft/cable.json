@@ -2,23 +2,23 @@
     {
         "input": {
             "2": [
-                "minecraft/stone"
+                "minecraft:stone"
             ],
             "5": [
-                "minecraft/stone"
+                "minecraft:stone"
             ],
             "7": [
-                "minecraft/stone"
+                "minecraft:stone"
             ],
             "10": [
-                "minecraft/stone"
+                "minecraft:stone"
             ],
             "6": [
                 "#c:dusts/redstone"
             ]
         },
         "output": {
-            "id": "computercraft/cable",
+            "id": "computercraft:cable",
             "count": 6
         }
     }

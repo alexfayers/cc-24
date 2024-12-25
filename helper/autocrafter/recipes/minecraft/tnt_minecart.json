@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft/tnt"
+                "minecraft:tnt"
             ],
             "2": [
-                "minecraft/minecart"
+                "minecraft:minecart"
             ]
         },
         "output": {
-            "id": "minecraft/tnt_minecart",
+            "id": "minecraft:tnt_minecart",
             "count": 1
         }
     }

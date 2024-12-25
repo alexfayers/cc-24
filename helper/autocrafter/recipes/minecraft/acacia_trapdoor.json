@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft/acacia_planks"
+                "minecraft:acacia_planks"
             ],
             "2": [
-                "minecraft/acacia_planks"
+                "minecraft:acacia_planks"
             ],
             "3": [
-                "minecraft/acacia_planks"
+                "minecraft:acacia_planks"
             ],
             "5": [
-                "minecraft/acacia_planks"
+                "minecraft:acacia_planks"
             ],
             "6": [
-                "minecraft/acacia_planks"
+                "minecraft:acacia_planks"
             ],
             "7": [
-                "minecraft/acacia_planks"
+                "minecraft:acacia_planks"
             ]
         },
         "output": {
-            "id": "minecraft/acacia_trapdoor",
+            "id": "minecraft:acacia_trapdoor",
             "count": 2
         }
     }

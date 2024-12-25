@@ -2,29 +2,29 @@
     {
         "input": {
             "1": [
-                "minecraft/bamboo_planks"
+                "minecraft:bamboo_planks"
             ],
             "2": [
-                "minecraft/bamboo_planks"
+                "minecraft:bamboo_planks"
             ],
             "3": [
-                "minecraft/bamboo_planks"
+                "minecraft:bamboo_planks"
             ],
             "5": [
-                "minecraft/bamboo_planks"
+                "minecraft:bamboo_planks"
             ],
             "6": [
-                "minecraft/bamboo_planks"
+                "minecraft:bamboo_planks"
             ],
             "7": [
-                "minecraft/bamboo_planks"
+                "minecraft:bamboo_planks"
             ],
             "10": [
-                "minecraft/stick"
+                "minecraft:stick"
             ]
         },
         "output": {
-            "id": "minecraft/bamboo_sign",
+            "id": "minecraft:bamboo_sign",
             "count": 3
         }
     }

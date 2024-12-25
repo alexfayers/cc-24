@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft/paper"
+                "minecraft:paper"
             ],
             "2": [
-                "minecraft/oxeye_daisy"
+                "minecraft:oxeye_daisy"
             ]
         },
         "output": {
-            "id": "minecraft/flower_banner_pattern",
+            "id": "minecraft:flower_banner_pattern",
             "count": 1
         }
     }

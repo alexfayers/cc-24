@@ -23,11 +23,11 @@
                 "#c:ingots/steel"
             ],
             "6": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ]
         },
         "output": {
-            "id": "stellaris/jet_suit_leggings",
+            "id": "stellaris:jet_suit_leggings",
             "count": 1
         }
     }

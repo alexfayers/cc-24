@@ -8,11 +8,11 @@
                 "#mini_tardis:compasses"
             ],
             "2": [
-                "minecraft/repeater"
+                "minecraft:repeater"
             ]
         },
         "output": {
-            "id": "mini_tardis/coordinate_scale_selector",
+            "id": "mini_tardis:coordinate_scale_selector",
             "count": 1
         }
     }

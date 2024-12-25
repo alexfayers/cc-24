@@ -2,35 +2,35 @@
     {
         "input": {
             "2": [
-                "doggytalents/bowtie"
+                "doggytalents:bowtie"
             ],
             "9": [
-                "minecraft/white_carpet"
+                "minecraft:white_carpet"
             ],
             "10": [
-                "minecraft/white_carpet"
+                "minecraft:white_carpet"
             ],
             "11": [
-                "minecraft/white_carpet"
+                "minecraft:white_carpet"
             ],
             "6": [
-                "doggytalents/cape_coloured"
+                "doggytalents:cape_coloured"
             ],
             "1": [
-                "minecraft/white_wool"
+                "minecraft:white_wool"
             ],
             "3": [
-                "minecraft/white_wool"
+                "minecraft:white_wool"
             ],
             "5": [
-                "minecraft/white_wool"
+                "minecraft:white_wool"
             ],
             "7": [
-                "minecraft/white_wool"
+                "minecraft:white_wool"
             ]
         },
         "output": {
-            "id": "doggytalents/beastars_uniform_female",
+            "id": "doggytalents:beastars_uniform_female",
             "count": 1
         }
     }

@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft/tuff"
+                "minecraft:tuff"
             ],
             "2": [
-                "minecraft/tuff"
+                "minecraft:tuff"
             ],
             "3": [
-                "minecraft/tuff"
+                "minecraft:tuff"
             ]
         },
         "output": {
-            "id": "minecraft/tuff_slab",
+            "id": "minecraft:tuff_slab",
             "count": 6
         }
     }

@@ -2,32 +2,32 @@
     {
         "input": {
             "5": [
-                "minecraft/stripped_warped_stem"
+                "minecraft:stripped_warped_stem"
             ],
             "6": [
-                "minecraft/stripped_warped_stem"
+                "minecraft:stripped_warped_stem"
             ],
             "7": [
-                "minecraft/stripped_warped_stem"
+                "minecraft:stripped_warped_stem"
             ],
             "9": [
-                "minecraft/stripped_warped_stem"
+                "minecraft:stripped_warped_stem"
             ],
             "10": [
-                "minecraft/stripped_warped_stem"
+                "minecraft:stripped_warped_stem"
             ],
             "11": [
-                "minecraft/stripped_warped_stem"
+                "minecraft:stripped_warped_stem"
             ],
             "1": [
-                "minecraft/chain"
+                "minecraft:chain"
             ],
             "3": [
-                "minecraft/chain"
+                "minecraft:chain"
             ]
         },
         "output": {
-            "id": "minecraft/warped_hanging_sign",
+            "id": "minecraft:warped_hanging_sign",
             "count": 6
         }
     }

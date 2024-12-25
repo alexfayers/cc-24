@@ -2,13 +2,13 @@
     {
         "input": {
             "1": [
-                "minecraft/brown_wool"
+                "minecraft:brown_wool"
             ],
             "2": [
-                "minecraft/brown_wool"
+                "minecraft:brown_wool"
             ],
             "3": [
-                "minecraft/brown_wool"
+                "minecraft:brown_wool"
             ],
             "5": [
                 "#minecraft:planks"
@@ -21,35 +21,35 @@
             ]
         },
         "output": {
-            "id": "minecraft/brown_bed",
+            "id": "minecraft:brown_bed",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft/brown_dye"
+                "minecraft:brown_dye"
             ],
             "2": [
-                "minecraft/black_bed",
-                "minecraft/blue_bed",
-                "minecraft/cyan_bed",
-                "minecraft/gray_bed",
-                "minecraft/green_bed",
-                "minecraft/light_blue_bed",
-                "minecraft/light_gray_bed",
-                "minecraft/lime_bed",
-                "minecraft/magenta_bed",
-                "minecraft/orange_bed",
-                "minecraft/pink_bed",
-                "minecraft/purple_bed",
-                "minecraft/red_bed",
-                "minecraft/yellow_bed",
-                "minecraft/white_bed"
+                "minecraft:black_bed",
+                "minecraft:blue_bed",
+                "minecraft:cyan_bed",
+                "minecraft:gray_bed",
+                "minecraft:green_bed",
+                "minecraft:light_blue_bed",
+                "minecraft:light_gray_bed",
+                "minecraft:lime_bed",
+                "minecraft:magenta_bed",
+                "minecraft:orange_bed",
+                "minecraft:pink_bed",
+                "minecraft:purple_bed",
+                "minecraft:red_bed",
+                "minecraft:yellow_bed",
+                "minecraft:white_bed"
             ]
         },
         "output": {
-            "id": "minecraft/brown_bed",
+            "id": "minecraft:brown_bed",
             "count": 1
         }
     }

@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "minecraft/coal_block"
+                "minecraft:coal_block"
             ]
         },
         "output": {
-            "id": "minecraft/coal",
+            "id": "minecraft:coal",
             "count": 9
         }
     }

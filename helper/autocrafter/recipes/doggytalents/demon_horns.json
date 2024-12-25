@@ -2,26 +2,26 @@
     {
         "input": {
             "5": [
-                "minecraft/black_dye"
+                "minecraft:black_dye"
             ],
             "7": [
-                "minecraft/black_dye"
+                "minecraft:black_dye"
             ],
             "6": [
-                "minecraft/leather_helmet"
+                "minecraft:leather_helmet"
             ],
             "2": [
-                "minecraft/nether_wart"
+                "minecraft:nether_wart"
             ],
             "1": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "3": [
-                "minecraft/stick"
+                "minecraft:stick"
             ]
         },
         "output": {
-            "id": "doggytalents/demon_horns",
+            "id": "doggytalents:demon_horns",
             "count": 1
         }
     }

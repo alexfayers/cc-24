@@ -2,23 +2,23 @@
     {
         "input": {
             "6": [
-                "minecraft/glowstone"
+                "minecraft:glowstone"
             ],
             "2": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ],
             "5": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ],
             "7": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ],
             "10": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ]
         },
         "output": {
-            "id": "minecraft/redstone_lamp",
+            "id": "minecraft:redstone_lamp",
             "count": 1
         }
     }

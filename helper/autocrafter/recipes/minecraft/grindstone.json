@@ -8,17 +8,17 @@
                 "#minecraft:planks"
             ],
             "2": [
-                "minecraft/stone_slab"
+                "minecraft:stone_slab"
             ],
             "1": [
-                "minecraft/stick"
+                "minecraft:stick"
             ],
             "3": [
-                "minecraft/stick"
+                "minecraft:stick"
             ]
         },
         "output": {
-            "id": "minecraft/grindstone",
+            "id": "minecraft:grindstone",
             "count": 1
         }
     },
@@ -31,7 +31,7 @@
                 "#c:rods/wooden"
             ],
             "2": [
-                "minecraft/stone_slab"
+                "minecraft:stone_slab"
             ],
             "5": [
                 "#aether:planks_crafting"
@@ -41,7 +41,7 @@
             ]
         },
         "output": {
-            "id": "minecraft/grindstone",
+            "id": "minecraft:grindstone",
             "count": 1
         }
     },
@@ -54,7 +54,7 @@
                 "#c:rods/wooden"
             ],
             "2": [
-                "aether/holystone_slab"
+                "aether:holystone_slab"
             ],
             "5": [
                 "#aether:planks_crafting"
@@ -64,7 +64,7 @@
             ]
         },
         "output": {
-            "id": "minecraft/grindstone",
+            "id": "minecraft:grindstone",
             "count": 1
         }
     }

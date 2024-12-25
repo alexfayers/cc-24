@@ -14,14 +14,14 @@
                 "#aether:skyroot_stick"
             ],
             "2": [
-                "aether/skyroot_planks"
+                "aether:skyroot_planks"
             ],
             "6": [
-                "aether/skyroot_planks"
+                "aether:skyroot_planks"
             ]
         },
         "output": {
-            "id": "aether/skyroot_fence_gate",
+            "id": "aether:skyroot_fence_gate",
             "count": 1
         }
     }

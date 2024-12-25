@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft/mangrove_planks"
+                "minecraft:mangrove_planks"
             ],
             "2": [
-                "minecraft/mangrove_planks"
+                "minecraft:mangrove_planks"
             ],
             "5": [
-                "minecraft/mangrove_planks"
+                "minecraft:mangrove_planks"
             ],
             "6": [
-                "minecraft/mangrove_planks"
+                "minecraft:mangrove_planks"
             ],
             "9": [
-                "minecraft/mangrove_planks"
+                "minecraft:mangrove_planks"
             ],
             "10": [
-                "minecraft/mangrove_planks"
+                "minecraft:mangrove_planks"
             ]
         },
         "output": {
-            "id": "minecraft/mangrove_door",
+            "id": "minecraft:mangrove_door",
             "count": 3
         }
     }

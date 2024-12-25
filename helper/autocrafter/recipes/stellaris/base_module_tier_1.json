@@ -2,32 +2,32 @@
     {
         "input": {
             "1": [
-                "stellaris/heavy_metal_nugget"
+                "stellaris:heavy_metal_nugget"
             ],
             "2": [
-                "stellaris/heavy_metal_nugget"
+                "stellaris:heavy_metal_nugget"
             ],
             "5": [
-                "stellaris/heavy_metal_nugget"
+                "stellaris:heavy_metal_nugget"
             ],
             "6": [
-                "stellaris/heavy_metal_nugget"
+                "stellaris:heavy_metal_nugget"
             ],
             "9": [
-                "stellaris/heavy_metal_nugget"
+                "stellaris:heavy_metal_nugget"
             ],
             "10": [
-                "stellaris/heavy_metal_nugget"
+                "stellaris:heavy_metal_nugget"
             ],
             "3": [
-                "minecraft/gold_nugget"
+                "minecraft:gold_nugget"
             ],
             "11": [
-                "minecraft/gold_nugget"
+                "minecraft:gold_nugget"
             ]
         },
         "output": {
-            "id": "stellaris/base_module_tier_1",
+            "id": "stellaris:base_module_tier_1",
             "count": 1
         }
     }

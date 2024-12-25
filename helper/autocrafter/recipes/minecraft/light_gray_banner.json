@@ -2,29 +2,29 @@
     {
         "input": {
             "1": [
-                "minecraft/light_gray_wool"
+                "minecraft:light_gray_wool"
             ],
             "2": [
-                "minecraft/light_gray_wool"
+                "minecraft:light_gray_wool"
             ],
             "3": [
-                "minecraft/light_gray_wool"
+                "minecraft:light_gray_wool"
             ],
             "5": [
-                "minecraft/light_gray_wool"
+                "minecraft:light_gray_wool"
             ],
             "6": [
-                "minecraft/light_gray_wool"
+                "minecraft:light_gray_wool"
             ],
             "7": [
-                "minecraft/light_gray_wool"
+                "minecraft:light_gray_wool"
             ],
             "10": [
-                "minecraft/stick"
+                "minecraft:stick"
             ]
         },
         "output": {
-            "id": "minecraft/light_gray_banner",
+            "id": "minecraft:light_gray_banner",
             "count": 1
         }
     }

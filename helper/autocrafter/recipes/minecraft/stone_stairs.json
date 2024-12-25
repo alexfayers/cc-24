@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft/stone"
+                "minecraft:stone"
             ],
             "5": [
-                "minecraft/stone"
+                "minecraft:stone"
             ],
             "6": [
-                "minecraft/stone"
+                "minecraft:stone"
             ],
             "9": [
-                "minecraft/stone"
+                "minecraft:stone"
             ],
             "10": [
-                "minecraft/stone"
+                "minecraft:stone"
             ],
             "11": [
-                "minecraft/stone"
+                "minecraft:stone"
             ]
         },
         "output": {
-            "id": "minecraft/stone_stairs",
+            "id": "minecraft:stone_stairs",
             "count": 4
         }
     }

@@ -27,7 +27,7 @@
             ]
         },
         "output": {
-            "id": "minecraft/barrel",
+            "id": "minecraft:barrel",
             "count": 1
         }
     },
@@ -59,7 +59,7 @@
             ]
         },
         "output": {
-            "id": "minecraft/barrel",
+            "id": "minecraft:barrel",
             "count": 1
         }
     }

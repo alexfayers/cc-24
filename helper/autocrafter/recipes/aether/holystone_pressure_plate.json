@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "aether/holystone"
+                "aether:holystone"
             ],
             "2": [
-                "aether/holystone"
+                "aether:holystone"
             ]
         },
         "output": {
-            "id": "aether/holystone_pressure_plate",
+            "id": "aether:holystone_pressure_plate",
             "count": 1
         }
     }

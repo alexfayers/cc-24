@@ -2,17 +2,17 @@
     {
         "input": {
             "9": [
-                "stellaris/polished_moon_stone"
+                "stellaris:polished_moon_stone"
             ],
             "10": [
-                "stellaris/polished_moon_stone"
+                "stellaris:polished_moon_stone"
             ],
             "11": [
-                "stellaris/polished_moon_stone"
+                "stellaris:polished_moon_stone"
             ]
         },
         "output": {
-            "id": "stellaris/moon_polished_stone_brick_slab",
+            "id": "stellaris:moon_polished_stone_brick_slab",
             "count": 6
         }
     }

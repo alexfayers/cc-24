@@ -2,29 +2,29 @@
     {
         "input": {
             "9": [
-                "minecraft/black_carpet"
+                "minecraft:black_carpet"
             ],
             "10": [
-                "minecraft/black_carpet"
+                "minecraft:black_carpet"
             ],
             "11": [
-                "minecraft/black_carpet"
+                "minecraft:black_carpet"
             ],
             "6": [
-                "minecraft/potion"
+                "minecraft:potion"
             ],
             "2": [
-                "minecraft/black_wool"
+                "minecraft:black_wool"
             ],
             "5": [
-                "minecraft/black_wool"
+                "minecraft:black_wool"
             ],
             "7": [
-                "minecraft/black_wool"
+                "minecraft:black_wool"
             ]
         },
         "output": {
-            "id": "doggytalents/witch_hat",
+            "id": "doggytalents:witch_hat",
             "count": 1
         }
     }

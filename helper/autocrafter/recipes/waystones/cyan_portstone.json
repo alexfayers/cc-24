@@ -2,13 +2,13 @@
     {
         "input": {
             "9": [
-                "minecraft/polished_andesite"
+                "minecraft:polished_andesite"
             ],
             "10": [
-                "minecraft/polished_andesite"
+                "minecraft:polished_andesite"
             ],
             "11": [
-                "minecraft/polished_andesite"
+                "minecraft:polished_andesite"
             ],
             "1": [
                 "#c:dyes/cyan"
@@ -17,20 +17,20 @@
                 "#c:dyes/cyan"
             ],
             "2": [
-                "minecraft/stone_bricks"
+                "minecraft:stone_bricks"
             ],
             "5": [
-                "minecraft/stone_bricks"
+                "minecraft:stone_bricks"
             ],
             "7": [
-                "minecraft/stone_bricks"
+                "minecraft:stone_bricks"
             ],
             "6": [
-                "waystones/warp_stone"
+                "waystones:warp_stone"
             ]
         },
         "output": {
-            "id": "waystones/cyan_portstone",
+            "id": "waystones:cyan_portstone",
             "count": 1
         }
     }

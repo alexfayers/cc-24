@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/acacia_log"
+                "minecraft:acacia_log"
             ],
             "2": [
-                "minecraft/acacia_log"
+                "minecraft:acacia_log"
             ],
             "5": [
-                "minecraft/acacia_log"
+                "minecraft:acacia_log"
             ],
             "6": [
-                "minecraft/acacia_log"
+                "minecraft:acacia_log"
             ]
         },
         "output": {
-            "id": "minecraft/acacia_wood",
+            "id": "minecraft:acacia_wood",
             "count": 3
         }
     }

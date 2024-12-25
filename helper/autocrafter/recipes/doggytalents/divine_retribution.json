@@ -2,35 +2,35 @@
     {
         "input": {
             "9": [
-                "minecraft/blaze_powder"
+                "minecraft:blaze_powder"
             ],
             "11": [
-                "minecraft/blaze_powder"
+                "minecraft:blaze_powder"
             ],
             "5": [
-                "minecraft/copper_ingot"
+                "minecraft:copper_ingot"
             ],
             "7": [
-                "minecraft/copper_ingot"
+                "minecraft:copper_ingot"
             ],
             "1": [
-                "minecraft/magma_cream"
+                "minecraft:magma_cream"
             ],
             "3": [
-                "minecraft/magma_cream"
+                "minecraft:magma_cream"
             ],
             "2": [
-                "minecraft/phantom_membrane"
+                "minecraft:phantom_membrane"
             ],
             "10": [
-                "minecraft/phantom_membrane"
+                "minecraft:phantom_membrane"
             ],
             "6": [
-                "doggytalents/sake"
+                "doggytalents:sake"
             ]
         },
         "output": {
-            "id": "doggytalents/divine_retribution",
+            "id": "doggytalents:divine_retribution",
             "count": 1
         }
     }

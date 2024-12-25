@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft/cobbled_deepslate"
+                "minecraft:cobbled_deepslate"
             ],
             "2": [
-                "minecraft/cobbled_deepslate"
+                "minecraft:cobbled_deepslate"
             ],
             "3": [
-                "minecraft/cobbled_deepslate"
+                "minecraft:cobbled_deepslate"
             ],
             "5": [
-                "minecraft/cobbled_deepslate"
+                "minecraft:cobbled_deepslate"
             ],
             "6": [
-                "minecraft/cobbled_deepslate"
+                "minecraft:cobbled_deepslate"
             ],
             "7": [
-                "minecraft/cobbled_deepslate"
+                "minecraft:cobbled_deepslate"
             ]
         },
         "output": {
-            "id": "minecraft/cobbled_deepslate_wall",
+            "id": "minecraft:cobbled_deepslate_wall",
             "count": 6
         }
     }

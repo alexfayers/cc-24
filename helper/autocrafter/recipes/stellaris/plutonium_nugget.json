@@ -2,46 +2,46 @@
     {
         "input": {
             "1": [
-                "stellaris/plutonium_piece"
+                "stellaris:plutonium_piece"
             ],
             "2": [
-                "stellaris/plutonium_piece"
+                "stellaris:plutonium_piece"
             ],
             "3": [
-                "stellaris/plutonium_piece"
+                "stellaris:plutonium_piece"
             ],
             "5": [
-                "stellaris/plutonium_piece"
+                "stellaris:plutonium_piece"
             ],
             "6": [
-                "stellaris/plutonium_piece"
+                "stellaris:plutonium_piece"
             ],
             "7": [
-                "stellaris/plutonium_piece"
+                "stellaris:plutonium_piece"
             ],
             "9": [
-                "stellaris/plutonium_piece"
+                "stellaris:plutonium_piece"
             ],
             "10": [
-                "stellaris/plutonium_piece"
+                "stellaris:plutonium_piece"
             ],
             "11": [
-                "stellaris/plutonium_piece"
+                "stellaris:plutonium_piece"
             ]
         },
         "output": {
-            "id": "stellaris/plutonium_nugget",
+            "id": "stellaris:plutonium_nugget",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "stellaris/plutonium_ingot"
+                "stellaris:plutonium_ingot"
             ]
         },
         "output": {
-            "id": "stellaris/plutonium_nugget",
+            "id": "stellaris:plutonium_nugget",
             "count": 9
         }
     }

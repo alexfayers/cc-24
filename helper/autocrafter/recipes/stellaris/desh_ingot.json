@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "stellaris/desh_block"
+                "stellaris:desh_block"
             ]
         },
         "output": {
-            "id": "stellaris/desh_ingot",
+            "id": "stellaris:desh_ingot",
             "count": 9
         }
     }

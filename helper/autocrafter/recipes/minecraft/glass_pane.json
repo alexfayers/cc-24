@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft/glass"
+                "minecraft:glass"
             ],
             "2": [
-                "minecraft/glass"
+                "minecraft:glass"
             ],
             "3": [
-                "minecraft/glass"
+                "minecraft:glass"
             ],
             "5": [
-                "minecraft/glass"
+                "minecraft:glass"
             ],
             "6": [
-                "minecraft/glass"
+                "minecraft:glass"
             ],
             "7": [
-                "minecraft/glass"
+                "minecraft:glass"
             ]
         },
         "output": {
-            "id": "minecraft/glass_pane",
+            "id": "minecraft:glass_pane",
             "count": 16
         }
     }

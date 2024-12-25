@@ -8,11 +8,11 @@
                 "#c:feathers"
             ],
             "9": [
-                "aether/golden_amber"
+                "aether:golden_amber"
             ]
         },
         "output": {
-            "id": "aether/golden_dart",
+            "id": "aether:golden_dart",
             "count": 4
         }
     }

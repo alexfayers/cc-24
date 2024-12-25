@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft/terracotta"
+                "minecraft:terracotta"
             ],
             "2": [
-                "minecraft/terracotta"
+                "minecraft:terracotta"
             ],
             "3": [
-                "minecraft/terracotta"
+                "minecraft:terracotta"
             ],
             "5": [
-                "minecraft/terracotta"
+                "minecraft:terracotta"
             ],
             "7": [
-                "minecraft/terracotta"
+                "minecraft:terracotta"
             ],
             "9": [
-                "minecraft/terracotta"
+                "minecraft:terracotta"
             ],
             "10": [
-                "minecraft/terracotta"
+                "minecraft:terracotta"
             ],
             "11": [
-                "minecraft/terracotta"
+                "minecraft:terracotta"
             ],
             "6": [
-                "minecraft/black_dye"
+                "minecraft:black_dye"
             ]
         },
         "output": {
-            "id": "minecraft/black_terracotta",
+            "id": "minecraft:black_terracotta",
             "count": 8
         }
     }

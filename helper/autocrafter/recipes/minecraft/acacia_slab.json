@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft/acacia_planks"
+                "minecraft:acacia_planks"
             ],
             "2": [
-                "minecraft/acacia_planks"
+                "minecraft:acacia_planks"
             ],
             "3": [
-                "minecraft/acacia_planks"
+                "minecraft:acacia_planks"
             ]
         },
         "output": {
-            "id": "minecraft/acacia_slab",
+            "id": "minecraft:acacia_slab",
             "count": 6
         }
     }

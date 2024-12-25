@@ -12,18 +12,18 @@
             ]
         },
         "output": {
-            "id": "stellaris/vertical_steel_slab",
+            "id": "stellaris:vertical_steel_slab",
             "count": 6
         }
     },
     {
         "input": {
             "9": [
-                "stellaris/steel_slab"
+                "stellaris:steel_slab"
             ]
         },
         "output": {
-            "id": "stellaris/vertical_steel_slab",
+            "id": "stellaris:vertical_steel_slab",
             "count": 1
         }
     }

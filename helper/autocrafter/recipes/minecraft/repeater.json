@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft/redstone_torch"
+                "minecraft:redstone_torch"
             ],
             "3": [
-                "minecraft/redstone_torch"
+                "minecraft:redstone_torch"
             ],
             "5": [
-                "minecraft/stone"
+                "minecraft:stone"
             ],
             "6": [
-                "minecraft/stone"
+                "minecraft:stone"
             ],
             "7": [
-                "minecraft/stone"
+                "minecraft:stone"
             ],
             "2": [
-                "minecraft/redstone"
+                "minecraft:redstone"
             ]
         },
         "output": {
-            "id": "minecraft/repeater",
+            "id": "minecraft:repeater",
             "count": 1
         }
     }

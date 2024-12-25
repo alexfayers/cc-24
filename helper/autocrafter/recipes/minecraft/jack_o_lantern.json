@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft/carved_pumpkin"
+                "minecraft:carved_pumpkin"
             ],
             "5": [
-                "minecraft/torch"
+                "minecraft:torch"
             ]
         },
         "output": {
-            "id": "minecraft/jack_o_lantern",
+            "id": "minecraft:jack_o_lantern",
             "count": 1
         }
     }

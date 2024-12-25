@@ -2,23 +2,23 @@
     {
         "input": {
             "2": [
-                "minecraft/white_carpet"
+                "minecraft:white_carpet"
             ],
             "10": [
-                "minecraft/glass"
+                "minecraft:glass"
             ],
             "6": [
-                "doggytalents/radio_collar"
+                "doggytalents:radio_collar"
             ],
             "5": [
-                "minecraft/string"
+                "minecraft:string"
             ],
             "7": [
-                "minecraft/string"
+                "minecraft:string"
             ]
         },
         "output": {
-            "id": "doggytalents/empty_locator_orb",
+            "id": "doggytalents:empty_locator_orb",
             "count": 1
         }
     }

@@ -2,20 +2,20 @@
     {
         "input": {
             "2": [
-                "minecraft/weathered_copper"
+                "minecraft:weathered_copper"
             ],
             "5": [
-                "minecraft/weathered_copper"
+                "minecraft:weathered_copper"
             ],
             "7": [
-                "minecraft/weathered_copper"
+                "minecraft:weathered_copper"
             ],
             "10": [
-                "minecraft/weathered_copper"
+                "minecraft:weathered_copper"
             ]
         },
         "output": {
-            "id": "minecraft/weathered_copper_grate",
+            "id": "minecraft:weathered_copper_grate",
             "count": 4
         }
     }

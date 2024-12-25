@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "stellaris/venus_smooth_sandstone_brick"
+                "stellaris:venus_smooth_sandstone_brick"
             ],
             "5": [
-                "stellaris/venus_smooth_sandstone_brick"
+                "stellaris:venus_smooth_sandstone_brick"
             ],
             "6": [
-                "stellaris/venus_smooth_sandstone_brick"
+                "stellaris:venus_smooth_sandstone_brick"
             ],
             "9": [
-                "stellaris/venus_smooth_sandstone_brick"
+                "stellaris:venus_smooth_sandstone_brick"
             ],
             "10": [
-                "stellaris/venus_smooth_sandstone_brick"
+                "stellaris:venus_smooth_sandstone_brick"
             ],
             "11": [
-                "stellaris/venus_smooth_sandstone_brick"
+                "stellaris:venus_smooth_sandstone_brick"
             ]
         },
         "output": {
-            "id": "stellaris/venus_smooth_sandstone_brick_stairs",
+            "id": "stellaris:venus_smooth_sandstone_brick_stairs",
             "count": 4
         }
     }

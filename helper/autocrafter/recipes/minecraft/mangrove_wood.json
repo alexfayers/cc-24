@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft/mangrove_log"
+                "minecraft:mangrove_log"
             ],
             "2": [
-                "minecraft/mangrove_log"
+                "minecraft:mangrove_log"
             ],
             "5": [
-                "minecraft/mangrove_log"
+                "minecraft:mangrove_log"
             ],
             "6": [
-                "minecraft/mangrove_log"
+                "minecraft:mangrove_log"
             ]
         },
         "output": {
-            "id": "minecraft/mangrove_wood",
+            "id": "minecraft:mangrove_wood",
             "count": 3
         }
     }

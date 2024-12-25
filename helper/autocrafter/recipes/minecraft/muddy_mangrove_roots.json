@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft/mud"
+                "minecraft:mud"
             ],
             "2": [
-                "minecraft/mangrove_roots"
+                "minecraft:mangrove_roots"
             ]
         },
         "output": {
-            "id": "minecraft/muddy_mangrove_roots",
+            "id": "minecraft:muddy_mangrove_roots",
             "count": 1
         }
     }

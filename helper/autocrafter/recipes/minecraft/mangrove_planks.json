@@ -6,7 +6,7 @@
             ]
         },
         "output": {
-            "id": "minecraft/mangrove_planks",
+            "id": "minecraft:mangrove_planks",
             "count": 4
         }
     }

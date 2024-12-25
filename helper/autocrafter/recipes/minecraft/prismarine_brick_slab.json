@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft/prismarine_bricks"
+                "minecraft:prismarine_bricks"
             ],
             "2": [
-                "minecraft/prismarine_bricks"
+                "minecraft:prismarine_bricks"
             ],
             "3": [
-                "minecraft/prismarine_bricks"
+                "minecraft:prismarine_bricks"
             ]
         },
         "output": {
-            "id": "minecraft/prismarine_brick_slab",
+            "id": "minecraft:prismarine_brick_slab",
             "count": 6
         }
     }

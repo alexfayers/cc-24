@@ -2,7 +2,7 @@
     {
         "input": {
             "6": [
-                "minecraft/leather_helmet"
+                "minecraft:leather_helmet"
             ],
             "1": [
                 "#minecraft:wool"
@@ -21,7 +21,7 @@
             ]
         },
         "output": {
-            "id": "doggytalents/baker_hat",
+            "id": "doggytalents:baker_hat",
             "count": 1
         }
     }

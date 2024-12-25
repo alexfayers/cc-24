@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft/brown_dye"
+                "minecraft:brown_dye"
             ],
             "3": [
-                "minecraft/brown_dye"
+                "minecraft:brown_dye"
             ],
             "9": [
-                "minecraft/brown_dye"
+                "minecraft:brown_dye"
             ],
             "11": [
-                "minecraft/brown_dye"
+                "minecraft:brown_dye"
             ],
             "6": [
-                "minecraft/phantom_membrane"
+                "minecraft:phantom_membrane"
             ],
             "2": [
-                "minecraft/leather"
+                "minecraft:leather"
             ],
             "5": [
-                "minecraft/leather"
+                "minecraft:leather"
             ],
             "7": [
-                "minecraft/leather"
+                "minecraft:leather"
             ],
             "10": [
-                "minecraft/leather"
+                "minecraft:leather"
             ]
         },
         "output": {
-            "id": "doggytalents/bat_wings",
+            "id": "doggytalents:bat_wings",
             "count": 1
         }
     }
