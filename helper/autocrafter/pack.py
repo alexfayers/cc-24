@@ -143,7 +143,15 @@ def prepare_recipe(recipe: dict) -> Optional[dict]:
     else:
         return None
 
-    recipe_id = recipe["result"]["id"]
+    recipe_id = recipe["result"].get("id")
+
+    if recipe_id is None:
+        recipe_id = recipe["result"].get("item")
+
+    if recipe_id is None:
+        print(f"Recipe has no id: {recipe}")
+        return
+
     count = recipe["result"].get("count", None)
     if not count:
         print(f"Force count to 1 for {recipe_id}")
