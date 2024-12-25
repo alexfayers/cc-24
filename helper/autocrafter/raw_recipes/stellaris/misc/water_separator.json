@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "YZY",
+    "XXX"
+  ],
+  "key": {
+    "X": {"tag": "c:ore_blocks/steel"},
+    "Z": {
+      "item": "minecraft:water_bucket"
+    },
+    "Y": {
+      "item": "stellaris:oxygen_tank"
+    }
+  },
+  "result": {
+    "id": "stellaris:water_separator"
+  }
+}

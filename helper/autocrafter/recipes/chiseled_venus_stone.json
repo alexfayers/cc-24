@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "5": [
+                "stellaris:venus_stone_slab"
+            ],
+            "9": [
+                "stellaris:venus_stone_slab"
+            ]
+        },
+        "output": {
+            "id": "stellaris:chiseled_venus_stone",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "5": [
+                "stellaris:moon_cobblestone"
+            ],
+            "6": [
+                "stellaris:moon_cobblestone"
+            ],
+            "9": [
+                "stellaris:moon_cobblestone"
+            ],
+            "10": [
+                "stellaris:moon_cobblestone"
+            ]
+        },
+        "output": {
+            "id": "stellaris:polished_moon_stone",
+            "count": 4
+        }
+    }
+]

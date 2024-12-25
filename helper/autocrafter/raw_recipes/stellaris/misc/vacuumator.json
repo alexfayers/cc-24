@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XZX",
+    "XXX"
+  ],
+  "key": {
+    "X": {"tag": "c:ore_blocks/steel"},
+    "Z": {
+      "item": "minecraft:bucket"
+    }
+  },
+  "result": {
+    "id": "stellaris:vacuumator"
+  }
+}

@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "2": [
+                "#c:ingots/desh"
+            ],
+            "9": [
+                "#c:ingots/desh"
+            ],
+            "11": [
+                "#c:ingots/desh"
+            ],
+            "5": [
+                "#c:ingots/steel"
+            ],
+            "7": [
+                "#c:ingots/steel"
+            ],
+            "6": [
+                "stellaris:rocket_engine"
+            ]
+        },
+        "output": {
+            "id": "stellaris:jet_suit_boots",
+            "count": 1
+        }
+    }
+]

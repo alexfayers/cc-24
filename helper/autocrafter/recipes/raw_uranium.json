@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "stellaris:raw_uranium_block"
+            ]
+        },
+        "output": {
+            "id": "stellaris:raw_uranium",
+            "count": 9
+        }
+    }
+]

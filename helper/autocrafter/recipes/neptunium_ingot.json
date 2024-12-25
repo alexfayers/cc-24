@@ -1,0 +1,48 @@
+[
+    {
+        "input": {
+            "1": [
+                "stellaris:neptunium_piece"
+            ],
+            "2": [
+                "stellaris:neptunium_piece"
+            ],
+            "3": [
+                "stellaris:neptunium_piece"
+            ],
+            "5": [
+                "stellaris:neptunium_piece"
+            ],
+            "6": [
+                "stellaris:neptunium_piece"
+            ],
+            "7": [
+                "stellaris:neptunium_piece"
+            ],
+            "9": [
+                "stellaris:neptunium_piece"
+            ],
+            "10": [
+                "stellaris:neptunium_piece"
+            ],
+            "11": [
+                "stellaris:neptunium_piece"
+            ]
+        },
+        "output": {
+            "id": "stellaris:neptunium_ingot",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "stellaris:neptunium_block"
+            ]
+        },
+        "output": {
+            "id": "stellaris:neptunium_ingot",
+            "count": 9
+        }
+    }
+]

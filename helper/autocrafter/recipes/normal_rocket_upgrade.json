@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:ingots/heavy_metal"
+            ],
+            "2": [
+                "#c:ingots/heavy_metal"
+            ],
+            "3": [
+                "#c:ingots/heavy_metal"
+            ],
+            "5": [
+                "#c:ingots/heavy_metal"
+            ],
+            "7": [
+                "#c:ingots/heavy_metal"
+            ],
+            "9": [
+                "#c:ingots/heavy_metal"
+            ],
+            "10": [
+                "#c:ingots/heavy_metal"
+            ],
+            "11": [
+                "#c:ingots/heavy_metal"
+            ],
+            "6": [
+                "stellaris:small_rocket_upgrade"
+            ]
+        },
+        "output": {
+            "id": "stellaris:normal_rocket_upgrade",
+            "count": 1
+        }
+    }
+]

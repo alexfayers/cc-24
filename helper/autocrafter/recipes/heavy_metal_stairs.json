@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "stellaris:heavy_metal_plate"
+            ],
+            "5": [
+                "stellaris:heavy_metal_plate"
+            ],
+            "6": [
+                "stellaris:heavy_metal_plate"
+            ],
+            "9": [
+                "stellaris:heavy_metal_plate"
+            ],
+            "10": [
+                "stellaris:heavy_metal_plate"
+            ],
+            "11": [
+                "stellaris:heavy_metal_plate"
+            ]
+        },
+        "output": {
+            "id": "stellaris:heavy_metal_stairs",
+            "count": 4
+        }
+    }
+]

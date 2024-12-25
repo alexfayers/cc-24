@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "stellaris:heavy_metal_plate"
+            ],
+            "3": [
+                "stellaris:heavy_metal_plate"
+            ],
+            "5": [
+                "stellaris:heavy_metal_plate"
+            ],
+            "7": [
+                "stellaris:heavy_metal_plate"
+            ],
+            "9": [
+                "stellaris:heavy_metal_plate"
+            ],
+            "10": [
+                "stellaris:heavy_metal_plate"
+            ],
+            "11": [
+                "stellaris:heavy_metal_plate"
+            ],
+            "2": [
+                "stellaris:engine_fan"
+            ],
+            "6": [
+                "stellaris:big_oxygen_tank"
+            ]
+        },
+        "output": {
+            "id": "stellaris:oxygen_distributor",
+            "count": 1
+        }
+    }
+]

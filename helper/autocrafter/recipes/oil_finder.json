@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:redstone_torch"
+            ],
+            "5": [
+                "#c:nuggets/steel"
+            ],
+            "7": [
+                "#c:nuggets/steel"
+            ],
+            "10": [
+                "#c:nuggets/steel"
+            ],
+            "6": [
+                "minecraft:glass_pane"
+            ]
+        },
+        "output": {
+            "id": "stellaris:oil_finder",
+            "count": 1
+        }
+    }
+]

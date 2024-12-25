@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "2": [
+                "#c:ingots/heavy_metal"
+            ],
+            "5": [
+                "#c:ingots/heavy_metal"
+            ],
+            "7": [
+                "#c:ingots/heavy_metal"
+            ],
+            "10": [
+                "#c:ingots/heavy_metal"
+            ],
+            "6": [
+                "minecraft:diamond"
+            ],
+            "1": [
+                "#c:nuggets/steel"
+            ],
+            "3": [
+                "#c:nuggets/steel"
+            ],
+            "9": [
+                "#c:nuggets/steel"
+            ],
+            "11": [
+                "#c:nuggets/steel"
+            ]
+        },
+        "output": {
+            "id": "stellaris:pumpjack_drill",
+            "count": 1
+        }
+    }
+]

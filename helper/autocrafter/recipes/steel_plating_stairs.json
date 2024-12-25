@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "stellaris:steel_plating_block"
+            ],
+            "5": [
+                "stellaris:steel_plating_block"
+            ],
+            "6": [
+                "stellaris:steel_plating_block"
+            ],
+            "9": [
+                "stellaris:steel_plating_block"
+            ],
+            "10": [
+                "stellaris:steel_plating_block"
+            ],
+            "11": [
+                "stellaris:steel_plating_block"
+            ]
+        },
+        "output": {
+            "id": "stellaris:steel_plating_stairs",
+            "count": 4
+        }
+    }
+]

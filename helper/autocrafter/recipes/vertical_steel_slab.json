@@ -1,0 +1,30 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:ore_blocks/steel"
+            ],
+            "5": [
+                "#c:ore_blocks/steel"
+            ],
+            "9": [
+                "#c:ore_blocks/steel"
+            ]
+        },
+        "output": {
+            "id": "stellaris:vertical_steel_slab",
+            "count": 6
+        }
+    },
+    {
+        "input": {
+            "9": [
+                "stellaris:steel_slab"
+            ]
+        },
+        "output": {
+            "id": "stellaris:vertical_steel_slab",
+            "count": 1
+        }
+    }
+]

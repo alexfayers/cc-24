@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "9": [
+                "stellaris:conglomorate"
+            ],
+            "10": [
+                "stellaris:conglomorate"
+            ],
+            "11": [
+                "stellaris:conglomorate"
+            ]
+        },
+        "output": {
+            "id": "stellaris:conglomorate_slab",
+            "count": 6
+        }
+    }
+]

@@ -1,25 +1,25 @@
 [
     {
         "input": {
+            "6": [
+                "stellaris:heavy_metal_ingot"
+            ],
             "2": [
-                "minecraft:stone"
+                "stellaris:heavy_metal_nugget"
             ],
             "5": [
-                "minecraft:stone"
+                "stellaris:heavy_metal_nugget"
             ],
             "7": [
-                "minecraft:stone"
+                "stellaris:heavy_metal_nugget"
             ],
             "10": [
-                "minecraft:stone"
-            ],
-            "6": [
-                "#c:dusts/redstone"
+                "stellaris:heavy_metal_nugget"
             ]
         },
         "output": {
-            "id": "computercraft:cable",
-            "count": 6
+            "id": "stellaris:cable",
+            "count": 4
         }
     }
 ]

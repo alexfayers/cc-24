@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#X#",
+    " # "
+  ],
+  "key": {
+    "X":  {"tag": "c:ingots/steel"},
+    "#": {"tag": "c:nuggets/steel"}
+  },
+  "result": {
+    "id": "stellaris:engine_fan"
+  }
+}

@@ -1,0 +1,30 @@
+[
+    {
+        "input": {
+            "9": [
+                "stellaris:vertical_mercury_slab"
+            ]
+        },
+        "output": {
+            "id": "stellaris:marcury_stone_slab",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "9": [
+                "stellaris:mercury_stone"
+            ],
+            "10": [
+                "stellaris:mercury_stone"
+            ],
+            "11": [
+                "stellaris:mercury_stone"
+            ]
+        },
+        "output": {
+            "id": "stellaris:marcury_stone_slab",
+            "count": 4
+        }
+    }
+]

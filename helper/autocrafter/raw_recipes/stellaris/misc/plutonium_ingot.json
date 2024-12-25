@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "stellaris:plutonium_block"
+    }
+  ],
+
+  "result": {
+    "id": "stellaris:plutonium_ingot",
+    "count": 9
+  }
+}

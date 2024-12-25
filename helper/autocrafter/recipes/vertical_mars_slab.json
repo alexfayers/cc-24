@@ -1,0 +1,30 @@
+[
+    {
+        "input": {
+            "1": [
+                "stellaris:mars_stone"
+            ],
+            "5": [
+                "stellaris:mars_stone"
+            ],
+            "9": [
+                "stellaris:mars_stone"
+            ]
+        },
+        "output": {
+            "id": "stellaris:vertical_mars_slab",
+            "count": 6
+        }
+    },
+    {
+        "input": {
+            "9": [
+                "stellaris:mars_stone_slab"
+            ]
+        },
+        "output": {
+            "id": "stellaris:vertical_mars_slab",
+            "count": 1
+        }
+    }
+]

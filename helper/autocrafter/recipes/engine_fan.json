@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "6": [
+                "#c:ingots/steel"
+            ],
+            "2": [
+                "#c:nuggets/steel"
+            ],
+            "5": [
+                "#c:nuggets/steel"
+            ],
+            "7": [
+                "#c:nuggets/steel"
+            ],
+            "10": [
+                "#c:nuggets/steel"
+            ]
+        },
+        "output": {
+            "id": "stellaris:engine_fan",
+            "count": 1
+        }
+    }
+]

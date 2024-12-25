@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "5": [
+                "#c:ingots/steel"
+            ],
+            "7": [
+                "#c:ingots/steel"
+            ],
+            "9": [
+                "#c:ingots/steel"
+            ],
+            "10": [
+                "#c:ingots/steel"
+            ],
+            "11": [
+                "#c:ingots/steel"
+            ],
+            "6": [
+                "minecraft:redstone_block"
+            ],
+            "1": [
+                "minecraft:amethyst_block"
+            ],
+            "2": [
+                "minecraft:amethyst_block"
+            ],
+            "3": [
+                "minecraft:amethyst_block"
+            ]
+        },
+        "output": {
+            "id": "stellaris:solar_panel",
+            "count": 1
+        }
+    }
+]

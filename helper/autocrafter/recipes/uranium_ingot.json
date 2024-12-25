@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "#stellaris:uranium_block"
+            ]
+        },
+        "output": {
+            "id": "stellaris:uranium_ingot",
+            "count": 9
+        }
+    }
+]

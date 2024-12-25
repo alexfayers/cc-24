@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "stellaris:neptunium_ingot"
+            ],
+            "2": [
+                "stellaris:neptunium_ingot"
+            ],
+            "3": [
+                "stellaris:neptunium_ingot"
+            ],
+            "5": [
+                "stellaris:neptunium_ingot"
+            ],
+            "6": [
+                "stellaris:neptunium_ingot"
+            ],
+            "7": [
+                "stellaris:neptunium_ingot"
+            ],
+            "9": [
+                "stellaris:neptunium_ingot"
+            ],
+            "10": [
+                "stellaris:neptunium_ingot"
+            ],
+            "11": [
+                "stellaris:neptunium_ingot"
+            ]
+        },
+        "output": {
+            "id": "stellaris:neptunium_block",
+            "count": 1
+        }
+    }
+]

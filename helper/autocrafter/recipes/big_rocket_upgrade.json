@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:ingots/steel"
+            ],
+            "2": [
+                "#c:ingots/steel"
+            ],
+            "3": [
+                "#c:ingots/steel"
+            ],
+            "5": [
+                "#c:ingots/steel"
+            ],
+            "7": [
+                "#c:ingots/steel"
+            ],
+            "9": [
+                "#c:ingots/steel"
+            ],
+            "10": [
+                "#c:ingots/steel"
+            ],
+            "11": [
+                "#c:ingots/steel"
+            ],
+            "6": [
+                "stellaris:normal_rocket_upgrade"
+            ]
+        },
+        "output": {
+            "id": "stellaris:big_rocket_upgrade",
+            "count": 1
+        }
+    }
+]

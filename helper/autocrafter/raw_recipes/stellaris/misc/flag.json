@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " #R",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "#":  {"tag": "c:ingots/steel"},
+    "R": {"item": "minecraft:gray_wool"}
+  },
+  "result": {
+    "id": "stellaris:flag"
+  }
+}

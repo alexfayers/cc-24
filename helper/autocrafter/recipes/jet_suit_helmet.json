@@ -1,0 +1,34 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:ingots/desh"
+            ],
+            "3": [
+                "#c:ingots/desh"
+            ],
+            "5": [
+                "#c:ingots/desh"
+            ],
+            "7": [
+                "#c:ingots/desh"
+            ],
+            "9": [
+                "#c:ingots/steel"
+            ],
+            "11": [
+                "#c:ingots/steel"
+            ],
+            "2": [
+                "minecraft:redstone_torch"
+            ],
+            "6": [
+                "minecraft:orange_stained_glass"
+            ]
+        },
+        "output": {
+            "id": "stellaris:jet_suit_helmet",
+            "count": 1
+        }
+    }
+]

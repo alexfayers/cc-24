@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "5": [
+                "minecraft:arrow"
+            ],
+            "6": [
+                "stellaris:ice_shard"
+            ]
+        },
+        "output": {
+            "id": "stellaris:ice_shard_arrow",
+            "count": 2
+        }
+    }
+]

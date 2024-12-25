@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "stellaris:base_module_tier_1"
+            ],
+            "2": [
+                "stellaris:oil_finder"
+            ]
+        },
+        "output": {
+            "id": "stellaris:oil_finder_module",
+            "count": 1
+        }
+    }
+]

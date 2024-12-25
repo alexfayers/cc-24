@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "5": [
+                "stellaris:conglomorate"
+            ],
+            "6": [
+                "stellaris:conglomorate"
+            ],
+            "9": [
+                "stellaris:conglomorate"
+            ],
+            "10": [
+                "stellaris:conglomorate"
+            ]
+        },
+        "output": {
+            "id": "stellaris:polished_conglomorate",
+            "count": 6
+        }
+    }
+]

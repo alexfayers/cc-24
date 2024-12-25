@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:ore_blocks/steel"
+            ],
+            "5": [
+                "#c:ore_blocks/steel"
+            ],
+            "6": [
+                "#c:ore_blocks/steel"
+            ],
+            "9": [
+                "#c:ore_blocks/steel"
+            ],
+            "10": [
+                "#c:ore_blocks/steel"
+            ],
+            "11": [
+                "#c:ore_blocks/steel"
+            ]
+        },
+        "output": {
+            "id": "stellaris:steel_stairs",
+            "count": 4
+        }
+    }
+]

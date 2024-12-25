@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:ingots/desh"
+            ],
+            "2": [
+                "#c:ingots/desh"
+            ],
+            "3": [
+                "#c:ingots/desh"
+            ],
+            "5": [
+                "#c:ingots/desh"
+            ],
+            "7": [
+                "#c:ingots/desh"
+            ],
+            "9": [
+                "#c:ingots/desh"
+            ],
+            "10": [
+                "#c:ingots/desh"
+            ],
+            "11": [
+                "#c:ingots/desh"
+            ],
+            "6": [
+                "stellaris:tiny_rocket_upgrade"
+            ]
+        },
+        "output": {
+            "id": "stellaris:small_rocket_upgrade",
+            "count": 1
+        }
+    }
+]

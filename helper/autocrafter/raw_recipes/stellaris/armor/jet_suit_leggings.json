@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "sss",
+    "crc",
+    "c c"
+  ],
+  "key": {
+    "c": {"tag": "c:ingots/desh"},
+    "s": {"tag": "c:ingots/steel"},
+    "r": {"item": "minecraft:redstone"}
+
+  },
+  "result": {
+    "id": "stellaris:jet_suit_leggings"
+  }
+}

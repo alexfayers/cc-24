@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "stellaris:venus_stone"
+            ],
+            "2": [
+                "stellaris:venus_stone"
+            ],
+            "5": [
+                "stellaris:venus_stone"
+            ],
+            "6": [
+                "stellaris:venus_stone"
+            ],
+            "9": [
+                "stellaris:venus_stone"
+            ],
+            "10": [
+                "stellaris:venus_stone"
+            ]
+        },
+        "output": {
+            "id": "stellaris:venus_pillar",
+            "count": 6
+        }
+    }
+]

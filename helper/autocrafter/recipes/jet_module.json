@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "stellaris:base_module_tier_2"
+            ],
+            "2": [
+                "stellaris:rocket_engine"
+            ],
+            "3": [
+                "stellaris:rocket_engine"
+            ]
+        },
+        "output": {
+            "id": "stellaris:jet_module",
+            "count": 1
+        }
+    }
+]

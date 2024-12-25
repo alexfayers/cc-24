@@ -1,0 +1,30 @@
+[
+    {
+        "input": {
+            "9": [
+                "stellaris:iron_plating_block"
+            ],
+            "10": [
+                "stellaris:iron_plating_block"
+            ],
+            "11": [
+                "stellaris:iron_plating_block"
+            ]
+        },
+        "output": {
+            "id": "stellaris:iron_plating_slab",
+            "count": 6
+        }
+    },
+    {
+        "input": {
+            "9": [
+                "stellaris:vertical_iron_plating_slab"
+            ]
+        },
+        "output": {
+            "id": "stellaris:iron_plating_slab",
+            "count": 1
+        }
+    }
+]

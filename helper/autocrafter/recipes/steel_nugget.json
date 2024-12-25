@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:ingots/steel"
+            ]
+        },
+        "output": {
+            "id": "stellaris:steel_nugget",
+            "count": 9
+        }
+    }
+]

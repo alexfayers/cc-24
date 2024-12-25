@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "5": [
+                "stellaris:mars_cobblestone"
+            ],
+            "6": [
+                "stellaris:mars_cobblestone"
+            ],
+            "9": [
+                "stellaris:mars_cobblestone"
+            ],
+            "10": [
+                "stellaris:mars_cobblestone"
+            ]
+        },
+        "output": {
+            "id": "stellaris:polished_mars_stone",
+            "count": 4
+        }
+    }
+]

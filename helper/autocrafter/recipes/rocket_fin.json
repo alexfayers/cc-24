@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "5": [
+                "#c:ingots/steel"
+            ],
+            "6": [
+                "#c:ingots/steel"
+            ],
+            "7": [
+                "#c:ingots/steel"
+            ],
+            "9": [
+                "#c:ingots/steel"
+            ],
+            "11": [
+                "#c:ingots/steel"
+            ]
+        },
+        "output": {
+            "id": "stellaris:rocket_fin",
+            "count": 1
+        }
+    }
+]

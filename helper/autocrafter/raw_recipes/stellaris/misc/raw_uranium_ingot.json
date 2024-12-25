@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "stellaris:raw_uranium_block"
+    }
+  ],
+
+  "result": {
+    "id": "stellaris:raw_uranium",
+    "count": 9
+  }
+}

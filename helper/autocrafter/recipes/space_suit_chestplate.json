@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:copper_ingot"
+            ],
+            "10": [
+                "minecraft:redstone"
+            ],
+            "5": [
+                "minecraft:white_wool"
+            ],
+            "7": [
+                "minecraft:white_wool"
+            ],
+            "9": [
+                "minecraft:white_wool"
+            ],
+            "11": [
+                "minecraft:white_wool"
+            ],
+            "1": [
+                "#c:ingots/steel"
+            ],
+            "3": [
+                "#c:ingots/steel"
+            ],
+            "2": [
+                "stellaris:oxygen_tank"
+            ]
+        },
+        "output": {
+            "id": "stellaris:space_suit_chestplate",
+            "count": 1
+        }
+    }
+]

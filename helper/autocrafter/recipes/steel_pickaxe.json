@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:ingots/steel"
+            ],
+            "2": [
+                "#c:ingots/steel"
+            ],
+            "3": [
+                "#c:ingots/steel"
+            ],
+            "6": [
+                "minecraft:stick"
+            ],
+            "10": [
+                "minecraft:stick"
+            ]
+        },
+        "output": {
+            "id": "stellaris:steel_pickaxe",
+            "count": 1
+        }
+    }
+]

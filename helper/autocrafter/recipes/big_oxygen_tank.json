@@ -1,0 +1,34 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:ingots/steel"
+            ],
+            "3": [
+                "#c:ingots/steel"
+            ],
+            "5": [
+                "#c:ingots/steel"
+            ],
+            "7": [
+                "#c:ingots/steel"
+            ],
+            "9": [
+                "#c:ingots/steel"
+            ],
+            "10": [
+                "#c:ingots/steel"
+            ],
+            "11": [
+                "#c:ingots/steel"
+            ],
+            "2": [
+                "#c:nuggets/steel"
+            ]
+        },
+        "output": {
+            "id": "stellaris:big_oxygen_tank",
+            "count": 1
+        }
+    }
+]

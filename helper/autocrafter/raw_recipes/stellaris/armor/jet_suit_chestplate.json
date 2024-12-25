@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "s s",
+    "coc",
+    "crc"
+  ],
+  "key": {
+    "c": {"tag": "c:ingots/desh"},
+    "s": {"tag": "c:ingots/steel"},
+    "o": {"item": "stellaris:big_oxygen_tank"},
+    "r": {"item": "minecraft:redstone"}
+
+  },
+  "result": {
+    "id": "stellaris:jet_suit_chestplate"
+  }
+}

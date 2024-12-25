@@ -1,0 +1,48 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:ore_blocks/steel"
+            ]
+        },
+        "output": {
+            "id": "stellaris:steel_ingot",
+            "count": 9
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "#c:nuggets/steel"
+            ],
+            "2": [
+                "#c:nuggets/steel"
+            ],
+            "3": [
+                "#c:nuggets/steel"
+            ],
+            "5": [
+                "#c:nuggets/steel"
+            ],
+            "6": [
+                "#c:nuggets/steel"
+            ],
+            "7": [
+                "#c:nuggets/steel"
+            ],
+            "9": [
+                "#c:nuggets/steel"
+            ],
+            "10": [
+                "#c:nuggets/steel"
+            ],
+            "11": [
+                "#c:nuggets/steel"
+            ]
+        },
+        "output": {
+            "id": "stellaris:steel_ingot",
+            "count": 1
+        }
+    }
+]

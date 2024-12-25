@@ -1,0 +1,34 @@
+[
+    {
+        "input": {
+            "2": [
+                "minecraft:copper_ingot"
+            ],
+            "6": [
+                "minecraft:copper_ingot"
+            ],
+            "1": [
+                "minecraft:white_wool"
+            ],
+            "3": [
+                "minecraft:white_wool"
+            ],
+            "5": [
+                "#c:ingots/steel"
+            ],
+            "7": [
+                "#c:ingots/steel"
+            ],
+            "9": [
+                "#c:ingots/steel"
+            ],
+            "11": [
+                "#c:ingots/steel"
+            ]
+        },
+        "output": {
+            "id": "stellaris:space_suit_boots",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "stellaris:polished_venus_stone"
+            ],
+            "5": [
+                "stellaris:polished_venus_stone"
+            ],
+            "6": [
+                "stellaris:polished_venus_stone"
+            ],
+            "9": [
+                "stellaris:polished_venus_stone"
+            ],
+            "10": [
+                "stellaris:polished_venus_stone"
+            ],
+            "11": [
+                "stellaris:polished_venus_stone"
+            ]
+        },
+        "output": {
+            "id": "stellaris:venus_polished_stone_stairs",
+            "count": 4
+        }
+    }
+]

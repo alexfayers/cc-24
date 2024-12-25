@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:ore_blocks/steel"
+            ],
+            "2": [
+                "#c:ore_blocks/steel"
+            ],
+            "3": [
+                "#c:ore_blocks/steel"
+            ],
+            "5": [
+                "#c:ore_blocks/steel"
+            ],
+            "7": [
+                "#c:ore_blocks/steel"
+            ],
+            "9": [
+                "#c:ore_blocks/steel"
+            ],
+            "10": [
+                "#c:ore_blocks/steel"
+            ],
+            "11": [
+                "#c:ore_blocks/steel"
+            ],
+            "6": [
+                "minecraft:blast_furnace"
+            ]
+        },
+        "output": {
+            "id": "stellaris:coal_generator",
+            "count": 1
+        }
+    }
+]

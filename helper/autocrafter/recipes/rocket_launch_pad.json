@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "9": [
+                "#c:ingots/steel"
+            ],
+            "10": [
+                "#c:ingots/steel"
+            ],
+            "11": [
+                "#c:ingots/steel"
+            ]
+        },
+        "output": {
+            "id": "stellaris:rocket_launch_pad",
+            "count": 3
+        }
+    }
+]

@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "9": [
+                "stellaris:polished_mars_stone"
+            ],
+            "10": [
+                "stellaris:polished_mars_stone"
+            ],
+            "11": [
+                "stellaris:polished_mars_stone"
+            ]
+        },
+        "output": {
+            "id": "stellaris:mars_polished_stone_slab",
+            "count": 6
+        }
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:ore_blocks/steel"
+            ],
+            "2": [
+                "#c:ore_blocks/steel"
+            ],
+            "3": [
+                "#c:ore_blocks/steel"
+            ],
+            "9": [
+                "#c:ore_blocks/steel"
+            ],
+            "10": [
+                "#c:ore_blocks/steel"
+            ],
+            "11": [
+                "#c:ore_blocks/steel"
+            ],
+            "6": [
+                "minecraft:bucket"
+            ],
+            "5": [
+                "stellaris:cable"
+            ],
+            "7": [
+                "stellaris:cable"
+            ]
+        },
+        "output": {
+            "id": "stellaris:fuel_refinery",
+            "count": 1
+        }
+    }
+]

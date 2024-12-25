@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "stellaris:desh_block"
+    }
+  ],
+  "result": {
+    "id": "stellaris:desh_ingot",
+    "count": 9
+  }
+}

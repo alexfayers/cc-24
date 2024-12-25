@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "stellaris:neptunium_ingot"
+            ]
+        },
+        "output": {
+            "id": "stellaris:neptunium_piece",
+            "count": 9
+        }
+    }
+]

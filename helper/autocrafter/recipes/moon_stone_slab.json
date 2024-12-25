@@ -1,0 +1,30 @@
+[
+    {
+        "input": {
+            "9": [
+                "stellaris:moon_stone"
+            ],
+            "10": [
+                "stellaris:moon_stone"
+            ],
+            "11": [
+                "stellaris:moon_stone"
+            ]
+        },
+        "output": {
+            "id": "stellaris:moon_stone_slab",
+            "count": 6
+        }
+    },
+    {
+        "input": {
+            "9": [
+                "stellaris:vertical_moon_slab"
+            ]
+        },
+        "output": {
+            "id": "stellaris:moon_stone_slab",
+            "count": 1
+        }
+    }
+]

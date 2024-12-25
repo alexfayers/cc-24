@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "2": [
+                "stellaris:heavy_metal_ingot"
+            ],
+            "5": [
+                "stellaris:heavy_metal_ingot"
+            ],
+            "7": [
+                "stellaris:heavy_metal_ingot"
+            ],
+            "9": [
+                "stellaris:iron_plating_block"
+            ],
+            "10": [
+                "stellaris:iron_plating_block"
+            ],
+            "11": [
+                "stellaris:iron_plating_block"
+            ],
+            "6": [
+                "minecraft:redstone"
+            ]
+        },
+        "output": {
+            "id": "stellaris:rocket_station",
+            "count": 1
+        }
+    }
+]

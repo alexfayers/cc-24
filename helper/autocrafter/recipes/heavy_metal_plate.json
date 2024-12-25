@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "stellaris:heavy_metal_ingot"
+            ],
+            "2": [
+                "stellaris:heavy_metal_ingot"
+            ],
+            "3": [
+                "stellaris:heavy_metal_ingot"
+            ],
+            "5": [
+                "stellaris:heavy_metal_ingot"
+            ],
+            "6": [
+                "stellaris:heavy_metal_ingot"
+            ],
+            "7": [
+                "stellaris:heavy_metal_ingot"
+            ],
+            "9": [
+                "stellaris:heavy_metal_ingot"
+            ],
+            "10": [
+                "stellaris:heavy_metal_ingot"
+            ],
+            "11": [
+                "stellaris:heavy_metal_ingot"
+            ]
+        },
+        "output": {
+            "id": "stellaris:heavy_metal_plate",
+            "count": 1
+        }
+    }
+]

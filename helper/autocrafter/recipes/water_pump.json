@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "stellaris:cable"
+            ],
+            "9": [
+                "#c:ingots/heavy_metal"
+            ],
+            "5": [
+                "minecraft:bucket"
+            ]
+        },
+        "output": {
+            "id": "stellaris:water_pump",
+            "count": 1
+        }
+    }
+]

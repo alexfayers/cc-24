@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "6": [
+                "stellaris:plutonium_piece"
+            ]
+        },
+        "output": {
+            "id": "stellaris:plutonium_grain",
+            "count": 9
+        }
+    }
+]

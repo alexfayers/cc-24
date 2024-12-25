@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "9": [
+                "stellaris:venus_smooth_sandstone_brick"
+            ],
+            "10": [
+                "stellaris:venus_smooth_sandstone_brick"
+            ],
+            "11": [
+                "stellaris:venus_smooth_sandstone_brick"
+            ]
+        },
+        "output": {
+            "id": "stellaris:venus_smooth_sandstone_brick_slab",
+            "count": 6
+        }
+    }
+]

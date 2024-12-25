@@ -1,5 +1,5 @@
 {
-    "pink_carpet": [
+    "light_gray_carpet": [
         "orange_carpet",
         "purple_carpet",
         "cyan_carpet",
@@ -9,6 +9,40 @@
         "magenta_carpet",
         "red_carpet",
         "green_carpet",
+        "pink_carpet",
+        "blue_carpet",
+        "light_blue_carpet",
+        "yellow_carpet",
+        "gray_carpet",
+        "black_carpet"
+    ],
+    "gray_carpet": [
+        "orange_carpet",
+        "purple_carpet",
+        "cyan_carpet",
+        "white_carpet",
+        "lime_carpet",
+        "brown_carpet",
+        "magenta_carpet",
+        "red_carpet",
+        "green_carpet",
+        "pink_carpet",
+        "blue_carpet",
+        "light_gray_carpet",
+        "light_blue_carpet",
+        "yellow_carpet",
+        "black_carpet"
+    ],
+    "green_carpet": [
+        "orange_carpet",
+        "purple_carpet",
+        "cyan_carpet",
+        "white_carpet",
+        "lime_carpet",
+        "brown_carpet",
+        "magenta_carpet",
+        "red_carpet",
+        "pink_carpet",
         "blue_carpet",
         "light_gray_carpet",
         "light_blue_carpet",
@@ -16,13 +50,30 @@
         "gray_carpet",
         "black_carpet"
     ],
-    "magenta_carpet": [
+    "blue_carpet": [
         "orange_carpet",
         "purple_carpet",
         "cyan_carpet",
         "white_carpet",
         "lime_carpet",
         "brown_carpet",
+        "magenta_carpet",
+        "red_carpet",
+        "green_carpet",
+        "pink_carpet",
+        "light_gray_carpet",
+        "light_blue_carpet",
+        "yellow_carpet",
+        "gray_carpet",
+        "black_carpet"
+    ],
+    "lime_carpet": [
+        "orange_carpet",
+        "purple_carpet",
+        "cyan_carpet",
+        "white_carpet",
+        "brown_carpet",
+        "magenta_carpet",
         "red_carpet",
         "green_carpet",
         "pink_carpet",
@@ -50,40 +101,6 @@
         "yellow_carpet",
         "gray_carpet"
     ],
-    "yellow_carpet": [
-        "orange_carpet",
-        "purple_carpet",
-        "cyan_carpet",
-        "white_carpet",
-        "lime_carpet",
-        "brown_carpet",
-        "magenta_carpet",
-        "red_carpet",
-        "green_carpet",
-        "pink_carpet",
-        "blue_carpet",
-        "light_gray_carpet",
-        "light_blue_carpet",
-        "gray_carpet",
-        "black_carpet"
-    ],
-    "green_carpet": [
-        "orange_carpet",
-        "purple_carpet",
-        "cyan_carpet",
-        "white_carpet",
-        "lime_carpet",
-        "brown_carpet",
-        "magenta_carpet",
-        "red_carpet",
-        "pink_carpet",
-        "blue_carpet",
-        "light_gray_carpet",
-        "light_blue_carpet",
-        "yellow_carpet",
-        "gray_carpet",
-        "black_carpet"
-    ],
     "brown_carpet": [
         "orange_carpet",
         "purple_carpet",
@@ -101,7 +118,58 @@
         "gray_carpet",
         "black_carpet"
     ],
-    "gray_carpet": [
+    "cyan_carpet": [
+        "orange_carpet",
+        "purple_carpet",
+        "white_carpet",
+        "lime_carpet",
+        "brown_carpet",
+        "magenta_carpet",
+        "red_carpet",
+        "green_carpet",
+        "pink_carpet",
+        "blue_carpet",
+        "light_gray_carpet",
+        "light_blue_carpet",
+        "yellow_carpet",
+        "gray_carpet",
+        "black_carpet"
+    ],
+    "light_blue_carpet": [
+        "orange_carpet",
+        "purple_carpet",
+        "cyan_carpet",
+        "white_carpet",
+        "lime_carpet",
+        "brown_carpet",
+        "magenta_carpet",
+        "red_carpet",
+        "green_carpet",
+        "pink_carpet",
+        "blue_carpet",
+        "light_gray_carpet",
+        "yellow_carpet",
+        "gray_carpet",
+        "black_carpet"
+    ],
+    "purple_carpet": [
+        "orange_carpet",
+        "cyan_carpet",
+        "white_carpet",
+        "lime_carpet",
+        "brown_carpet",
+        "magenta_carpet",
+        "red_carpet",
+        "green_carpet",
+        "pink_carpet",
+        "blue_carpet",
+        "light_gray_carpet",
+        "light_blue_carpet",
+        "yellow_carpet",
+        "gray_carpet",
+        "black_carpet"
+    ],
+    "yellow_carpet": [
         "orange_carpet",
         "purple_carpet",
         "cyan_carpet",
@@ -115,10 +183,10 @@
         "blue_carpet",
         "light_gray_carpet",
         "light_blue_carpet",
-        "yellow_carpet",
+        "gray_carpet",
         "black_carpet"
     ],
-    "blue_carpet": [
+    "pink_carpet": [
         "orange_carpet",
         "purple_carpet",
         "cyan_carpet",
@@ -128,17 +196,17 @@
         "magenta_carpet",
         "red_carpet",
         "green_carpet",
-        "pink_carpet",
+        "blue_carpet",
         "light_gray_carpet",
         "light_blue_carpet",
         "yellow_carpet",
         "gray_carpet",
         "black_carpet"
     ],
-    "purple_carpet": [
+    "white_carpet": [
         "orange_carpet",
+        "purple_carpet",
         "cyan_carpet",
-        "white_carpet",
         "lime_carpet",
         "brown_carpet",
         "magenta_carpet",
@@ -169,81 +237,13 @@
         "gray_carpet",
         "black_carpet"
     ],
-    "white_carpet": [
-        "orange_carpet",
-        "purple_carpet",
-        "cyan_carpet",
-        "lime_carpet",
-        "brown_carpet",
-        "magenta_carpet",
-        "red_carpet",
-        "green_carpet",
-        "pink_carpet",
-        "blue_carpet",
-        "light_gray_carpet",
-        "light_blue_carpet",
-        "yellow_carpet",
-        "gray_carpet",
-        "black_carpet"
-    ],
-    "cyan_carpet": [
-        "orange_carpet",
-        "purple_carpet",
-        "white_carpet",
-        "lime_carpet",
-        "brown_carpet",
-        "magenta_carpet",
-        "red_carpet",
-        "green_carpet",
-        "pink_carpet",
-        "blue_carpet",
-        "light_gray_carpet",
-        "light_blue_carpet",
-        "yellow_carpet",
-        "gray_carpet",
-        "black_carpet"
-    ],
-    "light_gray_carpet": [
+    "magenta_carpet": [
         "orange_carpet",
         "purple_carpet",
         "cyan_carpet",
         "white_carpet",
         "lime_carpet",
         "brown_carpet",
-        "magenta_carpet",
-        "red_carpet",
-        "green_carpet",
-        "pink_carpet",
-        "blue_carpet",
-        "light_blue_carpet",
-        "yellow_carpet",
-        "gray_carpet",
-        "black_carpet"
-    ],
-    "light_blue_carpet": [
-        "orange_carpet",
-        "purple_carpet",
-        "cyan_carpet",
-        "white_carpet",
-        "lime_carpet",
-        "brown_carpet",
-        "magenta_carpet",
-        "red_carpet",
-        "green_carpet",
-        "pink_carpet",
-        "blue_carpet",
-        "light_gray_carpet",
-        "yellow_carpet",
-        "gray_carpet",
-        "black_carpet"
-    ],
-    "lime_carpet": [
-        "orange_carpet",
-        "purple_carpet",
-        "cyan_carpet",
-        "white_carpet",
-        "brown_carpet",
-        "magenta_carpet",
         "red_carpet",
         "green_carpet",
         "pink_carpet",
@@ -257,23 +257,6 @@
     "chiseled_red_sandstone": [
         "red_sandstone_slab"
     ],
-    "light_gray_wool": [
-        "red_wool",
-        "green_wool",
-        "pink_wool",
-        "cyan_wool",
-        "purple_wool",
-        "gray_wool",
-        "light_blue_wool",
-        "blue_wool",
-        "yellow_wool",
-        "lime_wool",
-        "brown_wool",
-        "magenta_wool",
-        "white_wool",
-        "orange_wool",
-        "black_wool"
-    ],
     "yellow_wool": [
         "red_wool",
         "light_gray_wool",
@@ -284,40 +267,6 @@
         "gray_wool",
         "light_blue_wool",
         "blue_wool",
-        "lime_wool",
-        "brown_wool",
-        "magenta_wool",
-        "white_wool",
-        "orange_wool",
-        "black_wool"
-    ],
-    "blue_wool": [
-        "red_wool",
-        "light_gray_wool",
-        "green_wool",
-        "pink_wool",
-        "cyan_wool",
-        "purple_wool",
-        "gray_wool",
-        "light_blue_wool",
-        "yellow_wool",
-        "lime_wool",
-        "brown_wool",
-        "magenta_wool",
-        "white_wool",
-        "orange_wool",
-        "black_wool"
-    ],
-    "green_wool": [
-        "red_wool",
-        "light_gray_wool",
-        "pink_wool",
-        "cyan_wool",
-        "purple_wool",
-        "gray_wool",
-        "light_blue_wool",
-        "blue_wool",
-        "yellow_wool",
         "lime_wool",
         "brown_wool",
         "magenta_wool",
@@ -359,13 +308,30 @@
         "orange_wool",
         "black_wool"
     ],
-    "gray_wool": [
+    "pink_wool": [
         "red_wool",
         "light_gray_wool",
         "green_wool",
+        "cyan_wool",
+        "purple_wool",
+        "gray_wool",
+        "light_blue_wool",
+        "blue_wool",
+        "yellow_wool",
+        "lime_wool",
+        "brown_wool",
+        "magenta_wool",
+        "white_wool",
+        "orange_wool",
+        "black_wool"
+    ],
+    "green_wool": [
+        "red_wool",
+        "light_gray_wool",
         "pink_wool",
         "cyan_wool",
         "purple_wool",
+        "gray_wool",
         "light_blue_wool",
         "blue_wool",
         "yellow_wool",
@@ -410,23 +376,6 @@
         "orange_wool",
         "black_wool"
     ],
-    "pink_wool": [
-        "red_wool",
-        "light_gray_wool",
-        "green_wool",
-        "cyan_wool",
-        "purple_wool",
-        "gray_wool",
-        "light_blue_wool",
-        "blue_wool",
-        "yellow_wool",
-        "lime_wool",
-        "brown_wool",
-        "magenta_wool",
-        "white_wool",
-        "orange_wool",
-        "black_wool"
-    ],
     "purple_wool": [
         "red_wool",
         "light_gray_wool",
@@ -444,7 +393,7 @@
         "orange_wool",
         "black_wool"
     ],
-    "orange_wool": [
+    "blue_wool": [
         "red_wool",
         "light_gray_wool",
         "green_wool",
@@ -453,12 +402,12 @@
         "purple_wool",
         "gray_wool",
         "light_blue_wool",
-        "blue_wool",
         "yellow_wool",
         "lime_wool",
         "brown_wool",
         "magenta_wool",
         "white_wool",
+        "orange_wool",
         "black_wool"
     ],
     "lime_wool": [
@@ -472,6 +421,23 @@
         "light_blue_wool",
         "blue_wool",
         "yellow_wool",
+        "brown_wool",
+        "magenta_wool",
+        "white_wool",
+        "orange_wool",
+        "black_wool"
+    ],
+    "light_blue_wool": [
+        "red_wool",
+        "light_gray_wool",
+        "green_wool",
+        "pink_wool",
+        "cyan_wool",
+        "purple_wool",
+        "gray_wool",
+        "blue_wool",
+        "yellow_wool",
+        "lime_wool",
         "brown_wool",
         "magenta_wool",
         "white_wool",
@@ -495,7 +461,7 @@
         "white_wool",
         "orange_wool"
     ],
-    "light_blue_wool": [
+    "orange_wool": [
         "red_wool",
         "light_gray_wool",
         "green_wool",
@@ -503,6 +469,40 @@
         "cyan_wool",
         "purple_wool",
         "gray_wool",
+        "light_blue_wool",
+        "blue_wool",
+        "yellow_wool",
+        "lime_wool",
+        "brown_wool",
+        "magenta_wool",
+        "white_wool",
+        "black_wool"
+    ],
+    "light_gray_wool": [
+        "red_wool",
+        "green_wool",
+        "pink_wool",
+        "cyan_wool",
+        "purple_wool",
+        "gray_wool",
+        "light_blue_wool",
+        "blue_wool",
+        "yellow_wool",
+        "lime_wool",
+        "brown_wool",
+        "magenta_wool",
+        "white_wool",
+        "orange_wool",
+        "black_wool"
+    ],
+    "gray_wool": [
+        "red_wool",
+        "light_gray_wool",
+        "green_wool",
+        "pink_wool",
+        "cyan_wool",
+        "purple_wool",
+        "light_blue_wool",
         "blue_wool",
         "yellow_wool",
         "lime_wool",
@@ -520,6 +520,229 @@
     ],
     "redstone": [
         "redstone_block"
+    ],
+    "plutonium_ingot": [
+        "plutonium_block",
+        "plutonium_nugget"
+    ],
+    "vertical_moon_slab": [
+        "moon_stone_slab"
+    ],
+    "magenta_chunk_loader": [
+        "chunk_loader",
+        "light_gray_chunk_loader",
+        "red_chunk_loader",
+        "cyan_chunk_loader",
+        "white_chunk_loader",
+        "lime_chunk_loader",
+        "yellow_chunk_loader",
+        "light_blue_chunk_loader",
+        "purple_chunk_loader",
+        "pink_chunk_loader",
+        "gray_chunk_loader",
+        "black_chunk_loader",
+        "orange_chunk_loader",
+        "green_chunk_loader",
+        "blue_chunk_loader",
+        "brown_chunk_loader"
+    ],
+    "red_chunk_loader": [
+        "chunk_loader",
+        "light_gray_chunk_loader",
+        "cyan_chunk_loader",
+        "white_chunk_loader",
+        "lime_chunk_loader",
+        "yellow_chunk_loader",
+        "light_blue_chunk_loader",
+        "purple_chunk_loader",
+        "pink_chunk_loader",
+        "gray_chunk_loader",
+        "magenta_chunk_loader",
+        "black_chunk_loader",
+        "orange_chunk_loader",
+        "green_chunk_loader",
+        "blue_chunk_loader",
+        "brown_chunk_loader"
+    ],
+    "white_chunk_loader": [
+        "chunk_loader",
+        "light_gray_chunk_loader",
+        "red_chunk_loader",
+        "cyan_chunk_loader",
+        "lime_chunk_loader",
+        "yellow_chunk_loader",
+        "light_blue_chunk_loader",
+        "purple_chunk_loader",
+        "pink_chunk_loader",
+        "gray_chunk_loader",
+        "magenta_chunk_loader",
+        "black_chunk_loader",
+        "orange_chunk_loader",
+        "green_chunk_loader",
+        "blue_chunk_loader",
+        "brown_chunk_loader"
+    ],
+    "pink_chunk_loader": [
+        "chunk_loader",
+        "light_gray_chunk_loader",
+        "red_chunk_loader",
+        "cyan_chunk_loader",
+        "white_chunk_loader",
+        "lime_chunk_loader",
+        "yellow_chunk_loader",
+        "light_blue_chunk_loader",
+        "purple_chunk_loader",
+        "gray_chunk_loader",
+        "magenta_chunk_loader",
+        "black_chunk_loader",
+        "orange_chunk_loader",
+        "green_chunk_loader",
+        "blue_chunk_loader",
+        "brown_chunk_loader"
+    ],
+    "orange_chunk_loader": [
+        "chunk_loader",
+        "light_gray_chunk_loader",
+        "red_chunk_loader",
+        "cyan_chunk_loader",
+        "white_chunk_loader",
+        "lime_chunk_loader",
+        "yellow_chunk_loader",
+        "light_blue_chunk_loader",
+        "purple_chunk_loader",
+        "pink_chunk_loader",
+        "gray_chunk_loader",
+        "magenta_chunk_loader",
+        "black_chunk_loader",
+        "green_chunk_loader",
+        "blue_chunk_loader",
+        "brown_chunk_loader"
+    ],
+    "green_chunk_loader": [
+        "chunk_loader",
+        "light_gray_chunk_loader",
+        "red_chunk_loader",
+        "cyan_chunk_loader",
+        "white_chunk_loader",
+        "lime_chunk_loader",
+        "yellow_chunk_loader",
+        "light_blue_chunk_loader",
+        "purple_chunk_loader",
+        "pink_chunk_loader",
+        "gray_chunk_loader",
+        "magenta_chunk_loader",
+        "black_chunk_loader",
+        "orange_chunk_loader",
+        "blue_chunk_loader",
+        "brown_chunk_loader"
+    ],
+    "black_chunk_loader": [
+        "chunk_loader",
+        "light_gray_chunk_loader",
+        "red_chunk_loader",
+        "cyan_chunk_loader",
+        "white_chunk_loader",
+        "lime_chunk_loader",
+        "yellow_chunk_loader",
+        "light_blue_chunk_loader",
+        "purple_chunk_loader",
+        "pink_chunk_loader",
+        "gray_chunk_loader",
+        "magenta_chunk_loader",
+        "orange_chunk_loader",
+        "green_chunk_loader",
+        "blue_chunk_loader",
+        "brown_chunk_loader"
+    ],
+    "light_gray_chunk_loader": [
+        "chunk_loader",
+        "red_chunk_loader",
+        "cyan_chunk_loader",
+        "white_chunk_loader",
+        "lime_chunk_loader",
+        "yellow_chunk_loader",
+        "light_blue_chunk_loader",
+        "purple_chunk_loader",
+        "pink_chunk_loader",
+        "gray_chunk_loader",
+        "magenta_chunk_loader",
+        "black_chunk_loader",
+        "orange_chunk_loader",
+        "green_chunk_loader",
+        "blue_chunk_loader",
+        "brown_chunk_loader"
+    ],
+    "cyan_chunk_loader": [
+        "chunk_loader",
+        "light_gray_chunk_loader",
+        "red_chunk_loader",
+        "white_chunk_loader",
+        "lime_chunk_loader",
+        "yellow_chunk_loader",
+        "light_blue_chunk_loader",
+        "purple_chunk_loader",
+        "pink_chunk_loader",
+        "gray_chunk_loader",
+        "magenta_chunk_loader",
+        "black_chunk_loader",
+        "orange_chunk_loader",
+        "green_chunk_loader",
+        "blue_chunk_loader",
+        "brown_chunk_loader"
+    ],
+    "gray_chunk_loader": [
+        "chunk_loader",
+        "light_gray_chunk_loader",
+        "red_chunk_loader",
+        "cyan_chunk_loader",
+        "white_chunk_loader",
+        "lime_chunk_loader",
+        "yellow_chunk_loader",
+        "light_blue_chunk_loader",
+        "purple_chunk_loader",
+        "pink_chunk_loader",
+        "magenta_chunk_loader",
+        "black_chunk_loader",
+        "orange_chunk_loader",
+        "green_chunk_loader",
+        "blue_chunk_loader",
+        "brown_chunk_loader"
+    ],
+    "lime_chunk_loader": [
+        "chunk_loader",
+        "light_gray_chunk_loader",
+        "red_chunk_loader",
+        "cyan_chunk_loader",
+        "white_chunk_loader",
+        "yellow_chunk_loader",
+        "light_blue_chunk_loader",
+        "purple_chunk_loader",
+        "pink_chunk_loader",
+        "gray_chunk_loader",
+        "magenta_chunk_loader",
+        "black_chunk_loader",
+        "orange_chunk_loader",
+        "green_chunk_loader",
+        "blue_chunk_loader",
+        "brown_chunk_loader"
+    ],
+    "purple_chunk_loader": [
+        "chunk_loader",
+        "light_gray_chunk_loader",
+        "red_chunk_loader",
+        "cyan_chunk_loader",
+        "white_chunk_loader",
+        "lime_chunk_loader",
+        "yellow_chunk_loader",
+        "light_blue_chunk_loader",
+        "pink_chunk_loader",
+        "gray_chunk_loader",
+        "magenta_chunk_loader",
+        "black_chunk_loader",
+        "orange_chunk_loader",
+        "green_chunk_loader",
+        "blue_chunk_loader",
+        "brown_chunk_loader"
     ],
     "blue_chunk_loader": [
         "chunk_loader",
@@ -557,25 +780,7 @@
         "green_chunk_loader",
         "blue_chunk_loader"
     ],
-    "cyan_chunk_loader": [
-        "chunk_loader",
-        "light_gray_chunk_loader",
-        "red_chunk_loader",
-        "white_chunk_loader",
-        "lime_chunk_loader",
-        "yellow_chunk_loader",
-        "light_blue_chunk_loader",
-        "purple_chunk_loader",
-        "pink_chunk_loader",
-        "gray_chunk_loader",
-        "magenta_chunk_loader",
-        "black_chunk_loader",
-        "orange_chunk_loader",
-        "green_chunk_loader",
-        "blue_chunk_loader",
-        "brown_chunk_loader"
-    ],
-    "black_chunk_loader": [
+    "light_blue_chunk_loader": [
         "chunk_loader",
         "light_gray_chunk_loader",
         "red_chunk_loader",
@@ -583,42 +788,6 @@
         "white_chunk_loader",
         "lime_chunk_loader",
         "yellow_chunk_loader",
-        "light_blue_chunk_loader",
-        "purple_chunk_loader",
-        "pink_chunk_loader",
-        "gray_chunk_loader",
-        "magenta_chunk_loader",
-        "orange_chunk_loader",
-        "green_chunk_loader",
-        "blue_chunk_loader",
-        "brown_chunk_loader"
-    ],
-    "gray_chunk_loader": [
-        "chunk_loader",
-        "light_gray_chunk_loader",
-        "red_chunk_loader",
-        "cyan_chunk_loader",
-        "white_chunk_loader",
-        "lime_chunk_loader",
-        "yellow_chunk_loader",
-        "light_blue_chunk_loader",
-        "purple_chunk_loader",
-        "pink_chunk_loader",
-        "magenta_chunk_loader",
-        "black_chunk_loader",
-        "orange_chunk_loader",
-        "green_chunk_loader",
-        "blue_chunk_loader",
-        "brown_chunk_loader"
-    ],
-    "red_chunk_loader": [
-        "chunk_loader",
-        "light_gray_chunk_loader",
-        "cyan_chunk_loader",
-        "white_chunk_loader",
-        "lime_chunk_loader",
-        "yellow_chunk_loader",
-        "light_blue_chunk_loader",
         "purple_chunk_loader",
         "pink_chunk_loader",
         "gray_chunk_loader",
@@ -647,167 +816,14 @@
         "blue_chunk_loader",
         "brown_chunk_loader"
     ],
-    "purple_chunk_loader": [
-        "chunk_loader",
-        "light_gray_chunk_loader",
-        "red_chunk_loader",
-        "cyan_chunk_loader",
-        "white_chunk_loader",
-        "lime_chunk_loader",
-        "yellow_chunk_loader",
-        "light_blue_chunk_loader",
-        "pink_chunk_loader",
-        "gray_chunk_loader",
-        "magenta_chunk_loader",
-        "black_chunk_loader",
-        "orange_chunk_loader",
-        "green_chunk_loader",
-        "blue_chunk_loader",
-        "brown_chunk_loader"
+    "vertical_mars_slab": [
+        "mars_stone_slab"
     ],
-    "orange_chunk_loader": [
-        "chunk_loader",
-        "light_gray_chunk_loader",
-        "red_chunk_loader",
-        "cyan_chunk_loader",
-        "white_chunk_loader",
-        "lime_chunk_loader",
-        "yellow_chunk_loader",
-        "light_blue_chunk_loader",
-        "purple_chunk_loader",
-        "pink_chunk_loader",
-        "gray_chunk_loader",
-        "magenta_chunk_loader",
-        "black_chunk_loader",
-        "green_chunk_loader",
-        "blue_chunk_loader",
-        "brown_chunk_loader"
+    "heavy_metal_ingot": [
+        "heavy_metal_plate"
     ],
-    "white_chunk_loader": [
-        "chunk_loader",
-        "light_gray_chunk_loader",
-        "red_chunk_loader",
-        "cyan_chunk_loader",
-        "lime_chunk_loader",
-        "yellow_chunk_loader",
-        "light_blue_chunk_loader",
-        "purple_chunk_loader",
-        "pink_chunk_loader",
-        "gray_chunk_loader",
-        "magenta_chunk_loader",
-        "black_chunk_loader",
-        "orange_chunk_loader",
-        "green_chunk_loader",
-        "blue_chunk_loader",
-        "brown_chunk_loader"
-    ],
-    "green_chunk_loader": [
-        "chunk_loader",
-        "light_gray_chunk_loader",
-        "red_chunk_loader",
-        "cyan_chunk_loader",
-        "white_chunk_loader",
-        "lime_chunk_loader",
-        "yellow_chunk_loader",
-        "light_blue_chunk_loader",
-        "purple_chunk_loader",
-        "pink_chunk_loader",
-        "gray_chunk_loader",
-        "magenta_chunk_loader",
-        "black_chunk_loader",
-        "orange_chunk_loader",
-        "blue_chunk_loader",
-        "brown_chunk_loader"
-    ],
-    "magenta_chunk_loader": [
-        "chunk_loader",
-        "light_gray_chunk_loader",
-        "red_chunk_loader",
-        "cyan_chunk_loader",
-        "white_chunk_loader",
-        "lime_chunk_loader",
-        "yellow_chunk_loader",
-        "light_blue_chunk_loader",
-        "purple_chunk_loader",
-        "pink_chunk_loader",
-        "gray_chunk_loader",
-        "black_chunk_loader",
-        "orange_chunk_loader",
-        "green_chunk_loader",
-        "blue_chunk_loader",
-        "brown_chunk_loader"
-    ],
-    "lime_chunk_loader": [
-        "chunk_loader",
-        "light_gray_chunk_loader",
-        "red_chunk_loader",
-        "cyan_chunk_loader",
-        "white_chunk_loader",
-        "yellow_chunk_loader",
-        "light_blue_chunk_loader",
-        "purple_chunk_loader",
-        "pink_chunk_loader",
-        "gray_chunk_loader",
-        "magenta_chunk_loader",
-        "black_chunk_loader",
-        "orange_chunk_loader",
-        "green_chunk_loader",
-        "blue_chunk_loader",
-        "brown_chunk_loader"
-    ],
-    "pink_chunk_loader": [
-        "chunk_loader",
-        "light_gray_chunk_loader",
-        "red_chunk_loader",
-        "cyan_chunk_loader",
-        "white_chunk_loader",
-        "lime_chunk_loader",
-        "yellow_chunk_loader",
-        "light_blue_chunk_loader",
-        "purple_chunk_loader",
-        "gray_chunk_loader",
-        "magenta_chunk_loader",
-        "black_chunk_loader",
-        "orange_chunk_loader",
-        "green_chunk_loader",
-        "blue_chunk_loader",
-        "brown_chunk_loader"
-    ],
-    "light_gray_chunk_loader": [
-        "chunk_loader",
-        "red_chunk_loader",
-        "cyan_chunk_loader",
-        "white_chunk_loader",
-        "lime_chunk_loader",
-        "yellow_chunk_loader",
-        "light_blue_chunk_loader",
-        "purple_chunk_loader",
-        "pink_chunk_loader",
-        "gray_chunk_loader",
-        "magenta_chunk_loader",
-        "black_chunk_loader",
-        "orange_chunk_loader",
-        "green_chunk_loader",
-        "blue_chunk_loader",
-        "brown_chunk_loader"
-    ],
-    "light_blue_chunk_loader": [
-        "chunk_loader",
-        "light_gray_chunk_loader",
-        "red_chunk_loader",
-        "cyan_chunk_loader",
-        "white_chunk_loader",
-        "lime_chunk_loader",
-        "yellow_chunk_loader",
-        "purple_chunk_loader",
-        "pink_chunk_loader",
-        "gray_chunk_loader",
-        "magenta_chunk_loader",
-        "black_chunk_loader",
-        "orange_chunk_loader",
-        "green_chunk_loader",
-        "blue_chunk_loader",
-        "brown_chunk_loader"
+    "raw_steel_ingot": [
+        "raw_steel_block"
     ],
     "light_blue_bed": [
         "brown_bed",
@@ -824,6 +840,91 @@
         "gray_bed",
         "white_bed",
         "light_gray_bed",
+        "lime_bed"
+    ],
+    "pink_bed": [
+        "brown_bed",
+        "orange_bed",
+        "magenta_bed",
+        "yellow_bed",
+        "purple_bed",
+        "green_bed",
+        "black_bed",
+        "red_bed",
+        "blue_bed",
+        "cyan_bed",
+        "gray_bed",
+        "white_bed",
+        "light_gray_bed",
+        "light_blue_bed",
+        "lime_bed"
+    ],
+    "yellow_bed": [
+        "brown_bed",
+        "orange_bed",
+        "magenta_bed",
+        "purple_bed",
+        "pink_bed",
+        "green_bed",
+        "black_bed",
+        "red_bed",
+        "blue_bed",
+        "cyan_bed",
+        "gray_bed",
+        "white_bed",
+        "light_gray_bed",
+        "light_blue_bed",
+        "lime_bed"
+    ],
+    "purple_bed": [
+        "brown_bed",
+        "orange_bed",
+        "magenta_bed",
+        "yellow_bed",
+        "pink_bed",
+        "green_bed",
+        "black_bed",
+        "red_bed",
+        "blue_bed",
+        "cyan_bed",
+        "gray_bed",
+        "white_bed",
+        "light_gray_bed",
+        "light_blue_bed",
+        "lime_bed"
+    ],
+    "lime_bed": [
+        "brown_bed",
+        "orange_bed",
+        "magenta_bed",
+        "yellow_bed",
+        "purple_bed",
+        "pink_bed",
+        "green_bed",
+        "black_bed",
+        "red_bed",
+        "blue_bed",
+        "cyan_bed",
+        "gray_bed",
+        "white_bed",
+        "light_gray_bed",
+        "light_blue_bed"
+    ],
+    "red_bed": [
+        "brown_bed",
+        "orange_bed",
+        "magenta_bed",
+        "yellow_bed",
+        "purple_bed",
+        "pink_bed",
+        "green_bed",
+        "black_bed",
+        "blue_bed",
+        "cyan_bed",
+        "gray_bed",
+        "white_bed",
+        "light_gray_bed",
+        "light_blue_bed",
         "lime_bed"
     ],
     "blue_bed": [
@@ -843,14 +944,82 @@
         "light_blue_bed",
         "lime_bed"
     ],
-    "pink_bed": [
+    "magenta_bed": [
+        "brown_bed",
+        "orange_bed",
+        "yellow_bed",
+        "purple_bed",
+        "pink_bed",
+        "green_bed",
+        "black_bed",
+        "red_bed",
+        "blue_bed",
+        "cyan_bed",
+        "gray_bed",
+        "white_bed",
+        "light_gray_bed",
+        "light_blue_bed",
+        "lime_bed"
+    ],
+    "gray_bed": [
         "brown_bed",
         "orange_bed",
         "magenta_bed",
         "yellow_bed",
         "purple_bed",
+        "pink_bed",
         "green_bed",
         "black_bed",
+        "red_bed",
+        "blue_bed",
+        "cyan_bed",
+        "white_bed",
+        "light_gray_bed",
+        "light_blue_bed",
+        "lime_bed"
+    ],
+    "white_bed": [
+        "brown_bed",
+        "orange_bed",
+        "magenta_bed",
+        "yellow_bed",
+        "purple_bed",
+        "pink_bed",
+        "green_bed",
+        "black_bed",
+        "red_bed",
+        "blue_bed",
+        "cyan_bed",
+        "gray_bed",
+        "light_gray_bed",
+        "light_blue_bed",
+        "lime_bed"
+    ],
+    "orange_bed": [
+        "brown_bed",
+        "magenta_bed",
+        "yellow_bed",
+        "purple_bed",
+        "pink_bed",
+        "green_bed",
+        "black_bed",
+        "red_bed",
+        "blue_bed",
+        "cyan_bed",
+        "gray_bed",
+        "white_bed",
+        "light_gray_bed",
+        "light_blue_bed",
+        "lime_bed"
+    ],
+    "black_bed": [
+        "brown_bed",
+        "orange_bed",
+        "magenta_bed",
+        "yellow_bed",
+        "purple_bed",
+        "pink_bed",
+        "green_bed",
         "red_bed",
         "blue_bed",
         "cyan_bed",
@@ -871,23 +1040,6 @@
         "black_bed",
         "red_bed",
         "blue_bed",
-        "gray_bed",
-        "white_bed",
-        "light_gray_bed",
-        "light_blue_bed",
-        "lime_bed"
-    ],
-    "magenta_bed": [
-        "brown_bed",
-        "orange_bed",
-        "yellow_bed",
-        "purple_bed",
-        "pink_bed",
-        "green_bed",
-        "black_bed",
-        "red_bed",
-        "blue_bed",
-        "cyan_bed",
         "gray_bed",
         "white_bed",
         "light_gray_bed",
@@ -928,142 +1080,6 @@
         "light_blue_bed",
         "lime_bed"
     ],
-    "orange_bed": [
-        "brown_bed",
-        "magenta_bed",
-        "yellow_bed",
-        "purple_bed",
-        "pink_bed",
-        "green_bed",
-        "black_bed",
-        "red_bed",
-        "blue_bed",
-        "cyan_bed",
-        "gray_bed",
-        "white_bed",
-        "light_gray_bed",
-        "light_blue_bed",
-        "lime_bed"
-    ],
-    "black_bed": [
-        "brown_bed",
-        "orange_bed",
-        "magenta_bed",
-        "yellow_bed",
-        "purple_bed",
-        "pink_bed",
-        "green_bed",
-        "red_bed",
-        "blue_bed",
-        "cyan_bed",
-        "gray_bed",
-        "white_bed",
-        "light_gray_bed",
-        "light_blue_bed",
-        "lime_bed"
-    ],
-    "yellow_bed": [
-        "brown_bed",
-        "orange_bed",
-        "magenta_bed",
-        "purple_bed",
-        "pink_bed",
-        "green_bed",
-        "black_bed",
-        "red_bed",
-        "blue_bed",
-        "cyan_bed",
-        "gray_bed",
-        "white_bed",
-        "light_gray_bed",
-        "light_blue_bed",
-        "lime_bed"
-    ],
-    "white_bed": [
-        "brown_bed",
-        "orange_bed",
-        "magenta_bed",
-        "yellow_bed",
-        "purple_bed",
-        "pink_bed",
-        "green_bed",
-        "black_bed",
-        "red_bed",
-        "blue_bed",
-        "cyan_bed",
-        "gray_bed",
-        "light_gray_bed",
-        "light_blue_bed",
-        "lime_bed"
-    ],
-    "purple_bed": [
-        "brown_bed",
-        "orange_bed",
-        "magenta_bed",
-        "yellow_bed",
-        "pink_bed",
-        "green_bed",
-        "black_bed",
-        "red_bed",
-        "blue_bed",
-        "cyan_bed",
-        "gray_bed",
-        "white_bed",
-        "light_gray_bed",
-        "light_blue_bed",
-        "lime_bed"
-    ],
-    "lime_bed": [
-        "brown_bed",
-        "orange_bed",
-        "magenta_bed",
-        "yellow_bed",
-        "purple_bed",
-        "pink_bed",
-        "green_bed",
-        "black_bed",
-        "red_bed",
-        "blue_bed",
-        "cyan_bed",
-        "gray_bed",
-        "white_bed",
-        "light_gray_bed",
-        "light_blue_bed"
-    ],
-    "gray_bed": [
-        "brown_bed",
-        "orange_bed",
-        "magenta_bed",
-        "yellow_bed",
-        "purple_bed",
-        "pink_bed",
-        "green_bed",
-        "black_bed",
-        "red_bed",
-        "blue_bed",
-        "cyan_bed",
-        "white_bed",
-        "light_gray_bed",
-        "light_blue_bed",
-        "lime_bed"
-    ],
-    "red_bed": [
-        "brown_bed",
-        "orange_bed",
-        "magenta_bed",
-        "yellow_bed",
-        "purple_bed",
-        "pink_bed",
-        "green_bed",
-        "black_bed",
-        "blue_bed",
-        "cyan_bed",
-        "gray_bed",
-        "white_bed",
-        "light_gray_bed",
-        "light_blue_bed",
-        "lime_bed"
-    ],
     "zanite_gemstone": [
         "zanite_block"
     ],
@@ -1076,6 +1092,10 @@
     ],
     "raw_gold_block": [
         "raw_gold"
+    ],
+    "plutonium_piece": [
+        "plutonium_nugget",
+        "plutonium_grain"
     ],
     "orange_carpet": [
         "purple_carpet",
@@ -1097,6 +1117,9 @@
     "honey_block": [
         "honey_bottle"
     ],
+    "vertical_iron_plating_slab": [
+        "iron_plating_slab"
+    ],
     "chunk_loader": [
         "light_gray_chunk_loader",
         "red_chunk_loader",
@@ -1117,6 +1140,9 @@
     ],
     "diamond_block": [
         "diamond"
+    ],
+    "desh_plating_slab": [
+        "vertical_desh_plating_slab"
     ],
     "brown_bed": [
         "orange_bed",
@@ -1164,6 +1190,15 @@
     "iron_nugget": [
         "iron_ingot"
     ],
+    "vertical_venus_slab": [
+        "venus_stone_slab"
+    ],
+    "vertical_desh_plating_slab": [
+        "desh_plating_slab"
+    ],
+    "marcury_stone_slab": [
+        "vertical_mercury_slab"
+    ],
     "chiseled_sandstone": [
         "sandstone_slab"
     ],
@@ -1172,6 +1207,13 @@
     ],
     "raw_gold": [
         "raw_gold_block"
+    ],
+    "plutonium_grain": [
+        "plutonium_piece"
+    ],
+    "plutonium_nugget": [
+        "plutonium_piece",
+        "plutonium_ingot"
     ],
     "dried_kelp": [
         "dried_kelp_block"
@@ -1185,8 +1227,14 @@
     "slime_block": [
         "slime_ball"
     ],
+    "vertical_steel_slab": [
+        "steel_slab"
+    ],
     "netherite_ingot": [
         "netherite_block"
+    ],
+    "vertical_heavy_metal_plate_slab": [
+        "heavy_metal_slab"
     ],
     "gold_ingot": [
         "gold_nugget",
@@ -1198,14 +1246,35 @@
     "bone_block": [
         "bone_meal"
     ],
+    "venus_stone_slab": [
+        "vertical_venus_slab"
+    ],
+    "heavy_metal_plate": [
+        "heavy_metal_ingot"
+    ],
     "ambrosium_shard": [
         "ambrosium_block"
+    ],
+    "plutonium_block": [
+        "plutonium_ingot"
     ],
     "honey_bottle": [
         "honey_block"
     ],
+    "desh_block": [
+        "desh_ingot"
+    ],
     "hay_block": [
         "wheat"
+    ],
+    "desh_ingot": [
+        "desh_block"
+    ],
+    "heavy_metal_slab": [
+        "vertical_heavy_metal_plate_slab"
+    ],
+    "vertical_steel_plating_slab": [
+        "steel_plating_slab"
     ],
     "purpur_pillar": [
         "purpur_slab"
@@ -1222,11 +1291,23 @@
     "dried_kelp_block": [
         "dried_kelp"
     ],
+    "steel_slab": [
+        "vertical_steel_slab"
+    ],
+    "steel_plating_slab": [
+        "vertical_steel_plating_slab"
+    ],
     "netherite_block": [
         "netherite_ingot"
     ],
     "basic_chunk_loader": [
         "single_chunk_loader"
+    ],
+    "vertical_mercury_slab": [
+        "marcury_stone_slab"
+    ],
+    "iron_plating_slab": [
+        "vertical_iron_plating_slab"
     ],
     "quartz_slab": [
         "chiseled_quartz_block"
@@ -1237,6 +1318,16 @@
     "zanite_block": [
         "zanite_gemstone"
     ],
+    "mars_stone_slab": [
+        "vertical_mars_slab"
+    ],
+    "neptunium_ingot": [
+        "neptunium_block",
+        "neptunium_piece"
+    ],
+    "moon_stone_slab": [
+        "vertical_moon_slab"
+    ],
     "raw_iron": [
         "raw_iron_block"
     ],
@@ -1246,8 +1337,23 @@
     "bone_meal": [
         "bone_block"
     ],
+    "raw_uranium_block": [
+        "raw_uranium"
+    ],
     "wheat": [
         "hay_block"
+    ],
+    "raw_uranium": [
+        "raw_uranium_block"
+    ],
+    "raw_steel_block": [
+        "raw_steel_ingot"
+    ],
+    "neptunium_piece": [
+        "neptunium_ingot"
+    ],
+    "neptunium_block": [
+        "neptunium_ingot"
     ],
     "emerald": [
         "emerald_block"

@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "stellaris:uranium_ingot"
+            ],
+            "2": [
+                "stellaris:uranium_ingot"
+            ],
+            "3": [
+                "stellaris:uranium_ingot"
+            ],
+            "5": [
+                "stellaris:uranium_ingot"
+            ],
+            "6": [
+                "stellaris:uranium_ingot"
+            ],
+            "7": [
+                "stellaris:uranium_ingot"
+            ],
+            "9": [
+                "stellaris:uranium_ingot"
+            ],
+            "10": [
+                "stellaris:uranium_ingot"
+            ],
+            "11": [
+                "stellaris:uranium_ingot"
+            ]
+        },
+        "output": {
+            "id": "stellaris:uranium_block",
+            "count": 1
+        }
+    }
+]

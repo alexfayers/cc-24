@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:tinted_glass"
+            ],
+            "10": [
+                "minecraft:tinted_glass"
+            ],
+            "1": [
+                "minecraft:white_wool"
+            ],
+            "3": [
+                "minecraft:white_wool"
+            ],
+            "5": [
+                "minecraft:white_wool"
+            ],
+            "7": [
+                "minecraft:white_wool"
+            ],
+            "9": [
+                "#c:ingots/steel"
+            ],
+            "11": [
+                "#c:ingots/steel"
+            ],
+            "2": [
+                "minecraft:redstone_lamp"
+            ]
+        },
+        "output": {
+            "id": "stellaris:space_suit_helmet",
+            "count": 1
+        }
+    }
+]

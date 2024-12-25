@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "2": [
+                "#c:ingots/steel"
+            ],
+            "6": [
+                "#c:ingots/steel"
+            ],
+            "10": [
+                "minecraft:stick"
+            ]
+        },
+        "output": {
+            "id": "stellaris:steel_sword",
+            "count": 1
+        }
+    }
+]

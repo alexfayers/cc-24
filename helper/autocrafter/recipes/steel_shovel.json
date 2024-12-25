@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "2": [
+                "#c:ingots/steel"
+            ],
+            "6": [
+                "minecraft:stick"
+            ],
+            "10": [
+                "minecraft:stick"
+            ]
+        },
+        "output": {
+            "id": "stellaris:steel_shovel",
+            "count": 1
+        }
+    }
+]

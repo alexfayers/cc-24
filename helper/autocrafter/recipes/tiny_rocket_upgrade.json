@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "2": [
+                "stellaris:rocket_nose_cone"
+            ],
+            "6": [
+                "#c:nuggets/heavy_metal"
+            ],
+            "10": [
+                "stellaris:engine_fan"
+            ],
+            "9": [
+                "stellaris:rocket_fin"
+            ],
+            "11": [
+                "stellaris:rocket_fin"
+            ]
+        },
+        "output": {
+            "id": "stellaris:tiny_rocket_upgrade",
+            "count": 1
+        }
+    }
+]

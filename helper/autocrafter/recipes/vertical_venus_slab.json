@@ -1,0 +1,30 @@
+[
+    {
+        "input": {
+            "9": [
+                "stellaris:venus_stone_slab"
+            ]
+        },
+        "output": {
+            "id": "stellaris:vertical_venus_slab",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "stellaris:venus_stone"
+            ],
+            "5": [
+                "stellaris:venus_stone"
+            ],
+            "9": [
+                "stellaris:venus_stone"
+            ]
+        },
+        "output": {
+            "id": "stellaris:vertical_venus_slab",
+            "count": 6
+        }
+    }
+]

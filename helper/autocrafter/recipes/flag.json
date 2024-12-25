@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "2": [
+                "#c:ingots/steel"
+            ],
+            "6": [
+                "#c:ingots/steel"
+            ],
+            "10": [
+                "#c:ingots/steel"
+            ],
+            "3": [
+                "minecraft:gray_wool"
+            ]
+        },
+        "output": {
+            "id": "stellaris:flag",
+            "count": 1
+        }
+    }
+]
