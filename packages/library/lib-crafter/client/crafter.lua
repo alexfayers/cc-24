@@ -543,12 +543,12 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
                     goto nextItem
                 end
 
-                if previousCraftAttempts[getItemStub(slotItemName)] then
+                if previousCraftAttempts[slotItemName] then
                     -- we've already tried to craft this item, so don't try again (to prevent loops)
                     goto nextItem
                 end
 
-                previousCraftAttempts[getItemStub(recipe.output.id)] = true
+                previousCraftAttempts[recipe.output.id] = true
 
                 logger:debug("Need to craft %d %s (have %d)", craftCount, slotItemName, newItemCounts[slotItemName])
 
@@ -629,7 +629,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
 
         local slotItemNamesStubs = {}
         for _, slotItemName in pairs(slotItemNames) do
-            table.insert(slotItemNamesStubs, getItemStub(slotItemName))
+            table.insert(slotItemNamesStubs, getTagStub(slotItemName))
 
             local slotItemNameColorAmbivalent = make_color_ambivalent(slotItemName)
 
@@ -648,7 +648,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
         end
 
         if not didSubCraft or craftDepth > 1 then
-            logger:debug("Couldn't fill slot %d with %s for %s (depth %d)", slotNumber, itemNamesString, getItemStub(recipe.output.id), craftDepth)
+            logger:debug("Couldn't fill slot %d with %s for %s (depth %d)", slotNumber, itemNamesString, recipe.output.id, craftDepth)
         end
 
         if FAIL_FAST then
@@ -757,7 +757,7 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
                 --     end
                 -- end
 
-                table.insert(requiredItemNamesStubs, getItemStub(requiredItem[1] .. " (" .. requiredItem[2] .. ")"))
+                table.insert(requiredItemNamesStubs, getTagStub(requiredItem[1] .. " (" .. requiredItem[2] .. ")"))
             end
             local requiredItemNamesString = table.concat(requiredItemNamesStubs, ", ")
 
