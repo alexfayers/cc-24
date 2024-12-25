@@ -129,6 +129,21 @@ function Map:searchItemNames(search)
                 else
                     table.insert(results, itemName)
                 end
+            elseif stringFirstChar == "@" then
+                local firstSlot = slots[1]
+                if not firstSlot then
+                    goto continue
+                end
+                local slotEnchantmentStubs = firstSlot:getEnchantmentNameStubs()
+                if not slotEnchantmentStubs then
+                    goto continue
+                end
+                local searchEnchantmentStub = MapSlot.getNameStub(string.sub(search, 2))
+                if not tableHelpers.contains(slotEnchantmentStubs, searchEnchantmentStub) then
+                    goto continue
+                else
+                    table.insert(results, itemName)
+                end
             else
                 if string.match(itemName, search) then
                     table.insert(results, itemName)
@@ -165,6 +180,31 @@ function Map:getItemSlotsByTag(tag)
         for _, slot in ipairs(slots) do
             if tableHelpers.contains(slot.tags, tag) then
                 table.insert(results, slot)
+            end
+        end
+    end
+    return results
+end
+
+
+---Get the slots that have a specific enchantment
+---@param enchantment string The enchantment to search for
+---@return MapSlot[]
+function Map:getItemSlotsByEnchantment(enchantment)
+    self:waitIfPopulating()
+
+    local enchantment_name_stub = MapSlot.getNameStub(enchantment)
+
+    local results = {}
+    for _, slots in pairs(self.mapTable) do
+        for _, slot in ipairs(slots) do
+            local slotEnchantmentStubs = slot:getEnchantmentNameStubs()
+            if slotEnchantmentStubs then
+                for _, slotEnchantmentStub in ipairs(slotEnchantmentStubs) do
+                    if slotEnchantmentStub == enchantment_name_stub then
+                        table.insert(results, slot)
+                    end
+                end
             end
         end
     end
@@ -255,6 +295,8 @@ function Map:getSlotsBySearchString(search, fuzzy)
 
     if stringFirstChar == "#" then
         slots = self:getItemSlotsByTag(string.sub(search, 2))
+    elseif stringFirstChar == "@" then
+        slots = self:getItemSlotsByEnchantment(string.sub(search, 2))
     else
         slots = self:getItemSlots(MapSlot.fullNameFromNameStub(search))
 
@@ -299,6 +341,7 @@ function Map:getAllItemStubs()
     for _, slots in pairs(self.mapTable) do
         for _, slot in ipairs(slots) do
             for tag, _ in pairs(slot.tags) do
+                -- TODO: make this support enchants
                 tag = "#" .. tag
                 tagsUnique[tag] = true
             end

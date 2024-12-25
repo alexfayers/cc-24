@@ -8,14 +8,14 @@ local pretty = require("cc.pretty")
 
 -- types
 
----@alias SerializedMapSlotTable {name: string, chestName: string, slot: number, count: number, maxCount: number, isFull: boolean, tags: table<string, boolean>, displayName?: string}
+---@alias SerializedMapSlotTable {name: string, chestName: string, slot: number, count: number, maxCount: number, isFull: boolean, tags: table<string, boolean>, displayName?: string, enchantments?: ItemEnchantment[]} The serialized slot
 ---@alias SerializedMap table<string, SerializedMapSlotTable[]> The serialized storage map
 
 
 -- Class definition
 
 ---@class MapSlot
----@overload fun(name: string, chest: ccTweaked.peripherals.Inventory, slot: number, count: number, maxCount: number, isFull?: boolean, tags?: table<string, boolean>, displayName?: string): MapSlot
+---@overload fun(name: string, chest: ccTweaked.peripherals.Inventory, slot: number, count: number, maxCount: number, isFull?: boolean, tags?: table<string, boolean>, displayName?: string, enchantments?: ItemEnchantment[]): MapSlot
 MapSlot = class()
 
 ---Properties
@@ -31,7 +31,8 @@ MapSlot.EMPTY_SLOT_NAME = "empty"
 ---@param isFull boolean Whether the slot is full or not
 ---@param tags table<string, boolean>|nil The tags of the item
 ---@param displayName? string The readable name of the item
-function MapSlot:init(name, chest, slot, count, maxCount, isFull, tags, displayName)
+---@param enchantments? ItemEnchantment[] The enchantments on the item
+function MapSlot:init(name, chest, slot, count, maxCount, isFull, tags, displayName, enchantments)
     self.name = name
     self.chest = chest
     self.chestName = peripheral.getName(chest)
@@ -41,6 +42,7 @@ function MapSlot:init(name, chest, slot, count, maxCount, isFull, tags, displayN
     self.isFull = isFull or self:calcIsFull()
     self.tags = self.ensureUniqueTags(tags or {})
     self.displayName = displayName
+    self.enchantments = enchantments
 end
 
 
@@ -114,6 +116,23 @@ function MapSlot:markNotFull()
 end
 
 
+---Get the enchantment name stubs
+---@return string[]?
+function MapSlot:getEnchantmentNameStubs()
+    if not self.enchantments then
+        return nil
+    end
+
+    local nameStubs = {}
+    for _, enchantment in pairs(self.enchantments) do
+        table.insert(nameStubs, self.getNameStub(enchantment.name) .. "_" .. tostring(enchantment.level))
+    end
+
+    return nameStubs
+end
+
+
+
 ---Enrich a slot by using the item details function (meant to be called as a parallel task because it's slow)
 ---@return nil
 function MapSlot:enrich()
@@ -131,6 +150,7 @@ function MapSlot:enrich()
     self.maxCount = itemDetail.maxCount
     self.displayName = itemDetail.displayName
     self.tags = self.ensureUniqueTags(itemDetail.tags)
+    self.enchantments = itemDetail.enchantments
 
     self:updateIsFull()
 end
@@ -147,6 +167,7 @@ function MapSlot:serialize()
         isFull = self.isFull,
         tags = self.tags,
         displayName = self.displayName,
+        enchantments = self.enchantments,
     }
 end
 
@@ -165,6 +186,7 @@ function MapSlot.unserialize(data)
         data.maxCount,
         data.isFull,
         data.tags,
-        data.displayName
+        data.displayName,
+        data.enchantments
     )
 end
