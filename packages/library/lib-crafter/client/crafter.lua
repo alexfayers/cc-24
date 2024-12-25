@@ -482,7 +482,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
                 -- we don't have the count for this item yet
                 local itemCountRes, itemCountData = storageClient:getItemCount(slotItemName)
 
-                if not itemCountRes or itemCountData == nil then
+                if not itemCountRes or itemCountData == nil or itemCountData.count == nil then
                     logger:error("Failed to get item count for %s", slotItemName)
                     goto nextItem
                 end
