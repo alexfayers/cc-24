@@ -2,70 +2,70 @@
     {
         "input": {
             "2": [
-                "minecraft:black_dye"
+                "minecraft/black_dye"
             ],
             "5": [
-                "minecraft:black_dye"
+                "minecraft/black_dye"
             ],
             "7": [
-                "minecraft:black_dye"
+                "minecraft/black_dye"
             ],
             "6": [
-                "doggytalents:wool_collar"
+                "doggytalents/wool_collar"
             ],
             "10": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "1": [
-                "minecraft:white_dye"
+                "minecraft/white_dye"
             ],
             "3": [
-                "minecraft:white_dye"
+                "minecraft/white_dye"
             ],
             "9": [
-                "minecraft:white_dye"
+                "minecraft/white_dye"
             ],
             "11": [
-                "minecraft:white_dye"
+                "minecraft/white_dye"
             ]
         },
         "output": {
-            "id": "doggytalents:spotted_collar",
+            "id": "doggytalents/spotted_collar",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft:black_dye"
+                "minecraft/black_dye"
             ],
             "3": [
-                "minecraft:black_dye"
+                "minecraft/black_dye"
             ],
             "9": [
-                "minecraft:black_dye"
+                "minecraft/black_dye"
             ],
             "11": [
-                "minecraft:black_dye"
+                "minecraft/black_dye"
             ],
             "6": [
-                "doggytalents:wool_collar"
+                "doggytalents/wool_collar"
             ],
             "10": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "2": [
-                "minecraft:white_dye"
+                "minecraft/white_dye"
             ],
             "5": [
-                "minecraft:white_dye"
+                "minecraft/white_dye"
             ],
             "7": [
-                "minecraft:white_dye"
+                "minecraft/white_dye"
             ]
         },
         "output": {
-            "id": "doggytalents:spotted_collar",
+            "id": "doggytalents/spotted_collar",
             "count": 1
         }
     }

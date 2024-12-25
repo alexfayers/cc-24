@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft:lapis_lazuli"
+                "minecraft/lapis_lazuli"
             ],
             "2": [
-                "minecraft:lapis_lazuli"
+                "minecraft/lapis_lazuli"
             ],
             "3": [
-                "minecraft:lapis_lazuli"
+                "minecraft/lapis_lazuli"
             ],
             "5": [
-                "minecraft:lapis_lazuli"
+                "minecraft/lapis_lazuli"
             ],
             "6": [
-                "minecraft:lapis_lazuli"
+                "minecraft/lapis_lazuli"
             ],
             "7": [
-                "minecraft:lapis_lazuli"
+                "minecraft/lapis_lazuli"
             ],
             "9": [
-                "minecraft:lapis_lazuli"
+                "minecraft/lapis_lazuli"
             ],
             "10": [
-                "minecraft:lapis_lazuli"
+                "minecraft/lapis_lazuli"
             ],
             "11": [
-                "minecraft:lapis_lazuli"
+                "minecraft/lapis_lazuli"
             ]
         },
         "output": {
-            "id": "minecraft:lapis_block",
+            "id": "minecraft/lapis_block",
             "count": 1
         }
     }

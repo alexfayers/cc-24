@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft:tuff"
+                "minecraft/tuff"
             ],
             "5": [
-                "minecraft:tuff"
+                "minecraft/tuff"
             ],
             "6": [
-                "minecraft:tuff"
+                "minecraft/tuff"
             ],
             "9": [
-                "minecraft:tuff"
+                "minecraft/tuff"
             ],
             "10": [
-                "minecraft:tuff"
+                "minecraft/tuff"
             ],
             "11": [
-                "minecraft:tuff"
+                "minecraft/tuff"
             ]
         },
         "output": {
-            "id": "minecraft:tuff_stairs",
+            "id": "minecraft/tuff_stairs",
             "count": 4
         }
     }

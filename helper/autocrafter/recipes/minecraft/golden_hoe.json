@@ -2,20 +2,20 @@
     {
         "input": {
             "6": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "10": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "1": [
-                "minecraft:gold_ingot"
+                "minecraft/gold_ingot"
             ],
             "2": [
-                "minecraft:gold_ingot"
+                "minecraft/gold_ingot"
             ]
         },
         "output": {
-            "id": "minecraft:golden_hoe",
+            "id": "minecraft/golden_hoe",
             "count": 1
         }
     }

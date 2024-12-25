@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft:sugar"
+                "minecraft/sugar"
             ],
             "6": [
-                "minecraft:sugar"
+                "minecraft/sugar"
             ],
             "2": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "5": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ]
         },
         "output": {
-            "id": "doggytalents:energizer_stick",
+            "id": "doggytalents/energizer_stick",
             "count": 1
         }
     }

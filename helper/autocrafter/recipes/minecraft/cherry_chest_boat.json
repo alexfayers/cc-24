@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft:chest"
+                "minecraft/chest"
             ],
             "2": [
-                "minecraft:cherry_boat"
+                "minecraft/cherry_boat"
             ]
         },
         "output": {
-            "id": "minecraft:cherry_chest_boat",
+            "id": "minecraft/cherry_chest_boat",
             "count": 1
         }
     }

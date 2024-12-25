@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft:smooth_stone"
+                "minecraft/smooth_stone"
             ],
             "3": [
-                "minecraft:smooth_stone"
+                "minecraft/smooth_stone"
             ],
             "9": [
-                "minecraft:smooth_stone"
+                "minecraft/smooth_stone"
             ],
             "11": [
-                "minecraft:smooth_stone"
+                "minecraft/smooth_stone"
             ],
             "2": [
-                "minecraft:redstone"
+                "minecraft/redstone"
             ],
             "5": [
-                "minecraft:redstone"
+                "minecraft/redstone"
             ],
             "7": [
-                "minecraft:redstone"
+                "minecraft/redstone"
             ],
             "10": [
-                "minecraft:redstone"
+                "minecraft/redstone"
             ],
             "6": [
-                "minecraft:comparator"
+                "minecraft/comparator"
             ]
         },
         "output": {
-            "id": "mini_tardis:power_coupling",
+            "id": "mini_tardis/power_coupling",
             "count": 1
         }
     }

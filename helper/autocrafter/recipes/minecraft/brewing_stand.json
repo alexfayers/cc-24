@@ -11,11 +11,11 @@
                 "#minecraft:stone_crafting_materials"
             ],
             "2": [
-                "minecraft:blaze_rod"
+                "minecraft/blaze_rod"
             ]
         },
         "output": {
-            "id": "minecraft:brewing_stand",
+            "id": "minecraft/brewing_stand",
             "count": 1
         }
     }

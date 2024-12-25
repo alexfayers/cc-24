@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft:hopper"
+                "minecraft/hopper"
             ],
             "2": [
-                "minecraft:minecart"
+                "minecraft/minecart"
             ]
         },
         "output": {
-            "id": "minecraft:hopper_minecart",
+            "id": "minecraft/hopper_minecart",
             "count": 1
         }
     }

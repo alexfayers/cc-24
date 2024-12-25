@@ -2,29 +2,29 @@
     {
         "input": {
             "1": [
-                "minecraft:leather"
+                "minecraft/leather"
             ],
             "2": [
-                "minecraft:leather"
+                "minecraft/leather"
             ],
             "3": [
-                "minecraft:leather"
+                "minecraft/leather"
             ],
             "5": [
-                "minecraft:leather"
+                "minecraft/leather"
             ],
             "7": [
-                "minecraft:leather"
+                "minecraft/leather"
             ],
             "9": [
-                "minecraft:leather"
+                "minecraft/leather"
             ],
             "11": [
-                "minecraft:leather"
+                "minecraft/leather"
             ]
         },
         "output": {
-            "id": "minecraft:leather_leggings",
+            "id": "minecraft/leather_leggings",
             "count": 1
         }
     }

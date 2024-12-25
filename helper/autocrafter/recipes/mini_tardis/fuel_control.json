@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft:lever"
+                "minecraft/lever"
             ],
             "2": [
-                "minecraft:lever"
+                "minecraft/lever"
             ],
             "3": [
-                "minecraft:lever"
+                "minecraft/lever"
             ],
             "6": [
-                "minecraft:daylight_detector"
+                "minecraft/daylight_detector"
             ]
         },
         "output": {
-            "id": "mini_tardis:fuel_control",
+            "id": "mini_tardis/fuel_control",
             "count": 1
         }
     }

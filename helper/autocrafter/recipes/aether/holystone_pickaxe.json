@@ -2,13 +2,13 @@
     {
         "input": {
             "1": [
-                "aether:holystone"
+                "aether/holystone"
             ],
             "2": [
-                "aether:holystone"
+                "aether/holystone"
             ],
             "3": [
-                "aether:holystone"
+                "aether/holystone"
             ],
             "6": [
                 "#aether:skyroot_stick"
@@ -18,7 +18,7 @@
             ]
         },
         "output": {
-            "id": "aether:holystone_pickaxe",
+            "id": "aether/holystone_pickaxe",
             "count": 1
         }
     }

@@ -2,20 +2,20 @@
     {
         "input": {
             "2": [
-                "minecraft:amethyst_shard"
+                "minecraft/amethyst_shard"
             ],
             "5": [
-                "minecraft:amethyst_shard"
+                "minecraft/amethyst_shard"
             ],
             "7": [
-                "minecraft:amethyst_shard"
+                "minecraft/amethyst_shard"
             ],
             "6": [
-                "minecraft:sculk_sensor"
+                "minecraft/sculk_sensor"
             ]
         },
         "output": {
-            "id": "minecraft:calibrated_sculk_sensor",
+            "id": "minecraft/calibrated_sculk_sensor",
             "count": 1
         }
     }

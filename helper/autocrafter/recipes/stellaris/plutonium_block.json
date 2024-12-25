@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "stellaris:plutonium_ingot"
+                "stellaris/plutonium_ingot"
             ],
             "2": [
-                "stellaris:plutonium_ingot"
+                "stellaris/plutonium_ingot"
             ],
             "3": [
-                "stellaris:plutonium_ingot"
+                "stellaris/plutonium_ingot"
             ],
             "5": [
-                "stellaris:plutonium_ingot"
+                "stellaris/plutonium_ingot"
             ],
             "6": [
-                "stellaris:plutonium_ingot"
+                "stellaris/plutonium_ingot"
             ],
             "7": [
-                "stellaris:plutonium_ingot"
+                "stellaris/plutonium_ingot"
             ],
             "9": [
-                "stellaris:plutonium_ingot"
+                "stellaris/plutonium_ingot"
             ],
             "10": [
-                "stellaris:plutonium_ingot"
+                "stellaris/plutonium_ingot"
             ],
             "11": [
-                "stellaris:plutonium_ingot"
+                "stellaris/plutonium_ingot"
             ]
         },
         "output": {
-            "id": "stellaris:plutonium_block",
+            "id": "stellaris/plutonium_block",
             "count": 1
         }
     }

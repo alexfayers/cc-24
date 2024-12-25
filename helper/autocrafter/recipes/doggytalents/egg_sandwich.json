@@ -2,23 +2,23 @@
     {
         "input": {
             "2": [
-                "minecraft:bread"
+                "minecraft/bread"
             ],
             "10": [
-                "minecraft:bread"
+                "minecraft/bread"
             ],
             "5": [
-                "minecraft:egg"
+                "minecraft/egg"
             ],
             "6": [
-                "minecraft:egg"
+                "minecraft/egg"
             ],
             "7": [
-                "minecraft:egg"
+                "minecraft/egg"
             ]
         },
         "output": {
-            "id": "doggytalents:egg_sandwich",
+            "id": "doggytalents/egg_sandwich",
             "count": 3
         }
     }

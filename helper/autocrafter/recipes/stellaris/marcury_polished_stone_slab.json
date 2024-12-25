@@ -2,17 +2,17 @@
     {
         "input": {
             "9": [
-                "stellaris:polished_mercury_stone"
+                "stellaris/polished_mercury_stone"
             ],
             "10": [
-                "stellaris:polished_mercury_stone"
+                "stellaris/polished_mercury_stone"
             ],
             "11": [
-                "stellaris:polished_mercury_stone"
+                "stellaris/polished_mercury_stone"
             ]
         },
         "output": {
-            "id": "stellaris:marcury_polished_stone_slab",
+            "id": "stellaris/marcury_polished_stone_slab",
             "count": 4
         }
     }

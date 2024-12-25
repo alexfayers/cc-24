@@ -2,10 +2,10 @@
     {
         "input": {
             "6": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "10": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "1": [
                 "#minecraft:planks"
@@ -15,7 +15,7 @@
             ]
         },
         "output": {
-            "id": "minecraft:wooden_hoe",
+            "id": "minecraft/wooden_hoe",
             "count": 1
         }
     }

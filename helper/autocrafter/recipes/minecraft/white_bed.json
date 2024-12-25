@@ -2,41 +2,41 @@
     {
         "input": {
             "1": [
-                "minecraft:white_dye"
+                "minecraft/white_dye"
             ],
             "2": [
-                "minecraft:black_bed",
-                "minecraft:blue_bed",
-                "minecraft:brown_bed",
-                "minecraft:cyan_bed",
-                "minecraft:gray_bed",
-                "minecraft:green_bed",
-                "minecraft:light_blue_bed",
-                "minecraft:light_gray_bed",
-                "minecraft:lime_bed",
-                "minecraft:magenta_bed",
-                "minecraft:orange_bed",
-                "minecraft:pink_bed",
-                "minecraft:purple_bed",
-                "minecraft:red_bed",
-                "minecraft:yellow_bed"
+                "minecraft/black_bed",
+                "minecraft/blue_bed",
+                "minecraft/brown_bed",
+                "minecraft/cyan_bed",
+                "minecraft/gray_bed",
+                "minecraft/green_bed",
+                "minecraft/light_blue_bed",
+                "minecraft/light_gray_bed",
+                "minecraft/lime_bed",
+                "minecraft/magenta_bed",
+                "minecraft/orange_bed",
+                "minecraft/pink_bed",
+                "minecraft/purple_bed",
+                "minecraft/red_bed",
+                "minecraft/yellow_bed"
             ]
         },
         "output": {
-            "id": "minecraft:white_bed",
+            "id": "minecraft/white_bed",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft:white_wool"
+                "minecraft/white_wool"
             ],
             "2": [
-                "minecraft:white_wool"
+                "minecraft/white_wool"
             ],
             "3": [
-                "minecraft:white_wool"
+                "minecraft/white_wool"
             ],
             "5": [
                 "#minecraft:planks"
@@ -49,7 +49,7 @@
             ]
         },
         "output": {
-            "id": "minecraft:white_bed",
+            "id": "minecraft/white_bed",
             "count": 1
         }
     }

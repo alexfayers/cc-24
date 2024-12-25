@@ -2,23 +2,23 @@
     {
         "input": {
             "1": [
-                "minecraft:jungle_planks"
+                "minecraft/jungle_planks"
             ],
             "3": [
-                "minecraft:jungle_planks"
+                "minecraft/jungle_planks"
             ],
             "5": [
-                "minecraft:jungle_planks"
+                "minecraft/jungle_planks"
             ],
             "6": [
-                "minecraft:jungle_planks"
+                "minecraft/jungle_planks"
             ],
             "7": [
-                "minecraft:jungle_planks"
+                "minecraft/jungle_planks"
             ]
         },
         "output": {
-            "id": "minecraft:jungle_boat",
+            "id": "minecraft/jungle_boat",
             "count": 1
         }
     }

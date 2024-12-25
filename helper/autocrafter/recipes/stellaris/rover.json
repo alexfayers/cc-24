@@ -2,16 +2,16 @@
     {
         "input": {
             "1": [
-                "minecraft:iron_ingot"
+                "minecraft/iron_ingot"
             ],
             "3": [
-                "minecraft:iron_ingot"
+                "minecraft/iron_ingot"
             ],
             "2": [
-                "stellaris:cable"
+                "stellaris/cable"
             ],
             "6": [
-                "minecraft:bucket"
+                "minecraft/bucket"
             ],
             "5": [
                 "#c:ingots/heavy_metal"
@@ -26,11 +26,11 @@
                 "#c:ingots/heavy_metal"
             ],
             "10": [
-                "minecraft:redstone"
+                "minecraft/redstone"
             ]
         },
         "output": {
-            "id": "stellaris:rover",
+            "id": "stellaris/rover",
             "count": 1
         }
     }

@@ -14,7 +14,7 @@
                 "#c:ingots/heavy_metal"
             ],
             "6": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "1": [
                 "#c:nuggets/steel"
@@ -30,7 +30,7 @@
             ]
         },
         "output": {
-            "id": "stellaris:pumpjack_drill",
+            "id": "stellaris/pumpjack_drill",
             "count": 1
         }
     }

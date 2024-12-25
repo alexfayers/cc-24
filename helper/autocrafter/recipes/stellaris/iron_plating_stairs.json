@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "stellaris:iron_plating_block"
+                "stellaris/iron_plating_block"
             ],
             "5": [
-                "stellaris:iron_plating_block"
+                "stellaris/iron_plating_block"
             ],
             "6": [
-                "stellaris:iron_plating_block"
+                "stellaris/iron_plating_block"
             ],
             "9": [
-                "stellaris:iron_plating_block"
+                "stellaris/iron_plating_block"
             ],
             "10": [
-                "stellaris:iron_plating_block"
+                "stellaris/iron_plating_block"
             ],
             "11": [
-                "stellaris:iron_plating_block"
+                "stellaris/iron_plating_block"
             ]
         },
         "output": {
-            "id": "stellaris:iron_plating_stairs",
+            "id": "stellaris/iron_plating_stairs",
             "count": 4
         }
     }

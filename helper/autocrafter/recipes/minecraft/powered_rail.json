@@ -2,32 +2,32 @@
     {
         "input": {
             "6": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "10": [
-                "minecraft:redstone"
+                "minecraft/redstone"
             ],
             "1": [
-                "minecraft:gold_ingot"
+                "minecraft/gold_ingot"
             ],
             "3": [
-                "minecraft:gold_ingot"
+                "minecraft/gold_ingot"
             ],
             "5": [
-                "minecraft:gold_ingot"
+                "minecraft/gold_ingot"
             ],
             "7": [
-                "minecraft:gold_ingot"
+                "minecraft/gold_ingot"
             ],
             "9": [
-                "minecraft:gold_ingot"
+                "minecraft/gold_ingot"
             ],
             "11": [
-                "minecraft:gold_ingot"
+                "minecraft/gold_ingot"
             ]
         },
         "output": {
-            "id": "minecraft:powered_rail",
+            "id": "minecraft/powered_rail",
             "count": 6
         }
     }

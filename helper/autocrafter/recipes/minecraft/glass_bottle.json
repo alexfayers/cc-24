@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft:glass"
+                "minecraft/glass"
             ],
             "3": [
-                "minecraft:glass"
+                "minecraft/glass"
             ],
             "6": [
-                "minecraft:glass"
+                "minecraft/glass"
             ]
         },
         "output": {
-            "id": "minecraft:glass_bottle",
+            "id": "minecraft/glass_bottle",
             "count": 3
         }
     }

@@ -2,37 +2,37 @@
     {
         "input": {
             "6": [
-                "minecraft:blaze_rod"
+                "minecraft/blaze_rod"
             ],
             "2": [
-                "minecraft:waxed_copper_block"
+                "minecraft/waxed_copper_block"
             ],
             "5": [
-                "minecraft:waxed_copper_block"
+                "minecraft/waxed_copper_block"
             ],
             "7": [
-                "minecraft:waxed_copper_block"
+                "minecraft/waxed_copper_block"
             ],
             "10": [
-                "minecraft:redstone"
+                "minecraft/redstone"
             ]
         },
         "output": {
-            "id": "minecraft:waxed_copper_bulb",
+            "id": "minecraft/waxed_copper_bulb",
             "count": 4
         }
     },
     {
         "input": {
             "1": [
-                "minecraft:copper_bulb"
+                "minecraft/copper_bulb"
             ],
             "2": [
-                "minecraft:honeycomb"
+                "minecraft/honeycomb"
             ]
         },
         "output": {
-            "id": "minecraft:waxed_copper_bulb",
+            "id": "minecraft/waxed_copper_bulb",
             "count": 1
         }
     }

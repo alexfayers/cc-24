@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft:nautilus_shell"
+                "minecraft/nautilus_shell"
             ],
             "2": [
-                "minecraft:nautilus_shell"
+                "minecraft/nautilus_shell"
             ],
             "3": [
-                "minecraft:nautilus_shell"
+                "minecraft/nautilus_shell"
             ],
             "5": [
-                "minecraft:nautilus_shell"
+                "minecraft/nautilus_shell"
             ],
             "7": [
-                "minecraft:nautilus_shell"
+                "minecraft/nautilus_shell"
             ],
             "9": [
-                "minecraft:nautilus_shell"
+                "minecraft/nautilus_shell"
             ],
             "10": [
-                "minecraft:nautilus_shell"
+                "minecraft/nautilus_shell"
             ],
             "11": [
-                "minecraft:nautilus_shell"
+                "minecraft/nautilus_shell"
             ],
             "6": [
-                "minecraft:heart_of_the_sea"
+                "minecraft/heart_of_the_sea"
             ]
         },
         "output": {
-            "id": "minecraft:conduit",
+            "id": "minecraft/conduit",
             "count": 1
         }
     }

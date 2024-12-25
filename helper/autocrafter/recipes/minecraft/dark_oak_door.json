@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft:dark_oak_planks"
+                "minecraft/dark_oak_planks"
             ],
             "2": [
-                "minecraft:dark_oak_planks"
+                "minecraft/dark_oak_planks"
             ],
             "5": [
-                "minecraft:dark_oak_planks"
+                "minecraft/dark_oak_planks"
             ],
             "6": [
-                "minecraft:dark_oak_planks"
+                "minecraft/dark_oak_planks"
             ],
             "9": [
-                "minecraft:dark_oak_planks"
+                "minecraft/dark_oak_planks"
             ],
             "10": [
-                "minecraft:dark_oak_planks"
+                "minecraft/dark_oak_planks"
             ]
         },
         "output": {
-            "id": "minecraft:dark_oak_door",
+            "id": "minecraft/dark_oak_door",
             "count": 3
         }
     }

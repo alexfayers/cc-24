@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "stellaris:moon_stone_bricks"
+                "stellaris/moon_stone_bricks"
             ],
             "5": [
-                "stellaris:moon_stone_bricks"
+                "stellaris/moon_stone_bricks"
             ],
             "6": [
-                "stellaris:moon_stone_bricks"
+                "stellaris/moon_stone_bricks"
             ],
             "9": [
-                "stellaris:moon_stone_bricks"
+                "stellaris/moon_stone_bricks"
             ],
             "10": [
-                "stellaris:moon_stone_bricks"
+                "stellaris/moon_stone_bricks"
             ],
             "11": [
-                "stellaris:moon_stone_bricks"
+                "stellaris/moon_stone_bricks"
             ]
         },
         "output": {
-            "id": "stellaris:moon_stone_brick_stairs",
+            "id": "stellaris/moon_stone_brick_stairs",
             "count": 4
         }
     }

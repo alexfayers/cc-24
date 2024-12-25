@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft:granite"
+                "minecraft/granite"
             ],
             "2": [
-                "minecraft:granite"
+                "minecraft/granite"
             ],
             "3": [
-                "minecraft:granite"
+                "minecraft/granite"
             ]
         },
         "output": {
-            "id": "minecraft:granite_slab",
+            "id": "minecraft/granite_slab",
             "count": 6
         }
     }

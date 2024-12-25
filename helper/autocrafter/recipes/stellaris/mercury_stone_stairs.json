@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "stellaris:mercury_stone"
+                "stellaris/mercury_stone"
             ],
             "5": [
-                "stellaris:mercury_stone"
+                "stellaris/mercury_stone"
             ],
             "6": [
-                "stellaris:mercury_stone"
+                "stellaris/mercury_stone"
             ],
             "9": [
-                "stellaris:mercury_stone"
+                "stellaris/mercury_stone"
             ],
             "10": [
-                "stellaris:mercury_stone"
+                "stellaris/mercury_stone"
             ],
             "11": [
-                "stellaris:mercury_stone"
+                "stellaris/mercury_stone"
             ]
         },
         "output": {
-            "id": "stellaris:mercury_stone_stairs",
+            "id": "stellaris/mercury_stone_stairs",
             "count": 4
         }
     }

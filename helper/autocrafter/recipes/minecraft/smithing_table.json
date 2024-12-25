@@ -14,14 +14,14 @@
                 "#minecraft:planks"
             ],
             "1": [
-                "minecraft:iron_ingot"
+                "minecraft/iron_ingot"
             ],
             "2": [
-                "minecraft:iron_ingot"
+                "minecraft/iron_ingot"
             ]
         },
         "output": {
-            "id": "minecraft:smithing_table",
+            "id": "minecraft/smithing_table",
             "count": 1
         }
     },
@@ -47,7 +47,7 @@
             ]
         },
         "output": {
-            "id": "minecraft:smithing_table",
+            "id": "minecraft/smithing_table",
             "count": 1
         }
     }

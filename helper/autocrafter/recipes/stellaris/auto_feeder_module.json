@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "stellaris:base_module_tier_2"
+                "stellaris/base_module_tier_2"
             ],
             "2": [
-                "stellaris:vacuumator"
+                "stellaris/vacuumator"
             ]
         },
         "output": {
-            "id": "stellaris:auto_feeder_module",
+            "id": "stellaris/auto_feeder_module",
             "count": 1
         }
     }

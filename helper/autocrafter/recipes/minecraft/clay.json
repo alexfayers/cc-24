@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft:clay_ball"
+                "minecraft/clay_ball"
             ],
             "2": [
-                "minecraft:clay_ball"
+                "minecraft/clay_ball"
             ],
             "5": [
-                "minecraft:clay_ball"
+                "minecraft/clay_ball"
             ],
             "6": [
-                "minecraft:clay_ball"
+                "minecraft/clay_ball"
             ]
         },
         "output": {
-            "id": "minecraft:clay",
+            "id": "minecraft/clay",
             "count": 1
         }
     }

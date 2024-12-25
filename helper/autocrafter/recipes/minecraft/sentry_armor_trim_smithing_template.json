@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "3": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "5": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "7": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "9": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "10": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "11": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "6": [
-                "minecraft:cobblestone"
+                "minecraft/cobblestone"
             ],
             "2": [
-                "minecraft:sentry_armor_trim_smithing_template"
+                "minecraft/sentry_armor_trim_smithing_template"
             ]
         },
         "output": {
-            "id": "minecraft:sentry_armor_trim_smithing_template",
+            "id": "minecraft/sentry_armor_trim_smithing_template",
             "count": 2
         }
     }

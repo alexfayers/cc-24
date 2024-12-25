@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft:gunpowder"
+                "minecraft/gunpowder"
             ],
             "2": [
-                "minecraft:paper"
+                "minecraft/paper"
             ]
         },
         "output": {
-            "id": "minecraft:firework_rocket",
+            "id": "minecraft/firework_rocket",
             "count": 3
         }
     }

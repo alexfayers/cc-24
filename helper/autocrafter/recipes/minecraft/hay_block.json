@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "2": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "3": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "5": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "6": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "7": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "9": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "10": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "11": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ]
         },
         "output": {
-            "id": "minecraft:hay_block",
+            "id": "minecraft/hay_block",
             "count": 1
         }
     }

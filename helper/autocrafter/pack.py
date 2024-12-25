@@ -166,6 +166,14 @@ def prepare_recipe(recipe: dict) -> Optional[dict]:
         }
     }
 
+    for slot in prepared_recipe["input"]:
+        for item_index, item in enumerate(prepared_recipe["input"][slot]):
+            if not item.startswith("#"):
+                item = item.replace(":", "/")
+                prepared_recipe["input"][slot][item_index] = item
+
+    prepared_recipe["output"]["id"] = prepared_recipe["output"]["id"].replace(":", "/")
+
     return prepared_recipe
 
 

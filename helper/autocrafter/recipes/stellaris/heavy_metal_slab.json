@@ -2,28 +2,28 @@
     {
         "input": {
             "9": [
-                "stellaris:heavy_metal_plate"
+                "stellaris/heavy_metal_plate"
             ],
             "10": [
-                "stellaris:heavy_metal_plate"
+                "stellaris/heavy_metal_plate"
             ],
             "11": [
-                "stellaris:heavy_metal_plate"
+                "stellaris/heavy_metal_plate"
             ]
         },
         "output": {
-            "id": "stellaris:heavy_metal_slab",
+            "id": "stellaris/heavy_metal_slab",
             "count": 6
         }
     },
     {
         "input": {
             "9": [
-                "stellaris:vertical_heavy_metal_plate_slab"
+                "stellaris/vertical_heavy_metal_plate_slab"
             ]
         },
         "output": {
-            "id": "stellaris:heavy_metal_slab",
+            "id": "stellaris/heavy_metal_slab",
             "count": 1
         }
     }

@@ -2,32 +2,32 @@
     {
         "input": {
             "1": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "2": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "3": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "5": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "7": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "9": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "10": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "11": [
-                "minecraft:string"
+                "minecraft/string"
             ]
         },
         "output": {
-            "id": "doggytalents:wool_collar",
+            "id": "doggytalents/wool_collar",
             "count": 1
         }
     }

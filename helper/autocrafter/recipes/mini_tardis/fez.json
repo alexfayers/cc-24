@@ -2,14 +2,14 @@
     {
         "input": {
             "5": [
-                "minecraft:red_wool"
+                "minecraft/red_wool"
             ],
             "1": [
-                "minecraft:yellow_wool"
+                "minecraft/yellow_wool"
             ]
         },
         "output": {
-            "id": "mini_tardis:fez",
+            "id": "mini_tardis/fez",
             "count": 1
         }
     }

@@ -2,70 +2,70 @@
     {
         "input": {
             "1": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "2": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "3": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "5": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "7": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "9": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "10": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "11": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "6": [
-                "mini_tardis:tardis_lodestone_compass"
+                "mini_tardis/tardis_lodestone_compass"
             ]
         },
         "output": {
-            "id": "minecraft:map",
+            "id": "minecraft/map",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "2": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "3": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "5": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "7": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "9": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "10": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "11": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "6": [
-                "minecraft:compass"
+                "minecraft/compass"
             ]
         },
         "output": {
-            "id": "minecraft:map",
+            "id": "minecraft/map",
             "count": 1
         }
     }

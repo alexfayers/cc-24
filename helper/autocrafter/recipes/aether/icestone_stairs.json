@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "aether:icestone"
+                "aether/icestone"
             ],
             "5": [
-                "aether:icestone"
+                "aether/icestone"
             ],
             "6": [
-                "aether:icestone"
+                "aether/icestone"
             ],
             "9": [
-                "aether:icestone"
+                "aether/icestone"
             ],
             "10": [
-                "aether:icestone"
+                "aether/icestone"
             ],
             "11": [
-                "aether:icestone"
+                "aether/icestone"
             ]
         },
         "output": {
-            "id": "aether:icestone_stairs",
+            "id": "aether/icestone_stairs",
             "count": 4
         }
     }

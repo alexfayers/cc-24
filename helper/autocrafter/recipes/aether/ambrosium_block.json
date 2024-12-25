@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "aether:ambrosium_shard"
+                "aether/ambrosium_shard"
             ],
             "2": [
-                "aether:ambrosium_shard"
+                "aether/ambrosium_shard"
             ],
             "3": [
-                "aether:ambrosium_shard"
+                "aether/ambrosium_shard"
             ],
             "5": [
-                "aether:ambrosium_shard"
+                "aether/ambrosium_shard"
             ],
             "6": [
-                "aether:ambrosium_shard"
+                "aether/ambrosium_shard"
             ],
             "7": [
-                "aether:ambrosium_shard"
+                "aether/ambrosium_shard"
             ],
             "9": [
-                "aether:ambrosium_shard"
+                "aether/ambrosium_shard"
             ],
             "10": [
-                "aether:ambrosium_shard"
+                "aether/ambrosium_shard"
             ],
             "11": [
-                "aether:ambrosium_shard"
+                "aether/ambrosium_shard"
             ]
         },
         "output": {
-            "id": "aether:ambrosium_block",
+            "id": "aether/ambrosium_block",
             "count": 1
         }
     }

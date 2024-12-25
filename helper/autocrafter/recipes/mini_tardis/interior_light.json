@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft:redstone_lamp"
+                "minecraft/redstone_lamp"
             ],
             "3": [
-                "minecraft:redstone_lamp"
+                "minecraft/redstone_lamp"
             ],
             "2": [
-                "minecraft:gold_ingot"
+                "minecraft/gold_ingot"
             ]
         },
         "output": {
-            "id": "mini_tardis:interior_light",
+            "id": "mini_tardis/interior_light",
             "count": 2
         }
     }

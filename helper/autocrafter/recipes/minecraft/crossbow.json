@@ -2,29 +2,29 @@
     {
         "input": {
             "1": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "3": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "10": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "6": [
-                "minecraft:tripwire_hook"
+                "minecraft/tripwire_hook"
             ],
             "2": [
-                "minecraft:iron_ingot"
+                "minecraft/iron_ingot"
             ],
             "5": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "7": [
-                "minecraft:string"
+                "minecraft/string"
             ]
         },
         "output": {
-            "id": "minecraft:crossbow",
+            "id": "minecraft/crossbow",
             "count": 1
         }
     }

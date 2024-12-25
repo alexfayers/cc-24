@@ -2,29 +2,29 @@
     {
         "input": {
             "1": [
-                "minecraft:cherry_planks"
+                "minecraft/cherry_planks"
             ],
             "2": [
-                "minecraft:cherry_planks"
+                "minecraft/cherry_planks"
             ],
             "3": [
-                "minecraft:cherry_planks"
+                "minecraft/cherry_planks"
             ],
             "5": [
-                "minecraft:cherry_planks"
+                "minecraft/cherry_planks"
             ],
             "6": [
-                "minecraft:cherry_planks"
+                "minecraft/cherry_planks"
             ],
             "7": [
-                "minecraft:cherry_planks"
+                "minecraft/cherry_planks"
             ],
             "10": [
-                "minecraft:stick"
+                "minecraft/stick"
             ]
         },
         "output": {
-            "id": "minecraft:cherry_sign",
+            "id": "minecraft/cherry_sign",
             "count": 3
         }
     }

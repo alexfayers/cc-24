@@ -2,26 +2,26 @@
     {
         "input": {
             "3": [
-                "doggytalents:radio_collar"
+                "doggytalents/radio_collar"
             ],
             "2": [
-                "minecraft:gold_ingot"
+                "minecraft/gold_ingot"
             ],
             "5": [
-                "minecraft:gold_ingot"
+                "minecraft/gold_ingot"
             ],
             "7": [
-                "minecraft:gold_ingot"
+                "minecraft/gold_ingot"
             ],
             "10": [
-                "minecraft:gold_ingot"
+                "minecraft/gold_ingot"
             ],
             "6": [
-                "minecraft:map"
+                "minecraft/map"
             ]
         },
         "output": {
-            "id": "doggytalents:canine_tracker",
+            "id": "doggytalents/canine_tracker",
             "count": 1
         }
     }

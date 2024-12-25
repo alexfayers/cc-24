@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "stellaris:polished_mercury_stone"
+                "stellaris/polished_mercury_stone"
             ],
             "5": [
-                "stellaris:polished_mercury_stone"
+                "stellaris/polished_mercury_stone"
             ],
             "6": [
-                "stellaris:polished_mercury_stone"
+                "stellaris/polished_mercury_stone"
             ],
             "9": [
-                "stellaris:polished_mercury_stone"
+                "stellaris/polished_mercury_stone"
             ],
             "10": [
-                "stellaris:polished_mercury_stone"
+                "stellaris/polished_mercury_stone"
             ],
             "11": [
-                "stellaris:polished_mercury_stone"
+                "stellaris/polished_mercury_stone"
             ]
         },
         "output": {
-            "id": "stellaris:mercury_polished_stone_stairs",
+            "id": "stellaris/mercury_polished_stone_stairs",
             "count": 4
         }
     }

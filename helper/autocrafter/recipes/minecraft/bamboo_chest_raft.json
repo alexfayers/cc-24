@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft:chest"
+                "minecraft/chest"
             ],
             "2": [
-                "minecraft:bamboo_raft"
+                "minecraft/bamboo_raft"
             ]
         },
         "output": {
-            "id": "minecraft:bamboo_chest_raft",
+            "id": "minecraft/bamboo_chest_raft",
             "count": 1
         }
     }

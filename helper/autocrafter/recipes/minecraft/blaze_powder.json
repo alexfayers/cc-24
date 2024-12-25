@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "minecraft:blaze_rod"
+                "minecraft/blaze_rod"
             ]
         },
         "output": {
-            "id": "minecraft:blaze_powder",
+            "id": "minecraft/blaze_powder",
             "count": 2
         }
     }

@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft:warped_planks"
+                "minecraft/warped_planks"
             ],
             "2": [
-                "minecraft:warped_planks"
+                "minecraft/warped_planks"
             ],
             "3": [
-                "minecraft:warped_planks"
+                "minecraft/warped_planks"
             ]
         },
         "output": {
-            "id": "minecraft:warped_slab",
+            "id": "minecraft/warped_slab",
             "count": 6
         }
     }

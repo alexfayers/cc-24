@@ -6,7 +6,7 @@
             ]
         },
         "output": {
-            "id": "stellaris:steel_nugget",
+            "id": "stellaris/steel_nugget",
             "count": 9
         }
     }

@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "aether:ambrosium_block"
+                "aether/ambrosium_block"
             ]
         },
         "output": {
-            "id": "aether:ambrosium_shard",
+            "id": "aether/ambrosium_shard",
             "count": 9
         }
     }

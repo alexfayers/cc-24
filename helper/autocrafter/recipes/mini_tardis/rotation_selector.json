@@ -5,11 +5,11 @@
                 "#mini_tardis:compasses"
             ],
             "5": [
-                "minecraft:repeater"
+                "minecraft/repeater"
             ]
         },
         "output": {
-            "id": "mini_tardis:rotation_selector",
+            "id": "mini_tardis/rotation_selector",
             "count": 1
         }
     }

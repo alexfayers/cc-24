@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "minecraft:dark_oak_planks"
+                "minecraft/dark_oak_planks"
             ]
         },
         "output": {
-            "id": "minecraft:dark_oak_button",
+            "id": "minecraft/dark_oak_button",
             "count": 1
         }
     }

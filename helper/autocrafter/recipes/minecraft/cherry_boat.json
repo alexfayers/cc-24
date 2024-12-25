@@ -2,23 +2,23 @@
     {
         "input": {
             "1": [
-                "minecraft:cherry_planks"
+                "minecraft/cherry_planks"
             ],
             "3": [
-                "minecraft:cherry_planks"
+                "minecraft/cherry_planks"
             ],
             "5": [
-                "minecraft:cherry_planks"
+                "minecraft/cherry_planks"
             ],
             "6": [
-                "minecraft:cherry_planks"
+                "minecraft/cherry_planks"
             ],
             "7": [
-                "minecraft:cherry_planks"
+                "minecraft/cherry_planks"
             ]
         },
         "output": {
-            "id": "minecraft:cherry_boat",
+            "id": "minecraft/cherry_boat",
             "count": 1
         }
     }

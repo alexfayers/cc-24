@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "minecraft:hay_block"
+                "minecraft/hay_block"
             ]
         },
         "output": {
-            "id": "minecraft:wheat",
+            "id": "minecraft/wheat",
             "count": 9
         }
     }

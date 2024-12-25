@@ -2,25 +2,25 @@
     {
         "input": {
             "1": [
-                "minecraft:pitcher_plant"
+                "minecraft/pitcher_plant"
             ]
         },
         "output": {
-            "id": "minecraft:cyan_dye",
+            "id": "minecraft/cyan_dye",
             "count": 2
         }
     },
     {
         "input": {
             "1": [
-                "minecraft:blue_dye"
+                "minecraft/blue_dye"
             ],
             "2": [
-                "minecraft:green_dye"
+                "minecraft/green_dye"
             ]
         },
         "output": {
-            "id": "minecraft:cyan_dye",
+            "id": "minecraft/cyan_dye",
             "count": 2
         }
     }

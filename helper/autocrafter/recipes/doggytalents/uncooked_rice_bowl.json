@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft:bowl"
+                "minecraft/bowl"
             ],
             "2": [
-                "doggytalents:uncooked_rice"
+                "doggytalents/uncooked_rice"
             ],
             "3": [
-                "doggytalents:uncooked_rice"
+                "doggytalents/uncooked_rice"
             ],
             "5": [
-                "doggytalents:uncooked_rice"
+                "doggytalents/uncooked_rice"
             ],
             "6": [
-                "doggytalents:uncooked_rice"
+                "doggytalents/uncooked_rice"
             ],
             "7": [
-                "doggytalents:uncooked_rice"
+                "doggytalents/uncooked_rice"
             ]
         },
         "output": {
-            "id": "doggytalents:uncooked_rice_bowl",
+            "id": "doggytalents/uncooked_rice_bowl",
             "count": 1
         }
     }

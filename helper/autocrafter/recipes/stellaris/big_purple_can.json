@@ -2,14 +2,14 @@
     {
         "input": {
             "5": [
-                "stellaris:big_green_can"
+                "stellaris/big_green_can"
             ],
             "6": [
-                "minecraft:purple_dye"
+                "minecraft/purple_dye"
             ]
         },
         "output": {
-            "id": "stellaris:big_purple_can",
+            "id": "stellaris/big_purple_can",
             "count": 1
         }
     }

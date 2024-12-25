@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft:dirt"
+                "minecraft/dirt"
             ],
             "6": [
-                "minecraft:dirt"
+                "minecraft/dirt"
             ],
             "2": [
-                "minecraft:gravel"
+                "minecraft/gravel"
             ],
             "5": [
-                "minecraft:gravel"
+                "minecraft/gravel"
             ]
         },
         "output": {
-            "id": "minecraft:coarse_dirt",
+            "id": "minecraft/coarse_dirt",
             "count": 4
         }
     }

@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft:stone"
+                "minecraft/stone"
             ],
             "3": [
-                "minecraft:stone"
+                "minecraft/stone"
             ],
             "9": [
-                "minecraft:stone"
+                "minecraft/stone"
             ],
             "11": [
-                "minecraft:stone"
+                "minecraft/stone"
             ],
             "2": [
-                "minecraft:redstone_torch"
+                "minecraft/redstone_torch"
             ],
             "5": [
-                "loadmychunks:diamond_wire"
+                "loadmychunks/diamond_wire"
             ],
             "7": [
-                "loadmychunks:diamond_wire"
+                "loadmychunks/diamond_wire"
             ],
             "6": [
-                "minecraft:clock"
+                "minecraft/clock"
             ],
             "10": [
-                "minecraft:netherite_scrap"
+                "minecraft/netherite_scrap"
             ]
         },
         "output": {
-            "id": "loadmychunks:tickometer",
+            "id": "loadmychunks/tickometer",
             "count": 1
         }
     }

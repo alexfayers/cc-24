@@ -12,7 +12,7 @@
             ]
         },
         "output": {
-            "id": "aether:gravitite_shovel",
+            "id": "aether/gravitite_shovel",
             "count": 1
         }
     }

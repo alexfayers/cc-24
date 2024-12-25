@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft:oak_planks"
+                "minecraft/oak_planks"
             ],
             "2": [
-                "minecraft:oak_planks"
+                "minecraft/oak_planks"
             ],
             "3": [
-                "minecraft:oak_planks"
+                "minecraft/oak_planks"
             ]
         },
         "output": {
-            "id": "minecraft:oak_slab",
+            "id": "minecraft/oak_slab",
             "count": 6
         }
     }

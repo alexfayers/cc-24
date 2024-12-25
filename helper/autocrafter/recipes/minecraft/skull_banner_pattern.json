@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "2": [
-                "minecraft:wither_skeleton_skull"
+                "minecraft/wither_skeleton_skull"
             ]
         },
         "output": {
-            "id": "minecraft:skull_banner_pattern",
+            "id": "minecraft/skull_banner_pattern",
             "count": 1
         }
     }

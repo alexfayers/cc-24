@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft:polished_andesite"
+                "minecraft/polished_andesite"
             ],
             "5": [
-                "minecraft:polished_andesite"
+                "minecraft/polished_andesite"
             ],
             "6": [
-                "minecraft:polished_andesite"
+                "minecraft/polished_andesite"
             ],
             "9": [
-                "minecraft:polished_andesite"
+                "minecraft/polished_andesite"
             ],
             "10": [
-                "minecraft:polished_andesite"
+                "minecraft/polished_andesite"
             ],
             "11": [
-                "minecraft:polished_andesite"
+                "minecraft/polished_andesite"
             ]
         },
         "output": {
-            "id": "minecraft:polished_andesite_stairs",
+            "id": "minecraft/polished_andesite_stairs",
             "count": 4
         }
     }

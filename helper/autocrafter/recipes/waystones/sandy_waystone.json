@@ -2,29 +2,29 @@
     {
         "input": {
             "9": [
-                "minecraft:obsidian"
+                "minecraft/obsidian"
             ],
             "10": [
-                "minecraft:obsidian"
+                "minecraft/obsidian"
             ],
             "11": [
-                "minecraft:obsidian"
+                "minecraft/obsidian"
             ],
             "2": [
-                "minecraft:chiseled_sandstone"
+                "minecraft/chiseled_sandstone"
             ],
             "5": [
-                "minecraft:chiseled_sandstone"
+                "minecraft/chiseled_sandstone"
             ],
             "7": [
-                "minecraft:chiseled_sandstone"
+                "minecraft/chiseled_sandstone"
             ],
             "6": [
-                "waystones:warp_stone"
+                "waystones/warp_stone"
             ]
         },
         "output": {
-            "id": "waystones:sandy_waystone",
+            "id": "waystones/sandy_waystone",
             "count": 1
         }
     }

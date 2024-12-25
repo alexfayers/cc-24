@@ -26,11 +26,11 @@
                 "#c:ore_blocks/steel"
             ],
             "6": [
-                "minecraft:bucket"
+                "minecraft/bucket"
             ]
         },
         "output": {
-            "id": "stellaris:vacuumator",
+            "id": "stellaris/vacuumator",
             "count": 1
         }
     }

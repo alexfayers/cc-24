@@ -2,140 +2,140 @@
     {
         "input": {
             "1": [
-                "minecraft:milk_bucket"
+                "minecraft/milk_bucket"
             ],
             "2": [
-                "minecraft:milk_bucket"
+                "minecraft/milk_bucket"
             ],
             "3": [
-                "minecraft:milk_bucket"
+                "minecraft/milk_bucket"
             ],
             "5": [
-                "minecraft:sugar"
+                "minecraft/sugar"
             ],
             "7": [
-                "minecraft:sugar"
+                "minecraft/sugar"
             ],
             "9": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "10": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "11": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "6": [
-                "minecraft:egg"
+                "minecraft/egg"
             ]
         },
         "output": {
-            "id": "minecraft:cake",
+            "id": "minecraft/cake",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "aether:skyroot_milk_bucket"
+                "aether/skyroot_milk_bucket"
             ],
             "2": [
-                "aether:skyroot_milk_bucket"
+                "aether/skyroot_milk_bucket"
             ],
             "3": [
-                "aether:skyroot_milk_bucket"
+                "aether/skyroot_milk_bucket"
             ],
             "5": [
-                "minecraft:sugar"
+                "minecraft/sugar"
             ],
             "7": [
-                "minecraft:sugar"
+                "minecraft/sugar"
             ],
             "9": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "10": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "11": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "6": [
-                "minecraft:egg"
+                "minecraft/egg"
             ]
         },
         "output": {
-            "id": "minecraft:cake",
+            "id": "minecraft/cake",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "aether:skyroot_milk_bucket"
+                "aether/skyroot_milk_bucket"
             ],
             "2": [
-                "aether:skyroot_milk_bucket"
+                "aether/skyroot_milk_bucket"
             ],
             "3": [
-                "aether:skyroot_milk_bucket"
+                "aether/skyroot_milk_bucket"
             ],
             "5": [
-                "minecraft:sugar"
+                "minecraft/sugar"
             ],
             "7": [
-                "minecraft:sugar"
+                "minecraft/sugar"
             ],
             "9": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "10": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "11": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "6": [
                 "#aether:moa_eggs"
             ]
         },
         "output": {
-            "id": "minecraft:cake",
+            "id": "minecraft/cake",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft:milk_bucket"
+                "minecraft/milk_bucket"
             ],
             "2": [
-                "minecraft:milk_bucket"
+                "minecraft/milk_bucket"
             ],
             "3": [
-                "minecraft:milk_bucket"
+                "minecraft/milk_bucket"
             ],
             "5": [
-                "minecraft:sugar"
+                "minecraft/sugar"
             ],
             "7": [
-                "minecraft:sugar"
+                "minecraft/sugar"
             ],
             "9": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "10": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "11": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "6": [
                 "#aether:moa_eggs"
             ]
         },
         "output": {
-            "id": "minecraft:cake",
+            "id": "minecraft/cake",
             "count": 1
         }
     }

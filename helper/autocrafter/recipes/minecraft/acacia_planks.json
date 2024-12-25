@@ -6,7 +6,7 @@
             ]
         },
         "output": {
-            "id": "minecraft:acacia_planks",
+            "id": "minecraft/acacia_planks",
             "count": 4
         }
     }

@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "minecraft:gold_ingot"
+                "minecraft/gold_ingot"
             ]
         },
         "output": {
-            "id": "minecraft:gold_nugget",
+            "id": "minecraft/gold_nugget",
             "count": 9
         }
     }

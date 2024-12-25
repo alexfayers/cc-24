@@ -2,14 +2,14 @@
     {
         "input": {
             "5": [
-                "minecraft:arrow"
+                "minecraft/arrow"
             ],
             "6": [
-                "stellaris:ice_shard"
+                "stellaris/ice_shard"
             ]
         },
         "output": {
-            "id": "stellaris:ice_shard_arrow",
+            "id": "stellaris/ice_shard_arrow",
             "count": 2
         }
     }

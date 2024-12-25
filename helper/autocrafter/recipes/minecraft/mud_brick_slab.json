@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft:mud_bricks"
+                "minecraft/mud_bricks"
             ],
             "2": [
-                "minecraft:mud_bricks"
+                "minecraft/mud_bricks"
             ],
             "3": [
-                "minecraft:mud_bricks"
+                "minecraft/mud_bricks"
             ]
         },
         "output": {
-            "id": "minecraft:mud_brick_slab",
+            "id": "minecraft/mud_brick_slab",
             "count": 6
         }
     }

@@ -2,22 +2,22 @@
     {
         "input": {
             "1": [
-                "minecraft:lapis_lazuli"
+                "minecraft/lapis_lazuli"
             ]
         },
         "output": {
-            "id": "minecraft:blue_dye",
+            "id": "minecraft/blue_dye",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft:cornflower"
+                "minecraft/cornflower"
             ]
         },
         "output": {
-            "id": "minecraft:blue_dye",
+            "id": "minecraft/blue_dye",
             "count": 1
         }
     }

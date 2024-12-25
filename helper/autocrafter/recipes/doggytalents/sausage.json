@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft:cooked_porkchop"
+                "minecraft/cooked_porkchop"
             ],
             "2": [
-                "minecraft:cooked_porkchop"
+                "minecraft/cooked_porkchop"
             ],
             "3": [
-                "minecraft:cooked_porkchop"
+                "minecraft/cooked_porkchop"
             ]
         },
         "output": {
-            "id": "doggytalents:sausage",
+            "id": "doggytalents/sausage",
             "count": 3
         }
     }

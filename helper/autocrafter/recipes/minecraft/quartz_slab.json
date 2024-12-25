@@ -2,23 +2,23 @@
     {
         "input": {
             "1": [
-                "minecraft:chiseled_quartz_block",
-                "minecraft:quartz_block",
-                "minecraft:quartz_pillar"
+                "minecraft/chiseled_quartz_block",
+                "minecraft/quartz_block",
+                "minecraft/quartz_pillar"
             ],
             "2": [
-                "minecraft:chiseled_quartz_block",
-                "minecraft:quartz_block",
-                "minecraft:quartz_pillar"
+                "minecraft/chiseled_quartz_block",
+                "minecraft/quartz_block",
+                "minecraft/quartz_pillar"
             ],
             "3": [
-                "minecraft:chiseled_quartz_block",
-                "minecraft:quartz_block",
-                "minecraft:quartz_pillar"
+                "minecraft/chiseled_quartz_block",
+                "minecraft/quartz_block",
+                "minecraft/quartz_pillar"
             ]
         },
         "output": {
-            "id": "minecraft:quartz_slab",
+            "id": "minecraft/quartz_slab",
             "count": 6
         }
     }

@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft:bone_meal"
+                "minecraft/bone_meal"
             ],
             "2": [
-                "minecraft:bone_meal"
+                "minecraft/bone_meal"
             ],
             "3": [
-                "minecraft:bone_meal"
+                "minecraft/bone_meal"
             ],
             "5": [
-                "minecraft:bone_meal"
+                "minecraft/bone_meal"
             ],
             "6": [
-                "minecraft:bone_meal"
+                "minecraft/bone_meal"
             ],
             "7": [
-                "minecraft:bone_meal"
+                "minecraft/bone_meal"
             ],
             "9": [
-                "minecraft:bone_meal"
+                "minecraft/bone_meal"
             ],
             "10": [
-                "minecraft:bone_meal"
+                "minecraft/bone_meal"
             ],
             "11": [
-                "minecraft:bone_meal"
+                "minecraft/bone_meal"
             ]
         },
         "output": {
-            "id": "minecraft:bone_block",
+            "id": "minecraft/bone_block",
             "count": 1
         }
     }

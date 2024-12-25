@@ -2,26 +2,26 @@
     {
         "input": {
             "2": [
-                "minecraft:black_wool"
+                "minecraft/black_wool"
             ],
             "6": [
-                "minecraft:leather_helmet"
+                "minecraft/leather_helmet"
             ],
             "10": [
-                "doggytalents:training_treat"
+                "doggytalents/training_treat"
             ],
             "3": [
-                "minecraft:brown_wool"
+                "minecraft/brown_wool"
             ],
             "5": [
-                "minecraft:brown_wool"
+                "minecraft/brown_wool"
             ],
             "7": [
-                "minecraft:brown_wool"
+                "minecraft/brown_wool"
             ]
         },
         "output": {
-            "id": "doggytalents:fedora",
+            "id": "doggytalents/fedora",
             "count": 1
         }
     }

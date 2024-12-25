@@ -2,23 +2,23 @@
     {
         "input": {
             "1": [
-                "doggytalents:master_treat"
+                "doggytalents/master_treat"
             ],
             "2": [
-                "minecraft:cooked_beef"
+                "minecraft/cooked_beef"
             ],
             "3": [
-                "minecraft:cooked_porkchop"
+                "minecraft/cooked_porkchop"
             ],
             "5": [
-                "minecraft:cooked_chicken"
+                "minecraft/cooked_chicken"
             ],
             "6": [
-                "minecraft:cooked_cod"
+                "minecraft/cooked_cod"
             ]
         },
         "output": {
-            "id": "doggytalents:breeding_bone",
+            "id": "doggytalents/breeding_bone",
             "count": 2
         }
     }

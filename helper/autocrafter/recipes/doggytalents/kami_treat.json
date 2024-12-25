@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "doggytalents:master_treat"
+                "doggytalents/master_treat"
             ],
             "2": [
-                "doggytalents:master_treat"
+                "doggytalents/master_treat"
             ],
             "3": [
-                "doggytalents:master_treat"
+                "doggytalents/master_treat"
             ],
             "5": [
-                "doggytalents:master_treat"
+                "doggytalents/master_treat"
             ],
             "6": [
-                "doggytalents:master_treat"
+                "doggytalents/master_treat"
             ],
             "7": [
-                "minecraft:end_stone"
+                "minecraft/end_stone"
             ]
         },
         "output": {
-            "id": "doggytalents:kami_treat",
+            "id": "doggytalents/kami_treat",
             "count": 1
         }
     }

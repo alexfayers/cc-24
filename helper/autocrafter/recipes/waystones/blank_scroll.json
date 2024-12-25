@@ -2,7 +2,7 @@
     {
         "input": {
             "2": [
-                "minecraft:feather"
+                "minecraft/feather"
             ],
             "1": [
                 "#c:nuggets/gold"
@@ -11,17 +11,17 @@
                 "#c:nuggets/gold"
             ],
             "5": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "6": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "7": [
-                "minecraft:paper"
+                "minecraft/paper"
             ]
         },
         "output": {
-            "id": "waystones:blank_scroll",
+            "id": "waystones/blank_scroll",
             "count": 3
         }
     }

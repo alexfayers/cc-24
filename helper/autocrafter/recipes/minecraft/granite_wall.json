@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft:granite"
+                "minecraft/granite"
             ],
             "2": [
-                "minecraft:granite"
+                "minecraft/granite"
             ],
             "3": [
-                "minecraft:granite"
+                "minecraft/granite"
             ],
             "5": [
-                "minecraft:granite"
+                "minecraft/granite"
             ],
             "6": [
-                "minecraft:granite"
+                "minecraft/granite"
             ],
             "7": [
-                "minecraft:granite"
+                "minecraft/granite"
             ]
         },
         "output": {
-            "id": "minecraft:granite_wall",
+            "id": "minecraft/granite_wall",
             "count": 6
         }
     }

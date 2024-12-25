@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft:book"
+                "minecraft/book"
             ],
             "2": [
                 "#aether:book_of_lore_materials"
             ]
         },
         "output": {
-            "id": "aether:book_of_lore",
+            "id": "aether/book_of_lore",
             "count": 1
         }
     }

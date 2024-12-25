@@ -2,46 +2,46 @@
     {
         "input": {
             "1": [
-                "minecraft:baked_potato"
+                "minecraft/baked_potato"
             ],
             "2": [
-                "minecraft:cooked_rabbit"
+                "minecraft/cooked_rabbit"
             ],
             "3": [
-                "minecraft:bowl"
+                "minecraft/bowl"
             ],
             "5": [
-                "minecraft:carrot"
+                "minecraft/carrot"
             ],
             "6": [
-                "minecraft:brown_mushroom"
+                "minecraft/brown_mushroom"
             ]
         },
         "output": {
-            "id": "minecraft:rabbit_stew",
+            "id": "minecraft/rabbit_stew",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft:baked_potato"
+                "minecraft/baked_potato"
             ],
             "2": [
-                "minecraft:cooked_rabbit"
+                "minecraft/cooked_rabbit"
             ],
             "3": [
-                "minecraft:bowl"
+                "minecraft/bowl"
             ],
             "5": [
-                "minecraft:carrot"
+                "minecraft/carrot"
             ],
             "6": [
-                "minecraft:red_mushroom"
+                "minecraft/red_mushroom"
             ]
         },
         "output": {
-            "id": "minecraft:rabbit_stew",
+            "id": "minecraft/rabbit_stew",
             "count": 1
         }
     }

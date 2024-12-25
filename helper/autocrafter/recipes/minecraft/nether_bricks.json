@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft:nether_brick"
+                "minecraft/nether_brick"
             ],
             "2": [
-                "minecraft:nether_brick"
+                "minecraft/nether_brick"
             ],
             "5": [
-                "minecraft:nether_brick"
+                "minecraft/nether_brick"
             ],
             "6": [
-                "minecraft:nether_brick"
+                "minecraft/nether_brick"
             ]
         },
         "output": {
-            "id": "minecraft:nether_bricks",
+            "id": "minecraft/nether_bricks",
             "count": 1
         }
     }

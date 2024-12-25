@@ -2,35 +2,35 @@
     {
         "input": {
             "5": [
-                "minecraft:glowstone"
+                "minecraft/glowstone"
             ],
             "6": [
-                "minecraft:glowstone"
+                "minecraft/glowstone"
             ],
             "7": [
-                "minecraft:glowstone"
+                "minecraft/glowstone"
             ],
             "1": [
-                "minecraft:crying_obsidian"
+                "minecraft/crying_obsidian"
             ],
             "2": [
-                "minecraft:crying_obsidian"
+                "minecraft/crying_obsidian"
             ],
             "3": [
-                "minecraft:crying_obsidian"
+                "minecraft/crying_obsidian"
             ],
             "9": [
-                "minecraft:crying_obsidian"
+                "minecraft/crying_obsidian"
             ],
             "10": [
-                "minecraft:crying_obsidian"
+                "minecraft/crying_obsidian"
             ],
             "11": [
-                "minecraft:crying_obsidian"
+                "minecraft/crying_obsidian"
             ]
         },
         "output": {
-            "id": "minecraft:respawn_anchor",
+            "id": "minecraft/respawn_anchor",
             "count": 1
         }
     }

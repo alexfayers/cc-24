@@ -2,20 +2,20 @@
     {
         "input": {
             "6": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "10": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "1": [
-                "minecraft:iron_ingot"
+                "minecraft/iron_ingot"
             ],
             "2": [
-                "minecraft:iron_ingot"
+                "minecraft/iron_ingot"
             ]
         },
         "output": {
-            "id": "minecraft:iron_hoe",
+            "id": "minecraft/iron_hoe",
             "count": 1
         }
     }

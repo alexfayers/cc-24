@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft:dried_kelp"
+                "minecraft/dried_kelp"
             ],
             "2": [
-                "minecraft:dried_kelp"
+                "minecraft/dried_kelp"
             ],
             "3": [
-                "minecraft:dried_kelp"
+                "minecraft/dried_kelp"
             ],
             "5": [
-                "minecraft:dried_kelp"
+                "minecraft/dried_kelp"
             ],
             "6": [
-                "minecraft:dried_kelp"
+                "minecraft/dried_kelp"
             ],
             "7": [
-                "minecraft:dried_kelp"
+                "minecraft/dried_kelp"
             ],
             "9": [
-                "minecraft:dried_kelp"
+                "minecraft/dried_kelp"
             ],
             "10": [
-                "minecraft:dried_kelp"
+                "minecraft/dried_kelp"
             ],
             "11": [
-                "minecraft:dried_kelp"
+                "minecraft/dried_kelp"
             ]
         },
         "output": {
-            "id": "minecraft:dried_kelp_block",
+            "id": "minecraft/dried_kelp_block",
             "count": 1
         }
     }

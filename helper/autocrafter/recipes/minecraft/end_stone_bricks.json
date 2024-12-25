@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft:end_stone"
+                "minecraft/end_stone"
             ],
             "2": [
-                "minecraft:end_stone"
+                "minecraft/end_stone"
             ],
             "5": [
-                "minecraft:end_stone"
+                "minecraft/end_stone"
             ],
             "6": [
-                "minecraft:end_stone"
+                "minecraft/end_stone"
             ]
         },
         "output": {
-            "id": "minecraft:end_stone_bricks",
+            "id": "minecraft/end_stone_bricks",
             "count": 4
         }
     }

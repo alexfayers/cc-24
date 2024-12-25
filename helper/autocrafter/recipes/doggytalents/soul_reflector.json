@@ -2,23 +2,23 @@
     {
         "input": {
             "2": [
-                "minecraft:soul_sand"
+                "minecraft/soul_sand"
             ],
             "5": [
-                "minecraft:soul_sand"
+                "minecraft/soul_sand"
             ],
             "7": [
-                "minecraft:soul_sand"
+                "minecraft/soul_sand"
             ],
             "10": [
-                "minecraft:soul_sand"
+                "minecraft/soul_sand"
             ],
             "6": [
-                "doggytalents:divine_retribution"
+                "doggytalents/divine_retribution"
             ]
         },
         "output": {
-            "id": "doggytalents:soul_reflector",
+            "id": "doggytalents/soul_reflector",
             "count": 1
         }
     }

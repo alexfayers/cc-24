@@ -2,33 +2,33 @@
     {
         "input": {
             "1": [
-                "minecraft:lily_of_the_valley"
+                "minecraft/lily_of_the_valley"
             ]
         },
         "output": {
-            "id": "minecraft:white_dye",
+            "id": "minecraft/white_dye",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft:bone_meal"
+                "minecraft/bone_meal"
             ]
         },
         "output": {
-            "id": "minecraft:white_dye",
+            "id": "minecraft/white_dye",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "aether:white_flower"
+                "aether/white_flower"
             ]
         },
         "output": {
-            "id": "minecraft:white_dye",
+            "id": "minecraft/white_dye",
             "count": 1
         }
     }

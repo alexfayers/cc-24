@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "minecraft:slime_block"
+                "minecraft/slime_block"
             ]
         },
         "output": {
-            "id": "minecraft:slime_ball",
+            "id": "minecraft/slime_ball",
             "count": 9
         }
     }

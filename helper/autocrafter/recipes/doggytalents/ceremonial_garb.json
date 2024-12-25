@@ -11,14 +11,14 @@
                 "#minecraft:wool_carpets"
             ],
             "2": [
-                "minecraft:lead"
+                "minecraft/lead"
             ],
             "6": [
-                "doggytalents:wool_collar"
+                "doggytalents/wool_collar"
             ]
         },
         "output": {
-            "id": "doggytalents:ceremonial_garb",
+            "id": "doggytalents/ceremonial_garb",
             "count": 1
         }
     }

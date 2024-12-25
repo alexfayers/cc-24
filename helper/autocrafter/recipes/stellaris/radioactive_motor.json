@@ -2,58 +2,58 @@
     {
         "input": {
             "6": [
-                "stellaris:ice_shard"
+                "stellaris/ice_shard"
             ],
             "7": [
-                "stellaris:ice_shard"
+                "stellaris/ice_shard"
             ],
             "1": [
-                "stellaris:uranium_ingot"
+                "stellaris/uranium_ingot"
             ],
             "2": [
-                "stellaris:uranium_ingot"
+                "stellaris/uranium_ingot"
             ],
             "3": [
-                "stellaris:uranium_ingot"
+                "stellaris/uranium_ingot"
             ],
             "9": [
-                "stellaris:uranium_ingot"
+                "stellaris/uranium_ingot"
             ],
             "10": [
-                "stellaris:uranium_ingot"
+                "stellaris/uranium_ingot"
             ],
             "11": [
-                "stellaris:uranium_ingot"
+                "stellaris/uranium_ingot"
             ],
             "5": [
-                "stellaris:desh_block"
+                "stellaris/desh_block"
             ]
         },
         "output": {
-            "id": "stellaris:radioactive_motor",
+            "id": "stellaris/radioactive_motor",
             "count": 1
         }
     },
     {
         "input": {
             "2": [
-                "stellaris:uranium_ingot"
+                "stellaris/uranium_ingot"
             ],
             "5": [
-                "stellaris:uranium_ingot"
+                "stellaris/uranium_ingot"
             ],
             "7": [
-                "stellaris:uranium_ingot"
+                "stellaris/uranium_ingot"
             ],
             "10": [
-                "stellaris:uranium_ingot"
+                "stellaris/uranium_ingot"
             ],
             "6": [
-                "stellaris:rocket_engine"
+                "stellaris/rocket_engine"
             ]
         },
         "output": {
-            "id": "stellaris:radioactive_motor",
+            "id": "stellaris/radioactive_motor",
             "count": 1
         }
     }

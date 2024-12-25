@@ -2,29 +2,29 @@
     {
         "input": {
             "1": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "2": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "3": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "6": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "9": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "11": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "10": [
-                "minecraft:smooth_stone_slab"
+                "minecraft/smooth_stone_slab"
             ]
         },
         "output": {
-            "id": "minecraft:armor_stand",
+            "id": "minecraft/armor_stand",
             "count": 1
         }
     }

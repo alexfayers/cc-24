@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft:egg"
+                "minecraft/egg"
             ],
             "3": [
-                "minecraft:egg"
+                "minecraft/egg"
             ],
             "2": [
-                "minecraft:cooked_chicken"
+                "minecraft/cooked_chicken"
             ],
             "6": [
-                "doggytalents:rice_bowl"
+                "doggytalents/rice_bowl"
             ]
         },
         "output": {
-            "id": "doggytalents:oyakodon",
+            "id": "doggytalents/oyakodon",
             "count": 1
         }
     }

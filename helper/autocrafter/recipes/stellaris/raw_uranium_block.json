@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "stellaris:raw_uranium"
+                "stellaris/raw_uranium"
             ],
             "2": [
-                "stellaris:raw_uranium"
+                "stellaris/raw_uranium"
             ],
             "3": [
-                "stellaris:raw_uranium"
+                "stellaris/raw_uranium"
             ],
             "5": [
-                "stellaris:raw_uranium"
+                "stellaris/raw_uranium"
             ],
             "6": [
-                "stellaris:raw_uranium"
+                "stellaris/raw_uranium"
             ],
             "7": [
-                "stellaris:raw_uranium"
+                "stellaris/raw_uranium"
             ],
             "9": [
-                "stellaris:raw_uranium"
+                "stellaris/raw_uranium"
             ],
             "10": [
-                "stellaris:raw_uranium"
+                "stellaris/raw_uranium"
             ],
             "11": [
-                "stellaris:raw_uranium"
+                "stellaris/raw_uranium"
             ]
         },
         "output": {
-            "id": "stellaris:raw_uranium_block",
+            "id": "stellaris/raw_uranium_block",
             "count": 1
         }
     }

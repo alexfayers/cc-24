@@ -2,32 +2,32 @@
     {
         "input": {
             "1": [
-                "doggytalents:wool_collar"
+                "doggytalents/wool_collar"
             ],
             "2": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "3": [
-                "minecraft:blue_dye"
+                "minecraft/blue_dye"
             ],
             "5": [
-                "minecraft:lime_dye"
+                "minecraft/lime_dye"
             ],
             "6": [
-                "minecraft:yellow_dye"
+                "minecraft/yellow_dye"
             ],
             "7": [
-                "minecraft:orange_dye"
+                "minecraft/orange_dye"
             ],
             "9": [
-                "minecraft:red_dye"
+                "minecraft/red_dye"
             ],
             "10": [
-                "minecraft:purple_dye"
+                "minecraft/purple_dye"
             ]
         },
         "output": {
-            "id": "doggytalents:multicoloured_collar",
+            "id": "doggytalents/multicoloured_collar",
             "count": 1
         }
     }

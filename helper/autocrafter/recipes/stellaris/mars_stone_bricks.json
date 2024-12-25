@@ -2,20 +2,20 @@
     {
         "input": {
             "5": [
-                "stellaris:mars_stone"
+                "stellaris/mars_stone"
             ],
             "6": [
-                "stellaris:mars_stone"
+                "stellaris/mars_stone"
             ],
             "9": [
-                "stellaris:mars_stone"
+                "stellaris/mars_stone"
             ],
             "10": [
-                "stellaris:mars_stone"
+                "stellaris/mars_stone"
             ]
         },
         "output": {
-            "id": "stellaris:mars_stone_bricks",
+            "id": "stellaris/mars_stone_bricks",
             "count": 4
         }
     }

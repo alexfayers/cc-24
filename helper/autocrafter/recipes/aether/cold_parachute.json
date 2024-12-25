@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "aether:cold_aercloud"
+                "aether/cold_aercloud"
             ],
             "2": [
-                "aether:cold_aercloud"
+                "aether/cold_aercloud"
             ],
             "5": [
-                "aether:cold_aercloud"
+                "aether/cold_aercloud"
             ],
             "6": [
-                "aether:cold_aercloud"
+                "aether/cold_aercloud"
             ]
         },
         "output": {
-            "id": "aether:cold_parachute",
+            "id": "aether/cold_parachute",
             "count": 1
         }
     }

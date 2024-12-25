@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft:iron_ingot"
+                "minecraft/iron_ingot"
             ],
             "2": [
-                "minecraft:iron_ingot"
+                "minecraft/iron_ingot"
             ],
             "3": [
-                "minecraft:iron_ingot"
+                "minecraft/iron_ingot"
             ],
             "7": [
-                "minecraft:iron_ingot"
+                "minecraft/iron_ingot"
             ],
             "6": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "9": [
-                "minecraft:stick"
+                "minecraft/stick"
             ]
         },
         "output": {
-            "id": "doggytalents:sussy_sickle",
+            "id": "doggytalents/sussy_sickle",
             "count": 1
         }
     }

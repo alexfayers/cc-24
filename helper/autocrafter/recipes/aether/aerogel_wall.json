@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "aether:aerogel"
+                "aether/aerogel"
             ],
             "2": [
-                "aether:aerogel"
+                "aether/aerogel"
             ],
             "3": [
-                "aether:aerogel"
+                "aether/aerogel"
             ],
             "5": [
-                "aether:aerogel"
+                "aether/aerogel"
             ],
             "6": [
-                "aether:aerogel"
+                "aether/aerogel"
             ],
             "7": [
-                "aether:aerogel"
+                "aether/aerogel"
             ]
         },
         "output": {
-            "id": "aether:aerogel_wall",
+            "id": "aether/aerogel_wall",
             "count": 6
         }
     }

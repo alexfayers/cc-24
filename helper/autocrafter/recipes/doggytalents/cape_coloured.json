@@ -2,32 +2,32 @@
     {
         "input": {
             "5": [
-                "minecraft:leather"
+                "minecraft/leather"
             ],
             "7": [
-                "minecraft:leather"
+                "minecraft/leather"
             ],
             "10": [
-                "minecraft:leather"
+                "minecraft/leather"
             ],
             "1": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "3": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "6": [
-                "minecraft:white_wool"
+                "minecraft/white_wool"
             ],
             "9": [
-                "minecraft:white_wool"
+                "minecraft/white_wool"
             ],
             "11": [
-                "minecraft:white_wool"
+                "minecraft/white_wool"
             ]
         },
         "output": {
-            "id": "doggytalents:cape_coloured",
+            "id": "doggytalents/cape_coloured",
             "count": 1
         }
     }

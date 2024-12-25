@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft:packed_mud"
+                "minecraft/packed_mud"
             ],
             "2": [
-                "minecraft:packed_mud"
+                "minecraft/packed_mud"
             ],
             "5": [
-                "minecraft:packed_mud"
+                "minecraft/packed_mud"
             ],
             "6": [
-                "minecraft:packed_mud"
+                "minecraft/packed_mud"
             ]
         },
         "output": {
-            "id": "minecraft:mud_bricks",
+            "id": "minecraft/mud_bricks",
             "count": 4
         }
     }

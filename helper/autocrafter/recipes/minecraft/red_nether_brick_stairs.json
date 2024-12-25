@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft:red_nether_bricks"
+                "minecraft/red_nether_bricks"
             ],
             "5": [
-                "minecraft:red_nether_bricks"
+                "minecraft/red_nether_bricks"
             ],
             "6": [
-                "minecraft:red_nether_bricks"
+                "minecraft/red_nether_bricks"
             ],
             "9": [
-                "minecraft:red_nether_bricks"
+                "minecraft/red_nether_bricks"
             ],
             "10": [
-                "minecraft:red_nether_bricks"
+                "minecraft/red_nether_bricks"
             ],
             "11": [
-                "minecraft:red_nether_bricks"
+                "minecraft/red_nether_bricks"
             ]
         },
         "output": {
-            "id": "minecraft:red_nether_brick_stairs",
+            "id": "minecraft/red_nether_brick_stairs",
             "count": 4
         }
     }

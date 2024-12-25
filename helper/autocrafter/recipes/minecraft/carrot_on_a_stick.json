@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft:fishing_rod"
+                "minecraft/fishing_rod"
             ],
             "6": [
-                "minecraft:carrot"
+                "minecraft/carrot"
             ]
         },
         "output": {
-            "id": "minecraft:carrot_on_a_stick",
+            "id": "minecraft/carrot_on_a_stick",
             "count": 1
         }
     }

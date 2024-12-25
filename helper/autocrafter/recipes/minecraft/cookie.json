@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "3": [
-                "minecraft:wheat"
+                "minecraft/wheat"
             ],
             "2": [
-                "minecraft:cocoa_beans"
+                "minecraft/cocoa_beans"
             ]
         },
         "output": {
-            "id": "minecraft:cookie",
+            "id": "minecraft/cookie",
             "count": 8
         }
     }

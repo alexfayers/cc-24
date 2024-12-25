@@ -2,28 +2,28 @@
     {
         "input": {
             "9": [
-                "stellaris:iron_plating_slab"
+                "stellaris/iron_plating_slab"
             ]
         },
         "output": {
-            "id": "stellaris:vertical_iron_plating_slab",
+            "id": "stellaris/vertical_iron_plating_slab",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "stellaris:iron_plating_block"
+                "stellaris/iron_plating_block"
             ],
             "5": [
-                "stellaris:iron_plating_block"
+                "stellaris/iron_plating_block"
             ],
             "9": [
-                "stellaris:iron_plating_block"
+                "stellaris/iron_plating_block"
             ]
         },
         "output": {
-            "id": "stellaris:vertical_iron_plating_slab",
+            "id": "stellaris/vertical_iron_plating_slab",
             "count": 6
         }
     }

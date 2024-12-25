@@ -2,22 +2,22 @@
     {
         "input": {
             "6": [
-                "minecraft:copper_ingot"
+                "minecraft/copper_ingot"
             ],
             "10": [
-                "minecraft:redstone"
+                "minecraft/redstone"
             ],
             "5": [
-                "minecraft:white_wool"
+                "minecraft/white_wool"
             ],
             "7": [
-                "minecraft:white_wool"
+                "minecraft/white_wool"
             ],
             "9": [
-                "minecraft:white_wool"
+                "minecraft/white_wool"
             ],
             "11": [
-                "minecraft:white_wool"
+                "minecraft/white_wool"
             ],
             "1": [
                 "#c:ingots/steel"
@@ -26,11 +26,11 @@
                 "#c:ingots/steel"
             ],
             "2": [
-                "stellaris:oxygen_tank"
+                "stellaris/oxygen_tank"
             ]
         },
         "output": {
-            "id": "stellaris:space_suit_chestplate",
+            "id": "stellaris/space_suit_chestplate",
             "count": 1
         }
     }

@@ -2,20 +2,20 @@
     {
         "input": {
             "5": [
-                "stellaris:venus_stone"
+                "stellaris/venus_stone"
             ],
             "6": [
-                "stellaris:venus_stone"
+                "stellaris/venus_stone"
             ],
             "9": [
-                "stellaris:venus_stone"
+                "stellaris/venus_stone"
             ],
             "10": [
-                "stellaris:venus_stone"
+                "stellaris/venus_stone"
             ]
         },
         "output": {
-            "id": "stellaris:venus_stone_bricks",
+            "id": "stellaris/venus_stone_bricks",
             "count": 4
         }
     }

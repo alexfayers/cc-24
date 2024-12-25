@@ -2,73 +2,73 @@
     {
         "input": {
             "1": [
-                "minecraft:blue_dye"
+                "minecraft/blue_dye"
             ],
             "2": [
-                "minecraft:red_dye"
+                "minecraft/red_dye"
             ],
             "3": [
-                "minecraft:pink_dye"
+                "minecraft/pink_dye"
             ]
         },
         "output": {
-            "id": "minecraft:magenta_dye",
+            "id": "minecraft/magenta_dye",
             "count": 3
         }
     },
     {
         "input": {
             "1": [
-                "minecraft:lilac"
+                "minecraft/lilac"
             ]
         },
         "output": {
-            "id": "minecraft:magenta_dye",
+            "id": "minecraft/magenta_dye",
             "count": 2
         }
     },
     {
         "input": {
             "1": [
-                "minecraft:allium"
+                "minecraft/allium"
             ]
         },
         "output": {
-            "id": "minecraft:magenta_dye",
+            "id": "minecraft/magenta_dye",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft:blue_dye"
+                "minecraft/blue_dye"
             ],
             "2": [
-                "minecraft:red_dye"
+                "minecraft/red_dye"
             ],
             "3": [
-                "minecraft:red_dye"
+                "minecraft/red_dye"
             ],
             "5": [
-                "minecraft:white_dye"
+                "minecraft/white_dye"
             ]
         },
         "output": {
-            "id": "minecraft:magenta_dye",
+            "id": "minecraft/magenta_dye",
             "count": 4
         }
     },
     {
         "input": {
             "1": [
-                "minecraft:purple_dye"
+                "minecraft/purple_dye"
             ],
             "2": [
-                "minecraft:pink_dye"
+                "minecraft/pink_dye"
             ]
         },
         "output": {
-            "id": "minecraft:magenta_dye",
+            "id": "minecraft/magenta_dye",
             "count": 2
         }
     }

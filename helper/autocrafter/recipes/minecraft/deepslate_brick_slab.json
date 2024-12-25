@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft:deepslate_bricks"
+                "minecraft/deepslate_bricks"
             ],
             "2": [
-                "minecraft:deepslate_bricks"
+                "minecraft/deepslate_bricks"
             ],
             "3": [
-                "minecraft:deepslate_bricks"
+                "minecraft/deepslate_bricks"
             ]
         },
         "output": {
-            "id": "minecraft:deepslate_brick_slab",
+            "id": "minecraft/deepslate_brick_slab",
             "count": 6
         }
     }

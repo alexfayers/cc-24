@@ -20,14 +20,14 @@
                 "#c:ingots/steel"
             ],
             "6": [
-                "stellaris:big_oxygen_tank"
+                "stellaris/big_oxygen_tank"
             ],
             "10": [
-                "minecraft:redstone"
+                "minecraft/redstone"
             ]
         },
         "output": {
-            "id": "stellaris:jet_suit_chestplate",
+            "id": "stellaris/jet_suit_chestplate",
             "count": 1
         }
     }

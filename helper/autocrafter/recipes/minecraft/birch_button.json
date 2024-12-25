@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "minecraft:birch_planks"
+                "minecraft/birch_planks"
             ]
         },
         "output": {
-            "id": "minecraft:birch_button",
+            "id": "minecraft/birch_button",
             "count": 1
         }
     }

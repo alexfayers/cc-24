@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft:cobblestone"
+                "minecraft/cobblestone"
             ],
             "2": [
-                "minecraft:cobblestone"
+                "minecraft/cobblestone"
             ],
             "3": [
-                "minecraft:cobblestone"
+                "minecraft/cobblestone"
             ],
             "9": [
-                "minecraft:cobblestone"
+                "minecraft/cobblestone"
             ],
             "10": [
-                "minecraft:cobblestone"
+                "minecraft/cobblestone"
             ],
             "11": [
-                "minecraft:cobblestone"
+                "minecraft/cobblestone"
             ],
             "7": [
-                "minecraft:quartz"
+                "minecraft/quartz"
             ],
             "5": [
-                "minecraft:redstone"
+                "minecraft/redstone"
             ],
             "6": [
-                "minecraft:redstone"
+                "minecraft/redstone"
             ]
         },
         "output": {
-            "id": "minecraft:observer",
+            "id": "minecraft/observer",
             "count": 1
         }
     }

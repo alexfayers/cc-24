@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft:smooth_quartz"
+                "minecraft/smooth_quartz"
             ],
             "2": [
-                "minecraft:smooth_quartz"
+                "minecraft/smooth_quartz"
             ],
             "3": [
-                "minecraft:smooth_quartz"
+                "minecraft/smooth_quartz"
             ]
         },
         "output": {
-            "id": "minecraft:smooth_quartz_slab",
+            "id": "minecraft/smooth_quartz_slab",
             "count": 6
         }
     }

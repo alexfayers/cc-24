@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft:cobblestone"
+                "minecraft/cobblestone"
             ],
             "6": [
-                "minecraft:cobblestone"
+                "minecraft/cobblestone"
             ],
             "2": [
-                "minecraft:quartz"
+                "minecraft/quartz"
             ],
             "5": [
-                "minecraft:quartz"
+                "minecraft/quartz"
             ]
         },
         "output": {
-            "id": "minecraft:diorite",
+            "id": "minecraft/diorite",
             "count": 2
         }
     }

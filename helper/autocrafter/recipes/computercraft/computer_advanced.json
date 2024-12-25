@@ -23,11 +23,11 @@
                 "#c:ingots/gold"
             ],
             "6": [
-                "computercraft:computer_normal"
+                "computercraft/computer_normal"
             ]
         },
         "output": {
-            "id": "computercraft:computer_advanced",
+            "id": "computercraft/computer_advanced",
             "count": 1
         }
     },
@@ -62,7 +62,7 @@
             ]
         },
         "output": {
-            "id": "computercraft:computer_advanced",
+            "id": "computercraft/computer_advanced",
             "count": 1
         }
     }

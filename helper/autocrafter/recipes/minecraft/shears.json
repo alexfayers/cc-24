@@ -2,14 +2,14 @@
     {
         "input": {
             "2": [
-                "minecraft:iron_ingot"
+                "minecraft/iron_ingot"
             ],
             "5": [
-                "minecraft:iron_ingot"
+                "minecraft/iron_ingot"
             ]
         },
         "output": {
-            "id": "minecraft:shears",
+            "id": "minecraft/shears",
             "count": 1
         }
     }

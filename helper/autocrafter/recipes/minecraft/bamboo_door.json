@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft:bamboo_planks"
+                "minecraft/bamboo_planks"
             ],
             "2": [
-                "minecraft:bamboo_planks"
+                "minecraft/bamboo_planks"
             ],
             "5": [
-                "minecraft:bamboo_planks"
+                "minecraft/bamboo_planks"
             ],
             "6": [
-                "minecraft:bamboo_planks"
+                "minecraft/bamboo_planks"
             ],
             "9": [
-                "minecraft:bamboo_planks"
+                "minecraft/bamboo_planks"
             ],
             "10": [
-                "minecraft:bamboo_planks"
+                "minecraft/bamboo_planks"
             ]
         },
         "output": {
-            "id": "minecraft:bamboo_door",
+            "id": "minecraft/bamboo_door",
             "count": 3
         }
     }

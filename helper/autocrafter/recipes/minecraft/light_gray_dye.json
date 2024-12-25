@@ -2,64 +2,64 @@
     {
         "input": {
             "1": [
-                "minecraft:azure_bluet"
+                "minecraft/azure_bluet"
             ]
         },
         "output": {
-            "id": "minecraft:light_gray_dye",
+            "id": "minecraft/light_gray_dye",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft:white_tulip"
+                "minecraft/white_tulip"
             ]
         },
         "output": {
-            "id": "minecraft:light_gray_dye",
+            "id": "minecraft/light_gray_dye",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft:gray_dye"
+                "minecraft/gray_dye"
             ],
             "2": [
-                "minecraft:white_dye"
+                "minecraft/white_dye"
             ]
         },
         "output": {
-            "id": "minecraft:light_gray_dye",
+            "id": "minecraft/light_gray_dye",
             "count": 2
         }
     },
     {
         "input": {
             "1": [
-                "minecraft:black_dye"
+                "minecraft/black_dye"
             ],
             "2": [
-                "minecraft:white_dye"
+                "minecraft/white_dye"
             ],
             "3": [
-                "minecraft:white_dye"
+                "minecraft/white_dye"
             ]
         },
         "output": {
-            "id": "minecraft:light_gray_dye",
+            "id": "minecraft/light_gray_dye",
             "count": 3
         }
     },
     {
         "input": {
             "1": [
-                "minecraft:oxeye_daisy"
+                "minecraft/oxeye_daisy"
             ]
         },
         "output": {
-            "id": "minecraft:light_gray_dye",
+            "id": "minecraft/light_gray_dye",
             "count": 1
         }
     }

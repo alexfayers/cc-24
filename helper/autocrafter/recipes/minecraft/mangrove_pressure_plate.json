@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft:mangrove_planks"
+                "minecraft/mangrove_planks"
             ],
             "2": [
-                "minecraft:mangrove_planks"
+                "minecraft/mangrove_planks"
             ]
         },
         "output": {
-            "id": "minecraft:mangrove_pressure_plate",
+            "id": "minecraft/mangrove_pressure_plate",
             "count": 1
         }
     }

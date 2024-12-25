@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "3": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "5": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "7": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "9": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "10": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "11": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "6": [
-                "minecraft:end_stone"
+                "minecraft/end_stone"
             ],
             "2": [
-                "minecraft:eye_armor_trim_smithing_template"
+                "minecraft/eye_armor_trim_smithing_template"
             ]
         },
         "output": {
-            "id": "minecraft:eye_armor_trim_smithing_template",
+            "id": "minecraft/eye_armor_trim_smithing_template",
             "count": 2
         }
     }

@@ -2,32 +2,32 @@
     {
         "input": {
             "6": [
-                "doggytalents:wool_collar"
+                "doggytalents/wool_collar"
             ],
             "7": [
-                "minecraft:light_gray_wool"
+                "minecraft/light_gray_wool"
             ],
             "5": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "10": [
-                "doggytalents:training_treat"
+                "doggytalents/training_treat"
             ],
             "1": [
-                "minecraft:white_wool"
+                "minecraft/white_wool"
             ],
             "2": [
-                "minecraft:white_wool"
+                "minecraft/white_wool"
             ],
             "9": [
-                "minecraft:white_wool"
+                "minecraft/white_wool"
             ],
             "11": [
-                "minecraft:white_wool"
+                "minecraft/white_wool"
             ]
         },
         "output": {
-            "id": "doggytalents:dog_plushie_toy_item",
+            "id": "doggytalents/dog_plushie_toy_item",
             "count": 1
         }
     }

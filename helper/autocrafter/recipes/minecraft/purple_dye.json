@@ -2,25 +2,25 @@
     {
         "input": {
             "1": [
-                "minecraft:blue_dye"
+                "minecraft/blue_dye"
             ],
             "2": [
-                "minecraft:red_dye"
+                "minecraft/red_dye"
             ]
         },
         "output": {
-            "id": "minecraft:purple_dye",
+            "id": "minecraft/purple_dye",
             "count": 2
         }
     },
     {
         "input": {
             "1": [
-                "aether:purple_flower"
+                "aether/purple_flower"
             ]
         },
         "output": {
-            "id": "minecraft:purple_dye",
+            "id": "minecraft/purple_dye",
             "count": 1
         }
     }

@@ -20,17 +20,17 @@
                 "#c:ore_blocks/steel"
             ],
             "6": [
-                "minecraft:bucket"
+                "minecraft/bucket"
             ],
             "5": [
-                "stellaris:cable"
+                "stellaris/cable"
             ],
             "7": [
-                "stellaris:cable"
+                "stellaris/cable"
             ]
         },
         "output": {
-            "id": "stellaris:fuel_refinery",
+            "id": "stellaris/fuel_refinery",
             "count": 1
         }
     }

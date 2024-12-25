@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "aether:holystone_bricks"
+                "aether/holystone_bricks"
             ],
             "5": [
-                "aether:holystone_bricks"
+                "aether/holystone_bricks"
             ],
             "6": [
-                "aether:holystone_bricks"
+                "aether/holystone_bricks"
             ],
             "9": [
-                "aether:holystone_bricks"
+                "aether/holystone_bricks"
             ],
             "10": [
-                "aether:holystone_bricks"
+                "aether/holystone_bricks"
             ],
             "11": [
-                "aether:holystone_bricks"
+                "aether/holystone_bricks"
             ]
         },
         "output": {
-            "id": "aether:holystone_brick_stairs",
+            "id": "aether/holystone_brick_stairs",
             "count": 4
         }
     }

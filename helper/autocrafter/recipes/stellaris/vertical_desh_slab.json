@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "stellaris:desh_block"
+                "stellaris/desh_block"
             ],
             "5": [
-                "stellaris:desh_block"
+                "stellaris/desh_block"
             ],
             "9": [
-                "stellaris:desh_block"
+                "stellaris/desh_block"
             ]
         },
         "output": {
-            "id": "stellaris:vertical_desh_slab",
+            "id": "stellaris/vertical_desh_slab",
             "count": 6
         }
     }

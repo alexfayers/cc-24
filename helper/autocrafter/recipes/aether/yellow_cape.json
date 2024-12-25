@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft:yellow_wool"
+                "minecraft/yellow_wool"
             ],
             "2": [
-                "minecraft:yellow_wool"
+                "minecraft/yellow_wool"
             ],
             "5": [
-                "minecraft:yellow_wool"
+                "minecraft/yellow_wool"
             ],
             "6": [
-                "minecraft:yellow_wool"
+                "minecraft/yellow_wool"
             ],
             "9": [
-                "minecraft:yellow_wool"
+                "minecraft/yellow_wool"
             ],
             "10": [
-                "minecraft:yellow_wool"
+                "minecraft/yellow_wool"
             ]
         },
         "output": {
-            "id": "aether:yellow_cape",
+            "id": "aether/yellow_cape",
             "count": 1
         }
     }

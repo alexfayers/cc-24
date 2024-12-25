@@ -2,26 +2,26 @@
     {
         "input": {
             "5": [
-                "minecraft:bread"
+                "minecraft/bread"
             ],
             "7": [
-                "minecraft:bread"
+                "minecraft/bread"
             ],
             "6": [
-                "doggytalents:sausage"
+                "doggytalents/sausage"
             ],
             "1": [
-                "minecraft:red_dye"
+                "minecraft/red_dye"
             ],
             "2": [
-                "doggytalents:training_treat"
+                "doggytalents/training_treat"
             ],
             "3": [
-                "minecraft:yellow_dye"
+                "minecraft/yellow_dye"
             ]
         },
         "output": {
-            "id": "doggytalents:hot_dog",
+            "id": "doggytalents/hot_dog",
             "count": 1
         }
     }

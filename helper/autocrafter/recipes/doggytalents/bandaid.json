@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "2": [
-                "minecraft:paper"
+                "minecraft/paper"
             ],
             "3": [
-                "doggytalents:koji"
+                "doggytalents/koji"
             ],
             "5": [
-                "minecraft:bone_meal"
+                "minecraft/bone_meal"
             ]
         },
         "output": {
-            "id": "doggytalents:bandaid",
+            "id": "doggytalents/bandaid",
             "count": 5
         }
     }

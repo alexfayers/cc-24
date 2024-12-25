@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft:emerald"
+                "minecraft/emerald"
             ],
             "2": [
-                "minecraft:emerald"
+                "minecraft/emerald"
             ],
             "3": [
-                "minecraft:emerald"
+                "minecraft/emerald"
             ],
             "5": [
-                "minecraft:emerald"
+                "minecraft/emerald"
             ],
             "6": [
-                "minecraft:emerald"
+                "minecraft/emerald"
             ],
             "7": [
-                "minecraft:emerald"
+                "minecraft/emerald"
             ],
             "9": [
-                "minecraft:emerald"
+                "minecraft/emerald"
             ],
             "10": [
-                "minecraft:emerald"
+                "minecraft/emerald"
             ],
             "11": [
-                "minecraft:emerald"
+                "minecraft/emerald"
             ]
         },
         "output": {
-            "id": "minecraft:emerald_block",
+            "id": "minecraft/emerald_block",
             "count": 1
         }
     }

@@ -23,14 +23,14 @@
                 "#c:ingots/gold"
             ],
             "6": [
-                "computercraft:computer_advanced"
+                "computercraft/computer_advanced"
             ],
             "10": [
                 "#c:chests/wooden"
             ]
         },
         "output": {
-            "id": "computercraft:turtle_advanced",
+            "id": "computercraft/turtle_advanced",
             "count": 1
         }
     },
@@ -55,11 +55,11 @@
                 "#c:storage_blocks/gold"
             ],
             "6": [
-                "computercraft:turtle_normal"
+                "computercraft/turtle_normal"
             ]
         },
         "output": {
-            "id": "computercraft:turtle_advanced",
+            "id": "computercraft/turtle_advanced",
             "count": 1
         }
     },
@@ -84,14 +84,14 @@
                 "#c:dyes/purple"
             ],
             "9": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "10": [
-                "computercraft:turtle_advanced"
+                "computercraft/turtle_advanced"
             ]
         },
         "output": {
-            "id": "computercraft:turtle_advanced",
+            "id": "computercraft/turtle_advanced",
             "count": 1
         }
     },
@@ -107,14 +107,14 @@
                 "#c:dyes/white"
             ],
             "5": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "6": [
-                "computercraft:turtle_advanced"
+                "computercraft/turtle_advanced"
             ]
         },
         "output": {
-            "id": "computercraft:turtle_advanced",
+            "id": "computercraft/turtle_advanced",
             "count": 1
         }
     }

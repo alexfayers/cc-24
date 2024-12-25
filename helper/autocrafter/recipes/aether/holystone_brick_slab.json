@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "aether:holystone_bricks"
+                "aether/holystone_bricks"
             ],
             "2": [
-                "aether:holystone_bricks"
+                "aether/holystone_bricks"
             ],
             "3": [
-                "aether:holystone_bricks"
+                "aether/holystone_bricks"
             ]
         },
         "output": {
-            "id": "aether:holystone_brick_slab",
+            "id": "aether/holystone_brick_slab",
             "count": 6
         }
     }

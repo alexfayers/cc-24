@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "aether:mossy_holystone"
+                "aether/mossy_holystone"
             ],
             "2": [
-                "aether:mossy_holystone"
+                "aether/mossy_holystone"
             ],
             "3": [
-                "aether:mossy_holystone"
+                "aether/mossy_holystone"
             ]
         },
         "output": {
-            "id": "aether:mossy_holystone_slab",
+            "id": "aether/mossy_holystone_slab",
             "count": 6
         }
     }

@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft:book"
+                "minecraft/book"
             ],
             "2": [
-                "minecraft:ink_sac"
+                "minecraft/ink_sac"
             ],
             "3": [
-                "minecraft:feather"
+                "minecraft/feather"
             ]
         },
         "output": {
-            "id": "minecraft:writable_book",
+            "id": "minecraft/writable_book",
             "count": 1
         }
     }

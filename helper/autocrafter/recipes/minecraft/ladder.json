@@ -2,29 +2,29 @@
     {
         "input": {
             "1": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "3": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "5": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "6": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "7": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "9": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "11": [
-                "minecraft:stick"
+                "minecraft/stick"
             ]
         },
         "output": {
-            "id": "minecraft:ladder",
+            "id": "minecraft/ladder",
             "count": 3
         }
     }

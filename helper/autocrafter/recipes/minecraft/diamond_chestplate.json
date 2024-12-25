@@ -2,32 +2,32 @@
     {
         "input": {
             "1": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "3": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "5": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "6": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "7": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "9": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "10": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ],
             "11": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ]
         },
         "output": {
-            "id": "minecraft:diamond_chestplate",
+            "id": "minecraft/diamond_chestplate",
             "count": 1
         }
     }

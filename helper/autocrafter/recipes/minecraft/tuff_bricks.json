@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft:polished_tuff"
+                "minecraft/polished_tuff"
             ],
             "2": [
-                "minecraft:polished_tuff"
+                "minecraft/polished_tuff"
             ],
             "5": [
-                "minecraft:polished_tuff"
+                "minecraft/polished_tuff"
             ],
             "6": [
-                "minecraft:polished_tuff"
+                "minecraft/polished_tuff"
             ]
         },
         "output": {
-            "id": "minecraft:tuff_bricks",
+            "id": "minecraft/tuff_bricks",
             "count": 4
         }
     }

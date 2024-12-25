@@ -2,20 +2,20 @@
     {
         "input": {
             "5": [
-                "stellaris:conglomorate"
+                "stellaris/conglomorate"
             ],
             "6": [
-                "stellaris:conglomorate"
+                "stellaris/conglomorate"
             ],
             "9": [
-                "stellaris:conglomorate"
+                "stellaris/conglomorate"
             ],
             "10": [
-                "stellaris:conglomorate"
+                "stellaris/conglomorate"
             ]
         },
         "output": {
-            "id": "stellaris:polished_conglomorate",
+            "id": "stellaris/polished_conglomorate",
             "count": 6
         }
     }

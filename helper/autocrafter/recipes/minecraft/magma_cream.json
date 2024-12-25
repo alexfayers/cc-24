@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft:blaze_powder"
+                "minecraft/blaze_powder"
             ],
             "2": [
-                "minecraft:slime_ball"
+                "minecraft/slime_ball"
             ]
         },
         "output": {
-            "id": "minecraft:magma_cream",
+            "id": "minecraft/magma_cream",
             "count": 1
         }
     }

@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft:ice"
+                "minecraft/ice"
             ],
             "2": [
-                "minecraft:ice"
+                "minecraft/ice"
             ],
             "3": [
-                "minecraft:ice"
+                "minecraft/ice"
             ],
             "5": [
-                "minecraft:ice"
+                "minecraft/ice"
             ],
             "6": [
-                "minecraft:ice"
+                "minecraft/ice"
             ],
             "7": [
-                "minecraft:ice"
+                "minecraft/ice"
             ],
             "9": [
-                "minecraft:ice"
+                "minecraft/ice"
             ],
             "10": [
-                "minecraft:ice"
+                "minecraft/ice"
             ],
             "11": [
-                "minecraft:ice"
+                "minecraft/ice"
             ]
         },
         "output": {
-            "id": "minecraft:packed_ice",
+            "id": "minecraft/packed_ice",
             "count": 1
         }
     }

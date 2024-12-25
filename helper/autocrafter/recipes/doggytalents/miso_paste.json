@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "doggytalents:soy_beans"
+                "doggytalents/soy_beans"
             ],
             "2": [
-                "doggytalents:koji"
+                "doggytalents/koji"
             ],
             "3": [
-                "minecraft:red_mushroom"
+                "minecraft/red_mushroom"
             ]
         },
         "output": {
-            "id": "doggytalents:miso_paste",
+            "id": "doggytalents/miso_paste",
             "count": 1
         }
     }

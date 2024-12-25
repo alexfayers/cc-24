@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "aether:icestone"
+                "aether/icestone"
             ],
             "2": [
-                "aether:icestone"
+                "aether/icestone"
             ],
             "3": [
-                "aether:icestone"
+                "aether/icestone"
             ]
         },
         "output": {
-            "id": "aether:icestone_slab",
+            "id": "aether/icestone_slab",
             "count": 6
         }
     }

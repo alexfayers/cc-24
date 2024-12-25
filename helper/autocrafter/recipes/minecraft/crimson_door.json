@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft:crimson_planks"
+                "minecraft/crimson_planks"
             ],
             "2": [
-                "minecraft:crimson_planks"
+                "minecraft/crimson_planks"
             ],
             "5": [
-                "minecraft:crimson_planks"
+                "minecraft/crimson_planks"
             ],
             "6": [
-                "minecraft:crimson_planks"
+                "minecraft/crimson_planks"
             ],
             "9": [
-                "minecraft:crimson_planks"
+                "minecraft/crimson_planks"
             ],
             "10": [
-                "minecraft:crimson_planks"
+                "minecraft/crimson_planks"
             ]
         },
         "output": {
-            "id": "minecraft:crimson_door",
+            "id": "minecraft/crimson_door",
             "count": 3
         }
     }

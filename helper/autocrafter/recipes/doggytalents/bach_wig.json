@@ -2,32 +2,32 @@
     {
         "input": {
             "6": [
-                "minecraft:bone"
+                "minecraft/bone"
             ],
             "1": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "2": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "3": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "5": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "7": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "9": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "11": [
-                "minecraft:string"
+                "minecraft/string"
             ]
         },
         "output": {
-            "id": "doggytalents:bach_wig",
+            "id": "doggytalents/bach_wig",
             "count": 1
         }
     }

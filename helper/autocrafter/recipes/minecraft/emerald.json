@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "minecraft:emerald_block"
+                "minecraft/emerald_block"
             ]
         },
         "output": {
-            "id": "minecraft:emerald",
+            "id": "minecraft/emerald",
             "count": 9
         }
     }

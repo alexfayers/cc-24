@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft:purpur_block",
-                "minecraft:purpur_pillar"
+                "minecraft/purpur_block",
+                "minecraft/purpur_pillar"
             ],
             "2": [
-                "minecraft:purpur_block",
-                "minecraft:purpur_pillar"
+                "minecraft/purpur_block",
+                "minecraft/purpur_pillar"
             ],
             "3": [
-                "minecraft:purpur_block",
-                "minecraft:purpur_pillar"
+                "minecraft/purpur_block",
+                "minecraft/purpur_pillar"
             ]
         },
         "output": {
-            "id": "minecraft:purpur_slab",
+            "id": "minecraft/purpur_slab",
             "count": 6
         }
     }

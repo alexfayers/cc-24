@@ -5,11 +5,11 @@
                 "#loadmychunks:chunk_loaders"
             ],
             "2": [
-                "minecraft:light_blue_dye"
+                "minecraft/light_blue_dye"
             ]
         },
         "output": {
-            "id": "loadmychunks:light_blue_chunk_loader",
+            "id": "loadmychunks/light_blue_chunk_loader",
             "count": 1
         }
     }

@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft:diorite"
+                "minecraft/diorite"
             ],
             "2": [
-                "minecraft:diorite"
+                "minecraft/diorite"
             ],
             "3": [
-                "minecraft:diorite"
+                "minecraft/diorite"
             ],
             "5": [
-                "minecraft:diorite"
+                "minecraft/diorite"
             ],
             "6": [
-                "minecraft:diorite"
+                "minecraft/diorite"
             ],
             "7": [
-                "minecraft:diorite"
+                "minecraft/diorite"
             ]
         },
         "output": {
-            "id": "minecraft:diorite_wall",
+            "id": "minecraft/diorite_wall",
             "count": 6
         }
     }

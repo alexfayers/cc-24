@@ -17,11 +17,11 @@
                 "#c:ingots/steel"
             ],
             "6": [
-                "stellaris:rocket_engine"
+                "stellaris/rocket_engine"
             ]
         },
         "output": {
-            "id": "stellaris:jet_suit_boots",
+            "id": "stellaris/jet_suit_boots",
             "count": 1
         }
     }

@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft:rabbit_hide"
+                "minecraft/rabbit_hide"
             ],
             "2": [
-                "minecraft:rabbit_hide"
+                "minecraft/rabbit_hide"
             ],
             "5": [
-                "minecraft:rabbit_hide"
+                "minecraft/rabbit_hide"
             ],
             "6": [
-                "minecraft:rabbit_hide"
+                "minecraft/rabbit_hide"
             ]
         },
         "output": {
-            "id": "minecraft:leather",
+            "id": "minecraft/leather",
             "count": 1
         }
     }

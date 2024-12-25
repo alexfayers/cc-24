@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft:weathered_cut_copper_slab"
+                "minecraft/weathered_cut_copper_slab"
             ],
             "5": [
-                "minecraft:weathered_cut_copper_slab"
+                "minecraft/weathered_cut_copper_slab"
             ]
         },
         "output": {
-            "id": "minecraft:weathered_chiseled_copper",
+            "id": "minecraft/weathered_chiseled_copper",
             "count": 1
         }
     }

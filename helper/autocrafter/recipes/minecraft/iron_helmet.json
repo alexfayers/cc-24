@@ -2,23 +2,23 @@
     {
         "input": {
             "1": [
-                "minecraft:iron_ingot"
+                "minecraft/iron_ingot"
             ],
             "2": [
-                "minecraft:iron_ingot"
+                "minecraft/iron_ingot"
             ],
             "3": [
-                "minecraft:iron_ingot"
+                "minecraft/iron_ingot"
             ],
             "5": [
-                "minecraft:iron_ingot"
+                "minecraft/iron_ingot"
             ],
             "7": [
-                "minecraft:iron_ingot"
+                "minecraft/iron_ingot"
             ]
         },
         "output": {
-            "id": "minecraft:iron_helmet",
+            "id": "minecraft/iron_helmet",
             "count": 1
         }
     }

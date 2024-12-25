@@ -2,23 +2,23 @@
     {
         "input": {
             "5": [
-                "minecraft:black_stained_glass_pane"
+                "minecraft/black_stained_glass_pane"
             ],
             "7": [
-                "minecraft:black_stained_glass_pane"
+                "minecraft/black_stained_glass_pane"
             ],
             "1": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "3": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "6": [
-                "minecraft:stick"
+                "minecraft/stick"
             ]
         },
         "output": {
-            "id": "doggytalents:sunglasses",
+            "id": "doggytalents/sunglasses",
             "count": 1
         }
     }

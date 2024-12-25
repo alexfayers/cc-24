@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "minecraft:breeze_rod"
+                "minecraft/breeze_rod"
             ]
         },
         "output": {
-            "id": "minecraft:wind_charge",
+            "id": "minecraft/wind_charge",
             "count": 4
         }
     }

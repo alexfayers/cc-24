@@ -12,7 +12,7 @@
             ]
         },
         "output": {
-            "id": "stellaris:rocket_launch_pad",
+            "id": "stellaris/rocket_launch_pad",
             "count": 3
         }
     }

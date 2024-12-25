@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft:sand"
+                "minecraft/sand"
             ],
             "2": [
-                "minecraft:sand"
+                "minecraft/sand"
             ],
             "5": [
-                "minecraft:sand"
+                "minecraft/sand"
             ],
             "6": [
-                "minecraft:sand"
+                "minecraft/sand"
             ]
         },
         "output": {
-            "id": "minecraft:sandstone",
+            "id": "minecraft/sandstone",
             "count": 1
         }
     }

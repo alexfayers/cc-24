@@ -14,17 +14,17 @@
                 "#c:ingots/steel"
             ],
             "1": [
-                "stellaris:heavy_metal_plate"
+                "stellaris/heavy_metal_plate"
             ],
             "3": [
-                "stellaris:heavy_metal_plate"
+                "stellaris/heavy_metal_plate"
             ],
             "2": [
-                "minecraft:redstone"
+                "minecraft/redstone"
             ]
         },
         "output": {
-            "id": "stellaris:rocket_engine",
+            "id": "stellaris/rocket_engine",
             "count": 1
         }
     }

@@ -2,29 +2,29 @@
     {
         "input": {
             "1": [
-                "minecraft:black_carpet"
+                "minecraft/black_carpet"
             ],
             "3": [
-                "minecraft:black_carpet"
+                "minecraft/black_carpet"
             ],
             "10": [
                 "#minecraft:flowers"
             ],
             "9": [
-                "minecraft:leather"
+                "minecraft/leather"
             ],
             "11": [
-                "minecraft:leather"
+                "minecraft/leather"
             ],
             "6": [
-                "doggytalents:snorkel"
+                "doggytalents/snorkel"
             ],
             "2": [
-                "minecraft:black_wool"
+                "minecraft/black_wool"
             ]
         },
         "output": {
-            "id": "doggytalents:plague_doctor_mask",
+            "id": "doggytalents/plague_doctor_mask",
             "count": 1
         }
     }

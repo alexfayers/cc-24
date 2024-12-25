@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "aether:stripped_skyroot_log"
+                "aether/stripped_skyroot_log"
             ],
             "2": [
-                "aether:stripped_skyroot_log"
+                "aether/stripped_skyroot_log"
             ],
             "5": [
-                "aether:stripped_skyroot_log"
+                "aether/stripped_skyroot_log"
             ],
             "6": [
-                "aether:stripped_skyroot_log"
+                "aether/stripped_skyroot_log"
             ]
         },
         "output": {
-            "id": "aether:stripped_skyroot_wood",
+            "id": "aether/stripped_skyroot_wood",
             "count": 3
         }
     }

@@ -2,18 +2,18 @@
     {
         "input": {
             "5": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "9": [
                 "#minecraft:soul_fire_base_blocks"
             ],
             "1": [
-                "minecraft:coal",
-                "minecraft:charcoal"
+                "minecraft/coal",
+                "minecraft/charcoal"
             ]
         },
         "output": {
-            "id": "minecraft:soul_torch",
+            "id": "minecraft/soul_torch",
             "count": 4
         }
     }

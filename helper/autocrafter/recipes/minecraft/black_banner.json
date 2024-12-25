@@ -2,29 +2,29 @@
     {
         "input": {
             "1": [
-                "minecraft:black_wool"
+                "minecraft/black_wool"
             ],
             "2": [
-                "minecraft:black_wool"
+                "minecraft/black_wool"
             ],
             "3": [
-                "minecraft:black_wool"
+                "minecraft/black_wool"
             ],
             "5": [
-                "minecraft:black_wool"
+                "minecraft/black_wool"
             ],
             "6": [
-                "minecraft:black_wool"
+                "minecraft/black_wool"
             ],
             "7": [
-                "minecraft:black_wool"
+                "minecraft/black_wool"
             ],
             "10": [
-                "minecraft:stick"
+                "minecraft/stick"
             ]
         },
         "output": {
-            "id": "minecraft:black_banner",
+            "id": "minecraft/black_banner",
             "count": 1
         }
     },
@@ -34,11 +34,11 @@
                 "#minecraft:banners"
             ],
             "2": [
-                "aether:swet_cape"
+                "aether/swet_cape"
             ]
         },
         "output": {
-            "id": "minecraft:black_banner",
+            "id": "minecraft/black_banner",
             "count": 1
         }
     }

@@ -27,7 +27,7 @@
             ]
         },
         "output": {
-            "id": "minecraft:chest",
+            "id": "minecraft/chest",
             "count": 1
         }
     },
@@ -59,7 +59,7 @@
             ]
         },
         "output": {
-            "id": "minecraft:chest",
+            "id": "minecraft/chest",
             "count": 1
         }
     }

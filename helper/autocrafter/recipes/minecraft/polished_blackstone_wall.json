@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft:polished_blackstone"
+                "minecraft/polished_blackstone"
             ],
             "2": [
-                "minecraft:polished_blackstone"
+                "minecraft/polished_blackstone"
             ],
             "3": [
-                "minecraft:polished_blackstone"
+                "minecraft/polished_blackstone"
             ],
             "5": [
-                "minecraft:polished_blackstone"
+                "minecraft/polished_blackstone"
             ],
             "6": [
-                "minecraft:polished_blackstone"
+                "minecraft/polished_blackstone"
             ],
             "7": [
-                "minecraft:polished_blackstone"
+                "minecraft/polished_blackstone"
             ]
         },
         "output": {
-            "id": "minecraft:polished_blackstone_wall",
+            "id": "minecraft/polished_blackstone_wall",
             "count": 6
         }
     }

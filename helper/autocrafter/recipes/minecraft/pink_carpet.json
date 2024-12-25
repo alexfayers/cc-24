@@ -2,42 +2,42 @@
     {
         "input": {
             "1": [
-                "minecraft:pink_wool"
+                "minecraft/pink_wool"
             ],
             "2": [
-                "minecraft:pink_wool"
+                "minecraft/pink_wool"
             ]
         },
         "output": {
-            "id": "minecraft:pink_carpet",
+            "id": "minecraft/pink_carpet",
             "count": 3
         }
     },
     {
         "input": {
             "1": [
-                "minecraft:pink_dye"
+                "minecraft/pink_dye"
             ],
             "2": [
-                "minecraft:black_carpet",
-                "minecraft:blue_carpet",
-                "minecraft:brown_carpet",
-                "minecraft:cyan_carpet",
-                "minecraft:gray_carpet",
-                "minecraft:green_carpet",
-                "minecraft:light_blue_carpet",
-                "minecraft:light_gray_carpet",
-                "minecraft:lime_carpet",
-                "minecraft:magenta_carpet",
-                "minecraft:orange_carpet",
-                "minecraft:purple_carpet",
-                "minecraft:red_carpet",
-                "minecraft:yellow_carpet",
-                "minecraft:white_carpet"
+                "minecraft/black_carpet",
+                "minecraft/blue_carpet",
+                "minecraft/brown_carpet",
+                "minecraft/cyan_carpet",
+                "minecraft/gray_carpet",
+                "minecraft/green_carpet",
+                "minecraft/light_blue_carpet",
+                "minecraft/light_gray_carpet",
+                "minecraft/lime_carpet",
+                "minecraft/magenta_carpet",
+                "minecraft/orange_carpet",
+                "minecraft/purple_carpet",
+                "minecraft/red_carpet",
+                "minecraft/yellow_carpet",
+                "minecraft/white_carpet"
             ]
         },
         "output": {
-            "id": "minecraft:pink_carpet",
+            "id": "minecraft/pink_carpet",
             "count": 1
         }
     }

@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft:ender_pearl"
+                "minecraft/ender_pearl"
             ],
             "2": [
-                "minecraft:amethyst_shard"
+                "minecraft/amethyst_shard"
             ]
         },
         "output": {
-            "id": "waystones:warp_dust",
+            "id": "waystones/warp_dust",
             "count": 4
         }
     }

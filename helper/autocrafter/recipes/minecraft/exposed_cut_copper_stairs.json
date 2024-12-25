@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft:exposed_cut_copper"
+                "minecraft/exposed_cut_copper"
             ],
             "5": [
-                "minecraft:exposed_cut_copper"
+                "minecraft/exposed_cut_copper"
             ],
             "6": [
-                "minecraft:exposed_cut_copper"
+                "minecraft/exposed_cut_copper"
             ],
             "9": [
-                "minecraft:exposed_cut_copper"
+                "minecraft/exposed_cut_copper"
             ],
             "10": [
-                "minecraft:exposed_cut_copper"
+                "minecraft/exposed_cut_copper"
             ],
             "11": [
-                "minecraft:exposed_cut_copper"
+                "minecraft/exposed_cut_copper"
             ]
         },
         "output": {
-            "id": "minecraft:exposed_cut_copper_stairs",
+            "id": "minecraft/exposed_cut_copper_stairs",
             "count": 4
         }
     }

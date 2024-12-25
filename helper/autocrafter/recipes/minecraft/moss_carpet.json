@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft:moss_block"
+                "minecraft/moss_block"
             ],
             "2": [
-                "minecraft:moss_block"
+                "minecraft/moss_block"
             ]
         },
         "output": {
-            "id": "minecraft:moss_carpet",
+            "id": "minecraft/moss_carpet",
             "count": 3
         }
     }

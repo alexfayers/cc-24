@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft:cobblestone"
+                "minecraft/cobblestone"
             ],
             "2": [
-                "minecraft:cobblestone"
+                "minecraft/cobblestone"
             ],
             "3": [
-                "minecraft:cobblestone"
+                "minecraft/cobblestone"
             ],
             "5": [
-                "minecraft:cobblestone"
+                "minecraft/cobblestone"
             ],
             "7": [
-                "minecraft:cobblestone"
+                "minecraft/cobblestone"
             ],
             "9": [
-                "minecraft:cobblestone"
+                "minecraft/cobblestone"
             ],
             "11": [
-                "minecraft:cobblestone"
+                "minecraft/cobblestone"
             ],
             "10": [
-                "minecraft:redstone"
+                "minecraft/redstone"
             ],
             "6": [
-                "minecraft:bow"
+                "minecraft/bow"
             ]
         },
         "output": {
-            "id": "minecraft:dispenser",
+            "id": "minecraft/dispenser",
             "count": 1
         }
     }

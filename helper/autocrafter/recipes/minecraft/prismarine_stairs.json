@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft:prismarine"
+                "minecraft/prismarine"
             ],
             "5": [
-                "minecraft:prismarine"
+                "minecraft/prismarine"
             ],
             "6": [
-                "minecraft:prismarine"
+                "minecraft/prismarine"
             ],
             "9": [
-                "minecraft:prismarine"
+                "minecraft/prismarine"
             ],
             "10": [
-                "minecraft:prismarine"
+                "minecraft/prismarine"
             ],
             "11": [
-                "minecraft:prismarine"
+                "minecraft/prismarine"
             ]
         },
         "output": {
-            "id": "minecraft:prismarine_stairs",
+            "id": "minecraft/prismarine_stairs",
             "count": 4
         }
     }

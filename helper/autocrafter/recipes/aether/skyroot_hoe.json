@@ -15,7 +15,7 @@
             ]
         },
         "output": {
-            "id": "aether:skyroot_hoe",
+            "id": "aether/skyroot_hoe",
             "count": 1
         }
     }

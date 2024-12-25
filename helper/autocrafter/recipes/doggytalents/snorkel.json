@@ -2,20 +2,20 @@
     {
         "input": {
             "3": [
-                "minecraft:bamboo"
+                "minecraft/bamboo"
             ],
             "5": [
-                "minecraft:glass_pane"
+                "minecraft/glass_pane"
             ],
             "7": [
-                "minecraft:glass_pane"
+                "minecraft/glass_pane"
             ],
             "6": [
-                "minecraft:iron_ingot"
+                "minecraft/iron_ingot"
             ]
         },
         "output": {
-            "id": "doggytalents:snorkel",
+            "id": "doggytalents/snorkel",
             "count": 1
         }
     }

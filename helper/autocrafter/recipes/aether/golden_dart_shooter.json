@@ -2,17 +2,17 @@
     {
         "input": {
             "9": [
-                "aether:golden_amber"
+                "aether/golden_amber"
             ],
             "1": [
-                "aether:skyroot_planks"
+                "aether/skyroot_planks"
             ],
             "5": [
-                "aether:skyroot_planks"
+                "aether/skyroot_planks"
             ]
         },
         "output": {
-            "id": "aether:golden_dart_shooter",
+            "id": "aether/golden_dart_shooter",
             "count": 1
         }
     }

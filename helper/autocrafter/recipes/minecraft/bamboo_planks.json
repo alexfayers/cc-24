@@ -6,7 +6,7 @@
             ]
         },
         "output": {
-            "id": "minecraft:bamboo_planks",
+            "id": "minecraft/bamboo_planks",
             "count": 2
         }
     }

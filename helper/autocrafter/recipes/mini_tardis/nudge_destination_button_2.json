@@ -12,7 +12,7 @@
             ]
         },
         "output": {
-            "id": "mini_tardis:nudge_destination_button_2",
+            "id": "mini_tardis/nudge_destination_button_2",
             "count": 1
         }
     }

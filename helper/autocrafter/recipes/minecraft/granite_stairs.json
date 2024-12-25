@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft:granite"
+                "minecraft/granite"
             ],
             "5": [
-                "minecraft:granite"
+                "minecraft/granite"
             ],
             "6": [
-                "minecraft:granite"
+                "minecraft/granite"
             ],
             "9": [
-                "minecraft:granite"
+                "minecraft/granite"
             ],
             "10": [
-                "minecraft:granite"
+                "minecraft/granite"
             ],
             "11": [
-                "minecraft:granite"
+                "minecraft/granite"
             ]
         },
         "output": {
-            "id": "minecraft:granite_stairs",
+            "id": "minecraft/granite_stairs",
             "count": 4
         }
     }

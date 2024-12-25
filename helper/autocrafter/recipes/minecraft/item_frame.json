@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "2": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "3": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "5": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "7": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "9": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "10": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "11": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "6": [
-                "minecraft:leather"
+                "minecraft/leather"
             ]
         },
         "output": {
-            "id": "minecraft:item_frame",
+            "id": "minecraft/item_frame",
             "count": 1
         }
     }

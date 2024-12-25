@@ -2,35 +2,35 @@
     {
         "input": {
             "6": [
-                "aether:skyroot_poison_bucket"
+                "aether/skyroot_poison_bucket"
             ],
             "1": [
-                "aether:golden_dart"
+                "aether/golden_dart"
             ],
             "2": [
-                "aether:golden_dart"
+                "aether/golden_dart"
             ],
             "3": [
-                "aether:golden_dart"
+                "aether/golden_dart"
             ],
             "5": [
-                "aether:golden_dart"
+                "aether/golden_dart"
             ],
             "7": [
-                "aether:golden_dart"
+                "aether/golden_dart"
             ],
             "9": [
-                "aether:golden_dart"
+                "aether/golden_dart"
             ],
             "10": [
-                "aether:golden_dart"
+                "aether/golden_dart"
             ],
             "11": [
-                "aether:golden_dart"
+                "aether/golden_dart"
             ]
         },
         "output": {
-            "id": "aether:poison_dart",
+            "id": "aether/poison_dart",
             "count": 8
         }
     }

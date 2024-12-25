@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft:amethyst_shard"
+                "minecraft/amethyst_shard"
             ],
             "2": [
-                "minecraft:amethyst_shard"
+                "minecraft/amethyst_shard"
             ],
             "5": [
-                "minecraft:amethyst_shard"
+                "minecraft/amethyst_shard"
             ],
             "6": [
-                "minecraft:amethyst_shard"
+                "minecraft/amethyst_shard"
             ]
         },
         "output": {
-            "id": "minecraft:amethyst_block",
+            "id": "minecraft/amethyst_block",
             "count": 1
         }
     }

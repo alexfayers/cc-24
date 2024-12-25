@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft:coal"
+                "minecraft/coal"
             ],
             "2": [
-                "minecraft:coal"
+                "minecraft/coal"
             ],
             "3": [
-                "minecraft:coal"
+                "minecraft/coal"
             ],
             "5": [
-                "minecraft:coal"
+                "minecraft/coal"
             ],
             "6": [
-                "minecraft:coal"
+                "minecraft/coal"
             ],
             "7": [
-                "minecraft:coal"
+                "minecraft/coal"
             ],
             "9": [
-                "minecraft:coal"
+                "minecraft/coal"
             ],
             "10": [
-                "minecraft:coal"
+                "minecraft/coal"
             ],
             "11": [
-                "minecraft:coal"
+                "minecraft/coal"
             ]
         },
         "output": {
-            "id": "minecraft:coal_block",
+            "id": "minecraft/coal_block",
             "count": 1
         }
     }

@@ -18,7 +18,7 @@
             ]
         },
         "output": {
-            "id": "stellaris:engine_fan",
+            "id": "stellaris/engine_fan",
             "count": 1
         }
     }

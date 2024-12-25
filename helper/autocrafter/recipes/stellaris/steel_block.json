@@ -30,7 +30,7 @@
             ]
         },
         "output": {
-            "id": "stellaris:steel_block",
+            "id": "stellaris/steel_block",
             "count": 1
         }
     }

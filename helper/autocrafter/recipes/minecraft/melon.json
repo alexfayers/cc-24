@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft:melon_slice"
+                "minecraft/melon_slice"
             ],
             "2": [
-                "minecraft:melon_slice"
+                "minecraft/melon_slice"
             ],
             "3": [
-                "minecraft:melon_slice"
+                "minecraft/melon_slice"
             ],
             "5": [
-                "minecraft:melon_slice"
+                "minecraft/melon_slice"
             ],
             "6": [
-                "minecraft:melon_slice"
+                "minecraft/melon_slice"
             ],
             "7": [
-                "minecraft:melon_slice"
+                "minecraft/melon_slice"
             ],
             "9": [
-                "minecraft:melon_slice"
+                "minecraft/melon_slice"
             ],
             "10": [
-                "minecraft:melon_slice"
+                "minecraft/melon_slice"
             ],
             "11": [
-                "minecraft:melon_slice"
+                "minecraft/melon_slice"
             ]
         },
         "output": {
-            "id": "minecraft:melon",
+            "id": "minecraft/melon",
             "count": 1
         }
     }

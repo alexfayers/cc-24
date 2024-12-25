@@ -2,7 +2,7 @@
     {
         "input": {
             "10": [
-                "minecraft:gold_ingot"
+                "minecraft/gold_ingot"
             ],
             "1": [
                 "#c:strings"
@@ -21,7 +21,7 @@
             ]
         },
         "output": {
-            "id": "aether:golden_pendant",
+            "id": "aether/golden_pendant",
             "count": 1
         }
     }

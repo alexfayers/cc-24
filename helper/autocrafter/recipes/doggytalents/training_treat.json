@@ -2,23 +2,23 @@
     {
         "input": {
             "1": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "2": [
-                "minecraft:bone"
+                "minecraft/bone"
             ],
             "3": [
-                "minecraft:gunpowder"
+                "minecraft/gunpowder"
             ],
             "5": [
-                "minecraft:sugar"
+                "minecraft/sugar"
             ],
             "6": [
-                "doggytalents:rice_bowl"
+                "doggytalents/rice_bowl"
             ]
         },
         "output": {
-            "id": "doggytalents:training_treat",
+            "id": "doggytalents/training_treat",
             "count": 3
         }
     }

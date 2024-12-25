@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft:bamboo"
+                "minecraft/bamboo"
             ],
             "5": [
-                "minecraft:bamboo"
+                "minecraft/bamboo"
             ]
         },
         "output": {
-            "id": "minecraft:stick",
+            "id": "minecraft/stick",
             "count": 1
         }
     },
@@ -23,7 +23,7 @@
             ]
         },
         "output": {
-            "id": "minecraft:stick",
+            "id": "minecraft/stick",
             "count": 4
         }
     }

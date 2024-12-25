@@ -2,19 +2,19 @@
     {
         "input": {
             "6": [
-                "minecraft:copper_ingot"
+                "minecraft/copper_ingot"
             ],
             "5": [
-                "minecraft:white_wool"
+                "minecraft/white_wool"
             ],
             "7": [
-                "minecraft:white_wool"
+                "minecraft/white_wool"
             ],
             "9": [
-                "minecraft:white_wool"
+                "minecraft/white_wool"
             ],
             "11": [
-                "minecraft:white_wool"
+                "minecraft/white_wool"
             ],
             "1": [
                 "#c:ingots/steel"
@@ -27,7 +27,7 @@
             ]
         },
         "output": {
-            "id": "stellaris:space_suit_leggings",
+            "id": "stellaris/space_suit_leggings",
             "count": 1
         }
     }

@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "aether:golden_aercloud"
+                "aether/golden_aercloud"
             ],
             "2": [
-                "aether:golden_aercloud"
+                "aether/golden_aercloud"
             ],
             "5": [
-                "aether:golden_aercloud"
+                "aether/golden_aercloud"
             ],
             "6": [
-                "aether:golden_aercloud"
+                "aether/golden_aercloud"
             ]
         },
         "output": {
-            "id": "aether:golden_parachute",
+            "id": "aether/golden_parachute",
             "count": 1
         }
     }

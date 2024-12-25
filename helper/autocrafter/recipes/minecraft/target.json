@@ -2,23 +2,23 @@
     {
         "input": {
             "6": [
-                "minecraft:hay_block"
+                "minecraft/hay_block"
             ],
             "2": [
-                "minecraft:redstone"
+                "minecraft/redstone"
             ],
             "5": [
-                "minecraft:redstone"
+                "minecraft/redstone"
             ],
             "7": [
-                "minecraft:redstone"
+                "minecraft/redstone"
             ],
             "10": [
-                "minecraft:redstone"
+                "minecraft/redstone"
             ]
         },
         "output": {
-            "id": "minecraft:target",
+            "id": "minecraft/target",
             "count": 1
         }
     }

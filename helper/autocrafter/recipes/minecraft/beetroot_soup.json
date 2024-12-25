@@ -2,29 +2,29 @@
     {
         "input": {
             "1": [
-                "minecraft:bowl"
+                "minecraft/bowl"
             ],
             "2": [
-                "minecraft:beetroot"
+                "minecraft/beetroot"
             ],
             "3": [
-                "minecraft:beetroot"
+                "minecraft/beetroot"
             ],
             "5": [
-                "minecraft:beetroot"
+                "minecraft/beetroot"
             ],
             "6": [
-                "minecraft:beetroot"
+                "minecraft/beetroot"
             ],
             "7": [
-                "minecraft:beetroot"
+                "minecraft/beetroot"
             ],
             "9": [
-                "minecraft:beetroot"
+                "minecraft/beetroot"
             ]
         },
         "output": {
-            "id": "minecraft:beetroot_soup",
+            "id": "minecraft/beetroot_soup",
             "count": 1
         }
     }

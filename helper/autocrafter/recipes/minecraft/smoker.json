@@ -14,11 +14,11 @@
                 "#minecraft:logs"
             ],
             "6": [
-                "minecraft:furnace"
+                "minecraft/furnace"
             ]
         },
         "output": {
-            "id": "minecraft:smoker",
+            "id": "minecraft/smoker",
             "count": 1
         }
     }

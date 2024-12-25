@@ -2,29 +2,29 @@
     {
         "input": {
             "1": [
-                "minecraft:bamboo"
+                "minecraft/bamboo"
             ],
             "3": [
-                "minecraft:bamboo"
+                "minecraft/bamboo"
             ],
             "5": [
-                "minecraft:bamboo"
+                "minecraft/bamboo"
             ],
             "7": [
-                "minecraft:bamboo"
+                "minecraft/bamboo"
             ],
             "9": [
-                "minecraft:bamboo"
+                "minecraft/bamboo"
             ],
             "11": [
-                "minecraft:bamboo"
+                "minecraft/bamboo"
             ],
             "2": [
-                "minecraft:string"
+                "minecraft/string"
             ]
         },
         "output": {
-            "id": "minecraft:scaffolding",
+            "id": "minecraft/scaffolding",
             "count": 6
         }
     }

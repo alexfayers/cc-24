@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "aether:holystone"
+                "aether/holystone"
             ]
         },
         "output": {
-            "id": "aether:holystone_button",
+            "id": "aether/holystone_button",
             "count": 1
         }
     }

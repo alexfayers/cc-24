@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "3": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "5": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "7": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "2": [
-                "minecraft:bamboo_planks"
+                "minecraft/bamboo_planks"
             ],
             "6": [
-                "minecraft:bamboo_planks"
+                "minecraft/bamboo_planks"
             ]
         },
         "output": {
-            "id": "minecraft:bamboo_fence_gate",
+            "id": "minecraft/bamboo_fence_gate",
             "count": 1
         }
     }

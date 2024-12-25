@@ -27,7 +27,7 @@
             ]
         },
         "output": {
-            "id": "aether:gravitite_chestplate",
+            "id": "aether/gravitite_chestplate",
             "count": 1
         }
     }

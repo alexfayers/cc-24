@@ -14,11 +14,11 @@
                 "#c:ingots/steel"
             ],
             "2": [
-                "minecraft:redstone"
+                "minecraft/redstone"
             ]
         },
         "output": {
-            "id": "stellaris:rocket_nose_cone",
+            "id": "stellaris/rocket_nose_cone",
             "count": 1
         }
     }

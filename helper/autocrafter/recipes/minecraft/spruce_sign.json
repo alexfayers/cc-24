@@ -2,29 +2,29 @@
     {
         "input": {
             "1": [
-                "minecraft:spruce_planks"
+                "minecraft/spruce_planks"
             ],
             "2": [
-                "minecraft:spruce_planks"
+                "minecraft/spruce_planks"
             ],
             "3": [
-                "minecraft:spruce_planks"
+                "minecraft/spruce_planks"
             ],
             "5": [
-                "minecraft:spruce_planks"
+                "minecraft/spruce_planks"
             ],
             "6": [
-                "minecraft:spruce_planks"
+                "minecraft/spruce_planks"
             ],
             "7": [
-                "minecraft:spruce_planks"
+                "minecraft/spruce_planks"
             ],
             "10": [
-                "minecraft:stick"
+                "minecraft/stick"
             ]
         },
         "output": {
-            "id": "minecraft:spruce_sign",
+            "id": "minecraft/spruce_sign",
             "count": 3
         }
     }

@@ -2,48 +2,48 @@
     {
         "input": {
             "1": [
-                "minecraft:white_dye"
+                "minecraft/white_dye"
             ],
             "2": [
-                "minecraft:black_wool",
-                "minecraft:blue_wool",
-                "minecraft:brown_wool",
-                "minecraft:cyan_wool",
-                "minecraft:gray_wool",
-                "minecraft:green_wool",
-                "minecraft:light_blue_wool",
-                "minecraft:light_gray_wool",
-                "minecraft:lime_wool",
-                "minecraft:magenta_wool",
-                "minecraft:orange_wool",
-                "minecraft:pink_wool",
-                "minecraft:purple_wool",
-                "minecraft:red_wool",
-                "minecraft:yellow_wool"
+                "minecraft/black_wool",
+                "minecraft/blue_wool",
+                "minecraft/brown_wool",
+                "minecraft/cyan_wool",
+                "minecraft/gray_wool",
+                "minecraft/green_wool",
+                "minecraft/light_blue_wool",
+                "minecraft/light_gray_wool",
+                "minecraft/lime_wool",
+                "minecraft/magenta_wool",
+                "minecraft/orange_wool",
+                "minecraft/pink_wool",
+                "minecraft/purple_wool",
+                "minecraft/red_wool",
+                "minecraft/yellow_wool"
             ]
         },
         "output": {
-            "id": "minecraft:white_wool",
+            "id": "minecraft/white_wool",
             "count": 1
         }
     },
     {
         "input": {
             "1": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "2": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "5": [
-                "minecraft:string"
+                "minecraft/string"
             ],
             "6": [
-                "minecraft:string"
+                "minecraft/string"
             ]
         },
         "output": {
-            "id": "minecraft:white_wool",
+            "id": "minecraft/white_wool",
             "count": 1
         }
     }

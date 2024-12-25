@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft:oxidized_copper"
+                "minecraft/oxidized_copper"
             ],
             "2": [
-                "minecraft:honeycomb"
+                "minecraft/honeycomb"
             ]
         },
         "output": {
-            "id": "minecraft:waxed_oxidized_copper",
+            "id": "minecraft/waxed_oxidized_copper",
             "count": 1
         }
     }

@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft:stone"
+                "minecraft/stone"
             ],
             "2": [
-                "minecraft:stone"
+                "minecraft/stone"
             ],
             "3": [
-                "minecraft:stone"
+                "minecraft/stone"
             ],
             "5": [
-                "minecraft:stone"
+                "minecraft/stone"
             ],
             "7": [
-                "minecraft:stone"
+                "minecraft/stone"
             ],
             "9": [
-                "minecraft:stone"
+                "minecraft/stone"
             ],
             "10": [
-                "minecraft:stone"
+                "minecraft/stone"
             ],
             "11": [
-                "minecraft:stone"
+                "minecraft/stone"
             ],
             "6": [
                 "#c:ender_pearls"
             ]
         },
         "output": {
-            "id": "computercraft:wireless_modem_normal",
+            "id": "computercraft/wireless_modem_normal",
             "count": 1
         }
     }

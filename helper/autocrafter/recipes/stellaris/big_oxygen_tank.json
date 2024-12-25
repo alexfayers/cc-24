@@ -27,7 +27,7 @@
             ]
         },
         "output": {
-            "id": "stellaris:big_oxygen_tank",
+            "id": "stellaris/big_oxygen_tank",
             "count": 1
         }
     }

@@ -2,32 +2,32 @@
     {
         "input": {
             "5": [
-                "minecraft:stripped_bamboo_block"
+                "minecraft/stripped_bamboo_block"
             ],
             "6": [
-                "minecraft:stripped_bamboo_block"
+                "minecraft/stripped_bamboo_block"
             ],
             "7": [
-                "minecraft:stripped_bamboo_block"
+                "minecraft/stripped_bamboo_block"
             ],
             "9": [
-                "minecraft:stripped_bamboo_block"
+                "minecraft/stripped_bamboo_block"
             ],
             "10": [
-                "minecraft:stripped_bamboo_block"
+                "minecraft/stripped_bamboo_block"
             ],
             "11": [
-                "minecraft:stripped_bamboo_block"
+                "minecraft/stripped_bamboo_block"
             ],
             "1": [
-                "minecraft:chain"
+                "minecraft/chain"
             ],
             "3": [
-                "minecraft:chain"
+                "minecraft/chain"
             ]
         },
         "output": {
-            "id": "minecraft:bamboo_hanging_sign",
+            "id": "minecraft/bamboo_hanging_sign",
             "count": 6
         }
     }

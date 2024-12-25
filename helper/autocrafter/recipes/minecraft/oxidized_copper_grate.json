@@ -2,20 +2,20 @@
     {
         "input": {
             "2": [
-                "minecraft:oxidized_copper"
+                "minecraft/oxidized_copper"
             ],
             "5": [
-                "minecraft:oxidized_copper"
+                "minecraft/oxidized_copper"
             ],
             "7": [
-                "minecraft:oxidized_copper"
+                "minecraft/oxidized_copper"
             ],
             "10": [
-                "minecraft:oxidized_copper"
+                "minecraft/oxidized_copper"
             ]
         },
         "output": {
-            "id": "minecraft:oxidized_copper_grate",
+            "id": "minecraft/oxidized_copper_grate",
             "count": 4
         }
     }

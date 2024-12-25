@@ -12,7 +12,7 @@
             ]
         },
         "output": {
-            "id": "minecraft:bowl",
+            "id": "minecraft/bowl",
             "count": 4
         }
     }

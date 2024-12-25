@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft:glass"
+                "minecraft/glass"
             ],
             "2": [
-                "minecraft:glass"
+                "minecraft/glass"
             ],
             "3": [
-                "minecraft:glass"
+                "minecraft/glass"
             ],
             "5": [
-                "minecraft:glass"
+                "minecraft/glass"
             ],
             "7": [
-                "minecraft:glass"
+                "minecraft/glass"
             ],
             "9": [
-                "minecraft:glass"
+                "minecraft/glass"
             ],
             "10": [
-                "minecraft:glass"
+                "minecraft/glass"
             ],
             "11": [
-                "minecraft:glass"
+                "minecraft/glass"
             ],
             "6": [
-                "minecraft:blue_dye"
+                "minecraft/blue_dye"
             ]
         },
         "output": {
-            "id": "minecraft:blue_stained_glass",
+            "id": "minecraft/blue_stained_glass",
             "count": 8
         }
     }

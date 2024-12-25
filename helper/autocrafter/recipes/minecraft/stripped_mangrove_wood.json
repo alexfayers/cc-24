@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft:stripped_mangrove_log"
+                "minecraft/stripped_mangrove_log"
             ],
             "2": [
-                "minecraft:stripped_mangrove_log"
+                "minecraft/stripped_mangrove_log"
             ],
             "5": [
-                "minecraft:stripped_mangrove_log"
+                "minecraft/stripped_mangrove_log"
             ],
             "6": [
-                "minecraft:stripped_mangrove_log"
+                "minecraft/stripped_mangrove_log"
             ]
         },
         "output": {
-            "id": "minecraft:stripped_mangrove_wood",
+            "id": "minecraft/stripped_mangrove_wood",
             "count": 3
         }
     }

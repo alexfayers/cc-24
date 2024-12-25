@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft:polished_deepslate"
+                "minecraft/polished_deepslate"
             ],
             "2": [
-                "minecraft:polished_deepslate"
+                "minecraft/polished_deepslate"
             ],
             "5": [
-                "minecraft:polished_deepslate"
+                "minecraft/polished_deepslate"
             ],
             "6": [
-                "minecraft:polished_deepslate"
+                "minecraft/polished_deepslate"
             ]
         },
         "output": {
-            "id": "minecraft:deepslate_bricks",
+            "id": "minecraft/deepslate_bricks",
             "count": 4
         }
     }

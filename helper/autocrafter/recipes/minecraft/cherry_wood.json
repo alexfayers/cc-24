@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft:cherry_log"
+                "minecraft/cherry_log"
             ],
             "2": [
-                "minecraft:cherry_log"
+                "minecraft/cherry_log"
             ],
             "5": [
-                "minecraft:cherry_log"
+                "minecraft/cherry_log"
             ],
             "6": [
-                "minecraft:cherry_log"
+                "minecraft/cherry_log"
             ]
         },
         "output": {
-            "id": "minecraft:cherry_wood",
+            "id": "minecraft/cherry_wood",
             "count": 3
         }
     }

@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "minecraft:andesite"
+                "minecraft/andesite"
             ],
             "2": [
-                "minecraft:andesite"
+                "minecraft/andesite"
             ],
             "5": [
-                "minecraft:andesite"
+                "minecraft/andesite"
             ],
             "6": [
-                "minecraft:andesite"
+                "minecraft/andesite"
             ]
         },
         "output": {
-            "id": "minecraft:polished_andesite",
+            "id": "minecraft/polished_andesite",
             "count": 4
         }
     }

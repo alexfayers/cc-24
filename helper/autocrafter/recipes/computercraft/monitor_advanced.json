@@ -30,7 +30,7 @@
             ]
         },
         "output": {
-            "id": "computercraft:monitor_advanced",
+            "id": "computercraft/monitor_advanced",
             "count": 4
         }
     }

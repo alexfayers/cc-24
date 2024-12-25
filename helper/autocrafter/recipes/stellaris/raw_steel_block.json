@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "stellaris:raw_steel_ingot"
+                "stellaris/raw_steel_ingot"
             ],
             "2": [
-                "stellaris:raw_steel_ingot"
+                "stellaris/raw_steel_ingot"
             ],
             "3": [
-                "stellaris:raw_steel_ingot"
+                "stellaris/raw_steel_ingot"
             ],
             "5": [
-                "stellaris:raw_steel_ingot"
+                "stellaris/raw_steel_ingot"
             ],
             "6": [
-                "stellaris:raw_steel_ingot"
+                "stellaris/raw_steel_ingot"
             ],
             "7": [
-                "stellaris:raw_steel_ingot"
+                "stellaris/raw_steel_ingot"
             ],
             "9": [
-                "stellaris:raw_steel_ingot"
+                "stellaris/raw_steel_ingot"
             ],
             "10": [
-                "stellaris:raw_steel_ingot"
+                "stellaris/raw_steel_ingot"
             ],
             "11": [
-                "stellaris:raw_steel_ingot"
+                "stellaris/raw_steel_ingot"
             ]
         },
         "output": {
-            "id": "stellaris:raw_steel_block",
+            "id": "stellaris/raw_steel_block",
             "count": 1
         }
     }

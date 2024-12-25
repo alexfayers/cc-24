@@ -2,23 +2,23 @@
     {
         "input": {
             "1": [
-                "aether:skyroot_planks"
+                "aether/skyroot_planks"
             ],
             "3": [
-                "aether:skyroot_planks"
+                "aether/skyroot_planks"
             ],
             "5": [
-                "aether:skyroot_planks"
+                "aether/skyroot_planks"
             ],
             "6": [
-                "aether:skyroot_planks"
+                "aether/skyroot_planks"
             ],
             "7": [
-                "aether:skyroot_planks"
+                "aether/skyroot_planks"
             ]
         },
         "output": {
-            "id": "aether:skyroot_boat",
+            "id": "aether/skyroot_boat",
             "count": 1
         }
     }

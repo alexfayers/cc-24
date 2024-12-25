@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "aether:holystone"
+                "aether/holystone"
             ],
             "2": [
-                "aether:holystone"
+                "aether/holystone"
             ],
             "3": [
-                "aether:holystone"
+                "aether/holystone"
             ]
         },
         "output": {
-            "id": "aether:holystone_slab",
+            "id": "aether/holystone_slab",
             "count": 6
         }
     }

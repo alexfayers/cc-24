@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft:polished_blackstone_slab"
+                "minecraft/polished_blackstone_slab"
             ],
             "5": [
-                "minecraft:polished_blackstone_slab"
+                "minecraft/polished_blackstone_slab"
             ]
         },
         "output": {
-            "id": "minecraft:chiseled_polished_blackstone",
+            "id": "minecraft/chiseled_polished_blackstone",
             "count": 1
         }
     }

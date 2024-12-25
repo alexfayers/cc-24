@@ -2,20 +2,20 @@
     {
         "input": {
             "1": [
-                "doggytalents:soy_pods"
+                "doggytalents/soy_pods"
             ],
             "2": [
-                "doggytalents:soy_pods"
+                "doggytalents/soy_pods"
             ],
             "3": [
-                "doggytalents:soy_pods"
+                "doggytalents/soy_pods"
             ],
             "5": [
-                "minecraft:sugar"
+                "minecraft/sugar"
             ]
         },
         "output": {
-            "id": "doggytalents:edamame",
+            "id": "doggytalents/edamame",
             "count": 3
         }
     }

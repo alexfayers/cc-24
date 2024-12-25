@@ -2,38 +2,38 @@
     {
         "input": {
             "1": [
-                "minecraft:red_sandstone",
-                "minecraft:chiseled_red_sandstone",
-                "minecraft:cut_red_sandstone"
+                "minecraft/red_sandstone",
+                "minecraft/chiseled_red_sandstone",
+                "minecraft/cut_red_sandstone"
             ],
             "5": [
-                "minecraft:red_sandstone",
-                "minecraft:chiseled_red_sandstone",
-                "minecraft:cut_red_sandstone"
+                "minecraft/red_sandstone",
+                "minecraft/chiseled_red_sandstone",
+                "minecraft/cut_red_sandstone"
             ],
             "6": [
-                "minecraft:red_sandstone",
-                "minecraft:chiseled_red_sandstone",
-                "minecraft:cut_red_sandstone"
+                "minecraft/red_sandstone",
+                "minecraft/chiseled_red_sandstone",
+                "minecraft/cut_red_sandstone"
             ],
             "9": [
-                "minecraft:red_sandstone",
-                "minecraft:chiseled_red_sandstone",
-                "minecraft:cut_red_sandstone"
+                "minecraft/red_sandstone",
+                "minecraft/chiseled_red_sandstone",
+                "minecraft/cut_red_sandstone"
             ],
             "10": [
-                "minecraft:red_sandstone",
-                "minecraft:chiseled_red_sandstone",
-                "minecraft:cut_red_sandstone"
+                "minecraft/red_sandstone",
+                "minecraft/chiseled_red_sandstone",
+                "minecraft/cut_red_sandstone"
             ],
             "11": [
-                "minecraft:red_sandstone",
-                "minecraft:chiseled_red_sandstone",
-                "minecraft:cut_red_sandstone"
+                "minecraft/red_sandstone",
+                "minecraft/chiseled_red_sandstone",
+                "minecraft/cut_red_sandstone"
             ]
         },
         "output": {
-            "id": "minecraft:red_sandstone_stairs",
+            "id": "minecraft/red_sandstone_stairs",
             "count": 4
         }
     }

@@ -2,20 +2,20 @@
     {
         "input": {
             "5": [
-                "stellaris:venus_cobblestone"
+                "stellaris/venus_cobblestone"
             ],
             "6": [
-                "stellaris:venus_cobblestone"
+                "stellaris/venus_cobblestone"
             ],
             "9": [
-                "stellaris:venus_cobblestone"
+                "stellaris/venus_cobblestone"
             ],
             "10": [
-                "stellaris:venus_cobblestone"
+                "stellaris/venus_cobblestone"
             ]
         },
         "output": {
-            "id": "stellaris:polished_venus_stone",
+            "id": "stellaris/polished_venus_stone",
             "count": 4
         }
     }

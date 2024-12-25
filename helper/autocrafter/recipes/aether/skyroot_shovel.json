@@ -12,7 +12,7 @@
             ]
         },
         "output": {
-            "id": "aether:skyroot_shovel",
+            "id": "aether/skyroot_shovel",
             "count": 1
         }
     }

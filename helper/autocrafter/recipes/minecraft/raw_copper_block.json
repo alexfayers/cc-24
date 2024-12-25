@@ -2,35 +2,35 @@
     {
         "input": {
             "1": [
-                "minecraft:raw_copper"
+                "minecraft/raw_copper"
             ],
             "2": [
-                "minecraft:raw_copper"
+                "minecraft/raw_copper"
             ],
             "3": [
-                "minecraft:raw_copper"
+                "minecraft/raw_copper"
             ],
             "5": [
-                "minecraft:raw_copper"
+                "minecraft/raw_copper"
             ],
             "6": [
-                "minecraft:raw_copper"
+                "minecraft/raw_copper"
             ],
             "7": [
-                "minecraft:raw_copper"
+                "minecraft/raw_copper"
             ],
             "9": [
-                "minecraft:raw_copper"
+                "minecraft/raw_copper"
             ],
             "10": [
-                "minecraft:raw_copper"
+                "minecraft/raw_copper"
             ],
             "11": [
-                "minecraft:raw_copper"
+                "minecraft/raw_copper"
             ]
         },
         "output": {
-            "id": "minecraft:raw_copper_block",
+            "id": "minecraft/raw_copper_block",
             "count": 1
         }
     }

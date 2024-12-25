@@ -26,11 +26,11 @@
                 "#c:ingots/heavy_metal"
             ],
             "6": [
-                "stellaris:small_rocket_upgrade"
+                "stellaris/small_rocket_upgrade"
             ]
         },
         "output": {
-            "id": "stellaris:normal_rocket_upgrade",
+            "id": "stellaris/normal_rocket_upgrade",
             "count": 1
         }
     }

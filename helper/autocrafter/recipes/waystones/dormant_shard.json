@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "waystones:warp_dust"
+                "waystones/warp_dust"
             ],
             "2": [
-                "waystones:warp_dust"
+                "waystones/warp_dust"
             ],
             "3": [
-                "minecraft:flint"
+                "minecraft/flint"
             ]
         },
         "output": {
-            "id": "waystones:dormant_shard",
+            "id": "waystones/dormant_shard",
             "count": 1
         }
     }

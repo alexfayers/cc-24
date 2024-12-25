@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft:brown_mushroom"
+                "minecraft/brown_mushroom"
             ],
             "2": [
-                "minecraft:red_mushroom"
+                "minecraft/red_mushroom"
             ],
             "3": [
-                "minecraft:bowl"
+                "minecraft/bowl"
             ]
         },
         "output": {
-            "id": "minecraft:mushroom_stew",
+            "id": "minecraft/mushroom_stew",
             "count": 1
         }
     }

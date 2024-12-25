@@ -2,7 +2,7 @@
     {
         "input": {
             "6": [
-                "minecraft:bookshelf"
+                "minecraft/bookshelf"
             ],
             "1": [
                 "#minecraft:wooden_slabs"
@@ -18,14 +18,14 @@
             ]
         },
         "output": {
-            "id": "minecraft:lectern",
+            "id": "minecraft/lectern",
             "count": 1
         }
     },
     {
         "input": {
             "6": [
-                "aether:skyroot_bookshelf"
+                "aether/skyroot_bookshelf"
             ],
             "1": [
                 "#minecraft:wooden_slabs"
@@ -41,7 +41,7 @@
             ]
         },
         "output": {
-            "id": "minecraft:lectern",
+            "id": "minecraft/lectern",
             "count": 1
         }
     }

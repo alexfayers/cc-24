@@ -9,7 +9,7 @@
             ]
         },
         "output": {
-            "id": "aether:nature_staff",
+            "id": "aether/nature_staff",
             "count": 1
         }
     }

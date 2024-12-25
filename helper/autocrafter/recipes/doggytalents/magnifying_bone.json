@@ -2,29 +2,29 @@
     {
         "input": {
             "9": [
-                "minecraft:bone"
+                "minecraft/bone"
             ],
             "3": [
-                "minecraft:redstone_block"
+                "minecraft/redstone_block"
             ],
             "2": [
-                "minecraft:gold_ingot"
+                "minecraft/gold_ingot"
             ],
             "5": [
-                "minecraft:gold_ingot"
+                "minecraft/gold_ingot"
             ],
             "7": [
-                "minecraft:gold_ingot"
+                "minecraft/gold_ingot"
             ],
             "10": [
-                "minecraft:gold_ingot"
+                "minecraft/gold_ingot"
             ],
             "6": [
-                "minecraft:glass_pane"
+                "minecraft/glass_pane"
             ]
         },
         "output": {
-            "id": "doggytalents:magnifying_bone",
+            "id": "doggytalents/magnifying_bone",
             "count": 1
         }
     }

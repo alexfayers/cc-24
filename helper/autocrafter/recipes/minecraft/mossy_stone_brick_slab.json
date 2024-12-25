@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft:mossy_stone_bricks"
+                "minecraft/mossy_stone_bricks"
             ],
             "2": [
-                "minecraft:mossy_stone_bricks"
+                "minecraft/mossy_stone_bricks"
             ],
             "3": [
-                "minecraft:mossy_stone_bricks"
+                "minecraft/mossy_stone_bricks"
             ]
         },
         "output": {
-            "id": "minecraft:mossy_stone_brick_slab",
+            "id": "minecraft/mossy_stone_brick_slab",
             "count": 6
         }
     }

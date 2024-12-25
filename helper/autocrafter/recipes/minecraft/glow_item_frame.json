@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft:item_frame"
+                "minecraft/item_frame"
             ],
             "2": [
-                "minecraft:glow_ink_sac"
+                "minecraft/glow_ink_sac"
             ]
         },
         "output": {
-            "id": "minecraft:glow_item_frame",
+            "id": "minecraft/glow_item_frame",
             "count": 1
         }
     }

@@ -2,14 +2,14 @@
     {
         "input": {
             "5": [
-                "minecraft:stick"
+                "minecraft/stick"
             ],
             "1": [
-                "minecraft:redstone"
+                "minecraft/redstone"
             ]
         },
         "output": {
-            "id": "minecraft:redstone_torch",
+            "id": "minecraft/redstone_torch",
             "count": 1
         }
     }

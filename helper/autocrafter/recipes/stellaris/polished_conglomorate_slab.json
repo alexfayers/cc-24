@@ -2,17 +2,17 @@
     {
         "input": {
             "9": [
-                "stellaris:polished_conglomorate"
+                "stellaris/polished_conglomorate"
             ],
             "10": [
-                "stellaris:polished_conglomorate"
+                "stellaris/polished_conglomorate"
             ],
             "11": [
-                "stellaris:polished_conglomorate"
+                "stellaris/polished_conglomorate"
             ]
         },
         "output": {
-            "id": "stellaris:polished_conglomorate_slab",
+            "id": "stellaris/polished_conglomorate_slab",
             "count": 6
         }
     }

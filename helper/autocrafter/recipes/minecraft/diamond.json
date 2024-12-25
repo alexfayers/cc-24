@@ -2,11 +2,11 @@
     {
         "input": {
             "1": [
-                "minecraft:diamond_block"
+                "minecraft/diamond_block"
             ]
         },
         "output": {
-            "id": "minecraft:diamond",
+            "id": "minecraft/diamond",
             "count": 9
         }
     }

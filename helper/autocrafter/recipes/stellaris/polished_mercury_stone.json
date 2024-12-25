@@ -2,20 +2,20 @@
     {
         "input": {
             "5": [
-                "stellaris:mercury_cobblestone"
+                "stellaris/mercury_cobblestone"
             ],
             "6": [
-                "stellaris:mercury_cobblestone"
+                "stellaris/mercury_cobblestone"
             ],
             "9": [
-                "stellaris:mercury_cobblestone"
+                "stellaris/mercury_cobblestone"
             ],
             "10": [
-                "stellaris:mercury_cobblestone"
+                "stellaris/mercury_cobblestone"
             ]
         },
         "output": {
-            "id": "stellaris:polished_mercury_stone",
+            "id": "stellaris/polished_mercury_stone",
             "count": 1
         }
     }

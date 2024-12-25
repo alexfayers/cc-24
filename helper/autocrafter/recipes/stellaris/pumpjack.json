@@ -11,10 +11,10 @@
                 "#c:ingots/steel"
             ],
             "5": [
-                "minecraft:bucket"
+                "minecraft/bucket"
             ],
             "7": [
-                "minecraft:bucket"
+                "minecraft/bucket"
             ],
             "2": [
                 "#c:ingots/heavy_metal"
@@ -23,14 +23,14 @@
                 "#c:ingots/heavy_metal"
             ],
             "3": [
-                "stellaris:pumpjack_drill"
+                "stellaris/pumpjack_drill"
             ],
             "1": [
-                "minecraft:chain"
+                "minecraft/chain"
             ]
         },
         "output": {
-            "id": "stellaris:pumpjack",
+            "id": "stellaris/pumpjack",
             "count": 1
         }
     }

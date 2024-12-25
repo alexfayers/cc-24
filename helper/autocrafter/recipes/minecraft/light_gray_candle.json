@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft:candle"
+                "minecraft/candle"
             ],
             "2": [
-                "minecraft:light_gray_dye"
+                "minecraft/light_gray_dye"
             ]
         },
         "output": {
-            "id": "minecraft:light_gray_candle",
+            "id": "minecraft/light_gray_candle",
             "count": 1
         }
     }

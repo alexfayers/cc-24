@@ -2,38 +2,38 @@
     {
         "input": {
             "1": [
-                "minecraft:chiseled_quartz_block",
-                "minecraft:quartz_block",
-                "minecraft:quartz_pillar"
+                "minecraft/chiseled_quartz_block",
+                "minecraft/quartz_block",
+                "minecraft/quartz_pillar"
             ],
             "5": [
-                "minecraft:chiseled_quartz_block",
-                "minecraft:quartz_block",
-                "minecraft:quartz_pillar"
+                "minecraft/chiseled_quartz_block",
+                "minecraft/quartz_block",
+                "minecraft/quartz_pillar"
             ],
             "6": [
-                "minecraft:chiseled_quartz_block",
-                "minecraft:quartz_block",
-                "minecraft:quartz_pillar"
+                "minecraft/chiseled_quartz_block",
+                "minecraft/quartz_block",
+                "minecraft/quartz_pillar"
             ],
             "9": [
-                "minecraft:chiseled_quartz_block",
-                "minecraft:quartz_block",
-                "minecraft:quartz_pillar"
+                "minecraft/chiseled_quartz_block",
+                "minecraft/quartz_block",
+                "minecraft/quartz_pillar"
             ],
             "10": [
-                "minecraft:chiseled_quartz_block",
-                "minecraft:quartz_block",
-                "minecraft:quartz_pillar"
+                "minecraft/chiseled_quartz_block",
+                "minecraft/quartz_block",
+                "minecraft/quartz_pillar"
             ],
             "11": [
-                "minecraft:chiseled_quartz_block",
-                "minecraft:quartz_block",
-                "minecraft:quartz_pillar"
+                "minecraft/chiseled_quartz_block",
+                "minecraft/quartz_block",
+                "minecraft/quartz_pillar"
             ]
         },
         "output": {
-            "id": "minecraft:quartz_stairs",
+            "id": "minecraft/quartz_stairs",
             "count": 4
         }
     }

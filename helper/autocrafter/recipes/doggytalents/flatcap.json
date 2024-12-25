@@ -2,20 +2,20 @@
     {
         "input": {
             "3": [
-                "minecraft:white_carpet"
+                "minecraft/white_carpet"
             ],
             "5": [
-                "minecraft:white_carpet"
+                "minecraft/white_carpet"
             ],
             "7": [
-                "minecraft:white_carpet"
+                "minecraft/white_carpet"
             ],
             "6": [
-                "doggytalents:training_treat"
+                "doggytalents/training_treat"
             ]
         },
         "output": {
-            "id": "doggytalents:flatcap",
+            "id": "doggytalents/flatcap",
             "count": 1
         }
     }

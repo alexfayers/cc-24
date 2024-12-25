@@ -26,11 +26,11 @@
                 "#minecraft:planks"
             ],
             "6": [
-                "minecraft:diamond"
+                "minecraft/diamond"
             ]
         },
         "output": {
-            "id": "minecraft:jukebox",
+            "id": "minecraft/jukebox",
             "count": 1
         }
     },
@@ -65,7 +65,7 @@
             ]
         },
         "output": {
-            "id": "minecraft:jukebox",
+            "id": "minecraft/jukebox",
             "count": 1
         }
     },
@@ -100,7 +100,7 @@
             ]
         },
         "output": {
-            "id": "minecraft:jukebox",
+            "id": "minecraft/jukebox",
             "count": 1
         }
     },
@@ -135,7 +135,7 @@
             ]
         },
         "output": {
-            "id": "minecraft:jukebox",
+            "id": "minecraft/jukebox",
             "count": 1
         }
     }

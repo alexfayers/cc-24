@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft:deepslate"
+                "minecraft/deepslate"
             ],
             "2": [
-                "minecraft:flint"
+                "minecraft/flint"
             ]
         },
         "output": {
-            "id": "waystones:deepslate_shard",
+            "id": "waystones/deepslate_shard",
             "count": 1
         }
     }

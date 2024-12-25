@@ -2,14 +2,14 @@
     {
         "input": {
             "1": [
-                "minecraft:diorite"
+                "minecraft/diorite"
             ],
             "2": [
-                "minecraft:quartz"
+                "minecraft/quartz"
             ]
         },
         "output": {
-            "id": "minecraft:granite",
+            "id": "minecraft/granite",
             "count": 1
         }
     }

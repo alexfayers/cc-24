@@ -2,17 +2,17 @@
     {
         "input": {
             "9": [
-                "stellaris:venus_smooth_sandstone"
+                "stellaris/venus_smooth_sandstone"
             ],
             "10": [
-                "stellaris:venus_smooth_sandstone"
+                "stellaris/venus_smooth_sandstone"
             ],
             "11": [
-                "stellaris:venus_smooth_sandstone"
+                "stellaris/venus_smooth_sandstone"
             ]
         },
         "output": {
-            "id": "stellaris:venus_smooth_sandstone_slab",
+            "id": "stellaris/venus_smooth_sandstone_slab",
             "count": 6
         }
     }

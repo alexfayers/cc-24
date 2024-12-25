@@ -2,32 +2,32 @@
     {
         "input": {
             "1": [
-                "minecraft:purpur_block",
-                "minecraft:purpur_pillar"
+                "minecraft/purpur_block",
+                "minecraft/purpur_pillar"
             ],
             "5": [
-                "minecraft:purpur_block",
-                "minecraft:purpur_pillar"
+                "minecraft/purpur_block",
+                "minecraft/purpur_pillar"
             ],
             "6": [
-                "minecraft:purpur_block",
-                "minecraft:purpur_pillar"
+                "minecraft/purpur_block",
+                "minecraft/purpur_pillar"
             ],
             "9": [
-                "minecraft:purpur_block",
-                "minecraft:purpur_pillar"
+                "minecraft/purpur_block",
+                "minecraft/purpur_pillar"
             ],
             "10": [
-                "minecraft:purpur_block",
-                "minecraft:purpur_pillar"
+                "minecraft/purpur_block",
+                "minecraft/purpur_pillar"
             ],
             "11": [
-                "minecraft:purpur_block",
-                "minecraft:purpur_pillar"
+                "minecraft/purpur_block",
+                "minecraft/purpur_pillar"
             ]
         },
         "output": {
-            "id": "minecraft:purpur_stairs",
+            "id": "minecraft/purpur_stairs",
             "count": 4
         }
     }

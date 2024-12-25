@@ -2,17 +2,17 @@
     {
         "input": {
             "1": [
-                "minecraft:diorite"
+                "minecraft/diorite"
             ],
             "2": [
-                "minecraft:diorite"
+                "minecraft/diorite"
             ],
             "3": [
-                "minecraft:diorite"
+                "minecraft/diorite"
             ]
         },
         "output": {
-            "id": "minecraft:diorite_slab",
+            "id": "minecraft/diorite_slab",
             "count": 6
         }
     }

@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft:dark_prismarine"
+                "minecraft/dark_prismarine"
             ],
             "5": [
-                "minecraft:dark_prismarine"
+                "minecraft/dark_prismarine"
             ],
             "6": [
-                "minecraft:dark_prismarine"
+                "minecraft/dark_prismarine"
             ],
             "9": [
-                "minecraft:dark_prismarine"
+                "minecraft/dark_prismarine"
             ],
             "10": [
-                "minecraft:dark_prismarine"
+                "minecraft/dark_prismarine"
             ],
             "11": [
-                "minecraft:dark_prismarine"
+                "minecraft/dark_prismarine"
             ]
         },
         "output": {
-            "id": "minecraft:dark_prismarine_stairs",
+            "id": "minecraft/dark_prismarine_stairs",
             "count": 4
         }
     }

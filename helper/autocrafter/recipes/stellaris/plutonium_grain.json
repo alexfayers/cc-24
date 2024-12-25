@@ -2,11 +2,11 @@
     {
         "input": {
             "6": [
-                "stellaris:plutonium_piece"
+                "stellaris/plutonium_piece"
             ]
         },
         "output": {
-            "id": "stellaris:plutonium_grain",
+            "id": "stellaris/plutonium_grain",
             "count": 9
         }
     }

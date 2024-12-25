@@ -2,14 +2,14 @@
     {
         "input": {
             "5": [
-                "minecraft:cobblestone"
+                "minecraft/cobblestone"
             ],
             "1": [
-                "minecraft:stick"
+                "minecraft/stick"
             ]
         },
         "output": {
-            "id": "minecraft:lever",
+            "id": "minecraft/lever",
             "count": 1
         }
     }

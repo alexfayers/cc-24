@@ -2,7 +2,7 @@
     {
         "input": {
             "6": [
-                "doggytalents:training_treat"
+                "doggytalents/training_treat"
             ],
             "2": [
                 "#minecraft:wool"
@@ -18,7 +18,7 @@
             ]
         },
         "output": {
-            "id": "doggytalents:scent_treat",
+            "id": "doggytalents/scent_treat",
             "count": 1
         }
     }

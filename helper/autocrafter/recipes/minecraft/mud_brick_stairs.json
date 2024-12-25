@@ -2,26 +2,26 @@
     {
         "input": {
             "1": [
-                "minecraft:mud_bricks"
+                "minecraft/mud_bricks"
             ],
             "5": [
-                "minecraft:mud_bricks"
+                "minecraft/mud_bricks"
             ],
             "6": [
-                "minecraft:mud_bricks"
+                "minecraft/mud_bricks"
             ],
             "9": [
-                "minecraft:mud_bricks"
+                "minecraft/mud_bricks"
             ],
             "10": [
-                "minecraft:mud_bricks"
+                "minecraft/mud_bricks"
             ],
             "11": [
-                "minecraft:mud_bricks"
+                "minecraft/mud_bricks"
             ]
         },
         "output": {
-            "id": "minecraft:mud_brick_stairs",
+            "id": "minecraft/mud_brick_stairs",
             "count": 4
         }
     }
