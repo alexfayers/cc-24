@@ -432,6 +432,11 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
 
     craftCount = math.ceil(craftCount / recipe.output.count)
 
+    if craftCount == nil or craftCount < 1 then
+        logger:error("Failed to calculate craft count for %s", recipe.output.id)
+        return itemCounts, {}
+    end
+
     local newItemCounts = tableHelpers.copy(itemCounts)
     local nextCraftCommands = tableHelpers.copy(craftCommands)
     local pullCommands = {}
