@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#c:ingots/steel",
+    "#c:ingots/desh",
+    "#c:ingots/heavy_metal",
+    "#c:ingots/neptunium",
+    "#c:ingots/uranium",
+    "#c:ingots/plutonium"
+
+  ]
+}
