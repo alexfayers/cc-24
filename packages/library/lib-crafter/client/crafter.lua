@@ -47,6 +47,12 @@ local recipeLoops = nil
 
 
 local function getItemStub(itemName)
+    -- replace : with /
+    return itemName:gsub(":", "/")
+end
+
+
+local function getTagStub(itemName)
     return itemName:match(".*:(.*)") or itemName
 end
 
@@ -138,7 +144,7 @@ local function tag_to_items(tag)
     end
 
     if tag:sub(1, 1) == "#" then
-        local tagItems = getItemStub(tag:sub(2))
+        local tagItems = getTagStub(tag:sub(2))
 
         local tagItemsTable = getRemoteItem("tags", tagItems)
 

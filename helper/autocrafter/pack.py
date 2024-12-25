@@ -194,7 +194,7 @@ def pack_recipes() -> None:
 
 
     for output_item, recipes in grouped_recipes.items():
-        output_path = Path(output_dir, f"{output_item.split(':')[1]}.json")
+        output_path = Path(output_dir, f"{output_item.replace(':', '/')}.json")
         # output_path = Path(output_dir, recipe_file_write.stem)
         output_path.parent.mkdir(exist_ok=True, parents=True)
 
@@ -202,7 +202,7 @@ def pack_recipes() -> None:
             json.dump(recipes, f, indent=4)
 
     with Path(output_dir, "_complete.json").open("w") as f:
-        stub_list = sorted([recipe_file.stem for recipe_file in output_dir.glob("*.json") if not recipe_file.stem.startswith("_")])
+        stub_list = sorted([recipe_file.relative_to(output_dir).as_posix() for recipe_file in output_dir.rglob("*.json") if not recipe_file.stem.startswith("_")])
         json.dump(stub_list, f, indent=4)
 
 
