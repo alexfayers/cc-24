@@ -584,7 +584,7 @@ local function check_storage(recipe, craftCount, itemCounts, craftCommands, craf
                         goto nextRecipeLoop
                     end
 
-                    logger:debug("Crafted %d %s", nextTotalCraftCount, slotItemName)
+                    logger:info("Subcrafted %d %s", nextTotalCraftCount, slotItemName)
 
                     table.remove(requiredItems[craftDepth], #requiredItems[craftDepth])
 
