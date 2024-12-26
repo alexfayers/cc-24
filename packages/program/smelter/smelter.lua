@@ -358,10 +358,10 @@ local function refuel()
 
         ---Ensure the fuel level is equal across all furnaces
         distributeFuel(fuelPerFurnace)
-    else
-        ---If no fuel was pulled, just try to get the fuel level to the maximum
-        distributeFuel(FURNACE_SLOT_MAX)
     end
+
+    ---If no fuel was pulled, just try to get the fuel level to the maximum
+    distributeFuel(FURNACE_SLOT_MAX)
 end
 
 
@@ -460,10 +460,10 @@ end
 local function help()
     print("Usage: smelter <command>")
     print("Commands:")
-    print("  refuel")
-    print("    Distribute fuel from the input chest to the furnaces")
-    print("  smelt [nopull]")
-    print("    Smelt items in the furnaces (won't pull from furnaces if nopull)")
+    print("  refuel [blast]")
+    print("    Distribute fuel from the input chest to the [blast] furnaces")
+    print("  smelt [nopull] [blast]")
+    print("    Smelt items in the [blast] furnaces (won't pull from furnaces if nopull)")
 end
 
 
@@ -475,6 +475,12 @@ local function main()
     end
 
     local command = arg[1]
+    local blast = arg[3] or arg[2]
+
+    if blast == "blast" then
+        FURNACE_TYPE = "minecraft:blast_furnace"
+        FURNANCE_SMELT_TIME_SECS = 5
+    end
 
     if command == "refuel" then
         refuel()
