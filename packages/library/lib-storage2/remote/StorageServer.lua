@@ -43,7 +43,7 @@ function StorageServer:init()
     self.lastRefresh = os.clock()
     self.needSave = false
 
-    self.checkRefreshRate = 2
+    self.checkRefreshRate = 20
     self.checkSaveRate = 2
 end
 
