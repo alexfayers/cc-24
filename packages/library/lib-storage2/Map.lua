@@ -337,13 +337,21 @@ function Map:getAllItemStubs()
     end)
 
     local tagsUnique = {}
+    local enchantmentsUnique = {}
 
     for _, slots in pairs(self.mapTable) do
         for _, slot in ipairs(slots) do
             for tag, _ in pairs(slot.tags) do
-                -- TODO: make this support enchants
                 tag = "#" .. tag
                 tagsUnique[tag] = true
+            end
+
+            local enchantmentStubs = slot:getEnchantmentNameStubs()
+            if enchantmentStubs then
+                for _, enchantmentStub in ipairs(enchantmentStubs) do
+                    enchantmentStub = "@" .. enchantmentStub
+                    enchantmentsUnique[enchantmentStub] = true
+                end
             end
         end
     end
@@ -360,6 +368,20 @@ function Map:getAllItemStubs()
 
     for _, tag in ipairs(tags) do
         table.insert(itemStubs, tag)
+    end
+
+    local enchantments = {}
+
+    for enchantment, _ in pairs(enchantmentsUnique) do
+        table.insert(enchantments, enchantment)
+    end
+
+    table.sort(enchantments, function(a, b)
+        return a < b
+    end)
+
+    for _, enchantment in ipairs(enchantments) do
+        table.insert(itemStubs, enchantment)
     end
 
     return itemStubs
