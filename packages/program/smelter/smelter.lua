@@ -118,6 +118,12 @@ local function doSmeltSingleFuel(furnace)
             logger:info("%s smelted %d items", furnace.wrappedFurnaceName, furnace.smeltedItems)
             return true
         end
+
+        -- on the first loop, ensure that something is smelted
+        if i == 1 and not furnace.wrappedFurnace.list()[FURNACE_OUTPUT_SLOT] then
+            logger:warn("%s isn't smelting!", furnace.wrappedFurnaceName)
+            return true
+        end
     end
 
     return false
@@ -418,7 +424,7 @@ local function smelt(autoPull)
     term.clear()
     term.setCursorPos(1, 2)
 
-    parallel.waitForAll(function ()
+    parallel.waitForAny(function ()
         waitSmeltTime(expectedSmeltTime)
     end, doAllFuelTicks)
 
