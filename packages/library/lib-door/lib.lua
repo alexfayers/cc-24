@@ -2,6 +2,7 @@
 ---@alias DoorAction "open"|"close"
 
 local tableHelpers = require("lexicon-lib.lib-table")
+local logger = require("lexicon-lib.lib-logging").getLogger("DoorLib")
 
 local MIN_LISTEN_PORT = 1
 local MAX_LISTEN_PORT = 65534
@@ -154,7 +155,7 @@ local function isValidCode(doorName, targetPort)
         local nextPort = calculateNextPort(previousPort, currentPort)
 
         if nextPort == targetPort then
-            print("Jumped ahead " .. tostring(i) .. " steps")
+            logger:info("Jumped ahead " .. tostring(i) .. " steps")
 
             state.previousPort = currentPort
             state.currentPort = nextPort
