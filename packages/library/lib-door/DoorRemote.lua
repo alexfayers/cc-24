@@ -69,6 +69,7 @@ function DoorRemote:_receive(listenPort, timeout)
 
             local data = lib.unserialiseMessage(message)
             if data then
+                ---@diagnostic disable-next-line: return-type-mismatch
                 return data, replyChannel
             end
         end
