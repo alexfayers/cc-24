@@ -101,15 +101,16 @@ end
 ---Handle a message from the modem
 ---@param replyChannel number
 ---@param data table
+---@return boolean
 function DoorServer:handleMessage(replyChannel, data)
 
     if not self:validateData(data) then
-        return
+        return false
     end
     ---@cast data DoorServerData
 
     if not self:isCorrectName(data) then
-        return
+        return false
     end
 
     local result = false
@@ -123,7 +124,7 @@ function DoorServer:handleMessage(replyChannel, data)
     end
 
     if replyChannel == 0 then
-        return
+        return false
     end
 
     logger:info("Sending response: %s", result)
@@ -131,6 +132,8 @@ function DoorServer:handleMessage(replyChannel, data)
     self:send(replyChannel, 0, {
         result = result,
     })
+
+    return true
 end
 
 
@@ -189,7 +192,9 @@ function DoorServer:listen()
         end
         ---@cast replyChannel number
 
-        self:handleMessage(replyChannel, data)
+        if self:handleMessage(replyChannel, data) then
+            lib.updateServerPort(self.name)
+        end
 
         ::continue::
     end

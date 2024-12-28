@@ -104,12 +104,11 @@ local function calculateNextPort(previousPort, currentPort)
 end
 
 
----Generate the current port for the servers
+---Generate and store the next port for the servers
 ---@param doorName string
----@return number
-local function getServerPort(doorName)
+---@return ServerState
+local function updateServerPort(doorName)
     local state, _ = loadServerState()
-
 
     if not state then
         local initialPort = hashString(doorName)
@@ -127,6 +126,20 @@ local function getServerPort(doorName)
 
     saveServerState(state)
 
+    return state
+end
+
+
+---Generate the current port for the servers
+---@param doorName string
+---@return number
+local function getServerPort(doorName)
+    local state, _ = loadServerState()
+
+    if not state then
+        state = updateServerPort(doorName)
+    end
+
     return state.currentPort
 end
 
@@ -138,5 +151,6 @@ return {
     getWirelessModem = getWirelessModem,
     unserialiseMessage = unserialiseMessage,
     serialiseMessage = serialiseMessage,
+    updateServerPort = updateServerPort,
     getServerPort = getServerPort,
 }

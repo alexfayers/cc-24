@@ -34,7 +34,7 @@ end
 ---@return boolean, number?, number?
 function DoorClient:sendCommand(name, action)
     local serverPort = lib.getServerPort(name)
-    local serverReplyChannel = math.random(1, 65534)
+    local serverReplyChannel = math.random(lib.MIN_LISTEN_PORT, lib.MAX_LISTEN_PORT)
     if serverReplyChannel == serverPort then
         serverReplyChannel = serverReplyChannel + 1
     end
@@ -64,6 +64,11 @@ function DoorClient:sendCommand(name, action)
             successfulComponents = successfulComponents + 1
         end
         ::continue::
+    end
+
+    if successfulComponents > 0 then
+        ---At least one door responded, so update the rolling port
+        lib.updateServerPort(name)
     end
 
     local success = totalComponents > 0 and successfulComponents == totalComponents
