@@ -196,7 +196,8 @@ def pack_recipes() -> None:
 
         output_item = prepared_recipe["output"]["id"]
         if output_item in grouped_recipes:
-            grouped_recipes[output_item].append(prepared_recipe)
+            if all(str(existing_recipe) != str(prepared_recipe) for existing_recipe in grouped_recipes[output_item]):
+                grouped_recipes[output_item].append(prepared_recipe)
         else:
             grouped_recipes[output_item] = [prepared_recipe]
 
@@ -242,6 +243,19 @@ def pack_tags() -> None:
 
         output_path = Path(output_dir, tag_file_write)
         output_path.parent.mkdir(exist_ok=True, parents=True)
+
+        if output_path.exists():
+            print(output_path)
+            existing_raw_data = output_path.read_text()
+            existing_data = json.loads(existing_raw_data)
+            print(len(existing_data["values"]))
+            for existing_value in existing_data["values"]:
+                if existing_value not in tag["values"]:
+                    tag["values"].append(existing_value)
+            # tag["values"] = list(set(existing_data["values"]))
+            print(len(existing_data["values"]))
+
+            
 
         with output_path.open("w") as f:
             json.dump(tag, f, indent=2)
