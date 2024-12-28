@@ -39,7 +39,7 @@ function DoorClient:sendCommand(name, action)
         serverReplyChannel = serverReplyChannel + 1
     end
 
-    print("Sending command to port", serverPort)
+    print("Sending to port " .. tostring(serverPort) .. "...")
 
     self:send(serverPort, serverReplyChannel, {
         name = name,
