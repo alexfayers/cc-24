@@ -310,8 +310,9 @@ end
 
 ---Transfer all slots from the crafter to the output chest
 ---@param crafterName string The name of the crafter
+---@param pushStorage boolean Whether to push the items into the storage system after pulling them
 ---@return boolean
-local function transfer_all_slots(crafterName)
+local function transfer_all_slots(crafterName, pushStorage)
     if not ensureOutputChest() then
         return false
     end
@@ -333,7 +334,11 @@ local function transfer_all_slots(crafterName)
 
     if totalTransferred > 0 then
         logger:info("Pulled %d item%s from turtle", totalTransferred, totalTransferred > 1 and "s" or "")
-        return push_output_chest()
+        if pushStorage then
+            return push_output_chest()
+        end
+
+        return true
     end
 
     return false
@@ -781,24 +786,37 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
             return true
         end
 
-        transfer_all_slots(remoteName)
+        transfer_all_slots(remoteName, true)
 
-        for _, commandBatch in ipairs(recipeCraftCommands) do
-            for _, command in ipairs(commandBatch) do
+        for commandBatchNumber, commandBatch in ipairs(recipeCraftCommands) do
+            for commandNumber, command in ipairs(commandBatch) do
                 local pullRes, pullData = storageClient:callCommand(storageClient.pull, remoteName, command.itemName, command.count, command.slot, false)
 
                 if pullRes and pullData and pullData.count > 0 then
                     -- got it
                 else
                     logger:warn("Failed to pull " .. command.itemName .. " from storage")
-                    transfer_all_slots(remoteName)
+                    transfer_all_slots(remoteName, true)
                     return false
                 end
             end
 
             local success, craftErrors = craftClient:craft(craftCount)
 
-            transfer_all_slots(remoteName)
+            local doPushIntoStorage = commandBatchNumber < #recipeCraftCommands
+            -- push into storage if this isn't the last batch
+            -- if it is the last batch and pullAfterCraft is true then don't push into storage
+            -- otherwise push into storage
+            -- NOTE: this is clunky but it makes more sense I think
+            if commandBatchNumber >= #recipeCraftCommands then
+                if pullAfterCraft then
+                    doPushIntoStorage = false
+                else
+                    doPushIntoStorage = true
+                end
+            end
+
+            transfer_all_slots(remoteName, doPushIntoStorage)
 
             if not success then
                 local errorMessage = craftErrors and craftErrors.error or "Unknown error"
@@ -823,16 +841,6 @@ local function craft_item(craftItemName, craftCount, doCheck, pullAfterCraft)
     end
 
     logger:info("Crafted %d %s", craftCount, craftItemName)
-
-    if pullAfterCraft then
-        -- force a refresh of the storage map
-        storageClient:refresh()
-
-        local storageOutputChest = settings.get("storage2.outputChest")
-        if not storageClient:pull(storageOutputChest, craftItemName, craftCount, nil, false) then
-            logger:error("Failed to pull %d %s from storage", craftCount, craftItemName)
-        end
-    end
 
     return true
 end
