@@ -245,17 +245,11 @@ def pack_tags() -> None:
         output_path.parent.mkdir(exist_ok=True, parents=True)
 
         if output_path.exists():
-            print(output_path)
             existing_raw_data = output_path.read_text()
             existing_data = json.loads(existing_raw_data)
-            print(len(existing_data["values"]))
             for existing_value in existing_data["values"]:
                 if existing_value not in tag["values"]:
                     tag["values"].append(existing_value)
-            # tag["values"] = list(set(existing_data["values"]))
-            print(len(existing_data["values"]))
-
-            
 
         with output_path.open("w") as f:
             json.dump(tag, f, indent=2)
