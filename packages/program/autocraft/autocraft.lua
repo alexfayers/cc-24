@@ -60,8 +60,8 @@ parser:add({"-c", "--check"}, {
     required = false,
 })
 
-parser:add({"-p", "--pull"}, {
-    doc = "Pull the crafted item into the output chest after crafting",
+parser:add({"-n", "--no-pull"}, {
+    doc = "Don't pull the crafted item into the output chest after crafting",
     required = false,
 })
 
@@ -70,7 +70,7 @@ local args = parser:parse(table.unpack(arg))
 local item_name = args.item_name
 local countRaw = args.count
 local doCheck = args.c
-local doPull = args.p
+local doPull = not args.n
 
 if not countRaw then
     countRaw = "1"
