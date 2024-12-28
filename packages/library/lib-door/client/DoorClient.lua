@@ -39,12 +39,13 @@ function DoorClient:sendCommand(name, action)
         serverReplyChannel = serverReplyChannel + 1
     end
 
-    print("Sending to port " .. tostring(serverPort) .. "...")
-
     self:send(serverPort, serverReplyChannel, {
         name = name,
         action = action,
+        code = lib.getServerCode(name),
     })
+
+    lib.updateServerCode(name)
 
     local responses = self:receiveAll(serverReplyChannel, 0.1)
 
@@ -66,11 +67,6 @@ function DoorClient:sendCommand(name, action)
             successfulComponents = successfulComponents + 1
         end
         ::continue::
-    end
-
-    if totalComponents > 0 then
-        ---At least one door responded, so update the rolling port
-        lib.updateServerPort(name)
     end
 
     local success = totalComponents > 0 and successfulComponents == totalComponents

@@ -86,6 +86,11 @@ function DoorServer:validateData(data)
         return false
     end
 
+    if not data.code then
+        logger:error("No code received")
+        return false
+    end
+
     return true
 end
 
@@ -95,6 +100,19 @@ end
 ---@return boolean
 function DoorServer:isCorrectName(data)
     return data.name == self.name or data.name == "all"
+end
+
+
+---Return if the code is the expected code
+---@param data table
+---@return boolean
+function DoorServer:isExpectedCode(data)
+    local res = lib.isValidCode(self.name, data.code)
+    if not res then
+        logger:error("Invalid code received: %s", data.code)
+    end
+
+    return res
 end
 
 
@@ -110,6 +128,10 @@ function DoorServer:handleMessage(replyChannel, data)
     ---@cast data DoorServerData
 
     if not self:isCorrectName(data) then
+        return false
+    end
+
+    if not self:isExpectedCode(data) then
         return false
     end
 
@@ -179,11 +201,10 @@ end
 ---@return boolean
 function DoorServer:listen()
     logger:info("%s starting...", lib.PROTOCOL_NAME)
+    local listenPort = lib.getServerPort(self.name)
+    logger:info("Listening on %d...", listenPort)
 
     while true do
-        local listenPort = lib.getServerPort(self.name)
-        logger:info("Listening on %d...", listenPort)
-
         local data, replyChannel = self:receive(listenPort)
 
         if data == nil then
@@ -193,7 +214,7 @@ function DoorServer:listen()
         ---@cast replyChannel number
 
         if self:handleMessage(replyChannel, data) then
-            lib.updateServerPort(self.name)
+            lib.updateServerCode(self.name)
         end
 
         ::continue::

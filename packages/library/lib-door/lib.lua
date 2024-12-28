@@ -107,7 +107,7 @@ end
 ---Generate and store the next port for the servers
 ---@param doorName string
 ---@return ServerState
-local function updateServerPort(doorName)
+local function updateServerCode(doorName)
     local state, _ = loadServerState()
 
     if not state then
@@ -130,20 +130,68 @@ local function updateServerPort(doorName)
 end
 
 
----Generate the current port for the servers
+---Calculate if a code is valid from the future, given the current state. Return true if it is and update the state to that point.
 ---@param doorName string
----@return number
-local function getServerPort(doorName)
+---@param targetPort number
+---@return boolean
+local function isValidCode(doorName, targetPort)
     local state, _ = loadServerState()
 
     if not state then
-        state = updateServerPort(doorName)
+        state = updateServerCode(doorName)
+    end
+
+    local MAX_PORT_CHECKS = 30
+
+    local previousPort = state.previousPort
+    local currentPort = state.currentPort
+
+    if currentPort == targetPort then
+        return true
+    end
+
+    for i = 1, MAX_PORT_CHECKS do
+        local nextPort = calculateNextPort(previousPort, currentPort)
+
+        if nextPort == targetPort then
+            print("Jumped ahead " .. tostring(i) .. " steps")
+
+            state.previousPort = currentPort
+            state.currentPort = nextPort
+
+            saveServerState(state)
+
+            return true
+        end
+
+        previousPort = currentPort
+        currentPort = nextPort
+    end
+
+    return false
+end
+
+
+---Generate the current code for the servers
+---@param doorName string
+---@return number
+local function getServerCode(doorName)
+    local state, _ = loadServerState()
+
+    if not state then
+        state = updateServerCode(doorName)
     end
 
     return state.currentPort
 end
 
 
+---Generate the current port for the servers
+---@param doorName string
+---@return number
+local function getServerPort(doorName)
+    return hashString(doorName)
+end
 
 
 return {
@@ -153,6 +201,8 @@ return {
     getWirelessModem = getWirelessModem,
     unserialiseMessage = unserialiseMessage,
     serialiseMessage = serialiseMessage,
-    updateServerPort = updateServerPort,
+    updateServerCode = updateServerCode,
+    getServerCode = getServerCode,
+    isValidCode = isValidCode,
     getServerPort = getServerPort,
 }
