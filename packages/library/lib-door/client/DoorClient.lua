@@ -33,7 +33,7 @@ end
 ---@param action string
 ---@return boolean, number?, number?
 function DoorClient:sendCommand(name, action)
-    local serverPort = lib.getServerPort()
+    local serverPort = lib.getServerPort(name)
     local serverReplyChannel = math.random(1, 65534)
     if serverReplyChannel == serverPort then
         serverReplyChannel = serverReplyChannel + 1

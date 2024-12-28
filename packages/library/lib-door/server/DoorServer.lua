@@ -175,10 +175,12 @@ end
 ---Listen for open commands on the modem
 ---@return boolean
 function DoorServer:listen()
-    local listenPort = lib.getServerPort()
-    logger:info("%s listening on port %d...", lib.PROTOCOL_NAME, listenPort)
+    logger:info("%s starting...", lib.PROTOCOL_NAME)
 
     while true do
+        local listenPort = lib.getServerPort(self.name)
+        logger:info("Listening on port %d...", listenPort)
+
         local data, replyChannel = self:receive(listenPort)
 
         if data == nil then
