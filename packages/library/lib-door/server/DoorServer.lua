@@ -86,6 +86,11 @@ function DoorServer:validateData(data)
         return false
     end
 
+    if not data.code then
+        logger:error("No code received")
+        return false
+    end
+
     return true
 end
 
@@ -98,18 +103,36 @@ function DoorServer:isCorrectName(data)
 end
 
 
+---Return if the code is the expected code
+---@param data table
+---@return boolean
+function DoorServer:isExpectedCode(data)
+    local res = lib.isValidCode(self.name, data.code)
+    if not res then
+        logger:error("Invalid code received: %s", data.code)
+    end
+
+    return res
+end
+
+
 ---Handle a message from the modem
 ---@param replyChannel number
 ---@param data table
+---@return boolean
 function DoorServer:handleMessage(replyChannel, data)
 
     if not self:validateData(data) then
-        return
+        return false
     end
     ---@cast data DoorServerData
 
     if not self:isCorrectName(data) then
-        return
+        return false
+    end
+
+    if not self:isExpectedCode(data) then
+        return false
     end
 
     local result = false
@@ -123,7 +146,7 @@ function DoorServer:handleMessage(replyChannel, data)
     end
 
     if replyChannel == 0 then
-        return
+        return false
     end
 
     logger:info("Sending response: %s", result)
@@ -131,6 +154,8 @@ function DoorServer:handleMessage(replyChannel, data)
     self:send(replyChannel, 0, {
         result = result,
     })
+
+    return true
 end
 
 
@@ -175,8 +200,9 @@ end
 ---Listen for open commands on the modem
 ---@return boolean
 function DoorServer:listen()
-    local listenPort = lib.getServerPort()
-    logger:info("%s listening on port %d...", lib.PROTOCOL_NAME, listenPort)
+    logger:info("%s starting...", lib.PROTOCOL_NAME)
+    local listenPort = lib.getServerPort(self.name)
+    logger:info("Listening on %d...", listenPort)
 
     while true do
         local data, replyChannel = self:receive(listenPort)
@@ -187,7 +213,9 @@ function DoorServer:listen()
         end
         ---@cast replyChannel number
 
-        self:handleMessage(replyChannel, data)
+        if self:handleMessage(replyChannel, data) then
+            lib.updateServerCode(self.name)
+        end
 
         ::continue::
     end

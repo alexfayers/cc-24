@@ -33,8 +33,8 @@ end
 ---@param action string
 ---@return boolean, number?, number?
 function DoorClient:sendCommand(name, action)
-    local serverPort = lib.getServerPort()
-    local serverReplyChannel = math.random(1, 65534)
+    local serverPort = lib.getServerPort(name)
+    local serverReplyChannel = math.random(lib.MIN_LISTEN_PORT, lib.MAX_LISTEN_PORT)
     if serverReplyChannel == serverPort then
         serverReplyChannel = serverReplyChannel + 1
     end
@@ -42,7 +42,10 @@ function DoorClient:sendCommand(name, action)
     self:send(serverPort, serverReplyChannel, {
         name = name,
         action = action,
+        code = lib.getServerCode(name),
     })
+
+    lib.updateServerCode(name)
 
     local responses = self:receiveAll(serverReplyChannel, 0.1)
 

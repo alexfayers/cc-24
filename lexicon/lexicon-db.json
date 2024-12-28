@@ -279,6 +279,7 @@
                 ],
                 "dependencies": [
                     "class-lua",
+                    "lib-table",
                     "lib-logging"
                 ]
             },
@@ -300,6 +301,7 @@
                     ]
                 ],
                 "dependencies": [
+                    "lib-table",
                     "class-lua"
                 ]
             },
