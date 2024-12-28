@@ -130,19 +130,20 @@ function Map:searchItemNames(search)
                     table.insert(results, itemName)
                 end
             elseif stringFirstChar == "@" then
-                local firstSlot = slots[1]
-                if not firstSlot then
-                    goto continue
-                end
-                local slotEnchantmentStubs = firstSlot:getEnchantmentNameStubs()
-                if not slotEnchantmentStubs then
-                    goto continue
-                end
-                local searchEnchantmentStub = MapSlot.getNameStub(string.sub(search, 2))
-                if not tableHelpers.contains(slotEnchantmentStubs, searchEnchantmentStub) then
-                    goto continue
-                else
-                    table.insert(results, itemName)
+                for _, slot in ipairs(slots) do
+                    local slotEnchantmentStubs = slot:getEnchantmentNameStubs() or {}
+                    local gotMatch = false
+                    for _, slotEnchantmentStub in ipairs(slotEnchantmentStubs) do
+
+                        if slotEnchantmentStub == MapSlot.getNameStub(string.sub(search, 2)) then
+                            table.insert(results, itemName)
+                            gotMatch = true
+                            break
+                        end
+                    end
+                    if gotMatch then
+                        break
+                    end
                 end
             else
                 if string.match(itemName, search) then
