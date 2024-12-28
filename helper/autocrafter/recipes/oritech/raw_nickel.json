@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:storage_blocks/raw_nickel"
+            ]
+        },
+        "output": {
+            "id": "oritech:raw_nickel",
+            "count": 9
+        }
+    }
+]

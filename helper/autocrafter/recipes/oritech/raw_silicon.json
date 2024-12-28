@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:dusts/quartz"
+            ],
+            "2": [
+                "#c:dusts/quartz"
+            ],
+            "5": [
+                "#minecraft:sand"
+            ],
+            "6": [
+                "#minecraft:sand"
+            ]
+        },
+        "output": {
+            "id": "oritech:raw_silicon",
+            "count": 3
+        }
+    }
+]

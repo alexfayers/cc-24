@@ -1,0 +1,72 @@
+[
+    {
+        "input": {
+            "10": [
+                "#c:silicon"
+            ],
+            "6": [
+                "oritech:fluid_pipe"
+            ],
+            "1": [
+                "oritech:coal_dust"
+            ],
+            "2": [
+                "oritech:coal_dust"
+            ],
+            "3": [
+                "oritech:coal_dust"
+            ],
+            "5": [
+                "oritech:coal_dust"
+            ],
+            "7": [
+                "oritech:coal_dust"
+            ],
+            "9": [
+                "oritech:adamant_ingot"
+            ],
+            "11": [
+                "oritech:adamant_ingot"
+            ]
+        },
+        "output": {
+            "id": "oritech:steam_boiler_addon",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "10": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "minecraft:copper_ingot"
+            ],
+            "1": [
+                "oritech:fluid_pipe"
+            ],
+            "2": [
+                "oritech:fluid_pipe"
+            ],
+            "3": [
+                "oritech:fluid_pipe"
+            ],
+            "5": [
+                "oritech:fluid_pipe"
+            ],
+            "7": [
+                "oritech:fluid_pipe"
+            ],
+            "9": [
+                "oritech:adamant_ingot"
+            ],
+            "11": [
+                "oritech:adamant_ingot"
+            ]
+        },
+        "output": {
+            "id": "oritech:steam_boiler_addon",
+            "count": 1
+        }
+    }
+]

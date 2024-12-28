@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "oritech:small_platinum_dust"
+            ],
+            "2": [
+                "oritech:small_platinum_dust"
+            ],
+            "3": [
+                "oritech:small_platinum_dust"
+            ],
+            "5": [
+                "oritech:small_platinum_dust"
+            ],
+            "6": [
+                "oritech:small_platinum_dust"
+            ],
+            "7": [
+                "oritech:small_platinum_dust"
+            ],
+            "9": [
+                "oritech:small_platinum_dust"
+            ],
+            "10": [
+                "oritech:small_platinum_dust"
+            ],
+            "11": [
+                "oritech:small_platinum_dust"
+            ]
+        },
+        "output": {
+            "id": "oritech:platinum_dust",
+            "count": 1
+        }
+    }
+]

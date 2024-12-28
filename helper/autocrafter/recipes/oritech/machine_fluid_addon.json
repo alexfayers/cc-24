@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "10": [
+                "#c:silicon"
+            ],
+            "6": [
+                "oritech:fluid_pipe"
+            ],
+            "1": [
+                "#c:carbon_fibre"
+            ],
+            "2": [
+                "#c:carbon_fibre"
+            ],
+            "3": [
+                "#c:carbon_fibre"
+            ],
+            "5": [
+                "#c:carbon_fibre"
+            ],
+            "7": [
+                "#c:carbon_fibre"
+            ],
+            "9": [
+                "#c:ingots/electrum"
+            ],
+            "11": [
+                "#c:ingots/electrum"
+            ]
+        },
+        "output": {
+            "id": "oritech:machine_fluid_addon",
+            "count": 1
+        }
+    }
+]

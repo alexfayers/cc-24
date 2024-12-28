@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:storage_blocks/biomass"
+            ]
+        },
+        "output": {
+            "id": "oritech:biomass",
+            "count": 9
+        }
+    }
+]

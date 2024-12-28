@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "10": [
+                "oritech:reactor_wall"
+            ],
+            "9": [
+                "#c:chests"
+            ],
+            "11": [
+                "#c:chests"
+            ],
+            "5": [
+                "oritech:item_pipe"
+            ],
+            "6": [
+                "oritech:item_pipe"
+            ],
+            "7": [
+                "oritech:item_pipe"
+            ],
+            "2": [
+                "minecraft:hopper"
+            ]
+        },
+        "output": {
+            "id": "oritech:reactor_fuel_port",
+            "count": 1
+        }
+    }
+]

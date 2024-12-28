@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "5": [
+                "#c:ingots/nickel"
+            ],
+            "7": [
+                "#c:ingots/nickel"
+            ],
+            "2": [
+                "minecraft:iron_bars"
+            ],
+            "6": [
+                "minecraft:iron_bars"
+            ],
+            "10": [
+                "minecraft:iron_bars"
+            ]
+        },
+        "output": {
+            "id": "oritech:machine_frame_block",
+            "count": 16
+        }
+    }
+]

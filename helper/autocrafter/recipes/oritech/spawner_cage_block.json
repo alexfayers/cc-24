@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "5": [
+                "#c:plates/plastic"
+            ],
+            "6": [
+                "#c:plates/plastic"
+            ],
+            "7": [
+                "#c:plates/plastic"
+            ],
+            "1": [
+                "minecraft:iron_bars"
+            ],
+            "2": [
+                "minecraft:iron_bars"
+            ],
+            "3": [
+                "minecraft:iron_bars"
+            ],
+            "9": [
+                "minecraft:iron_bars"
+            ],
+            "10": [
+                "minecraft:iron_bars"
+            ],
+            "11": [
+                "minecraft:iron_bars"
+            ]
+        },
+        "output": {
+            "id": "oritech:spawner_cage_block",
+            "count": 2
+        }
+    }
+]

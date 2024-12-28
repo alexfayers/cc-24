@@ -1,0 +1,72 @@
+[
+    {
+        "input": {
+            "9": [
+                "#oritech:plating"
+            ],
+            "10": [
+                "#oritech:plating"
+            ],
+            "11": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "oritech:superconductor"
+            ],
+            "1": [
+                "oritech:advanced_computing_engine"
+            ],
+            "3": [
+                "oritech:advanced_computing_engine"
+            ],
+            "5": [
+                "oritech:motor"
+            ],
+            "7": [
+                "oritech:motor"
+            ],
+            "2": [
+                "oritech:super_ai_chip"
+            ]
+        },
+        "output": {
+            "id": "oritech:drone_port_block",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "9": [
+                "#oritech:plating"
+            ],
+            "10": [
+                "#oritech:plating"
+            ],
+            "11": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "oritech:superconductor"
+            ],
+            "1": [
+                "oritech:advanced_computing_engine"
+            ],
+            "3": [
+                "oritech:advanced_computing_engine"
+            ],
+            "5": [
+                "oritech:motor"
+            ],
+            "7": [
+                "oritech:motor"
+            ],
+            "2": [
+                "oritech:unholy_intelligence"
+            ]
+        },
+        "output": {
+            "id": "oritech:drone_port_block",
+            "count": 1
+        }
+    }
+]

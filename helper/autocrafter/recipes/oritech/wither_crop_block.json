@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "5": [
+                "#minecraft:flowers"
+            ],
+            "7": [
+                "#minecraft:flowers"
+            ],
+            "2": [
+                "minecraft:wither_rose"
+            ],
+            "6": [
+                "minecraft:wither_rose"
+            ],
+            "10": [
+                "minecraft:wither_rose"
+            ]
+        },
+        "output": {
+            "id": "oritech:wither_crop_block",
+            "count": 1
+        }
+    }
+]

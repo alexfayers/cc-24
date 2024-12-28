@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:storage_blocks/fluxite"
+            ]
+        },
+        "output": {
+            "id": "oritech:fluxite",
+            "count": 9
+        }
+    }
+]

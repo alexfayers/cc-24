@@ -1,0 +1,72 @@
+[
+    {
+        "input": {
+            "10": [
+                "minecraft:enchanting_table"
+            ],
+            "6": [
+                "oritech:super_ai_chip"
+            ],
+            "1": [
+                "oritech:fluxite"
+            ],
+            "2": [
+                "oritech:fluxite"
+            ],
+            "3": [
+                "oritech:fluxite"
+            ],
+            "5": [
+                "minecraft:obsidian"
+            ],
+            "7": [
+                "minecraft:obsidian"
+            ],
+            "9": [
+                "oritech:adamant_ingot"
+            ],
+            "11": [
+                "oritech:adamant_ingot"
+            ]
+        },
+        "output": {
+            "id": "oritech:enchantment_catalyst_block",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "10": [
+                "minecraft:enchanting_table"
+            ],
+            "6": [
+                "oritech:unholy_intelligence"
+            ],
+            "1": [
+                "oritech:fluxite"
+            ],
+            "2": [
+                "oritech:fluxite"
+            ],
+            "3": [
+                "oritech:fluxite"
+            ],
+            "5": [
+                "minecraft:obsidian"
+            ],
+            "7": [
+                "minecraft:obsidian"
+            ],
+            "9": [
+                "oritech:adamant_ingot"
+            ],
+            "11": [
+                "oritech:adamant_ingot"
+            ]
+        },
+        "output": {
+            "id": "oritech:enchantment_catalyst_block",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:ingots/platinum"
+            ],
+            "2": [
+                "#c:ingots/platinum"
+            ],
+            "3": [
+                "#c:ingots/platinum"
+            ],
+            "5": [
+                "#c:ingots/platinum"
+            ],
+            "6": [
+                "#c:ingots/platinum"
+            ],
+            "7": [
+                "#c:ingots/platinum"
+            ],
+            "9": [
+                "#c:ingots/platinum"
+            ],
+            "10": [
+                "#c:ingots/platinum"
+            ],
+            "11": [
+                "#c:ingots/platinum"
+            ]
+        },
+        "output": {
+            "id": "oritech:platinum_block",
+            "count": 1
+        }
+    }
+]

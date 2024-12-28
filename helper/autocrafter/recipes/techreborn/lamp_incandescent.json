@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "5": [
+                "techreborn:copper_cable"
+            ],
+            "7": [
+                "techreborn:copper_cable"
+            ],
+            "6": [
+                "#c:carbon_fibre"
+            ],
+            "1": [
+                "#c:glass_panes/colorless"
+            ],
+            "2": [
+                "#c:glass_panes/colorless"
+            ],
+            "3": [
+                "#c:glass_panes/colorless"
+            ],
+            "9": [
+                "#c:glass_panes/colorless"
+            ],
+            "10": [
+                "#c:glass_panes/colorless"
+            ],
+            "11": [
+                "#c:glass_panes/colorless"
+            ]
+        },
+        "output": {
+            "id": "techreborn:lamp_incandescent",
+            "count": 1
+        }
+    }
+]

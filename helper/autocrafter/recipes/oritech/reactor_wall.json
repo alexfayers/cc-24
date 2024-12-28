@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "2": [
+                "#oritech:plating"
+            ],
+            "5": [
+                "#oritech:plating"
+            ],
+            "7": [
+                "#oritech:plating"
+            ],
+            "10": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "#c:ingots/nickel"
+            ],
+            "1": [
+                "#c:ingots/steel"
+            ],
+            "3": [
+                "#c:ingots/steel"
+            ],
+            "9": [
+                "#c:ingots/steel"
+            ],
+            "11": [
+                "#c:ingots/steel"
+            ]
+        },
+        "output": {
+            "id": "oritech:reactor_wall",
+            "count": 4
+        }
+    }
+]

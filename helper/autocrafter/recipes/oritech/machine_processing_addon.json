@@ -1,0 +1,72 @@
+[
+    {
+        "input": {
+            "9": [
+                "#oritech:plating"
+            ],
+            "10": [
+                "#oritech:plating"
+            ],
+            "11": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "oritech:flux_gate"
+            ],
+            "1": [
+                "oritech:motor"
+            ],
+            "3": [
+                "oritech:motor"
+            ],
+            "5": [
+                "oritech:super_ai_chip"
+            ],
+            "7": [
+                "oritech:super_ai_chip"
+            ],
+            "2": [
+                "#c:ingots/platinum"
+            ]
+        },
+        "output": {
+            "id": "oritech:machine_processing_addon",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "9": [
+                "#oritech:plating"
+            ],
+            "10": [
+                "#oritech:plating"
+            ],
+            "11": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "minecraft:comparator"
+            ],
+            "1": [
+                "oritech:motor"
+            ],
+            "3": [
+                "oritech:motor"
+            ],
+            "5": [
+                "oritech:unholy_intelligence"
+            ],
+            "7": [
+                "oritech:unholy_intelligence"
+            ],
+            "2": [
+                "#c:ingots/electrum"
+            ]
+        },
+        "output": {
+            "id": "oritech:machine_processing_addon",
+            "count": 1
+        }
+    }
+]

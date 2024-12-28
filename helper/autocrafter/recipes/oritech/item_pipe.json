@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "5": [
+                "#c:ingots/nickel"
+            ],
+            "6": [
+                "#c:ingots/nickel"
+            ],
+            "7": [
+                "#c:ingots/nickel"
+            ],
+            "1": [
+                "#minecraft:planks"
+            ],
+            "2": [
+                "#minecraft:planks"
+            ],
+            "3": [
+                "#minecraft:planks"
+            ],
+            "9": [
+                "#minecraft:planks"
+            ],
+            "10": [
+                "#minecraft:planks"
+            ],
+            "11": [
+                "#minecraft:planks"
+            ]
+        },
+        "output": {
+            "id": "oritech:item_pipe",
+            "count": 6
+        }
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "9": [
+                "#c:silicon"
+            ],
+            "11": [
+                "#c:silicon"
+            ],
+            "5": [
+                "#oritech:plating"
+            ],
+            "7": [
+                "#oritech:plating"
+            ]
+        },
+        "output": {
+            "id": "oritech:exo_boots",
+            "count": 1
+        }
+    }
+]

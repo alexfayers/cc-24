@@ -1,10 +1,17 @@
 {
   "values": [
+    "oritech:raw_nickel",
+    "oritech:raw_uranium",
+    "oritech:raw_platinum",
     "#raw_materials/copper",
     "#raw_materials/gold",
     "#raw_materials/iron",
-    "#raw_materials/copper",
-    "#raw_materials/iron",
-    "#raw_materials/gold"
+    "stellaris:raw_steel_ingot",
+    "stellaris:raw_desh_ingot",
+    "stellaris:raw_steel_block",
+    "stellaris:raw_uranium_block",
+    "stellaris:raw_uranium",
+    "stellaris:raw_neptunium",
+    "stellaris:raw_desh_block"
   ]
 }

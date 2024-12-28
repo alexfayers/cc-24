@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "10": [
+                "oritech:duratium_ingot"
+            ],
+            "6": [
+                "oritech:enchantment_catalyst_block"
+            ],
+            "1": [
+                "minecraft:book"
+            ],
+            "2": [
+                "minecraft:book"
+            ],
+            "3": [
+                "minecraft:book"
+            ],
+            "5": [
+                "minecraft:book"
+            ],
+            "7": [
+                "minecraft:book"
+            ],
+            "9": [
+                "oritech:energite_ingot"
+            ],
+            "11": [
+                "oritech:energite_ingot"
+            ]
+        },
+        "output": {
+            "id": "oritech:enchanter_block",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,72 @@
+[
+    {
+        "input": {
+            "9": [
+                "minecraft:chest"
+            ],
+            "10": [
+                "minecraft:chest"
+            ],
+            "11": [
+                "minecraft:chest"
+            ],
+            "6": [
+                "oritech:processing_unit"
+            ],
+            "1": [
+                "#c:ingots/steel"
+            ],
+            "3": [
+                "#c:ingots/steel"
+            ],
+            "5": [
+                "oritech:energy_pipe"
+            ],
+            "7": [
+                "oritech:energy_pipe"
+            ],
+            "2": [
+                "minecraft:dispenser"
+            ]
+        },
+        "output": {
+            "id": "oritech:charger_block",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "9": [
+                "minecraft:chest"
+            ],
+            "10": [
+                "minecraft:chest"
+            ],
+            "11": [
+                "minecraft:chest"
+            ],
+            "6": [
+                "minecraft:redstone_block"
+            ],
+            "1": [
+                "#c:ingots/steel"
+            ],
+            "3": [
+                "#c:ingots/steel"
+            ],
+            "5": [
+                "oritech:energy_pipe"
+            ],
+            "7": [
+                "oritech:energy_pipe"
+            ],
+            "2": [
+                "minecraft:dispenser"
+            ]
+        },
+        "output": {
+            "id": "oritech:charger_block",
+            "count": 1
+        }
+    }
+]

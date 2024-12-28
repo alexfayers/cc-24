@@ -1,0 +1,72 @@
+[
+    {
+        "input": {
+            "10": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "#c:ingots/nickel"
+            ],
+            "1": [
+                "minecraft:iron_ingot"
+            ],
+            "2": [
+                "minecraft:iron_ingot"
+            ],
+            "3": [
+                "minecraft:iron_ingot"
+            ],
+            "5": [
+                "minecraft:iron_ingot"
+            ],
+            "7": [
+                "minecraft:iron_ingot"
+            ],
+            "9": [
+                "oritech:motor"
+            ],
+            "11": [
+                "oritech:motor"
+            ]
+        },
+        "output": {
+            "id": "oritech:pulverizer_block",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "10": [
+                "minecraft:iron_block"
+            ],
+            "6": [
+                "#c:ingots/nickel"
+            ],
+            "1": [
+                "#c:ingots/steel"
+            ],
+            "2": [
+                "#c:ingots/steel"
+            ],
+            "3": [
+                "#c:ingots/steel"
+            ],
+            "5": [
+                "#c:ingots/steel"
+            ],
+            "7": [
+                "#c:ingots/steel"
+            ],
+            "9": [
+                "oritech:motor"
+            ],
+            "11": [
+                "oritech:motor"
+            ]
+        },
+        "output": {
+            "id": "oritech:pulverizer_block",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,34 @@
+[
+    {
+        "input": {
+            "10": [
+                "oritech:advanced_battery"
+            ],
+            "1": [
+                "#oritech:plating"
+            ],
+            "3": [
+                "#oritech:plating"
+            ],
+            "5": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "#oritech:plating"
+            ],
+            "7": [
+                "#oritech:plating"
+            ],
+            "9": [
+                "#oritech:plating"
+            ],
+            "11": [
+                "#oritech:plating"
+            ]
+        },
+        "output": {
+            "id": "oritech:exo_chestplate",
+            "count": 1
+        }
+    }
+]

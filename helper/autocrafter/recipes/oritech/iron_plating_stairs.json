@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "oritech:iron_plating_block"
+            ],
+            "5": [
+                "oritech:iron_plating_block"
+            ],
+            "6": [
+                "oritech:iron_plating_block"
+            ],
+            "9": [
+                "oritech:iron_plating_block"
+            ],
+            "10": [
+                "oritech:iron_plating_block"
+            ],
+            "11": [
+                "oritech:iron_plating_block"
+            ]
+        },
+        "output": {
+            "id": "oritech:iron_plating_stairs",
+            "count": 4
+        }
+    }
+]

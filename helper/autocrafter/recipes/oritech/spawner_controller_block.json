@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:respawn_anchor"
+            ],
+            "1": [
+                "oritech:spawner_cage_block"
+            ],
+            "2": [
+                "oritech:spawner_cage_block"
+            ],
+            "3": [
+                "oritech:spawner_cage_block"
+            ],
+            "9": [
+                "oritech:spawner_cage_block"
+            ],
+            "10": [
+                "oritech:spawner_cage_block"
+            ],
+            "11": [
+                "oritech:spawner_cage_block"
+            ],
+            "5": [
+                "oritech:enchantment_catalyst_block"
+            ],
+            "7": [
+                "oritech:enchantment_catalyst_block"
+            ]
+        },
+        "output": {
+            "id": "oritech:spawner_controller_block",
+            "count": 1
+        }
+    }
+]

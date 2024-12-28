@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "10": [
+                "minecraft:furnace"
+            ],
+            "6": [
+                "minecraft:copper_ingot"
+            ],
+            "1": [
+                "#c:ingots/nickel"
+            ],
+            "2": [
+                "#c:ingots/nickel"
+            ],
+            "3": [
+                "#c:ingots/nickel"
+            ],
+            "5": [
+                "#c:ingots/nickel"
+            ],
+            "7": [
+                "#c:ingots/nickel"
+            ],
+            "9": [
+                "oritech:magnetic_coil"
+            ],
+            "11": [
+                "oritech:magnetic_coil"
+            ]
+        },
+        "output": {
+            "id": "oritech:basic_generator_block",
+            "count": 1
+        }
+    }
+]

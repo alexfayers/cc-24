@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "10": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "oritech:machine_frame_block"
+            ],
+            "1": [
+                "minecraft:copper_ingot"
+            ],
+            "2": [
+                "minecraft:copper_ingot"
+            ],
+            "3": [
+                "minecraft:copper_ingot"
+            ],
+            "5": [
+                "oritech:processing_unit"
+            ],
+            "7": [
+                "oritech:processing_unit"
+            ],
+            "9": [
+                "oritech:motor"
+            ],
+            "11": [
+                "oritech:motor"
+            ]
+        },
+        "output": {
+            "id": "oritech:placer_block",
+            "count": 1
+        }
+    }
+]

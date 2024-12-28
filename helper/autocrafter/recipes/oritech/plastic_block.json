@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:plates/plastic"
+            ],
+            "2": [
+                "#c:plates/plastic"
+            ],
+            "3": [
+                "#c:plates/plastic"
+            ],
+            "5": [
+                "#c:plates/plastic"
+            ],
+            "6": [
+                "#c:plates/plastic"
+            ],
+            "7": [
+                "#c:plates/plastic"
+            ],
+            "9": [
+                "#c:plates/plastic"
+            ],
+            "10": [
+                "#c:plates/plastic"
+            ],
+            "11": [
+                "#c:plates/plastic"
+            ]
+        },
+        "output": {
+            "id": "oritech:plastic_block",
+            "count": 1
+        }
+    }
+]

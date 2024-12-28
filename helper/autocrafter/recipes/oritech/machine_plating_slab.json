@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "1": [
+                "oritech:machine_plating_block"
+            ],
+            "2": [
+                "oritech:machine_plating_block"
+            ],
+            "3": [
+                "oritech:machine_plating_block"
+            ]
+        },
+        "output": {
+            "id": "oritech:machine_plating_slab",
+            "count": 6
+        }
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "10": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "oritech:magnetic_coil"
+            ],
+            "1": [
+                "#c:plates/plastic"
+            ],
+            "2": [
+                "#c:plates/plastic"
+            ],
+            "3": [
+                "#c:plates/plastic"
+            ],
+            "5": [
+                "#c:plates/plastic"
+            ],
+            "7": [
+                "#c:plates/plastic"
+            ],
+            "9": [
+                "oritech:energite_ingot"
+            ],
+            "11": [
+                "oritech:energite_ingot"
+            ]
+        },
+        "output": {
+            "id": "oritech:machine_capacitor_addon",
+            "count": 1
+        }
+    }
+]

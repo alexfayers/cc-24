@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "2": [
+                "#c:ingots/steel"
+            ],
+            "5": [
+                "#c:ingots/steel"
+            ],
+            "7": [
+                "#c:ingots/steel"
+            ],
+            "6": [
+                "minecraft:redstone_torch"
+            ],
+            "9": [
+                "oritech:superconductor"
+            ],
+            "10": [
+                "oritech:industrial_glass_block"
+            ],
+            "11": [
+                "oritech:industrial_glass_block"
+            ]
+        },
+        "output": {
+            "id": "oritech:accelerator_ring",
+            "count": 1
+        }
+    }
+]

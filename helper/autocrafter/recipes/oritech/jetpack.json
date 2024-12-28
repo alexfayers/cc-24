@@ -1,0 +1,60 @@
+[
+    {
+        "input": {
+            "10": [
+                "oritech:advanced_battery"
+            ],
+            "9": [
+                "minecraft:gunpowder"
+            ],
+            "11": [
+                "minecraft:gunpowder"
+            ],
+            "5": [
+                "#c:ingots/steel"
+            ],
+            "6": [
+                "#c:ingots/steel"
+            ],
+            "7": [
+                "#c:ingots/steel"
+            ],
+            "2": [
+                "minecraft:leather"
+            ]
+        },
+        "output": {
+            "id": "oritech:jetpack",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "10": [
+                "minecraft:redstone_block"
+            ],
+            "9": [
+                "minecraft:blaze_powder"
+            ],
+            "11": [
+                "minecraft:blaze_powder"
+            ],
+            "5": [
+                "#c:ingots/steel"
+            ],
+            "6": [
+                "#c:ingots/steel"
+            ],
+            "7": [
+                "#c:ingots/steel"
+            ],
+            "2": [
+                "minecraft:leather"
+            ]
+        },
+        "output": {
+            "id": "oritech:jetpack",
+            "count": 1
+        }
+    }
+]

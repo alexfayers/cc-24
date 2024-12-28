@@ -2,6 +2,7 @@
   "values": [
     "minecraft:arrow",
     "minecraft:tipped_arrow",
-    "minecraft:spectral_arrow"
+    "minecraft:spectral_arrow",
+    "stellaris:ice_shard_arrow"
   ]
 }

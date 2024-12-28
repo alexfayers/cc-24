@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:raw_ores/nickel"
+            ],
+            "2": [
+                "#c:raw_ores/nickel"
+            ],
+            "3": [
+                "#c:raw_ores/nickel"
+            ],
+            "5": [
+                "#c:raw_ores/nickel"
+            ],
+            "6": [
+                "#c:raw_ores/nickel"
+            ],
+            "7": [
+                "#c:raw_ores/nickel"
+            ],
+            "9": [
+                "#c:raw_ores/nickel"
+            ],
+            "10": [
+                "#c:raw_ores/nickel"
+            ],
+            "11": [
+                "#c:raw_ores/nickel"
+            ]
+        },
+        "output": {
+            "id": "oritech:raw_nickel_block",
+            "count": 1
+        }
+    }
+]

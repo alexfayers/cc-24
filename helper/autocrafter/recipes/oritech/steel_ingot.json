@@ -1,0 +1,33 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:storage_blocks/steel"
+            ]
+        },
+        "output": {
+            "id": "oritech:steel_ingot",
+            "count": 9
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "minecraft:iron_ingot"
+            ],
+            "2": [
+                "minecraft:iron_ingot"
+            ],
+            "5": [
+                "minecraft:coal"
+            ],
+            "6": [
+                "minecraft:coal"
+            ]
+        },
+        "output": {
+            "id": "oritech:steel_ingot",
+            "count": 1
+        }
+    }
+]

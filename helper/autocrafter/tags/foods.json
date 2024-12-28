@@ -19,6 +19,8 @@
     "#foods/pie",
     "#foods/golden",
     "#foods/edible_when_placed",
-    "#foods/food_poisoning"
+    "#foods/food_poisoning",
+    "stellaris:mars_fruit",
+    "stellaris:moon_fruit"
   ]
 }

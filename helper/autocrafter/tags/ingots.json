@@ -1,8 +1,23 @@
 {
   "values": [
+    "oritech:nickel_ingot",
+    "oritech:platinum_ingot",
+    "oritech:biosteel_ingot",
+    "oritech:prometheum_ingot",
+    "oritech:duratium_ingot",
+    "oritech:electrum_ingot",
+    "oritech:adamant_ingot",
+    "oritech:energite_ingot",
+    "oritech:steel_ingot",
     "#ingots/copper",
     "#ingots/iron",
     "#ingots/gold",
-    "#ingots/netherite"
+    "#ingots/netherite",
+    "#c:ingots/steel",
+    "#c:ingots/desh",
+    "#c:ingots/heavy_metal",
+    "#c:ingots/neptunium",
+    "#c:ingots/uranium",
+    "#c:ingots/plutonium"
   ]
 }

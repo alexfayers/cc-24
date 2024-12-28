@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "2": [
+                "oritech:raw_biopolymer"
+            ],
+            "5": [
+                "oritech:raw_biopolymer"
+            ],
+            "7": [
+                "oritech:raw_biopolymer"
+            ],
+            "6": [
+                "minecraft:glass_bottle"
+            ],
+            "9": [
+                "minecraft:rotten_flesh"
+            ],
+            "10": [
+                "minecraft:rotten_flesh"
+            ],
+            "11": [
+                "minecraft:rotten_flesh"
+            ]
+        },
+        "output": {
+            "id": "oritech:weed_killer",
+            "count": 1
+        }
+    }
+]

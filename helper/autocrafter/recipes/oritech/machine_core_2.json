@@ -1,0 +1,72 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:lapis_lazuli"
+            ],
+            "1": [
+                "minecraft:iron_ingot"
+            ],
+            "2": [
+                "minecraft:iron_ingot"
+            ],
+            "3": [
+                "minecraft:iron_ingot"
+            ],
+            "5": [
+                "minecraft:iron_ingot"
+            ],
+            "7": [
+                "minecraft:iron_ingot"
+            ],
+            "9": [
+                "minecraft:iron_ingot"
+            ],
+            "10": [
+                "minecraft:iron_ingot"
+            ],
+            "11": [
+                "minecraft:iron_ingot"
+            ]
+        },
+        "output": {
+            "id": "oritech:machine_core_2",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "6": [
+                "minecraft:lapis_lazuli"
+            ],
+            "1": [
+                "minecraft:copper_ingot"
+            ],
+            "2": [
+                "minecraft:copper_ingot"
+            ],
+            "3": [
+                "minecraft:copper_ingot"
+            ],
+            "5": [
+                "minecraft:copper_ingot"
+            ],
+            "7": [
+                "minecraft:copper_ingot"
+            ],
+            "9": [
+                "minecraft:copper_ingot"
+            ],
+            "10": [
+                "minecraft:copper_ingot"
+            ],
+            "11": [
+                "minecraft:copper_ingot"
+            ]
+        },
+        "output": {
+            "id": "oritech:machine_core_2",
+            "count": 1
+        }
+    }
+]

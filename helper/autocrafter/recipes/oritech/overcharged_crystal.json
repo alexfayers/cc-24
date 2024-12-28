@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "6": [
+                "oritech:advanced_battery"
+            ],
+            "10": [
+                "oritech:advanced_battery"
+            ],
+            "2": [
+                "minecraft:amethyst_block"
+            ],
+            "5": [
+                "oritech:superconductor"
+            ],
+            "7": [
+                "oritech:superconductor"
+            ],
+            "9": [
+                "oritech:superconductor"
+            ],
+            "11": [
+                "oritech:superconductor"
+            ]
+        },
+        "output": {
+            "id": "oritech:overcharged_crystal",
+            "count": 1
+        }
+    }
+]

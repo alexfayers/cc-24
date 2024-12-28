@@ -1,0 +1,28 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:ingots/steel"
+            ],
+            "2": [
+                "#c:ingots/steel"
+            ],
+            "5": [
+                "#c:ingots/steel"
+            ],
+            "6": [
+                "#c:ingots/steel"
+            ],
+            "9": [
+                "#c:ingots/steel"
+            ],
+            "10": [
+                "#c:ingots/steel"
+            ]
+        },
+        "output": {
+            "id": "oritech:tech_door",
+            "count": 1
+        }
+    }
+]

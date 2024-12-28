@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:ingots/adamant"
+            ],
+            "2": [
+                "#c:ingots/adamant"
+            ],
+            "3": [
+                "#c:ingots/adamant"
+            ],
+            "5": [
+                "#c:ingots/adamant"
+            ],
+            "6": [
+                "#c:ingots/adamant"
+            ],
+            "7": [
+                "#c:ingots/adamant"
+            ],
+            "9": [
+                "#c:ingots/adamant"
+            ],
+            "10": [
+                "#c:ingots/adamant"
+            ],
+            "11": [
+                "#c:ingots/adamant"
+            ]
+        },
+        "output": {
+            "id": "oritech:adamant_block",
+            "count": 1
+        }
+    }
+]

@@ -1,6 +1,9 @@
 {
   "values": [
     "#nuggets/iron",
-    "#nuggets/gold"
+    "#nuggets/gold",
+    "#c:nuggets/steel",
+    "#c:nuggets/heavy_metal",
+    "#c:nuggets/plutonium"
   ]
 }

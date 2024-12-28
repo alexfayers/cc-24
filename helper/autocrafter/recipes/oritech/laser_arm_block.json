@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "9": [
+                "#oritech:plating"
+            ],
+            "10": [
+                "#oritech:plating"
+            ],
+            "11": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "#c:ingots/electrum"
+            ],
+            "1": [
+                "#c:carbon_fibre"
+            ],
+            "3": [
+                "#c:carbon_fibre"
+            ],
+            "5": [
+                "oritech:motor"
+            ],
+            "7": [
+                "oritech:motor"
+            ],
+            "2": [
+                "oritech:enderic_lens"
+            ]
+        },
+        "output": {
+            "id": "oritech:laser_arm_block",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "2": [
+                "#c:ingots/steel"
+            ],
+            "7": [
+                "#c:ingots/steel"
+            ],
+            "9": [
+                "#c:ingots/steel"
+            ],
+            "6": [
+                "#c:ingots/nickel"
+            ]
+        },
+        "output": {
+            "id": "oritech:wrench",
+            "count": 1
+        }
+    }
+]

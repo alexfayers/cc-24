@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "6": [
+                "oritech:energite_ingot"
+            ],
+            "10": [
+                "oritech:energite_ingot"
+            ],
+            "2": [
+                "#c:ingots/electrum"
+            ],
+            "5": [
+                "#c:ingots/steel"
+            ],
+            "7": [
+                "#c:ingots/steel"
+            ],
+            "9": [
+                "#c:ingots/steel"
+            ],
+            "11": [
+                "#c:ingots/steel"
+            ]
+        },
+        "output": {
+            "id": "oritech:advanced_battery",
+            "count": 1
+        }
+    }
+]

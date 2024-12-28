@@ -1,0 +1,48 @@
+[
+    {
+        "input": {
+            "1": [
+                "oritech:nickel_nugget"
+            ],
+            "2": [
+                "oritech:nickel_nugget"
+            ],
+            "3": [
+                "oritech:nickel_nugget"
+            ],
+            "5": [
+                "oritech:nickel_nugget"
+            ],
+            "6": [
+                "oritech:nickel_nugget"
+            ],
+            "7": [
+                "oritech:nickel_nugget"
+            ],
+            "9": [
+                "oritech:nickel_nugget"
+            ],
+            "10": [
+                "oritech:nickel_nugget"
+            ],
+            "11": [
+                "oritech:nickel_nugget"
+            ]
+        },
+        "output": {
+            "id": "oritech:nickel_ingot",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "#c:storage_blocks/nickel"
+            ]
+        },
+        "output": {
+            "id": "oritech:nickel_ingot",
+            "count": 9
+        }
+    }
+]

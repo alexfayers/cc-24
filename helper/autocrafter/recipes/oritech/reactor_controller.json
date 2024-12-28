@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "6": [
+                "oritech:reactor_wall"
+            ],
+            "5": [
+                "oritech:processing_unit"
+            ],
+            "7": [
+                "oritech:processing_unit"
+            ]
+        },
+        "output": {
+            "id": "oritech:reactor_controller",
+            "count": 1
+        }
+    }
+]

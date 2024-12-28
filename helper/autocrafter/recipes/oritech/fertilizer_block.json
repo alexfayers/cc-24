@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "10": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "oritech:processing_unit"
+            ],
+            "1": [
+                "minecraft:copper_ingot"
+            ],
+            "2": [
+                "minecraft:copper_ingot"
+            ],
+            "3": [
+                "minecraft:copper_ingot"
+            ],
+            "5": [
+                "#c:silicon"
+            ],
+            "7": [
+                "#c:silicon"
+            ],
+            "9": [
+                "oritech:motor"
+            ],
+            "11": [
+                "oritech:motor"
+            ]
+        },
+        "output": {
+            "id": "oritech:fertilizer_block",
+            "count": 1
+        }
+    }
+]

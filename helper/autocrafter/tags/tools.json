@@ -15,6 +15,10 @@
     "#tools/spear",
     "#tools/mining_tool",
     "#tools/melee_weapon",
-    "#tools/ranged_weapon"
+    "#tools/ranged_weapon",
+    "stellaris:steel_axe",
+    "stellaris:steel_shovel",
+    "stellaris:steel_pickaxe",
+    "stellaris:steel_hoe"
   ]
 }

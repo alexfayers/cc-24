@@ -1,0 +1,72 @@
+[
+    {
+        "input": {
+            "10": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "oritech:adamant_ingot"
+            ],
+            "1": [
+                "minecraft:copper_ingot"
+            ],
+            "2": [
+                "minecraft:copper_ingot"
+            ],
+            "3": [
+                "minecraft:copper_ingot"
+            ],
+            "5": [
+                "minecraft:crafter"
+            ],
+            "7": [
+                "minecraft:crafter"
+            ],
+            "9": [
+                "oritech:motor"
+            ],
+            "11": [
+                "oritech:motor"
+            ]
+        },
+        "output": {
+            "id": "oritech:assembler_block",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "10": [
+                "minecraft:blast_furnace"
+            ],
+            "6": [
+                "oritech:adamant_ingot"
+            ],
+            "1": [
+                "minecraft:copper_ingot"
+            ],
+            "2": [
+                "minecraft:copper_ingot"
+            ],
+            "3": [
+                "minecraft:copper_ingot"
+            ],
+            "5": [
+                "minecraft:crafter"
+            ],
+            "7": [
+                "minecraft:crafter"
+            ],
+            "9": [
+                "oritech:motor"
+            ],
+            "11": [
+                "oritech:motor"
+            ]
+        },
+        "output": {
+            "id": "oritech:assembler_block",
+            "count": 1
+        }
+    }
+]

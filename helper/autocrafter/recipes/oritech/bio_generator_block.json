@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "10": [
+                "oritech:basic_generator_block"
+            ],
+            "6": [
+                "oritech:flux_gate"
+            ],
+            "1": [
+                "oritech:biosteel_ingot"
+            ],
+            "2": [
+                "oritech:biosteel_ingot"
+            ],
+            "3": [
+                "oritech:biosteel_ingot"
+            ],
+            "5": [
+                "oritech:biosteel_ingot"
+            ],
+            "7": [
+                "oritech:biosteel_ingot"
+            ],
+            "9": [
+                "oritech:magnetic_coil"
+            ],
+            "11": [
+                "oritech:magnetic_coil"
+            ]
+        },
+        "output": {
+            "id": "oritech:bio_generator_block",
+            "count": 1
+        }
+    }
+]

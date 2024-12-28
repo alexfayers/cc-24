@@ -1,0 +1,22 @@
+[
+    {
+        "input": {
+            "2": [
+                "oritech:biomass"
+            ],
+            "5": [
+                "oritech:biomass"
+            ],
+            "1": [
+                "minecraft:sand"
+            ],
+            "6": [
+                "minecraft:sand"
+            ]
+        },
+        "output": {
+            "id": "minecraft:dirt",
+            "count": 2
+        }
+    }
+]

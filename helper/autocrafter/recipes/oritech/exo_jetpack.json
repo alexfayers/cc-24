@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "10": [
+                "oritech:jetpack"
+            ],
+            "6": [
+                "oritech:exo_chestplate"
+            ],
+            "1": [
+                "#c:plates/plastic"
+            ],
+            "2": [
+                "#c:plates/plastic"
+            ],
+            "3": [
+                "#c:plates/plastic"
+            ],
+            "5": [
+                "#c:plates/plastic"
+            ],
+            "7": [
+                "#c:plates/plastic"
+            ],
+            "9": [
+                "oritech:small_tank_block"
+            ],
+            "11": [
+                "oritech:small_tank_block"
+            ]
+        },
+        "output": {
+            "id": "oritech:exo_jetpack",
+            "count": 1
+        }
+    }
+]

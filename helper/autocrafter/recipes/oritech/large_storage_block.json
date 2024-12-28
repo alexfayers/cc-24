@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "9": [
+                "oritech:advanced_battery"
+            ],
+            "10": [
+                "oritech:advanced_battery"
+            ],
+            "11": [
+                "oritech:advanced_battery"
+            ],
+            "6": [
+                "oritech:dubios_container"
+            ],
+            "1": [
+                "#c:wires"
+            ],
+            "3": [
+                "#c:wires"
+            ],
+            "5": [
+                "#c:ingots/steel"
+            ],
+            "7": [
+                "#c:ingots/steel"
+            ],
+            "2": [
+                "oritech:flux_gate"
+            ]
+        },
+        "output": {
+            "id": "oritech:large_storage_block",
+            "count": 1
+        }
+    }
+]

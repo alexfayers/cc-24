@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "9": [
+                "#oritech:plating"
+            ],
+            "10": [
+                "#oritech:plating"
+            ],
+            "11": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "oritech:enderic_compound"
+            ],
+            "1": [
+                "oritech:flux_gate"
+            ],
+            "3": [
+                "oritech:flux_gate"
+            ],
+            "5": [
+                "#c:plates/plastic"
+            ],
+            "7": [
+                "#c:plates/plastic"
+            ],
+            "2": [
+                "oritech:duratium_ingot"
+            ]
+        },
+        "output": {
+            "id": "oritech:atomic_forge_block",
+            "count": 1
+        }
+    }
+]

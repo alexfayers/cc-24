@@ -1,0 +1,33 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:storage_blocks/adamant"
+            ]
+        },
+        "output": {
+            "id": "oritech:adamant_ingot",
+            "count": 9
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "#c:ingots/nickel"
+            ],
+            "2": [
+                "#c:ingots/nickel"
+            ],
+            "5": [
+                "minecraft:diamond"
+            ],
+            "6": [
+                "minecraft:diamond"
+            ]
+        },
+        "output": {
+            "id": "oritech:adamant_ingot",
+            "count": 1
+        }
+    }
+]

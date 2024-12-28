@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:ice"
+            ],
+            "10": [
+                "minecraft:ice"
+            ],
+            "5": [
+                "#c:glass_blocks"
+            ],
+            "7": [
+                "#c:glass_blocks"
+            ],
+            "9": [
+                "#c:glass_blocks"
+            ],
+            "11": [
+                "#c:glass_blocks"
+            ],
+            "2": [
+                "#c:ingots/steel"
+            ]
+        },
+        "output": {
+            "id": "oritech:reactor_condenser",
+            "count": 1
+        }
+    }
+]

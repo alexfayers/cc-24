@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "6": [
+                "oritech:motor"
+            ],
+            "2": [
+                "#c:carbon_fibre"
+            ],
+            "5": [
+                "#c:carbon_fibre"
+            ],
+            "7": [
+                "#c:carbon_fibre"
+            ],
+            "10": [
+                "#c:carbon_fibre"
+            ]
+        },
+        "output": {
+            "id": "oritech:reactor_vent",
+            "count": 1
+        }
+    }
+]

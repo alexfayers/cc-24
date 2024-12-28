@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "6": [
+                "oritech:advanced_computing_engine"
+            ],
+            "1": [
+                "oritech:adamant_ingot"
+            ],
+            "2": [
+                "oritech:adamant_ingot"
+            ],
+            "3": [
+                "oritech:adamant_ingot"
+            ],
+            "5": [
+                "oritech:adamant_ingot"
+            ],
+            "7": [
+                "oritech:adamant_ingot"
+            ],
+            "9": [
+                "oritech:adamant_ingot"
+            ],
+            "10": [
+                "oritech:adamant_ingot"
+            ],
+            "11": [
+                "oritech:adamant_ingot"
+            ]
+        },
+        "output": {
+            "id": "oritech:machine_core_5",
+            "count": 1
+        }
+    }
+]

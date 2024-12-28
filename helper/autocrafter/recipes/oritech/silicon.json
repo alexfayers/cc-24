@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:storage_blocks/silicon"
+            ]
+        },
+        "output": {
+            "id": "oritech:silicon",
+            "count": 9
+        }
+    }
+]

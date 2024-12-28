@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "10": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "oritech:processing_unit"
+            ],
+            "1": [
+                "#c:wires"
+            ],
+            "2": [
+                "#c:wires"
+            ],
+            "3": [
+                "#c:wires"
+            ],
+            "5": [
+                "#c:wires"
+            ],
+            "7": [
+                "#c:wires"
+            ],
+            "9": [
+                "#c:wires"
+            ],
+            "11": [
+                "#c:wires"
+            ]
+        },
+        "output": {
+            "id": "oritech:item_filter_block",
+            "count": 1
+        }
+    }
+]

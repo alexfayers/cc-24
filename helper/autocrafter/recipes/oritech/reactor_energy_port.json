@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "10": [
+                "oritech:reactor_wall"
+            ],
+            "9": [
+                "#c:ingots/iron"
+            ],
+            "11": [
+                "#c:ingots/iron"
+            ],
+            "5": [
+                "#c:ingots/electrum"
+            ],
+            "6": [
+                "#c:ingots/electrum"
+            ],
+            "7": [
+                "#c:ingots/electrum"
+            ],
+            "2": [
+                "oritech:energy_pipe"
+            ]
+        },
+        "output": {
+            "id": "oritech:reactor_energy_port",
+            "count": 1
+        }
+    }
+]

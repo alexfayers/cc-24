@@ -1,0 +1,25 @@
+[
+    {
+        "input": {
+            "6": [
+                "oritech:destroyer_block"
+            ],
+            "10": [
+                "oritech:destroyer_block"
+            ],
+            "1": [
+                "oritech:prometheum_ingot"
+            ],
+            "2": [
+                "oritech:prometheum_ingot"
+            ],
+            "3": [
+                "oritech:prometheum_ingot"
+            ]
+        },
+        "output": {
+            "id": "oritech:promethium_pickaxe",
+            "count": 1
+        }
+    }
+]

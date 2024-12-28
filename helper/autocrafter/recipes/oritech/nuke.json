@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "2": [
+                "oritech:heisenberg_compensator"
+            ],
+            "5": [
+                "oritech:heisenberg_compensator"
+            ],
+            "7": [
+                "oritech:heisenberg_compensator"
+            ],
+            "10": [
+                "oritech:heisenberg_compensator"
+            ],
+            "6": [
+                "minecraft:tnt"
+            ],
+            "1": [
+                "oritech:plutonium_pellet"
+            ],
+            "3": [
+                "oritech:plutonium_pellet"
+            ],
+            "9": [
+                "oritech:plutonium_pellet"
+            ],
+            "11": [
+                "oritech:plutonium_pellet"
+            ]
+        },
+        "output": {
+            "id": "oritech:nuke",
+            "count": 1
+        }
+    }
+]

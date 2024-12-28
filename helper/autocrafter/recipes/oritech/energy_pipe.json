@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "5": [
+                "#c:ingots/electrum"
+            ],
+            "6": [
+                "#c:ingots/electrum"
+            ],
+            "7": [
+                "#c:ingots/electrum"
+            ],
+            "1": [
+                "#c:wires"
+            ],
+            "2": [
+                "#c:wires"
+            ],
+            "3": [
+                "#c:wires"
+            ],
+            "9": [
+                "#c:wires"
+            ],
+            "10": [
+                "#c:wires"
+            ],
+            "11": [
+                "#c:wires"
+            ]
+        },
+        "output": {
+            "id": "oritech:energy_pipe",
+            "count": 6
+        }
+    }
+]

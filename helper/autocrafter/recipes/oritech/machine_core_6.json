@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "6": [
+                "oritech:dubios_container"
+            ],
+            "1": [
+                "oritech:duratium_ingot"
+            ],
+            "2": [
+                "oritech:duratium_ingot"
+            ],
+            "3": [
+                "oritech:duratium_ingot"
+            ],
+            "5": [
+                "oritech:duratium_ingot"
+            ],
+            "7": [
+                "oritech:duratium_ingot"
+            ],
+            "9": [
+                "oritech:duratium_ingot"
+            ],
+            "10": [
+                "oritech:duratium_ingot"
+            ],
+            "11": [
+                "oritech:duratium_ingot"
+            ]
+        },
+        "output": {
+            "id": "oritech:machine_core_6",
+            "count": 1
+        }
+    }
+]

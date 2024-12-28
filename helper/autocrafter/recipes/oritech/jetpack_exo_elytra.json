@@ -1,0 +1,72 @@
+[
+    {
+        "input": {
+            "10": [
+                "oritech:exo_chestplate"
+            ],
+            "6": [
+                "oritech:jetpack_elytra"
+            ],
+            "1": [
+                "#c:plates/plastic"
+            ],
+            "2": [
+                "#c:plates/plastic"
+            ],
+            "3": [
+                "#c:plates/plastic"
+            ],
+            "5": [
+                "#c:plates/plastic"
+            ],
+            "7": [
+                "#c:plates/plastic"
+            ],
+            "9": [
+                "oritech:small_tank_block"
+            ],
+            "11": [
+                "oritech:small_tank_block"
+            ]
+        },
+        "output": {
+            "id": "oritech:jetpack_exo_elytra",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "10": [
+                "oritech:exo_jetpack"
+            ],
+            "6": [
+                "minecraft:elytra"
+            ],
+            "1": [
+                "minecraft:gunpowder"
+            ],
+            "2": [
+                "minecraft:gunpowder"
+            ],
+            "3": [
+                "minecraft:gunpowder"
+            ],
+            "5": [
+                "minecraft:gunpowder"
+            ],
+            "7": [
+                "minecraft:gunpowder"
+            ],
+            "9": [
+                "oritech:processing_unit"
+            ],
+            "11": [
+                "oritech:processing_unit"
+            ]
+        },
+        "output": {
+            "id": "oritech:jetpack_exo_elytra",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "10": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "oritech:enderic_lens"
+            ],
+            "1": [
+                "#c:plates/plastic"
+            ],
+            "2": [
+                "#c:plates/plastic"
+            ],
+            "3": [
+                "#c:plates/plastic"
+            ],
+            "5": [
+                "#c:plates/plastic"
+            ],
+            "7": [
+                "#c:plates/plastic"
+            ],
+            "9": [
+                "#c:ingots/electrum"
+            ],
+            "11": [
+                "#c:ingots/electrum"
+            ]
+        },
+        "output": {
+            "id": "oritech:machine_yield_addon",
+            "count": 1
+        }
+    }
+]

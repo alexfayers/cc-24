@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:silicon"
+            ],
+            "2": [
+                "#c:silicon"
+            ],
+            "3": [
+                "#c:silicon"
+            ],
+            "5": [
+                "#c:silicon"
+            ],
+            "6": [
+                "#c:silicon"
+            ],
+            "7": [
+                "#c:silicon"
+            ],
+            "9": [
+                "#c:silicon"
+            ],
+            "10": [
+                "#c:silicon"
+            ],
+            "11": [
+                "#c:silicon"
+            ]
+        },
+        "output": {
+            "id": "oritech:silicon_block",
+            "count": 1
+        }
+    }
+]

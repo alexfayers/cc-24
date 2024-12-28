@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "5": [
+                "#c:ingots/nickel"
+            ],
+            "6": [
+                "#c:ingots/nickel"
+            ],
+            "7": [
+                "#c:ingots/nickel"
+            ]
+        },
+        "output": {
+            "id": "oritech:insulated_wire",
+            "count": 4
+        }
+    }
+]

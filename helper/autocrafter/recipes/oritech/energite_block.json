@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:ingots/energite"
+            ],
+            "2": [
+                "#c:ingots/energite"
+            ],
+            "3": [
+                "#c:ingots/energite"
+            ],
+            "5": [
+                "#c:ingots/energite"
+            ],
+            "6": [
+                "#c:ingots/energite"
+            ],
+            "7": [
+                "#c:ingots/energite"
+            ],
+            "9": [
+                "#c:ingots/energite"
+            ],
+            "10": [
+                "#c:ingots/energite"
+            ],
+            "11": [
+                "#c:ingots/energite"
+            ]
+        },
+        "output": {
+            "id": "oritech:energite_block",
+            "count": 1
+        }
+    }
+]

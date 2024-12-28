@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "6": [
+                "oritech:big_solar_panel_block"
+            ],
+            "1": [
+                "oritech:superconductor"
+            ],
+            "2": [
+                "oritech:superconductor"
+            ],
+            "3": [
+                "oritech:superconductor"
+            ],
+            "9": [
+                "oritech:superconductor"
+            ],
+            "10": [
+                "oritech:superconductor"
+            ],
+            "11": [
+                "oritech:superconductor"
+            ],
+            "5": [
+                "oritech:heisenberg_compensator"
+            ],
+            "7": [
+                "oritech:heisenberg_compensator"
+            ]
+        },
+        "output": {
+            "id": "oritech:particle_collector_block",
+            "count": 1
+        }
+    }
+]

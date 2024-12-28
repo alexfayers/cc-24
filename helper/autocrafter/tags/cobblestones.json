@@ -3,6 +3,10 @@
     "minecraft:cobblestone",
     "minecraft:mossy_cobblestone",
     "minecraft:cobbled_deepslate",
-    "minecraft:infested_cobblestone"
+    "minecraft:infested_cobblestone",
+    "stellaris:mars_cobblestone",
+    "stellaris:venus_cobblestone",
+    "stellaris:moon_cobblestone",
+    "stellaris:mercury_cobblestone"
   ]
 }

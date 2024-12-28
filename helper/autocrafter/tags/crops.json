@@ -9,6 +9,8 @@
     "#crops/potato",
     "#crops/pumpkin",
     "#crops/sugar_cane",
-    "#crops/wheat"
+    "#crops/wheat",
+    "stellaris:mars_fruit",
+    "stellaris:moon_fruit"
   ]
 }

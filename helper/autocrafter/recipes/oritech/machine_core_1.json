@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:crafting_table"
+            ],
+            "1": [
+                "#minecraft:planks"
+            ],
+            "2": [
+                "#minecraft:planks"
+            ],
+            "3": [
+                "#minecraft:planks"
+            ],
+            "5": [
+                "#minecraft:planks"
+            ],
+            "7": [
+                "#minecraft:planks"
+            ],
+            "9": [
+                "#minecraft:planks"
+            ],
+            "10": [
+                "#minecraft:planks"
+            ],
+            "11": [
+                "#minecraft:planks"
+            ]
+        },
+        "output": {
+            "id": "oritech:machine_core_1",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "6": [
+                "oritech:adamant_ingot"
+            ],
+            "10": [
+                "oritech:adamant_ingot"
+            ],
+            "2": [
+                "#c:plates/plastic"
+            ],
+            "5": [
+                "oritech:enderic_compound"
+            ],
+            "7": [
+                "oritech:enderic_compound"
+            ],
+            "9": [
+                "oritech:enderic_compound"
+            ],
+            "11": [
+                "oritech:enderic_compound"
+            ]
+        },
+        "output": {
+            "id": "oritech:dubios_container",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:chain"
+            ],
+            "2": [
+                "oritech:ceiling_light"
+            ]
+        },
+        "output": {
+            "id": "oritech:ceiling_light_hanging",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "10": [
+                "minecraft:elytra"
+            ],
+            "6": [
+                "oritech:jetpack"
+            ],
+            "1": [
+                "minecraft:gunpowder"
+            ],
+            "2": [
+                "minecraft:gunpowder"
+            ],
+            "3": [
+                "minecraft:gunpowder"
+            ],
+            "5": [
+                "minecraft:gunpowder"
+            ],
+            "7": [
+                "minecraft:gunpowder"
+            ],
+            "9": [
+                "oritech:processing_unit"
+            ],
+            "11": [
+                "oritech:processing_unit"
+            ]
+        },
+        "output": {
+            "id": "oritech:jetpack_elytra",
+            "count": 1
+        }
+    }
+]

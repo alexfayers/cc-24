@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "9": [
+                "#oritech:plating"
+            ],
+            "10": [
+                "#oritech:plating"
+            ],
+            "11": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "oritech:advanced_computing_engine"
+            ],
+            "1": [
+                "oritech:flux_gate"
+            ],
+            "3": [
+                "oritech:flux_gate"
+            ],
+            "5": [
+                "oritech:motor"
+            ],
+            "7": [
+                "oritech:motor"
+            ],
+            "2": [
+                "oritech:enderic_lens"
+            ]
+        },
+        "output": {
+            "id": "oritech:destroyer_block",
+            "count": 1
+        }
+    }
+]

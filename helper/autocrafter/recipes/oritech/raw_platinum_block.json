@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:raw_ores/platinum"
+            ],
+            "2": [
+                "#c:raw_ores/platinum"
+            ],
+            "3": [
+                "#c:raw_ores/platinum"
+            ],
+            "5": [
+                "#c:raw_ores/platinum"
+            ],
+            "6": [
+                "#c:raw_ores/platinum"
+            ],
+            "7": [
+                "#c:raw_ores/platinum"
+            ],
+            "9": [
+                "#c:raw_ores/platinum"
+            ],
+            "10": [
+                "#c:raw_ores/platinum"
+            ],
+            "11": [
+                "#c:raw_ores/platinum"
+            ]
+        },
+        "output": {
+            "id": "oritech:raw_platinum_block",
+            "count": 1
+        }
+    }
+]

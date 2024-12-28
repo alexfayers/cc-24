@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "10": [
+                "minecraft:cauldron"
+            ],
+            "6": [
+                "oritech:motor"
+            ],
+            "1": [
+                "minecraft:iron_ingot"
+            ],
+            "2": [
+                "minecraft:iron_ingot"
+            ],
+            "3": [
+                "minecraft:iron_ingot"
+            ],
+            "5": [
+                "minecraft:iron_ingot"
+            ],
+            "7": [
+                "minecraft:iron_ingot"
+            ],
+            "9": [
+                "minecraft:ice"
+            ],
+            "11": [
+                "minecraft:ice"
+            ]
+        },
+        "output": {
+            "id": "oritech:cooler_block",
+            "count": 1
+        }
+    }
+]

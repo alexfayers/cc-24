@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "2": [
+                "oritech:processing_unit"
+            ],
+            "5": [
+                "oritech:processing_unit"
+            ],
+            "7": [
+                "oritech:processing_unit"
+            ],
+            "6": [
+                "#c:plates/plastic"
+            ],
+            "9": [
+                "#c:ingots/electrum"
+            ],
+            "10": [
+                "#c:ingots/steel"
+            ],
+            "11": [
+                "#c:ingots/steel"
+            ]
+        },
+        "output": {
+            "id": "oritech:target_designator",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,22 @@
+{
+  "type": "oritech:particle_collision",
+  "fluidInputAmount": 0,
+  "fluidInputVariant": "minecraft:empty",
+  "fluidOutputAmount": 0,
+  "fluidOutputVariant": "minecraft:empty",
+  "ingredients": [
+    {
+      "item": "oritech:uranium_dust"
+    },
+    {
+      "item": "oritech:fluxite"
+    }
+  ],
+  "results": [
+    {
+      "count": 1,
+      "id": "oritech:plutonium_dust"
+    }
+  ],
+  "time": 2500
+}

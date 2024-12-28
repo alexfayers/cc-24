@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:carbon_fibre"
+            ],
+            "2": [
+                "#c:carbon_fibre"
+            ]
+        },
+        "output": {
+            "id": "techreborn:carbon_mesh",
+            "count": 1
+        }
+    }
+]

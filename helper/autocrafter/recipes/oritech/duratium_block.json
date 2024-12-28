@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:ingots/duratium"
+            ],
+            "2": [
+                "#c:ingots/duratium"
+            ],
+            "3": [
+                "#c:ingots/duratium"
+            ],
+            "5": [
+                "#c:ingots/duratium"
+            ],
+            "6": [
+                "#c:ingots/duratium"
+            ],
+            "7": [
+                "#c:ingots/duratium"
+            ],
+            "9": [
+                "#c:ingots/duratium"
+            ],
+            "10": [
+                "#c:ingots/duratium"
+            ],
+            "11": [
+                "#c:ingots/duratium"
+            ]
+        },
+        "output": {
+            "id": "oritech:duratium_block",
+            "count": 1
+        }
+    }
+]

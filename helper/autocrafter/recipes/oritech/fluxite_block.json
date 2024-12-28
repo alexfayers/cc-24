@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "oritech:fluxite"
+            ],
+            "2": [
+                "oritech:fluxite"
+            ],
+            "3": [
+                "oritech:fluxite"
+            ],
+            "5": [
+                "oritech:fluxite"
+            ],
+            "6": [
+                "oritech:fluxite"
+            ],
+            "7": [
+                "oritech:fluxite"
+            ],
+            "9": [
+                "oritech:fluxite"
+            ],
+            "10": [
+                "oritech:fluxite"
+            ],
+            "11": [
+                "oritech:fluxite"
+            ]
+        },
+        "output": {
+            "id": "oritech:fluxite_block",
+            "count": 1
+        }
+    }
+]

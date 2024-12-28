@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "oritech:biosteel_ingot"
+            ],
+            "2": [
+                "oritech:biosteel_ingot"
+            ],
+            "3": [
+                "oritech:biosteel_ingot"
+            ],
+            "5": [
+                "oritech:biosteel_ingot"
+            ],
+            "6": [
+                "oritech:biosteel_ingot"
+            ],
+            "7": [
+                "oritech:biosteel_ingot"
+            ],
+            "9": [
+                "oritech:biosteel_ingot"
+            ],
+            "10": [
+                "oritech:biosteel_ingot"
+            ],
+            "11": [
+                "oritech:biosteel_ingot"
+            ]
+        },
+        "output": {
+            "id": "oritech:biosteel_block",
+            "count": 1
+        }
+    }
+]

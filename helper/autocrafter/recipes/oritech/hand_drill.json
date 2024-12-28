@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "2": [
+                "oritech:enderic_compound"
+            ],
+            "5": [
+                "oritech:enderic_compound"
+            ],
+            "7": [
+                "oritech:enderic_compound"
+            ],
+            "6": [
+                "oritech:adamant_ingot"
+            ],
+            "9": [
+                "oritech:motor"
+            ],
+            "10": [
+                "#c:ingots/steel"
+            ],
+            "11": [
+                "#c:ingots/steel"
+            ]
+        },
+        "output": {
+            "id": "oritech:hand_drill",
+            "count": 1
+        }
+    }
+]

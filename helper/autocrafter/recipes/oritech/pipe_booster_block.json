@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "6": [
+                "oritech:motor"
+            ],
+            "1": [
+                "oritech:item_pipe"
+            ],
+            "2": [
+                "oritech:item_pipe"
+            ],
+            "3": [
+                "oritech:item_pipe"
+            ],
+            "9": [
+                "oritech:item_pipe"
+            ],
+            "10": [
+                "oritech:item_pipe"
+            ],
+            "11": [
+                "oritech:item_pipe"
+            ],
+            "5": [
+                "oritech:fluid_pipe"
+            ],
+            "7": [
+                "oritech:fluid_pipe"
+            ]
+        },
+        "output": {
+            "id": "oritech:pipe_booster_block",
+            "count": 1
+        }
+    }
+]

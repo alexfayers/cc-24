@@ -1,0 +1,33 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:storage_blocks/electrum"
+            ]
+        },
+        "output": {
+            "id": "oritech:electrum_ingot",
+            "count": 9
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "minecraft:gold_ingot"
+            ],
+            "2": [
+                "minecraft:gold_ingot"
+            ],
+            "5": [
+                "minecraft:redstone"
+            ],
+            "6": [
+                "minecraft:redstone"
+            ]
+        },
+        "output": {
+            "id": "oritech:electrum_ingot",
+            "count": 1
+        }
+    }
+]

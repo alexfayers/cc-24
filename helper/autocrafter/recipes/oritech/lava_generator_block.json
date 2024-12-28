@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "10": [
+                "oritech:basic_generator_block"
+            ],
+            "6": [
+                "oritech:magnetic_coil"
+            ],
+            "1": [
+                "#c:ingots/electrum"
+            ],
+            "2": [
+                "#c:ingots/electrum"
+            ],
+            "3": [
+                "#c:ingots/electrum"
+            ],
+            "5": [
+                "#c:ingots/electrum"
+            ],
+            "7": [
+                "#c:ingots/electrum"
+            ],
+            "9": [
+                "#oritech:plating"
+            ],
+            "11": [
+                "#oritech:plating"
+            ]
+        },
+        "output": {
+            "id": "oritech:lava_generator_block",
+            "count": 1
+        }
+    }
+]

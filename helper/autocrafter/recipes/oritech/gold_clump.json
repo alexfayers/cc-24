@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "oritech:small_gold_clump"
+            ],
+            "2": [
+                "oritech:small_gold_clump"
+            ],
+            "3": [
+                "oritech:small_gold_clump"
+            ],
+            "5": [
+                "oritech:small_gold_clump"
+            ],
+            "6": [
+                "oritech:small_gold_clump"
+            ],
+            "7": [
+                "oritech:small_gold_clump"
+            ],
+            "9": [
+                "oritech:small_gold_clump"
+            ],
+            "10": [
+                "oritech:small_gold_clump"
+            ],
+            "11": [
+                "oritech:small_gold_clump"
+            ]
+        },
+        "output": {
+            "id": "oritech:gold_clump",
+            "count": 1
+        }
+    }
+]

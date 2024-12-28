@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "2": [
+                "oritech:dubios_container"
+            ],
+            "5": [
+                "oritech:dubios_container"
+            ],
+            "7": [
+                "oritech:dubios_container"
+            ],
+            "10": [
+                "oritech:dubios_container"
+            ],
+            "6": [
+                "minecraft:tnt"
+            ],
+            "1": [
+                "oritech:uranium_pellet"
+            ],
+            "3": [
+                "oritech:uranium_pellet"
+            ],
+            "9": [
+                "oritech:uranium_pellet"
+            ],
+            "11": [
+                "oritech:uranium_pellet"
+            ]
+        },
+        "output": {
+            "id": "oritech:low_yield_nuke",
+            "count": 1
+        }
+    }
+]

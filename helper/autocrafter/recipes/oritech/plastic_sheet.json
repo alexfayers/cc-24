@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:storage_blocks/plastic"
+            ]
+        },
+        "output": {
+            "id": "oritech:plastic_sheet",
+            "count": 9
+        }
+    }
+]

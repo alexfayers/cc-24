@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:storage_blocks/biosteel"
+            ]
+        },
+        "output": {
+            "id": "oritech:biosteel_ingot",
+            "count": 9
+        }
+    }
+]

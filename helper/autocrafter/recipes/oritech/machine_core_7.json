@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "6": [
+                "oritech:superconductor"
+            ],
+            "1": [
+                "oritech:prometheum_ingot"
+            ],
+            "2": [
+                "oritech:prometheum_ingot"
+            ],
+            "3": [
+                "oritech:prometheum_ingot"
+            ],
+            "5": [
+                "oritech:prometheum_ingot"
+            ],
+            "7": [
+                "oritech:prometheum_ingot"
+            ],
+            "9": [
+                "oritech:prometheum_ingot"
+            ],
+            "10": [
+                "oritech:prometheum_ingot"
+            ],
+            "11": [
+                "oritech:prometheum_ingot"
+            ]
+        },
+        "output": {
+            "id": "oritech:machine_core_7",
+            "count": 1
+        }
+    }
+]

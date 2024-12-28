@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "10": [
+                "oritech:duratium_ingot"
+            ],
+            "9": [
+                "oritech:advanced_battery"
+            ],
+            "11": [
+                "oritech:advanced_battery"
+            ],
+            "5": [
+                "#c:ingots/electrum"
+            ],
+            "6": [
+                "#c:ingots/electrum"
+            ],
+            "7": [
+                "#c:ingots/electrum"
+            ],
+            "2": [
+                "oritech:superconductor"
+            ]
+        },
+        "output": {
+            "id": "oritech:accelerator_motor",
+            "count": 1
+        }
+    }
+]

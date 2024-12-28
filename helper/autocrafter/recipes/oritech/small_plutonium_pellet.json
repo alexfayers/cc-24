@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "oritech:plutonium_pellet"
+            ]
+        },
+        "output": {
+            "id": "oritech:small_plutonium_pellet",
+            "count": 9
+        }
+    }
+]

@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "6": [
+                "oritech:magnetic_coil"
+            ],
+            "10": [
+                "oritech:magnetic_coil"
+            ],
+            "2": [
+                "#c:ingots/nickel"
+            ],
+            "5": [
+                "#c:ingots/steel"
+            ],
+            "7": [
+                "#c:ingots/steel"
+            ],
+            "9": [
+                "#c:ingots/steel"
+            ],
+            "11": [
+                "#c:ingots/steel"
+            ]
+        },
+        "output": {
+            "id": "oritech:motor",
+            "count": 1
+        }
+    }
+]

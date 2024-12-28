@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "2": [
+                "#c:plates/plastic"
+            ],
+            "6": [
+                "oritech:energite_ingot"
+            ],
+            "10": [
+                "oritech:energite_ingot"
+            ]
+        },
+        "output": {
+            "id": "oritech:reactor_rod",
+            "count": 1
+        }
+    }
+]

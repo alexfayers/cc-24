@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "10": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "oritech:biosteel_ingot"
+            ],
+            "1": [
+                "#c:plates/plastic"
+            ],
+            "2": [
+                "#c:plates/plastic"
+            ],
+            "3": [
+                "#c:plates/plastic"
+            ],
+            "5": [
+                "#c:plates/plastic"
+            ],
+            "7": [
+                "#c:plates/plastic"
+            ],
+            "9": [
+                "oritech:magnetic_coil"
+            ],
+            "11": [
+                "oritech:magnetic_coil"
+            ]
+        },
+        "output": {
+            "id": "oritech:machine_speed_addon",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "10": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "oritech:enderic_lens"
+            ],
+            "1": [
+                "#c:ingots/steel"
+            ],
+            "2": [
+                "#c:ingots/steel"
+            ],
+            "3": [
+                "#c:ingots/steel"
+            ],
+            "5": [
+                "#c:ingots/steel"
+            ],
+            "7": [
+                "#c:ingots/steel"
+            ],
+            "9": [
+                "oritech:basic_generator_block"
+            ],
+            "11": [
+                "oritech:basic_generator_block"
+            ]
+        },
+        "output": {
+            "id": "oritech:fuel_generator_block",
+            "count": 1
+        }
+    }
+]

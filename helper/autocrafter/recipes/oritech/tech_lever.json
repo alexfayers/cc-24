@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:carbon_fibre"
+            ],
+            "5": [
+                "#c:ingots/steel"
+            ]
+        },
+        "output": {
+            "id": "oritech:tech_lever",
+            "count": 1
+        }
+    }
+]

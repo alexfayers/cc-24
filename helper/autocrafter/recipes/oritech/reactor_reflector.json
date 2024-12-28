@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "2": [
+                "oritech:reactor_wall"
+            ],
+            "5": [
+                "oritech:reactor_wall"
+            ],
+            "7": [
+                "oritech:reactor_wall"
+            ],
+            "10": [
+                "oritech:reactor_wall"
+            ],
+            "6": [
+                "oritech:duratium_ingot"
+            ],
+            "1": [
+                "oritech:adamant_ingot"
+            ],
+            "3": [
+                "oritech:adamant_ingot"
+            ],
+            "9": [
+                "oritech:adamant_ingot"
+            ],
+            "11": [
+                "oritech:adamant_ingot"
+            ]
+        },
+        "output": {
+            "id": "oritech:reactor_reflector",
+            "count": 1
+        }
+    }
+]

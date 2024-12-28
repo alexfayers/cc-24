@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:dusts/uranium"
+            ]
+        },
+        "output": {
+            "id": "oritech:small_uranium_dust",
+            "count": 9
+        }
+    }
+]

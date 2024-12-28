@@ -1,0 +1,72 @@
+[
+    {
+        "input": {
+            "10": [
+                "minecraft:furnace"
+            ],
+            "6": [
+                "#c:ingots/electrum"
+            ],
+            "1": [
+                "minecraft:copper_ingot"
+            ],
+            "2": [
+                "minecraft:copper_ingot"
+            ],
+            "3": [
+                "minecraft:copper_ingot"
+            ],
+            "5": [
+                "#c:ingots/platinum"
+            ],
+            "7": [
+                "#c:ingots/platinum"
+            ],
+            "9": [
+                "oritech:magnetic_coil"
+            ],
+            "11": [
+                "oritech:magnetic_coil"
+            ]
+        },
+        "output": {
+            "id": "oritech:powered_furnace_block",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "10": [
+                "minecraft:furnace"
+            ],
+            "6": [
+                "#c:ingots/electrum"
+            ],
+            "1": [
+                "minecraft:copper_ingot"
+            ],
+            "2": [
+                "minecraft:copper_ingot"
+            ],
+            "3": [
+                "minecraft:copper_ingot"
+            ],
+            "5": [
+                "#c:silicon"
+            ],
+            "7": [
+                "#c:silicon"
+            ],
+            "9": [
+                "oritech:magnetic_coil"
+            ],
+            "11": [
+                "oritech:magnetic_coil"
+            ]
+        },
+        "output": {
+            "id": "oritech:powered_furnace_block",
+            "count": 1
+        }
+    }
+]

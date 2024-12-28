@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "10": [
+                "oritech:accelerator_motor"
+            ],
+            "6": [
+                "minecraft:dropper"
+            ],
+            "1": [
+                "oritech:duratium_ingot"
+            ],
+            "2": [
+                "oritech:duratium_ingot"
+            ],
+            "3": [
+                "oritech:duratium_ingot"
+            ],
+            "5": [
+                "oritech:duratium_ingot"
+            ],
+            "7": [
+                "oritech:duratium_ingot"
+            ],
+            "9": [
+                "oritech:flux_gate"
+            ],
+            "11": [
+                "oritech:flux_gate"
+            ]
+        },
+        "output": {
+            "id": "oritech:accelerator_controller",
+            "count": 1
+        }
+    }
+]

@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:storage_blocks/energite"
+            ]
+        },
+        "output": {
+            "id": "oritech:energite_ingot",
+            "count": 9
+        }
+    }
+]

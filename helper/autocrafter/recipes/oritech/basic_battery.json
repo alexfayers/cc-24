@@ -1,0 +1,31 @@
+[
+    {
+        "input": {
+            "6": [
+                "#c:ingots/electrum"
+            ],
+            "10": [
+                "#c:ingots/electrum"
+            ],
+            "2": [
+                "#c:ingots/steel"
+            ],
+            "5": [
+                "#c:plates/plastic"
+            ],
+            "7": [
+                "#c:plates/plastic"
+            ],
+            "9": [
+                "#c:plates/plastic"
+            ],
+            "11": [
+                "#c:plates/plastic"
+            ]
+        },
+        "output": {
+            "id": "oritech:basic_battery",
+            "count": 1
+        }
+    }
+]

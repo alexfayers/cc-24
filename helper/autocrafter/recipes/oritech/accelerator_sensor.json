@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "oritech:accelerator_ring"
+            ],
+            "2": [
+                "minecraft:observer"
+            ]
+        },
+        "output": {
+            "id": "oritech:accelerator_sensor",
+            "count": 1
+        }
+    }
+]

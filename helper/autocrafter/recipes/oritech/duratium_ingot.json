@@ -1,0 +1,13 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:storage_blocks/duratium"
+            ]
+        },
+        "output": {
+            "id": "oritech:duratium_ingot",
+            "count": 9
+        }
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "oritech:small_plutonium_pellet"
+            ],
+            "2": [
+                "oritech:small_plutonium_pellet"
+            ],
+            "3": [
+                "oritech:small_plutonium_pellet"
+            ],
+            "5": [
+                "oritech:small_plutonium_pellet"
+            ],
+            "6": [
+                "oritech:small_plutonium_pellet"
+            ],
+            "7": [
+                "oritech:small_plutonium_pellet"
+            ],
+            "9": [
+                "oritech:small_plutonium_pellet"
+            ],
+            "10": [
+                "oritech:small_plutonium_pellet"
+            ],
+            "11": [
+                "oritech:small_plutonium_pellet"
+            ]
+        },
+        "output": {
+            "id": "oritech:plutonium_pellet",
+            "count": 1
+        }
+    }
+]

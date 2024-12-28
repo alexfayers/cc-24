@@ -5,6 +5,10 @@
     "minecraft:leather_leggings",
     "minecraft:leather_boots",
     "minecraft:leather_horse_armor",
-    "minecraft:wolf_armor"
+    "minecraft:wolf_armor",
+    "#computercraft:turtle",
+    "computercraft:disk",
+    "computercraft:pocket_computer_normal",
+    "computercraft:pocket_computer_advanced"
   ]
 }

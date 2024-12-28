@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "6": [
+                "oritech:machine_core_2"
+            ],
+            "1": [
+                "#oritech:plating"
+            ],
+            "2": [
+                "#oritech:plating"
+            ],
+            "3": [
+                "#oritech:plating"
+            ],
+            "5": [
+                "#oritech:plating"
+            ],
+            "7": [
+                "#oritech:plating"
+            ],
+            "9": [
+                "#oritech:plating"
+            ],
+            "10": [
+                "#oritech:plating"
+            ],
+            "11": [
+                "#oritech:plating"
+            ]
+        },
+        "output": {
+            "id": "oritech:machine_extender",
+            "count": 1
+        }
+    }
+]

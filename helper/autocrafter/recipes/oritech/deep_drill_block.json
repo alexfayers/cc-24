@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "9": [
+                "#oritech:plating"
+            ],
+            "10": [
+                "#oritech:plating"
+            ],
+            "11": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "oritech:heisenberg_compensator"
+            ],
+            "1": [
+                "oritech:duratium_ingot"
+            ],
+            "3": [
+                "oritech:duratium_ingot"
+            ],
+            "5": [
+                "oritech:motor"
+            ],
+            "7": [
+                "oritech:motor"
+            ],
+            "2": [
+                "oritech:overcharged_crystal"
+            ]
+        },
+        "output": {
+            "id": "oritech:deep_drill_block",
+            "count": 1
+        }
+    }
+]

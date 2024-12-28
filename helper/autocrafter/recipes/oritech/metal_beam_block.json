@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "5": [
+                "#c:carbon_fibre"
+            ],
+            "6": [
+                "#c:carbon_fibre"
+            ],
+            "7": [
+                "#c:carbon_fibre"
+            ],
+            "1": [
+                "#c:ingots/steel"
+            ],
+            "2": [
+                "#c:ingots/steel"
+            ],
+            "3": [
+                "#c:ingots/steel"
+            ],
+            "9": [
+                "#c:ingots/steel"
+            ],
+            "10": [
+                "#c:ingots/steel"
+            ],
+            "11": [
+                "#c:ingots/steel"
+            ]
+        },
+        "output": {
+            "id": "oritech:metal_beam_block",
+            "count": 6
+        }
+    }
+]

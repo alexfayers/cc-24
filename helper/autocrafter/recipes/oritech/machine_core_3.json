@@ -1,0 +1,72 @@
+[
+    {
+        "input": {
+            "6": [
+                "minecraft:redstone"
+            ],
+            "1": [
+                "#c:carbon_fibre"
+            ],
+            "2": [
+                "#c:carbon_fibre"
+            ],
+            "3": [
+                "#c:carbon_fibre"
+            ],
+            "5": [
+                "#c:carbon_fibre"
+            ],
+            "7": [
+                "#c:carbon_fibre"
+            ],
+            "9": [
+                "#c:carbon_fibre"
+            ],
+            "10": [
+                "#c:carbon_fibre"
+            ],
+            "11": [
+                "#c:carbon_fibre"
+            ]
+        },
+        "output": {
+            "id": "oritech:machine_core_3",
+            "count": 1
+        }
+    },
+    {
+        "input": {
+            "6": [
+                "minecraft:redstone"
+            ],
+            "1": [
+                "#c:ingots/nickel"
+            ],
+            "2": [
+                "#c:ingots/nickel"
+            ],
+            "3": [
+                "#c:ingots/nickel"
+            ],
+            "5": [
+                "#c:ingots/nickel"
+            ],
+            "7": [
+                "#c:ingots/nickel"
+            ],
+            "9": [
+                "#c:ingots/nickel"
+            ],
+            "10": [
+                "#c:ingots/nickel"
+            ],
+            "11": [
+                "#c:ingots/nickel"
+            ]
+        },
+        "output": {
+            "id": "oritech:machine_core_3",
+            "count": 1
+        }
+    }
+]

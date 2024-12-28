@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "2": [
+                "#c:ingots/steel"
+            ],
+            "5": [
+                "#c:ingots/steel"
+            ],
+            "7": [
+                "#c:ingots/steel"
+            ],
+            "10": [
+                "#c:ingots/steel"
+            ],
+            "6": [
+                "#oritech:plating"
+            ],
+            "1": [
+                "#c:glass_blocks"
+            ],
+            "3": [
+                "#c:glass_blocks"
+            ],
+            "9": [
+                "#c:glass_blocks"
+            ],
+            "11": [
+                "#c:glass_blocks"
+            ]
+        },
+        "output": {
+            "id": "oritech:industrial_glass_block",
+            "count": 4
+        }
+    }
+]

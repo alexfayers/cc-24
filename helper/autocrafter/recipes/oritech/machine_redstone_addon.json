@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "10": [
+                "#oritech:plating"
+            ],
+            "6": [
+                "minecraft:comparator"
+            ],
+            "1": [
+                "minecraft:redstone"
+            ],
+            "2": [
+                "minecraft:redstone"
+            ],
+            "3": [
+                "minecraft:redstone"
+            ],
+            "5": [
+                "minecraft:redstone"
+            ],
+            "7": [
+                "minecraft:redstone"
+            ],
+            "9": [
+                "minecraft:repeater"
+            ],
+            "11": [
+                "minecraft:repeater"
+            ]
+        },
+        "output": {
+            "id": "oritech:machine_redstone_addon",
+            "count": 1
+        }
+    }
+]

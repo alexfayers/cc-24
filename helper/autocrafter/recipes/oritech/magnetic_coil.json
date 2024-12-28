@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "5": [
+                "#c:ingots/steel"
+            ],
+            "6": [
+                "#c:ingots/steel"
+            ],
+            "7": [
+                "#c:ingots/steel"
+            ],
+            "1": [
+                "#c:wires"
+            ],
+            "2": [
+                "#c:wires"
+            ],
+            "3": [
+                "#c:wires"
+            ],
+            "9": [
+                "#c:wires"
+            ],
+            "10": [
+                "#c:wires"
+            ],
+            "11": [
+                "#c:wires"
+            ]
+        },
+        "output": {
+            "id": "oritech:magnetic_coil",
+            "count": 2
+        }
+    }
+]

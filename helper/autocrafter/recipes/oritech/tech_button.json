@@ -1,0 +1,16 @@
+[
+    {
+        "input": {
+            "1": [
+                "minecraft:copper_ingot"
+            ],
+            "5": [
+                "#c:ingots/steel"
+            ]
+        },
+        "output": {
+            "id": "oritech:tech_button",
+            "count": 1
+        }
+    }
+]

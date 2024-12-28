@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "10": [
+                "oritech:basic_generator_block"
+            ],
+            "6": [
+                "oritech:advanced_battery"
+            ],
+            "1": [
+                "oritech:fluxite"
+            ],
+            "2": [
+                "oritech:fluxite"
+            ],
+            "3": [
+                "oritech:fluxite"
+            ],
+            "5": [
+                "oritech:fluxite"
+            ],
+            "7": [
+                "oritech:fluxite"
+            ],
+            "9": [
+                "oritech:flux_gate"
+            ],
+            "11": [
+                "oritech:flux_gate"
+            ]
+        },
+        "output": {
+            "id": "oritech:big_solar_panel_block",
+            "count": 1
+        }
+    }
+]

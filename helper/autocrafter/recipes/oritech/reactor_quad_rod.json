@@ -1,0 +1,19 @@
+[
+    {
+        "input": {
+            "6": [
+                "oritech:reactor_reflector"
+            ],
+            "5": [
+                "oritech:reactor_double_rod"
+            ],
+            "7": [
+                "oritech:reactor_double_rod"
+            ]
+        },
+        "output": {
+            "id": "oritech:reactor_quad_rod",
+            "count": 1
+        }
+    }
+]

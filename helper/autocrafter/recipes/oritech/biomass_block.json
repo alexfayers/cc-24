@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "oritech:biomass"
+            ],
+            "2": [
+                "oritech:biomass"
+            ],
+            "3": [
+                "oritech:biomass"
+            ],
+            "5": [
+                "oritech:biomass"
+            ],
+            "6": [
+                "oritech:biomass"
+            ],
+            "7": [
+                "oritech:biomass"
+            ],
+            "9": [
+                "oritech:biomass"
+            ],
+            "10": [
+                "oritech:biomass"
+            ],
+            "11": [
+                "oritech:biomass"
+            ]
+        },
+        "output": {
+            "id": "oritech:biomass_block",
+            "count": 1
+        }
+    }
+]

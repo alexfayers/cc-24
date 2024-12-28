@@ -1,0 +1,48 @@
+[
+    {
+        "input": {
+            "1": [
+                "#c:storage_blocks/platinum"
+            ]
+        },
+        "output": {
+            "id": "oritech:platinum_ingot",
+            "count": 9
+        }
+    },
+    {
+        "input": {
+            "1": [
+                "oritech:platinum_nugget"
+            ],
+            "2": [
+                "oritech:platinum_nugget"
+            ],
+            "3": [
+                "oritech:platinum_nugget"
+            ],
+            "5": [
+                "oritech:platinum_nugget"
+            ],
+            "6": [
+                "oritech:platinum_nugget"
+            ],
+            "7": [
+                "oritech:platinum_nugget"
+            ],
+            "9": [
+                "oritech:platinum_nugget"
+            ],
+            "10": [
+                "oritech:platinum_nugget"
+            ],
+            "11": [
+                "oritech:platinum_nugget"
+            ]
+        },
+        "output": {
+            "id": "oritech:platinum_ingot",
+            "count": 1
+        }
+    }
+]

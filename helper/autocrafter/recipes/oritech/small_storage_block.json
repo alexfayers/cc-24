@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "9": [
+                "oritech:basic_battery"
+            ],
+            "10": [
+                "oritech:basic_battery"
+            ],
+            "11": [
+                "oritech:basic_battery"
+            ],
+            "6": [
+                "oritech:magnetic_coil"
+            ],
+            "1": [
+                "#c:wires"
+            ],
+            "3": [
+                "#c:wires"
+            ],
+            "5": [
+                "#c:silicon"
+            ],
+            "7": [
+                "#c:silicon"
+            ],
+            "2": [
+                "#c:ingots/nickel"
+            ]
+        },
+        "output": {
+            "id": "oritech:small_storage_block",
+            "count": 1
+        }
+    }
+]

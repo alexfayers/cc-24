@@ -1,0 +1,37 @@
+[
+    {
+        "input": {
+            "1": [
+                "oritech:small_plutonium_dust"
+            ],
+            "2": [
+                "oritech:small_plutonium_dust"
+            ],
+            "3": [
+                "oritech:small_plutonium_dust"
+            ],
+            "5": [
+                "oritech:small_plutonium_dust"
+            ],
+            "6": [
+                "oritech:small_plutonium_dust"
+            ],
+            "7": [
+                "oritech:small_plutonium_dust"
+            ],
+            "9": [
+                "oritech:small_plutonium_dust"
+            ],
+            "10": [
+                "oritech:small_plutonium_dust"
+            ],
+            "11": [
+                "oritech:small_plutonium_dust"
+            ]
+        },
+        "output": {
+            "id": "oritech:plutonium_dust",
+            "count": 1
+        }
+    }
+]
