@@ -148,6 +148,8 @@ end
 
 return {
     PROTOCOL_NAME = PROTOCOL_NAME,
+    MIN_LISTEN_PORT = MIN_LISTEN_PORT,
+    MAX_LISTEN_PORT = MAX_LISTEN_PORT,
     getWirelessModem = getWirelessModem,
     unserialiseMessage = unserialiseMessage,
     serialiseMessage = serialiseMessage,
