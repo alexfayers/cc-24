@@ -68,7 +68,7 @@ function DoorClient:sendCommand(name, action)
         ::continue::
     end
 
-    if successfulComponents > 0 then
+    if totalComponents > 0 then
         ---At least one door responded, so update the rolling port
         lib.updateServerPort(name)
     end
