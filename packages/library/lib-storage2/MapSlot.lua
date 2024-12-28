@@ -49,7 +49,7 @@ end
 ---Get the name stub for the slot
 ---@return string
 function MapSlot.getNameStub(name)
-    return string.match(name, ".+:(.+)")
+    return string.match(name, ".+:(.+)") or name
 end
 
 
