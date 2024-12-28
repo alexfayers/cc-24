@@ -182,7 +182,7 @@ function DoorServer:listen()
 
     while true do
         local listenPort = lib.getServerPort(self.name)
-        logger:info("Listening on port %d...", listenPort)
+        logger:info("Listening on %d...", listenPort)
 
         local data, replyChannel = self:receive(listenPort)
 
