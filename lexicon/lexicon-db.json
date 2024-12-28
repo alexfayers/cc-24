@@ -302,6 +302,7 @@
                 ],
                 "dependencies": [
                     "lib-table",
+                    "lib-logging",
                     "class-lua"
                 ]
             },
