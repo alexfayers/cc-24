@@ -70,11 +70,11 @@ function Turtle:init(startingPosition)
     ---@type Position?
     local gpsPosition = nil
 
-    if string.match(self.currentlyEquipped.name, "pickaxe") then
+    if self.currentlyEquipped and string.match(self.currentlyEquipped.name, "pickaxe") then
         if self:equipModem() then
             gpsPosition = self:getGPSPosition()
         end
-    elseif string.match(self.currentlyEquipped.name, "wireless_modem") then
+    elseif self.currentlyEquipped and string.match(self.currentlyEquipped.name, "wireless_modem") then
         gpsPosition = self:getGPSPosition()
     end
 
@@ -87,7 +87,7 @@ function Turtle:init(startingPosition)
         end
     end
 
-    if not string.match(self.currentlyEquipped.name, "pickaxe") then
+    if self.currentlyEquipped and not string.match(self.currentlyEquipped.name, "pickaxe") then
         self:equipPickaxe()
     end
 
