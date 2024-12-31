@@ -185,7 +185,7 @@ end
 local function getServerCode(doorName)
     local state, _ = loadServerState()
 
-    if not state then
+    if not state or (state and not state[doorName]) then
         state = updateServerCode(doorName)
     end
 
