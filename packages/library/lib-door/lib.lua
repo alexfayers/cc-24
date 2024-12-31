@@ -58,10 +58,12 @@ local function serialiseMessage(data)
 end
 
 
-
----@class ServerState
+---@class DoorState
 ---@field previousPort number
 ---@field currentPort number
+
+---@alias ServerState table<string, DoorState>
+
 
 ---Hash a string into a number between 1 and MAX_LISTEN_PORT
 ---@param str string
@@ -112,18 +114,22 @@ local function updateServerCode(doorName)
     local state, _ = loadServerState()
 
     if not state then
+        state = {}
+    end
+
+    if not state[doorName] then
         local initialPort = hashString(doorName)
 
-        state = {
+        state[doorName] = {
             previousPort = initialPort,
             currentPort = initialPort + 1,
         }
     end
 
-    local nextPort = calculateNextPort(state.previousPort, state.currentPort)
+    local nextPort = calculateNextPort(state[doorName].previousPort, state[doorName].currentPort)
 
-    state.previousPort = state.currentPort
-    state.currentPort = nextPort
+    state[doorName].previousPort = state[doorName].currentPort
+    state[doorName].currentPort = nextPort
 
     saveServerState(state)
 
@@ -144,8 +150,8 @@ local function isValidCode(doorName, targetPort)
 
     local MAX_PORT_CHECKS = 30
 
-    local previousPort = state.previousPort
-    local currentPort = state.currentPort
+    local previousPort = state[doorName].previousPort
+    local currentPort = state[doorName].currentPort
 
     if currentPort == targetPort then
         return true
@@ -157,8 +163,8 @@ local function isValidCode(doorName, targetPort)
         if nextPort == targetPort then
             logger:info("Jumped ahead " .. tostring(i) .. " steps")
 
-            state.previousPort = currentPort
-            state.currentPort = nextPort
+            state[doorName].previousPort = currentPort
+            state[doorName].currentPort = nextPort
 
             saveServerState(state)
 
@@ -183,7 +189,7 @@ local function getServerCode(doorName)
         state = updateServerCode(doorName)
     end
 
-    return state.currentPort
+    return state[doorName].currentPort
 end
 
 
