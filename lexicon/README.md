@@ -29,16 +29,16 @@ Lexicon provides a simple command-line interface for managing CC:Tweaked package
 Install lexicon by running this command in a ComputerCraft terminal:
 
 ```shell
-pastebin get e84jWWbn lexicon.lua
+pastebin get e84jWWbn lexicon
 ```
 
-This downloads the lexicon program to your computer. You can then run it with:
+This downloads the lexicon program to your computer. You can then run it directly by name:
 
 ```shell
-lua lexicon.lua
+lexicon
 ```
 
-For easier access, you can rename or move it to a location in your PATH.
+**Note:** In CC:Tweaked, you can run `.lua` files by just using their basename without the extension. The shell automatically finds and executes `lexicon.lua` when you type `lexicon`.
 
 ## Quick Start
 
@@ -46,22 +46,22 @@ Here's a quick example to get you started:
 
 ```shell
 # List all available packages
-lua lexicon.lua list
+lexicon list
 
 # Install a package (e.g., package-example)
-lua lexicon.lua get package-example
+lexicon get package-example
 
 # Run the installed program
 package-example
 
 # List installed packages
-lua lexicon.lua list-installed
+lexicon list-installed
 
 # Update all installed programs
-lua lexicon.lua upgrade
+lexicon upgrade
 
 # Remove a package
-lua lexicon.lua remove package-example
+lexicon remove package-example
 ```
 
 ## Commands
@@ -73,12 +73,12 @@ Lexicon supports the following commands:
 Downloads and installs a package from the lexicon repository, including all its dependencies.
 
 ```shell
-lua lexicon.lua get <package-name>
+lexicon get <package-name>
 ```
 
 **Example:**
 ```shell
-lua lexicon.lua get quarry
+lexicon get quarry
 ```
 
 This command:
@@ -92,12 +92,12 @@ This command:
 Uninstalls a package and removes any dependencies that are no longer needed by other packages.
 
 ```shell
-lua lexicon.lua remove <package-name>
+lexicon remove <package-name>
 ```
 
 **Example:**
 ```shell
-lua lexicon.lua remove quarry
+lexicon remove quarry
 ```
 
 **Note:** If a package is still required by other installed packages, lexicon will prevent its removal and show which packages depend on it.
@@ -107,7 +107,7 @@ lua lexicon.lua remove quarry
 Lists all available packages in the lexicon repository.
 
 ```shell
-lua lexicon.lua list
+lexicon list
 ```
 
 Output shows:
@@ -119,7 +119,7 @@ Output shows:
 Shows all packages currently installed on the computer.
 
 ```shell
-lua lexicon.lua list-installed
+lexicon list-installed
 ```
 
 ### `upgrade`
@@ -127,7 +127,7 @@ lua lexicon.lua list-installed
 Updates all installed **programs** (not libraries) and the lexicon tool itself to their latest versions.
 
 ```shell
-lua lexicon.lua upgrade
+lexicon upgrade
 ```
 
 **Note:** Libraries are not automatically updated to prevent breaking changes. They are updated when their dependent programs are updated.
@@ -274,7 +274,7 @@ Edit `lexicon/lexicon-db.json` and add your package definition:
 ### 3. Test Your Package
 
 ```shell
-lua lexicon.lua get your-package
+lexicon get your-package
 ```
 
 ### 4. Best Practices
@@ -344,7 +344,7 @@ logger:info("Hello from my program!")
 Install the `autoupdate` package to automatically update all programs on computer startup:
 
 ```shell
-lua lexicon.lua get autoupdate
+lexicon get autoupdate
 ```
 
 This creates a `startup.lua` file that runs `lexicon upgrade` on boot.
@@ -382,7 +382,7 @@ This database is automatically updated when you install or remove packages.
 
 If you get a "Package not found" error:
 - Check that the package name is spelled correctly
-- Run `lua lexicon.lua list` to see all available packages
+- Run `lexicon list` to see all available packages
 - Ensure you have an internet connection
 
 ### Failed to Download

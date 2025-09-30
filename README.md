@@ -7,5 +7,11 @@ Computercraft stuff (2024 edition)
 You can install lexicon (my package manager) by running the following command in a computercraft terminal:
 
 ```shell
-pastebin get e84jWWbn lexicon.lua
+pastebin get e84jWWbn lexicon
+```
+
+Then run it with:
+
+```shell
+lexicon
 ```
